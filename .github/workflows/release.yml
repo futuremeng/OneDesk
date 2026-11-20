@@ -282,6 +282,7 @@ jobs:
       - name: Collect artifacts
         env:
           GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
         run: |
           mkdir -p artifacts
           # per-name downloads so a skipped/missing platform never blocks the
@@ -298,6 +299,7 @@ jobs:
       - name: Publish GitHub Release
         env:
           GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
           TAG: ${{ needs.version.outputs.tag }}
         run: |
           args=(release create "$TAG" --verify-tag --generate-notes)
