@@ -25,6 +25,15 @@
 # Linux arm64 and Windows arm64 have config support only (ONEDESK_LINUX_ARM64
 # / ONEDESK_WIN_ARM64 in electron-builder.cjs) and are deliberately not in the
 # matrix yet, mirroring the comment there: no second packaging pass is wired.
+#
+# macOS: cloud macOS runners need runner access this repo may not have (a
+# queued macos job just sits and is eventually cancelled, holding the whole
+# release). Until that changes, the mac job only runs when the repo variable
+# MAC_RUNS_ON is set — its value becomes the runner label (macos-latest on a
+# plan that bills macOS minutes, or your own machine after
+# `gh runner register`, e.g. MAC_RUNS_ON=onedesk-mac). Without it, build mac
+# locally with npm run dist:mac and attach the files to the published
+# release: gh release upload v0.13.0 apps/shell/release/*.dmg apps/shell/release/*.zip
 name: Release
 
 on:
@@ -76,7 +85,8 @@ jobs:
 
   build-mac:
     needs: version
-    runs-on: macos-latest
+    if: ${{ vars.MAC_RUNS_ON != '' }}
+    runs-on: ${{ vars.MAC_RUNS_ON || 'macos-latest' }}
     timeout-minutes: 90
     env:
       ONEDESK_MAC_X64: '1'
@@ -263,6 +273,7 @@ jobs:
 
   release:
     needs: [version, build-mac, build-windows, build-linux]
+    if: ${{ always() && needs.version.result == 'success' && needs.build-windows.result == 'success' && needs.build-linux.result == 'success' }}
     runs-on: ubuntu-latest
     timeout-minutes: 15
     permissions:
@@ -273,7 +284,15 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           mkdir -p artifacts
-          gh run download "$GITHUB_RUN_ID" --pattern 'onedesk-*' --dir artifacts
+          # per-name downloads so a skipped/missing platform never blocks the
+          # others: build-mac is optional (MAC_RUNS_ON), feed yml may be absent
+          for name in onedesk-mac onedesk-mac-feed onedesk-windows onedesk-windows-feed onedesk-linux onedesk-linux-feed; do
+            gh run download "$GITHUB_RUN_ID" -n "$name" -D artifacts || true
+          done
+          if [ -z "$(ls -A artifacts)" ]; then
+            echo "::error::no installer artifacts were uploaded by any build job"
+            exit 1
+          fi
           ls -l artifacts
 
       - name: Publish GitHub Release
