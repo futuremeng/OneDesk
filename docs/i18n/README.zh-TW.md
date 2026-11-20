@@ -13,11 +13,11 @@
 Word、Excel、PowerPoint 與 PDF 檔案，由你與你的 AI 共同編輯，並以原生格式存回。</p>
 
 <p align="center">
-  <a href="../../LICENSE"><img src="https://img.shields.io/github/license/genspark-ai/genoffice" alt="License: Apache-2.0"></a>
-  <a href="https://onedesk.jiulu.ltd/releases/latest"><img src="https://img.shields.io/github/v/release/genspark-ai/genoffice" alt="Latest release"></a>
-  <a href="https://onedesk.jiulu.ltd/releases"><img src="https://img.shields.io/github/downloads/genspark-ai/genoffice/total" alt="Downloads"></a>
-  <a href="https://onedesk.jiulu.ltd/stargazers"><img src="https://img.shields.io/github/stars/genspark-ai/genoffice?style=flat" alt="GitHub stars"></a>
-  <a href="https://x.com/merrickbuilds"><img src="https://img.shields.io/badge/follow-%40merrickbuilds-000000?logo=x&logoColor=white" alt="在 X 上追蹤 @merrickbuilds"></a>
+  <a href="../../LICENSE"><img src="https://img.shields.io/github/license/onedesk/onedesk" alt="License: Apache-2.0"></a>
+  <a href="https://onedesk.jiulu.ltd/releases/latest"><img src="https://img.shields.io/github/v/release/onedesk/onedesk" alt="Latest release"></a>
+  <a href="https://onedesk.jiulu.ltd/releases"><img src="https://img.shields.io/github/downloads/onedesk/onedesk/total" alt="Downloads"></a>
+  <a href="https://onedesk.jiulu.ltd/stargazers"><img src="https://img.shields.io/github/stars/onedesk/onedesk?style=flat" alt="GitHub stars"></a>
+  <a href="https://x.com/onedesk"><img src="https://img.shields.io/badge/follow-%40onedesk-000000?logo=x&logoColor=white" alt="在 X 上追蹤 @onedesk"></a>
 </p>
 
 <p align="center"><a href="../../README.md">English</a> · <a href="README.es.md">Español</a> · <a href="README.pt-BR.md">Português</a> · <a href="README.de.md">Deutsch</a> · <a href="README.fr.md">Français</a> · <a href="README.zh-CN.md">简体中文</a> · <b>繁體中文</b> · <a href="README.ko.md">한국어</a> · <a href="README.ja.md">日本語</a> · <a href="README.ar.md">العربية</a> · <a href="README.ru.md">Русский</a> · <a href="README.it.md">Italiano</a> · <a href="README.nl.md">Nederlands</a> · <a href="README.pl.md">Polski</a> · <a href="README.cs.md">Čeština</a> · <a href="README.id.md">Bahasa Indonesia</a> · <a href="README.ms.md">Bahasa Melayu</a> · <a href="README.th.md">ไทย</a> · <a href="README.hi.md">हिन्दी</a> · <a href="README.he.md">עברית</a> · <a href="README.vi.md">Tiếng Việt</a> · <a href="README.tr.md">Türkçe</a> · <a href="README.hu.md">Magyar</a></p>
@@ -29,7 +29,7 @@ Word、Excel、PowerPoint 與 PDF 檔案，由你與你的 AI 共同編輯，並
   <a href="#mcp-server"><b>MCP</b></a> ·
   <a href="https://onedesk.jiulu.ltd/"><b>官網</b></a> ·
   <a href="https://onedesk.jiulu.ltd/join"><b>社群</b></a> ·
-  <a href="https://x.com/merrickbuilds"><b>X</b></a> ·
+  <a href="https://x.com/onedesk"><b>X</b></a> ·
   <a href="../../PRIVACY.md"><b>隱私權</b></a>
 </p>
 
@@ -292,7 +292,7 @@ Claude Code、Codex、Cursor、Gemini CLI、GitHub Copilot、OpenCode 或 Windsu
 供你檢視。</td>
 <td><b>在設定 → 整合中一次安裝</b>——OneDesk 會列出在這台電腦上找到的
 程式開發代理，並把 skill 寫入你勾選的每一個。也可以把 skill 下載成 zip
-壓縮檔，或執行 <code>npx skills add genspark-ai/onedesk</code>。命令與完整
+壓縮檔，或執行 <code>npx skills add onedesk/onedesk</code>。命令與完整
 工作流程請見<a href="#command-line-and-agent-skill">命令列與 agent skill</a>。</td>
 </tr>
 </table>
@@ -404,11 +404,11 @@ HTML，用的是同一套引擎，且無需介面。它隨 OneDesk 一起安裝�
 
 ### 安裝 skill
 
-| 方式                                 | 效果                                                                                                                        |
-| ------------------------------------ | --------------------------------------------------------------------------------------------------------------------------- |
-| 應用程式內的 **設定 → 整合**         | 列出在這台電腦上找到的代理；按一下就把 skill 寫入你選擇的每一個。當 OneDesk 新版本附帶更新的 skill 時，會出現**更新**按鈕。 |
-| 同一頁面上的 **下載為 zip**          | claude.ai、Claude 桌面版應用程式與其他助理可作為上傳 skill 接受的目錄結構。                                                 |
-| `npx skills add genspark-ai/onedesk` | 從本儲存庫安裝到任何相容 skills 的代理。                                                                                    |
+| 方式                             | 效果                                                                                                                        |
+| -------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| 應用程式內的 **設定 → 整合**     | 列出在這台電腦上找到的代理；按一下就把 skill 寫入你選擇的每一個。當 OneDesk 新版本附帶更新的 skill 時，會出現**更新**按鈕。 |
+| 同一頁面上的 **下載為 zip**      | claude.ai、Claude 桌面版應用程式與其他助理可作為上傳 skill 接受的目錄結構。                                                 |
+| `npx skills add onedesk/onedesk` | 從本儲存庫安裝到任何相容 skills 的代理。                                                                                    |
 
 接著開一個新的對話，請它幫你做一份文件。這份 skill 會教代理何時該使用
 `onedesk`、編輯前如何先讀取檔案，以及如何檢查自己的成果。
@@ -640,7 +640,7 @@ OneDesk 正在積極開發中，你的意見回饋會影響它的方向。
   **回報問題或提出功能需求**。
 - 到 [GenTeam](https://onedesk.jiulu.ltd/join) **加入 OneDesk 群組聊天**，
   和團隊及其他使用者交流。
-- **在 X 上追蹤 [@merrickbuilds](https://x.com/merrickbuilds)**，掌握版本
+- **在 X 上追蹤 [@onedesk](https://x.com/onedesk)**，掌握版本
   說明、展示影片與接下來的開發動向。
 - 如果 OneDesk 對你有幫助，**幫這個專案按個星星**——這是支持這個
   專案最簡單的方式。

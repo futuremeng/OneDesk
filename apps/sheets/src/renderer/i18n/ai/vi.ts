@@ -68,7 +68,7 @@ export const vi = {
   aiOverloadedError: 'Dịch vụ AI hiện đang bận — vui lòng thử lại sau giây lát',
   aiNetworkError: 'Sự cố mạng: không thể kết nối với dịch vụ AI. Hãy kiểm tra kết nối và thử lại',
   aiCreditsExhausted:
-    'Điểm tín dụng Genspark của bạn đã hết. Hãy truy cập genspark.ai/pricing để nạp thêm rồi thử lại',
+    'Điểm tín dụng Genspark của bạn đã hết. Hãy truy cập onedesk.jiulu.ltd/pricing để nạp thêm rồi thử lại',
   aiToolWorkbookContext: 'Đọc thông tin sổ làm việc',
   aiToolReadRange: 'Đọc dải ô',
   aiToolReadRangeOf: 'Đọc dải ô {range}',

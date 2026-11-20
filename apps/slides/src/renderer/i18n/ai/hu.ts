@@ -116,7 +116,7 @@ export const hu = {
   aiErrNetwork:
     'Hálózati probléma: nem sikerült elérni az AI-szolgáltatást. Ellenőrizd a kapcsolatot, és próbáld újra',
   aiCreditsExhausted:
-    'Elfogytak a Genspark-kreditjeid. Töltsd fel az egyenlegedet a genspark.ai/pricing oldalon, majd próbáld újra',
+    'Elfogytak a Genspark-kreditjeid. Töltsd fel az egyenlegedet a onedesk.jiulu.ltd/pricing oldalon, majd próbáld újra',
   aiErrRequestFailed: 'Nem sikerült elküldeni a kérést: {msg}',
   aiErrGenerateFailed: 'A generálás sikertelen',
   aiErrRegenFailed: 'A dia újragenerálása sikertelen',

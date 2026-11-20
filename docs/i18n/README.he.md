@@ -13,11 +13,11 @@
 קבצי Word, Excel, PowerPoint ו-PDF, נערכים על ידיכם ועל ידי ה-AI שלכם, ונשמרים בחזרה בפורמטים המקוריים.</p>
 
 <p align="center">
-  <a href="../../LICENSE"><img src="https://img.shields.io/github/license/genspark-ai/genoffice" alt="License: Apache-2.0"></a>
-  <a href="https://onedesk.jiulu.ltd/releases/latest"><img src="https://img.shields.io/github/v/release/genspark-ai/genoffice" alt="Latest release"></a>
-  <a href="https://onedesk.jiulu.ltd/releases"><img src="https://img.shields.io/github/downloads/genspark-ai/genoffice/total" alt="Downloads"></a>
-  <a href="https://onedesk.jiulu.ltd/stargazers"><img src="https://img.shields.io/github/stars/genspark-ai/genoffice?style=flat" alt="GitHub stars"></a>
-  <a href="https://x.com/merrickbuilds"><img src="https://img.shields.io/badge/follow-%40merrickbuilds-000000?logo=x&logoColor=white" alt="Follow @merrickbuilds on X"></a>
+  <a href="../../LICENSE"><img src="https://img.shields.io/github/license/onedesk/onedesk" alt="License: Apache-2.0"></a>
+  <a href="https://onedesk.jiulu.ltd/releases/latest"><img src="https://img.shields.io/github/v/release/onedesk/onedesk" alt="Latest release"></a>
+  <a href="https://onedesk.jiulu.ltd/releases"><img src="https://img.shields.io/github/downloads/onedesk/onedesk/total" alt="Downloads"></a>
+  <a href="https://onedesk.jiulu.ltd/stargazers"><img src="https://img.shields.io/github/stars/onedesk/onedesk?style=flat" alt="GitHub stars"></a>
+  <a href="https://x.com/onedesk"><img src="https://img.shields.io/badge/follow-%40onedesk-000000?logo=x&logoColor=white" alt="Follow @onedesk on X"></a>
 </p>
 
 <p align="center"><a href="../../README.md">English</a> · <a href="README.es.md">Español</a> · <a href="README.pt-BR.md">Português</a> · <a href="README.de.md">Deutsch</a> · <a href="README.fr.md">Français</a> · <a href="README.zh-CN.md">简体中文</a> · <a href="README.zh-TW.md">繁體中文</a> · <a href="README.ko.md">한국어</a> · <a href="README.ja.md">日本語</a> · <a href="README.ar.md">العربية</a> · <a href="README.ru.md">Русский</a> · <a href="README.it.md">Italiano</a> · <a href="README.nl.md">Nederlands</a> · <a href="README.pl.md">Polski</a> · <a href="README.cs.md">Čeština</a> · <a href="README.id.md">Bahasa Indonesia</a> · <a href="README.ms.md">Bahasa Melayu</a> · <a href="README.th.md">ไทย</a> · <a href="README.hi.md">हिन्दी</a> · <b>עברית</b> · <a href="README.vi.md">Tiếng Việt</a> · <a href="README.tr.md">Türkçe</a> · <a href="README.hu.md">Magyar</a></p>
@@ -29,7 +29,7 @@
   <a href="#mcp-server"><b>MCP</b></a> ·
   <a href="https://onedesk.jiulu.ltd/"><b>אתר</b></a> ·
   <a href="https://onedesk.jiulu.ltd/join"><b>קהילה</b></a> ·
-  <a href="https://x.com/merrickbuilds"><b>X</b></a> ·
+  <a href="https://x.com/onedesk"><b>X</b></a> ·
   <a href="../../PRIVACY.md"><b>פרטיות</b></a>
 </p>
 
@@ -250,7 +250,7 @@ OneDesk מגיעה עם שורת פקודה `onedesk` ועם skill לסוכני�
 </tr>
 <tr>
 <td dir="rtl"><b>פרומפט אחד לסוכן שלכם</b> — ״בנו מצגת בת שמונה שקופיות על מערכת השמש.״ הסוכן קורא את ה-skill, כותב גיליון סטייל, מתווה ומפרט עמוד אחד לכל שקופית, מייצר את שתי התמונות עם <code>onedesk image</code>, ונותן ל-<code>onedesk slides check</code> לדחות כל דבר שגולש או חופף לפני ש-<code>onedesk create</code> מרכיב את ה-<code>.pptx</code> ו-<code>slides render</code> מחזיר PNG לכל שקופית להתרשמות.</td>
-<td dir="rtl"><b>התקינו פעם אחת, מתוך הגדרות → שילובים</b> — OneDesk מציגה את סוכני הקוד שהיא מוצאת על המחשב הזה וכותבת את ה-skill לכל אחד שתבחרו. או הורידו את ה-skill כ-zip, או הריצו <code>npx skills add genspark-ai/onedesk</code>. הפקודות ותהליך העבודה המלא נמצאים ב<a href="#command-line-and-agent-skill">שורת הפקודה וה-skill לסוכנים</a>.</td>
+<td dir="rtl"><b>התקינו פעם אחת, מתוך הגדרות → שילובים</b> — OneDesk מציגה את סוכני הקוד שהיא מוצאת על המחשב הזה וכותבת את ה-skill לכל אחד שתבחרו. או הורידו את ה-skill כ-zip, או הריצו <code>npx skills add onedesk/onedesk</code>. הפקודות ותהליך העבודה המלא נמצאים ב<a href="#command-line-and-agent-skill">שורת הפקודה וה-skill לסוכנים</a>.</td>
 </tr>
 </table>
 
@@ -373,11 +373,11 @@ OpenCode ו-Windsurf ישר מהקופסה, עם כל סוכן אחר שקורא
 
 ### התקנת ה-skill
 
-| איך                                  | מה קורה                                                                                                                                           |
-| ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **הגדרות → שילובים** באפליקציה       | מציג את הסוכנים שנמצאו על המחשב הזה; לחיצה אחת כותבת את ה-skill לכל אחד שתבחרו. כפתור **Update** מופיע כשגרסת OneDesk חדשה מגיעה עם skill מעודכן. |
-| **הורדה כ-zip** באותו העמוד          | המבנה ש-claude.ai, אפליקציות Claude לדסקטופ ועוזרים אחרים מקבלים כ-skill שהועלה.                                                                  |
-| `npx skills add genspark-ai/onedesk` | מתקין מהמאגר הזה לכל סוכן שתומך ב-skills.                                                                                                         |
+| איך                              | מה קורה                                                                                                                                           |
+| -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **הגדרות → שילובים** באפליקציה   | מציג את הסוכנים שנמצאו על המחשב הזה; לחיצה אחת כותבת את ה-skill לכל אחד שתבחרו. כפתור **Update** מופיע כשגרסת OneDesk חדשה מגיעה עם skill מעודכן. |
+| **הורדה כ-zip** באותו העמוד      | המבנה ש-claude.ai, אפליקציות Claude לדסקטופ ועוזרים אחרים מקבלים כ-skill שהועלה.                                                                  |
+| `npx skills add onedesk/onedesk` | מתקין מהמאגר הזה לכל סוכן שתומך ב-skills.                                                                                                         |
 
 לאחר מכן פתחו צ'אט חדש ובקשו מסמך. ה-skill מלמד את הסוכן מתי לפנות
 ל-`onedesk`, איך לקרוא קובץ לפני שעורכים אותו, ואיך לבדוק את העבודה של
@@ -618,7 +618,7 @@ OneDesk נמצאת בפיתוח פעיל, והמשוב שלכם מעצב אות�
   [GitHub Issues](https://onedesk.jiulu.ltd/issues).
 - **הצטרפו לצ'אט הקבוצתי של OneDesk** ב-
   [GenTeam](https://onedesk.jiulu.ltd/join) כדי לדבר עם הצוות ועם משתמשים אחרים.
-- **עקבו אחרי [@merrickbuilds](https://x.com/merrickbuilds) ב-X** להערות
+- **עקבו אחרי [@onedesk](https://x.com/onedesk) ב-X** להערות
   גרסה, הדגמות ומה שנבנה בהמשך.
 - **תנו כוכב (star) למאגר** אם OneDesk שימושית לכם — זו הדרך הטובה ביותר
   לתמוך בפרויקט.

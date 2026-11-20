@@ -13,11 +13,11 @@
 ไฟล์ Word, Excel, PowerPoint และ PDF แก้ไขโดยคุณและ AI ของคุณ บันทึกกลับเป็นฟอร์แมตจริง</p>
 
 <p align="center">
-  <a href="../../LICENSE"><img src="https://img.shields.io/github/license/genspark-ai/genoffice" alt="License: Apache-2.0"></a>
-  <a href="https://onedesk.jiulu.ltd/releases/latest"><img src="https://img.shields.io/github/v/release/genspark-ai/genoffice" alt="Latest release"></a>
-  <a href="https://onedesk.jiulu.ltd/releases"><img src="https://img.shields.io/github/downloads/genspark-ai/genoffice/total" alt="Downloads"></a>
-  <a href="https://onedesk.jiulu.ltd/stargazers"><img src="https://img.shields.io/github/stars/genspark-ai/genoffice?style=flat" alt="GitHub stars"></a>
-  <a href="https://x.com/merrickbuilds"><img src="https://img.shields.io/badge/follow-%40merrickbuilds-000000?logo=x&logoColor=white" alt="Follow @merrickbuilds on X"></a>
+  <a href="../../LICENSE"><img src="https://img.shields.io/github/license/onedesk/onedesk" alt="License: Apache-2.0"></a>
+  <a href="https://onedesk.jiulu.ltd/releases/latest"><img src="https://img.shields.io/github/v/release/onedesk/onedesk" alt="Latest release"></a>
+  <a href="https://onedesk.jiulu.ltd/releases"><img src="https://img.shields.io/github/downloads/onedesk/onedesk/total" alt="Downloads"></a>
+  <a href="https://onedesk.jiulu.ltd/stargazers"><img src="https://img.shields.io/github/stars/onedesk/onedesk?style=flat" alt="GitHub stars"></a>
+  <a href="https://x.com/onedesk"><img src="https://img.shields.io/badge/follow-%40onedesk-000000?logo=x&logoColor=white" alt="Follow @onedesk on X"></a>
 </p>
 
 <p align="center"><a href="../../README.md">English</a> · <a href="README.es.md">Español</a> · <a href="README.pt-BR.md">Português</a> · <a href="README.de.md">Deutsch</a> · <a href="README.fr.md">Français</a> · <a href="README.zh-CN.md">简体中文</a> · <a href="README.zh-TW.md">繁體中文</a> · <a href="README.ko.md">한국어</a> · <a href="README.ja.md">日本語</a> · <a href="README.ar.md">العربية</a> · <a href="README.ru.md">Русский</a> · <a href="README.it.md">Italiano</a> · <a href="README.nl.md">Nederlands</a> · <a href="README.pl.md">Polski</a> · <a href="README.cs.md">Čeština</a> · <a href="README.id.md">Bahasa Indonesia</a> · <a href="README.ms.md">Bahasa Melayu</a> · <b>ไทย</b> · <a href="README.hi.md">हिन्दी</a> · <a href="README.he.md">עברית</a> · <a href="README.vi.md">Tiếng Việt</a> · <a href="README.tr.md">Türkçe</a> · <a href="README.hu.md">Magyar</a></p>
@@ -29,7 +29,7 @@
   <a href="#mcp-server"><b>MCP</b></a> ·
   <a href="https://onedesk.jiulu.ltd/"><b>เว็บไซต์</b></a> ·
   <a href="https://onedesk.jiulu.ltd/join"><b>คอมมูนิตี้</b></a> ·
-  <a href="https://x.com/merrickbuilds"><b>X</b></a> ·
+  <a href="https://x.com/onedesk"><b>X</b></a> ·
   <a href="../../PRIVACY.md"><b>ความเป็นส่วนตัว</b></a>
 </p>
 
@@ -248,7 +248,7 @@ Claude Code, Codex, Cursor, Gemini CLI, GitHub Copilot, OpenCode หรือ Wi
 </tr>
 <tr>
 <td><b>พรอมป์เดียวถึงเอเจนต์ของคุณ</b> — "สร้างเดค 8 สไลด์เกี่ยวกับระบบสุริยะ" เอเจนต์อ่านสกิล เขียนสไตล์ชีต โครงร่าง และสเปกหน้าหนึ่งชุดต่อสไลด์ สร้างภาพถ่ายสองภาพด้วย <code>onedesk image</code> และให้ <code>onedesk slides check</code> ปฏิเสธทุกอย่างที่ล้นหรือซ้อนทับกันก่อนที่ <code>onedesk create</code> จะประกอบ <code>.pptx</code> และ <code>slides render</code> ส่ง PNG กลับมาให้ดูหนึ่งภาพต่อสไลด์</td>
-<td><b>ติดตั้งครั้งเดียวจาก การตั้งค่า → การเชื่อมต่อ</b> — OneDesk แสดงรายการเอเจนต์เขียนโค้ดที่พบในคอมพิวเตอร์เครื่องนี้และเขียนสกิลลงในแต่ละตัวที่คุณเลือก หรือดาวน์โหลดสกิลเป็น zip หรือรัน <code>npx skills add genspark-ai/onedesk</code> คำสั่งและเวิร์กโฟลว์ฉบับเต็มอยู่ใน <a href="#command-line-and-agent-skill">บรรทัดคำสั่งและสกิลสำหรับเอเจนต์</a></td>
+<td><b>ติดตั้งครั้งเดียวจาก การตั้งค่า → การเชื่อมต่อ</b> — OneDesk แสดงรายการเอเจนต์เขียนโค้ดที่พบในคอมพิวเตอร์เครื่องนี้และเขียนสกิลลงในแต่ละตัวที่คุณเลือก หรือดาวน์โหลดสกิลเป็น zip หรือรัน <code>npx skills add onedesk/onedesk</code> คำสั่งและเวิร์กโฟลว์ฉบับเต็มอยู่ใน <a href="#command-line-and-agent-skill">บรรทัดคำสั่งและสกิลสำหรับเอเจนต์</a></td>
 </tr>
 </table>
 
@@ -375,7 +375,7 @@ OpenCode และ Windsurf ได้ทันทีโดยไม่ต้อ�
 | ------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **การตั้งค่า → การเชื่อมต่อ** ในแอป  | แสดงรายการเอเจนต์ที่พบในคอมพิวเตอร์เครื่องนี้ คลิกเดียวเขียนสกิลลงในแต่ละตัวที่คุณเลือก ปุ่ม **Update** จะปรากฏเมื่อรีลีสของ OneDesk มาพร้อมสกิลเวอร์ชันใหม่กว่า |
 | **ดาวน์โหลดเป็น zip** ในหน้าเดียวกัน | โครงสร้างที่ claude.ai แอปเดสก์ท็อป Claude และผู้ช่วยอื่นๆ ยอมรับเป็นสกิลที่อัปโหลด                                                                              |
-| `npx skills add genspark-ai/onedesk` | ติดตั้งจาก repository นี้ลงในเอเจนต์ใดก็ได้ที่รองรับสกิล                                                                                                         |
+| `npx skills add onedesk/onedesk`     | ติดตั้งจาก repository นี้ลงในเอเจนต์ใดก็ได้ที่รองรับสกิล                                                                                                         |
 
 จากนั้นเริ่มแชทใหม่แล้วขอเอกสารสักฉบับ สกิลจะสอนเอเจนต์ว่าเมื่อใดควรใช้
 `onedesk` วิธีอ่านไฟล์ก่อนแก้ไข และวิธีตรวจสอบงานของตัวเอง
@@ -613,7 +613,7 @@ OneDesk อยู่ในระหว่างการพัฒนาอย่
   [GitHub Issues](https://onedesk.jiulu.ltd/issues)
 - **เข้าร่วมกลุ่มแชทของ OneDesk** ได้ที่
   [GenTeam](https://onedesk.jiulu.ltd/join) เพื่อพูดคุยกับทีมงานและผู้ใช้คนอื่นๆ
-- **ติดตาม [@merrickbuilds](https://x.com/merrickbuilds) บน X** เพื่อดูบันทึกรีลีส
+- **ติดตาม [@onedesk](https://x.com/onedesk) บน X** เพื่อดูบันทึกรีลีส
   เดโม และสิ่งที่กำลังจะสร้างต่อไป
 - **ให้ดาว repo นี้** หาก OneDesk มีประโยชน์กับคุณ — เป็นวิธีที่ดีที่สุด
   ในการสนับสนุนโปรเจกต์นี้

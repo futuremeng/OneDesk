@@ -13,11 +13,11 @@
 Fail Word, Excel, PowerPoint dan PDF, disunting oleh anda dan AI anda, disimpan semula dalam format sebenar.</p>
 
 <p align="center">
-  <a href="../../LICENSE"><img src="https://img.shields.io/github/license/genspark-ai/genoffice" alt="License: Apache-2.0"></a>
-  <a href="https://onedesk.jiulu.ltd/releases/latest"><img src="https://img.shields.io/github/v/release/genspark-ai/genoffice" alt="Latest release"></a>
-  <a href="https://onedesk.jiulu.ltd/releases"><img src="https://img.shields.io/github/downloads/genspark-ai/genoffice/total" alt="Downloads"></a>
-  <a href="https://onedesk.jiulu.ltd/stargazers"><img src="https://img.shields.io/github/stars/genspark-ai/genoffice?style=flat" alt="GitHub stars"></a>
-  <a href="https://x.com/merrickbuilds"><img src="https://img.shields.io/badge/follow-%40merrickbuilds-000000?logo=x&logoColor=white" alt="Follow @merrickbuilds on X"></a>
+  <a href="../../LICENSE"><img src="https://img.shields.io/github/license/onedesk/onedesk" alt="License: Apache-2.0"></a>
+  <a href="https://onedesk.jiulu.ltd/releases/latest"><img src="https://img.shields.io/github/v/release/onedesk/onedesk" alt="Latest release"></a>
+  <a href="https://onedesk.jiulu.ltd/releases"><img src="https://img.shields.io/github/downloads/onedesk/onedesk/total" alt="Downloads"></a>
+  <a href="https://onedesk.jiulu.ltd/stargazers"><img src="https://img.shields.io/github/stars/onedesk/onedesk?style=flat" alt="GitHub stars"></a>
+  <a href="https://x.com/onedesk"><img src="https://img.shields.io/badge/follow-%40onedesk-000000?logo=x&logoColor=white" alt="Follow @onedesk on X"></a>
 </p>
 
 <p align="center"><a href="../../README.md">English</a> · <a href="README.es.md">Español</a> · <a href="README.pt-BR.md">Português</a> · <a href="README.de.md">Deutsch</a> · <a href="README.fr.md">Français</a> · <a href="README.zh-CN.md">简体中文</a> · <a href="README.zh-TW.md">繁體中文</a> · <a href="README.ko.md">한국어</a> · <a href="README.ja.md">日本語</a> · <a href="README.ar.md">العربية</a> · <a href="README.ru.md">Русский</a> · <a href="README.it.md">Italiano</a> · <a href="README.nl.md">Nederlands</a> · <a href="README.pl.md">Polski</a> · <a href="README.cs.md">Čeština</a> · <a href="README.id.md">Bahasa Indonesia</a> · <b>Bahasa Melayu</b> · <a href="README.th.md">ไทย</a> · <a href="README.hi.md">हिन्दी</a> · <a href="README.he.md">עברית</a> · <a href="README.vi.md">Tiếng Việt</a> · <a href="README.tr.md">Türkçe</a> · <a href="README.hu.md">Magyar</a></p>
@@ -29,7 +29,7 @@ Fail Word, Excel, PowerPoint dan PDF, disunting oleh anda dan AI anda, disimpan 
   <a href="#mcp-server"><b>MCP</b></a> ·
   <a href="https://onedesk.jiulu.ltd/"><b>Laman Web</b></a> ·
   <a href="https://onedesk.jiulu.ltd/join"><b>Komuniti</b></a> ·
-  <a href="https://x.com/merrickbuilds"><b>X</b></a> ·
+  <a href="https://x.com/onedesk"><b>X</b></a> ·
   <a href="../../PRIVACY.md"><b>Privasi</b></a>
 </p>
 
@@ -266,7 +266,7 @@ tetingkap.
 </tr>
 <tr>
 <td><b>Satu gesaan kepada agen anda</b> — "Build an eight-slide deck about the Solar System." Agen membaca skill, menulis helaian gaya, rangka dan satu spesifikasi halaman bagi setiap slaid, menjana dua foto dengan <code>onedesk image</code>, dan membiarkan <code>onedesk slides check</code> menolak apa-apa yang melimpah atau bertindih sebelum <code>onedesk create</code> memasang <code>.pptx</code> dan <code>slides render</code> memulangkan satu PNG bagi setiap slaid untuk dilihat.</td>
-<td><b>Pasang sekali, daripada Tetapan → Integrasi</b> — OneDesk menyenaraikan agen pengekodan yang ditemuinya pada komputer ini dan menulis skill ke dalam setiap satu yang anda pilih. Atau muat turun skill sebagai zip, atau jalankan <code>npx skills add genspark-ai/onedesk</code>. Arahan dan aliran kerja penuh ada dalam <a href="#command-line-and-agent-skill">Baris arahan dan skill agen</a>.</td>
+<td><b>Pasang sekali, daripada Tetapan → Integrasi</b> — OneDesk menyenaraikan agen pengekodan yang ditemuinya pada komputer ini dan menulis skill ke dalam setiap satu yang anda pilih. Atau muat turun skill sebagai zip, atau jalankan <code>npx skills add onedesk/onedesk</code>. Arahan dan aliran kerja penuh ada dalam <a href="#command-line-and-agent-skill">Baris arahan dan skill agen</a>.</td>
 </tr>
 </table>
 
@@ -400,7 +400,7 @@ setiap klien MCP.
 | ------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Tetapan → Integrasi** dalam aplikasi            | Menyenaraikan agen yang ditemui pada komputer ini; satu klik menulis skill ke dalam setiap satu yang anda pilih. Butang **Update** muncul apabila keluaran OneDesk membawa skill yang lebih baharu. |
 | **Muat turun sebagai zip** pada halaman yang sama | Susun atur yang diterima oleh claude.ai, aplikasi desktop Claude dan pembantu lain sebagai skill yang dimuat naik.                                                                                  |
-| `npx skills add genspark-ai/onedesk`              | Memasang daripada repositori ini ke dalam mana-mana agen yang serasi dengan skill.                                                                                                                  |
+| `npx skills add onedesk/onedesk`                  | Memasang daripada repositori ini ke dalam mana-mana agen yang serasi dengan skill.                                                                                                                  |
 
 Kemudian mulakan sembang baharu dan minta sesuatu dokumen. Skill itu mengajar
 agen bila perlu menggunakan `onedesk`, cara membaca fail sebelum
@@ -652,7 +652,7 @@ OneDesk sedang dibangunkan secara aktif dan maklum balas anda membentuknya.
 - **Sertai sembang kumpulan OneDesk** di
   [GenTeam](https://onedesk.jiulu.ltd/join) untuk berbual dengan pasukan dan
   pengguna lain.
-- **Ikuti [@merrickbuilds](https://x.com/merrickbuilds) di X** untuk nota
+- **Ikuti [@onedesk](https://x.com/onedesk) di X** untuk nota
   keluaran, demo dan apa yang sedang dibina seterusnya.
 - **Berikan bintang pada repo ini** jika OneDesk bermanfaat untuk anda —
   ini cara terbaik untuk menyokong projek ini.

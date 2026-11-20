@@ -13,11 +13,11 @@
 Word-, Excel-, PowerPoint- en PDF-bestanden, bewerkt door jou en je AI, opgeslagen in de echte formaten.</p>
 
 <p align="center">
-  <a href="../../LICENSE"><img src="https://img.shields.io/github/license/genspark-ai/genoffice" alt="Licentie: Apache-2.0"></a>
-  <a href="https://onedesk.jiulu.ltd/releases/latest"><img src="https://img.shields.io/github/v/release/genspark-ai/genoffice" alt="Nieuwste release"></a>
-  <a href="https://onedesk.jiulu.ltd/releases"><img src="https://img.shields.io/github/downloads/genspark-ai/genoffice/total" alt="Downloads"></a>
-  <a href="https://onedesk.jiulu.ltd/stargazers"><img src="https://img.shields.io/github/stars/genspark-ai/genoffice?style=flat" alt="GitHub-sterren"></a>
-  <a href="https://x.com/merrickbuilds"><img src="https://img.shields.io/badge/follow-%40merrickbuilds-000000?logo=x&logoColor=white" alt="Volg @merrickbuilds op X"></a>
+  <a href="../../LICENSE"><img src="https://img.shields.io/github/license/onedesk/onedesk" alt="Licentie: Apache-2.0"></a>
+  <a href="https://onedesk.jiulu.ltd/releases/latest"><img src="https://img.shields.io/github/v/release/onedesk/onedesk" alt="Nieuwste release"></a>
+  <a href="https://onedesk.jiulu.ltd/releases"><img src="https://img.shields.io/github/downloads/onedesk/onedesk/total" alt="Downloads"></a>
+  <a href="https://onedesk.jiulu.ltd/stargazers"><img src="https://img.shields.io/github/stars/onedesk/onedesk?style=flat" alt="GitHub-sterren"></a>
+  <a href="https://x.com/onedesk"><img src="https://img.shields.io/badge/follow-%40onedesk-000000?logo=x&logoColor=white" alt="Volg @onedesk op X"></a>
 </p>
 
 <p align="center"><a href="../../README.md">English</a> · <a href="README.es.md">Español</a> · <a href="README.pt-BR.md">Português</a> · <a href="README.de.md">Deutsch</a> · <a href="README.fr.md">Français</a> · <a href="README.zh-CN.md">简体中文</a> · <a href="README.zh-TW.md">繁體中文</a> · <a href="README.ko.md">한국어</a> · <a href="README.ja.md">日本語</a> · <a href="README.ar.md">العربية</a> · <a href="README.ru.md">Русский</a> · <a href="README.it.md">Italiano</a> · <b>Nederlands</b> · <a href="README.pl.md">Polski</a> · <a href="README.cs.md">Čeština</a> · <a href="README.id.md">Bahasa Indonesia</a> · <a href="README.ms.md">Bahasa Melayu</a> · <a href="README.th.md">ไทย</a> · <a href="README.hi.md">हिन्दी</a> · <a href="README.he.md">עברית</a> · <a href="README.vi.md">Tiếng Việt</a> · <a href="README.tr.md">Türkçe</a> · <a href="README.hu.md">Magyar</a></p>
@@ -29,7 +29,7 @@ Word-, Excel-, PowerPoint- en PDF-bestanden, bewerkt door jou en je AI, opgeslag
   <a href="#mcp-server"><b>MCP</b></a> ·
   <a href="https://onedesk.jiulu.ltd/"><b>Website</b></a> ·
   <a href="https://onedesk.jiulu.ltd/join"><b>Community</b></a> ·
-  <a href="https://x.com/merrickbuilds"><b>X</b></a> ·
+  <a href="https://x.com/onedesk"><b>X</b></a> ·
   <a href="../../PRIVACY.md"><b>Privacy</b></a>
 </p>
 
@@ -266,7 +266,7 @@ venster te openen.
 </tr>
 <tr>
 <td><b>Eén prompt aan je agent</b> — "Bouw een deck van acht slides over het zonnestelsel." De agent leest de skill, schrijft een stylesheet, een outline en één paginaspecificatie per slide, genereert de twee foto's met <code>onedesk image</code> en laat <code>onedesk slides check</code> alles afwijzen wat overloopt of overlapt, voordat <code>onedesk create</code> de <code>.pptx</code> samenstelt en <code>slides render</code> per slide een PNG teruggeeft om te bekijken.</td>
-<td><b>Eén keer installeren, via Instellingen → Integraties</b> — OneDesk toont de coding agents die het op deze computer vindt en schrijft de skill naar elke agent die je kiest. Of download de skill als zip, of voer <code>npx skills add genspark-ai/onedesk</code> uit. Commando's en de volledige workflow staan in <a href="#command-line-and-agent-skill">Opdrachtregel en agent-skill</a>.</td>
+<td><b>Eén keer installeren, via Instellingen → Integraties</b> — OneDesk toont de coding agents die het op deze computer vindt en schrijft de skill naar elke agent die je kiest. Of download de skill als zip, of voer <code>npx skills add onedesk/onedesk</code> uit. Commando's en de volledige workflow staan in <a href="#command-line-and-agent-skill">Opdrachtregel en agent-skill</a>.</td>
 </tr>
 </table>
 
@@ -397,7 +397,7 @@ MCP-client.
 | ----------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Instellingen → Integraties** in de app  | Toont de agents die op deze computer zijn gevonden; met één klik wordt de skill naar elke agent geschreven die je kiest. Er verschijnt een knop **Bijwerken** wanneer een OneDesk-release een nieuwere skill meebrengt. |
 | **Downloaden als zip** op dezelfde pagina | De indeling die claude.ai, de Claude-desktop-apps en andere assistenten accepteren als geüploade skill.                                                                                                                 |
-| `npx skills add genspark-ai/onedesk`      | Installeert vanuit deze repository in elke agent die skills ondersteunt.                                                                                                                                                |
+| `npx skills add onedesk/onedesk`          | Installeert vanuit deze repository in elke agent die skills ondersteunt.                                                                                                                                                |
 
 Start daarna een nieuwe chat en vraag om een document. De skill leert de
 agent wanneer hij naar `onedesk` moet grijpen, hoe hij een bestand leest
@@ -652,7 +652,7 @@ richting.
 - **Doe mee aan de OneDesk-groepschat** op
   [GenTeam](https://onedesk.jiulu.ltd/join) om met het team en andere gebruikers te
   praten.
-- **Volg [@merrickbuilds](https://x.com/merrickbuilds) op X** voor release
+- **Volg [@onedesk](https://x.com/onedesk) op X** voor release
   notes, demo's en wat er hierna wordt gebouwd.
 - **Geef de repo een ster** als je iets aan OneDesk hebt — dat is de beste
   manier om het project te steunen.

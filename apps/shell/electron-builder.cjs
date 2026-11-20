@@ -791,14 +791,14 @@ const config = {
     // so apt sees the new packages as the same lineage. Homepage comes from
     // package.json "homepage"; the Package field is pinned in the deb block
     // below (packageName is a per-target option, rejected here by the schema).
-    maintainer: 'Mainfunc, Inc. <team@genspark.ai>',
-    vendor: 'Mainfunc, Inc. <team@genspark.ai>',
+    maintainer: 'Mainfunc, Inc. <team@onedesk.jiulu.ltd>',
+    vendor: 'Mainfunc, Inc. <team@onedesk.jiulu.ltd>',
     category: 'Office',
     // Icon SET directory, not the single 1024px png: electron-builder does
     // not resize a lone png, so deb/rpm would install only
     // hicolor/1024x1024/apps/onedesk.png — a size absent from the hicolor
     // theme index, leaving GNOME/KDE launchers on the generic fallback icon
-    // (genspark-ai/onedesk#90). The set ships every standard raster size.
+    // (onedesk/onedesk#90). The set ships every standard raster size.
     icon: 'build/icons',
     // mac and win name the binary from productName; linux instead derives it
     // from package.json "name", and "@onedesk/shell" sanitizes to the

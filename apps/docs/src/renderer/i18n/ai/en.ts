@@ -122,7 +122,7 @@ export const en = {
   aiNetworkError:
     'Network problem: could not reach the AI service. Check your connection and try again',
   aiCreditsExhausted:
-    'Your Genspark credits have run out. Visit genspark.ai/pricing to top up, then try again',
+    'Your Genspark credits have run out. Visit onedesk.jiulu.ltd/pricing to top up, then try again',
   aiSumReadAttachment: 'Read attachment',
   aiSumImageAttachment: 'Image attachment {name}',
   aiSumRead: 'Read {name}',

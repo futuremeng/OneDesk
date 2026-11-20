@@ -239,7 +239,7 @@ describe('streamForProvider: temperature policy', () => {
     expect(bodies[1].temperature).toBe(0.3)
   })
 
-  // issue genspark-ai/onedesk#147: every model in the OpenAI BYOK dropdown is GPT-5.x,
+  // issue onedesk/onedesk#147: every model in the OpenAI BYOK dropdown is GPT-5.x,
   // and api.openai.com 400s `max_tokens` for that family
   it('caps OpenAI via max_completion_tokens and other vendors via max_tokens', async () => {
     const fetchMock = vi.fn().mockImplementation(() => Promise.resolve(okTurn()))
@@ -1375,7 +1375,7 @@ describe('streamForProvider: genspark', () => {
       cb,
     ).catch(() => {})
     expect(fetchMock).toHaveBeenCalledWith(
-      'https://www.genspark.ai/api/anthropic/v1/messages',
+      'https://onedesk.jiulu.ltd/api/anthropic/v1/messages',
       expect.objectContaining({ headers: expect.objectContaining({ 'x-api-key': 'gsk-k' }) }),
     )
   })
@@ -1394,7 +1394,7 @@ describe('streamForProvider: genspark', () => {
       cb,
     ).catch(() => {})
     expect(fetchMock).toHaveBeenCalledWith(
-      'https://www.genspark.ai/api/llm_proxy/v1/chat/completions',
+      'https://onedesk.jiulu.ltd/api/llm_proxy/v1/chat/completions',
       expect.anything(),
     )
   })
@@ -1482,7 +1482,7 @@ describe('streamForProvider: genspark', () => {
 
 describe('streamForProvider: 200 + non-stream JSON instead of SSE', () => {
   const creditsNotice =
-    'Your Genspark credits have been exhausted. Please visit https://www.genspark.ai/pricing to purchase more credits.'
+    'Your Genspark credits have been exhausted. Please visit https://onedesk.jiulu.ltd/pricing to purchase more credits.'
   const json = (value: unknown) =>
     new Response(JSON.stringify(value), {
       status: 200,
@@ -1517,7 +1517,9 @@ describe('streamForProvider: 200 + non-stream JSON instead of SSE', () => {
           candidates: [
             {
               content: {
-                parts: [{ text: 'Out of quota, visit https://www.genspark.ai/pricing to top up.' }],
+                parts: [
+                  { text: 'Out of quota, visit https://onedesk.jiulu.ltd/pricing to top up.' },
+                ],
               },
             },
           ],

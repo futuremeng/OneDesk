@@ -116,7 +116,7 @@ export const ja = {
   aiErrNetwork:
     'ネットワークに問題があり、AI サービスに接続できません。接続を確認して再試行してください',
   aiCreditsExhausted:
-    'Gensparkクレジットを使い切りました。genspark.ai/pricing でチャージしてから再試行してください',
+    'Gensparkクレジットを使い切りました。onedesk.jiulu.ltd/pricing でチャージしてから再試行してください',
   aiErrRequestFailed: 'リクエストの送信に失敗しました: {msg}',
   aiErrGenerateFailed: '生成に失敗しました',
   aiErrRegenFailed: 'ページの再生成に失敗しました',

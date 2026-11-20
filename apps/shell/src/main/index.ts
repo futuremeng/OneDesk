@@ -804,7 +804,7 @@ const GENTEAM_URL = 'https://onedesk.jiulu.ltd/join'
 
 // Genspark credit-usage page opened from the account menu's credits row.
 // Kept main-side so the renderer never supplies the URL.
-const CREDIT_USAGE_URL = 'https://www.genspark.ai/credit-usage'
+const CREDIT_USAGE_URL = 'https://onedesk.jiulu.ltd/credit-usage'
 
 // ---- "star us on GitHub" prompt (see star-prompt.ts for the rules) ----
 
@@ -841,7 +841,7 @@ let cachedGithubStars: number | null = null
 async function fetchGithubStars(): Promise<number | null> {
   if (cachedGithubStars !== null) return cachedGithubStars
   try {
-    const response = await fetch('https://api.github.com/repos/genspark-ai/onedesk', {
+    const response = await fetch('https://api.github.com/repos/onedesk/onedesk', {
       headers: { Accept: 'application/vnd.github+json' },
       signal: AbortSignal.timeout(5000),
     })
@@ -7188,7 +7188,7 @@ async function installMainProcessProxy(): Promise<void> {
     try {
       // PAC/rule proxies answer per-host: probe the host the login flow, the
       // Genspark LLM proxy and the gsk CLI actually target
-      const resolved = await session.defaultSession.resolveProxy('https://www.genspark.ai/')
+      const resolved = await session.defaultSession.resolveProxy('https://onedesk.jiulu.ltd/')
       const m = /PROXY\s+([^;\s]+)/.exec(resolved)
       if (m) proxyUrl = `http://${m[1]}`
     } catch {

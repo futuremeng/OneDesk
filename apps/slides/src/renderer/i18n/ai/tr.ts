@@ -116,7 +116,7 @@ export const tr = {
   aiErrOverloaded: 'AI hizmeti şu anda yoğun — lütfen birazdan yeniden deneyin',
   aiErrNetwork: 'Ağ sorunu: AI hizmetine ulaşılamadı. Bağlantınızı denetleyip yeniden deneyin',
   aiCreditsExhausted:
-    'Genspark krediniz tükendi. Yüklemek için genspark.ai/pricing adresini ziyaret edin, sonra yeniden deneyin',
+    'Genspark krediniz tükendi. Yüklemek için onedesk.jiulu.ltd/pricing adresini ziyaret edin, sonra yeniden deneyin',
   aiErrRequestFailed: 'İstek gönderilemedi: {msg}',
   aiErrGenerateFailed: 'Oluşturma başarısız',
   aiErrRegenFailed: 'Slayt yeniden oluşturulamadı',

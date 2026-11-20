@@ -13,11 +13,11 @@
 Tệp Word, Excel, PowerPoint và PDF do bạn và AI của bạn cùng chỉnh sửa, được lưu lại đúng định dạng gốc.</p>
 
 <p align="center">
-  <a href="../../LICENSE"><img src="https://img.shields.io/github/license/genspark-ai/genoffice" alt="License: Apache-2.0"></a>
-  <a href="https://onedesk.jiulu.ltd/releases/latest"><img src="https://img.shields.io/github/v/release/genspark-ai/genoffice" alt="Latest release"></a>
-  <a href="https://onedesk.jiulu.ltd/releases"><img src="https://img.shields.io/github/downloads/genspark-ai/genoffice/total" alt="Downloads"></a>
-  <a href="https://onedesk.jiulu.ltd/stargazers"><img src="https://img.shields.io/github/stars/genspark-ai/genoffice?style=flat" alt="GitHub stars"></a>
-  <a href="https://x.com/merrickbuilds"><img src="https://img.shields.io/badge/follow-%40merrickbuilds-000000?logo=x&logoColor=white" alt="Follow @merrickbuilds on X"></a>
+  <a href="../../LICENSE"><img src="https://img.shields.io/github/license/onedesk/onedesk" alt="License: Apache-2.0"></a>
+  <a href="https://onedesk.jiulu.ltd/releases/latest"><img src="https://img.shields.io/github/v/release/onedesk/onedesk" alt="Latest release"></a>
+  <a href="https://onedesk.jiulu.ltd/releases"><img src="https://img.shields.io/github/downloads/onedesk/onedesk/total" alt="Downloads"></a>
+  <a href="https://onedesk.jiulu.ltd/stargazers"><img src="https://img.shields.io/github/stars/onedesk/onedesk?style=flat" alt="GitHub stars"></a>
+  <a href="https://x.com/onedesk"><img src="https://img.shields.io/badge/follow-%40onedesk-000000?logo=x&logoColor=white" alt="Follow @onedesk on X"></a>
 </p>
 
 <p align="center"><a href="../../README.md">English</a> · <a href="README.es.md">Español</a> · <a href="README.pt-BR.md">Português</a> · <a href="README.de.md">Deutsch</a> · <a href="README.fr.md">Français</a> · <a href="README.zh-CN.md">简体中文</a> · <a href="README.zh-TW.md">繁體中文</a> · <a href="README.ko.md">한국어</a> · <a href="README.ja.md">日本語</a> · <a href="README.ar.md">العربية</a> · <a href="README.ru.md">Русский</a> · <a href="README.it.md">Italiano</a> · <a href="README.nl.md">Nederlands</a> · <a href="README.pl.md">Polski</a> · <a href="README.cs.md">Čeština</a> · <a href="README.id.md">Bahasa Indonesia</a> · <a href="README.ms.md">Bahasa Melayu</a> · <a href="README.th.md">ไทย</a> · <a href="README.hi.md">हिन्दी</a> · <a href="README.he.md">עברית</a> · <b>Tiếng Việt</b> · <a href="README.tr.md">Türkçe</a> · <a href="README.hu.md">Magyar</a></p>
@@ -29,7 +29,7 @@ Tệp Word, Excel, PowerPoint và PDF do bạn và AI của bạn cùng chỉnh 
   <a href="#mcp-server"><b>MCP</b></a> ·
   <a href="https://onedesk.jiulu.ltd/"><b>Trang chủ</b></a> ·
   <a href="https://onedesk.jiulu.ltd/join"><b>Cộng đồng</b></a> ·
-  <a href="https://x.com/merrickbuilds"><b>X</b></a> ·
+  <a href="https://x.com/onedesk"><b>X</b></a> ·
   <a href="../../PRIVACY.md"><b>Quyền riêng tư</b></a>
 </p>
 
@@ -324,7 +324,7 @@ khi <code>onedesk create</code> lắp <code>.pptx</code> và
 <td><b>Cài một lần, từ Settings → Integrations</b> — OneDesk liệt kê các
 agent lập trình tìm thấy trên máy này và ghi skill vào mỗi agent bạn chọn.
 Hoặc tải skill dưới dạng zip, hoặc chạy <code>npx skills add
-genspark-ai/onedesk</code>. Các lệnh và toàn bộ quy trình nằm ở
+onedesk/onedesk</code>. Các lệnh và toàn bộ quy trình nằm ở
 <a href="#command-line-and-agent-skill">Dòng lệnh và agent skill</a>.</td>
 </tr>
 </table>
@@ -466,7 +466,7 @@ OpenCode và Windsurf ngay từ đầu, bất kỳ agent nào đọc được sk
 | ------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Settings → Integrations** trong ứng dụng | Liệt kê các agent tìm thấy trên máy này; một cú bấm ghi skill vào từng agent bạn chọn. Nút **Update** xuất hiện khi một bản phát hành OneDesk mang skill mới hơn. |
 | **Download as zip** trên cùng trang        | Đúng cấu trúc claude.ai, ứng dụng Claude desktop và các trợ lý khác chấp nhận như skill tải lên.                                                                  |
-| `npx skills add genspark-ai/onedesk`       | Cài từ kho lưu trữ này vào bất kỳ agent tương thích skills nào.                                                                                                   |
+| `npx skills add onedesk/onedesk`           | Cài từ kho lưu trữ này vào bất kỳ agent tương thích skills nào.                                                                                                   |
 
 Sau đó mở một cuộc trò chuyện mới và yêu cầu một tài liệu. Skill dạy agent
 khi nào nên dùng tới `onedesk`, cách đọc tệp trước khi sửa, và cách tự
@@ -715,7 +715,7 @@ OneDesk đang được phát triển liên tục và phản hồi của bạn đ
 - **Tham gia trò chuyện nhóm OneDesk** trên
   [GenTeam](https://onedesk.jiulu.ltd/join) để nói chuyện với đội ngũ và những
   người dùng khác.
-- **Theo dõi [@merrickbuilds](https://x.com/merrickbuilds) trên X** để nhận
+- **Theo dõi [@onedesk](https://x.com/onedesk) trên X** để nhận
   ghi chú phát hành, demo và những gì đang được xây tiếp.
 - **Gắn sao cho kho mã** nếu OneDesk hữu ích với bạn — đó là cách tốt nhất
   để ủng hộ dự án.

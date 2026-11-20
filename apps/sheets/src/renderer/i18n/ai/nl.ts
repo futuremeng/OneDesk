@@ -70,7 +70,7 @@ export const nl = {
   aiNetworkError:
     'Netwerkprobleem: kan de AI-service niet bereiken. Controleer je verbinding en probeer het opnieuw',
   aiCreditsExhausted:
-    'Je Genspark-credits zijn op. Waardeer op via genspark.ai/pricing en probeer het opnieuw',
+    'Je Genspark-credits zijn op. Waardeer op via onedesk.jiulu.ltd/pricing en probeer het opnieuw',
   aiToolWorkbookContext: 'Werkmapgegevens lezen',
   aiToolReadRange: 'Bereik lezen',
   aiToolReadRangeOf: 'Bereik {range} lezen',

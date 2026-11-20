@@ -13,11 +13,11 @@
 Fichiers Word, Excel, PowerPoint et PDF, modifiés par vous et votre IA, enregistrés dans les formats natifs.</p>
 
 <p align="center">
-  <a href="../../LICENSE"><img src="https://img.shields.io/github/license/genspark-ai/genoffice" alt="License: Apache-2.0"></a>
-  <a href="https://onedesk.jiulu.ltd/releases/latest"><img src="https://img.shields.io/github/v/release/genspark-ai/genoffice" alt="Latest release"></a>
-  <a href="https://onedesk.jiulu.ltd/releases"><img src="https://img.shields.io/github/downloads/genspark-ai/genoffice/total" alt="Downloads"></a>
-  <a href="https://onedesk.jiulu.ltd/stargazers"><img src="https://img.shields.io/github/stars/genspark-ai/genoffice?style=flat" alt="GitHub stars"></a>
-  <a href="https://x.com/merrickbuilds"><img src="https://img.shields.io/badge/follow-%40merrickbuilds-000000?logo=x&logoColor=white" alt="Follow @merrickbuilds on X"></a>
+  <a href="../../LICENSE"><img src="https://img.shields.io/github/license/onedesk/onedesk" alt="License: Apache-2.0"></a>
+  <a href="https://onedesk.jiulu.ltd/releases/latest"><img src="https://img.shields.io/github/v/release/onedesk/onedesk" alt="Latest release"></a>
+  <a href="https://onedesk.jiulu.ltd/releases"><img src="https://img.shields.io/github/downloads/onedesk/onedesk/total" alt="Downloads"></a>
+  <a href="https://onedesk.jiulu.ltd/stargazers"><img src="https://img.shields.io/github/stars/onedesk/onedesk?style=flat" alt="GitHub stars"></a>
+  <a href="https://x.com/onedesk"><img src="https://img.shields.io/badge/follow-%40onedesk-000000?logo=x&logoColor=white" alt="Follow @onedesk on X"></a>
 </p>
 
 <p align="center"><a href="../../README.md">English</a> · <a href="README.es.md">Español</a> · <a href="README.pt-BR.md">Português</a> · <a href="README.de.md">Deutsch</a> · <b>Français</b> · <a href="README.zh-CN.md">简体中文</a> · <a href="README.zh-TW.md">繁體中文</a> · <a href="README.ko.md">한국어</a> · <a href="README.ja.md">日本語</a> · <a href="README.ar.md">العربية</a> · <a href="README.ru.md">Русский</a> · <a href="README.it.md">Italiano</a> · <a href="README.nl.md">Nederlands</a> · <a href="README.pl.md">Polski</a> · <a href="README.cs.md">Čeština</a> · <a href="README.id.md">Bahasa Indonesia</a> · <a href="README.ms.md">Bahasa Melayu</a> · <a href="README.th.md">ไทย</a> · <a href="README.hi.md">हिन्दी</a> · <a href="README.he.md">עברית</a> · <a href="README.vi.md">Tiếng Việt</a> · <a href="README.tr.md">Türkçe</a> · <a href="README.hu.md">Magyar</a></p>
@@ -29,7 +29,7 @@ Fichiers Word, Excel, PowerPoint et PDF, modifiés par vous et votre IA, enregis
   <a href="#mcp-server"><b>MCP</b></a> ·
   <a href="https://onedesk.jiulu.ltd/"><b>Site web</b></a> ·
   <a href="https://onedesk.jiulu.ltd/join"><b>Communauté</b></a> ·
-  <a href="https://x.com/merrickbuilds"><b>X</b></a> ·
+  <a href="https://x.com/onedesk"><b>X</b></a> ·
   <a href="../../PRIVACY.md"><b>Confidentialité</b></a>
 </p>
 
@@ -268,7 +268,7 @@ fenêtre.
 </tr>
 <tr>
 <td><b>Un seul prompt à votre agent</b> — « Construis un deck de huit diapositives sur le Système solaire. » L'agent lit le skill, écrit une feuille de style, un plan et une spécification de page par diapositive, génère les deux photos avec <code>onedesk image</code>, et laisse <code>onedesk slides check</code> rejeter tout ce qui déborde ou se chevauche avant que <code>onedesk create</code> n'assemble le <code>.pptx</code> et que <code>slides render</code> ne renvoie un PNG par diapositive à examiner.</td>
-<td><b>Installez une fois, depuis Réglages → Intégrations</b> — OneDesk liste les agents de codage qu'il trouve sur cet ordinateur et écrit le skill dans chacun de ceux que vous choisissez. Ou téléchargez le skill en zip, ou lancez <code>npx skills add genspark-ai/onedesk</code>. Les commandes et le flux de travail complet sont dans <a href="#command-line-and-agent-skill">Ligne de commande et skill d'agent</a>.</td>
+<td><b>Installez une fois, depuis Réglages → Intégrations</b> — OneDesk liste les agents de codage qu'il trouve sur cet ordinateur et écrit le skill dans chacun de ceux que vous choisissez. Ou téléchargez le skill en zip, ou lancez <code>npx skills add onedesk/onedesk</code>. Les commandes et le flux de travail complet sont dans <a href="#command-line-and-agent-skill">Ligne de commande et skill d'agent</a>.</td>
 </tr>
 </table>
 
@@ -406,7 +406,7 @@ MCP.
 | ---------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Réglages → Intégrations** dans l'application | Liste les agents trouvés sur cet ordinateur ; un clic écrit le skill dans chacun de ceux que vous choisissez. Un bouton **Mettre à jour** apparaît lorsqu'une version de OneDesk embarque un skill plus récent. |
 | **Télécharger en zip** sur la même page        | Le format que claude.ai, les applications de bureau Claude et d'autres assistants acceptent comme skill téléversé.                                                                                              |
-| `npx skills add genspark-ai/onedesk`           | Installe depuis ce dépôt dans tout agent compatible avec les skills.                                                                                                                                            |
+| `npx skills add onedesk/onedesk`               | Installe depuis ce dépôt dans tout agent compatible avec les skills.                                                                                                                                            |
 
 Ouvrez ensuite une nouvelle conversation et demandez un document. Le skill
 apprend à l'agent quand recourir à `onedesk`, comment lire un fichier avant
@@ -670,7 +670,7 @@ façonner.
 - **Rejoignez le salon de discussion OneDesk** sur
   [GenTeam](https://onedesk.jiulu.ltd/join) pour échanger avec l'équipe et les
   autres utilisateurs.
-- **Suivez [@merrickbuilds](https://x.com/merrickbuilds) sur X** pour les
+- **Suivez [@onedesk](https://x.com/onedesk) sur X** pour les
   notes de version, les démos et ce qui se prépare ensuite.
 - **Mettez une étoile au dépôt** si OneDesk vous est utile — c'est la
   meilleure façon de soutenir le projet.

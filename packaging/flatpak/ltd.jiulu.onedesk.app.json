@@ -80,7 +80,7 @@
           "size": 147161680,
           "x-checker-data": {
             "type": "json",
-            "url": "https://api.github.com/repos/genspark-ai/onedesk/releases/latest",
+            "url": "https://api.github.com/repos/onedesk/onedesk/releases/latest",
             "version-query": ".tag_name | sub(\"^v\"; \"\")",
             "url-query": ".assets[] | select(.name | endswith(\"_amd64.deb\")) | .browser_download_url"
           }

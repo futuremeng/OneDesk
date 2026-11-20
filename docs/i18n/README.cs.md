@@ -13,11 +13,11 @@
 Soubory Word, Excel, PowerPoint a PDF, upravované vámi a vaší AI, ukládané zpět ve skutečných formátech.</p>
 
 <p align="center">
-  <a href="../../LICENSE"><img src="https://img.shields.io/github/license/genspark-ai/genoffice" alt="Licence: Apache-2.0"></a>
-  <a href="https://onedesk.jiulu.ltd/releases/latest"><img src="https://img.shields.io/github/v/release/genspark-ai/genoffice" alt="Nejnovější verze"></a>
-  <a href="https://onedesk.jiulu.ltd/releases"><img src="https://img.shields.io/github/downloads/genspark-ai/genoffice/total" alt="Stažení"></a>
-  <a href="https://onedesk.jiulu.ltd/stargazers"><img src="https://img.shields.io/github/stars/genspark-ai/genoffice?style=flat" alt="Hvězdy na GitHubu"></a>
-  <a href="https://x.com/merrickbuilds"><img src="https://img.shields.io/badge/follow-%40merrickbuilds-000000?logo=x&logoColor=white" alt="Sledujte @merrickbuilds na X"></a>
+  <a href="../../LICENSE"><img src="https://img.shields.io/github/license/onedesk/onedesk" alt="Licence: Apache-2.0"></a>
+  <a href="https://onedesk.jiulu.ltd/releases/latest"><img src="https://img.shields.io/github/v/release/onedesk/onedesk" alt="Nejnovější verze"></a>
+  <a href="https://onedesk.jiulu.ltd/releases"><img src="https://img.shields.io/github/downloads/onedesk/onedesk/total" alt="Stažení"></a>
+  <a href="https://onedesk.jiulu.ltd/stargazers"><img src="https://img.shields.io/github/stars/onedesk/onedesk?style=flat" alt="Hvězdy na GitHubu"></a>
+  <a href="https://x.com/onedesk"><img src="https://img.shields.io/badge/follow-%40onedesk-000000?logo=x&logoColor=white" alt="Sledujte @onedesk na X"></a>
 </p>
 
 <p align="center"><a href="../../README.md">English</a> · <a href="README.es.md">Español</a> · <a href="README.pt-BR.md">Português</a> · <a href="README.de.md">Deutsch</a> · <a href="README.fr.md">Français</a> · <a href="README.zh-CN.md">简体中文</a> · <a href="README.zh-TW.md">繁體中文</a> · <a href="README.ko.md">한국어</a> · <a href="README.ja.md">日本語</a> · <a href="README.ar.md">العربية</a> · <a href="README.ru.md">Русский</a> · <a href="README.it.md">Italiano</a> · <a href="README.nl.md">Nederlands</a> · <a href="README.pl.md">Polski</a> · <b>Čeština</b> · <a href="README.id.md">Bahasa Indonesia</a> · <a href="README.ms.md">Bahasa Melayu</a> · <a href="README.th.md">ไทย</a> · <a href="README.hi.md">हिन्दी</a> · <a href="README.he.md">עברית</a> · <a href="README.vi.md">Tiếng Việt</a> · <a href="README.tr.md">Türkçe</a> · <a href="README.hu.md">Magyar</a></p>
@@ -29,7 +29,7 @@ Soubory Word, Excel, PowerPoint a PDF, upravované vámi a vaší AI, ukládané
   <a href="#mcp-server"><b>MCP</b></a> ·
   <a href="https://onedesk.jiulu.ltd/"><b>Web</b></a> ·
   <a href="https://onedesk.jiulu.ltd/join"><b>Komunita</b></a> ·
-  <a href="https://x.com/merrickbuilds"><b>X</b></a> ·
+  <a href="https://x.com/onedesk"><b>X</b></a> ·
   <a href="../../PRIVACY.md"><b>Soukromí</b></a>
 </p>
 
@@ -260,7 +260,7 @@ přes stejné enginy jako aplikace, aniž by otevřely jediné okno.
 </tr>
 <tr>
 <td><b>Jeden prompt vašemu agentovi</b> — „Vytvoř osmisnímkovou prezentaci o sluneční soustavě.“ Agent si přečte skill, napíše stylový list, osnovu a jednu specifikaci stránky na snímek, vygeneruje obě fotografie pomocí <code>onedesk image</code> a nechá <code>onedesk slides check</code> odmítnout vše, co přetéká nebo se překrývá, než <code>onedesk create</code> sestaví soubor <code>.pptx</code> a <code>slides render</code> vrátí ke kontrole jeden PNG na snímek.</td>
-<td><b>Nainstalujte jednou, v Nastavení → Integrace</b> — OneDesk vypíše kódovací agenty, které na tomto počítači najde, a zapíše skill do každého, který vyberete. Nebo si skill stáhněte jako zip, případně spusťte <code>npx skills add genspark-ai/onedesk</code>. Příkazy a celý pracovní postup najdete v sekci <a href="#command-line-and-agent-skill">Příkazový řádek a agentní skill</a>.</td>
+<td><b>Nainstalujte jednou, v Nastavení → Integrace</b> — OneDesk vypíše kódovací agenty, které na tomto počítači najde, a zapíše skill do každého, který vyberete. Nebo si skill stáhněte jako zip, případně spusťte <code>npx skills add onedesk/onedesk</code>. Příkazy a celý pracovní postup najdete v sekci <a href="#command-line-and-agent-skill">Příkazový řádek a agentní skill</a>.</td>
 </tr>
 </table>
 
@@ -390,7 +390,7 @@ MCP klientem.
 | ------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Nastavení → Integrace** v aplikaci  | Vypíše agenty nalezené na tomto počítači; jedním kliknutím zapíše skill do každého, který vyberete. Když nové vydání OneDesk přinese novější skill, objeví se tlačítko **Aktualizovat**. |
 | **Stáhnout jako zip** na téže stránce | Rozložení, které claude.ai, desktopové aplikace Claude a další asistenti přijímají jako nahraný skill.                                                                                   |
-| `npx skills add genspark-ai/onedesk`  | Nainstaluje z tohoto repozitáře do jakéhokoli agenta podporujícího skilly.                                                                                                               |
+| `npx skills add onedesk/onedesk`      | Nainstaluje z tohoto repozitáře do jakéhokoli agenta podporujícího skilly.                                                                                                               |
 
 Pak začněte nový chat a požádejte o dokument. Skill agenta naučí, kdy sáhnout
 po `onedesk`, jak si soubor přečíst před úpravou a jak zkontrolovat vlastní
@@ -637,7 +637,7 @@ OneDesk je v aktivním vývoji a vaše zpětná vazba jej utváří.
 - **Připojte se ke skupinovému chatu OneDesk** na
   [GenTeam](https://onedesk.jiulu.ltd/join), kde si můžete promluvit s týmem
   i ostatními uživateli.
-- **Sledujte [@merrickbuilds](https://x.com/merrickbuilds) na X** — poznámky
+- **Sledujte [@onedesk](https://x.com/onedesk) na X** — poznámky
   k vydání, ukázky a to, na čem se právě pracuje.
 - **Ohvězdičkujte repozitář**, pokud je pro vás OneDesk užitečný — je to
   nejlepší způsob, jak projekt podpořit.

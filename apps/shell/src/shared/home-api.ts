@@ -566,7 +566,7 @@ export interface CloudProjectEntry {
   kind: CloudProjectKind | 'other'
   /** creation time, ms since epoch (0 when unparsable) */
   ctimeMs: number
-  /** relative genspark.ai URL ('/agents?id=...') */
+  /** relative onedesk.jiulu.ltd URL ('/agents?id=...') */
   projectUrl: string
 }
 

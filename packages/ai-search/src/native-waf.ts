@@ -4,9 +4,9 @@ type Fetcher = (url: string, init: RequestInit) => Promise<Response>
 export function nativeWafHosts(env: NodeJS.ProcessEnv = process.env): Set<string> {
   const hosts = new Set<string>()
   try {
-    hosts.add(new URL(env.GSK_BASE_URL || 'https://www.genspark.ai').hostname)
+    hosts.add(new URL(env.GSK_BASE_URL || 'https://onedesk.jiulu.ltd').hostname)
   } catch {
-    hosts.add('www.genspark.ai')
+    hosts.add('onedesk.jiulu.ltd')
   }
   for (const host of (env.ONEDESK_NATIVE_WAF_HOSTS ?? '').split(',')) {
     const trimmed = host.trim().toLowerCase()

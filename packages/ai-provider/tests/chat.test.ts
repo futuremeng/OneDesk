@@ -145,13 +145,13 @@ describe('chatForProvider', () => {
     vi.stubGlobal('fetch', fetchMock)
     await chatForProvider('genspark', { apiKey: 'gsk-k', model: 'claude-opus-4-7' }, 'sys', 'hi')
     expect(fetchMock).toHaveBeenCalledWith(
-      'https://www.genspark.ai/api/anthropic/v1/messages',
+      'https://onedesk.jiulu.ltd/api/anthropic/v1/messages',
       expect.anything(),
     )
     fetchMock.mockResolvedValue(jsonResponse({ choices: [{ message: { content: 'ok' } }] }))
     await chatForProvider('genspark', { apiKey: 'gsk-k', model: 'gpt-5.2' }, 'sys', 'hi')
     expect(fetchMock).toHaveBeenLastCalledWith(
-      'https://www.genspark.ai/api/llm_proxy/v1/chat/completions',
+      'https://onedesk.jiulu.ltd/api/llm_proxy/v1/chat/completions',
       expect.anything(),
     )
   })

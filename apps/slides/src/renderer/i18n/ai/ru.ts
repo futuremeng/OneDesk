@@ -118,7 +118,7 @@ export const ru = {
   aiErrNetwork:
     'Проблема с сетью: не удалось подключиться к сервису ИИ. Проверьте подключение и повторите попытку',
   aiCreditsExhausted:
-    'Кредиты Genspark исчерпаны. Пополните баланс на genspark.ai/pricing и повторите попытку',
+    'Кредиты Genspark исчерпаны. Пополните баланс на onedesk.jiulu.ltd/pricing и повторите попытку',
   aiErrRequestFailed: 'Не удалось отправить запрос: {msg}',
   aiErrGenerateFailed: 'Сбой генерации',
   aiErrRegenFailed: 'Не удалось переделать слайд',

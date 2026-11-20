@@ -69,7 +69,7 @@ export const hi = {
   aiNetworkError:
     'नेटवर्क समस्या: AI सेवा से कनेक्ट नहीं हो सका। कनेक्शन जांचें और फिर से प्रयास करें',
   aiCreditsExhausted:
-    'आपके Genspark क्रेडिट समाप्त हो गए हैं। genspark.ai/pricing पर रिचार्ज करें और फिर से प्रयास करें',
+    'आपके Genspark क्रेडिट समाप्त हो गए हैं। onedesk.jiulu.ltd/pricing पर रिचार्ज करें और फिर से प्रयास करें',
   aiToolWorkbookContext: 'कार्यपुस्तिका की जानकारी पढ़ें',
   aiToolReadRange: 'श्रेणी पढ़ें',
   aiToolReadRangeOf: 'श्रेणी {range} पढ़ें',

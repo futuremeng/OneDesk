@@ -69,7 +69,7 @@ export const ru = {
   aiNetworkError:
     'Проблема с сетью: не удалось подключиться к сервису ИИ. Проверьте подключение и повторите попытку',
   aiCreditsExhausted:
-    'Кредиты Genspark исчерпаны. Пополните баланс на genspark.ai/pricing и повторите попытку',
+    'Кредиты Genspark исчерпаны. Пополните баланс на onedesk.jiulu.ltd/pricing и повторите попытку',
   aiToolWorkbookContext: 'Чтение сведений о книге',
   aiToolReadRange: 'Чтение диапазона',
   aiToolReadRangeOf: 'Чтение диапазона {range}',

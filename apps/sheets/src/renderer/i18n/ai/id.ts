@@ -68,7 +68,7 @@ export const id = {
   aiNetworkError:
     'Masalah jaringan: tidak dapat terhubung ke layanan AI. Periksa koneksi Anda lalu coba lagi',
   aiCreditsExhausted:
-    'Kredit Genspark Anda telah habis. Isi ulang di genspark.ai/pricing lalu coba lagi',
+    'Kredit Genspark Anda telah habis. Isi ulang di onedesk.jiulu.ltd/pricing lalu coba lagi',
   aiToolWorkbookContext: 'Baca info buku kerja',
   aiToolReadRange: 'Baca rentang',
   aiToolReadRangeOf: 'Baca rentang {range}',

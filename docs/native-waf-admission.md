@@ -32,5 +32,5 @@ The prod edge token rules are gen-spark#77242; without them the pass is ignored
 at the edge and legacy rules still apply.
 
 Admitted hosts come from configuration, not source: the `GSK_BASE_URL` host
-(default `www.genspark.ai`) plus any comma-separated hostnames in
+(default `onedesk.jiulu.ltd`) plus any comma-separated hostnames in
 `ONEDESK_NATIVE_WAF_HOSTS`. Requests to any other origin are sent unchanged.

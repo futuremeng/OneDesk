@@ -1,6 +1,6 @@
 /**
  * Word-style continuous text selection across table cells
- * (genspark-ai/onedesk#2329): the boundary classification, the per-cell
+ * (onedesk/onedesk#2329): the boundary classification, the per-cell
  * deletion spans, and the delete/type paths that clear the covered text while
  * every cell the selection crossed survives.
  */

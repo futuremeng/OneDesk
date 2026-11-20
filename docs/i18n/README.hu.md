@@ -13,11 +13,11 @@
 Word-, Excel-, PowerPoint- és PDF-fájlok, amelyeket te és az AI-d szerkesztetek, és amelyek valódi formátumban mentődnek vissza.</p>
 
 <p align="center">
-  <a href="../../LICENSE"><img src="https://img.shields.io/github/license/genspark-ai/genoffice" alt="Licenc: Apache-2.0"></a>
-  <a href="https://onedesk.jiulu.ltd/releases/latest"><img src="https://img.shields.io/github/v/release/genspark-ai/genoffice" alt="Legutóbbi kiadás"></a>
-  <a href="https://onedesk.jiulu.ltd/releases"><img src="https://img.shields.io/github/downloads/genspark-ai/genoffice/total" alt="Letöltések"></a>
-  <a href="https://onedesk.jiulu.ltd/stargazers"><img src="https://img.shields.io/github/stars/genspark-ai/genoffice?style=flat" alt="GitHub-csillagok"></a>
-  <a href="https://x.com/merrickbuilds"><img src="https://img.shields.io/badge/follow-%40merrickbuilds-000000?logo=x&logoColor=white" alt="Követés X-en: @merrickbuilds"></a>
+  <a href="../../LICENSE"><img src="https://img.shields.io/github/license/onedesk/onedesk" alt="Licenc: Apache-2.0"></a>
+  <a href="https://onedesk.jiulu.ltd/releases/latest"><img src="https://img.shields.io/github/v/release/onedesk/onedesk" alt="Legutóbbi kiadás"></a>
+  <a href="https://onedesk.jiulu.ltd/releases"><img src="https://img.shields.io/github/downloads/onedesk/onedesk/total" alt="Letöltések"></a>
+  <a href="https://onedesk.jiulu.ltd/stargazers"><img src="https://img.shields.io/github/stars/onedesk/onedesk?style=flat" alt="GitHub-csillagok"></a>
+  <a href="https://x.com/onedesk"><img src="https://img.shields.io/badge/follow-%40onedesk-000000?logo=x&logoColor=white" alt="Követés X-en: @onedesk"></a>
 </p>
 
 <p align="center"><a href="../../README.md">English</a> · <a href="README.es.md">Español</a> · <a href="README.pt-BR.md">Português</a> · <a href="README.de.md">Deutsch</a> · <a href="README.fr.md">Français</a> · <a href="README.zh-CN.md">简体中文</a> · <a href="README.zh-TW.md">繁體中文</a> · <a href="README.ko.md">한국어</a> · <a href="README.ja.md">日本語</a> · <a href="README.ar.md">العربية</a> · <a href="README.ru.md">Русский</a> · <a href="README.it.md">Italiano</a> · <a href="README.nl.md">Nederlands</a> · <a href="README.pl.md">Polski</a> · <a href="README.cs.md">Čeština</a> · <a href="README.id.md">Bahasa Indonesia</a> · <a href="README.ms.md">Bahasa Melayu</a> · <a href="README.th.md">ไทย</a> · <a href="README.hi.md">हिन्दी</a> · <a href="README.he.md">עברית</a> · <a href="README.vi.md">Tiếng Việt</a> · <a href="README.tr.md">Türkçe</a> · <b>Magyar</b></p>
@@ -29,7 +29,7 @@ Word-, Excel-, PowerPoint- és PDF-fájlok, amelyeket te és az AI-d szerkesztet
   <a href="#mcp-server"><b>MCP</b></a> ·
   <a href="https://onedesk.jiulu.ltd/"><b>Weboldal</b></a> ·
   <a href="https://onedesk.jiulu.ltd/join"><b>Közösség</b></a> ·
-  <a href="https://x.com/merrickbuilds"><b>X</b></a> ·
+  <a href="https://x.com/onedesk"><b>X</b></a> ·
   <a href="../../PRIVACY.md"><b>Adatvédelem</b></a>
 </p>
 
@@ -230,7 +230,7 @@ Windsurf valódi Office-fájlokat tud létrehozni, konvertálni, olvasni és sze
 </tr>
 <tr>
 <td><b>Egy prompt az ügynöködhöz</b> — „Készíts egy nyolc diás bemutatót a Naprendszerről.” Az ügynök elolvassa a képességet, megír egy stíluslapot, egy vázlatot és diánként egy oldalleírást, legenerálja a két fotót a <code>onedesk image</code> paranccsal, és hagyja, hogy a <code>onedesk slides check</code> elutasítson mindent, ami túlnyúlik vagy átfedésben van, mielőtt a <code>onedesk create</code> összeállítja a <code>.pptx</code>-et, és a <code>slides render</code> diánként egy PNG-t ad vissza megtekintésre.</td>
-<td><b>Telepítsd egyszer, a Beállítások → Integrációk menüből</b> — a OneDesk felsorolja azokat a kódoló ügynököket, amelyeket ezen a számítógépen talál, és minden kiválasztottba beírja a képességet. Vagy töltsd le a képességet zip-ként, vagy futtasd az <code>npx skills add genspark-ai/onedesk</code> parancsot. A parancsok és a teljes munkafolyamat a <a href="#command-line-and-agent-skill">Parancssor és ügynök-képesség</a> részben található.</td>
+<td><b>Telepítsd egyszer, a Beállítások → Integrációk menüből</b> — a OneDesk felsorolja azokat a kódoló ügynököket, amelyeket ezen a számítógépen talál, és minden kiválasztottba beírja a képességet. Vagy töltsd le a képességet zip-ként, vagy futtasd az <code>npx skills add onedesk/onedesk</code> parancsot. A parancsok és a teljes munkafolyamat a <a href="#command-line-and-agent-skill">Parancssor és ügynök-képesség</a> részben található.</td>
 </tr>
 </table>
 
@@ -317,7 +317,7 @@ meg minden MCP-kliens.
 | ---------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Beállítások → Integrációk** az alkalmazásban | Felsorolja a gépen megtalált ügynököket; egy kattintás beírja a képességet mindbe, amelyiket választod. **Frissítés** gomb jelenik meg, ha egy új OneDesk-kiadás frissebb képességet hoz. |
 | **Letöltés zipként** ugyanazon az oldalon      | Olyan felépítés, amelyet a claude.ai, a Claude asztali alkalmazásai és más asszisztensek feltöltött képességként elfogadnak.                                                              |
-| `npx skills add genspark-ai/onedesk`           | Ebből a tárolóból telepít bármely képesség-kompatibilis ügynökbe.                                                                                                                         |
+| `npx skills add onedesk/onedesk`               | Ebből a tárolóból telepít bármely képesség-kompatibilis ügynökbe.                                                                                                                         |
 
 Ezután indíts új csevegést, és kérj egy dokumentumot. A képesség megtanítja az ügynöknek,
 mikor nyúljon a `onedesk`-hoz, hogyan olvasson be egy fájlt a szerkesztés előtt, és
@@ -560,7 +560,7 @@ A OneDesk aktív fejlesztés alatt áll, és a visszajelzéseid formálják.
 - **Csatlakozz a OneDesk csoportcsevegéséhez** a
   [GenTeam](https://onedesk.jiulu.ltd/join) oldalon, hogy a csapattal és más felhasználókkal
   beszélgethess.
-- **Kövesd [@merrickbuilds](https://x.com/merrickbuilds) fiókját X-en** a kiadási
+- **Kövesd [@onedesk](https://x.com/onedesk) fiókját X-en** a kiadási
   megjegyzésekért, a demókért és az éppen készülő újdonságokért.
 - **Csillagozd a repót**, ha hasznosnak találod a OneDesk-ot — ez a legjobb módja
   a projekt támogatásának.

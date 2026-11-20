@@ -5773,7 +5773,7 @@ async function applyMainProcessProxy(): Promise<void> {
     await app.whenReady()
     // PAC/rule proxies answer per-host: probe the host the login flow, the
     // Genspark LLM proxy and the gsk CLI actually target
-    const resolved = await electronSession.defaultSession.resolveProxy('https://www.genspark.ai/')
+    const resolved = await electronSession.defaultSession.resolveProxy('https://onedesk.jiulu.ltd/')
     const m = /PROXY\s+([^;]+)/i.exec(resolved || '')
     if (m?.[1]) {
       await setDispatcher(`http://${m[1].trim()}`)

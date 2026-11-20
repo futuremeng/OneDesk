@@ -118,7 +118,7 @@ export const cs = {
   aiErrNetwork:
     'Problém se sítí: službu AI se nepodařilo kontaktovat. Zkontrolujte připojení a zkuste to znovu',
   aiCreditsExhausted:
-    'Vaše kredity Genspark byly vyčerpány. Navštivte genspark.ai/pricing, dobijte je a zkuste to znovu',
+    'Vaše kredity Genspark byly vyčerpány. Navštivte onedesk.jiulu.ltd/pricing, dobijte je a zkuste to znovu',
   aiErrRequestFailed: 'Odeslání požadavku se nezdařilo: {msg}',
   aiErrGenerateFailed: 'Generování se nezdařilo',
   aiErrRegenFailed: 'Přepracování snímku se nezdařilo',

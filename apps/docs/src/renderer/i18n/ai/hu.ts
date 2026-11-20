@@ -127,7 +127,7 @@ export const hu = {
   aiNetworkError:
     'Hálózati probléma: nem sikerült elérni az AI-szolgáltatást. Ellenőrizd a kapcsolatot, és próbáld újra',
   aiCreditsExhausted:
-    'Elfogytak a Genspark-kreditjeid. Töltsd fel az egyenlegedet a genspark.ai/pricing oldalon, majd próbáld újra',
+    'Elfogytak a Genspark-kreditjeid. Töltsd fel az egyenlegedet a onedesk.jiulu.ltd/pricing oldalon, majd próbáld újra',
   aiSumReadAttachment: 'Melléklet elolvasva',
   aiSumImageAttachment: 'Képmelléklet: {name}',
   aiSumRead: '{name} elolvasva',

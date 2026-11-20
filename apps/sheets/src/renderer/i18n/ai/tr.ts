@@ -69,7 +69,7 @@ export const tr = {
   aiOverloadedError: 'AI hizmeti şu anda meşgul — lütfen birazdan yeniden deneyin',
   aiNetworkError: 'Ağ sorunu: AI hizmetine ulaşılamadı. Bağlantınızı kontrol edip yeniden deneyin',
   aiCreditsExhausted:
-    'Genspark krediniz tükendi. Yüklemek için genspark.ai/pricing adresini ziyaret edin, sonra yeniden deneyin',
+    'Genspark krediniz tükendi. Yüklemek için onedesk.jiulu.ltd/pricing adresini ziyaret edin, sonra yeniden deneyin',
   aiToolWorkbookContext: 'Çalışma kitabı bilgisini oku',
   aiToolReadRange: 'Aralığı oku',
   aiToolReadRangeOf: '{range} aralığını oku',

@@ -70,7 +70,7 @@ export const pt = {
   aiNetworkError:
     'Problema de rede: não foi possível conectar ao serviço de IA. Verifique sua conexão e tente novamente',
   aiCreditsExhausted:
-    'Seus créditos Genspark acabaram. Recarregue em genspark.ai/pricing e tente novamente',
+    'Seus créditos Genspark acabaram. Recarregue em onedesk.jiulu.ltd/pricing e tente novamente',
   aiToolWorkbookContext: 'Ler informações da pasta de trabalho',
   aiToolReadRange: 'Ler intervalo',
   aiToolReadRangeOf: 'Ler intervalo {range}',

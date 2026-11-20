@@ -13,11 +13,11 @@
 Word、Excel、PowerPoint、PDF ファイルを、あなたとあなたの AI が編集し、実際のファイル形式のまま保存します。</p>
 
 <p align="center">
-  <a href="../../LICENSE"><img src="https://img.shields.io/github/license/genspark-ai/genoffice" alt="License: Apache-2.0"></a>
-  <a href="https://onedesk.jiulu.ltd/releases/latest"><img src="https://img.shields.io/github/v/release/genspark-ai/genoffice" alt="Latest release"></a>
-  <a href="https://onedesk.jiulu.ltd/releases"><img src="https://img.shields.io/github/downloads/genspark-ai/genoffice/total" alt="Downloads"></a>
-  <a href="https://onedesk.jiulu.ltd/stargazers"><img src="https://img.shields.io/github/stars/genspark-ai/genoffice?style=flat" alt="GitHub stars"></a>
-  <a href="https://x.com/merrickbuilds"><img src="https://img.shields.io/badge/follow-%40merrickbuilds-000000?logo=x&logoColor=white" alt="X で @merrickbuilds をフォロー"></a>
+  <a href="../../LICENSE"><img src="https://img.shields.io/github/license/onedesk/onedesk" alt="License: Apache-2.0"></a>
+  <a href="https://onedesk.jiulu.ltd/releases/latest"><img src="https://img.shields.io/github/v/release/onedesk/onedesk" alt="Latest release"></a>
+  <a href="https://onedesk.jiulu.ltd/releases"><img src="https://img.shields.io/github/downloads/onedesk/onedesk/total" alt="Downloads"></a>
+  <a href="https://onedesk.jiulu.ltd/stargazers"><img src="https://img.shields.io/github/stars/onedesk/onedesk?style=flat" alt="GitHub stars"></a>
+  <a href="https://x.com/onedesk"><img src="https://img.shields.io/badge/follow-%40onedesk-000000?logo=x&logoColor=white" alt="X で @onedesk をフォロー"></a>
 </p>
 
 <p align="center"><a href="../../README.md">English</a> · <a href="README.es.md">Español</a> · <a href="README.pt-BR.md">Português</a> · <a href="README.de.md">Deutsch</a> · <a href="README.fr.md">Français</a> · <a href="README.zh-CN.md">简体中文</a> · <a href="README.zh-TW.md">繁體中文</a> · <a href="README.ko.md">한국어</a> · <b>日本語</b> · <a href="README.ar.md">العربية</a> · <a href="README.ru.md">Русский</a> · <a href="README.it.md">Italiano</a> · <a href="README.nl.md">Nederlands</a> · <a href="README.pl.md">Polski</a> · <a href="README.cs.md">Čeština</a> · <a href="README.id.md">Bahasa Indonesia</a> · <a href="README.ms.md">Bahasa Melayu</a> · <a href="README.th.md">ไทย</a> · <a href="README.hi.md">हिन्दी</a> · <a href="README.he.md">עברית</a> · <a href="README.vi.md">Tiếng Việt</a> · <a href="README.tr.md">Türkçe</a> · <a href="README.hu.md">Magyar</a></p>
@@ -29,7 +29,7 @@ Word、Excel、PowerPoint、PDF ファイルを、あなたとあなたの AI �
   <a href="#mcp-server"><b>MCP</b></a> ·
   <a href="https://onedesk.jiulu.ltd/"><b>ウェブサイト</b></a> ·
   <a href="https://onedesk.jiulu.ltd/join"><b>コミュニティ</b></a> ·
-  <a href="https://x.com/merrickbuilds"><b>X</b></a> ·
+  <a href="https://x.com/onedesk"><b>X</b></a> ·
   <a href="../../PRIVACY.md"><b>プライバシー</b></a>
 </p>
 
@@ -188,7 +188,7 @@ OneDesk には `onedesk` コマンドラインとエージェントスキルが�
 </tr>
 <tr>
 <td><b>エージェントへのプロンプトは 1 つ</b> — 「太陽系についての 8 枚構成のデッキを作って」。エージェントはスキルを読み、スタイルシート、アウトライン、スライドごとのページ仕様を書き、<code>onedesk image</code> で 2 枚の写真を生成し、<code>onedesk slides check</code> にはみ出しや重なりのある要素を弾かせてから、<code>onedesk create</code> で <code>.pptx</code> を組み立て、<code>slides render</code> でスライドごとの PNG を受け取って確認します。</td>
-<td><b>インストールは設定 → 連携から 1 回だけ</b> — OneDesk がこのコンピューター上で見つかったコーディングエージェントを一覧し、選んだそれぞれにスキルを書き込みます。スキルを zip としてダウンロードするか、<code>npx skills add genspark-ai/onedesk</code> を実行しても構いません。コマンドとワークフローの全体は <a href="#command-line-and-agent-skill">コマンドラインとエージェントスキル</a> にあります。</td>
+<td><b>インストールは設定 → 連携から 1 回だけ</b> — OneDesk がこのコンピューター上で見つかったコーディングエージェントを一覧し、選んだそれぞれにスキルを書き込みます。スキルを zip としてダウンロードするか、<code>npx skills add onedesk/onedesk</code> を実行しても構いません。コマンドとワークフローの全体は <a href="#command-line-and-agent-skill">コマンドラインとエージェントスキル</a> にあります。</td>
 </tr>
 </table>
 
@@ -308,7 +308,7 @@ Claude Desktop とあらゆる MCP クライアントでも動作します。
 | --------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | アプリの **設定 → 連携**                | このコンピューター上で見つかったエージェントを一覧し、ワンクリックで選んだそれぞれにスキルを書き込みます。OneDesk のリリースに新しいスキルが含まれていると**更新**ボタンが表示されます。 |
 | 同じページの **zip としてダウンロード** | claude.ai、Claude デスクトップアプリ、その他のアシスタントがアップロード用スキルとして受け付ける構成です。                                                                               |
-| `npx skills add genspark-ai/onedesk`    | このリポジトリから、スキルに対応する任意のエージェントにインストールします。                                                                                                             |
+| `npx skills add onedesk/onedesk`        | このリポジトリから、スキルに対応する任意のエージェントにインストールします。                                                                                                             |
 
 その後、新しいチャットを始めてドキュメントを依頼してください。スキルは、いつ `onedesk` を使うべきか、
 編集前にファイルをどう読むか、自分の成果物をどう確認するかをエージェントに教えます。
@@ -543,7 +543,7 @@ OneDesk は活発に開発が続いており、みなさんのフィードバッ
   [GitHub Issues](https://onedesk.jiulu.ltd/issues) で受け付けています。
 - **OneDesk のグループチャット**に
   [GenTeam](https://onedesk.jiulu.ltd/join) から参加すると、開発チームや他のユーザーと直接話せます。
-- **X で [@merrickbuilds](https://x.com/merrickbuilds) をフォロー**すると、リリースノート、
+- **X で [@onedesk](https://x.com/onedesk) をフォロー**すると、リリースノート、
   デモ、次に開発しているものの情報が届きます。
 - OneDesk が役に立ったら**リポジトリにスターを付けてください** — プロジェクトを支援する
   一番簡単な方法です。

@@ -220,7 +220,7 @@ describe('parseGskImageSearch', () => {
       status: 'ok',
       data: [
         {
-          image_url: 'https://sspark.genspark.ai/img1',
+          image_url: 'https://static.onedesk.jiulu.ltd/img1',
           title: 'T1',
           source: 'Site',
           link: 'https://site.com/page',
@@ -233,7 +233,7 @@ describe('parseGskImageSearch', () => {
     expect(images).toEqual([
       {
         title: 'T1',
-        imageUrl: 'https://sspark.genspark.ai/img1',
+        imageUrl: 'https://static.onedesk.jiulu.ltd/img1',
         sourceUrl: 'https://site.com/page',
         source: 'Site',
         width: 1000,

@@ -115,7 +115,7 @@ export const th = {
   aiErrNetwork:
     'เครือข่ายมีปัญหา ไม่สามารถเชื่อมต่อบริการ AI ได้ โปรดตรวจสอบการเชื่อมต่อแล้วลองใหม่',
   aiCreditsExhausted:
-    'เครดิต Genspark ของคุณหมดแล้ว โปรดเติมเครดิตที่ genspark.ai/pricing แล้วลองใหม่',
+    'เครดิต Genspark ของคุณหมดแล้ว โปรดเติมเครดิตที่ onedesk.jiulu.ltd/pricing แล้วลองใหม่',
   aiErrRequestFailed: 'ส่งคำขอไม่สำเร็จ: {msg}',
   aiErrGenerateFailed: 'สร้างไม่สำเร็จ',
   aiErrRegenFailed: 'ทำหน้าใหม่ไม่สำเร็จ',

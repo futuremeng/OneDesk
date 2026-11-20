@@ -68,7 +68,7 @@ export const ja = {
   aiNetworkError:
     'ネットワークに問題があり、AI サービスに接続できません。接続を確認して再試行してください',
   aiCreditsExhausted:
-    'Gensparkクレジットを使い切りました。genspark.ai/pricing でチャージしてから再試行してください',
+    'Gensparkクレジットを使い切りました。onedesk.jiulu.ltd/pricing でチャージしてから再試行してください',
   aiToolWorkbookContext: 'ブック情報を読み取り',
   aiToolReadRange: '範囲を読み取り',
   aiToolReadRangeOf: '範囲 {range} を読み取り',

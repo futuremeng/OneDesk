@@ -13,11 +13,11 @@
 Word, Excel, PowerPoint, PDF 파일을 당신과 당신의 AI가 함께 편집하고, 실제 포맷 그대로 저장합니다.</p>
 
 <p align="center">
-  <a href="../../LICENSE"><img src="https://img.shields.io/github/license/genspark-ai/genoffice" alt="라이선스: Apache-2.0"></a>
-  <a href="https://onedesk.jiulu.ltd/releases/latest"><img src="https://img.shields.io/github/v/release/genspark-ai/genoffice" alt="최신 릴리스"></a>
-  <a href="https://onedesk.jiulu.ltd/releases"><img src="https://img.shields.io/github/downloads/genspark-ai/genoffice/total" alt="다운로드 수"></a>
-  <a href="https://onedesk.jiulu.ltd/stargazers"><img src="https://img.shields.io/github/stars/genspark-ai/genoffice?style=flat" alt="GitHub 스타 수"></a>
-  <a href="https://x.com/merrickbuilds"><img src="https://img.shields.io/badge/follow-%40merrickbuilds-000000?logo=x&logoColor=white" alt="X에서 @merrickbuilds 팔로우"></a>
+  <a href="../../LICENSE"><img src="https://img.shields.io/github/license/onedesk/onedesk" alt="라이선스: Apache-2.0"></a>
+  <a href="https://onedesk.jiulu.ltd/releases/latest"><img src="https://img.shields.io/github/v/release/onedesk/onedesk" alt="최신 릴리스"></a>
+  <a href="https://onedesk.jiulu.ltd/releases"><img src="https://img.shields.io/github/downloads/onedesk/onedesk/total" alt="다운로드 수"></a>
+  <a href="https://onedesk.jiulu.ltd/stargazers"><img src="https://img.shields.io/github/stars/onedesk/onedesk?style=flat" alt="GitHub 스타 수"></a>
+  <a href="https://x.com/onedesk"><img src="https://img.shields.io/badge/follow-%40onedesk-000000?logo=x&logoColor=white" alt="X에서 @onedesk 팔로우"></a>
 </p>
 
 <p align="center"><a href="../../README.md">English</a> · <a href="README.es.md">Español</a> · <a href="README.pt-BR.md">Português</a> · <a href="README.de.md">Deutsch</a> · <a href="README.fr.md">Français</a> · <a href="README.zh-CN.md">简体中文</a> · <a href="README.zh-TW.md">繁體中文</a> · <b>한국어</b> · <a href="README.ja.md">日本語</a> · <a href="README.ar.md">العربية</a> · <a href="README.ru.md">Русский</a> · <a href="README.it.md">Italiano</a> · <a href="README.nl.md">Nederlands</a> · <a href="README.pl.md">Polski</a> · <a href="README.cs.md">Čeština</a> · <a href="README.id.md">Bahasa Indonesia</a> · <a href="README.ms.md">Bahasa Melayu</a> · <a href="README.th.md">ไทย</a> · <a href="README.hi.md">हिन्दी</a> · <a href="README.he.md">עברית</a> · <a href="README.vi.md">Tiếng Việt</a> · <a href="README.tr.md">Türkçe</a> · <a href="README.hu.md">Magyar</a></p>
@@ -29,7 +29,7 @@ Word, Excel, PowerPoint, PDF 파일을 당신과 당신의 AI가 함께 편집�
   <a href="#mcp-server"><b>MCP</b></a> ·
   <a href="https://onedesk.jiulu.ltd/"><b>웹사이트</b></a> ·
   <a href="https://onedesk.jiulu.ltd/join"><b>커뮤니티</b></a> ·
-  <a href="https://x.com/merrickbuilds"><b>X</b></a> ·
+  <a href="https://x.com/onedesk"><b>X</b></a> ·
   <a href="../../PRIVACY.md"><b>개인정보</b></a>
 </p>
 
@@ -254,7 +254,7 @@ Windsurf가 앱과 동일한 엔진을 통해 창을 열지 않고도 실제 Off
 </tr>
 <tr>
 <td><b>에이전트에게 프롬프트 하나</b> — "태양계에 관한 8장짜리 덱을 만들어줘." 에이전트는 스킬을 읽고 스타일 시트, 개요, 슬라이드마다 하나씩의 페이지 스펙을 작성하고, <code>onedesk image</code>로 사진 두 장을 생성하고, <code>onedesk slides check</code>가 넘치거나 겹치는 요소를 걸러낸 뒤, <code>onedesk create</code>로 <code>.pptx</code>를 조립하고 <code>slides render</code>로 슬라이드마다 PNG 한 장을 받아 확인합니다.</td>
-<td><b>설정 → 연동에서 한 번만 설치</b> — OneDesk가 이 컴퓨터에서 찾은 코딩 에이전트를 나열하고, 선택한 각 에이전트에 스킬을 기록합니다. 스킬을 zip으로 내려받거나 <code>npx skills add genspark-ai/onedesk</code>를 실행해도 됩니다. 명령과 전체 워크플로는 <a href="#command-line-and-agent-skill">명령줄과 에이전트 스킬</a>에 있습니다.</td>
+<td><b>설정 → 연동에서 한 번만 설치</b> — OneDesk가 이 컴퓨터에서 찾은 코딩 에이전트를 나열하고, 선택한 각 에이전트에 스킬을 기록합니다. 스킬을 zip으로 내려받거나 <code>npx skills add onedesk/onedesk</code>를 실행해도 됩니다. 명령과 전체 워크플로는 <a href="#command-line-and-agent-skill">명령줄과 에이전트 스킬</a>에 있습니다.</td>
 </tr>
 </table>
 
@@ -374,11 +374,11 @@ OpenCode, Windsurf는 바로 사용할 수 있고, 스킬을 읽을 수 있는 �
 
 ### 스킬 설치
 
-| 방법                                 | 동작                                                                                                                                                               |
-| ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| 앱의 **설정 → 연동**                 | 이 컴퓨터에서 찾은 에이전트를 나열하고, 클릭 한 번으로 선택한 각 에이전트에 스킬을 기록합니다. OneDesk 릴리스에 새 스킬이 포함되면 **업데이트** 버튼이 나타납니다. |
-| 같은 페이지의 **zip으로 다운로드**   | claude.ai, Claude 데스크톱 앱, 그 밖의 어시스턴트가 업로드 스킬로 받아들이는 구조입니다.                                                                           |
-| `npx skills add genspark-ai/onedesk` | 이 저장소에서 스킬을 지원하는 모든 에이전트에 설치합니다.                                                                                                          |
+| 방법                               | 동작                                                                                                                                                               |
+| ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 앱의 **설정 → 연동**               | 이 컴퓨터에서 찾은 에이전트를 나열하고, 클릭 한 번으로 선택한 각 에이전트에 스킬을 기록합니다. OneDesk 릴리스에 새 스킬이 포함되면 **업데이트** 버튼이 나타납니다. |
+| 같은 페이지의 **zip으로 다운로드** | claude.ai, Claude 데스크톱 앱, 그 밖의 어시스턴트가 업로드 스킬로 받아들이는 구조입니다.                                                                           |
+| `npx skills add onedesk/onedesk`   | 이 저장소에서 스킬을 지원하는 모든 에이전트에 설치합니다.                                                                                                          |
 
 그런 다음 새 대화를 시작해 문서를 요청하세요. 스킬은 언제 `onedesk`를
 꺼내야 하는지, 편집 전에 파일을 어떻게 읽어야 하는지, 자신의 작업을
@@ -618,7 +618,7 @@ OneDesk는 활발히 개발되고 있으며, 여러분의 피드백이 그 방�
 - **OneDesk 그룹 채팅에 참여**하려면
   [GenTeam](https://onedesk.jiulu.ltd/join)에서 팀 및 다른 사용자들과 대화할 수 있습니다.
 - 릴리스 노트, 데모, 다음에 만들고 있는 것을 보려면 **X에서
-  [@merrickbuilds](https://x.com/merrickbuilds)를 팔로우**하세요.
+  [@onedesk](https://x.com/onedesk)를 팔로우**하세요.
 - OneDesk가 유용하다고 느끼셨다면 **저장소에 스타를 눌러주세요** —
   프로젝트를 지원하는 가장 좋은 방법입니다.
 

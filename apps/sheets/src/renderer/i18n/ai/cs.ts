@@ -69,7 +69,7 @@ export const cs = {
   aiNetworkError:
     'Problém se sítí: službu AI se nepodařilo kontaktovat. Zkontrolujte připojení a zkuste to znovu',
   aiCreditsExhausted:
-    'Vaše kredity Genspark jsou vyčerpány. Dobijte je na genspark.ai/pricing a zkuste to znovu',
+    'Vaše kredity Genspark jsou vyčerpány. Dobijte je na onedesk.jiulu.ltd/pricing a zkuste to znovu',
   aiToolWorkbookContext: 'Načtení informací o sešitu',
   aiToolReadRange: 'Načtení oblasti',
   aiToolReadRangeOf: 'Načtení oblasti {range}',

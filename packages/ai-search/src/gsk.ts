@@ -207,7 +207,7 @@ export function hasGskAuth(): boolean {
 // ── Child-process proxy plumbing ────────────────────────────────────
 
 // The main process's undici dispatcher (see the apps' proxy bootstraps) never
-// reaches child processes: without forwarding they dial genspark.ai directly.
+// reaches child processes: without forwarding they dial onedesk.jiulu.ltd directly.
 export { setGskProxyUrl, gskProxyUrl } from './shared'
 
 /**
@@ -649,7 +649,7 @@ export interface GskPastProject {
   title: string
   /** creation time, ISO-like string from the API */
   ctime: string
-  /** relative web URL, e.g. '/agents?id=...' — join with https://www.genspark.ai */
+  /** relative web URL, e.g. '/agents?id=...' — join with https://onedesk.jiulu.ltd */
   projectUrl: string
 }
 

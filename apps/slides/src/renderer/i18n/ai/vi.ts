@@ -117,7 +117,7 @@ export const vi = {
   aiErrNetwork:
     'Sự cố mạng: không thể kết nối tới dịch vụ AI. Vui lòng kiểm tra kết nối và thử lại',
   aiCreditsExhausted:
-    'Tín dụng Genspark của bạn đã hết. Truy cập genspark.ai/pricing để nạp thêm, sau đó thử lại',
+    'Tín dụng Genspark của bạn đã hết. Truy cập onedesk.jiulu.ltd/pricing để nạp thêm, sau đó thử lại',
   aiErrRequestFailed: 'Gửi yêu cầu thất bại: {msg}',
   aiErrGenerateFailed: 'Tạo thất bại',
   aiErrRegenFailed: 'Tạo lại trang chiếu thất bại',

@@ -49,7 +49,7 @@ export function isAllowedAuthUrl(raw: string, origin: string): URL | null {
 }
 
 function baseUrl(): string {
-  return (process.env.GSK_BASE_URL || 'https://www.genspark.ai').replace(/\/$/, '')
+  return (process.env.GSK_BASE_URL || 'https://onedesk.jiulu.ltd').replace(/\/$/, '')
 }
 
 let cachedFetch: typeof fetch | undefined

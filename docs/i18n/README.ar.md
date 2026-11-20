@@ -13,11 +13,11 @@
 ملفات Word و Excel و PowerPoint و PDF، يحرّرها أنت والذكاء الاصطناعي الخاص بك، وتُحفظ بالصيغ الأصلية نفسها.</p>
 
 <p align="center">
-  <a href="../../LICENSE"><img src="https://img.shields.io/github/license/genspark-ai/genoffice" alt="الترخيص: Apache-2.0"></a>
-  <a href="https://onedesk.jiulu.ltd/releases/latest"><img src="https://img.shields.io/github/v/release/genspark-ai/genoffice" alt="أحدث إصدار"></a>
-  <a href="https://onedesk.jiulu.ltd/releases"><img src="https://img.shields.io/github/downloads/genspark-ai/genoffice/total" alt="عدد التنزيلات"></a>
-  <a href="https://onedesk.jiulu.ltd/stargazers"><img src="https://img.shields.io/github/stars/genspark-ai/genoffice?style=flat" alt="نجوم GitHub"></a>
-  <a href="https://x.com/merrickbuilds"><img src="https://img.shields.io/badge/follow-%40merrickbuilds-000000?logo=x&logoColor=white" alt="تابع @merrickbuilds على X"></a>
+  <a href="../../LICENSE"><img src="https://img.shields.io/github/license/onedesk/onedesk" alt="الترخيص: Apache-2.0"></a>
+  <a href="https://onedesk.jiulu.ltd/releases/latest"><img src="https://img.shields.io/github/v/release/onedesk/onedesk" alt="أحدث إصدار"></a>
+  <a href="https://onedesk.jiulu.ltd/releases"><img src="https://img.shields.io/github/downloads/onedesk/onedesk/total" alt="عدد التنزيلات"></a>
+  <a href="https://onedesk.jiulu.ltd/stargazers"><img src="https://img.shields.io/github/stars/onedesk/onedesk?style=flat" alt="نجوم GitHub"></a>
+  <a href="https://x.com/onedesk"><img src="https://img.shields.io/badge/follow-%40onedesk-000000?logo=x&logoColor=white" alt="تابع @onedesk على X"></a>
 </p>
 
 <p align="center"><a href="../../README.md">English</a> · <a href="README.es.md">Español</a> · <a href="README.pt-BR.md">Português</a> · <a href="README.de.md">Deutsch</a> · <a href="README.fr.md">Français</a> · <a href="README.zh-CN.md">简体中文</a> · <a href="README.zh-TW.md">繁體中文</a> · <a href="README.ko.md">한국어</a> · <a href="README.ja.md">日本語</a> · <b>العربية</b> · <a href="README.ru.md">Русский</a> · <a href="README.it.md">Italiano</a> · <a href="README.nl.md">Nederlands</a> · <a href="README.pl.md">Polski</a> · <a href="README.cs.md">Čeština</a> · <a href="README.id.md">Bahasa Indonesia</a> · <a href="README.ms.md">Bahasa Melayu</a> · <a href="README.th.md">ไทย</a> · <a href="README.hi.md">हिन्दी</a> · <a href="README.he.md">עברית</a> · <a href="README.vi.md">Tiếng Việt</a> · <a href="README.tr.md">Türkçe</a> · <a href="README.hu.md">Magyar</a></p>
@@ -29,7 +29,7 @@
   <a href="#mcp-server"><b>MCP</b></a> ·
   <a href="https://onedesk.jiulu.ltd/"><b>الموقع الإلكتروني</b></a> ·
   <a href="https://onedesk.jiulu.ltd/join"><b>المجتمع</b></a> ·
-  <a href="https://x.com/merrickbuilds"><b>X</b></a> ·
+  <a href="https://x.com/onedesk"><b>X</b></a> ·
   <a href="../../PRIVACY.md"><b>الخصوصية</b></a>
 </p>
 
@@ -254,7 +254,7 @@ Windsurf من إنشاء ملفات Office حقيقية وتحويلها وقر�
 </tr>
 <tr>
 <td dir="rtl"><b>توجيه واحد إلى وكيلك</b> — "أنشئ عرضًا تقديميًا من ثماني شرائح عن المجموعة الشمسية." يقرأ الوكيل المهارة، ويكتب ورقة أنماط ومخططًا ومواصفة صفحة واحدة لكل شريحة، ويولّد الصورتين بواسطة <code>onedesk image</code>، ويترك <code>onedesk slides check</code> يرفض أي عنصر يتجاوز الحدود أو يتداخل قبل أن يجمّع <code>onedesk create</code> ملف <code>.pptx</code> ويُعيد <code>slides render</code> صورة PNG لكل شريحة لمعاينتها.</td>
-<td dir="rtl"><b>ثبّت مرة واحدة، من الإعدادات → التكاملات</b> — يسرد OneDesk وكلاء البرمجة الذين يجدهم على هذا الجهاز ويكتب المهارة في كل وكيل تختاره. أو نزّل المهارة كملف zip، أو شغّل <code>npx skills add genspark-ai/onedesk</code>. الأوامر وسير العمل الكامل في <a href="#command-line-and-agent-skill">سطر الأوامر ومهارة الوكيل</a>.</td>
+<td dir="rtl"><b>ثبّت مرة واحدة، من الإعدادات → التكاملات</b> — يسرد OneDesk وكلاء البرمجة الذين يجدهم على هذا الجهاز ويكتب المهارة في كل وكيل تختاره. أو نزّل المهارة كملف zip، أو شغّل <code>npx skills add onedesk/onedesk</code>. الأوامر وسير العمل الكامل في <a href="#command-line-and-agent-skill">سطر الأوامر ومهارة الوكيل</a>.</td>
 </tr>
 </table>
 
@@ -381,7 +381,7 @@ OneDesk، ولا يحتاج إلى بيئة تشغيل خاصة به، ولا ي
 | ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------ |
 | **الإعدادات → التكاملات** في التطبيق | يسرد الوكلاء الموجودين على هذا الجهاز؛ وبنقرة واحدة يكتب المهارة في كل وكيل تختاره. ويظهر زر **Update** عندما يصدر إصدار من OneDesk بمهارة أحدث. |
 | **التنزيل كملف zip** من الصفحة نفسها | التنسيق الذي يقبله claude.ai وتطبيقات Claude لسطح المكتب والمساعدون الآخرون كمهارة مرفوعة.                                                       |
-| `npx skills add genspark-ai/onedesk` | يثبّت من هذا المستودع في أي وكيل متوافق مع المهارات.                                                                                             |
+| `npx skills add onedesk/onedesk`     | يثبّت من هذا المستودع في أي وكيل متوافق مع المهارات.                                                                                             |
 
 ثم ابدأ محادثة جديدة واطلب مستندًا. تعلّم المهارة الوكيل متى يلجأ إلى
 `onedesk`، وكيف يقرأ الملف قبل تحريره، وكيف يتحقّق من عمله بنفسه.
@@ -622,7 +622,7 @@ OneDesk قيد تطوير نشط، وملاحظاتك هي ما يشكِّل م�
   [GitHub Issues](https://onedesk.jiulu.ltd/issues).
 - **انضم إلى محادثة مجموعة OneDesk** على
   [GenTeam](https://onedesk.jiulu.ltd/join) للتواصل مع الفريق والمستخدمين الآخرين.
-- **تابع [@merrickbuilds](https://x.com/merrickbuilds) على X** للاطلاع على
+- **تابع [@onedesk](https://x.com/onedesk) على X** للاطلاع على
   ملاحظات الإصدارات والعروض التوضيحية وما يُبنى تاليًا.
 - **أضِف نجمة (Star) للمستودع** إذا كان OneDesk مفيدًا لك — فهذه أفضل طريقة
   لدعم المشروع.

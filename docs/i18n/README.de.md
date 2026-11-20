@@ -13,11 +13,11 @@
 Word-, Excel-, PowerPoint- und PDF-Dateien, bearbeitet von dir und deiner KI, gespeichert in den echten Formaten.</p>
 
 <p align="center">
-  <a href="../../LICENSE"><img src="https://img.shields.io/github/license/genspark-ai/genoffice" alt="Lizenz: Apache-2.0"></a>
-  <a href="https://onedesk.jiulu.ltd/releases/latest"><img src="https://img.shields.io/github/v/release/genspark-ai/genoffice" alt="Neueste Version"></a>
-  <a href="https://onedesk.jiulu.ltd/releases"><img src="https://img.shields.io/github/downloads/genspark-ai/genoffice/total" alt="Downloads"></a>
-  <a href="https://onedesk.jiulu.ltd/stargazers"><img src="https://img.shields.io/github/stars/genspark-ai/genoffice?style=flat" alt="GitHub-Sterne"></a>
-  <a href="https://x.com/merrickbuilds"><img src="https://img.shields.io/badge/follow-%40merrickbuilds-000000?logo=x&logoColor=white" alt="@merrickbuilds auf X folgen"></a>
+  <a href="../../LICENSE"><img src="https://img.shields.io/github/license/onedesk/onedesk" alt="Lizenz: Apache-2.0"></a>
+  <a href="https://onedesk.jiulu.ltd/releases/latest"><img src="https://img.shields.io/github/v/release/onedesk/onedesk" alt="Neueste Version"></a>
+  <a href="https://onedesk.jiulu.ltd/releases"><img src="https://img.shields.io/github/downloads/onedesk/onedesk/total" alt="Downloads"></a>
+  <a href="https://onedesk.jiulu.ltd/stargazers"><img src="https://img.shields.io/github/stars/onedesk/onedesk?style=flat" alt="GitHub-Sterne"></a>
+  <a href="https://x.com/onedesk"><img src="https://img.shields.io/badge/follow-%40onedesk-000000?logo=x&logoColor=white" alt="@onedesk auf X folgen"></a>
 </p>
 
 <p align="center"><a href="../../README.md">English</a> · <a href="README.es.md">Español</a> · <a href="README.pt-BR.md">Português</a> · <b>Deutsch</b> · <a href="README.fr.md">Français</a> · <a href="README.zh-CN.md">简体中文</a> · <a href="README.zh-TW.md">繁體中文</a> · <a href="README.ko.md">한국어</a> · <a href="README.ja.md">日本語</a> · <a href="README.ar.md">العربية</a> · <a href="README.ru.md">Русский</a> · <a href="README.it.md">Italiano</a> · <a href="README.nl.md">Nederlands</a> · <a href="README.pl.md">Polski</a> · <a href="README.cs.md">Čeština</a> · <a href="README.id.md">Bahasa Indonesia</a> · <a href="README.ms.md">Bahasa Melayu</a> · <a href="README.th.md">ไทย</a> · <a href="README.hi.md">हिन्दी</a> · <a href="README.he.md">עברית</a> · <a href="README.vi.md">Tiếng Việt</a> · <a href="README.tr.md">Türkçe</a> · <a href="README.hu.md">Magyar</a></p>
@@ -29,7 +29,7 @@ Word-, Excel-, PowerPoint- und PDF-Dateien, bearbeitet von dir und deiner KI, ge
   <a href="#mcp-server"><b>MCP</b></a> ·
   <a href="https://onedesk.jiulu.ltd/"><b>Website</b></a> ·
   <a href="https://onedesk.jiulu.ltd/join"><b>Community</b></a> ·
-  <a href="https://x.com/merrickbuilds"><b>X</b></a> ·
+  <a href="https://x.com/onedesk"><b>X</b></a> ·
   <a href="../../PRIVACY.md"><b>Datenschutz</b></a>
 </p>
 
@@ -268,7 +268,7 @@ Fenster zu öffnen.
 </tr>
 <tr>
 <td><b>Ein Prompt an deinen Agenten</b> — „Erstelle eine Präsentation mit acht Folien über das Sonnensystem.“ Der Agent liest den Skill, schreibt ein Stylesheet, eine Gliederung und eine Seitenspezifikation pro Folie, generiert die beiden Fotos mit <code>onedesk image</code> und lässt <code>onedesk slides check</code> alles zurückweisen, was überläuft oder sich überlappt, bevor <code>onedesk create</code> die <code>.pptx</code> zusammensetzt und <code>slides render</code> pro Folie ein PNG zum Anschauen zurückgibt.</td>
-<td><b>Einmal installieren, unter Einstellungen → Integrationen</b> — OneDesk listet die Coding-Agenten auf, die es auf diesem Rechner findet, und schreibt den Skill in jeden, den du auswählst. Oder lade den Skill als Zip herunter oder führe <code>npx skills add genspark-ai/onedesk</code> aus. Befehle und der vollständige Workflow stehen unter <a href="#command-line-and-agent-skill">Befehlszeile und Agent-Skill</a>.</td>
+<td><b>Einmal installieren, unter Einstellungen → Integrationen</b> — OneDesk listet die Coding-Agenten auf, die es auf diesem Rechner findet, und schreibt den Skill in jeden, den du auswählst. Oder lade den Skill als Zip herunter oder führe <code>npx skills add onedesk/onedesk</code> aus. Befehle und der vollständige Workflow stehen unter <a href="#command-line-and-agent-skill">Befehlszeile und Agent-Skill</a>.</td>
 </tr>
 </table>
 
@@ -402,7 +402,7 @@ MCP-Client.
 | --------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Einstellungen → Integrationen** in der App  | Listet die auf diesem Rechner gefundenen Agenten auf; ein Klick schreibt den Skill in jeden, den du auswählst. Eine **Aktualisieren**-Schaltfläche erscheint, wenn eine OneDesk-Version einen neueren Skill mitbringt. |
 | **Als Zip herunterladen** auf derselben Seite | Das Layout, das claude.ai, die Claude-Desktop-Apps und andere Assistenten als hochgeladenen Skill akzeptieren.                                                                                                         |
-| `npx skills add genspark-ai/onedesk`          | Installiert aus diesem Repository in jeden Skills-kompatiblen Agenten.                                                                                                                                                 |
+| `npx skills add onedesk/onedesk`              | Installiert aus diesem Repository in jeden Skills-kompatiblen Agenten.                                                                                                                                                 |
 
 Starte dann einen neuen Chat und bitte um ein Dokument. Der Skill bringt dem
 Agenten bei, wann er zu `onedesk` greifen soll, wie er eine Datei vor dem
@@ -659,7 +659,7 @@ OneDesk wird aktiv weiterentwickelt, und dein Feedback prägt es mit.
 - **Tritt dem OneDesk-Gruppenchat** auf
   [GenTeam](https://onedesk.jiulu.ltd/join) bei, um mit dem Team und anderen
   Nutzern zu sprechen.
-- **Folge [@merrickbuilds](https://x.com/merrickbuilds) auf X** für
+- **Folge [@onedesk](https://x.com/onedesk) auf X** für
   Release-Notes, Demos und das, was als Nächstes gebaut wird.
 - **Gib dem Repo einen Stern**, wenn dir OneDesk nützlich ist – das ist
   die beste Art, das Projekt zu unterstützen.

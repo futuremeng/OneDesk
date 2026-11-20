@@ -40,7 +40,7 @@ describe('isAiNetworkError', () => {
 
   it('matches DNS and unreachable-host failures', () => {
     expect(isAiNetworkError(new Error('getaddrinfo ENOTFOUND api.anthropic.com'))).toBe(true)
-    expect(isAiNetworkError(new Error('getaddrinfo EAI_AGAIN llm.genspark.ai'))).toBe(true)
+    expect(isAiNetworkError(new Error('getaddrinfo EAI_AGAIN llm.onedesk.jiulu.ltd'))).toBe(true)
     expect(isAiNetworkError(new Error('connect ENETUNREACH 1.2.3.4:443'))).toBe(true)
   })
 

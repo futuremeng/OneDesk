@@ -127,7 +127,7 @@ export const de = {
   aiNetworkError:
     'Netzwerkproblem: Der KI-Dienst ist nicht erreichbar. Prüfe deine Verbindung und versuche es erneut',
   aiCreditsExhausted:
-    'Deine Genspark-Credits sind aufgebraucht. Lade unter genspark.ai/pricing auf und versuche es erneut',
+    'Deine Genspark-Credits sind aufgebraucht. Lade unter onedesk.jiulu.ltd/pricing auf und versuche es erneut',
   aiSumReadAttachment: 'Anlage lesen',
   aiSumImageAttachment: 'Bildanlage {name}',
   aiSumRead: '{name} lesen',

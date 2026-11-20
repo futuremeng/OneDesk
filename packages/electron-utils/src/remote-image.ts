@@ -1,5 +1,5 @@
 /// Downloader for AI-inserted images. Image-search results largely live on the
-/// Genspark CDN (sspark.genspark.ai), which intermittently refuses bare
+/// Genspark CDN (static.onedesk.jiulu.ltd), which intermittently refuses bare
 /// requests; browser-like headers plus a Referer on genspark hosts and a couple
 /// of retries turn most of those transient failures into successful inserts.
 
@@ -74,8 +74,8 @@ export function remoteImageHeaders(rawUrl: string): Record<string, string> {
   }
   try {
     const host = new URL(rawUrl).hostname.toLowerCase()
-    if (host === 'genspark.ai' || host.endsWith('.genspark.ai')) {
-      headers.Referer = 'https://www.genspark.ai/'
+    if (host === 'onedesk.jiulu.ltd' || host.endsWith('.onedesk.jiulu.ltd')) {
+      headers.Referer = 'https://onedesk.jiulu.ltd/'
     }
   } catch {
     /* fetchWithSsrfGuard rejects unparseable URLs on its own */

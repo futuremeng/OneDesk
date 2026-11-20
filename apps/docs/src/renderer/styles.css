@@ -755,7 +755,7 @@ html.onedesk-popover-open .ribbon-tabs {
 }
 
 /* Slim visible scrollbar so mouse users can reach overflowed groups
-   (genspark-ai/onedesk#55 precedent from the sheets ribbon). */
+   (onedesk/onedesk#55 precedent from the sheets ribbon). */
 .ribbon-body::-webkit-scrollbar {
   height: 5px;
 }

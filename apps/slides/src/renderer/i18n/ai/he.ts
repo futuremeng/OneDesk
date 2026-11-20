@@ -111,7 +111,7 @@ export const he = {
   aiErrRegion: 'ספק המודל הזה אינו פועל באזור הנוכחי שלך — בחרו מודל אחר או החליפו רשת',
   aiErrOverloaded: 'שירות ה-AI עמוס כרגע — נסו שוב בעוד רגע',
   aiErrNetwork: 'בעיית רשת: לא ניתן להתחבר לשירות ה-AI. בדוק את החיבור ונסה שוב',
-  aiCreditsExhausted: 'קרדיטי Genspark שלך אזלו. טען מחדש ב-genspark.ai/pricing ונסה שוב',
+  aiCreditsExhausted: 'קרדיטי Genspark שלך אזלו. טען מחדש ב-onedesk.jiulu.ltd/pricing ונסה שוב',
   aiErrRequestFailed: 'שליחת הבקשה נכשלה: {msg}',
   aiErrGenerateFailed: 'היצירה נכשלה',
   aiErrRegenFailed: 'יצירת השקופית מחדש נכשלה',

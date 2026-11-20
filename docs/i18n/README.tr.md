@@ -13,11 +13,11 @@
 Word, Excel, PowerPoint ve PDF dosyaları; siz ve yapay zekânız tarafından düzenlenir, gerçek biçimlerinde geri kaydedilir.</p>
 
 <p align="center">
-  <a href="../../LICENSE"><img src="https://img.shields.io/github/license/genspark-ai/genoffice" alt="Lisans: Apache-2.0"></a>
-  <a href="https://onedesk.jiulu.ltd/releases/latest"><img src="https://img.shields.io/github/v/release/genspark-ai/genoffice" alt="Son sürüm"></a>
-  <a href="https://onedesk.jiulu.ltd/releases"><img src="https://img.shields.io/github/downloads/genspark-ai/genoffice/total" alt="İndirmeler"></a>
-  <a href="https://onedesk.jiulu.ltd/stargazers"><img src="https://img.shields.io/github/stars/genspark-ai/genoffice?style=flat" alt="GitHub yıldızları"></a>
-  <a href="https://x.com/merrickbuilds"><img src="https://img.shields.io/badge/follow-%40merrickbuilds-000000?logo=x&logoColor=white" alt="X'te @merrickbuilds'i takip edin"></a>
+  <a href="../../LICENSE"><img src="https://img.shields.io/github/license/onedesk/onedesk" alt="Lisans: Apache-2.0"></a>
+  <a href="https://onedesk.jiulu.ltd/releases/latest"><img src="https://img.shields.io/github/v/release/onedesk/onedesk" alt="Son sürüm"></a>
+  <a href="https://onedesk.jiulu.ltd/releases"><img src="https://img.shields.io/github/downloads/onedesk/onedesk/total" alt="İndirmeler"></a>
+  <a href="https://onedesk.jiulu.ltd/stargazers"><img src="https://img.shields.io/github/stars/onedesk/onedesk?style=flat" alt="GitHub yıldızları"></a>
+  <a href="https://x.com/onedesk"><img src="https://img.shields.io/badge/follow-%40onedesk-000000?logo=x&logoColor=white" alt="X'te @onedesk'i takip edin"></a>
 </p>
 
 <p align="center"><a href="../../README.md">English</a> · <a href="README.es.md">Español</a> · <a href="README.pt-BR.md">Português</a> · <a href="README.de.md">Deutsch</a> · <a href="README.fr.md">Français</a> · <a href="README.zh-CN.md">简体中文</a> · <a href="README.zh-TW.md">繁體中文</a> · <a href="README.ko.md">한국어</a> · <a href="README.ja.md">日本語</a> · <a href="README.ar.md">العربية</a> · <a href="README.ru.md">Русский</a> · <a href="README.it.md">Italiano</a> · <a href="README.nl.md">Nederlands</a> · <a href="README.pl.md">Polski</a> · <a href="README.cs.md">Čeština</a> · <a href="README.id.md">Bahasa Indonesia</a> · <a href="README.ms.md">Bahasa Melayu</a> · <a href="README.th.md">ไทย</a> · <a href="README.hi.md">हिन्दी</a> · <a href="README.he.md">עברית</a> · <a href="README.vi.md">Tiếng Việt</a> · <b>Türkçe</b> · <a href="README.hu.md">Magyar</a></p><!-- lang-switcher · public-hygiene: allow -->
@@ -29,7 +29,7 @@ Word, Excel, PowerPoint ve PDF dosyaları; siz ve yapay zekânız tarafından d�
   <a href="#mcp-server"><b>MCP</b></a> ·
   <a href="https://onedesk.jiulu.ltd/"><b>Web sitesi</b></a> ·
   <a href="https://onedesk.jiulu.ltd/join"><b>Topluluk</b></a> ·
-  <a href="https://x.com/merrickbuilds"><b>X</b></a> ·
+  <a href="https://x.com/onedesk"><b>X</b></a> ·
   <a href="../../PRIVACY.md"><b>Gizlilik</b></a>
 </p>
 
@@ -261,7 +261,7 @@ Office dosyaları oluşturabilir, dönüştürebilir, okuyabilir ve düzenleyebi
 </tr>
 <tr>
 <td><b>Ajanınıza tek bir istem</b> — "Güneş Sistemi hakkında sekiz slaytlık bir sunum oluştur." Ajan skill'i okur, bir stil sayfası, bir ana hat ve slayt başına bir sayfa spesifikasyonu yazar, iki fotoğrafı <code>onedesk image</code> ile üretir ve <code>onedesk create</code> dosyayı <code>.pptx</code> olarak birleştirip <code>slides render</code> bakmanız için slayt başına bir PNG vermeden önce <code>onedesk slides check</code> komutunun taşan ya da çakışan her şeyi reddetmesine izin verir.</td>
-<td><b>Bir kez kurun, Ayarlar → Integrations üzerinden</b> — OneDesk bu bilgisayarda bulduğu kodlama ajanlarını listeler ve skill'i seçtiğiniz her birine yazar. Ya da skill'i zip olarak indirin ya da <code>npx skills add genspark-ai/onedesk</code> çalıştırın. Komutlar ve tam iş akışı <a href="#command-line-and-agent-skill">Komut satırı ve ajan skill'i</a> bölümünde.</td>
+<td><b>Bir kez kurun, Ayarlar → Integrations üzerinden</b> — OneDesk bu bilgisayarda bulduğu kodlama ajanlarını listeler ve skill'i seçtiğiniz her birine yazar. Ya da skill'i zip olarak indirin ya da <code>npx skills add onedesk/onedesk</code> çalıştırın. Komutlar ve tam iş akışı <a href="#command-line-and-agent-skill">Komut satırı ve ajan skill'i</a> bölümünde.</td>
 </tr>
 </table>
 
@@ -402,7 +402,7 @@ istemcisi.
 | ------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Uygulamada **Ayarlar → Integrations** | Bu bilgisayarda bulunan ajanları listeler; tek tık skill'i seçtiğiniz her birine yazar. Bir OneDesk sürümü daha yeni bir skill getirdiğinde bir **Update** düğmesi belirir. |
 | Aynı sayfadaki **Download as zip**    | claude.ai, Claude masaüstü uygulamaları ve diğer asistanların yüklenen skill olarak kabul ettiği düzen.                                                                     |
-| `npx skills add genspark-ai/onedesk`  | Bu depodan skill uyumlu herhangi bir ajana kurar.                                                                                                                           |
+| `npx skills add onedesk/onedesk`      | Bu depodan skill uyumlu herhangi bir ajana kurar.                                                                                                                           |
 
 Ardından yeni bir sohbet başlatın ve bir belge isteyin. Skill, ajana ne zaman
 `onedesk`'e başvuracağını, bir dosyayı düzenlemeden önce nasıl okuyacağını
@@ -652,7 +652,7 @@ OneDesk etkin geliştirme aşamasındadır ve geri bildiriminiz onu şekillendir
   [GitHub Issues](https://onedesk.jiulu.ltd/issues).
 - **OneDesk grup sohbetine katılın:** ekiple ve diğer kullanıcılarla konuşmak
   için [GenTeam](https://onedesk.jiulu.ltd/join).
-- **X'te [@merrickbuilds](https://x.com/merrickbuilds) hesabını takip edin:**
+- **X'te [@onedesk](https://x.com/onedesk) hesabını takip edin:**
   sürüm notları, demolar ve sırada ne olduğu için.
 - **Depoya yıldız verin:** OneDesk size yararlıysa, projeyi desteklemenin en
   iyi yolu budur.

@@ -118,7 +118,7 @@ export const pt = {
   aiErrNetwork:
     'Problema de rede: não foi possível conectar ao serviço de IA. Verifique sua conexão e tente novamente',
   aiCreditsExhausted:
-    'Seus créditos Genspark acabaram. Recarregue em genspark.ai/pricing e tente novamente',
+    'Seus créditos Genspark acabaram. Recarregue em onedesk.jiulu.ltd/pricing e tente novamente',
   aiErrRequestFailed: 'Falha ao enviar a solicitação: {msg}',
   aiErrGenerateFailed: 'Falha na geração',
   aiErrRegenFailed: 'Falha ao refazer o slide',

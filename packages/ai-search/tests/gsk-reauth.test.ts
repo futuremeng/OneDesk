@@ -27,7 +27,7 @@ import {
   resetGskRejectedKeys,
 } from '../src/gsk'
 
-const AUTH_URL = `https://www.genspark.ai/api/office_addin_auth/verify?code=${'a'.repeat(64)}`
+const AUTH_URL = `https://onedesk.jiulu.ltd/api/office_addin_auth/verify?code=${'a'.repeat(64)}`
 
 let dir: string
 
