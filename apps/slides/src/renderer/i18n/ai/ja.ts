@@ -17,9 +17,9 @@ export const ja = {
   aiQcPageSkipped: 'ページ {n}:自動レイアウトチェックをスキップ',
   aiQcStopped: 'レイアウトチェックを停止しました',
   aiQcCapped: '残り {count} ページは未チェック(1回の上限)',
-  aiGskLoginBtn: 'Genspark にサインイン',
-  aiGskLoginOk: 'Genspark にサインインしました',
-  aiPanelTitle: 'Genspark',
+  aiOneDeskLoginBtn: 'OneDesk にサインイン',
+  aiOneDeskLoginOk: 'OneDesk にサインインしました',
+  aiPanelTitle: 'OneDesk',
   aiOpenAssistant: 'AI アシスタントを開く',
   aiFactCheckBtn: 'AI ファクトチェック',
   aiFactCheckPrompt:
@@ -116,7 +116,7 @@ export const ja = {
   aiErrNetwork:
     'ネットワークに問題があり、AI サービスに接続できません。接続を確認して再試行してください',
   aiCreditsExhausted:
-    'Gensparkクレジットを使い切りました。onedesk.jiulu.ltd/pricing でチャージしてから再試行してください',
+    'OneDeskクレジットを使い切りました。onedesk.jiulu.ltd/pricing でチャージしてから再試行してください',
   aiErrRequestFailed: 'リクエストの送信に失敗しました: {msg}',
   aiErrGenerateFailed: '生成に失敗しました',
   aiErrRegenFailed: 'ページの再生成に失敗しました',

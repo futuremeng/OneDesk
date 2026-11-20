@@ -68,7 +68,7 @@ nikdy zdrojový formát.
   a **Ask AI** na domovské obrazovce odpovídá na otázky napříč nimi a u každého
   tvrzení cituje soubor, ze kterého vychází, takže jej můžete otevřít
   a ověřit.
-- **Vaše klíče, nebo žádné.** Přihlaste se přes Genspark a klíče nepotřebujete,
+- **Vaše klíče, nebo žádné.** Přihlaste se přes OneDesk a klíče nepotřebujete,
   nebo použijte vlastní klíč pro Claude, OpenAI, Gemini, DeepSeek, Kimi, GLM,
   Qwen, Doubao, MiniMax, Grok, Mistral, OpenRouter, Requesty, Opper, Cheaper
   Inference, Atlas Cloud nebo jakýkoli OpenAI kompatibilní endpoint, včetně
@@ -304,7 +304,7 @@ Soubor `.doc` z Wordu 97–2003, excelový `.xls` nebo powerpointový `.ppt` se 
 - **AI, která upravuje dokument přímo.** Sledované změny v Docs, živé vzorce
   a grafy v Sheets, prezentace kreslené přímo na plochu, každý krok AI je
   snapshot, ke kterému se lze vrátit.
-- **Vlastní model, vlastní klíč.** Přihlaste se přes Genspark, nebo použijte
+- **Vlastní model, vlastní klíč.** Přihlaste se přes OneDesk, nebo použijte
   klíč pro Claude, OpenAI, Gemini, DeepSeek a další, včetně lokálních serverů
   a jakéhokoli OpenAI kompatibilního endpointu.
 - **PDF udělané správně.** Upravujte text přímo na stránce a převádějte PDF
@@ -325,8 +325,8 @@ Soubor `.doc` z Wordu 97–2003, excelový `.xls` nebo powerpointový `.ppt` se 
 
 ## AI backendy
 
-**Přihlaste se přes Genspark** a nemusíte nic nastavovat: volání modelů
-prochází přes proxy Genspark (rodiny Claude, GPT a Gemini) a agenti získávají
+**Přihlaste se přes OneDesk** a nemusíte nic nastavovat: volání modelů
+prochází přes proxy OneDesk (rodiny Claude, GPT a Gemini) a agenti získávají
 webové a obrázkové vyhledávání, generování obrázků a analýzu
 obrázků/zvuku/videa.
 
@@ -350,7 +350,7 @@ neopouští.
 
 **Parallel** funguje bez účtu: jeho bezplatné Search MCP (s omezením počtu
 požadavků) je výchozím webovým vyhledáváním, kdykoli není nastaveno přihlášení
-přes Genspark ani klíč pro vyhledávání, a má přednost před scrapováním
+přes OneDesk ani klíč pro vyhledávání, a má přednost před scrapováním
 DuckDuckGo. Chcete-li místo toho používat Search API, vyberte Parallel pod
 Web search a zadejte klíč [Parallel](https://platform.parallel.ai/). I Keenable
 je bez klíče; klíč pouze zvýší limity počtu požadavků.
@@ -670,7 +670,7 @@ otevírají jako převedené kopie](#legacy-and-odf-files-open-as-converted-copi
 Úprava dokumentů je zcela lokální — soubory neopustí váš počítač při
 otevírání, úpravách, ukládání ani konverzi. AI funkce (agenti, vyhledávání,
 nástroje pro obrázky) potřebují síťové připojení, buď s přihlášením přes
-Genspark, nebo s vlastním API klíčem k modelu.
+OneDesk, nebo s vlastním API klíčem k modelu.
 
 </details>
 
@@ -695,7 +695,7 @@ OCR, takže se převedou na editovatelný text, ne na obrázek stránky.
 <details>
 <summary><b>Můžu použít vlastní AI model nebo API klíč?</b></summary>
 
-Ano. Kromě bezklíčového přihlášení Genspark OneDesk podporuje vlastní klíč
+Ano. Kromě bezklíčového přihlášení OneDesk OneDesk podporuje vlastní klíč
 pro Claude, OpenAI, Gemini, DeepSeek, Kimi, GLM, Qwen, Doubao, MiniMax, Grok,
 Mistral, OpenRouter, Requesty, Opper, Cheaper Inference, Atlas Cloud a OpenCode Zen/Go, plus jakýkoli OpenAI kompatibilní
 endpoint — včetně lokálních serverů s modely. Vyhledávání, generování obrázků
@@ -813,6 +813,6 @@ OneDesk je licencován pod [Apache License 2.0](../../LICENSE), s jednou
 výjimkou: adresář `ee/` je vyhrazen pro budoucí podnikové moduly a je kryt
 [OneDesk Enterprise License](../../ee/LICENSE).
 
-Názvy a loga OneDesk a Genspark jsou ochranné známky společnosti Mainfunc,
+Názvy a loga OneDesk a OneDesk jsou ochranné známky společnosti Mainfunc,
 Inc. Licence Apache-2.0 neuděluje oprávnění je používat (viz oddíl 6); forky
 by měly používat vlastní branding.

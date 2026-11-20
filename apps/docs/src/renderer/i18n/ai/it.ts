@@ -9,9 +9,9 @@ export const it = {
   aiStarterPolishAll: "Rifinisci l'intero documento con un tono più professionale",
   aiStarterContinue: 'Continua a scrivere da dove il documento si interrompe',
   aiStarterFillTemplate: 'Trova e compila i segnaposto nel documento',
-  aiGskLoginBtn: 'Accedi a Genspark',
-  aiGskLoginOk: 'Accesso a Genspark effettuato',
-  aiPanelTitle: 'Genspark',
+  aiOneDeskLoginBtn: 'Accedi a OneDesk',
+  aiOneDeskLoginOk: 'Accesso a OneDesk effettuato',
+  aiPanelTitle: 'OneDesk',
   aiOpenAssistant: "Apri l'assistente IA",
   aiSummarizeBtn: 'Riassunto IA',
   aiSummarizePrompt: 'Riassumi il contenuto principale e i punti chiave di questo documento',
@@ -127,7 +127,7 @@ export const it = {
   aiNetworkError:
     'Problema di rete: impossibile raggiungere il servizio IA. Controlla la connessione e riprova',
   aiCreditsExhausted:
-    'I tuoi crediti Genspark sono esauriti. Ricarica su onedesk.jiulu.ltd/pricing e riprova',
+    'I tuoi crediti OneDesk sono esauriti. Ricarica su onedesk.jiulu.ltd/pricing e riprova',
   aiSumReadAttachment: 'Lettura allegato',
   aiSumImageAttachment: 'Immagine allegata {name}',
   aiSumRead: 'Lettura di {name}',

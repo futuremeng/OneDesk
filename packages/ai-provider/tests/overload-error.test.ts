@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest'
 import { isAiOverloadedError } from '../src/overload-error'
 
 describe('isAiOverloadedError', () => {
-  it('matches the Genspark gateway 429 engine-overloaded body', () => {
+  it('matches the OneDesk gateway 429 engine-overloaded body', () => {
     expect(
       isAiOverloadedError(
         new Error(
@@ -34,7 +34,7 @@ describe('isAiOverloadedError', () => {
     expect(
       isAiOverloadedError(
         new Error(
-          'Your Genspark credits have been exhausted. Visit onedesk.jiulu.ltd/pricing to top up',
+          'Your OneDesk credits have been exhausted. Visit onedesk.jiulu.ltd/pricing to top up',
         ),
       ),
     ).toBe(false)
@@ -43,7 +43,7 @@ describe('isAiOverloadedError', () => {
   it('still exempts a credits-exhausted body that carries an HTTP status', () => {
     expect(
       isAiOverloadedError(
-        new Error('HTTP 429: {"error":{"message":"Your Genspark credits have been exhausted"}}'),
+        new Error('HTTP 429: {"error":{"message":"Your OneDesk credits have been exhausted"}}'),
       ),
     ).toBe(false)
     expect(

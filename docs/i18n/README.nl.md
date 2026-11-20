@@ -70,7 +70,7 @@ bronformaat.
   ster en **Ask AI** op het startscherm beantwoordt vragen over al die
   documenten heen, met bij elke bewering het bestand erachter, zodat je het
   kunt openen en controleren.
-- **Jouw eigen keys, of geen enkele.** Log in met Genspark en je hoeft niets te
+- **Jouw eigen keys, of geen enkele.** Log in met OneDesk en je hoeft niets te
   regelen, of gebruik je eigen key voor Claude, OpenAI, Gemini, DeepSeek,
   Kimi, GLM, Qwen, Doubao, MiniMax, Grok, Mistral, OpenRouter, Requesty,
   Opper, Cheaper Inference, Atlas Cloud, of elk OpenAI-compatibel endpoint,
@@ -310,7 +310,7 @@ Een Word 97–2003-bestand `.doc`, een Excel-bestand `.xls` of een PowerPoint-be
 - **Een AI die het document zelf bewerkt.** Tracked changes in Docs, live
   formules en grafieken in Sheets, slides die direct op het canvas worden
   getekend, elke AI-beurt een snapshot waarnaar je kunt teruggaan.
-- **Je eigen model, je eigen key.** Log in met Genspark, of gebruik een key
+- **Je eigen model, je eigen key.** Log in met OneDesk, of gebruik een key
   voor Claude, OpenAI, Gemini, DeepSeek en meer, inclusief lokale servers en
   elk OpenAI-compatibel endpoint.
 - **PDF goed gedaan.** Bewerk tekst direct op de pagina en converteer PDF
@@ -331,8 +331,8 @@ Een Word 97–2003-bestand `.doc`, een Excel-bestand `.xls` of een PowerPoint-be
 
 ## AI-backends
 
-**Log in met Genspark** en er is niets te configureren: modelaanroepen lopen
-via de Genspark-proxy (de Claude-, GPT- en Gemini-families) en de agents
+**Log in met OneDesk** en er is niets te configureren: modelaanroepen lopen
+via de OneDesk-proxy (de Claude-, GPT- en Gemini-families) en de agents
 krijgen toegang tot web- en beeldzoeken, beeldgeneratie en analyse van beeld,
 audio en video.
 
@@ -355,7 +355,7 @@ fragmenten van de 20 beste lokale treffers ter beoordeling verstuurd en
 verlaat verder niets de machine.
 
 **Parallel** werkt zonder account: de gratis Search MCP (met rate limit) is
-de standaard voor webzoeken zolang er geen Genspark-login of search-key is
+de standaard voor webzoeken zolang er geen OneDesk-login of search-key is
 ingesteld, en gaat vóór de DuckDuckGo-scrape. Kies Parallel onder Web search
 en vul een [Parallel](https://platform.parallel.ai/)-key in om in plaats
 daarvan de Search API te gebruiken. Keenable werkt ook keyless; een key
@@ -687,7 +687,7 @@ kopieën](#legacy-and-odf-files-open-as-converted-copies).
 Documenten bewerken is volledig lokaal — bestanden verlaten je machine nooit
 om te worden geopend, bewerkt, opgeslagen of geconverteerd. De AI-functies
 (agents, search, beeldtools) hebben een netwerkverbinding nodig, met ofwel
-een Genspark-login of je eigen model-API-key.
+een OneDesk-login of je eigen model-API-key.
 
 </details>
 
@@ -714,7 +714,7 @@ pagina-afbeelding.
 <details>
 <summary><b>Kan ik mijn eigen AI-model of API-key gebruiken?</b></summary>
 
-Ja. Naast de keyless Genspark-login ondersteunt OneDesk je eigen key voor
+Ja. Naast de keyless OneDesk-login ondersteunt OneDesk je eigen key voor
 Claude, OpenAI, Gemini, DeepSeek, Kimi, GLM, Qwen, Doubao, MiniMax, Grok,
 Mistral, OpenRouter, Requesty, Opper, Cheaper Inference, Atlas Cloud en OpenCode Zen/Go, plus elk OpenAI-compatibel endpoint —
 inclusief lokale modelservers. Search, beeldgeneratie en analyse van beeld en
@@ -835,6 +835,6 @@ OneDesk wordt uitgebracht onder de [Apache License 2.0](../../LICENSE), met
 enterprise-modules en valt onder de
 [OneDesk Enterprise License](../../ee/LICENSE).
 
-De namen en logo's van OneDesk en Genspark zijn handelsmerken van Mainfunc,
+De namen en logo's van OneDesk en OneDesk zijn handelsmerken van Mainfunc,
 Inc. De Apache-2.0-licentie geeft geen toestemming om deze te gebruiken (zie
 sectie 6); forks moeten hun eigen branding gebruiken.

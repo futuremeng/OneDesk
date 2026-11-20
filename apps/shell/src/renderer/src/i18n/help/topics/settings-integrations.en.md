@@ -46,10 +46,10 @@ Settings can register OneDesk as the handler for .docx / .xlsx / .pptx / .pdf an
 - Help ▸ Third-party notices: the full OSS license inventory shipped with the app.
 - Help ▸ Check for updates: triggers a manual check; a newer version prompts to install.
 
-## Genspark sign-in
+## OneDesk sign-in
 
 - The sign-in entry (settings or the cloud project list) uses a **device-code** flow: OneDesk shows a code and opens the browser login; it continues automatically once done.
-- Sign-in is used only for: the cloud project list and Genspark's hosted models. Without it, every local feature and custom models keep working.
+- Sign-in is used only for: the cloud project list and OneDesk's hosted models. Without it, every local feature and custom models keep working.
 - Sign out is one click in settings.
 
 ## MCP integration (for advanced users / AI clients)

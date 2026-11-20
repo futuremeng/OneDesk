@@ -9,7 +9,7 @@ Laman Utama ialah halaman permulaan OneDesk: bar navigasi di kiri, senarai fail 
 - **Terkini**: fail yang baru dibuka oleh anda. Setiap baris dicap dengan waktunya — hari ini, semalam atau tarikh.
 - **Berbintang**: fail yang anda tandakan dengan bintang. Halakan kursor ke baris fail dan klik bintang untuk menambah atau membuangnya. **Alih ke kumpulan** dalam menu ⋯ menyusun fail berbintang ke kumpulan bernama; paparan Berbintang menapis mengikutnya.
 - **Ask AI**: panel pangkalan pengetahuan — ajukan soalan dan terima jawapan yang memetik fail anda yang berbintang (lihat bawah).
-- **Genspark Projects**: selepas anda log masuk ke akaun Genspark, ia memaparkan projek yang anda cipta di web dengan Genspark AI. Klik satu untuk menyuntingnya terus dalam pelayar. Carian, isihan mengikut masa, muat semula dan muat lagi disokong.
+- **OneDesk Projects**: selepas anda log masuk ke akaun OneDesk, ia memaparkan projek yang anda cipta di web dengan OneDesk AI. Klik satu untuk menyuntingnya terus dalam pelayar. Carian, isihan mengikut masa, muat semula dan muat lagi disokong.
 - **Folder**: direktori yang anda tambah ke bar sisi dengan **Tambah folder…**, atau yang anda seret masuk daripada pengurus fail. Setiap satu menjadi lokasi yang boleh dibuka, boleh dicipta subdirektori di dalamnya, boleh dinamakan semula dan boleh dibuang; lokasi yang menjadi luar talian ditandakan sebagai tidak tersedia dan boleh dibuang daripada senarai. **Folder baharu** mencipta satu lagi.
 
 Tiada entri Tong sampah di sini. Fail yang dipadam akan masuk ke tong sampah sistem, dan memulihkannya ialah urusan sistem pengendalian.
@@ -60,12 +60,12 @@ Apa yang setiap kad lakukan:
 
 - Bintangi fail dahulu (jenis apa pun yang aplikasi baca); kepala panel mengira korpus, dan pangkalan kosong menjemput anda membintangi sesuatu.
 - Jawapan memetik fail sumbernya; klik petikan untuk membuka fail dalam penyuntingnya.
-- Perlu log masuk Genspark. Perbualan hanya hidup dalam ingatan — menutup aplikasi mengakhirinya.
+- Perlu log masuk OneDesk. Perbualan hanya hidup dalam ingatan — menutup aplikasi mengakhirinya.
 - Carian berjalan pada indeks fail setempat, seperti carian Laman Utama; fail yang hilang gugur senyap daripada korpus.
 - Kumpulan hanya menyusun senarai Berbintang — pangkalan pengetahuan sentiasa merangkumi semua fail berbintang.
 
-## Projek awan (Genspark Projects)
+## Projek awan (OneDesk Projects)
 
-- Kegunaan kali pertama memerlukan anda log masuk ke akaun Genspark melalui aliran kod peranti. OneDesk memaparkan satu kod, dan anda melengkapkan log masuk dalam pelayar.
+- Kegunaan kali pertama memerlukan anda log masuk ke akaun OneDesk melalui aliran kod peranti. OneDesk memaparkan satu kod, dan anda melengkapkan log masuk dalam pelayar.
 - Senarai projek disegerakkan dengan web. Arahan Buka dalam pelayar membawa anda ke sana untuk menyambung.
 - Tidak log masuk tidak menjejaskan sebarang fungsi setempat.

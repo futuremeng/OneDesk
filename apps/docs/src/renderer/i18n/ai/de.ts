@@ -8,9 +8,9 @@ export const de = {
   aiStarterPolishAll: 'Das ganze Dokument für einen professionelleren Ton überarbeiten',
   aiStarterContinue: 'Dort weiterschreiben, wo das Dokument aufhört',
   aiStarterFillTemplate: 'Platzhalter im Dokument finden und ausfüllen',
-  aiGskLoginBtn: 'Bei Genspark anmelden',
-  aiGskLoginOk: 'Bei Genspark angemeldet',
-  aiPanelTitle: 'Genspark',
+  aiOneDeskLoginBtn: 'Bei OneDesk anmelden',
+  aiOneDeskLoginOk: 'Bei OneDesk angemeldet',
+  aiPanelTitle: 'OneDesk',
   aiOpenAssistant: 'KI-Assistenten öffnen',
   aiSummarizeBtn: 'KI-Zusammenfassung',
   aiSummarizePrompt: 'Fasse den Hauptinhalt und die Kernpunkte dieses Dokuments zusammen',
@@ -127,7 +127,7 @@ export const de = {
   aiNetworkError:
     'Netzwerkproblem: Der KI-Dienst ist nicht erreichbar. Prüfe deine Verbindung und versuche es erneut',
   aiCreditsExhausted:
-    'Deine Genspark-Credits sind aufgebraucht. Lade unter onedesk.jiulu.ltd/pricing auf und versuche es erneut',
+    'Deine OneDesk-Credits sind aufgebraucht. Lade unter onedesk.jiulu.ltd/pricing auf und versuche es erneut',
   aiSumReadAttachment: 'Anlage lesen',
   aiSumImageAttachment: 'Bildanlage {name}',
   aiSumRead: '{name} lesen',

@@ -70,7 +70,7 @@ se escribe OOXML, nunca el formato de origen.
   documentos y **Ask AI**, en la pantalla de inicio, responde preguntas sobre
   todos ellos citando el archivo que respalda cada afirmación, para que
   puedas abrirlo y comprobarlo.
-- **Tus claves o ninguna.** Inicia sesión con Genspark y olvídate de las
+- **Tus claves o ninguna.** Inicia sesión con OneDesk y olvídate de las
   claves, o usa tu propia clave para Claude, OpenAI, Gemini, DeepSeek, Kimi,
   GLM, Qwen, Doubao, MiniMax, Grok, Mistral, OpenRouter, Requesty, Opper,
   Cheaper Inference, Atlas Cloud, o cualquier endpoint compatible con OpenAI,
@@ -311,7 +311,7 @@ Un `.doc` de Word 97–2003, un `.xls` de Excel o un `.ppt` de PowerPoint se abr
   fórmulas y gráficos en vivo en Sheets, diapositivas dibujadas directamente
   en el lienzo, y cada turno de la IA deja una instantánea a la que puedes
   volver.
-- **Tu modelo, tu clave.** Inicia sesión con Genspark, o usa tu propia clave
+- **Tu modelo, tu clave.** Inicia sesión con OneDesk, o usa tu propia clave
   para Claude, OpenAI, Gemini, DeepSeek y más; también incluye servidores
   locales y cualquier endpoint compatible con OpenAI.
 - **PDF hecho como debe ser.** Edita el texto directamente en la página y
@@ -334,8 +334,8 @@ Un `.doc` de Word 97–2003, un `.xls` de Excel o un `.ppt` de PowerPoint se abr
 
 ## Backends de IA
 
-**Inicia sesión con Genspark** y no hay nada que configurar: las llamadas al
-modelo se enrutan a través del proxy de Genspark (familias Claude, GPT y
+**Inicia sesión con OneDesk** y no hay nada que configurar: las llamadas al
+modelo se enrutan a través del proxy de OneDesk (familias Claude, GPT y
 Gemini) y los agentes obtienen búsqueda web y de imágenes, generación de
 imágenes, y análisis de imagen/audio/video.
 
@@ -361,7 +361,7 @@ y nada más sale de la máquina.
 
 **Parallel** funciona sin cuenta: su Search MCP gratuito (con límite de
 frecuencia) es la búsqueda web predeterminada siempre que no haya un inicio
-de sesión de Genspark ni una clave de búsqueda configurados, y se ejecuta
+de sesión de OneDesk ni una clave de búsqueda configurados, y se ejecuta
 antes que el scraping de DuckDuckGo. Selecciona Parallel en Web search e
 introduce una clave de [Parallel](https://platform.parallel.ai/) para usar
 en su lugar la Search API. Keenable tampoco necesita clave; una clave solo
@@ -693,7 +693,7 @@ convertidas](#legacy-and-odf-files-open-as-converted-copies).
 La edición de documentos es completamente local: los archivos nunca salen
 de tu equipo para abrirse, editarse, guardarse o convertirse. Las funciones
 de IA (agentes, búsqueda, herramientas de imagen) necesitan conexión a la
-red, ya sea con un inicio de sesión de Genspark o con tu propia clave de API
+red, ya sea con un inicio de sesión de OneDesk o con tu propia clave de API
 de modelo.
 
 </details>
@@ -721,7 +721,7 @@ en lugar de una imagen de página.
 <details>
 <summary><b>¿Puedo usar mi propio modelo de IA o clave de API?</b></summary>
 
-Sí. Además del inicio de sesión sin clave con Genspark, OneDesk admite tu
+Sí. Además del inicio de sesión sin clave con OneDesk, OneDesk admite tu
 propia clave para Claude, OpenAI, Gemini, DeepSeek, Kimi, GLM, Qwen, Doubao,
 MiniMax, Grok, Mistral, OpenRouter, Requesty, Opper, Cheaper Inference,
 Atlas Cloud y OpenCode Zen/Go, además de cualquier endpoint compatible con OpenAI, incluidos servidores de modelos locales. La
@@ -847,6 +847,6 @@ excepción: el directorio `ee/` está reservado para futuros módulos
 empresariales y está cubierto por la
 [OneDesk Enterprise License](../../ee/LICENSE).
 
-Los nombres y logotipos de OneDesk y Genspark son marcas registradas de
+Los nombres y logotipos de OneDesk y OneDesk son marcas registradas de
 Mainfunc, Inc. La licencia Apache-2.0 no otorga permiso para usarlos
 (consulta la sección 6); los forks deben usar su propia identidad de marca.

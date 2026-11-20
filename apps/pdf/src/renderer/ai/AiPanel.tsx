@@ -86,7 +86,7 @@ const MODEL_BRIDGE: AiModelPickerBridge = {
   getSettings: () => window.pdfApi.getAiSettings(),
   setSettings: (settings) => window.pdfApi.setAiSettings(settings),
   onSettingsChanged: (handler) => window.pdfApi.onAiSettingsChanged(handler),
-  gskLoggedIn: () => window.pdfApi.gskStatus().then((s) => !!s?.loggedIn),
+  onedeskLoggedIn: () => window.pdfApi.onedeskStatus().then((s) => !!s?.loggedIn),
   openModelSettings: () => window.pdfApi.openAiModelSettings().catch(() => {}),
 }
 
@@ -285,15 +285,15 @@ export function AiPanel({
   }, [panelWidth])
   const settingsRef = useRef<AiSettings | null>(null)
 
-  /** gsk login state for the cloud-tools gate (refreshed on mount and window focus) */
-  const gskLoggedInRef = useRef(false)
+  /** onedesk login state for the cloud-tools gate (refreshed on mount and window focus) */
+  const onedeskLoggedInRef = useRef(false)
   useEffect(() => {
     let alive = true
     const refresh = () => {
       void window.pdfApi
-        ?.gskStatus()
+        ?.onedeskStatus()
         .then((s) => {
-          if (alive) gskLoggedInRef.current = !!s?.loggedIn
+          if (alive) onedeskLoggedInRef.current = !!s?.loggedIn
         })
         .catch(() => {})
     }
@@ -414,7 +414,7 @@ export function AiPanel({
       searchImages: (query, max) => apiRef.current.searchImages(query, max),
       generateImage: (op) => apiRef.current.generateImage(op),
       imageGenAvailable: () =>
-        imageGenerationAvailable(settingsRef.current, gskLoggedInRef.current),
+        imageGenerationAvailable(settingsRef.current, onedeskLoggedInRef.current),
       fetchImage: (url) => apiRef.current.fetchImage(url),
     }
     loopRef.current = new AgentLoop({
@@ -719,8 +719,8 @@ export function AiPanel({
       />
       <header className="ai-panel-header">
         <span className="ai-panel-title">
-          <GensparkMark size={22} />
-          Genspark
+          <OneDeskMark size={22} />
+          OneDesk
         </span>
         <div className="ai-panel-header-actions">
           <AiPanelSideButton
@@ -1141,9 +1141,9 @@ function IconCollapse(): ReactElement {
   )
 }
 
-/** Genspark brand mark (rounded-square sparkle badge), inline so it renders
+/** OneDesk brand mark (rounded-square sparkle badge), inline so it renders
  * crisply at device resolution instead of going through <img> rasterization */
-export function GensparkMark({ size = 18 }: { size?: number }): React.JSX.Element {
+export function OneDeskMark({ size = 18 }: { size?: number }): React.JSX.Element {
   return (
     <svg
       width={size}

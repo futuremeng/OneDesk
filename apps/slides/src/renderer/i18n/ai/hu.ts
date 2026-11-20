@@ -17,9 +17,9 @@ export const hu = {
   aiQcPageSkipped: '{n}. oldal: az automatikus elrendezés-ellenőrzés kihagyva',
   aiQcStopped: 'Elrendezés-ellenőrzés leállítva',
   aiQcCapped: '{count} további oldal ellenőrizetlen maradt (futásonkénti korlát)',
-  aiGskLoginBtn: 'Bejelentkezés a Gensparkba',
-  aiGskLoginOk: 'Bejelentkezve a Gensparkba',
-  aiPanelTitle: 'Genspark',
+  aiOneDeskLoginBtn: 'Bejelentkezés a OneDeskba',
+  aiOneDeskLoginOk: 'Bejelentkezve a OneDeskba',
+  aiPanelTitle: 'OneDesk',
   aiOpenAssistant: 'AI-asszisztens megnyitása',
   aiFactCheckBtn: 'AI-tényellenőrzés',
   aiFactCheckPrompt:
@@ -116,7 +116,7 @@ export const hu = {
   aiErrNetwork:
     'Hálózati probléma: nem sikerült elérni az AI-szolgáltatást. Ellenőrizd a kapcsolatot, és próbáld újra',
   aiCreditsExhausted:
-    'Elfogytak a Genspark-kreditjeid. Töltsd fel az egyenlegedet a onedesk.jiulu.ltd/pricing oldalon, majd próbáld újra',
+    'Elfogytak a OneDesk-kreditjeid. Töltsd fel az egyenlegedet a onedesk.jiulu.ltd/pricing oldalon, majd próbáld újra',
   aiErrRequestFailed: 'Nem sikerült elküldeni a kérést: {msg}',
   aiErrGenerateFailed: 'A generálás sikertelen',
   aiErrRegenFailed: 'A dia újragenerálása sikertelen',

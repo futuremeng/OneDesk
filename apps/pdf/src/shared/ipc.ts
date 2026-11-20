@@ -1030,7 +1030,7 @@ export const AI_CHANNELS = {
   openSkillsSettings: 'ai:open-skills-settings',
   skillsList: 'ai:skills-list',
   skillText: 'ai:skill-text',
-  gskStatus: 'ai:gsk-status',
+  onedeskStatus: 'ai:onedesk-status',
   stream: 'ai:stream',
   streamChunk: 'ai:stream-chunk',
   streamCancel: 'ai:stream-cancel',
@@ -1188,7 +1188,7 @@ export interface PdfApi {
   imageSearch(query: string, maxResults?: number): Promise<ImageSearchResponse>
   /** Download an image URL in the main process (SSRF-guarded, avoids CORS); null on failure */
   fetchImage(url: string): Promise<{ base64: string; mime: string } | null>
-  /** AI image generation via Genspark (gsk); returns a downloadable URL or an error message */
+  /** AI image generation via OneDesk (onedesk); returns a downloadable URL or an error message */
   generateImage(op: { prompt: string; aspectRatio?: string }): Promise<{
     url?: string
     error?: string
@@ -1273,8 +1273,8 @@ export interface PdfApi {
   skillsList(): Promise<UserSkillEntry[]>
   /** one installed skill's body, by name */
   skillText(name: string): Promise<string>
-  /** Genspark login state (gsk); gates the cloud-only generate_image tool */
-  gskStatus(): Promise<{ loggedIn: boolean }>
+  /** OneDesk login state (onedesk); gates the cloud-only generate_image tool */
+  onedeskStatus(): Promise<{ loggedIn: boolean }>
   aiStream(request: AiStreamRequest): Promise<void>
   aiStreamCancel(requestId: string): Promise<void>
   onAiStream(handler: (chunk: AiStreamChunk) => void): () => void

@@ -65,7 +65,7 @@ user's physical location.
 
 The Google Analytics 4 payload also uses a random install UUID as `client_id`.
 The country code is sent through GA4's country-only `user_location` field; the
-app does not send a city or region. Neither identifier is a Genspark account or
+app does not send a city or region. Neither identifier is a OneDesk account or
 email address.
 
 ## Network information
@@ -83,7 +83,7 @@ OneDesk analytics never sends:
 - document content
 - file names
 - file paths
-- Genspark account identity
+- OneDesk account identity
 - email addresses
 
 The analytics metadata is injected only into packaged official builds and is

@@ -3,7 +3,7 @@ import { join } from 'node:path'
 import { readFileSync } from 'node:fs'
 import type { AgentMessage } from '@onedesk/agent-core'
 import { streamForProvider } from '@onedesk/ai-provider'
-import { gskApiKey } from '@onedesk/ai-search'
+import { onedeskCliApiKey } from '@onedesk/ai-search'
 import {
   buildNamingInstruction,
   excerptForNaming,
@@ -40,7 +40,7 @@ function readAiSettingsFile(): unknown {
  * failed rename must never cost the reader their file.
  */
 async function askModel(content: string, lang: string): Promise<string> {
-  const target = resolveNamingProvider(readAiSettingsFile(), gskApiKey())
+  const target = resolveNamingProvider(readAiSettingsFile(), onedeskCliApiKey())
   if (!target) return ''
 
   let out = ''

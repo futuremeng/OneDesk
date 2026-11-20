@@ -3,10 +3,10 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { describe, expect, it, vi, beforeEach } from 'vitest'
 
-vi.mock('../src/gsk', () => ({
-  gskGenerateImage: vi.fn(),
-  gskAnalyzeMedia: vi.fn(),
-  hasGskAuth: vi.fn(() => true),
+vi.mock('../src/onedesk', () => ({
+  onedeskGenerateImage: vi.fn(),
+  onedeskAnalyzeMedia: vi.fn(),
+  hasOneDeskAuth: vi.fn(() => true),
 }))
 
 import {
@@ -17,10 +17,10 @@ import {
   generateImageTool,
   loadMediaReferences,
 } from '../src/media-tools'
-import { gskAnalyzeMedia, gskGenerateImage } from '../src/gsk'
+import { onedeskAnalyzeMedia, onedeskGenerateImage } from '../src/onedesk'
 
-const gskGen = vi.mocked(gskGenerateImage)
-const gskAnalyze = vi.mocked(gskAnalyzeMedia)
+const onedeskGen = vi.mocked(onedeskGenerateImage)
+const onedeskAnalyze = vi.mocked(onedeskAnalyzeMedia)
 
 /** A data URL whose decoded payload is `bytes` long. */
 function dataUrl(bytes: number, mime = 'image/png'): string {
@@ -54,8 +54,8 @@ function writeSettings(mediaProvider: string): string {
 }
 
 beforeEach(() => {
-  gskGen.mockReset()
-  gskAnalyze.mockReset()
+  onedeskGen.mockReset()
+  onedeskAnalyze.mockReset()
 })
 
 describe('loadMediaReferences budget', () => {
@@ -121,20 +121,20 @@ describe('media tool aggregate budget', () => {
       requirements: 'describe these',
     })
     expect(result.error).toMatch(/Too many media items/)
-    expect(gskAnalyze).not.toHaveBeenCalled()
+    expect(onedeskAnalyze).not.toHaveBeenCalled()
   })
 
-  it('analyze_media still hands a budget failure to Genspark when only one provider is configured', async () => {
-    gskAnalyze.mockResolvedValue('from genspark' as never)
+  it('analyze_media still hands a budget failure to OneDesk when only one provider is configured', async () => {
+    onedeskAnalyze.mockResolvedValue('from onedesk' as never)
     // openai reads images but not video, so a budget failure still has a
-    // Genspark route to fall back to (the pre-existing size-cap behavior)
+    // OneDesk route to fall back to (the pre-existing size-cap behavior)
     const result = await analyzeMediaTool(writeSettings('openai'), {
       mediaUrls: Array.from({ length: 13 }, () => dataUrl(8)),
       requirements: 'describe these',
     })
     // the fallback enforces the same item ceiling: the CLI argv stays bounded
     expect(result.error).toMatch(/Too many media items/)
-    expect(gskAnalyze).not.toHaveBeenCalled()
+    expect(onedeskAnalyze).not.toHaveBeenCalled()
   })
 
   it('generate_image refuses too many references', async () => {

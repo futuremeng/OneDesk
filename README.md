@@ -64,7 +64,7 @@ the imports are open-only — saving writes OOXML, never the source format.
 - **Ask your files, with sources.** Star a set of documents and **Ask AI** on
   the home screen answers questions across them, citing the file behind every
   claim so you can open it and check.
-- **Your keys or none.** Sign in with Genspark and skip keys, or bring your own
+- **Your keys or none.** Sign in with OneDesk and skip keys, or bring your own
   key for Claude, OpenAI, Gemini, DeepSeek, Kimi, GLM, Qwen, Doubao, MiniMax,
   Grok, Mistral, OpenRouter, Requesty, Opper, Cheaper Inference, Atlas Cloud, or any OpenAI-compatible endpoint, local
   servers included.
@@ -297,7 +297,7 @@ files open as converted copies](#legacy-and-odf-files-open-as-converted-copies).
 - **An AI that edits the document itself.** Tracked changes in Docs, live
   formulas and charts in Sheets, slides drawn onto the canvas, every AI turn a
   snapshot you can roll back.
-- **Your model, your key.** Sign in with Genspark, or bring a key for Claude,
+- **Your model, your key.** Sign in with OneDesk, or bring a key for Claude,
   OpenAI, Gemini, DeepSeek and more, local servers and any OpenAI-compatible
   endpoint included.
 - **PDF done properly.** Edit text inside the page, and convert PDF to Word,
@@ -317,8 +317,8 @@ files open as converted copies](#legacy-and-odf-files-open-as-converted-copies).
 
 ## AI backends
 
-**Sign in with Genspark** and there is nothing to configure: model calls route
-through the Genspark proxy (Claude, GPT and Gemini families) and the agents get
+**Sign in with OneDesk** and there is nothing to configure: model calls route
+through the OneDesk proxy (Claude, GPT and Gemini families) and the agents get
 web and image search, image generation, and image/audio/video analysis.
 
 **Or bring your own key.** Settings → AI lists Claude, OpenAI, Gemini,
@@ -338,7 +338,7 @@ default; when on, the excerpts of the top 20 local hits are sent for judgment
 and nothing else leaves the machine.
 
 **Parallel** works without an account: its free Search MCP (rate-limited) is the
-default web search whenever no Genspark login or search key is configured, and
+default web search whenever no OneDesk login or search key is configured, and
 it runs ahead of the DuckDuckGo scrape. Select Parallel under Web search and
 enter a [Parallel](https://platform.parallel.ai/) key to use the Search API
 instead. Keenable is keyless too; a key only raises the rate limits.
@@ -658,7 +658,7 @@ copies](#legacy-and-odf-files-open-as-converted-copies).
 
 Document editing is fully local — files never leave your machine to be
 opened, edited, saved or converted. The AI features (agents, search, image
-tools) need a network connection, with either a Genspark sign-in or your own
+tools) need a network connection, with either a OneDesk sign-in or your own
 model API key.
 
 </details>
@@ -684,7 +684,7 @@ convert to editable text rather than a page image.
 <details>
 <summary><b>Can I use my own AI model or API key?</b></summary>
 
-Yes. Besides the keyless Genspark sign-in, OneDesk supports bring your own
+Yes. Besides the keyless OneDesk sign-in, OneDesk supports bring your own
 key for Claude, OpenAI, Gemini, DeepSeek, Kimi, GLM, Qwen, Doubao, MiniMax,
 Grok, Mistral, OpenRouter, Requesty, Opper, Cheaper Inference, Atlas Cloud and OpenCode Zen/Go, plus any OpenAI-compatible
 endpoint — including local model servers. Search, image generation and
@@ -796,6 +796,6 @@ OneDesk is licensed under the [Apache License 2.0](LICENSE), with one
 exception: the `ee/` directory is reserved for future enterprise modules and
 is covered by the [OneDesk Enterprise License](ee/LICENSE).
 
-The OneDesk and Genspark names and logos are trademarks of Mainfunc, Inc.
+The OneDesk and OneDesk names and logos are trademarks of Mainfunc, Inc.
 The Apache-2.0 license does not grant permission to use them (see section 6);
 forks should use their own branding.

@@ -70,7 +70,7 @@ her zaman OOXML yazar, asla kaynak biçimi yazmaz.
   ana ekrandaki **Ask AI** soruları bu belgeler üzerinden yanıtlar ve her
   iddianın arkasındaki dosyayı kaynak gösterir, böylece açıp kontrol
   edebilirsiniz.
-- **Kendi anahtarlarınız ya da hiç anahtar yok.** Genspark ile oturum açıp
+- **Kendi anahtarlarınız ya da hiç anahtar yok.** OneDesk ile oturum açıp
   anahtar işini atlayın ya da Claude, OpenAI, Gemini, DeepSeek, Kimi, GLM,
   Qwen, Doubao, MiniMax, Grok, Mistral, OpenRouter, Requesty, Opper, Cheaper
   Inference, Atlas Cloud veya yerel sunucular dahil herhangi bir OpenAI uyumlu
@@ -304,7 +304,7 @@ Word 97–2003 `.doc`, Excel `.xls` veya PowerPoint `.ppt` dosyası, bilgisayar�
 - **Belgenin kendisini düzenleyen bir yapay zekâ.** Docs'ta izlenen
   değişiklikler, Sheets'te canlı formüller ve grafikler, tuvale çizilen
   slaytlar; her yapay zekâ turu geri alabileceğiniz bir anlık görüntü.
-- **Sizin modeliniz, sizin anahtarınız.** Genspark ile oturum açın ya da
+- **Sizin modeliniz, sizin anahtarınız.** OneDesk ile oturum açın ya da
   Claude, OpenAI, Gemini, DeepSeek ve daha fazlası için bir anahtar getirin;
   yerel sunucular ve her OpenAI uyumlu uç nokta dahil.
 - **Doğru dürüst PDF.** Sayfanın içinde metin düzenleyin ve PDF'yi cihaz
@@ -327,8 +327,8 @@ Word 97–2003 `.doc`, Excel `.xls` veya PowerPoint `.ppt` dosyası, bilgisayar�
 
 ## Yapay zekâ arka uçları
 
-**Genspark ile oturum açın**; yapılandırılacak hiçbir şey yoktur: model
-çağrıları Genspark proxy'si üzerinden yönlendirilir (Claude, GPT ve Gemini
+**OneDesk ile oturum açın**; yapılandırılacak hiçbir şey yoktur: model
+çağrıları OneDesk proxy'si üzerinden yönlendirilir (Claude, GPT ve Gemini
 aileleri) ve ajanlar web ve görsel arama, görsel üretimi ve görsel/ses/video
 analizi kazanır.
 
@@ -354,7 +354,7 @@ alıntıları değerlendirilmek üzere gönderilir ve makineden başka hiçbir �
 çıkmaz.
 
 **Parallel** hesap olmadan çalışır: ücretsiz Search MCP'si (hız sınırlı),
-Genspark girişi ya da arama anahtarı yapılandırılmamışken varsayılan web
+OneDesk girişi ya da arama anahtarı yapılandırılmamışken varsayılan web
 aramasıdır ve DuckDuckGo kazımasından önce çalışır. Bunun yerine Search API'yi
 kullanmak için Web search altında Parallel'i seçin ve bir
 [Parallel](https://platform.parallel.ai/) anahtarı girin. Keenable de
@@ -684,7 +684,7 @@ dönüştürülmüş kopyalar olarak açılır](#legacy-and-odf-files-open-as-co
 
 Belge düzenleme tamamen yereldir — dosyalar açılmak, düzenlenmek, kaydedilmek
 ya da dönüştürülmek için makinenizden asla çıkmaz. Yapay zekâ özellikleri
-(ajanlar, arama, görsel araçları) bir ağ bağlantısı ve ya Genspark oturumu ya
+(ajanlar, arama, görsel araçları) bir ağ bağlantısı ve ya OneDesk oturumu ya
 da kendi model API anahtarınızı gerektirir.
 
 </details>
@@ -710,7 +710,7 @@ görüntüsü yerine düzenlenebilir metne dönüşürler.
 <details>
 <summary><b>Kendi yapay zekâ modelimi ya da API anahtarımı kullanabilir miyim?</b></summary>
 
-Evet. Anahtarsız Genspark oturumunun yanı sıra OneDesk; Claude, OpenAI,
+Evet. Anahtarsız OneDesk oturumunun yanı sıra OneDesk; Claude, OpenAI,
 Gemini, DeepSeek, Kimi, GLM, Qwen, Doubao, MiniMax, Grok, Mistral, OpenRouter,
 Requesty, Opper, Cheaper Inference, Atlas Cloud ve OpenCode Zen/Go için kendi
 anahtarınızı getirmeyi, ayrıca yerel model sunucuları dahil herhangi bir
@@ -827,6 +827,6 @@ OneDesk, tek bir istisnayla [Apache License 2.0](../../LICENSE) altında
 lisanslanmıştır: `ee/` dizini gelecekteki kurumsal modüller için ayrılmıştır ve
 [OneDesk Enterprise License](../../ee/LICENSE) kapsamındadır.
 
-OneDesk ve Genspark adları ile logoları Mainfunc, Inc.'in ticari
+OneDesk ve OneDesk adları ile logoları Mainfunc, Inc.'in ticari
 markalarıdır. Apache-2.0 lisansı bunları kullanma izni vermez (bkz. 6. bölüm);
 çatallar kendi markalarını kullanmalıdır.

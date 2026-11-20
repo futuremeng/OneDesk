@@ -35,7 +35,7 @@ const fallback = () =>
 const engineOf = (input: unknown) => new URL(String(input)).searchParams.get('engine')
 
 beforeEach(() => {
-  vi.stubEnv('AI_SEARCH_DISABLE_GSK', '1')
+  vi.stubEnv('AI_SEARCH_DISABLE_ONEDESK', '1')
   for (const key of [
     'SERPER_API_KEY',
     'SERPLY_API_KEY',
@@ -56,7 +56,7 @@ describe('SearchApi web search', () => {
     const fetch = vi.fn<typeof globalThis.fetch>(async () => webResponse())
     vi.stubGlobal('fetch', fetch)
     const r = await webSearch('onedesk', 5, {
-      useGsk: false,
+      useOneDesk: false,
       searchapiKey: 'user-key',
       serperKey: 'serper-key',
       prefer: 'searchapi',
@@ -113,7 +113,7 @@ describe('SearchApi web search', () => {
       }),
     )
     const r = await webSearch('onedesk', 3, {
-      useGsk: false,
+      useOneDesk: false,
       searchapiKey: 'bad-key',
       prefer: 'searchapi',
     })
@@ -137,7 +137,7 @@ describe('SearchApi web search', () => {
       }),
     )
     const r = await webSearch('onedesk', 3, {
-      useGsk: false,
+      useOneDesk: false,
       searchapiKey: 'k',
       serperKey: 'serper-key',
       prefer: 'searchapi',
@@ -166,7 +166,7 @@ describe('SearchApi image search', () => {
     )
     vi.stubGlobal('fetch', fetch)
     const r = await imageSearch('eiffel tower', 2, {
-      useGsk: false,
+      useOneDesk: false,
       searchapiKey: 'user-key',
       serperKey: 'serper-key',
       prefer: 'searchapi',
@@ -211,7 +211,7 @@ describe('SearchApi image search', () => {
         })
       }),
     )
-    const r = await imageSearch('cats', 3, { useGsk: false, searchapiKey: 'a', serperKey: 'b' })
+    const r = await imageSearch('cats', 3, { useOneDesk: false, searchapiKey: 'a', serperKey: 'b' })
     expect(r.method).toBe('serper')
     expect(urls).toEqual(['https://google.serper.dev/images'])
   })
@@ -228,7 +228,7 @@ describe('SearchApi image search', () => {
       }),
     )
     const r = await imageSearch('cats', 3, {
-      useGsk: false,
+      useOneDesk: false,
       searchapiKey: 'a',
       serperKey: 'b',
       serplyKey: 'c',
@@ -250,7 +250,7 @@ describe('SearchApi settings wiring', () => {
       },
     }
     expect(searchOptionsFromSettings(settings)).toEqual({
-      useGsk: false,
+      useOneDesk: false,
       searchapiKey: 'k',
       prefer: 'searchapi',
     })

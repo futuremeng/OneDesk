@@ -116,7 +116,7 @@ function installSlidesApi(): void {
   Object.defineProperty(window, 'slidesApi', {
     configurable: true,
     value: {
-      aiGskStatus: vi.fn(async () => ({ loggedIn: true })),
+      aiOneDeskStatus: vi.fn(async () => ({ loggedIn: true })),
       beginHistoryBatch: vi.fn(async () => false),
       endHistoryBatch: vi.fn(async () => null),
       aiLogRunFailure: vi.fn(async () => undefined),

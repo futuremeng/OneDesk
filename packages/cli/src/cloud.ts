@@ -1,12 +1,12 @@
 import { existsSync } from 'node:fs'
 import { join } from 'node:path'
-import { setGskProxyUrl } from '@onedesk/ai-search'
+import { setOneDeskProxyUrl } from '@onedesk/ai-search'
 import { onedeskUserDataDir } from './gui'
 import { packagedResourcesDir } from './resources'
 
 /**
  * The cloud commands (search / image / media) reuse the editors' provider
- * routing: Genspark when signed in (~/.onedesk/auth.json) and cloud tools
+ * routing: OneDesk when signed in (~/.onedesk/auth.json) and cloud tools
  * are on, otherwise the BYOK provider chosen in the app's AI settings. That
  * settings file lives in the shell's Electron userData directory, which onedesk
  * has to locate without Electron.
@@ -31,19 +31,19 @@ export function proxyUrlFromEnv(env: NodeJS.ProcessEnv): string | null {
 
 let prepared = false
 
-/** Once per process: proxy for fetch and the gsk children, and the packaged gsk CLI location. */
+/** Once per process: proxy for fetch and the onedesk children, and the packaged onedesk CLI location. */
 export async function prepareCloud(env: NodeJS.ProcessEnv): Promise<void> {
   if (prepared) return
   prepared = true
   const proxy = proxyUrlFromEnv(env)
   if (proxy) {
-    setGskProxyUrl(proxy)
+    setOneDeskProxyUrl(proxy)
     const { ProxyAgent, setGlobalDispatcher } = await import('undici')
     setGlobalDispatcher(new ProxyAgent(proxy))
   }
   const packaged = packagedResourcesDir()
-  if (packaged && !env.GSK_CLI_PATH) {
-    const entry = join(packaged, 'gsk', 'node_modules', '@genspark', 'cli', 'dist', 'index.js')
-    if (existsSync(entry)) process.env.GSK_CLI_PATH = entry
+  if (packaged && !env.ONEDESK_CLI_PATH) {
+    const entry = join(packaged, 'onedesk', 'node_modules', '@onedesk', 'cli', 'dist', 'index.js')
+    if (existsSync(entry)) process.env.ONEDESK_CLI_PATH = entry
   }
 }

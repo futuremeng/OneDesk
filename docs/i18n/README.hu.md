@@ -68,7 +68,7 @@ a mentés mindig OOXML-be ír, soha az eredeti formátumba.
   és a kezdőképernyőn az **AI kérdezése** a rájuk vonatkozó kérdésekre válaszol,
   minden állításhoz feltüntetve a mögötte álló fájlt, így azt megnyithatod, és
   ellenőrizheted.
-- **Saját kulccsal vagy anélkül.** Jelentkezz be Gensparkkal, így nincs szükség kulcsra,
+- **Saját kulccsal vagy anélkül.** Jelentkezz be OneDeskkal, így nincs szükség kulcsra,
   vagy használd a saját kulcsodat: Claude, OpenAI, Gemini, DeepSeek, Kimi, GLM,
   Qwen, Doubao, MiniMax, Grok, Mistral, OpenRouter, Requesty, Opper, Cheaper
   Inference, Atlas Cloud, illetve bármely OpenAI-kompatibilis végpont, a helyi
@@ -266,7 +266,7 @@ az elrendezés átkerülnek. Hogy az egyes formátumoknál mi marad meg és mi v
 - **Nálad fut.** Natív alkalmazások macOS-re, Windowsra és Linuxra; a fájljaid a saját lemezeden maradnak, és minden szerkesztés, mentés és átalakítás a te gépeden történik.
 - **Valódi Office-fájlok.** Natív `.docx`, `.xlsx` és `.pptx`, bájtpontosan: a fájl azon részei, amelyeket nem érintettél, pontosan úgy másolódnak át, ahogy voltak.
 - **Olyan AI, amely magát a dokumentumot szerkeszti.** Változáskövetés a Docsban, élő képletek és diagramok a Sheetsben, a diák közvetlenül a vászonra kerülnek – és minden AI-lépés egy pillanatkép, amelyre visszagörgethetsz.
-- **Saját modell, saját kulcs.** Jelentkezz be a Gensparkkal, vagy hozz saját kulcsot a Claude-hoz, az OpenAI-hoz, a Geminihez, a DeepSeekhez és sok máshoz – a helyi kiszolgálókat és bármilyen OpenAI-kompatibilis végpontot is beleértve.
+- **Saját modell, saját kulcs.** Jelentkezz be a OneDeskkal, vagy hozz saját kulcsot a Claude-hoz, az OpenAI-hoz, a Geminihez, a DeepSeekhez és sok máshoz – a helyi kiszolgálókat és bármilyen OpenAI-kompatibilis végpontot is beleértve.
 - **Rendesen megoldott PDF.** Szerkeszd a szöveget közvetlenül az oldalon, és konvertáld a PDF-et Word-, Excel- vagy PowerPoint-formátumba az eszközön, szkennelt lapoknál a rendszer OCR-jével.
 - **Markdown és HTML is**, ugyanazzal az AI-panellel és helyi Word-exporttal.
 - **Olyan keresés, amely a választ találja meg, nem a kulcsszót.** Teljes szöveges keresés a mappáidban lévő összes dokumentumban, helyben indexelve, igény szerint a TypeSafe Jev, a System One értékelő modellje általi átrendezéssel.
@@ -277,13 +277,13 @@ az elrendezés átkerülnek. Hogy az egyes formátumoknál mi marad meg és mi v
 
 ## AI-háttérrendszerek
 
-**Jelentkezz be a Gensparkkal**, és nincs mit beállítani: a modellhívások a Genspark-proxyn keresztül mennek (Claude, GPT és Gemini modellcsaládok), az ügynökök pedig webes és képkeresést, képgenerálást, valamint kép-, hang- és videóelemzést kapnak.
+**Jelentkezz be a OneDeskkal**, és nincs mit beállítani: a modellhívások a OneDesk-proxyn keresztül mennek (Claude, GPT és Gemini modellcsaládok), az ügynökök pedig webes és képkeresést, képgenerálást, valamint kép-, hang- és videóelemzést kapnak.
 
 **Vagy hozz saját kulcsot.** A Beállítások → AI alatt a Claude, az OpenAI, a Gemini, a DeepSeek, a Kimi, a GLM, a Qwen, a Doubao, a MiniMax, a Grok, a Mistral, az OpenRouter, a Requesty, az Opper, a Cheaper Inference, az Atlas Cloud, a SiliconFlow, a PPIO, a Command Code és az OpenCode Zen/Go szerepel a listán, valamint egy egyéni szolgáltatói hely bármilyen OpenAI-kompatibilis végponthoz (alap URL + kulcs), a helyi modellkiszolgálókat is beleértve. A keresés és a média az **AI média és keresés** alatt funkciónként külön szolgáltatóval rendelkezik: webes keresésre a Serper, a Serply, a SearchApi, a Tavily, a Parallel, a Keenable, az Exa vagy a Firecrawl, képgenerálásra és kép-/videóelemzésre az OpenAI, a Gemini, a Doubao/Seedream, a GLM, a Grok, a Qwen, a MiniMax, a Stability, a FLUX vagy bármilyen OpenAI-kompatibilis képvégpont, képelemzésre pedig a DeepSeek V4.1 Flash.
 
 A **TypeSafe Jev** átrendezi a kezdőképernyő fájlkeresését. Az **AI média és keresés → Helyi fájlkeresés** beállításnál kapcsold be a Jev keresési átrendezését, és válassz végpontot: [OpenRouter](https://openrouter.ai/typesafe) (modell: `typesafe/jev-1.13`) vagy a TypeSafe saját API-ja. A kulcs kizárólag ezen az eszközön tárolódik. Alapértelmezetten ki van kapcsolva; bekapcsoláskor a legjobb 20 helyi találat részletei mennek el értékelésre, és semmi más nem hagyja el a gépet.
 
-A **Parallel** fiók nélkül is működik: az ingyenes Search MCP-je (korlátozott hívásszámú) akkor az alapértelmezett webes keresés, ha se Genspark-bejelentkezés, se keresési kulcs nincs beállítva, és a DuckDuckGo-oldalak kaparásos (scraping) keresése előtt fut. A Webes keresés alatt válaszd a Parallelt, és adj meg egy [Parallel](https://platform.parallel.ai/) kulcsot, ha helyette a Search API-t szeretnéd használni. A Keenable is kulcs nélkül működik; a kulcs csak a hívási korlátokat emeli meg.
+A **Parallel** fiók nélkül is működik: az ingyenes Search MCP-je (korlátozott hívásszámú) akkor az alapértelmezett webes keresés, ha se OneDesk-bejelentkezés, se keresési kulcs nincs beállítva, és a DuckDuckGo-oldalak kaparásos (scraping) keresése előtt fut. A Webes keresés alatt válaszd a Parallelt, és adj meg egy [Parallel](https://platform.parallel.ai/) kulcsot, ha helyette a Search API-t szeretnéd használni. A Keenable is kulcs nélkül működik; a kulcs csak a hívási korlátokat emeli meg.
 
 A teljes csomag világos, sötét és rendszer szerinti témákkal érkezik. A témák csak a képernyőn látottakat változtatják meg: az exportálások, a nyomtatások és a mentett fájlok mindig a dokumentum saját színeit őrzik.
 
@@ -593,7 +593,7 @@ ODF-fájlok konvertált másolatként nyílnak meg](#legacy-and-odf-files-open-a
 A dokumentumszerkesztés teljesen helyi — a fájlok soha nem hagyják el a gépedet
 megnyitás, szerkesztés, mentés vagy átalakítás céljából. Az AI-funkciók
 (ügynökök, keresés, képeszközök) hálózati kapcsolatot igényelnek: ehhez vagy a
-Genspark-bejelentkezés, vagy a saját modell-API-kulcsod kell.
+OneDesk-bejelentkezés, vagy a saját modell-API-kulcsod kell.
 
 </details>
 
@@ -619,7 +619,7 @@ szerkeszthető szöveggé alakulnak, nem oldalképpé.
 <details>
 <summary><b>Használhatok saját AI-modellt vagy API-kulcsot?</b></summary>
 
-Igen. A kulcs nélküli Genspark-bejelentkezés mellett a OneDesk támogatja a
+Igen. A kulcs nélküli OneDesk-bejelentkezés mellett a OneDesk támogatja a
 saját kulcs használatát is: Claude, OpenAI, Gemini, DeepSeek, Kimi, GLM, Qwen,
 Doubao, MiniMax, Grok, Mistral, OpenRouter, Requesty, Opper, Cheaper Inference,
 Atlas Cloud és OpenCode Zen/Go, valamint bármely OpenAI-kompatibilis végpont —
@@ -743,6 +743,6 @@ A OneDesk az [Apache License 2.0](../../LICENSE) licenc alatt érhető el, egy
 kivétellel: az `ee/` könyvtár a jövőbeli vállalati moduloknak van fenntartva,
 és a [OneDesk Enterprise License](../../ee/LICENSE) hatálya alá tartozik.
 
-A OneDesk és a Genspark nevek és logók a Mainfunc, Inc. védjegyei. Az
+A OneDesk és a OneDesk nevek és logók a Mainfunc, Inc. védjegyei. Az
 Apache-2.0 licenc nem ad engedélyt a használatukra (lásd a 6. szakaszt); a
 forkok saját márkajelzést használjanak.

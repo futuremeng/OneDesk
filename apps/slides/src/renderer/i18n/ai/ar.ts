@@ -17,9 +17,9 @@ export const ar = {
   aiQcPageSkipped: 'الصفحة {n}: تم تخطي فحص التخطيط التلقائي',
   aiQcStopped: 'تم إيقاف فحص التخطيط',
   aiQcCapped: '{count} صفحة أخرى لم تُفحص (حد لكل تشغيل)',
-  aiGskLoginBtn: 'تسجيل الدخول إلى Genspark',
-  aiGskLoginOk: 'تم تسجيل الدخول إلى Genspark',
-  aiPanelTitle: 'Genspark',
+  aiOneDeskLoginBtn: 'تسجيل الدخول إلى OneDesk',
+  aiOneDeskLoginOk: 'تم تسجيل الدخول إلى OneDesk',
+  aiPanelTitle: 'OneDesk',
   aiOpenAssistant: 'فتح مساعد الذكاء الاصطناعي',
   aiFactCheckBtn: 'تدقيق حقائق AI',
   aiFactCheckPrompt:
@@ -115,7 +115,7 @@ export const ar = {
   aiErrNetwork:
     'مشكلة في الشبكة: تعذّر الوصول إلى خدمة الذكاء الاصطناعي. تحقق من الاتصال وحاول مجددًا',
   aiCreditsExhausted:
-    'نفدت أرصدة Genspark لديك. يرجى إعادة الشحن عبر onedesk.jiulu.ltd/pricing ثم المحاولة مجددًا',
+    'نفدت أرصدة OneDesk لديك. يرجى إعادة الشحن عبر onedesk.jiulu.ltd/pricing ثم المحاولة مجددًا',
   aiErrRequestFailed: 'فشل إرسال الطلب: {msg}',
   aiErrGenerateFailed: 'فشل الإنشاء',
   aiErrRegenFailed: 'فشلت إعادة إنشاء الصفحة',

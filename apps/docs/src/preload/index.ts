@@ -241,12 +241,12 @@ const api: DesktopApi = {
   skillText: (name: string) => ipcRenderer.invoke('ai:skill-text', name),
   runCli: (args: string[]) => ipcRenderer.invoke('ai:run-cli', args),
   aiStreamCancel: (requestId: string) => ipcRenderer.invoke('ai:stream-cancel', requestId),
-  aiGskStatus: (withEmail?: boolean) => ipcRenderer.invoke('ai:gsk-status', withEmail),
-  aiGskLogin: () => ipcRenderer.invoke('ai:gsk-login'),
-  onGskLoginLanded: (handler) => {
+  aiOneDeskStatus: (withEmail?: boolean) => ipcRenderer.invoke('ai:onedesk-status', withEmail),
+  aiOneDeskLogin: () => ipcRenderer.invoke('ai:onedesk-login'),
+  onOneDeskLoginLanded: (handler) => {
     const listener = () => handler()
-    ipcRenderer.on('ai:gsk-login-landed', listener)
-    return () => ipcRenderer.removeListener('ai:gsk-login-landed', listener)
+    ipcRenderer.on('ai:onedesk-login-landed', listener)
+    return () => ipcRenderer.removeListener('ai:onedesk-login-landed', listener)
   },
   webSearch: (query: string, maxResults?: number) =>
     ipcRenderer.invoke('ai:web-search', query, maxResults),

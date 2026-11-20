@@ -13,9 +13,9 @@ describe('aiModelPickerGroups', () => {
     expect(aiModelPickerGroups(defaultAiSettings(), false)).toEqual([])
   })
 
-  it('lists Genspark only when signed in', () => {
+  it('lists OneDesk only when signed in', () => {
     const ids = aiModelPickerGroups(defaultAiSettings(), true).map((g) => g.id)
-    expect(ids).toEqual(['genspark'])
+    expect(ids).toEqual(['onedesk'])
   })
 
   it('adds a vendor once its key is set and puts an off-catalog model first', () => {
@@ -52,10 +52,10 @@ describe('selection round trip', () => {
     expect(settings.providers.anthropic.model).toBe(anthropicModels[0])
   })
 
-  it('falls back to Genspark when the stored provider is unusable', () => {
+  it('falls back to OneDesk when the stored provider is unusable', () => {
     const settings = defaultAiSettings()
     settings.provider = 'anthropic'
-    expect(aiModelPickerSelection(settings).provider).toBe('genspark')
+    expect(aiModelPickerSelection(settings).provider).toBe('onedesk')
   })
 })
 

@@ -25,11 +25,11 @@ function recorder(reply: (url: string, init: RequestInit) => Response | Promise<
   return { calls, fetcher }
 }
 
-describe('native admission for Genspark provider requests', () => {
+describe('native admission for OneDesk provider requests', () => {
   it('ONEDESK_NATIVE_WAF=0: no issuer call and the init passes through untouched', async () => {
     process.env.ONEDESK_NATIVE_WAF = '0'
     const { fetcher } = recorder(() => issued(pass()))
-    const init = { headers: { Authorization: 'Bearer gsk-k' } }
+    const init = { headers: { Authorization: 'Bearer onedesk-k' } }
     expect(await createNativeAdmission().prepare(OPENAI, init, fetcher)).toBe(init)
     expect(fetcher).not.toHaveBeenCalled()
   })
@@ -41,10 +41,10 @@ describe('native admission for Genspark provider requests', () => {
       const { fetcher } = recorder(() => issued(pass()))
       const prepared = await createNativeAdmission().prepare(
         OPENAI,
-        { headers: { Authorization: 'Bearer gsk-k' } },
+        { headers: { Authorization: 'Bearer onedesk-k' } },
         fetcher,
       )
-      expect(new Headers(prepared.headers).get('x-genspark-token-pass')).toBeTruthy()
+      expect(new Headers(prepared.headers).get('x-onedesk-token-pass')).toBeTruthy()
       expect(fetcher).toHaveBeenCalledTimes(1)
     }
   })
@@ -54,7 +54,7 @@ describe('native admission for Genspark provider requests', () => {
     ;(process as { type?: string }).type = 'renderer'
     try {
       const { fetcher } = recorder(() => issued(pass()))
-      const init = { headers: { Authorization: 'Bearer gsk-k' } }
+      const init = { headers: { Authorization: 'Bearer onedesk-k' } }
       expect(await createNativeAdmission().prepare(OPENAI, init, fetcher)).toBe(init)
       expect(fetcher).not.toHaveBeenCalled()
     } finally {
@@ -68,25 +68,25 @@ describe('native admission for Genspark provider requests', () => {
     const admission = createNativeAdmission()
     const openai = await admission.prepare(
       OPENAI,
-      { headers: { Authorization: 'Bearer gsk-k' } },
+      { headers: { Authorization: 'Bearer onedesk-k' } },
       fetcher,
     )
-    await admission.prepare(OPENAI, { headers: { Authorization: 'Bearer gsk-k' } }, fetcher)
+    await admission.prepare(OPENAI, { headers: { Authorization: 'Bearer onedesk-k' } }, fetcher)
     const anthropic = await admission.prepare(
       ANTHROPIC,
-      { headers: { 'x-api-key': 'gsk-k' } },
+      { headers: { 'x-api-key': 'onedesk-k' } },
       fetcher,
     )
     expect(calls).toHaveLength(2)
     expect(calls[0]!.url).toBe('https://onedesk.jiulu.ltd/api/native-waf/token-pass?family=llm')
-    expect(new Headers(calls[0]!.init.headers).get('authorization')).toBe('Bearer gsk-k')
-    expect(new Headers(calls[1]!.init.headers).get('x-api-key')).toBe('gsk-k')
+    expect(new Headers(calls[0]!.init.headers).get('authorization')).toBe('Bearer onedesk-k')
+    expect(new Headers(calls[1]!.init.headers).get('x-api-key')).toBe('onedesk-k')
     expect(calls[0]!.init.redirect).toBe('error')
     for (const init of [openai, anthropic]) {
-      expect(new Headers(init.headers).get('x-genspark-token-pass')).toBe(token)
+      expect(new Headers(init.headers).get('x-onedesk-token-pass')).toBe(token)
       expect(init.redirect).toBe('error')
     }
-    expect(new Headers(openai.headers).get('authorization')).toBe('Bearer gsk-k')
+    expect(new Headers(openai.headers).get('authorization')).toBe('Bearer onedesk-k')
   })
 
   it('never sends BYOK keys, other hosts or mixed credentials to the issuer', async () => {
@@ -95,18 +95,18 @@ describe('native admission for Genspark provider requests', () => {
     })
     const admission = createNativeAdmission()
     const cases: [string, Record<string, string>][] = [
-      ['https://api.openai.com/v1/chat/completions', { Authorization: 'Bearer gsk-k' }],
-      ['https://api.anthropic.com/v1/messages', { 'x-api-key': 'gsk-k' }],
+      ['https://api.openai.com/v1/chat/completions', { Authorization: 'Bearer onedesk-k' }],
+      ['https://api.anthropic.com/v1/messages', { 'x-api-key': 'onedesk-k' }],
       [OPENAI, { Authorization: 'Bearer sk-byok' }],
       [ANTHROPIC, { 'x-api-key': 'sk-ant-byok' }],
-      [OPENAI.replace('https:', 'http:'), { Authorization: 'Bearer gsk-k' }],
+      [OPENAI.replace('https:', 'http:'), { Authorization: 'Bearer onedesk-k' }],
       [
         OPENAI.replace('onedesk.jiulu.ltd', 'onedesk.jiulu.ltd.evil.test'),
-        { Authorization: 'Bearer gsk-k' },
+        { Authorization: 'Bearer onedesk-k' },
       ],
-      [OPENAI.replace('/api/llm_proxy/', '/api/tool_cli/'), { Authorization: 'Bearer gsk-k' }],
-      [OPENAI, { Authorization: 'Bearer gsk-k', 'x-api-key': 'gsk-k' }],
-      [OPENAI, { Authorization: 'Bearer gsk-a, gsk-b' }],
+      [OPENAI.replace('/api/llm_proxy/', '/api/tool_cli/'), { Authorization: 'Bearer onedesk-k' }],
+      [OPENAI, { Authorization: 'Bearer onedesk-k', 'x-api-key': 'onedesk-k' }],
+      [OPENAI, { Authorization: 'Bearer onedesk-a, onedesk-b' }],
     ]
     for (const [url, headers] of cases) {
       const init = { headers }
@@ -125,7 +125,7 @@ describe('native admission for Genspark provider requests', () => {
     ]) {
       const { calls, fetcher } = recorder(reply)
       const admission = createNativeAdmission()
-      const init = { headers: { Authorization: 'Bearer gsk-k' } }
+      const init = { headers: { Authorization: 'Bearer onedesk-k' } }
       expect(await admission.prepare(OPENAI, init, fetcher)).toBe(init)
       expect(await admission.prepare(OPENAI, init, fetcher)).toBe(init)
       expect(calls).toHaveLength(1)
@@ -140,7 +140,7 @@ describe('native admission for Genspark provider requests', () => {
         ),
     )
     const started = performance.now()
-    const init = { headers: { Authorization: 'Bearer gsk-k' } }
+    const init = { headers: { Authorization: 'Bearer onedesk-k' } }
     expect(await createNativeAdmission({ timeoutMs: 30 }).prepare(OPENAI, init, fetcher)).toBe(init)
     expect(performance.now() - started).toBeLessThan(1000)
   })
@@ -149,7 +149,7 @@ describe('native admission for Genspark provider requests', () => {
     let now = 1_800_000_000_000
     const { calls, fetcher } = recorder(() => issued(`1799999740-${'A'.repeat(43)}`))
     const admission = createNativeAdmission({ now: () => now })
-    const headers = new Headers({ Authorization: 'Bearer gsk-k' })
+    const headers = new Headers({ Authorization: 'Bearer onedesk-k' })
     expect(await admission.pass(OPENAI, headers, fetcher)).not.toBe('')
     now += 11_000
     await admission.pass(OPENAI, headers, fetcher)
@@ -166,7 +166,7 @@ describe('native admission for Genspark provider requests', () => {
       return issued(pass())
     })
     const admission = createNativeAdmission()
-    const headers = new Headers({ Authorization: 'Bearer gsk-k' })
+    const headers = new Headers({ Authorization: 'Bearer onedesk-k' })
     const controller = new AbortController()
     const first = admission.pass(OPENAI, headers, fetcher, controller.signal)
     const second = admission.pass(OPENAI, headers, fetcher)
@@ -190,13 +190,13 @@ describe('native admission for Genspark provider requests', () => {
     )
     await aiFetch(OPENAI, {
       method: 'POST',
-      headers: { Authorization: 'Bearer gsk-live' },
+      headers: { Authorization: 'Bearer onedesk-live' },
       body: '{"a":1}',
     })
     const business = sent.find((call) => call.url === OPENAI)!
     const headers = new Headers(business.init.headers)
-    expect(headers.get('x-genspark-token-pass')).toBe(token)
-    expect(headers.get('authorization')).toBe('Bearer gsk-live')
+    expect(headers.get('x-onedesk-token-pass')).toBe(token)
+    expect(headers.get('authorization')).toBe('Bearer onedesk-live')
     expect(headers.get('user-agent')).toBe('OneDesk')
     expect(business.init.body).toBe('{"a":1}')
     expect(business.init.redirect).toBe('error')

@@ -741,7 +741,7 @@ export const strings = {
     aiRegionError: '该模型的厂商不向当前地区提供服务，请换一个模型或切换网络',
     aiOverloadedError: 'AI 服务当前繁忙，请稍后重试',
     aiNetworkError: '网络有问题，无法连接 AI 服务。请检查网络后重试',
-    aiCreditsExhausted: 'Genspark 积分已用完，请前往 onedesk.jiulu.ltd/pricing 充值后重试',
+    aiCreditsExhausted: 'OneDesk 积分已用完，请前往 onedesk.jiulu.ltd/pricing 充值后重试',
     aiToolReadPages: '读取第 {start}-{end} 页',
     aiToolSearch: '搜索"{query}"（{count} 处）',
     aiToolGoto: '跳转到第 {page} 页',
@@ -972,7 +972,7 @@ export const strings = {
     removeStamp: '点击选中此水印/页眉页脚',
     props: '属性',
     propsTitle: '文档属性',
-    ribbonAiAssistant: 'Genspark',
+    ribbonAiAssistant: 'OneDesk',
     ribbonAiAssistantTip: '打开 AI 助手',
     propTitle: '标题',
     propAuthor: '作者',
@@ -1186,7 +1186,7 @@ export const strings = {
     aiNetworkError:
       'Network problem: could not reach the AI service. Check your connection and try again',
     aiCreditsExhausted:
-      'Your Genspark credits have run out. Visit onedesk.jiulu.ltd/pricing to top up, then try again',
+      'Your OneDesk credits have run out. Visit onedesk.jiulu.ltd/pricing to top up, then try again',
     aiToolReadPages: 'Read pages {start}-{end}',
     aiToolSearch: 'Search "{query}" ({count} hits)',
     aiToolGoto: 'Go to page {page}',
@@ -1423,7 +1423,7 @@ export const strings = {
     removeStamp: 'Click to select this watermark / header / footer',
     props: 'Properties',
     propsTitle: 'Document properties',
-    ribbonAiAssistant: 'Genspark',
+    ribbonAiAssistant: 'OneDesk',
     ribbonAiAssistantTip: 'Open the AI assistant',
     propTitle: 'Title',
     propAuthor: 'Author',
@@ -1637,7 +1637,7 @@ export const strings = {
     aiNetworkError:
       'Sự cố mạng: không thể kết nối tới dịch vụ AI. Kiểm tra kết nối của bạn và thử lại',
     aiCreditsExhausted:
-      'Genspark credits của bạn đã hết. Hãy truy cập onedesk.jiulu.ltd/pricing để nạp thêm rồi thử lại',
+      'OneDesk credits của bạn đã hết. Hãy truy cập onedesk.jiulu.ltd/pricing để nạp thêm rồi thử lại',
     aiToolReadPages: 'Đọc các trang {start}-{end}',
     aiToolSearch: 'Tìm kiếm "{query}" ({count} kết quả)',
     aiToolGoto: 'Đi tới trang {page}',
@@ -1876,7 +1876,7 @@ export const strings = {
     removeStamp: 'Nhấp để chọn hình mờ / đầu trang / chân trang này',
     props: 'Thuộc tính',
     propsTitle: 'Thuộc tính tài liệu',
-    ribbonAiAssistant: 'Genspark',
+    ribbonAiAssistant: 'OneDesk',
     ribbonAiAssistantTip: 'Mở trợ lý AI',
     propTitle: 'Tiêu đề',
     propAuthor: 'Tác giả',
@@ -2089,7 +2089,7 @@ export const strings = {
     aiNetworkError:
       'Ağ sorunu: AI hizmetine ulaşılamadı. Bağlantınızı kontrol edip yeniden deneyin',
     aiCreditsExhausted:
-      'Genspark krediniz bitti. Yüklemek için onedesk.jiulu.ltd/pricing adresini ziyaret edin, sonra yeniden deneyin',
+      'OneDesk krediniz bitti. Yüklemek için onedesk.jiulu.ltd/pricing adresini ziyaret edin, sonra yeniden deneyin',
     aiToolReadPages: '{start}-{end}. sayfaları oku',
     aiToolSearch: '"{query}" ara ({count} eşleşme)',
     aiToolGoto: '{page}. sayfaya git',
@@ -2328,7 +2328,7 @@ export const strings = {
     removeStamp: 'Bu filigranı / üst bilgiyi / alt bilgiyi seçmek için tıklayın',
     props: 'Özellikler',
     propsTitle: 'Belge özellikleri',
-    ribbonAiAssistant: 'Genspark',
+    ribbonAiAssistant: 'OneDesk',
     ribbonAiAssistantTip: 'AI asistanını aç',
     propTitle: 'Başlık',
     propAuthor: 'Yazar',
@@ -2539,7 +2539,7 @@ export const strings = {
     aiNetworkError:
       'Hálózati probléma: nem sikerült elérni az AI-szolgáltatást. Ellenőrizd a kapcsolatot, és próbáld újra',
     aiCreditsExhausted:
-      'Elfogytak a Genspark-kreditek. Töltsd fel az egyenleged a onedesk.jiulu.ltd/pricing oldalon, majd próbáld újra',
+      'Elfogytak a OneDesk-kreditek. Töltsd fel az egyenleged a onedesk.jiulu.ltd/pricing oldalon, majd próbáld újra',
     aiToolReadPages: 'Oldalak elolvasása: {start}-{end}',
     aiToolSearch: '„{query}” keresése ({count} találat)',
     aiToolGoto: 'Ugrás az oldalra: {page}',
@@ -2780,7 +2780,7 @@ export const strings = {
     removeStamp: 'Kattints a vízjel / élőfej / élőláb kijelöléséhez',
     props: 'Tulajdonságok',
     propsTitle: 'Dokumentum tulajdonságai',
-    ribbonAiAssistant: 'Genspark',
+    ribbonAiAssistant: 'OneDesk',
     ribbonAiAssistantTip: 'AI-asszisztens megnyitása',
     propTitle: 'Cím',
     propAuthor: 'Szerző',
@@ -2996,7 +2996,7 @@ export const strings = {
     aiNetworkError:
       'ネットワークに問題があり、AI サービスに接続できません。接続を確認して再試行してください',
     aiCreditsExhausted:
-      'Gensparkクレジットを使い切りました。onedesk.jiulu.ltd/pricing でチャージしてから再試行してください',
+      'OneDeskクレジットを使い切りました。onedesk.jiulu.ltd/pricing でチャージしてから再試行してください',
     aiToolReadPages: 'ページ {start}-{end} を読む',
     aiToolSearch: '「{query}」を検索（{count} 件）',
     aiToolGoto: 'ページ {page} へ移動',
@@ -3234,7 +3234,7 @@ export const strings = {
     removeStamp: 'クリックでこの透かし/ヘッダーを選択',
     props: 'プロパティ',
     propsTitle: '文書のプロパティ',
-    ribbonAiAssistant: 'Genspark',
+    ribbonAiAssistant: 'OneDesk',
     ribbonAiAssistantTip: 'AI アシスタントを開く',
     propTitle: 'タイトル',
     propAuthor: '作成者',
@@ -3446,7 +3446,7 @@ export const strings = {
     aiNetworkError:
       '네트워크에 문제가 있어 AI 서비스에 연결할 수 없습니다. 연결을 확인한 후 다시 시도해 주세요',
     aiCreditsExhausted:
-      'Genspark 크레딧을 모두 사용했습니다. onedesk.jiulu.ltd/pricing에서 충전한 후 다시 시도해 주세요',
+      'OneDesk 크레딧을 모두 사용했습니다. onedesk.jiulu.ltd/pricing에서 충전한 후 다시 시도해 주세요',
     aiToolReadPages: '{start}-{end}쪽 읽기',
     aiToolSearch: '"{query}" 검색 ({count}건)',
     aiToolGoto: '{page}쪽으로 이동',
@@ -3682,7 +3682,7 @@ export const strings = {
     removeStamp: '클릭하여 이 워터마크/머리글 선택',
     props: '속성',
     propsTitle: '문서 속성',
-    ribbonAiAssistant: 'Genspark',
+    ribbonAiAssistant: 'OneDesk',
     ribbonAiAssistantTip: 'AI 도우미 열기',
     propTitle: '제목',
     propAuthor: '작성자',
@@ -3901,7 +3901,7 @@ export const strings = {
     aiNetworkError:
       'Problème réseau : impossible de joindre le service IA. Vérifiez votre connexion et réessayez',
     aiCreditsExhausted:
-      'Vos crédits Genspark sont épuisés. Rechargez sur onedesk.jiulu.ltd/pricing puis réessayez',
+      'Vos crédits OneDesk sont épuisés. Rechargez sur onedesk.jiulu.ltd/pricing puis réessayez',
     aiToolReadPages: 'Lire les pages {start}-{end}',
     aiToolSearch: 'Rechercher « {query} » ({count} occurrences)',
     aiToolGoto: 'Aller à la page {page}',
@@ -4143,7 +4143,7 @@ export const strings = {
     removeStamp: 'Cliquer pour sélectionner ce filigrane / en-tête',
     props: 'Propriétés',
     propsTitle: 'Propriétés du document',
-    ribbonAiAssistant: 'Genspark',
+    ribbonAiAssistant: 'OneDesk',
     ribbonAiAssistantTip: "Ouvrir l'assistant IA",
     propTitle: 'Titre',
     propAuthor: 'Auteur',
@@ -4362,7 +4362,7 @@ export const strings = {
     aiNetworkError:
       'Netzwerkproblem: Der KI-Dienst ist nicht erreichbar. Prüfe deine Verbindung und versuche es erneut',
     aiCreditsExhausted:
-      'Deine Genspark-Credits sind aufgebraucht. Lade unter onedesk.jiulu.ltd/pricing auf und versuche es erneut',
+      'Deine OneDesk-Credits sind aufgebraucht. Lade unter onedesk.jiulu.ltd/pricing auf und versuche es erneut',
     aiToolReadPages: 'Seiten {start}-{end} lesen',
     aiToolSearch: '„{query}" suchen ({count} Treffer)',
     aiToolGoto: 'Zu Seite {page} springen',
@@ -4603,7 +4603,7 @@ export const strings = {
     removeStamp: 'Klicken, um dieses Wasserzeichen / diese Kopfzeile auszuwählen',
     props: 'Eigenschaften',
     propsTitle: 'Dokumenteigenschaften',
-    ribbonAiAssistant: 'Genspark',
+    ribbonAiAssistant: 'OneDesk',
     ribbonAiAssistantTip: 'KI-Assistenten öffnen',
     propTitle: 'Titel',
     propAuthor: 'Autor',
@@ -4820,7 +4820,7 @@ export const strings = {
     aiNetworkError:
       'Problema de red: no se pudo conectar con el servicio de IA. Comprueba tu conexión e inténtalo de nuevo',
     aiCreditsExhausted:
-      'Tus créditos de Genspark se han agotado. Recarga en onedesk.jiulu.ltd/pricing e inténtalo de nuevo',
+      'Tus créditos de OneDesk se han agotado. Recarga en onedesk.jiulu.ltd/pricing e inténtalo de nuevo',
     aiToolReadPages: 'Leer páginas {start}-{end}',
     aiToolSearch: 'Buscar «{query}» ({count} resultados)',
     aiToolGoto: 'Ir a la página {page}',
@@ -5061,7 +5061,7 @@ export const strings = {
     removeStamp: 'Haz clic para seleccionar esta marca de agua / encabezado',
     props: 'Propiedades',
     propsTitle: 'Propiedades del documento',
-    ribbonAiAssistant: 'Genspark',
+    ribbonAiAssistant: 'OneDesk',
     ribbonAiAssistantTip: 'Abrir el asistente de IA',
     propTitle: 'Título',
     propAuthor: 'Autor',
@@ -5272,7 +5272,7 @@ export const strings = {
     aiNetworkError:
       'เครือข่ายมีปัญหา ไม่สามารถเชื่อมต่อบริการ AI ได้ โปรดตรวจสอบการเชื่อมต่อแล้วลองใหม่',
     aiCreditsExhausted:
-      'เครดิต Genspark ของคุณหมดแล้ว โปรดเติมเครดิตที่ onedesk.jiulu.ltd/pricing แล้วลองใหม่',
+      'เครดิต OneDesk ของคุณหมดแล้ว โปรดเติมเครดิตที่ onedesk.jiulu.ltd/pricing แล้วลองใหม่',
     aiToolReadPages: 'อ่านหน้า {start}-{end}',
     aiToolSearch: 'ค้นหา "{query}" ({count} แห่ง)',
     aiToolGoto: 'ไปที่หน้า {page}',
@@ -5507,7 +5507,7 @@ export const strings = {
     removeStamp: 'คลิกเพื่อเลือกลายน้ำ/หัวท้ายนี้',
     props: 'คุณสมบัติ',
     propsTitle: 'คุณสมบัติเอกสาร',
-    ribbonAiAssistant: 'Genspark',
+    ribbonAiAssistant: 'OneDesk',
     ribbonAiAssistantTip: 'เปิดผู้ช่วย AI',
     propTitle: 'ชื่อเรื่อง',
     propAuthor: 'ผู้เขียน',
@@ -5722,7 +5722,7 @@ export const strings = {
     aiNetworkError:
       'Masalah jaringan: tidak dapat terhubung ke layanan AI. Periksa koneksi Anda lalu coba lagi',
     aiCreditsExhausted:
-      'Kredit Genspark Anda telah habis. Isi ulang di onedesk.jiulu.ltd/pricing lalu coba lagi',
+      'Kredit OneDesk Anda telah habis. Isi ulang di onedesk.jiulu.ltd/pricing lalu coba lagi',
     aiToolReadPages: 'Baca halaman {start}-{end}',
     aiToolSearch: 'Cari "{query}" ({count} temuan)',
     aiToolGoto: 'Ke halaman {page}',
@@ -5961,7 +5961,7 @@ export const strings = {
     removeStamp: 'Klik untuk memilih tanda air / header ini',
     props: 'Properti',
     propsTitle: 'Properti dokumen',
-    ribbonAiAssistant: 'Genspark',
+    ribbonAiAssistant: 'OneDesk',
     ribbonAiAssistantTip: 'Buka asisten AI',
     propTitle: 'Judul',
     propAuthor: 'Penulis',
@@ -6176,7 +6176,7 @@ export const strings = {
     aiNetworkError:
       'Проблема с сетью: не удалось подключиться к сервису ИИ. Проверьте подключение и повторите попытку',
     aiCreditsExhausted:
-      'Кредиты Genspark исчерпаны. Пополните баланс на onedesk.jiulu.ltd/pricing и повторите попытку',
+      'Кредиты OneDesk исчерпаны. Пополните баланс на onedesk.jiulu.ltd/pricing и повторите попытку',
     aiToolReadPages: 'Чтение страниц {start}-{end}',
     aiToolSearch: 'Поиск «{query}» ({count} совпадений)',
     aiToolGoto: 'Перейти на страницу {page}',
@@ -6416,7 +6416,7 @@ export const strings = {
     removeStamp: 'Нажмите, чтобы выбрать этот знак / колонтитул',
     props: 'Свойства',
     propsTitle: 'Свойства документа',
-    ribbonAiAssistant: 'Genspark',
+    ribbonAiAssistant: 'OneDesk',
     ribbonAiAssistantTip: 'Открыть помощника ИИ',
     propTitle: 'Заголовок',
     propAuthor: 'Автор',
@@ -6626,7 +6626,7 @@ export const strings = {
     aiNetworkError:
       'مشكلة في الشبكة: تعذّر الوصول إلى خدمة الذكاء الاصطناعي. تحقق من الاتصال وحاول مجددًا',
     aiCreditsExhausted:
-      'نفدت أرصدة Genspark لديك. يرجى إعادة الشحن عبر onedesk.jiulu.ltd/pricing ثم المحاولة مجددًا',
+      'نفدت أرصدة OneDesk لديك. يرجى إعادة الشحن عبر onedesk.jiulu.ltd/pricing ثم المحاولة مجددًا',
     aiToolReadPages: 'قراءة الصفحات {start}-{end}',
     aiToolSearch: 'بحث عن "{query}" ({count} نتيجة)',
     aiToolGoto: 'الانتقال إلى الصفحة {page}',
@@ -6861,7 +6861,7 @@ export const strings = {
     removeStamp: 'انقر لتحديد هذه العلامة/الرأس',
     props: 'الخصائص',
     propsTitle: 'خصائص المستند',
-    ribbonAiAssistant: 'Genspark',
+    ribbonAiAssistant: 'OneDesk',
     ribbonAiAssistantTip: 'فتح مساعد الذكاء الاصطناعي',
     propTitle: 'العنوان',
     propAuthor: 'المؤلف',
@@ -7078,7 +7078,7 @@ export const strings = {
     aiNetworkError:
       'Problema de rede: não foi possível conectar ao serviço de IA. Verifique sua conexão e tente novamente',
     aiCreditsExhausted:
-      'Seus créditos Genspark acabaram. Recarregue em onedesk.jiulu.ltd/pricing e tente novamente',
+      'Seus créditos OneDesk acabaram. Recarregue em onedesk.jiulu.ltd/pricing e tente novamente',
     aiToolReadPages: 'Ler páginas {start}-{end}',
     aiToolSearch: 'Pesquisar "{query}" ({count} ocorrências)',
     aiToolGoto: 'Ir para a página {page}',
@@ -7317,7 +7317,7 @@ export const strings = {
     removeStamp: "Clique para selecionar esta marca d'água / cabeçalho",
     props: 'Propriedades',
     propsTitle: 'Propriedades do documento',
-    ribbonAiAssistant: 'Genspark',
+    ribbonAiAssistant: 'OneDesk',
     ribbonAiAssistantTip: 'Abrir o assistente de IA',
     propTitle: 'Título',
     propAuthor: 'Autor',
@@ -7536,7 +7536,7 @@ export const strings = {
     aiNetworkError:
       'Problema di rete: impossibile raggiungere il servizio IA. Controlla la connessione e riprova',
     aiCreditsExhausted:
-      'I tuoi crediti Genspark sono esauriti. Ricarica su onedesk.jiulu.ltd/pricing e riprova',
+      'I tuoi crediti OneDesk sono esauriti. Ricarica su onedesk.jiulu.ltd/pricing e riprova',
     aiToolReadPages: 'Leggi le pagine {start}-{end}',
     aiToolSearch: 'Cerca "{query}" ({count} risultati)',
     aiToolGoto: 'Vai alla pagina {page}',
@@ -7777,7 +7777,7 @@ export const strings = {
     removeStamp: 'Fai clic per selezionare questa filigrana / intestazione',
     props: 'Proprietà',
     propsTitle: 'Proprietà del documento',
-    ribbonAiAssistant: 'Genspark',
+    ribbonAiAssistant: 'OneDesk',
     ribbonAiAssistantTip: "Apri l'assistente IA",
     propTitle: 'Titolo',
     propAuthor: 'Autore',
@@ -7991,7 +7991,7 @@ export const strings = {
     aiNetworkError:
       'Problem z siecią: nie można połączyć się z usługą AI. Sprawdź połączenie i spróbuj ponownie',
     aiCreditsExhausted:
-      'Twoje kredyty Genspark wyczerpały się. Doładuj konto na onedesk.jiulu.ltd/pricing i spróbuj ponownie',
+      'Twoje kredyty OneDesk wyczerpały się. Doładuj konto na onedesk.jiulu.ltd/pricing i spróbuj ponownie',
     aiToolReadPages: 'Czytaj strony {start}-{end}',
     aiToolSearch: 'Szukaj „{query}" ({count} wyników)',
     aiToolGoto: 'Przejdź do strony {page}',
@@ -8232,7 +8232,7 @@ export const strings = {
     removeStamp: 'Kliknij, aby zaznaczyć ten znak wodny / nagłówek',
     props: 'Właściwości',
     propsTitle: 'Właściwości dokumentu',
-    ribbonAiAssistant: 'Genspark',
+    ribbonAiAssistant: 'OneDesk',
     ribbonAiAssistantTip: 'Otwórz asystenta AI',
     propTitle: 'Tytuł',
     propAuthor: 'Autor',
@@ -8445,7 +8445,7 @@ export const strings = {
     aiNetworkError:
       'Problém se sítí: službu AI se nepodařilo kontaktovat. Zkontrolujte připojení a zkuste to znovu',
     aiCreditsExhausted:
-      'Vaše kredity Genspark byly vyčerpány. Navštivte onedesk.jiulu.ltd/pricing, dobijte je a zkuste to znovu',
+      'Vaše kredity OneDesk byly vyčerpány. Navštivte onedesk.jiulu.ltd/pricing, dobijte je a zkuste to znovu',
     aiToolReadPages: 'Číst stránky {start}-{end}',
     aiToolSearch: 'Hledat „{query}“ ({count} výskytů)',
     aiToolGoto: 'Přejít na stránku {page}',
@@ -8684,7 +8684,7 @@ export const strings = {
     removeStamp: 'Kliknutím vyberete tento vodoznak / záhlaví / zápatí',
     props: 'Vlastnosti',
     propsTitle: 'Vlastnosti dokumentu',
-    ribbonAiAssistant: 'Genspark',
+    ribbonAiAssistant: 'OneDesk',
     ribbonAiAssistantTip: 'Otevřít asistenta AI',
     propTitle: 'Název',
     propAuthor: 'Autor',
@@ -8900,7 +8900,7 @@ export const strings = {
     aiNetworkError:
       'Netwerkprobleem: kan de AI-service niet bereiken. Controleer je verbinding en probeer het opnieuw',
     aiCreditsExhausted:
-      'Je Genspark-credits zijn op. Waardeer op via onedesk.jiulu.ltd/pricing en probeer het opnieuw',
+      'Je OneDesk-credits zijn op. Waardeer op via onedesk.jiulu.ltd/pricing en probeer het opnieuw',
     aiToolReadPages: "Pagina's {start}-{end} lezen",
     aiToolSearch: 'Zoeken naar "{query}" ({count} resultaten)',
     aiToolGoto: 'Ga naar pagina {page}',
@@ -9140,7 +9140,7 @@ export const strings = {
     removeStamp: 'Klik om dit watermerk / deze koptekst te selecteren',
     props: 'Eigenschappen',
     propsTitle: 'Documenteigenschappen',
-    ribbonAiAssistant: 'Genspark',
+    ribbonAiAssistant: 'OneDesk',
     ribbonAiAssistantTip: 'De AI-assistent openen',
     propTitle: 'Titel',
     propAuthor: 'Auteur',
@@ -9354,7 +9354,7 @@ export const strings = {
     aiNetworkError:
       'Masalah rangkaian: tidak dapat menghubungi perkhidmatan AI. Semak sambungan anda dan cuba lagi',
     aiCreditsExhausted:
-      'Kredit Genspark anda telah habis. Tambah nilai di onedesk.jiulu.ltd/pricing dan cuba lagi',
+      'Kredit OneDesk anda telah habis. Tambah nilai di onedesk.jiulu.ltd/pricing dan cuba lagi',
     aiToolReadPages: 'Baca halaman {start}-{end}',
     aiToolSearch: 'Cari "{query}" ({count} padanan)',
     aiToolGoto: 'Pergi ke halaman {page}',
@@ -9594,7 +9594,7 @@ export const strings = {
     removeStamp: 'Klik untuk memilih tera air / pengepala ini',
     props: 'Sifat',
     propsTitle: 'Sifat dokumen',
-    ribbonAiAssistant: 'Genspark',
+    ribbonAiAssistant: 'OneDesk',
     ribbonAiAssistantTip: 'Buka pembantu AI',
     propTitle: 'Tajuk',
     propAuthor: 'Pengarang',
@@ -9800,7 +9800,7 @@ export const strings = {
     aiRegionError: 'ספק המודל הזה אינו פועל באזור הנוכחי שלך — בחרו מודל אחר או החליפו רשת',
     aiOverloadedError: 'שירות ה-AI עמוס כרגע — נסו שוב בעוד רגע',
     aiNetworkError: 'בעיית רשת: לא ניתן להתחבר לשירות ה-AI. בדוק את החיבור ונסה שוב',
-    aiCreditsExhausted: 'קרדיטי Genspark שלך אזלו. טען מחדש ב-onedesk.jiulu.ltd/pricing ונסה שוב',
+    aiCreditsExhausted: 'קרדיטי OneDesk שלך אזלו. טען מחדש ב-onedesk.jiulu.ltd/pricing ונסה שוב',
     aiToolReadPages: 'קריאת עמודים {start}-{end}',
     aiToolSearch: 'חיפוש "{query}" ({count} תוצאות)',
     aiToolGoto: 'מעבר לעמוד {page}',
@@ -10033,7 +10033,7 @@ export const strings = {
     removeStamp: 'לחצו לבחירת סימן המים/הכותרת הזו',
     props: 'מאפיינים',
     propsTitle: 'מאפייני המסמך',
-    ribbonAiAssistant: 'Genspark',
+    ribbonAiAssistant: 'OneDesk',
     ribbonAiAssistantTip: 'פתח את עוזר ה-AI',
     propTitle: 'כותרת',
     propAuthor: 'מחבר',
@@ -10245,7 +10245,7 @@ export const strings = {
     aiNetworkError:
       'नेटवर्क समस्या: AI सेवा से कनेक्ट नहीं हो सका। कनेक्शन जांचें और फिर से प्रयास करें',
     aiCreditsExhausted:
-      'आपके Genspark क्रेडिट समाप्त हो गए हैं। onedesk.jiulu.ltd/pricing पर रिचार्ज करें और फिर से प्रयास करें',
+      'आपके OneDesk क्रेडिट समाप्त हो गए हैं। onedesk.jiulu.ltd/pricing पर रिचार्ज करें और फिर से प्रयास करें',
     aiToolReadPages: 'पृष्ठ {start}-{end} पढ़ें',
     aiToolSearch: '"{query}" खोजें ({count} परिणाम)',
     aiToolGoto: 'पृष्ठ {page} पर जाएँ',
@@ -10483,7 +10483,7 @@ export const strings = {
     removeStamp: 'इस वॉटरमार्क/शीर्षलेख-पादलेख को चुनने के लिए क्लिक करें',
     props: 'गुण',
     propsTitle: 'दस्तावेज़ गुण',
-    ribbonAiAssistant: 'Genspark',
+    ribbonAiAssistant: 'OneDesk',
     ribbonAiAssistantTip: 'AI सहायक खोलें',
     propTitle: 'शीर्षक',
     propAuthor: 'लेखक',
@@ -10689,7 +10689,7 @@ export const strings = {
     aiRegionError: '該模型的廠商不向目前地區提供服務，請換一個模型或切換網路',
     aiOverloadedError: 'AI 服務目前繁忙，請稍後重試',
     aiNetworkError: '網路有問題，無法連接 AI 服務。請檢查網路後重試',
-    aiCreditsExhausted: 'Genspark 點數已用完，請前往 onedesk.jiulu.ltd/pricing 儲值後重試',
+    aiCreditsExhausted: 'OneDesk 點數已用完，請前往 onedesk.jiulu.ltd/pricing 儲值後重試',
     aiToolReadPages: '讀取第 {start}-{end} 頁',
     aiToolSearch: '搜尋「{query}」（{count} 處）',
     aiToolGoto: '跳至第 {page} 頁',
@@ -10920,7 +10920,7 @@ export const strings = {
     removeStamp: '點一下選取此浮水印/頁首頁尾',
     props: '屬性',
     propsTitle: '文件屬性',
-    ribbonAiAssistant: 'Genspark',
+    ribbonAiAssistant: 'OneDesk',
     ribbonAiAssistantTip: '開啟 AI 助理',
     propTitle: '標題',
     propAuthor: '作者',

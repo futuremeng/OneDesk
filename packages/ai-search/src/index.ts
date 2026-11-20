@@ -1,12 +1,12 @@
 /**
- * Search utilities (main process) — gsk (Genspark CLI) first, then Serper Google API,
+ * Search utilities (main process) — onedesk (OneDesk CLI) first, then Serper Google API,
  * then Serply, SearchApi, Tavily, Parallel (whose free Search MCP answers keyless), Exa,
  * Firecrawl and Keenable (keyless only when selected), before the DuckDuckGo last resort. Runs
  * in the main process (Node fetch / child process) to avoid renderer CORS; the Serper key reuses
  * SERPER_API_KEY, the Serply key reuses SERPLY_API_KEY, the SearchApi key reuses
  * SEARCHAPI_API_KEY, the Tavily key reuses TAVILY_API_KEY, Parallel uses PARALLEL_API_KEY, Exa
  * uses EXA_API_KEY, Firecrawl uses FIRECRAWL_API_KEY and Keenable uses KEENABLE_API_KEY.
- * For Genspark auth see ./gsk.ts (OneDesk sign-in or explicit GSK_API_KEY).
+ * For OneDesk auth see ./onedesk.ts (OneDesk sign-in or explicit GSK_API_KEY).
  */
 
 import {
@@ -16,11 +16,11 @@ import {
   type ImageSearchResult,
   type WebSearchResult,
 } from './shared'
-import { gskImageSearch, gskWebSearch, hasGskAuth } from './gsk'
+import { onedeskImageSearch, onedeskWebSearch, hasOneDeskAuth } from './onedesk'
 import { parallelMcpSearch } from './parallel-mcp'
 
 export type { ImageSearchResult, WebSearchResult } from './shared'
-export * from './gsk'
+export * from './onedesk'
 export * from './onedesk-auth'
 export * from './media-tools'
 export * from './search-tools'
@@ -37,11 +37,11 @@ const KEENABLE_KEY = () => process.env.KEENABLE_API_KEY ?? ''
 /**
  * Backend selection for one search. Keys default to the SERPER_API_KEY /
  * SERPLY_API_KEY / SEARCHAPI_API_KEY / TAVILY_API_KEY / PARALLEL_API_KEY env vars; settings-driven
- * callers (search-tools.ts) pass the user's key and turn gsk off so the chosen backend runs first.
+ * callers (search-tools.ts) pass the user's key and turn onedesk off so the chosen backend runs first.
  */
 export interface SearchOptions {
-  /** false = skip the Genspark backend (cloud tools off, or a BYOK search provider is active) */
-  useGsk?: boolean
+  /** false = skip the OneDesk backend (cloud tools off, or a BYOK search provider is active) */
+  useOneDesk?: boolean
   serperKey?: string
   serplyKey?: string
   searchapiKey?: string
@@ -67,9 +67,9 @@ const SEARCH_BACKENDS = new Set([
 ] as const)
 
 function normalizeOptions(opts: boolean | SearchOptions | undefined): Required<SearchOptions> {
-  const o = typeof opts === 'boolean' ? { useGsk: opts } : (opts ?? {})
+  const o = typeof opts === 'boolean' ? { useOneDesk: opts } : (opts ?? {})
   return {
-    useGsk: o.useGsk ?? true,
+    useOneDesk: o.useOneDesk ?? true,
     serperKey: o.serperKey ?? SERPER_KEY(),
     serplyKey: o.serplyKey ?? SERPLY_KEY(),
     searchapiKey: o.searchapiKey ?? SEARCHAPI_KEY(),
@@ -498,12 +498,12 @@ export async function webSearch(
 ): Promise<WebSearchResponse> {
   const o = normalizeOptions(options)
   const { query: q, max } = normalizeSearchArgs(query, maxResults, 6)
-  // useGsk=false: the user turned Genspark cloud tools off or picked their own
+  // useOneDesk=false: the user turned OneDesk cloud tools off or picked their own
   // search key — skip straight to the keyed/free backends
-  if (o.useGsk && hasGskAuth()) {
+  if (o.useOneDesk && hasOneDeskAuth()) {
     try {
-      const r = await gskWebSearch(q, max)
-      if (r.results.length) return { ...r, method: 'gsk' }
+      const r = await onedeskWebSearch(q, max)
+      if (r.results.length) return { ...r, method: 'onedesk' }
     } catch {
       /* fall back to Serper/Serply/SearchApi/Tavily/Parallel/DuckDuckGo */
     }
@@ -558,10 +558,10 @@ export async function imageSearch(
 }> {
   const o = normalizeOptions(options)
   const { query: q, max } = normalizeSearchArgs(query, maxResults, 8)
-  if (o.useGsk && hasGskAuth()) {
+  if (o.useOneDesk && hasOneDeskAuth()) {
     try {
-      const images = filterUsableImages(await gskImageSearch(q, max))
-      if (images.length) return { images, method: 'gsk' }
+      const images = filterUsableImages(await onedeskImageSearch(q, max))
+      if (images.length) return { images, method: 'onedesk' }
     } catch {
       /* fall back to Serper/Serply/SearchApi/DuckDuckGo */
     }

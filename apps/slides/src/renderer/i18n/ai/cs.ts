@@ -18,9 +18,9 @@ export const cs = {
   aiQcPageSkipped: 'Stránka {n}: automatická kontrola rozložení přeskočena',
   aiQcStopped: 'Kontrola rozložení zastavena',
   aiQcCapped: 'Dalších {count} stránek nebylo zkontrolováno (limit na jedno spuštění)',
-  aiGskLoginBtn: 'Přihlásit se ke Genspark',
-  aiGskLoginOk: 'Přihlášeno ke Genspark',
-  aiPanelTitle: 'Genspark',
+  aiOneDeskLoginBtn: 'Přihlásit se ke OneDesk',
+  aiOneDeskLoginOk: 'Přihlášeno ke OneDesk',
+  aiPanelTitle: 'OneDesk',
   aiOpenAssistant: 'Otevřít asistenta AI',
   aiFactCheckBtn: 'Ověření faktů AI',
   aiFactCheckPrompt:
@@ -118,7 +118,7 @@ export const cs = {
   aiErrNetwork:
     'Problém se sítí: službu AI se nepodařilo kontaktovat. Zkontrolujte připojení a zkuste to znovu',
   aiCreditsExhausted:
-    'Vaše kredity Genspark byly vyčerpány. Navštivte onedesk.jiulu.ltd/pricing, dobijte je a zkuste to znovu',
+    'Vaše kredity OneDesk byly vyčerpány. Navštivte onedesk.jiulu.ltd/pricing, dobijte je a zkuste to znovu',
   aiErrRequestFailed: 'Odeslání požadavku se nezdařilo: {msg}',
   aiErrGenerateFailed: 'Generování se nezdařilo',
   aiErrRegenFailed: 'Přepracování snímku se nezdařilo',

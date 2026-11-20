@@ -46,10 +46,10 @@ As Configurações podem registrar o OneDesk como o aplicativo que abre arquivos
 - Ajuda ▸ Avisos de software de terceiros: o inventário completo das licenças de código aberto que acompanha o aplicativo.
 - Ajuda ▸ Procurar atualizações…: inicia uma verificação manual; e se houver uma versão mais recente, o OneDesk propõe a instalação.
 
-## Entrar na Genspark
+## Entrar na OneDesk
 
 - O acesso (nas Configurações ou na lista de projetos na nuvem) usa um fluxo de **código de dispositivo**: o OneDesk mostra um código e abre o início de sessão no navegador; e a partir daí o processo prossegue sozinho.
-- O início de sessão serve apenas para: a lista de projetos na nuvem e os modelos hospedados da Genspark. Sem ele, todas as funcionalidades locais e os modelos personalizados continuam a funcionar.
+- O início de sessão serve apenas para: a lista de projetos na nuvem e os modelos hospedados da OneDesk. Sem ele, todas as funcionalidades locais e os modelos personalizados continuam a funcionar.
 - Terminar sessão é um clique nas Configurações.
 
 ## Integração MCP (para usuários avançados / clientes de IA)

@@ -67,7 +67,7 @@ import './settings-skin.css'
 import './settings-fx.css'
 
 // ── Settings modal (opened from the account menu) ─────────
-// Genspark-style two-pane dialog: section nav on the left, fields on the right.
+// OneDesk-style two-pane dialog: section nav on the left, fields on the right.
 // All values go through the existing home IPC; nothing is stored locally.
 
 // sorted by ISO 639 language code — native-script labels have no natural
@@ -377,13 +377,13 @@ function AiModelPane({ t }: { t: TFunc }) {
         setTesting(false)
         setTestResult(null)
         setSaved(false)
-        // The switch is disabled with genspark, so never present it stranded
+        // The switch is disabled with onedesk, so never present it stranded
         // off. Display-only: s.provider may be the activeProvider fallback for
         // a half-configured BYOK selection, so writing anything back here would
         // clobber the stored choice — the main process heals a genuine legacy
-        // genspark+off file itself, judged on the raw stored provider.
-        if (s.provider === 'genspark' && s.gskToolsEnabled === false) {
-          s = { ...s, gskToolsEnabled: true }
+        // onedesk+off file itself, judged on the raw stored provider.
+        if (s.provider === 'onedesk' && s.onedeskToolsEnabled === false) {
+          s = { ...s, onedeskToolsEnabled: true }
         }
         setSettings(s)
         const codex = s.providers.codex
@@ -406,7 +406,7 @@ function AiModelPane({ t }: { t: TFunc }) {
   // endpoint itself. Keyed on the catalog's `needsBaseUrl` flag rather than on
   // the literal 'custom' id, so it follows the slot rather than the name, and
   // stays a no-op while any other provider is selected — a local server saved
-  // months ago is never contacted while Genspark is in use. Aggregators flagged
+  // months ago is never contacted while OneDesk is in use. Aggregators flagged
   // `liveModels` (OpenRouter) join in at their default address, their shipped
   // list standing in until the catalog answers.
   const liveEntry = catalog.find(
@@ -484,7 +484,7 @@ function AiModelPane({ t }: { t: TFunc }) {
     baseUrl: undefined,
     cliPath: undefined,
   }
-  const isGenspark = provider === 'genspark'
+  const isOneDesk = provider === 'onedesk'
   const isCodex = provider === 'codex'
 
   const touch = () => {
@@ -586,11 +586,11 @@ function AiModelPane({ t }: { t: TFunc }) {
     touch()
   }
   const selectProvider = (id: AiSettings['provider']) => {
-    // cloud tools cannot be off with genspark (chat runs through gsk anyway)
+    // cloud tools cannot be off with onedesk (chat runs through onedesk anyway)
     setSettings({
       ...settings,
       provider: id,
-      ...(id === 'genspark' ? { gskToolsEnabled: true } : {}),
+      ...(id === 'onedesk' ? { onedeskToolsEnabled: true } : {}),
     })
     touch()
   }
@@ -691,7 +691,7 @@ function AiModelPane({ t }: { t: TFunc }) {
         />
       </div>
       <div className="set-field-desc set-ai-note">
-        {isGenspark ? t('setAiGensparkHint') : isCodex ? t('setAiCodexHint') : t('setAiByokNote')}
+        {isOneDesk ? t('setAiOneDeskHint') : isCodex ? t('setAiCodexHint') : t('setAiByokNote')}
       </div>
       {meta?.needsBaseUrl && (
         <>
@@ -825,7 +825,7 @@ function AiModelPane({ t }: { t: TFunc }) {
             }}
           />
         </div>
-      ) : !isGenspark ? (
+      ) : !isOneDesk ? (
         <>
           <div className="set-field">
             <div className="set-field-text">
@@ -1098,19 +1098,22 @@ function AiModelPane({ t }: { t: TFunc }) {
       <div className="set-field">
         <div className="set-field-text">
           <div className="set-field-stack">
-            <div className="set-field-label">{t('setAiGskTools')}</div>
-            <div className="set-field-desc">{t('setAiGskToolsDesc')}</div>
+            <div className="set-field-label">{t('setAiOneDeskTools')}</div>
+            <div className="set-field-desc">{t('setAiOneDeskToolsDesc')}</div>
           </div>
         </div>
-        {/* locked on with the genspark provider — chat runs through gsk anyway */}
+        {/* locked on with the onedesk provider — chat runs through onedesk anyway */}
         <button
           className="set-switch"
           role="switch"
-          aria-checked={settings.gskToolsEnabled !== false}
-          aria-label={t('setAiGskTools')}
-          disabled={isGenspark}
+          aria-checked={settings.onedeskToolsEnabled !== false}
+          aria-label={t('setAiOneDeskTools')}
+          disabled={isOneDesk}
           onClick={() => {
-            setSettings({ ...settings, gskToolsEnabled: settings.gskToolsEnabled === false })
+            setSettings({
+              ...settings,
+              onedeskToolsEnabled: settings.onedeskToolsEnabled === false,
+            })
             touch()
           }}
         />
@@ -1292,7 +1295,7 @@ function AiMediaPane({
           window.aiOffice.testAiSearchSettings?.({
             provider: search.provider,
             apiKey:
-              search.provider === 'genspark'
+              search.provider === 'onedesk'
                 ? ''
                 : (search.providers[search.provider]?.apiKey ?? ''),
           }) ?? Promise.resolve(fallback),
@@ -1565,9 +1568,9 @@ function AiMediaPane({
         {subhead(cap, title)}
         {providerRow(title, id, options, pick)}
         <div className="set-field-desc set-ai-note">
-          {id === 'genspark' ? t('setAiMediaGensparkHint') : meta.description}
+          {id === 'onedesk' ? t('setAiMediaOneDeskHint') : meta.description}
         </div>
-        {id !== 'genspark' && (
+        {id !== 'onedesk' && (
           <>
             {modelRow(
               `set-ai-${cap}-model`,
@@ -1590,7 +1593,7 @@ function AiMediaPane({
 
   const searchMeta = searchCatalog.find((m) => m.id === search.provider)
   const searchKey =
-    search.provider === 'genspark' ? '' : (search.providers[search.provider]?.apiKey ?? '')
+    search.provider === 'onedesk' ? '' : (search.providers[search.provider]?.apiKey ?? '')
 
   return (
     <>
@@ -1614,8 +1617,8 @@ function AiMediaPane({
           setSearch({ ...search, provider: v as AiSearchSettings['provider'] }),
         )}
         <div className="set-field-desc set-ai-note">
-          {search.provider === 'genspark'
-            ? t('setAiSearchGensparkHint')
+          {search.provider === 'onedesk'
+            ? t('setAiSearchOneDeskHint')
             : search.provider === 'parallel'
               ? t('setAiSearchParallelHint')
               : search.provider === 'keenable'
@@ -1628,7 +1631,7 @@ function AiMediaPane({
                       ? t('setAiSearchSerperHint')
                       : t('setAiSearchTavilyHint')}
         </div>
-        {search.provider !== 'genspark' &&
+        {search.provider !== 'onedesk' &&
           keyRow('set-ai-search-key', searchKey, searchMeta?.keyPlaceholder ?? 'API Key', (v) =>
             setSearch({
               ...search,
@@ -1792,7 +1795,7 @@ export interface SettingsModalProps {
   onClose: () => void
   /** the decision-model search settings were saved; the home search re-judges or drops its current order */
   onFileSearchChange?: () => void
-  /** closes the modal and launches the Genspark login flow (progress shows on the account entry) */
+  /** closes the modal and launches the OneDesk login flow (progress shows on the account entry) */
   onLogin: () => void
   onLogout: () => void
   /** an installed skill is older than the bundled one: dot on the Integrations entry */
@@ -2103,7 +2106,7 @@ export function SettingsModal({
                         </>
                       )}
                       <button className="set-btn primary" onClick={onLogin}>
-                        {loginWaiting ? t('waitingShort') : t('loginGenspark')}
+                        {loginWaiting ? t('waitingShort') : t('loginOneDesk')}
                       </button>
                     </>
                   )}

@@ -23,7 +23,7 @@ import type {
   AiSettings,
   AiStreamChunk,
   AiStreamRequest,
-  GenSparkAccountStatus,
+  OneDeskAccountStatus,
 } from '@onedesk/ai-provider'
 
 import type {
@@ -57,7 +57,7 @@ export type {
   AiSettings,
   AiStreamChunk,
   AiStreamRequest,
-  GenSparkAccountStatus,
+  OneDeskAccountStatus,
 } from '@onedesk/ai-provider'
 export { AI_PROVIDERS } from '@onedesk/ai-provider/browser'
 export type { AgentToolCall, AgentToolDef } from '@onedesk/agent-core'
@@ -1803,12 +1803,12 @@ export interface SlidesApi {
   skillText: (name: string) => Promise<string>
   aiStream: (request: AiStreamRequest) => Promise<void>
   aiStreamCancel: (requestId: string) => Promise<void>
-  /** Genspark account status (gsk login state); with withEmail also fetches the email (needs a network request, slower) */
-  aiGskStatus: (withEmail?: boolean) => Promise<GenSparkAccountStatus>
-  /** Open the browser to log into Genspark (fire-and-forget; aiGskStatus turns logged-in once done) */
-  aiGskLogin: () => Promise<void>
-  /** A browser-approved Genspark login landed (whichever surface started it) */
-  onGskLoginLanded: (handler: () => void) => () => void
+  /** OneDesk account status (onedesk login state); with withEmail also fetches the email (needs a network request, slower) */
+  aiOneDeskStatus: (withEmail?: boolean) => Promise<OneDeskAccountStatus>
+  /** Open the browser to log into OneDesk (fire-and-forget; aiOneDeskStatus turns logged-in once done) */
+  aiOneDeskLogin: () => Promise<void>
+  /** A browser-approved OneDesk login landed (whichever surface started it) */
+  onOneDeskLoginLanded: (handler: () => void) => () => void
   /** Record a run that ended without a usable reply, for post-mortem (fire-and-forget, never throws) */
   aiLogRunFailure: (entry: AiRunFailure) => Promise<void>
   webSearch: (
@@ -1859,7 +1859,7 @@ export interface SlidesApi {
     ext?: string
     keepSrcRect?: boolean
   }) => Promise<RenderSlide | null>
-  /** gsk (Genspark) AI image generation/editing, returns the image URL (error prompts login when logged out) */
+  /** onedesk (OneDesk) AI image generation/editing, returns the image URL (error prompts login when logged out) */
   generateImage: (op: {
     prompt: string
     model?: string
@@ -1868,13 +1868,13 @@ export interface SlidesApi {
     imageSize?: string
     transparentBackground?: boolean
   }) => Promise<{ url?: string; error?: string }>
-  /** gsk (Genspark) media analysis: image/audio/video content understanding, returns analysis text */
+  /** onedesk (OneDesk) media analysis: image/audio/video content understanding, returns analysis text */
   analyzeMedia: (op: {
     mediaUrls: string[]
     requirements: string
   }) => Promise<{ text?: string; error?: string }>
-  /** gsk availability: installed and logged in (for UI/tools to prompt login) */
-  gskStatus: () => Promise<{ available: boolean; email?: string }>
+  /** onedesk availability: installed and logged in (for UI/tools to prompt login) */
+  onedeskStatus: () => Promise<{ available: boolean; email?: string }>
   onAiStream: (handler: (chunk: AiStreamChunk) => void) => () => void
   /** Style Skill sidecar: write styleSkill to a same-named .styleskill.json next to the draft */
   saveStyleSidecar: (data: {

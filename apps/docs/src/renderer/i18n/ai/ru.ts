@@ -8,9 +8,9 @@ export const ru = {
   aiStarterPolishAll: 'Отшлифуй весь документ, сделав тон более профессиональным',
   aiStarterContinue: 'Продолжи текст с того места, где он обрывается',
   aiStarterFillTemplate: 'Найди и заполни местозаполнители в документе',
-  aiGskLoginBtn: 'Войти в Genspark',
-  aiGskLoginOk: 'Выполнен вход в Genspark',
-  aiPanelTitle: 'Genspark',
+  aiOneDeskLoginBtn: 'Войти в OneDesk',
+  aiOneDeskLoginOk: 'Выполнен вход в OneDesk',
+  aiPanelTitle: 'OneDesk',
   aiOpenAssistant: 'Открыть ИИ-помощника',
   aiSummarizeBtn: 'ИИ-резюме',
   aiSummarizePrompt: 'Кратко изложите основное содержание и ключевые моменты этого документа',
@@ -124,7 +124,7 @@ export const ru = {
   aiNetworkError:
     'Проблема с сетью: не удалось подключиться к сервису ИИ. Проверьте подключение и повторите попытку',
   aiCreditsExhausted:
-    'Кредиты Genspark исчерпаны. Пополните баланс на onedesk.jiulu.ltd/pricing и повторите попытку',
+    'Кредиты OneDesk исчерпаны. Пополните баланс на onedesk.jiulu.ltd/pricing и повторите попытку',
   aiSumReadAttachment: 'Чтение вложения',
   aiSumImageAttachment: 'Вложенное изображение {name}',
   aiSumRead: 'Чтение {name}',

@@ -4,12 +4,12 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import * as aiSearch from '@onedesk/ai-search'
 import { run, tempDir } from './helpers'
 
-// hasGskAuth reads process.env, not the command context: isolate the login state per test
+// hasOneDeskAuth reads process.env, not the command context: isolate the login state per test
 const saved: Record<string, string | undefined> = {}
 beforeEach(() => {
-  for (const k of ['ONEDESK_AUTH_DIR', 'AI_SEARCH_DISABLE_GSK']) saved[k] = process.env[k]
+  for (const k of ['ONEDESK_AUTH_DIR', 'AI_SEARCH_DISABLE_ONEDESK']) saved[k] = process.env[k]
   process.env.ONEDESK_AUTH_DIR = join(tempDir(), 'no-auth')
-  process.env.AI_SEARCH_DISABLE_GSK = '1'
+  process.env.AI_SEARCH_DISABLE_ONEDESK = '1'
 })
 afterEach(() => {
   vi.restoreAllMocks()
@@ -115,9 +115,9 @@ describe('onedesk capabilities', () => {
   })
 
   it.each(['tavily', 'parallel'])(
-    '%s does not advertise Genspark image search when signed in',
+    '%s does not advertise OneDesk image search when signed in',
     async (provider) => {
-      vi.spyOn(aiSearch, 'hasGskAuth').mockReturnValue(true)
+      vi.spyOn(aiSearch, 'hasOneDeskAuth').mockReturnValue(true)
       const settings = settingsFile(tempDir(), {
         search: { provider, providers: { [provider]: { apiKey: 'test-key' } } },
       })
@@ -127,8 +127,8 @@ describe('onedesk capabilities', () => {
       const d = r.json().detail
       expect(d.search).toEqual({ available: true, via: provider })
       expect(d.image_search).toEqual({ available: false, via: null })
-      expect(d.image_generation).toEqual({ available: true, via: 'genspark' })
-      expect(d.media_analysis).toEqual({ available: true, via: 'genspark' })
+      expect(d.image_generation).toEqual({ available: true, via: 'onedesk' })
+      expect(d.media_analysis).toEqual({ available: true, via: 'onedesk' })
     },
   )
 

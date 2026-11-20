@@ -46,10 +46,10 @@ Met de instellingen kun je OneDesk registreren als verwerker van .docx / .xlsx /
 - Help ▸ Kennisgevingen over software van derden: het volledige overzicht van opensourcelicenties dat met de app is meegeleverd.
 - Help ▸ Controleren op updates…: start een handmatige controle; bij een nieuwere versie wordt je gevraagd die te installeren.
 
-## Aanmelden bij Genspark
+## Aanmelden bij OneDesk
 
 - Het aanmeldpunt (in de instellingen of in de lijst met cloudprojecten) gebruikt een flow met **apparaatcode**: OneDesk toont een code en opent de aanmeldpagina in de browser; daarna gaat het automatisch verder.
-- Aanmelden wordt alleen gebruikt voor: de lijst met cloudprojecten en de modellen die Genspark host. Zonder aanmelden blijven alle lokale functies en eigen modellen werken.
+- Aanmelden wordt alleen gebruikt voor: de lijst met cloudprojecten en de modellen die OneDesk host. Zonder aanmelden blijven alle lokale functies en eigen modellen werken.
 - Uitloggen is in de instellingen met één klik te doen.
 
 ## MCP-integratie (voor gevorderde gebruikers / AI-clients)

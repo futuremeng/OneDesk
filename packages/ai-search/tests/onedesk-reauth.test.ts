@@ -17,32 +17,32 @@ import {
   setOneDeskLoginOpener,
 } from '../src/onedesk-auth'
 import {
-  GskAuthError,
-  gskApiKey,
-  gskWebSearch,
-  hasGskAuth,
-  isGskUnauthorizedText,
-  noteGskCallFailure,
-  noteGskKeyRejected,
-  resetGskRejectedKeys,
-} from '../src/gsk'
+  OneDeskAuthError,
+  onedeskCliApiKey,
+  onedeskWebSearch,
+  hasOneDeskAuth,
+  isOneDeskUnauthorizedText,
+  noteOneDeskCallFailure,
+  noteOneDeskKeyRejected,
+  resetOneDeskRejectedKeys,
+} from '../src/onedesk'
 
 const AUTH_URL = `https://onedesk.jiulu.ltd/api/office_addin_auth/verify?code=${'a'.repeat(64)}`
 
 let dir: string
 
 beforeEach(() => {
-  dir = mkdtempSync(join(tmpdir(), 'gsk-reauth-'))
+  dir = mkdtempSync(join(tmpdir(), 'onedesk-reauth-'))
   home.dir = dir
   process.env.ONEDESK_AUTH_DIR = dir
-  process.env.GSK_CLI_PATH = '/fake/gsk.js'
+  process.env.ONEDESK_CLI_PATH = '/fake/onedesk.js'
   delete process.env.GSK_API_KEY
-  delete process.env.AI_SEARCH_DISABLE_GSK
+  delete process.env.AI_SEARCH_DISABLE_ONEDESK
   resetOneDeskAuthCache()
-  resetGskRejectedKeys()
+  resetOneDeskRejectedKeys()
   writeFileSync(
     join(dir, 'auth.json'),
-    JSON.stringify({ api_key: 'gsk-expired', key_id: 'kid-1', access_token: 'bearer-old' }),
+    JSON.stringify({ api_key: 'onedesk-expired', key_id: 'kid-1', access_token: 'bearer-old' }),
   )
 })
 
@@ -50,11 +50,11 @@ afterEach(() => {
   vi.unstubAllGlobals()
   setOneDeskLoginOpener(null)
   resetOneDeskAuthCache()
-  resetGskRejectedKeys()
+  resetOneDeskRejectedKeys()
   rmSync(dir, { recursive: true, force: true })
   home.dir = ''
   delete process.env.ONEDESK_AUTH_DIR
-  delete process.env.GSK_CLI_PATH
+  delete process.env.ONEDESK_CLI_PATH
 })
 
 function response(body: unknown, status = 200, setCookie?: string): Response {
@@ -77,7 +77,7 @@ function stubServer(create: () => Response) {
     if (url.includes('/api/tool_cli/')) {
       const key = (init?.headers as Record<string, string>)['X-Api-Key']!
       toolKeys.push(key)
-      if (key === 'gsk-expired') return response('{"detail":"invalid api key"}', 401)
+      if (key === 'onedesk-expired') return response('{"detail":"invalid api key"}', 401)
       return ndjsonOk({ download_url: 'https://93.184.216.34/deck.pptx' })
     }
     if (url.includes('/office_addin_auth/session')) {
@@ -95,41 +95,41 @@ function stubServer(create: () => Response) {
   return { fetchMock, toolKeys }
 }
 
-describe('isGskUnauthorizedText', () => {
-  it('matches the 401 shapes of gsk CLI, tool_cli and the LLM proxy', () => {
-    expect(isGskUnauthorizedText('HTTP 401: Unauthorized')).toBe(true)
-    expect(isGskUnauthorizedText('tool_cli /x HTTP 401: {}')).toBe(true)
-    expect(isGskUnauthorizedText('Claude HTTP 401: {"error":"invalid key"}')).toBe(true)
-    expect(isGskUnauthorizedText('HTTP 4011')).toBe(false)
-    expect(isGskUnauthorizedText('HTTP 403: forbidden')).toBe(false)
+describe('isOneDeskUnauthorizedText', () => {
+  it('matches the 401 shapes of onedesk CLI, tool_cli and the LLM proxy', () => {
+    expect(isOneDeskUnauthorizedText('HTTP 401: Unauthorized')).toBe(true)
+    expect(isOneDeskUnauthorizedText('tool_cli /x HTTP 401: {}')).toBe(true)
+    expect(isOneDeskUnauthorizedText('Claude HTTP 401: {"error":"invalid key"}')).toBe(true)
+    expect(isOneDeskUnauthorizedText('HTTP 4011')).toBe(false)
+    expect(isOneDeskUnauthorizedText('HTTP 403: forbidden')).toBe(false)
   })
 })
 
-describe('gsk CLI 401 recovery', () => {
+describe('onedesk CLI 401 recovery', () => {
   /** fake CLI: a 401 for the expired key (printed on stdout like the real CLI), results otherwise */
   function fakeCli(): string {
     const log = join(dir, 'cli-keys.log')
-    const script = join(dir, 'fake-gsk.mjs')
+    const script = join(dir, 'fake-onedesk.mjs')
     writeFileSync(
       script,
       [
         "import { appendFileSync } from 'node:fs'",
         `appendFileSync(${JSON.stringify(log)}, process.env.GSK_API_KEY + '\\n')`,
-        "if (process.env.GSK_API_KEY === 'gsk-expired') {",
+        "if (process.env.GSK_API_KEY === 'onedesk-expired') {",
         "  console.log(JSON.stringify({ status: 'error', message: 'HTTP 401: Unauthorized', data: null }))",
         '  process.exit(1)',
         '}',
         "console.log(JSON.stringify({ status: 'ok', data: { organic_results: [{ title: 't', link: 'https://e.x', snippet: 's' }] } }))",
       ].join('\n'),
     )
-    process.env.GSK_CLI_PATH = script
+    process.env.ONEDESK_CLI_PATH = script
     return log
   }
 
   function sharedLogin(): string {
-    const config = join(dir, '.genspark-tool-cli', 'config.json')
-    mkdirSync(join(dir, '.genspark-tool-cli'), { recursive: true })
-    writeFileSync(config, JSON.stringify({ api_key: 'gsk-other-app', key_name: 'other app' }))
+    const config = join(dir, '.onedesk-tool-cli', 'config.json')
+    mkdirSync(join(dir, '.onedesk-tool-cli'), { recursive: true })
+    writeFileSync(config, JSON.stringify({ api_key: 'onedesk-other-app', key_name: 'other app' }))
     return config
   }
 
@@ -140,9 +140,9 @@ describe('gsk CLI 401 recovery', () => {
     rmSync(join(dir, 'auth.json'))
     resetOneDeskAuthCache()
 
-    expect(gskApiKey()).toBe('')
-    expect(hasGskAuth()).toBe(false)
-    await expect(gskWebSearch('q')).rejects.toBeInstanceOf(GskAuthError)
+    expect(onedeskCliApiKey()).toBe('')
+    expect(hasOneDeskAuth()).toBe(false)
+    await expect(onedeskWebSearch('q')).rejects.toBeInstanceOf(OneDeskAuthError)
     expect(existsSync(log)).toBe(false)
     expect(readFileSync(config, 'utf-8')).toBe(before)
   })
@@ -155,9 +155,9 @@ describe('gsk CLI 401 recovery', () => {
 
     await onedeskLogout()
 
-    expect(gskApiKey()).toBe('')
-    expect(hasGskAuth()).toBe(false)
-    await expect(gskWebSearch('q')).rejects.toBeInstanceOf(GskAuthError)
+    expect(onedeskCliApiKey()).toBe('')
+    expect(hasOneDeskAuth()).toBe(false)
+    await expect(onedeskWebSearch('q')).rejects.toBeInstanceOf(OneDeskAuthError)
     expect(existsSync(log)).toBe(false)
     expect(readFileSync(config, 'utf-8')).toBe(before)
   })
@@ -167,7 +167,7 @@ describe('gsk CLI 401 recovery', () => {
     rmSync(join(dir, 'auth.json'))
     resetOneDeskAuthCache()
 
-    await expect(gskWebSearch('q')).rejects.toBeInstanceOf(GskAuthError)
+    await expect(onedeskWebSearch('q')).rejects.toBeInstanceOf(OneDeskAuthError)
 
     expect(existsSync(log)).toBe(false)
   })
@@ -177,50 +177,55 @@ describe('gsk CLI 401 recovery', () => {
     const log = fakeCli()
     stubServer(() => response({ detail: FRESH_AUTH_REQUIRED }, 403))
 
-    await expect(gskWebSearch('q')).rejects.toBeInstanceOf(GskAuthError)
+    await expect(onedeskWebSearch('q')).rejects.toBeInstanceOf(OneDeskAuthError)
 
-    expect(gskApiKey()).toBe('')
-    expect(hasGskAuth()).toBe(false)
-    expect(readFileSync(log, 'utf-8').trim().split('\n')).toEqual(['gsk-expired'])
+    expect(onedeskCliApiKey()).toBe('')
+    expect(hasOneDeskAuth()).toBe(false)
+    expect(readFileSync(log, 'utf-8').trim().split('\n')).toEqual(['onedesk-expired'])
   })
 
   it('re-mints after a CLI 401 and reruns the command with the new key', async () => {
     const log = fakeCli()
-    stubServer(() => response({ status: 0, data: { key_id: 'kid-2', token: 'gsk-new' } }))
-    const out = await gskWebSearch('q')
+    stubServer(() => response({ status: 0, data: { key_id: 'kid-2', token: 'onedesk-new' } }))
+    const out = await onedeskWebSearch('q')
     expect(out.results).toHaveLength(1)
-    expect(readFileSync(log, 'utf-8').trim().split('\n')).toEqual(['gsk-expired', 'gsk-new'])
+    expect(readFileSync(log, 'utf-8').trim().split('\n')).toEqual([
+      'onedesk-expired',
+      'onedesk-new',
+    ])
   })
 
   it('reports the auth failure and signs out when a fresh login is required', async () => {
     fakeCli()
     stubServer(() => response({ detail: FRESH_AUTH_REQUIRED }, 403))
-    await expect(gskWebSearch('q')).rejects.toBeInstanceOf(GskAuthError)
-    expect(hasGskAuth()).toBe(false)
+    await expect(onedeskWebSearch('q')).rejects.toBeInstanceOf(OneDeskAuthError)
+    expect(hasOneDeskAuth()).toBe(false)
   })
 })
 
-describe('noteGskCallFailure (LLM proxy chat/stream)', () => {
+describe('noteOneDeskCallFailure (LLM proxy chat/stream)', () => {
   it('marks the injected key invalid on a 401 so the sign-in button appears', () => {
     stubServer(() => response({ detail: FRESH_AUTH_REQUIRED }, 403))
-    expect(noteGskCallFailure('gsk-expired', new Error('Claude HTTP 401: invalid'))).toBe(true)
-    expect(hasGskAuth()).toBe(false)
+    expect(noteOneDeskCallFailure('onedesk-expired', new Error('Claude HTTP 401: invalid'))).toBe(
+      true,
+    )
+    expect(hasOneDeskAuth()).toBe(false)
   })
 
-  it('ignores non-auth failures and calls made without the gsk key', () => {
-    expect(noteGskCallFailure('gsk-expired', new Error('HTTP 500: busy'))).toBe(false)
-    expect(noteGskCallFailure('', new Error('HTTP 401: bad byok key'))).toBe(false)
-    expect(hasGskAuth()).toBe(true)
+  it('ignores non-auth failures and calls made without the onedesk key', () => {
+    expect(noteOneDeskCallFailure('onedesk-expired', new Error('HTTP 500: busy'))).toBe(false)
+    expect(noteOneDeskCallFailure('', new Error('HTTP 401: bad byok key'))).toBe(false)
+    expect(hasOneDeskAuth()).toBe(true)
   })
 
   it('stops offering a rejected env key without touching anyone else’s file', () => {
-    process.env.GSK_API_KEY = 'gsk-env'
+    process.env.GSK_API_KEY = 'onedesk-env'
     try {
       stubServer(() => response({ detail: FRESH_AUTH_REQUIRED }, 403))
-      expect(gskApiKey()).toBe('gsk-env')
-      noteGskCallFailure('gsk-env', 'HTTP 401: Unauthorized')
+      expect(onedeskCliApiKey()).toBe('onedesk-env')
+      noteOneDeskCallFailure('onedesk-env', 'HTTP 401: Unauthorized')
       // falls through to OneDesk's own (still valid) key
-      expect(gskApiKey()).toBe('gsk-expired')
+      expect(onedeskCliApiKey()).toBe('onedesk-expired')
     } finally {
       delete process.env.GSK_API_KEY
     }
@@ -232,10 +237,10 @@ describe('passive calls', () => {
     stubServer(() => response({ detail: FRESH_AUTH_REQUIRED }, 403))
     const opener = vi.fn()
     setOneDeskLoginOpener(opener)
-    await expect(noteGskKeyRejected('gsk-expired', { allowLogin: false })).resolves.toBe(
+    await expect(noteOneDeskKeyRejected('onedesk-expired', { allowLogin: false })).resolves.toBe(
       'login_required',
     )
-    expect(hasGskAuth()).toBe(false)
+    expect(hasOneDeskAuth()).toBe(false)
     expect(opener).not.toHaveBeenCalled()
   })
 })

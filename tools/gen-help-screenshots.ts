@@ -11,17 +11,17 @@
  *
  * ## Why HOME and not just ONEDESK_USER_DATA
  *
- * The account name is not in userData at all. `gskApiKey()` reads
- * `~/.genspark-tool-cli/config.json` through `homedir()`, and ONEDESK_USER_DATA
+ * The account name is not in userData at all. `onedeskCliApiKey()` reads
+ * `~/.onedesk-tool-cli/config.json` through `homedir()`, and ONEDESK_USER_DATA
  * says nothing about that — so a run that only overrides userData still finds
  * the developer's key and greets them by name (verified: that is what a local
  * e2e run does today). HOME is the one lever that covers both it and the
  * `~/.onedesk/bin` shim. `ONEDESK_AUTH_DIR` is not enough on its own: it
- * redirects OneDesk's own key and leaves the shared gsk CLI config in place.
+ * redirects OneDesk's own key and leaves the shared onedesk CLI config in place.
  *
- * With no key, `gskLoginInfo()` returns null, the app reads as signed out, and
- * the greeting, the account row and the Genspark Projects entry all disappear —
- * which is also the state every CI run and every user without a Genspark account
+ * With no key, `onedeskLoginInfo()` returns null, the app reads as signed out, and
+ * the greeting, the account row and the OneDesk Projects entry all disappear —
+ * which is also the state every CI run and every user without a OneDesk account
  * is in. Nothing of the developer's own session is read or written.
  */
 import {

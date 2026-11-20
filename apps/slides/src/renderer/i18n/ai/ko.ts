@@ -17,9 +17,9 @@ export const ko = {
   aiQcPageSkipped: '{n}페이지: 자동 레이아웃 검사 건너뜀',
   aiQcStopped: '레이아웃 검사를 중지했습니다',
   aiQcCapped: '나머지 {count}페이지는 검사하지 않음(회당 상한)',
-  aiGskLoginBtn: 'Genspark 로그인',
-  aiGskLoginOk: 'Genspark에 로그인했습니다',
-  aiPanelTitle: 'Genspark',
+  aiOneDeskLoginBtn: 'OneDesk 로그인',
+  aiOneDeskLoginOk: 'OneDesk에 로그인했습니다',
+  aiPanelTitle: 'OneDesk',
   aiOpenAssistant: 'AI 도우미 열기',
   aiFactCheckBtn: 'AI 팩트체크',
   aiFactCheckPrompt:
@@ -117,7 +117,7 @@ export const ko = {
   aiErrNetwork:
     '네트워크에 문제가 있어 AI 서비스에 연결할 수 없습니다. 연결을 확인한 후 다시 시도해 주세요',
   aiCreditsExhausted:
-    'Genspark 크레딧을 모두 사용했습니다. onedesk.jiulu.ltd/pricing에서 충전한 후 다시 시도해 주세요',
+    'OneDesk 크레딧을 모두 사용했습니다. onedesk.jiulu.ltd/pricing에서 충전한 후 다시 시도해 주세요',
   aiErrRequestFailed: '요청 전송 실패: {msg}',
   aiErrGenerateFailed: '생성 실패',
   aiErrRegenFailed: '페이지 다시 생성 실패',

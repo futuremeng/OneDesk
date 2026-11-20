@@ -38,7 +38,7 @@ function fixtureEditor(): Editor {
       type: 'doc',
       content: [
         heading('Chapter 1 Overview'),
-        para('GenSpark is an AI office suite.'),
+        para('OneDesk is an AI office suite.'),
         heading('Risk Notes'),
         para('This document is for reference only.'),
       ],

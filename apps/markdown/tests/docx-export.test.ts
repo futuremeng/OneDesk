@@ -158,10 +158,10 @@ describe('docx export', () => {
   })
 
   it('links survive as hyperlink runs', async () => {
-    const parsed = await exportAndParse('Visit [Genspark](https://onedesk.jiulu.ltd) now.')
+    const parsed = await exportAndParse('Visit [OneDesk](https://onedesk.jiulu.ltd) now.')
     const para = parsed.blocks.find((b) => b.type === 'paragraph')
     const link = para?.runs?.find((r) => r.link)
-    expect(link?.text).toBe('Genspark')
+    expect(link?.text).toBe('OneDesk')
     expect(link?.link?.href).toBe('https://onedesk.jiulu.ltd')
   })
 

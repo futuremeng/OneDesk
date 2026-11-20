@@ -68,7 +68,7 @@ mở — lưu thì ghi OOXML, không bao giờ ghi định dạng nguồn.
 - **Hỏi chính tệp của bạn, kèm nguồn.** Gắn sao một nhóm tài liệu và
   **Ask AI** trên màn hình chính sẽ trả lời câu hỏi trên toàn bộ nhóm đó,
   mỗi thông điệp đều trích dẫn tệp nguồn để bạn mở ra kiểm chứng.
-- **Khoá của bạn, hoặc không cần khoá.** Đăng nhập Genspark để khỏi cần
+- **Khoá của bạn, hoặc không cần khoá.** Đăng nhập OneDesk để khỏi cần
   khoá, hoặc mang khoá riêng của bạn cho Claude, OpenAI, Gemini, DeepSeek,
   Kimi, GLM, Qwen, Doubao, MiniMax, Grok, Mistral, OpenRouter, Requesty,
   Opper, Cheaper Inference, Atlas Cloud, hoặc bất kỳ điểm cuối tương thích
@@ -382,7 +382,7 @@ Tệp `.doc` của Word 97–2003, `.xls` của Excel hoặc `.ppt` của PowerP
 - **Một AI tự chỉnh tài liệu.** Theo dõi thay đổi trong Docs, công thức và
   biểu đồ sống trong Sheets, slide vẽ thẳng lên khung vẽ, mỗi lượt AI là
   một bản chụp hoàn tác được.
-- **Mô hình của bạn, khoá của bạn.** Đăng nhập Genspark, hoặc mang khoá cho
+- **Mô hình của bạn, khoá của bạn.** Đăng nhập OneDesk, hoặc mang khoá cho
   Claude, OpenAI, Gemini, DeepSeek và nhiều nhà cung cấp khác, gồm cả máy
   chủ mô hình cục bộ và bất kỳ điểm cuối tương thích OpenAI nào.
 - **PDF được làm đúng kiểu.** Sửa chữ bên trong trang, và chuyển PDF sang
@@ -402,8 +402,8 @@ Tệp `.doc` của Word 97–2003, `.xls` của Excel hoặc `.ppt` của PowerP
 
 ## Các backend AI
 
-**Đăng nhập Genspark** và không có gì phải cấu hình: các lời gọi mô hình đi
-qua proxy Genspark (họ Claude, GPT và Gemini) và các agent có tìm kiếm web
+**Đăng nhập OneDesk** và không có gì phải cấu hình: các lời gọi mô hình đi
+qua proxy OneDesk (họ Claude, GPT và Gemini) và các agent có tìm kiếm web
 và ảnh, tạo ảnh, cùng phân tích ảnh/âm thanh/video.
 
 **Hoặc mang khoá riêng của bạn.** Settings → AI liệt kê Claude, OpenAI,
@@ -427,7 +427,7 @@ quả cục bộ hàng đầu được gửi đi để phán đoán và không g
 
 **Parallel** hoạt động không cần tài khoản: Search MCP miễn phí của nó
 (giới hạn tần suất) là tìm kiếm web mặc định khi chưa có đăng nhập
-Genspark hay khoá tìm kiếm, và chạy trước bước scrape DuckDuckGo. Chọn
+OneDesk hay khoá tìm kiếm, và chạy trước bước scrape DuckDuckGo. Chọn
 Parallel dưới Web search và nhập khoá
 [Parallel](https://platform.parallel.ai/) để dùng Search API thay thế.
 Keenable cũng không cần khoá; khoá chỉ giúp nâng giới hạn tần suất.
@@ -748,7 +748,7 @@ cũ và ODF được mở dưới dạng bản sao đã chuyển
 
 Chỉnh sửa tài liệu hoàn toàn cục bộ — tệp không bao giờ rời máy của bạn để
 được mở, sửa, lưu hay chuyển đổi. Các tính năng AI (agent, tìm kiếm, công
-cụ ảnh) cần kết nối mạng, với đăng nhập Genspark hoặc khoá API mô hình của
+cụ ảnh) cần kết nối mạng, với đăng nhập OneDesk hoặc khoá API mô hình của
 riêng bạn.
 
 </details>
@@ -774,7 +774,7 @@ thành chữ chỉnh sửa được thay vì một ảnh trang.
 <details>
 <summary><b>Có thể dùng mô hình AI hay khoá API riêng không?</b></summary>
 
-Có. Ngoài đăng nhập Genspark không cần khoá, OneDesk hỗ trợ mang khoá
+Có. Ngoài đăng nhập OneDesk không cần khoá, OneDesk hỗ trợ mang khoá
 riêng cho Claude, OpenAI, Gemini, DeepSeek, Kimi, GLM, Qwen, Doubao,
 MiniMax, Grok, Mistral, OpenRouter, Requesty, Opper, Cheaper Inference,
 Atlas Cloud và OpenCode Zen/Go, cùng bất kỳ điểm cuối tương thích OpenAI
@@ -888,6 +888,6 @@ OneDesk được cấp phép theo [Giấy phép Apache
 đun doanh nghiệp tương lai và chịu sự điều chỉnh của [OneDesk Enterprise
 License](../../ee/LICENSE).
 
-Tên và logo OneDesk và Genspark là nhãn hiệu của Mainfunc, Inc. Giấy phép
+Tên và logo OneDesk và OneDesk là nhãn hiệu của Mainfunc, Inc. Giấy phép
 Apache-2.0 không cấp quyền sử dụng chúng (xem mục 6); các fork nên dùng
 thương hiệu riêng của mình.

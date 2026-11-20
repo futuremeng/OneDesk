@@ -5,14 +5,14 @@ import {
   imageGenerationAvailable,
   mediaAnalysisAvailable,
 } from '@onedesk/ai-provider'
-import { hasGskAuth, readAiSettingsFile } from '@onedesk/ai-search'
+import { hasOneDeskAuth, readAiSettingsFile } from '@onedesk/ai-search'
 import { aiSettingsPath, prepareCloud } from '../cloud'
 import type { CommandDef } from '../registry'
 import { appLaunch } from '../resources'
 
 /**
  * What the cloud commands can do on this machine, decided from OneDesk's
- * own settings without a network call: a Genspark login with cloud tools on,
+ * own settings without a network call: a OneDesk login with cloud tools on,
  * a BYOK key, or explicitly selected free Parallel search. Unkeyed fallbacks in the
  * default chain (free Parallel MCP, DuckDuckGo) do not count as configured. Agents
  * check this once before planning work that needs photos or web facts.
@@ -25,25 +25,25 @@ export const capabilitiesCommand: CommandDef = {
   async run(_args, ctx) {
     await prepareCloud(ctx.env)
     const settings = readAiSettingsFile(aiSettingsPath(ctx.env))
-    const gsk = hasGskAuth() && cloudToolsEnabled(settings)
+    const onedesk = hasOneDeskAuth() && cloudToolsEnabled(settings)
     const searchProvider = activeSearchProvider(settings)
-    const gskSearch = gsk && searchProvider === 'genspark'
-    const customSearch = searchProvider !== 'genspark'
-    const search = gskSearch || customSearch
+    const onedeskSearch = onedesk && searchProvider === 'onedesk'
+    const customSearch = searchProvider !== 'onedesk'
+    const search = onedeskSearch || customSearch
     const keyedImageSearch =
       searchProvider === 'serper' || searchProvider === 'serply' || searchProvider === 'searchapi'
-    const imageSearch = gskSearch || keyedImageSearch
-    const imageGeneration = imageGenerationAvailable(settings, hasGskAuth())
-    const mediaAnalysis = mediaAnalysisAvailable(settings, hasGskAuth())
-    const via = (byok: string | null | undefined) => (byok ? byok : gsk ? 'genspark' : null)
+    const imageSearch = onedeskSearch || keyedImageSearch
+    const imageGeneration = imageGenerationAvailable(settings, hasOneDeskAuth())
+    const mediaAnalysis = mediaAnalysisAvailable(settings, hasOneDeskAuth())
+    const via = (byok: string | null | undefined) => (byok ? byok : onedesk ? 'onedesk' : null)
     const detail = {
       search: {
         available: search,
-        via: customSearch ? searchProvider : gskSearch ? 'genspark' : null,
+        via: customSearch ? searchProvider : onedeskSearch ? 'onedesk' : null,
       },
       image_search: {
         available: imageSearch,
-        via: keyedImageSearch ? searchProvider : gskSearch ? 'genspark' : null,
+        via: keyedImageSearch ? searchProvider : onedeskSearch ? 'onedesk' : null,
       },
       image_generation: {
         available: imageGeneration,

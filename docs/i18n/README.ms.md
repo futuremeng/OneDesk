@@ -72,7 +72,7 @@ format sumber.
   **Ask AI** pada skrin utama menjawab soalan merentasi kesemuanya, sambil
   merujuk fail di sebalik setiap dakwaan supaya anda boleh membukanya dan
   menyemak.
-- **Kunci anda sendiri atau tiada langsung.** Log masuk dengan Genspark dan
+- **Kunci anda sendiri atau tiada langsung.** Log masuk dengan OneDesk dan
   anda tidak perlu sebarang kunci, atau bawa kunci anda sendiri untuk Claude,
   OpenAI, Gemini, DeepSeek, Kimi, GLM, Qwen, Doubao, MiniMax, Grok, Mistral,
   OpenRouter, Requesty, Opper, Cheaper Inference, Atlas Cloud, atau mana-mana
@@ -309,7 +309,7 @@ Fail `.doc` Word 97–2003, `.xls` Excel atau `.ppt` PowerPoint dibuka sebagai s
 - **AI yang menyunting dokumen itu sendiri.** Perubahan dijejak dalam Docs,
   formula dan carta langsung dalam Sheets, slaid dilukis terus pada kanvas,
   setiap pusingan AI adalah snapshot yang boleh anda kembalikan.
-- **Model anda, kunci anda.** Log masuk dengan Genspark, atau bawa kunci
+- **Model anda, kunci anda.** Log masuk dengan OneDesk, atau bawa kunci
   untuk Claude, OpenAI, Gemini, DeepSeek dan lain-lain, termasuk pelayan
   setempat dan mana-mana endpoint serasi OpenAI.
 - **PDF yang diuruskan dengan betul.** Sunting teks terus dalam halaman, dan
@@ -332,8 +332,8 @@ Fail `.doc` Word 97–2003, `.xls` Excel atau `.ppt` PowerPoint dibuka sebagai s
 
 ## Bahagian belakang AI
 
-**Log masuk dengan Genspark** dan tidak ada apa-apa yang perlu ditetapkan:
-panggilan model disalurkan melalui proksi Genspark (keluarga Claude, GPT dan
+**Log masuk dengan OneDesk** dan tidak ada apa-apa yang perlu ditetapkan:
+panggilan model disalurkan melalui proksi OneDesk (keluarga Claude, GPT dan
 Gemini) dan agen mendapat carian web serta imej, penjanaan imej, dan analisis
 imej/audio/video.
 
@@ -357,7 +357,7 @@ dimatikan secara lalai; apabila dihidupkan, petikan 20 hasil setempat teratas
 dihantar untuk dinilai dan tiada apa-apa lagi yang keluar dari mesin.
 
 **Parallel** berfungsi tanpa akaun: Search MCP percumanya (dengan had kadar)
-ialah carian web lalai apabila tiada log masuk Genspark atau kunci carian
+ialah carian web lalai apabila tiada log masuk OneDesk atau kunci carian
 ditetapkan, dan ia dijalankan sebelum pengikisan DuckDuckGo. Pilih Parallel
 di bawah Web search dan masukkan kunci
 [Parallel](https://platform.parallel.ai/) untuk menggunakan Search API
@@ -685,7 +685,7 @@ sebagai salinan yang ditukar](#legacy-and-odf-files-open-as-converted-copies).
 Penyuntingan dokumen sepenuhnya setempat — fail tidak pernah keluar daripada
 mesin anda untuk dibuka, disunting, disimpan atau ditukar. Ciri-ciri AI
 (agen, carian, alat imej) memerlukan sambungan rangkaian, sama ada dengan log
-masuk Genspark atau kunci API model anda sendiri.
+masuk OneDesk atau kunci API model anda sendiri.
 
 </details>
 
@@ -712,7 +712,7 @@ halaman.
 <details>
 <summary><b>Bolehkah saya menggunakan model AI atau kunci API saya sendiri?</b></summary>
 
-Ya. Selain log masuk Genspark tanpa kunci, OneDesk menyokong bawa kunci
+Ya. Selain log masuk OneDesk tanpa kunci, OneDesk menyokong bawa kunci
 anda sendiri untuk Claude, OpenAI, Gemini, DeepSeek, Kimi, GLM, Qwen, Doubao,
 MiniMax, Grok, Mistral, OpenRouter, Requesty, Opper, Cheaper Inference,
 Atlas Cloud dan OpenCode Zen/Go, ditambah mana-mana
@@ -833,6 +833,6 @@ satu kekecualian: direktori `ee/` dikhususkan untuk modul perusahaan pada
 masa hadapan dan dilindungi oleh
 [Lesen Perusahaan OneDesk](../../ee/LICENSE).
 
-Nama dan logo OneDesk serta Genspark adalah tanda dagangan Mainfunc, Inc.
+Nama dan logo OneDesk serta OneDesk adalah tanda dagangan Mainfunc, Inc.
 Lesen Apache-2.0 tidak memberikan kebenaran untuk menggunakannya (lihat
 seksyen 6); fork perlulah menggunakan penjenamaan mereka sendiri.

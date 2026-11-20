@@ -13,20 +13,20 @@ send the original business request without a pass; no new 403 replay is added.
 Opt-in cookie traffic uses explicit Cookie with credentials omitted and manual
 redirects, retaining a 302 response without leaking credentials across origins.
 
-## Genspark provider requests (gsk key)
+## OneDesk provider requests (onedesk key)
 
 The provider lane is on by default in Node host processes (`ONEDESK_NATIVE_WAF=0`
-turns it off): the AI provider's Genspark LLM proxy requests use token admission (native-tok-v1, family `llm`) at the shared `aiFetch` seam. Only
+turns it off): the AI provider's OneDesk LLM proxy requests use token admission (native-tok-v1, family `llm`) at the shared `aiFetch` seam. Only
 HTTPS requests to an admitted host (the default proxy host, the `GSK_BASE_URL` host and any
 hosts in `ONEDESK_NATIVE_WAF_HOSTS`) on `/api/llm_proxy/` or `/api/anthropic` that carry
-exactly one gsk credential (`Authorization: Bearer gsk-…` or `x-api-key: gsk-…`)
+exactly one onedesk credential (`Authorization: Bearer onedesk-…` or `x-api-key: onedesk-…`)
 qualify. The issuer call binds that exact header; bootstrap is bounded to 2s and
 4096 bytes with no redirects; the memory cache is at most 240s and never past
 the signed lifetime, with a 15s negative cache. Requests carrying a pass refuse
 redirects. BYOK keys, custom endpoints and other hosts are never sent to the
 issuer, and issuer failure sends the request unchanged. Browsers and Electron
-renderers never take part. The `gsk` CLI subprocess tools follow the CLI's
-own `GSK_NATIVE_WAF` switch (CLI ≥ 1.15.1), not this one.
+renderers never take part. The `onedesk` CLI subprocess tools follow the CLI's
+own `ONEDESK_NATIVE_WAF` switch (CLI ≥ 1.15.1), not this one.
 
 The prod edge token rules are gen-spark#77242; without them the pass is ignored
 at the edge and legacy rules still apply.

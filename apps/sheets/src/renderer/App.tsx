@@ -1317,15 +1317,15 @@ export function App({
   const aiSettingsRef = useRef<AiSettings | null>(null)
   aiSettingsRef.current = aiSettings
 
-  /** gsk login state for the cloud-tools gate (refreshed on mount and window focus) */
-  const gskLoggedInRef = useRef(false)
+  /** onedesk login state for the cloud-tools gate (refreshed on mount and window focus) */
+  const onedeskLoggedInRef = useRef(false)
   useEffect(() => {
     let alive = true
     const refresh = () => {
       void window.desktopApi
-        ?.aiGskStatus()
+        ?.aiOneDeskStatus()
         .then((s) => {
-          if (alive) gskLoggedInRef.current = !!s?.loggedIn
+          if (alive) onedeskLoggedInRef.current = !!s?.loggedIn
         })
         .catch(() => {})
     }
@@ -1340,19 +1340,19 @@ export function App({
   // Display history survives restarts via localStorage; the AgentLoop's model
   // context does not, so restored turns are read-only transcript.
   const [chat, setChat] = useState<readonly AiChatMessage[]>([])
-  // A browser-approved Genspark login landed (from the chat's sign-in button
+  // A browser-approved OneDesk login landed (from the chat's sign-in button
   // or any other surface): confirm it where the user is and retire the inline
   // sign-in buttons — nothing else in an editor view changes visibly on login.
   useEffect(
     () =>
-      window.desktopApi?.onGskLoginLanded?.(() => {
-        gskLoggedInRef.current = true
+      window.desktopApi?.onOneDeskLoginLanded?.(() => {
+        onedeskLoggedInRef.current = true
         setChat((prev) =>
           prev.some((m) => m.loginRequired)
             ? prev.map((m) => (m.loginRequired ? { ...m, loginRequired: false } : m))
             : prev,
         )
-        showToast(t('aiGskLoginOk'), 'success')
+        showToast(t('aiOneDeskLoginOk'), 'success')
       }),
     [],
   )
@@ -1671,7 +1671,7 @@ export function App({
         }),
         createSearchSkill(),
         createImageSkill(() =>
-          imageGenerationAvailable(aiSettingsRef.current, gskLoggedInRef.current),
+          imageGenerationAvailable(aiSettingsRef.current, onedeskLoggedInRef.current),
         ),
       ]),
       events: {
@@ -1814,14 +1814,14 @@ export function App({
             return next
           })
           // Signed-out failures get an inline sign-in button; detected via
-          // gsk status rather than matching the localized error text — but only
-          // when Genspark is the provider: a BYOK user's error (e.g. their own
-          // provider's rate limit) must not advertise a Genspark sign-in (onedesk#1948)
+          // onedesk status rather than matching the localized error text — but only
+          // when OneDesk is the provider: a BYOK user's error (e.g. their own
+          // provider's rate limit) must not advertise a OneDesk sign-in (onedesk#1948)
           void window.desktopApi
-            .aiGskStatus()
+            .aiOneDeskStatus()
             .then((status) => {
               if (status.loggedIn) return
-              if ((aiSettingsRef.current?.provider ?? 'genspark') !== 'genspark') return
+              if ((aiSettingsRef.current?.provider ?? 'onedesk') !== 'onedesk') return
               setChat((previous) => {
                 const next = [...previous]
                 const last = next.at(-1)
@@ -1844,10 +1844,10 @@ export function App({
     if (!settings) return false
     const config = settings.providers[settings.provider]
     if (!config?.model) return false
-    // Genspark's key never lands in the settings file; the main process injects
-    // it from the gsk login state. When logged out, requests return an error
+    // OneDesk's key never lands in the settings file; the main process injects
+    // it from the onedesk login state. When logged out, requests return an error
     // guiding sign-in — not intercepted here.
-    return settings.provider === 'genspark' || !!config.apiKey
+    return settings.provider === 'onedesk' || !!config.apiKey
   }
 
   /** Image attachments read as base64 and sent multimodal with this user message

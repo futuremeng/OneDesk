@@ -8,9 +8,9 @@ export const th = {
   aiStarterPolishAll: 'ขัดเกลาทั้งเอกสารให้น้ำเสียงเป็นมืออาชีพยิ่งขึ้น',
   aiStarterContinue: 'เขียนต่อจากเนื้อหาที่มีอยู่',
   aiStarterFillTemplate: 'ค้นหาและกรอกตัวยึดตำแหน่งในเอกสาร',
-  aiGskLoginBtn: 'ลงชื่อเข้าใช้ Genspark',
-  aiGskLoginOk: 'ลงชื่อเข้าใช้ Genspark แล้ว',
-  aiPanelTitle: 'Genspark',
+  aiOneDeskLoginBtn: 'ลงชื่อเข้าใช้ OneDesk',
+  aiOneDeskLoginOk: 'ลงชื่อเข้าใช้ OneDesk แล้ว',
+  aiPanelTitle: 'OneDesk',
   aiOpenAssistant: 'เปิดผู้ช่วย AI',
   aiSummarizeBtn: 'สรุปด้วย AI',
   aiSummarizePrompt: 'สรุปเนื้อหาหลักและประเด็นสำคัญของเอกสารนี้',
@@ -121,7 +121,7 @@ export const th = {
   aiNetworkError:
     'เครือข่ายมีปัญหา ไม่สามารถเชื่อมต่อบริการ AI ได้ โปรดตรวจสอบการเชื่อมต่อแล้วลองใหม่',
   aiCreditsExhausted:
-    'เครดิต Genspark ของคุณหมดแล้ว โปรดเติมเครดิตที่ onedesk.jiulu.ltd/pricing แล้วลองใหม่',
+    'เครดิต OneDesk ของคุณหมดแล้ว โปรดเติมเครดิตที่ onedesk.jiulu.ltd/pricing แล้วลองใหม่',
   aiSumReadAttachment: 'อ่านสิ่งที่แนบ',
   aiSumImageAttachment: 'รูปภาพแนบ {name}',
   aiSumRead: 'อ่าน {name}',

@@ -8,9 +8,9 @@ export const vi = {
   aiStarterPolishAll: 'Trau chuốt toàn bộ tài liệu để có giọng văn chuyên nghiệp hơn',
   aiStarterContinue: 'Viết tiếp từ nội dung hiện tại của tài liệu',
   aiStarterFillTemplate: 'Tìm và điền vào các vị trí giữ chỗ trong tài liệu này',
-  aiGskLoginBtn: 'Đăng nhập vào Genspark',
-  aiGskLoginOk: 'Đã đăng nhập Genspark',
-  aiPanelTitle: 'Genspark',
+  aiOneDeskLoginBtn: 'Đăng nhập vào OneDesk',
+  aiOneDeskLoginOk: 'Đã đăng nhập OneDesk',
+  aiPanelTitle: 'OneDesk',
   aiOpenAssistant: 'Mở trợ lý AI',
   aiSummarizeBtn: 'AI Tóm tắt',
   aiSummarizePrompt: 'Tóm tắt nội dung chính và các ý quan trọng của tài liệu này',
@@ -123,7 +123,7 @@ export const vi = {
   aiNetworkError:
     'Sự cố mạng: không thể kết nối tới dịch vụ AI. Kiểm tra kết nối của bạn và thử lại',
   aiCreditsExhausted:
-    'Điểm tín dụng Genspark của bạn đã hết. Truy cập onedesk.jiulu.ltd/pricing để nạp thêm rồi thử lại',
+    'Điểm tín dụng OneDesk của bạn đã hết. Truy cập onedesk.jiulu.ltd/pricing để nạp thêm rồi thử lại',
   aiSumReadAttachment: 'Đọc tệp đính kèm',
   aiSumImageAttachment: 'Hình ảnh đính kèm {name}',
   aiSumRead: 'Đọc {name}',

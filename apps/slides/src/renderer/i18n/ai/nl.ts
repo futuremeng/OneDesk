@@ -17,9 +17,9 @@ export const nl = {
   aiQcPageSkipped: 'Pagina {n}: automatische lay-outcontrole overgeslagen',
   aiQcStopped: 'Lay-outcontrole gestopt',
   aiQcCapped: 'Nog {count} pagina(’s) niet gecontroleerd (limiet per run)',
-  aiGskLoginBtn: 'Aanmelden bij Genspark',
-  aiGskLoginOk: 'Aangemeld bij Genspark',
-  aiPanelTitle: 'Genspark',
+  aiOneDeskLoginBtn: 'Aanmelden bij OneDesk',
+  aiOneDeskLoginOk: 'Aangemeld bij OneDesk',
+  aiPanelTitle: 'OneDesk',
   aiOpenAssistant: 'AI-assistent openen',
   aiFactCheckBtn: 'AI-factcheck',
   aiFactCheckPrompt:
@@ -119,7 +119,7 @@ export const nl = {
   aiErrNetwork:
     'Netwerkprobleem: kan de AI-service niet bereiken. Controleer je verbinding en probeer het opnieuw',
   aiCreditsExhausted:
-    'Je Genspark-credits zijn op. Waardeer op via onedesk.jiulu.ltd/pricing en probeer het opnieuw',
+    'Je OneDesk-credits zijn op. Waardeer op via onedesk.jiulu.ltd/pricing en probeer het opnieuw',
   aiErrRequestFailed: 'Verzenden van verzoek mislukt: {msg}',
   aiErrGenerateFailed: 'Genereren mislukt',
   aiErrRegenFailed: 'Dia opnieuw genereren mislukt',

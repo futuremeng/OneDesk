@@ -71,7 +71,7 @@ OOXML, tidak pernah format sumbernya.
   tersebut, dengan mengutip file di balik setiap pernyataan sehingga Anda bisa
   membukanya dan memeriksanya.
 - **Kunci API Anda sendiri, atau tanpa kunci sama sekali.** Masuk dengan
-  Genspark dan lewati urusan kunci API, atau gunakan kunci Anda sendiri untuk
+  OneDesk dan lewati urusan kunci API, atau gunakan kunci Anda sendiri untuk
   Claude, OpenAI, Gemini, DeepSeek, Kimi, GLM, Qwen, Doubao, MiniMax, Grok,
   Mistral, OpenRouter, Requesty, Opper, Cheaper Inference, Atlas Cloud, atau
   endpoint apa pun yang kompatibel dengan OpenAI,
@@ -308,7 +308,7 @@ File `.doc` Word 97–2003, `.xls` Excel, atau `.ppt` PowerPoint dibuka sebagai 
 - **AI yang mengedit dokumen itu sendiri.** Tracked changes di Docs, rumus dan
   grafik langsung di Sheets, slide yang digambar langsung di kanvas, setiap
   giliran AI adalah snapshot yang bisa Anda kembalikan.
-- **Model Anda, kunci Anda.** Masuk dengan Genspark, atau bawa kunci untuk
+- **Model Anda, kunci Anda.** Masuk dengan OneDesk, atau bawa kunci untuk
   Claude, OpenAI, Gemini, DeepSeek dan lainnya, termasuk server lokal dan
   endpoint apa pun yang kompatibel dengan OpenAI.
 - **PDF yang ditangani dengan benar.** Edit teks langsung di halaman, dan
@@ -331,8 +331,8 @@ File `.doc` Word 97–2003, `.xls` Excel, atau `.ppt` PowerPoint dibuka sebagai 
 
 ## Backend AI
 
-**Masuk dengan Genspark** dan tidak ada yang perlu dikonfigurasi: panggilan
-model diarahkan lewat proxy Genspark (keluarga Claude, GPT, dan Gemini) dan
+**Masuk dengan OneDesk** dan tidak ada yang perlu dikonfigurasi: panggilan
+model diarahkan lewat proxy OneDesk (keluarga Claude, GPT, dan Gemini) dan
 agen mendapatkan akses pencarian web dan gambar, generasi gambar, serta
 analisis gambar/audio/video.
 
@@ -355,7 +355,7 @@ hasil lokal teratas dikirim untuk dinilai dan tidak ada hal lain yang
 meninggalkan mesin.
 
 **Parallel** bisa dipakai tanpa akun: Search MCP gratisnya (dengan batas laju)
-menjadi pencarian web default setiap kali tidak ada login Genspark atau kunci
+menjadi pencarian web default setiap kali tidak ada login OneDesk atau kunci
 pencarian yang dikonfigurasi, dan dijalankan lebih dulu sebelum scraping
 DuckDuckGo. Pilih Parallel di bawah Web search dan masukkan kunci
 [Parallel](https://platform.parallel.ai/) untuk memakai Search API sebagai
@@ -683,7 +683,7 @@ sebagai salinan hasil konversi](#legacy-and-odf-files-open-as-converted-copies).
 Pengeditan dokumen sepenuhnya lokal — file tidak pernah meninggalkan
 perangkat Anda untuk dibuka, diedit, disimpan, atau dikonversi. Fitur AI
 (agen, pencarian, alat gambar) membutuhkan koneksi jaringan, baik dengan
-masuk lewat Genspark atau dengan kunci API model Anda sendiri.
+masuk lewat OneDesk atau dengan kunci API model Anda sendiri.
 
 </details>
 
@@ -710,7 +710,7 @@ gambar halaman.
 <details>
 <summary><b>Bisakah saya menggunakan model AI atau kunci API saya sendiri?</b></summary>
 
-Ya. Selain masuk lewat Genspark tanpa kunci API, OneDesk mendukung
+Ya. Selain masuk lewat OneDesk tanpa kunci API, OneDesk mendukung
 penggunaan kunci Anda sendiri untuk Claude, OpenAI, Gemini, DeepSeek, Kimi,
 GLM, Qwen, Doubao, MiniMax, Grok, Mistral, OpenRouter, Requesty, Opper, Cheaper Inference, Atlas Cloud, dan OpenCode Zen/Go,
 plus endpoint apa pun yang kompatibel dengan OpenAI — termasuk server model
@@ -831,6 +831,6 @@ OneDesk dilisensikan di bawah [Apache License 2.0](../../LICENSE), dengan
 satu pengecualian: direktori `ee/` dicadangkan untuk modul enterprise di masa
 depan dan tercakup oleh [OneDesk Enterprise License](../../ee/LICENSE).
 
-Nama dan logo OneDesk serta Genspark adalah merek dagang milik Mainfunc,
+Nama dan logo OneDesk serta OneDesk adalah merek dagang milik Mainfunc,
 Inc. Lisensi Apache-2.0 tidak memberikan izin untuk menggunakannya (lihat
 bagian 6); fork sebaiknya menggunakan branding sendiri.

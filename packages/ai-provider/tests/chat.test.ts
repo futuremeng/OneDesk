@@ -38,7 +38,7 @@ describe('chatForProvider', () => {
 
   it('anthropic: replaces an HTML error body with a readable note', async () => {
     const html =
-      '<!doctype html>\n<html>\n<head><title>Genspark</title></head><body>app shell</body></html>'
+      '<!doctype html>\n<html>\n<head><title>OneDesk</title></head><body>app shell</body></html>'
     vi.stubGlobal('fetch', vi.fn().mockResolvedValue(errorResponse(403, html)))
     const result = await chatForProvider('anthropic', { apiKey: 'k', model: 'm' }, 'sys', 'hi')
     expect(result.ok).toBe(false)
@@ -138,30 +138,30 @@ describe('chatForProvider', () => {
     )
   })
 
-  it('genspark: routes by model prefix to the proxy endpoints', async () => {
+  it('onedesk: routes by model prefix to the proxy endpoints', async () => {
     const fetchMock = vi
       .fn()
       .mockResolvedValue(jsonResponse({ content: [{ type: 'text', text: 'ok' }] }))
     vi.stubGlobal('fetch', fetchMock)
-    await chatForProvider('genspark', { apiKey: 'gsk-k', model: 'claude-opus-4-7' }, 'sys', 'hi')
+    await chatForProvider('onedesk', { apiKey: 'onedesk-k', model: 'claude-opus-4-7' }, 'sys', 'hi')
     expect(fetchMock).toHaveBeenCalledWith(
       'https://onedesk.jiulu.ltd/api/anthropic/v1/messages',
       expect.anything(),
     )
     fetchMock.mockResolvedValue(jsonResponse({ choices: [{ message: { content: 'ok' } }] }))
-    await chatForProvider('genspark', { apiKey: 'gsk-k', model: 'gpt-5.2' }, 'sys', 'hi')
+    await chatForProvider('onedesk', { apiKey: 'onedesk-k', model: 'gpt-5.2' }, 'sys', 'hi')
     expect(fetchMock).toHaveBeenLastCalledWith(
       'https://onedesk.jiulu.ltd/api/llm_proxy/v1/chat/completions',
       expect.anything(),
     )
   })
 
-  it('genspark: stamps X-Agent-Type; direct vendors do not get it', async () => {
+  it('onedesk: stamps X-Agent-Type; direct vendors do not get it', async () => {
     const fetchMock = vi
       .fn()
       .mockImplementation(async () => jsonResponse({ content: [{ type: 'text', text: 'ok' }] }))
     vi.stubGlobal('fetch', fetchMock)
-    await chatForProvider('genspark', { apiKey: 'gsk-k', model: 'claude-opus-4-7' }, 'sys', 'hi')
+    await chatForProvider('onedesk', { apiKey: 'onedesk-k', model: 'claude-opus-4-7' }, 'sys', 'hi')
     expect((fetchMock.mock.calls[0]![1].headers as Record<string, string>)['X-Agent-Type']).toBe(
       'onedesk',
     )

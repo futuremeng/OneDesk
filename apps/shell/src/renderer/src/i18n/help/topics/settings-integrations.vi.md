@@ -46,10 +46,10 @@ Cài đặt có thể đăng ký OneDesk làm ứng dụng xử lý .docx / .xls
 - Trợ giúp ▸ Thông báo của bên thứ ba: danh mục giấy phép nguồn mở đầy đủ đi kèm ứng dụng.
 - Trợ giúp ▸ Kiểm tra bản cập nhật: kích hoạt một lần kiểm tra thủ công; nếu có bản mới sẽ nhắc cài đặt.
 
-## Đăng nhập Genspark
+## Đăng nhập OneDesk
 
 - Lối đăng nhập (trong cài đặt hoặc danh sách dự án đám mây) dùng luồng **mã thiết bị**: OneDesk hiển thị một mã và mở trang đăng nhập trong trình duyệt; xong thì nó tự tiếp tục.
-- Đăng nhập chỉ dùng cho: danh sách dự án đám mây và các mô hình đám mây của Genspark. Không đăng nhập thì mọi tính năng cục bộ và mô hình tùy chỉnh vẫn hoạt động bình thường.
+- Đăng nhập chỉ dùng cho: danh sách dự án đám mây và các mô hình đám mây của OneDesk. Không đăng nhập thì mọi tính năng cục bộ và mô hình tùy chỉnh vẫn hoạt động bình thường.
 - Đăng xuất chỉ cần một cú nhấp trong cài đặt.
 
 ## Tích hợp MCP (dành cho người dùng nâng cao / ứng dụng AI)

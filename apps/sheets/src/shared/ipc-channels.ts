@@ -133,9 +133,9 @@ export const IPC_CHANNELS = {
   aiStream: 'ai:stream',
   aiStreamCancel: 'ai:stream-cancel',
   aiStreamChunk: 'ai:stream-chunk',
-  aiGskStatus: 'ai:gsk-status',
-  aiGskLogin: 'ai:gsk-login',
-  aiGskLoginLanded: 'ai:gsk-login-landed',
+  aiOneDeskStatus: 'ai:onedesk-status',
+  aiOneDeskLogin: 'ai:onedesk-login',
+  aiOneDeskLoginLanded: 'ai:onedesk-login-landed',
   aiImageSearch: 'ai:image-search',
   aiFetchImage: 'ai:fetch-image',
   // sheets: prefix — slides' ai:generate-image only registers once a slides view exists

@@ -152,7 +152,7 @@ const MODEL_BRIDGE: AiModelPickerBridge = {
   getSettings: () => window.markdownApi.getAiSettings(),
   setSettings: (settings) => window.markdownApi.setAiSettings(settings),
   onSettingsChanged: (handler) => window.markdownApi.onAiSettingsChanged(handler),
-  gskLoggedIn: () => window.markdownApi.aiGskStatus().then((s) => !!s?.loggedIn),
+  onedeskLoggedIn: () => window.markdownApi.aiOneDeskStatus().then((s) => !!s?.loggedIn),
   openModelSettings: () => window.markdownApi.openAiModelSettings().catch(() => {}),
 }
 
@@ -226,15 +226,15 @@ export function AiPanel({
   }, [panelWidth])
 
   const settingsRef = useRef<AiSettings | null>(null)
-  /** gsk login state for the generate_image gate (refreshed on mount and window focus) */
-  const gskLoggedInRef = useRef(false)
+  /** onedesk login state for the generate_image gate (refreshed on mount and window focus) */
+  const onedeskLoggedInRef = useRef(false)
   useEffect(() => {
     let alive = true
     const refresh = () => {
       void window.markdownApi
-        .aiGskStatus?.()
+        .aiOneDeskStatus?.()
         .then((s) => {
-          if (alive) gskLoggedInRef.current = !!s?.loggedIn
+          if (alive) onedeskLoggedInRef.current = !!s?.loggedIn
         })
         .catch(() => {})
     }
@@ -409,7 +409,7 @@ export function AiPanel({
             read: () => depsRef.current.getFrontmatter(),
             write: (inner) => depsRef.current.setFrontmatter(inner),
           },
-          () => imageGenerationAvailable(settingsRef.current, gskLoggedInRef.current),
+          () => imageGenerationAvailable(settingsRef.current, onedeskLoggedInRef.current),
           () => ({
             write: (spec, onProgress, signal) => runDocWriterRef.current(spec, onProgress, signal),
           }),
@@ -874,8 +874,8 @@ export function AiPanel({
       />
       <header className="ai-panel-header">
         <span className="ai-panel-title">
-          <GensparkMark size={22} />
-          Genspark
+          <OneDeskMark size={22} />
+          OneDesk
         </span>
         <div className="ai-panel-header-actions">
           <AiPanelSideButton
@@ -1429,8 +1429,8 @@ function IconClock(): ReactElement {
   )
 }
 
-/** Genspark brand mark, inline for crisp device-resolution rendering */
-export function GensparkMark({ size = 18 }: { size?: number }): React.JSX.Element {
+/** OneDesk brand mark, inline for crisp device-resolution rendering */
+export function OneDeskMark({ size = 18 }: { size?: number }): React.JSX.Element {
   return (
     <svg
       width={size}

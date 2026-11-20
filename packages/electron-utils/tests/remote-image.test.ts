@@ -13,7 +13,7 @@ vi.mock('node:dns/promises', () => ({
 const png = () => new Response('img', { status: 200 })
 
 describe('remoteImageHeaders', () => {
-  it('sends a Referer for genspark hosts', () => {
+  it('sends a Referer for onedesk hosts', () => {
     expect(remoteImageHeaders('https://static.onedesk.jiulu.ltd/a.png').Referer).toBe(
       'https://onedesk.jiulu.ltd/',
     )

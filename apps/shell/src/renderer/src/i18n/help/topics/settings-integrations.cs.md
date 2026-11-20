@@ -46,10 +46,10 @@ Nastavení může zaregistrovat OneDesk jako aplikaci pro soubory .docx / .xlsx 
 - Nápověda ▸ Informace o softwaru třetích stran: úplný přehled licencí open source dodávaných s aplikací.
 - Nápověda ▸ Zkontrolovat aktualizace…: spustí ruční kontrolu; novější verze vyzve k instalaci.
 
-## Přihlášení ke Genspark
+## Přihlášení ke OneDesk
 
 - Místo přihlášení (v nastavení nebo v seznamu cloudových projektů) používá postup s **kódem zařízení**: OneDesk zobrazí kód a otevře přihlašovací stránku v prohlížeči; po dokončení postup pokračuje automaticky.
-- Přihlášení slouží pouze k: seznamu cloudových projektů a modelům hostovaným Gensparkem. Bez něj fungují dál všechny místní funkce i vlastní modely.
+- Přihlášení slouží pouze k: seznamu cloudových projektů a modelům hostovaným OneDeskem. Bez něj fungují dál všechny místní funkce i vlastní modely.
 - Odhlášení je jedno kliknutí v nastavení.
 
 ## Integrace MCP (pro pokročilé uživatele a klienty AI)

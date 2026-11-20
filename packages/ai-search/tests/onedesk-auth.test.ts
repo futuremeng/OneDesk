@@ -6,7 +6,7 @@ import {
   classifyMintResponse,
   FRESH_AUTH_REQUIRED,
   invalidateOneDeskKey,
-  recoverFromRejectedGskKey,
+  recoverFromRejectedOneDeskKey,
   setOneDeskLoginOpener,
   setOneDeskLoginSuccessListener,
   onedeskApiKey,
@@ -17,9 +17,9 @@ import {
   loadOneDeskAuth,
   resetOneDeskAuthCache,
   startOneDeskLogin,
-  type GskLoginProgress,
+  type OneDeskLoginProgress,
 } from '../src/onedesk-auth'
-import { gskApiKey, setGskProxyUrl, watchGskApiKey } from '../src/gsk'
+import { onedeskCliApiKey, setOneDeskProxyUrl, watchOneDeskCliApiKey } from '../src/onedesk'
 
 const CODE = 'a'.repeat(64)
 const AUTH_URL = `https://onedesk.jiulu.ltd/api/office_addin_auth/verify?code=${CODE}`
@@ -41,7 +41,7 @@ afterEach(() => {
   delete process.env.ONEDESK_AUTH_DIR
   delete process.env.GSK_API_KEY
   delete process.env.ONEDESK_NATIVE_WAF
-  setGskProxyUrl('')
+  setOneDeskProxyUrl('')
   resetOneDeskAuthCache()
 })
 
@@ -101,7 +101,7 @@ function stubFlow(
       return jsonResponse(
         opts.createResponse ?? {
           status: 0,
-          data: { key_id: 'kid-1', key_name: 'onedesk', token: 'gsk-onedesk-key' },
+          data: { key_id: 'kid-1', key_name: 'onedesk', token: 'onedesk-onedesk-key' },
         },
       )
     }
@@ -112,8 +112,8 @@ function stubFlow(
   return fetchMock
 }
 
-async function loginAndCollect(): Promise<GskLoginProgress[]> {
-  const events: GskLoginProgress[] = []
+async function loginAndCollect(): Promise<OneDeskLoginProgress[]> {
+  const events: OneDeskLoginProgress[] = []
   startOneDeskLogin((progress) => events.push(progress))
   await vi.waitFor(() => {
     expect(['success', 'error']).toContain(events.at(-1)?.phase)
@@ -150,12 +150,12 @@ describe('startOneDeskLogin', () => {
     expect(events.at(-1)?.phase).toBe('success')
     const calls = fetchMock.mock.calls
     const mint = calls.find(([u]) => String(u).includes('/api_tokens/create'))!
-    expect(new Headers(mint[1]?.headers).get('X-Genspark-Native-Pass')).toBe(token)
+    expect(new Headers(mint[1]?.headers).get('X-OneDesk-Native-Pass')).toBe(token)
     expect(new Headers(mint[1]?.headers).get('Cookie')).toBe('session_id=sess-abc')
     expect(mint[1]?.redirect).toBe('manual')
     const session = calls.find(([u]) => String(u).includes('/office_addin_auth/session'))!
     expect(new Headers(session[1]?.headers).get('Authorization')).toBe('Bearer bearer-token')
-    expect(new Headers(session[1]?.headers).has('X-Genspark-Native-Pass')).toBe(false)
+    expect(new Headers(session[1]?.headers).has('X-OneDesk-Native-Pass')).toBe(false)
     expect(calls.filter(([u]) => String(u).endsWith('/api/native-waf/pass'))).toHaveLength(1)
   })
   it('runs device_code → poll → session → key create and stores the key', async () => {
@@ -167,12 +167,12 @@ describe('startOneDeskLogin', () => {
 
     const saved = JSON.parse(readFileSync(onedeskAuthPath(), 'utf-8'))
     expect(saved).toEqual({
-      api_key: 'gsk-onedesk-key',
+      api_key: 'onedesk-onedesk-key',
       key_id: 'kid-1',
       access_token: 'bearer-token',
     })
     expect(statSync(onedeskAuthPath()).mode & 0o777).toBe(0o600)
-    expect(onedeskApiKey()).toBe('gsk-onedesk-key')
+    expect(onedeskApiKey()).toBe('onedesk-onedesk-key')
     expect(onedeskLoginInFlight()).toBe(false)
 
     // the key create call must ride on the session cookie
@@ -182,12 +182,12 @@ describe('startOneDeskLogin', () => {
     expect(JSON.parse(String(init.body))).toEqual({ key_name: 'onedesk' })
   })
 
-  it('feeds gskApiKey(), losing only to an explicit GSK_API_KEY env override', async () => {
+  it('feeds onedeskCliApiKey(), losing only to an explicit GSK_API_KEY env override', async () => {
     stubFlow()
     await loginAndCollect()
-    expect(gskApiKey()).toBe('gsk-onedesk-key')
-    process.env.GSK_API_KEY = 'gsk-env-override'
-    expect(gskApiKey()).toBe('gsk-env-override')
+    expect(onedeskCliApiKey()).toBe('onedesk-onedesk-key')
+    process.env.GSK_API_KEY = 'onedesk-env-override'
+    expect(onedeskCliApiKey()).toBe('onedesk-env-override')
   })
 
   it('reports a network failure at device_code as error "network"', async () => {
@@ -201,7 +201,7 @@ describe('startOneDeskLogin', () => {
   })
 
   it('retries through the registered proxy channel when the direct fetch cannot connect', async () => {
-    setGskProxyUrl('http://127.0.0.1:7890')
+    setOneDeskProxyUrl('http://127.0.0.1:7890')
     const flow = stubFlow()
     let deviceCodeCalls = 0
     vi.stubGlobal(
@@ -216,12 +216,12 @@ describe('startOneDeskLogin', () => {
     const events = await loginAndCollect()
     expect(deviceCodeCalls).toBe(2)
     expect(events.at(-1)).toEqual({ phase: 'success' })
-    expect(onedeskApiKey()).toBe('gsk-onedesk-key')
+    expect(onedeskApiKey()).toBe('onedesk-onedesk-key')
     expect(onedeskProxyFallbackPreferred()).toBe(true)
   })
 
   it('treats a gateway status (502) as channel failure: fails over without adopting the channel', async () => {
-    setGskProxyUrl('http://127.0.0.1:7890')
+    setOneDeskProxyUrl('http://127.0.0.1:7890')
     const fetchMock = vi.fn(async () => jsonResponse({}, { status: 502 }))
     vi.stubGlobal('fetch', fetchMock)
     const events = await loginAndCollect()
@@ -232,7 +232,7 @@ describe('startOneDeskLogin', () => {
   })
 
   it('counts an endpoint 4xx (authorization_pending) as channel success', async () => {
-    setGskProxyUrl('http://127.0.0.1:7890')
+    setOneDeskProxyUrl('http://127.0.0.1:7890')
     const flow = stubFlow({ pendingPolls: 0 })
     let deviceCodeCalls = 0
     let tokenCalls = 0
@@ -290,7 +290,7 @@ describe('startOneDeskLogin', () => {
     vi.useFakeTimers()
     try {
       stubFlow({ pendingPolls: 0, deviceCode: { ...deviceCodeOk, poll_interval: 2_000_000 } })
-      const events: GskLoginProgress[] = []
+      const events: OneDeskLoginProgress[] = []
       startOneDeskLogin((progress) => events.push(progress))
       // 10s is the clamped ceiling; the ~23 days the server asked for never elapse
       await vi.advanceTimersByTimeAsync(0) // let the device_code reply land and arm the sleep
@@ -311,7 +311,7 @@ describe('startOneDeskLogin', () => {
         alwaysPending: true,
         deviceCode: { ...deviceCodeOk, expires_in: 1e9, poll_interval: 2_000_000 },
       })
-      const events: GskLoginProgress[] = []
+      const events: OneDeskLoginProgress[] = []
       startOneDeskLogin((progress) => events.push(progress))
       // 1h is the clamped ceiling: still waiting one second before it
       await vi.advanceTimersByTimeAsync(3_599_000)
@@ -335,7 +335,7 @@ describe('startOneDeskLogin', () => {
         alwaysPending: true,
         deviceCode: { ...deviceCodeOk, expires_in: 1800, poll_interval: 2_000 },
       })
-      const events: GskLoginProgress[] = []
+      const events: OneDeskLoginProgress[] = []
       startOneDeskLogin((progress) => events.push(progress))
       await vi.advanceTimersByTimeAsync(0)
       expect(events.at(-1)).toEqual({ phase: 'url', url: AUTH_URL, expiresInSec: 1800 })
@@ -352,10 +352,10 @@ describe('startOneDeskLogin', () => {
     await loginAndCollect()
 
     const fetchMock = stubFlow({
-      createResponse: { status: 0, data: { key_id: 'kid-2', token: 'gsk-onedesk-key-2' } },
+      createResponse: { status: 0, data: { key_id: 'kid-2', token: 'onedesk-onedesk-key-2' } },
     })
     await loginAndCollect()
-    expect(loadOneDeskAuth()).toMatchObject({ apiKey: 'gsk-onedesk-key-2', keyId: 'kid-2' })
+    expect(loadOneDeskAuth()).toMatchObject({ apiKey: 'onedesk-onedesk-key-2', keyId: 'kid-2' })
     await vi.waitFor(() => {
       const revoke = fetchMock.mock.calls.find(([u]) => String(u).includes('/api_tokens/revoke'))
       expect(revoke).toBeDefined()
@@ -380,7 +380,7 @@ describe('startOneDeskLogin', () => {
         return jsonResponse({ status: 'pending' })
       }),
     )
-    const first: GskLoginProgress[] = []
+    const first: OneDeskLoginProgress[] = []
     startOneDeskLogin((progress) => first.push(progress))
     await vi.waitFor(() => expect(first.length).toBeGreaterThan(0))
     expect(onedeskLoginInFlight()).toBe(true)
@@ -423,20 +423,20 @@ describe('onedeskLogout', () => {
   })
 })
 
-describe('watchGskApiKey', () => {
+describe('watchOneDeskCliApiKey', () => {
   it('drops the cached key and reports the new one when another process rewrites auth.json', async () => {
     const write = (key: string) =>
       writeFileSync(join(dir, 'auth.json'), JSON.stringify({ api_key: key, key_id: key }))
-    write('gsk-old')
-    expect(gskApiKey()).toBe('gsk-old')
+    write('onedesk-old')
+    expect(onedeskCliApiKey()).toBe('onedesk-old')
     const seen: string[] = []
-    const stop = watchGskApiKey((key) => seen.push(key), 20)
+    const stop = watchOneDeskCliApiKey((key) => seen.push(key), 20)
     try {
       // the first stat runs off-thread; a write that lands before it becomes the baseline
       await new Promise((r) => setTimeout(r, 100))
-      write('gsk-new')
-      await vi.waitFor(() => expect(seen).toEqual(['gsk-new']), { timeout: 3000 })
-      expect(onedeskApiKey()).toBe('gsk-new')
+      write('onedesk-new')
+      await vi.waitFor(() => expect(seen).toEqual(['onedesk-new']), { timeout: 3000 })
+      expect(onedeskApiKey()).toBe('onedesk-new')
     } finally {
       stop()
     }
@@ -446,8 +446,8 @@ describe('watchGskApiKey', () => {
 describe('classifyMintResponse', () => {
   it('reads a minted key', () => {
     expect(
-      classifyMintResponse(200, { status: 0, data: { key_id: 'kid', token: 'gsk-x' } }),
-    ).toEqual({ kind: 'ok', apiKey: 'gsk-x', keyId: 'kid' })
+      classifyMintResponse(200, { status: 0, data: { key_id: 'kid', token: 'onedesk-x' } }),
+    ).toEqual({ kind: 'ok', apiKey: 'onedesk-x', keyId: 'kid' })
   })
 
   it('recognises the fresh-login refusal', () => {
@@ -490,13 +490,13 @@ describe('login mint refused with fresh_browser_authentication_required', () => 
   })
 })
 
-describe('recoverFromRejectedGskKey', () => {
+describe('recoverFromRejectedOneDeskKey', () => {
   afterEach(() => setOneDeskLoginOpener(null))
 
   async function signIn(): Promise<void> {
     stubFlow()
     await loginAndCollect()
-    expect(onedeskApiKey()).toBe('gsk-onedesk-key')
+    expect(onedeskApiKey()).toBe('onedesk-onedesk-key')
   }
 
   /** fetch stub for the silent re-mint: session ok, create answers `create` */
@@ -512,8 +512,8 @@ describe('recoverFromRejectedGskKey', () => {
 
   it('drops the rejected key from memory and disk', async () => {
     await signIn()
-    expect(invalidateOneDeskKey('gsk-other')).toBe(false)
-    expect(invalidateOneDeskKey('gsk-onedesk-key')).toBe(true)
+    expect(invalidateOneDeskKey('onedesk-other')).toBe(false)
+    expect(invalidateOneDeskKey('onedesk-onedesk-key')).toBe(true)
     expect(onedeskApiKey()).toBe('')
     expect(existsSync(onedeskAuthPath())).toBe(false)
   })
@@ -523,10 +523,10 @@ describe('recoverFromRejectedGskKey', () => {
     const opener = vi.fn()
     setOneDeskLoginOpener(opener)
     const fetchMock = stubRemint(() =>
-      jsonResponse({ status: 0, data: { key_id: 'kid-2', token: 'gsk-reminted' } }),
+      jsonResponse({ status: 0, data: { key_id: 'kid-2', token: 'onedesk-reminted' } }),
     )
-    await expect(recoverFromRejectedGskKey('gsk-onedesk-key')).resolves.toBe('reminted')
-    expect(onedeskApiKey()).toBe('gsk-reminted')
+    await expect(recoverFromRejectedOneDeskKey('onedesk-onedesk-key')).resolves.toBe('reminted')
+    expect(onedeskApiKey()).toBe('onedesk-reminted')
     expect(opener).not.toHaveBeenCalled()
     // no device code: the stored Bearer rebuilt the session
     expect(fetchMock.mock.calls.some(([u]) => String(u).includes('/device_code'))).toBe(false)
@@ -540,12 +540,14 @@ describe('recoverFromRejectedGskKey', () => {
     stubRemint(() => {
       // the silent re-mint is refused; the post-login mint (fresh session) succeeds
       if (++creates === 1) return jsonResponse({ detail: FRESH_AUTH_REQUIRED }, { status: 403 })
-      return jsonResponse({ status: 0, data: { key_id: 'kid-3', token: 'gsk-fresh' } })
+      return jsonResponse({ status: 0, data: { key_id: 'kid-3', token: 'onedesk-fresh' } })
     })
-    await expect(recoverFromRejectedGskKey('gsk-onedesk-key')).resolves.toBe('login_started')
+    await expect(recoverFromRejectedOneDeskKey('onedesk-onedesk-key')).resolves.toBe(
+      'login_started',
+    )
     expect(onedeskApiKey()).toBe('')
     await vi.waitFor(() => expect(opener).toHaveBeenCalledWith(AUTH_URL))
-    await vi.waitFor(() => expect(onedeskApiKey()).toBe('gsk-fresh'))
+    await vi.waitFor(() => expect(onedeskApiKey()).toBe('onedesk-fresh'))
     expect(creates).toBe(2)
   })
 
@@ -569,14 +571,16 @@ describe('recoverFromRejectedGskKey', () => {
       }),
     )
     const [a, b] = await Promise.all([
-      recoverFromRejectedGskKey('gsk-onedesk-key'),
-      recoverFromRejectedGskKey('gsk-onedesk-key'),
+      recoverFromRejectedOneDeskKey('onedesk-onedesk-key'),
+      recoverFromRejectedOneDeskKey('onedesk-onedesk-key'),
     ])
     expect([a, b]).toEqual(['login_started', 'login_started'])
     await vi.waitFor(() => expect(onedeskLoginInFlight()).toBe(false))
     // further rejected calls leave the inline sign-in button to the user
-    await expect(recoverFromRejectedGskKey('gsk-onedesk-key')).resolves.toBe('login_required')
-    await expect(recoverFromRejectedGskKey('')).resolves.toBe('login_required')
+    await expect(recoverFromRejectedOneDeskKey('onedesk-onedesk-key')).resolves.toBe(
+      'login_required',
+    )
+    await expect(recoverFromRejectedOneDeskKey('')).resolves.toBe('login_required')
     expect(opener).toHaveBeenCalledTimes(1)
   })
 
@@ -587,17 +591,22 @@ describe('recoverFromRejectedGskKey', () => {
     let creates = 0
     stubRemint(() => {
       creates++
-      return jsonResponse({ status: 0, data: { key_id: `kid-${creates}`, token: 'gsk-reminted' } })
+      return jsonResponse({
+        status: 0,
+        data: { key_id: `kid-${creates}`, token: 'onedesk-reminted' },
+      })
     })
-    await expect(recoverFromRejectedGskKey('gsk-onedesk-key')).resolves.toBe('reminted')
-    await expect(recoverFromRejectedGskKey('gsk-reminted')).resolves.toBe('login_started')
+    await expect(recoverFromRejectedOneDeskKey('onedesk-onedesk-key')).resolves.toBe('reminted')
+    await expect(recoverFromRejectedOneDeskKey('onedesk-reminted')).resolves.toBe('login_started')
     expect(creates).toBe(1)
   })
 
   it('without an opener only signs out locally', async () => {
     await signIn()
     stubRemint(() => jsonResponse({ detail: FRESH_AUTH_REQUIRED }, { status: 403 }))
-    await expect(recoverFromRejectedGskKey('gsk-onedesk-key')).resolves.toBe('login_required')
+    await expect(recoverFromRejectedOneDeskKey('onedesk-onedesk-key')).resolves.toBe(
+      'login_required',
+    )
     expect(onedeskApiKey()).toBe('')
     expect(onedeskLoginInFlight()).toBe(false)
   })
@@ -622,11 +631,11 @@ describe('sign-out during recovery', () => {
         return flow(input, init)
       }),
     )
-    const pending = recoverFromRejectedGskKey('gsk-onedesk-key')
+    const pending = recoverFromRejectedOneDeskKey('onedesk-onedesk-key')
     // hold the re-mint at the create call, then sign out underneath it
     await vi.waitFor(() => expect(releaseCreate).not.toBeNull())
     await onedeskLogout()
-    releaseCreate!(jsonResponse({ status: 0, data: { key_id: 'kid-9', token: 'gsk-late' } }))
+    releaseCreate!(jsonResponse({ status: 0, data: { key_id: 'kid-9', token: 'onedesk-late' } }))
     await expect(pending).resolves.toBe('login_required')
     expect(onedeskApiKey()).toBe('')
     expect(existsSync(onedeskAuthPath())).toBe(false)
@@ -649,11 +658,11 @@ describe('sign-out during recovery', () => {
         return flow(input, init)
       }),
     )
-    const first = recoverFromRejectedGskKey('gsk-onedesk-key')
-    const second = recoverFromRejectedGskKey('gsk-onedesk-key')
+    const first = recoverFromRejectedOneDeskKey('onedesk-onedesk-key')
+    const second = recoverFromRejectedOneDeskKey('onedesk-onedesk-key')
     await vi.waitFor(() => expect(releaseCreate).not.toBeNull())
     await onedeskLogout()
-    releaseCreate!(jsonResponse({ status: 0, data: { key_id: 'kid-9', token: 'gsk-late' } }))
+    releaseCreate!(jsonResponse({ status: 0, data: { key_id: 'kid-9', token: 'onedesk-late' } }))
     await expect(first).resolves.toBe('login_required')
     await expect(second).resolves.toBe('login_required')
     expect(opener).not.toHaveBeenCalled()

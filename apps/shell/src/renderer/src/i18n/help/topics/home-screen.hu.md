@@ -9,7 +9,7 @@ A Kezdőképernyő a OneDesk nyitóoldala: bal oldalt egy navigációs oldalsáv
 - **Legutóbbiak**: a nemrég megnyitott fájljaid. Minden soron látszik, mikor volt megnyitva — ma, tegnap vagy a dátum.
 - **Csillagozott**: az általad csillagozott fájlok. Vidd az egérmutatót egy fájl sora fölé, és kattints a csillagra a hozzáadáshoz vagy eltávolításhoz. A ⋯ menü **Áthelyezés csoportba** parancsa elnevezett csoportokba sorolja a csillagozott fájlokat; a Csillagozott nézet ezek szerint szűr.
 - **AI kérdezése**: a tudásbázis-panel — tedd fel a kérdéseidet, és a válaszokban a csillagozott fájljaidra hivatkozik a program (lásd lentebb).
-- **Genspark-projektek**: a Genspark-fiókodba való bejelentkezés után megjeleníti a weben, a Genspark AI-jal létrehozott projektjeidet; kattints valamelyikre, és a böngészőben folytathatod a szerkesztést. Van keresés, rendezés idő szerint, frissítés és további elemek betöltése is.
+- **OneDesk-projektek**: a OneDesk-fiókodba való bejelentkezés után megjeleníti a weben, a OneDesk AI-jal létrehozott projektjeidet; kattints valamelyikre, és a böngészőben folytathatod a szerkesztést. Van keresés, rendezés idő szerint, frissítés és további elemek betöltése is.
 - **Mappák**: mappák, amelyeket a **Mappa hozzáadása…** paranccsal adsz az oldalsávhoz, vagy a fájlkezelőből húzol be. Mindegyik gyökérmappává válik, amelyet megnyithatsz, átnevezhetsz, eltávolíthatsz, és amelyben almappákat hozhatsz létre; ha az egyik elérhetetlenné válik, „nem elérhető” jelzéssel jelenik meg, és kivehető a listáról. Az **Új mappa** további mappát hoz létre.
 
 Itt nincs Kuka menüpont. A törölt fájlok a rendszer kukájába kerülnek, egy fájl visszaállítása pedig az operációs rendszer dolga.
@@ -60,12 +60,12 @@ Az egyes kártyák működése:
 
 - Először csillagozz fájlokat (bármilyen típusút, amit az alkalmazás be tud olvasni); a panel fejlécében látszik a tudásbázis mérete, az üres tudásbázis pedig arra kér, hogy csillagozz valamit.
 - A válaszok megnevezik azt a fájlt, amelyből származnak; kattints egy hivatkozásra, és a fájl a saját szerkesztőjében nyílik meg.
-- Bejelentkezés szükséges a Gensparkba. A beszélgetés csak a memóriában létezik — az alkalmazás bezárásával véget ér.
+- Bejelentkezés szükséges a OneDeskba. A beszélgetés csak a memóriában létezik — az alkalmazás bezárásával véget ér.
 - A keresés a helyi fájlindexen fut, akárcsak a Kezdőképernyő keresése; az eltűnt fájlok szó nélkül kikerülnek a tudásbázisból.
 - A csoportok csak a Csillagozott listát rendszerezik — a tudásbázis mindig az összes csillagozott fájlt tartalmazza.
 
-## Felhőprojektek (Genspark-projektek)
+## Felhőprojektek (OneDesk-projektek)
 
-- Az első használathoz be kell jelentkezned a Genspark-fiókodba (eszközkódos folyamat: a OneDesk megjelenít egy kódot, a bejelentkezést pedig a böngészőben fejezed be).
+- Az első használathoz be kell jelentkezned a OneDesk-fiókodba (eszközkódos folyamat: a OneDesk megjelenít egy kódot, a bejelentkezést pedig a böngészőben fejezed be).
 - A projektlista szinkronban van a weben lévővel; a „Megnyitás böngészőben” oda visz, hogy ott folytasd.
 - Ha nem jelentkezel be, az egyik helyi funkciót sem érinti.

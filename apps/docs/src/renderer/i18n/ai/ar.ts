@@ -8,9 +8,9 @@ export const ar = {
   aiStarterPolishAll: 'حسّن صياغة المستند كاملًا بنبرة أكثر احترافية',
   aiStarterContinue: 'تابع الكتابة من حيث انتهى المستند',
   aiStarterFillTemplate: 'اعثر على العناصر النائبة في المستند واملأها',
-  aiGskLoginBtn: 'تسجيل الدخول إلى Genspark',
-  aiGskLoginOk: 'تم تسجيل الدخول إلى Genspark',
-  aiPanelTitle: 'Genspark',
+  aiOneDeskLoginBtn: 'تسجيل الدخول إلى OneDesk',
+  aiOneDeskLoginOk: 'تم تسجيل الدخول إلى OneDesk',
+  aiPanelTitle: 'OneDesk',
   aiOpenAssistant: 'فتح مساعد الذكاء الاصطناعي',
   aiSummarizeBtn: 'تلخيص AI',
   aiSummarizePrompt: 'لخّص المحتوى الرئيسي والنقاط الأساسية لهذا المستند',
@@ -121,7 +121,7 @@ export const ar = {
   aiNetworkError:
     'مشكلة في الشبكة: تعذّر الوصول إلى خدمة الذكاء الاصطناعي. تحقق من الاتصال وحاول مجددًا',
   aiCreditsExhausted:
-    'نفدت أرصدة Genspark لديك. يرجى إعادة الشحن عبر onedesk.jiulu.ltd/pricing ثم المحاولة مجددًا',
+    'نفدت أرصدة OneDesk لديك. يرجى إعادة الشحن عبر onedesk.jiulu.ltd/pricing ثم المحاولة مجددًا',
   aiSumReadAttachment: 'قراءة المرفق',
   aiSumImageAttachment: 'مرفق صورة {name}',
   aiSumRead: 'قراءة {name}',

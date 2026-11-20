@@ -2,8 +2,8 @@ import type { AgentMessage, AgentToolCall, AgentToolDef } from '@onedesk/agent-c
 import { aiFetch } from '../fetch'
 import { httpBodyDetail } from '../http-error'
 import {
-  GENSPARK_LLM_BASE_URLS,
-  gensparkAttributionHeaders,
+  ONEDESK_LLM_BASE_URLS,
+  onedeskAttributionHeaders,
   opencodeSessionHeaders,
 } from '../providers'
 import type { AiChatResponse, AiProviderConfig, AiTokenUsage } from '../types'
@@ -31,13 +31,13 @@ const EPHEMERAL_CACHE = { type: 'ephemeral' }
  * markers every turn of a long tool loop re-bills the whole conversation at
  * the uncached input price (measured on a multi-day editing session: a ~0
  * cache-hit rate). Markers go only to endpoints known to implement them — the
- * official API and the Genspark proxy in front of it; a user-hosted Messages
+ * official API and the OneDesk proxy in front of it; a user-hosted Messages
  * endpoint may reject fields it does not know.
  */
 function supportsPromptCache(baseUrl: string): boolean {
   // a stored official URL arrives normalized with a trailing slash
   const base = baseUrl.replace(/\/+$/, '')
-  return base === ANTHROPIC_BASE_URL || base === GENSPARK_LLM_BASE_URLS.anthropic
+  return base === ANTHROPIC_BASE_URL || base === ONEDESK_LLM_BASE_URLS.anthropic
 }
 
 /** The provider-wire message shape produced by anthropicMessages */
@@ -245,7 +245,7 @@ async function anthropicTurn(
         // which adds browser-semantics headers; Anthropic rejects those with 403 "Request not
         // allowed". This header is the official opt-in for browser/Electron environments.
         'anthropic-dangerous-direct-browser-access': 'true',
-        ...gensparkAttributionHeaders(baseUrl),
+        ...onedeskAttributionHeaders(baseUrl),
         ...opencodeSessionHeaders(baseUrl, cb.sessionId),
         // a user-hosted endpoint may route or authenticate on static headers
         ...options.headers,
@@ -422,7 +422,7 @@ export async function chatAnthropic(
       'anthropic-version': '2023-06-01',
       // Fetch in the Electron main process goes through Chromium's network stack; this header avoids 403.
       'anthropic-dangerous-direct-browser-access': 'true',
-      ...gensparkAttributionHeaders(baseUrl),
+      ...onedeskAttributionHeaders(baseUrl),
       ...opencodeSessionHeaders(baseUrl),
       ...options.headers,
     },

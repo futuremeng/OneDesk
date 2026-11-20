@@ -4,7 +4,7 @@ import { resolveNamingProvider } from '../src/main/ai-naming-provider'
 /**
  * The naming service used to resolve its provider on its own: a hardcoded list
  * of three ids, and the key read out of the settings file. That list did not
- * know every provider the build can talk to, and it never saw the Genspark
+ * know every provider the build can talk to, and it never saw the OneDesk
  * key — which lives in the login state, not in the file — so for the default
  * account the call failed and the feature quietly did nothing.
  *
@@ -13,13 +13,13 @@ import { resolveNamingProvider } from '../src/main/ai-naming-provider'
  */
 
 describe('resolveNamingProvider', () => {
-  it('takes the Genspark key from the login state, not from the settings file', () => {
-    const resolved = resolveNamingProvider({}, 'gsk-live-key')
-    expect(resolved?.provider).toBe('genspark')
-    expect(resolved?.config.apiKey).toBe('gsk-live-key')
+  it('takes the OneDesk key from the login state, not from the settings file', () => {
+    const resolved = resolveNamingProvider({}, 'onedesk-live-key')
+    expect(resolved?.provider).toBe('onedesk')
+    expect(resolved?.config.apiKey).toBe('onedesk-live-key')
   })
 
-  it('declines when Genspark is selected and nobody is signed in', () => {
+  it('declines when OneDesk is selected and nobody is signed in', () => {
     expect(resolveNamingProvider({}, '')).toBeNull()
   })
 
@@ -40,24 +40,24 @@ describe('resolveNamingProvider', () => {
     expect(resolved?.config.model).toBe('claude-sonnet-4-6')
   })
 
-  it('falls back to Genspark when the configured provider is half-filled', () => {
+  it('falls back to OneDesk when the configured provider is half-filled', () => {
     const resolved = resolveNamingProvider(
       {
         provider: 'anthropic',
         providers: { anthropic: { apiKey: 'sk-ant', model: '' } },
       },
-      'gsk-live-key',
+      'onedesk-live-key',
     )
-    expect(resolved?.provider).toBe('genspark')
-    expect(resolved?.config.apiKey).toBe('gsk-live-key')
+    expect(resolved?.provider).toBe('onedesk')
+    expect(resolved?.config.apiKey).toBe('onedesk-live-key')
   })
 
-  it('falls back to Genspark for a provider this build does not have', () => {
+  it('falls back to OneDesk for a provider this build does not have', () => {
     const resolved = resolveNamingProvider(
       { provider: 'not-a-provider', providers: {} },
-      'gsk-live-key',
+      'onedesk-live-key',
     )
-    expect(resolved?.provider).toBe('genspark')
+    expect(resolved?.provider).toBe('onedesk')
   })
 
   it('does not need a key for codex', () => {

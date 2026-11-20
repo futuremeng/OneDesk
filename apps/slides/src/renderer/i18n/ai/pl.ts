@@ -17,9 +17,9 @@ export const pl = {
   aiQcPageSkipped: 'Strona {n}: pominięto automatyczne sprawdzanie układu',
   aiQcStopped: 'Sprawdzanie układu zatrzymane',
   aiQcCapped: 'Pozostałe {count} stron(y) nie sprawdzono (limit na uruchomienie)',
-  aiGskLoginBtn: 'Zaloguj się do Genspark',
-  aiGskLoginOk: 'Zalogowano do Genspark',
-  aiPanelTitle: 'Genspark',
+  aiOneDeskLoginBtn: 'Zaloguj się do OneDesk',
+  aiOneDeskLoginOk: 'Zalogowano do OneDesk',
+  aiPanelTitle: 'OneDesk',
   aiOpenAssistant: 'Otwórz asystenta AI',
   aiFactCheckBtn: 'Weryfikacja AI',
   aiFactCheckPrompt:
@@ -117,7 +117,7 @@ export const pl = {
   aiErrNetwork:
     'Problem z siecią: nie można połączyć się z usługą AI. Sprawdź połączenie i spróbuj ponownie',
   aiCreditsExhausted:
-    'Twoje kredyty Genspark wyczerpały się. Doładuj konto na onedesk.jiulu.ltd/pricing i spróbuj ponownie',
+    'Twoje kredyty OneDesk wyczerpały się. Doładuj konto na onedesk.jiulu.ltd/pricing i spróbuj ponownie',
   aiErrRequestFailed: 'Wysłanie żądania nie powiodło się: {msg}',
   aiErrGenerateFailed: 'Generowanie nie powiodło się',
   aiErrRegenFailed: 'Ponowne wygenerowanie slajdu nie powiodło się',

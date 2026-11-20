@@ -68,7 +68,7 @@ PowerPoint 97–2003 `.ppt` 파일과 한컴 문서(`.hwp`, `.hwpx`)도 마찬�
 - **출처와 함께, 내 파일에 물어보세요.** 문서 묶음에 별표를 달아 두면 홈 화면의
   **Ask AI**가 그 문서들을 아울러 질문에 답하고, 모든 주장마다 근거가 된 파일을
   인용하므로 직접 열어 확인할 수 있습니다.
-- **API 키가 있어도, 없어도 됩니다.** Genspark로 로그인하면 키 없이 바로
+- **API 키가 있어도, 없어도 됩니다.** OneDesk로 로그인하면 키 없이 바로
   사용할 수 있고, 원한다면 Claude, OpenAI, Gemini, DeepSeek, Kimi, GLM,
   Qwen, Doubao, MiniMax, Grok, Mistral, OpenRouter, Requesty, Opper, Cheaper
   Inference, Atlas Cloud는 물론 OpenAI 호환 엔드포인트(로컬 서버 포함)까지 직접
@@ -295,7 +295,7 @@ Word 97–2003 `.doc`, Excel `.xls`, PowerPoint `.ppt` 파일은 사용자의 �
 - **문서를 직접 편집하는 AI.** Docs에서는 변경 내용 추적, Sheets에서는 실시간으로
   동작하는 수식과 차트, 슬라이드는 캔버스 위에 그려지며, AI가 한 번 작업할 때마다
   되돌릴 수 있는 스냅샷이 남습니다.
-- **내 모델, 내 키.** Genspark로 로그인하거나 Claude, OpenAI, Gemini, DeepSeek
+- **내 모델, 내 키.** OneDesk로 로그인하거나 Claude, OpenAI, Gemini, DeepSeek
   등의 키를 사용할 수 있으며, 로컬 서버와 모든 OpenAI 호환 엔드포인트도 지원합니
   다.
 - **PDF도 제대로.** 페이지 안에서 텍스트를 직접 편집하고, 기기 내에서 PDF를
@@ -315,8 +315,8 @@ Word 97–2003 `.doc`, Excel `.xls`, PowerPoint `.ppt` 파일은 사용자의 �
 
 ## AI 백엔드
 
-**Genspark로 로그인**하면 별도 설정이 전혀 필요 없습니다. 모델 호출은
-Genspark 프록시(Claude, GPT, Gemini 계열)를 거치고, 에이전트는 웹 및
+**OneDesk로 로그인**하면 별도 설정이 전혀 필요 없습니다. 모델 호출은
+OneDesk 프록시(Claude, GPT, Gemini 계열)를 거치고, 에이전트는 웹 및
 이미지 검색, 이미지 생성, 이미지/오디오/비디오 분석 기능까지 사용할 수
 있습니다.
 
@@ -338,7 +338,7 @@ TypeSafe 자체 API입니다. 키는 이 기기에만 저장됩니다. 기본값
 로컬 상위 20개 결과의 발췌문이 판정을 위해 전송되고 그 밖에는 아무것도 기기를
 벗어나지 않습니다.
 
-**Parallel**은 계정 없이도 동작합니다: Genspark 로그인이나 검색 키가 설정되어 있지
+**Parallel**은 계정 없이도 동작합니다: OneDesk 로그인이나 검색 키가 설정되어 있지
 않으면 무료 Search MCP(속도 제한 있음)가 기본 웹 검색으로 쓰이며, DuckDuckGo
 스크레이핑보다 먼저 실행됩니다. Search API를 대신 쓰려면 웹 검색에서 Parallel을
 선택하고 [Parallel](https://platform.parallel.ai/) 키를 입력하세요. Keenable도 키
@@ -650,7 +650,7 @@ OneDesk는 활발히 개발되고 있으며, 여러분의 피드백이 그 방�
 
 문서 편집은 완전히 로컬에서 이루어집니다 — 파일을 열고, 편집하고,
 저장하고, 변환하는 과정에서 파일이 기기를 벗어나지 않습니다. AI
-기능(에이전트, 검색, 이미지 도구)은 네트워크 연결이 필요하며, Genspark
+기능(에이전트, 검색, 이미지 도구)은 네트워크 연결이 필요하며, OneDesk
 로그인 또는 직접 발급받은 모델 API 키가 있어야 합니다.
 
 </details>
@@ -677,7 +677,7 @@ OneDesk는 활발히 개발되고 있으며, 여러분의 피드백이 그 방�
 <details>
 <summary><b>제 AI 모델이나 API 키를 직접 사용할 수 있나요?</b></summary>
 
-네. 키가 필요 없는 Genspark 로그인 외에도, OneDesk는 Claude, OpenAI,
+네. 키가 필요 없는 OneDesk 로그인 외에도, OneDesk는 Claude, OpenAI,
 Gemini, DeepSeek, Kimi, GLM, Qwen, Doubao, MiniMax, Grok, Mistral,
 OpenRouter, Requesty, Opper, Cheaper Inference, Atlas Cloud, OpenCode Zen/Go를 위한 직접 키 사용을 지원하며, 로컬 모델
 서버를 포함한 모든 OpenAI 호환 엔드포인트도 사용할 수 있습니다. 검색,
@@ -795,6 +795,6 @@ OneDesk는 [Apache License 2.0](../../LICENSE)에 따라 라이선스가
 예약되어 있으며 [OneDesk Enterprise License](../../ee/LICENSE)가
 적용됩니다.
 
-OneDesk와 Genspark의 이름과 로고는 Mainfunc, Inc.의 상표입니다.
+OneDesk와 OneDesk의 이름과 로고는 Mainfunc, Inc.의 상표입니다.
 Apache-2.0 라이선스는 이를 사용할 권리를 부여하지 않으며(6항 참고),
 포크는 자체 브랜딩을 사용해야 합니다.

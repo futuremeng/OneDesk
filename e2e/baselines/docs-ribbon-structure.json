@@ -1,10 +1,10 @@
 {
   "Home": [
     {
-      "group": "Genspark AI",
+      "group": "OneDesk AI",
       "controls": [
         {
-          "name": "Genspark AI",
+          "name": "OneDesk AI",
           "tag": "button"
         },
         {

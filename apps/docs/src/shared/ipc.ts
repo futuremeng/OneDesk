@@ -130,7 +130,7 @@ import type {
   AiSettings,
   AiStreamChunk,
   AiStreamRequest,
-  GenSparkAccountStatus,
+  OneDeskAccountStatus,
 } from '@onedesk/ai-provider'
 import type { HeadlessExportTarget } from '@onedesk/electron-utils/headless-export'
 import type { FaceVerticalMetrics } from '@onedesk/font-metrics'
@@ -148,7 +148,7 @@ export type {
   AiSettings,
   AiStreamChunk,
   AiStreamRequest,
-  GenSparkAccountStatus,
+  OneDeskAccountStatus,
 } from '@onedesk/ai-provider'
 export { AI_PROVIDERS } from '@onedesk/ai-provider/browser'
 
@@ -640,12 +640,12 @@ export interface DesktopApi {
   /** start a streaming AI call; deltas arrive via onAiStream with the same requestId */
   aiStream(request: AiStreamRequest): Promise<void>
   aiStreamCancel(requestId: string): Promise<void>
-  /** Genspark account status (gsk login state); withEmail also returns the email (needs a network request, slower) */
-  aiGskStatus(withEmail?: boolean): Promise<GenSparkAccountStatus>
-  /** Open the browser to log in to Genspark (fire-and-forget; aiGskStatus flips to logged-in when done) */
-  aiGskLogin(): Promise<void>
-  /** A browser-approved Genspark login landed (whichever surface started it) */
-  onGskLoginLanded(handler: () => void): () => void
+  /** OneDesk account status (onedesk login state); withEmail also returns the email (needs a network request, slower) */
+  aiOneDeskStatus(withEmail?: boolean): Promise<OneDeskAccountStatus>
+  /** Open the browser to log in to OneDesk (fire-and-forget; aiOneDeskStatus flips to logged-in when done) */
+  aiOneDeskLogin(): Promise<void>
+  /** A browser-approved OneDesk login landed (whichever surface started it) */
+  onOneDeskLoginLanded(handler: () => void): () => void
   webSearch(
     query: string,
     maxResults?: number,
@@ -678,7 +678,7 @@ export interface DesktopApi {
     requirements: string
   }): Promise<{ text?: string; error?: string }>
   fetchImage(url: string): Promise<{ base64: string; mime: string } | null>
-  /** AI image generation via the Genspark cloud channel (requires login + cloud tools) */
+  /** AI image generation via the OneDesk cloud channel (requires login + cloud tools) */
   aiGenerateImage(op: {
     prompt: string
     aspectRatio?: string

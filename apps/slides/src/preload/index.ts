@@ -448,12 +448,12 @@ const api: SlidesApi = {
   skillText: (name: string) => ipcRenderer.invoke('ai:skill-text', name),
   aiStream: (request: AiStreamRequest) => ipcRenderer.invoke('ai:stream', request),
   aiStreamCancel: (requestId: string) => ipcRenderer.invoke('ai:stream-cancel', requestId),
-  aiGskStatus: (withEmail?: boolean) => ipcRenderer.invoke('ai:gsk-status', withEmail),
-  aiGskLogin: () => ipcRenderer.invoke('ai:gsk-login'),
-  onGskLoginLanded: (handler: () => void) => {
+  aiOneDeskStatus: (withEmail?: boolean) => ipcRenderer.invoke('ai:onedesk-status', withEmail),
+  aiOneDeskLogin: () => ipcRenderer.invoke('ai:onedesk-login'),
+  onOneDeskLoginLanded: (handler: () => void) => {
     const listener = () => handler()
-    ipcRenderer.on('ai:gsk-login-landed', listener)
-    return () => ipcRenderer.removeListener('ai:gsk-login-landed', listener)
+    ipcRenderer.on('ai:onedesk-login-landed', listener)
+    return () => ipcRenderer.removeListener('ai:onedesk-login-landed', listener)
   },
   aiLogRunFailure: (entry: AiRunFailure) => ipcRenderer.invoke('ai:log-run-failure', entry),
   webSearch: (query: string, maxResults?: number) =>
@@ -491,7 +491,7 @@ const api: SlidesApi = {
   }) => ipcRenderer.invoke('ai:generate-image', op),
   analyzeMedia: (op: { mediaUrls: string[]; requirements: string }) =>
     ipcRenderer.invoke('ai:analyze-media', op),
-  gskStatus: () => ipcRenderer.invoke('ai:gsk-status'),
+  onedeskStatus: () => ipcRenderer.invoke('ai:onedesk-status'),
   onAiStream: (handler: (chunk: AiStreamChunk) => void) => {
     const listener = (_e: IpcRendererEvent, chunk: AiStreamChunk) => handler(chunk)
     ipcRenderer.on('ai:stream-chunk', listener)

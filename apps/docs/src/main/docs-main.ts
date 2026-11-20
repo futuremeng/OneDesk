@@ -120,7 +120,7 @@ import {
   type AiSettings,
   type AiStreamChunk,
   type AiStreamRequest,
-  type GenSparkAccountStatus,
+  type OneDeskAccountStatus,
   type LegacyAiSettings,
 } from '@onedesk/ai-provider'
 import { listCodexModels, shutdownCodexAppServers } from '@onedesk/ai-provider/codex-app-server'
@@ -128,13 +128,13 @@ import { startAiTrace } from '@onedesk/ai-provider/trace'
 import { listCustomModelsForIpc } from '@onedesk/ai-provider/custom-models'
 import {
   ensureOneDeskLogin,
-  noteGskCallFailure,
+  noteOneDeskCallFailure,
   setOneDeskLoginOpener,
-  gskApiKey,
+  onedeskCliApiKey,
   generateImageTool,
   testSearchProvider,
-  gskLoginInfo,
-  hasGskAuth,
+  onedeskLoginInfo,
+  hasOneDeskAuth,
   webSearchTool,
   imageSearchTool,
   analyzeMediaTool,
@@ -309,7 +309,7 @@ const tMain = createI18n({
     errParseFailed: '文件解析失败',
     errImageNoText: '图片附件不提供文本,已作为图像随用户消息发送,直接看图即可',
     errNotImage: '不是支持的图片类型',
-    errGskNotLoggedIn: '未登录 Genspark:请点击下方「登录 Genspark」完成登录后重试',
+    errOneDeskNotLoggedIn: '未登录 OneDesk:请点击下方「登录 OneDesk」完成登录后重试',
     errNoApiKey: '未配置 {provider} 的 API Key',
     errAiRegion: '该模型的厂商不向当前地区提供服务，请换一个模型或切换网络',
     errAiBusy: 'AI 服务当前繁忙，请稍后重试',
@@ -596,8 +596,8 @@ const tMain = createI18n({
     errParseFailed: 'Failed to parse file',
     errImageNoText: 'Image attachments have no text; the image is sent along with the user message',
     errNotImage: 'not a supported image type',
-    errGskNotLoggedIn:
-      'Not signed in to Genspark: click “Sign in to Genspark” below, sign in, then retry',
+    errOneDeskNotLoggedIn:
+      'Not signed in to OneDesk: click “Sign in to OneDesk” below, sign in, then retry',
     errNoApiKey: 'No API key configured for {provider}',
     errAiRegion:
       "This model's provider does not serve your current region — pick another model or change your network",
@@ -886,8 +886,8 @@ const tMain = createI18n({
     errImageNoText:
       'Tệp đính kèm hình ảnh không có văn bản; hình ảnh được gửi cùng với tin nhắn của người dùng',
     errNotImage: 'loại hình ảnh không được hỗ trợ',
-    errGskNotLoggedIn:
-      'Chưa đăng nhập vào Genspark: nhấp vào “Đăng nhập vào Genspark” bên dưới, đăng nhập, sau đó thử lại',
+    errOneDeskNotLoggedIn:
+      'Chưa đăng nhập vào OneDesk: nhấp vào “Đăng nhập vào OneDesk” bên dưới, đăng nhập, sau đó thử lại',
     errNoApiKey: 'Chưa cấu hình khóa API cho {provider}',
     errAiRegion:
       'Nhà cung cấp của mô hình này không phục vụ khu vực hiện tại của bạn — hãy chọn mô hình khác hoặc đổi mạng',
@@ -1175,8 +1175,8 @@ const tMain = createI18n({
     errParseFailed: 'Dosya ayrıştırılamadı',
     errImageNoText: 'Resim eklerinde metin yok; resim kullanıcı iletisiyle birlikte gönderilir',
     errNotImage: 'desteklenen bir resim türü değil',
-    errGskNotLoggedIn:
-      "Genspark'a giriş yapılmadı: aşağıdaki “Genspark'a giriş yap” düğmesine tıklayın, giriş yapın ve yeniden deneyin",
+    errOneDeskNotLoggedIn:
+      "OneDesk'a giriş yapılmadı: aşağıdaki “OneDesk'a giriş yap” düğmesine tıklayın, giriş yapın ve yeniden deneyin",
     errNoApiKey: '{provider} için API anahtarı yapılandırılmamış',
     errAiRegion:
       'Bu modelin sağlayıcısı bulunduğunuz bölgeye hizmet vermiyor — başka bir model seçin veya ağınızı değiştirin',
@@ -1466,8 +1466,8 @@ const tMain = createI18n({
     errImageNoText:
       'A képmellékletek nem tartalmaznak szöveget; a kép a felhasználó üzenetével együtt lesz elküldve',
     errNotImage: 'nem támogatott képtípus',
-    errGskNotLoggedIn:
-      'Nem vagy bejelentkezve a Gensparkba: kattints alább a „Bejelentkezés a Gensparkba” gombra, jelentkezz be, majd próbáld újra',
+    errOneDeskNotLoggedIn:
+      'Nem vagy bejelentkezve a OneDeskba: kattints alább a „Bejelentkezés a OneDeskba” gombra, jelentkezz be, majd próbáld újra',
     errNoApiKey: 'Nincs API-kulcs beállítva a következőhöz: {provider}',
     errAiRegion:
       'A modell szolgáltatója nem érhető el a jelenlegi régiódban — válassz másik modellt, vagy válts hálózatot',
@@ -1756,8 +1756,8 @@ const tMain = createI18n({
     errImageNoText:
       '画像の添付ファイルはテキストを提供しません。画像としてユーザーメッセージと一緒に送信されるため、そのまま画像をご確認ください',
     errNotImage: 'サポートされていない画像形式です',
-    errGskNotLoggedIn:
-      'Genspark にサインインしていません。下の「Genspark にサインイン」からサインインして再試行してください',
+    errOneDeskNotLoggedIn:
+      'OneDesk にサインインしていません。下の「OneDesk にサインイン」からサインインして再試行してください',
     errNoApiKey: '{provider} の API キーが設定されていません',
     errAiRegion:
       'このモデルの提供元は現在の地域ではサービスを提供していません。別のモデルを選ぶか、ネットワークを切り替えてください',
@@ -2046,8 +2046,8 @@ const tMain = createI18n({
     errImageNoText:
       '이미지 첨부 파일은 텍스트를 제공하지 않으며, 이미지 형태로 사용자 메시지와 함께 전송되므로 이미지를 직접 확인하면 됩니다',
     errNotImage: '지원되지 않는 이미지 형식입니다',
-    errGskNotLoggedIn:
-      'Genspark에 로그인되어 있지 않습니다. 아래 "Genspark 로그인"을 눌러 로그인한 뒤 다시 시도하세요',
+    errOneDeskNotLoggedIn:
+      'OneDesk에 로그인되어 있지 않습니다. 아래 "OneDesk 로그인"을 눌러 로그인한 뒤 다시 시도하세요',
     errNoApiKey: '{provider}의 API 키가 설정되지 않았습니다',
     errAiRegion:
       '이 모델의 제공업체는 현재 지역에서 서비스를 제공하지 않습니다. 다른 모델을 선택하거나 네트워크를 변경하세요',
@@ -2338,8 +2338,8 @@ const tMain = createI18n({
     errImageNoText:
       "Les pièces jointes image ne fournissent pas de texte ; l'image est envoyée avec le message de l'utilisateur, consultez-la directement",
     errNotImage: "type d'image non pris en charge",
-    errGskNotLoggedIn:
-      'Non connecté à Genspark : cliquez sur « Se connecter à Genspark » ci-dessous, connectez-vous puis réessayez',
+    errOneDeskNotLoggedIn:
+      'Non connecté à OneDesk : cliquez sur « Se connecter à OneDesk » ci-dessous, connectez-vous puis réessayez',
     errNoApiKey: 'Aucune clé API configurée pour {provider}',
     errAiRegion:
       'Le fournisseur de ce modèle ne dessert pas votre région actuelle — choisissez un autre modèle ou changez de réseau',
@@ -2629,8 +2629,8 @@ const tMain = createI18n({
     errImageNoText:
       'Bildanlagen liefern keinen Text; das Bild wird mit der Benutzernachricht gesendet und kann direkt betrachtet werden',
     errNotImage: 'kein unterstütztes Bildformat',
-    errGskNotLoggedIn:
-      'Nicht bei Genspark angemeldet: Klicken Sie unten auf „Bei Genspark anmelden“, melden Sie sich an und versuchen Sie es erneut',
+    errOneDeskNotLoggedIn:
+      'Nicht bei OneDesk angemeldet: Klicken Sie unten auf „Bei OneDesk anmelden“, melden Sie sich an und versuchen Sie es erneut',
     errNoApiKey: 'Kein API-Schlüssel für {provider} konfiguriert',
     errAiRegion:
       'Der Anbieter dieses Modells bedient Ihre aktuelle Region nicht — wählen Sie ein anderes Modell oder wechseln Sie das Netzwerk',
@@ -2920,8 +2920,8 @@ const tMain = createI18n({
     errImageNoText:
       'Las imágenes adjuntas no proporcionan texto; la imagen se envía junto con el mensaje del usuario, puedes verla directamente',
     errNotImage: 'no es un tipo de imagen compatible',
-    errGskNotLoggedIn:
-      'No has iniciado sesión en Genspark: pulsa «Iniciar sesión en Genspark» abajo, inicia sesión y vuelve a intentarlo',
+    errOneDeskNotLoggedIn:
+      'No has iniciado sesión en OneDesk: pulsa «Iniciar sesión en OneDesk» abajo, inicia sesión y vuelve a intentarlo',
     errNoApiKey: 'No hay clave de API configurada para {provider}',
     errAiRegion:
       'El proveedor de este modelo no da servicio en tu región actual — elige otro modelo o cambia de red',
@@ -3210,8 +3210,8 @@ const tMain = createI18n({
     errImageNoText:
       'สิ่งที่แนบเป็นรูปภาพไม่มีข้อความ รูปจะถูกส่งไปพร้อมข้อความของผู้ใช้ ดูรูปได้โดยตรง',
     errNotImage: 'ไม่ใช่ชนิดรูปภาพที่รองรับ',
-    errGskNotLoggedIn:
-      'ยังไม่ได้ลงชื่อเข้าใช้ Genspark: แตะ “ลงชื่อเข้าใช้ Genspark” ด้านล่าง แล้วลองอีกครั้ง',
+    errOneDeskNotLoggedIn:
+      'ยังไม่ได้ลงชื่อเข้าใช้ OneDesk: แตะ “ลงชื่อเข้าใช้ OneDesk” ด้านล่าง แล้วลองอีกครั้ง',
     errNoApiKey: 'ยังไม่ได้ตั้งค่า API Key ของ {provider}',
     errAiRegion:
       'ผู้ให้บริการของโมเดลนี้ไม่ให้บริการในภูมิภาคปัจจุบันของคุณ — โปรดเลือกโมเดลอื่นหรือเปลี่ยนเครือข่าย',
@@ -3500,7 +3500,8 @@ const tMain = createI18n({
     errImageNoText:
       'Lampiran gambar tidak menyediakan teks; gambar dikirim bersama pesan pengguna dan dapat dilihat langsung',
     errNotImage: 'bukan jenis gambar yang didukung',
-    errGskNotLoggedIn: 'Belum masuk ke Genspark: klik “Masuk ke Genspark” di bawah, lalu coba lagi',
+    errOneDeskNotLoggedIn:
+      'Belum masuk ke OneDesk: klik “Masuk ke OneDesk” di bawah, lalu coba lagi',
     errNoApiKey: 'API Key untuk {provider} belum dikonfigurasi',
     errAiRegion:
       'Penyedia model ini tidak melayani wilayah Anda saat ini — pilih model lain atau ganti jaringan',
@@ -3789,8 +3790,8 @@ const tMain = createI18n({
     errImageNoText:
       'Вложенные изображения не содержат текста; изображение отправляется вместе с сообщением пользователя, смотрите его напрямую',
     errNotImage: 'неподдерживаемый тип изображения',
-    errGskNotLoggedIn:
-      'Вы не вошли в Genspark: нажмите «Войти в Genspark» ниже, войдите и повторите попытку',
+    errOneDeskNotLoggedIn:
+      'Вы не вошли в OneDesk: нажмите «Войти в OneDesk» ниже, войдите и повторите попытку',
     errNoApiKey: 'API-ключ для {provider} не настроен',
     errAiRegion:
       'Поставщик этой модели не обслуживает ваш текущий регион — выберите другую модель или смените сеть',
@@ -4079,8 +4080,8 @@ const tMain = createI18n({
     errImageNoText:
       'مرفقات الصور لا توفر نصًا؛ تُرسل الصورة مع رسالة المستخدم ويمكن الاطلاع عليها مباشرة',
     errNotImage: 'ليس نوع صورة مدعومًا',
-    errGskNotLoggedIn:
-      'لم تسجّل الدخول إلى Genspark: انقر على «تسجيل الدخول إلى Genspark» أدناه ثم أعد المحاولة',
+    errOneDeskNotLoggedIn:
+      'لم تسجّل الدخول إلى OneDesk: انقر على «تسجيل الدخول إلى OneDesk» أدناه ثم أعد المحاولة',
     errNoApiKey: 'لم يتم تكوين مفتاح API لـ {provider}',
     errAiRegion:
       'مزوّد هذا النموذج لا يقدم الخدمة في منطقتك الحالية — اختر نموذجًا آخر أو غيّر الشبكة',
@@ -4369,8 +4370,8 @@ const tMain = createI18n({
     errImageNoText:
       'Anexos de imagem não fornecem texto; a imagem é enviada junto com a mensagem do usuário, basta vê-la diretamente',
     errNotImage: 'não é um tipo de imagem suportado',
-    errGskNotLoggedIn:
-      'Não conectado ao Genspark: clique em “Entrar no Genspark” abaixo, entre e tente novamente',
+    errOneDeskNotLoggedIn:
+      'Não conectado ao OneDesk: clique em “Entrar no OneDesk” abaixo, entre e tente novamente',
     errNoApiKey: 'Nenhuma chave de API configurada para {provider}',
     errAiRegion:
       'O fornecedor deste modelo não atende à sua região atual — escolha outro modelo ou mude de rede',
@@ -4659,8 +4660,8 @@ const tMain = createI18n({
     errImageNoText:
       "Gli allegati immagine non forniscono testo; l'immagine viene inviata insieme al messaggio dell'utente, basta guardarla direttamente",
     errNotImage: 'tipo di immagine non supportato',
-    errGskNotLoggedIn:
-      'Accesso a Genspark non effettuato: fai clic su “Accedi a Genspark” qui sotto, accedi e riprova',
+    errOneDeskNotLoggedIn:
+      'Accesso a OneDesk non effettuato: fai clic su “Accedi a OneDesk” qui sotto, accedi e riprova',
     errNoApiKey: 'Nessuna chiave API configurata per {provider}',
     errAiRegion:
       'Il fornitore di questo modello non serve la tua regione attuale — scegli un altro modello o cambia rete',
@@ -4949,8 +4950,8 @@ const tMain = createI18n({
     errImageNoText:
       'Załączniki graficzne nie zawierają tekstu; obraz jest wysyłany razem z wiadomością użytkownika, wystarczy na niego spojrzeć',
     errNotImage: 'nieobsługiwany typ obrazu',
-    errGskNotLoggedIn:
-      'Nie zalogowano do Genspark: kliknij „Zaloguj się do Genspark” poniżej, zaloguj się i spróbuj ponownie',
+    errOneDeskNotLoggedIn:
+      'Nie zalogowano do OneDesk: kliknij „Zaloguj się do OneDesk” poniżej, zaloguj się i spróbuj ponownie',
     errNoApiKey: 'Nie skonfigurowano klucza API dla {provider}',
     errAiRegion:
       'Dostawca tego modelu nie obsługuje Twojego obecnego regionu — wybierz inny model lub zmień sieć',
@@ -5239,8 +5240,8 @@ const tMain = createI18n({
     errImageNoText:
       'Obrázkové přílohy neobsahují text; obrázek se odesílá spolu se zprávou uživatele',
     errNotImage: 'nepodporovaný typ obrázku',
-    errGskNotLoggedIn:
-      'Nejste přihlášeni do Genspark: klikněte níže na „Přihlásit se do Genspark“, přihlaste se a zkuste to znovu',
+    errOneDeskNotLoggedIn:
+      'Nejste přihlášeni do OneDesk: klikněte níže na „Přihlásit se do OneDesk“, přihlaste se a zkuste to znovu',
     errNoApiKey: 'Pro {provider} není nakonfigurován žádný klíč API',
     errAiRegion:
       'Poskytovatel tohoto modelu neposkytuje služby ve vaší aktuální oblasti — vyberte jiný model nebo změňte síť',
@@ -5530,8 +5531,8 @@ const tMain = createI18n({
     errImageNoText:
       'Afbeeldingsbijlagen bevatten geen tekst; de afbeelding wordt samen met het gebruikersbericht verzonden en kan direct worden bekeken',
     errNotImage: 'geen ondersteund afbeeldingstype',
-    errGskNotLoggedIn:
-      'Niet aangemeld bij Genspark: klik hieronder op “Aanmelden bij Genspark”, meld u aan en probeer het opnieuw',
+    errOneDeskNotLoggedIn:
+      'Niet aangemeld bij OneDesk: klik hieronder op “Aanmelden bij OneDesk”, meld u aan en probeer het opnieuw',
     errNoApiKey: 'Geen API-sleutel geconfigureerd voor {provider}',
     errAiRegion:
       'De aanbieder van dit model bedient uw huidige regio niet — kies een ander model of wissel van netwerk',
@@ -5820,8 +5821,8 @@ const tMain = createI18n({
     errImageNoText:
       'Lampiran imej tidak menyediakan teks; imej dihantar bersama mesej pengguna dan boleh dilihat terus',
     errNotImage: 'bukan jenis imej yang disokong',
-    errGskNotLoggedIn:
-      'Belum log masuk ke Genspark: klik “Log masuk ke Genspark” di bawah, kemudian cuba lagi',
+    errOneDeskNotLoggedIn:
+      'Belum log masuk ke OneDesk: klik “Log masuk ke OneDesk” di bawah, kemudian cuba lagi',
     errNoApiKey: 'Kunci API untuk {provider} belum dikonfigurasikan',
     errAiRegion:
       'Penyedia model ini tidak memberi perkhidmatan di rantau semasa anda — pilih model lain atau tukar rangkaian',
@@ -6109,7 +6110,7 @@ const tMain = createI18n({
     errImageNoText:
       'קבצים מצורפים מסוג תמונה אינם מספקים טקסט; התמונה נשלחת יחד עם הודעת המשתמש וניתן לצפות בה ישירות',
     errNotImage: 'סוג תמונה שאינו נתמך',
-    errGskNotLoggedIn: 'לא מחובר ל-Genspark: לחץ על "התחבר ל-Genspark" למטה, התחבר ונסה שוב',
+    errOneDeskNotLoggedIn: 'לא מחובר ל-OneDesk: לחץ על "התחבר ל-OneDesk" למטה, התחבר ונסה שוב',
     errNoApiKey: 'לא הוגדר מפתח API עבור {provider}',
     errAiRegion: 'ספק המודל הזה אינו פועל באזור הנוכחי שלך — בחרו מודל אחר או החליפו רשת',
     errAiBusy: 'שירות ה-AI עמוס כרגע — נסו שוב בעוד רגע',
@@ -6397,8 +6398,8 @@ const tMain = createI18n({
     errImageNoText:
       'छवि अनुलग्नक टेक्स्ट प्रदान नहीं करते; छवि उपयोगकर्ता संदेश के साथ भेजी जाती है, उसे सीधे देखें',
     errNotImage: 'समर्थित छवि प्रकार नहीं है',
-    errGskNotLoggedIn:
-      'Genspark में साइन इन नहीं है: नीचे “Genspark में साइन इन करें” पर क्लिक करें, साइन इन करें और फिर से कोशिश करें',
+    errOneDeskNotLoggedIn:
+      'OneDesk में साइन इन नहीं है: नीचे “OneDesk में साइन इन करें” पर क्लिक करें, साइन इन करें और फिर से कोशिश करें',
     errNoApiKey: '{provider} के लिए कोई API कुंजी कॉन्फ़िगर नहीं है',
     errAiRegion:
       'इस मॉडल का प्रदाता आपके वर्तमान क्षेत्र में सेवा नहीं देता — कोई दूसरा मॉडल चुनें या नेटवर्क बदलें',
@@ -6684,7 +6685,7 @@ const tMain = createI18n({
     errParseFailed: '檔案解析失敗',
     errImageNoText: '圖片附件不提供文字,已作為影像隨使用者訊息傳送,直接看圖即可',
     errNotImage: '不是支援的圖片類型',
-    errGskNotLoggedIn: '未登入 Genspark:請點擊下方「登入 Genspark」完成登入後重試',
+    errOneDeskNotLoggedIn: '未登入 OneDesk:請點擊下方「登入 OneDesk」完成登入後重試',
     errNoApiKey: '未設定 {provider} 的 API Key',
     errAiRegion: '該模型的廠商不向目前地區提供服務，請換一個模型或切換網路',
     errAiBusy: 'AI 服務目前繁忙，請稍後重試',
@@ -7871,45 +7872,45 @@ export function registerAiIpc(): void {
   app.once('before-quit', shutdownCodexAppServers)
   ipcMain.handle('ai:get-settings', async (): Promise<AiSettings> => {
     const stored = readJson<Partial<AiSettings> & LegacyAiSettings>(SETTINGS_PATH(), {})
-    // pre-lock legacy file: genspark selected with cloud tools opted out. The
-    // settings UI locks the tools switch on with genspark and apps read this
+    // pre-lock legacy file: onedesk selected with cloud tools opted out. The
+    // settings UI locks the tools switch on with onedesk and apps read this
     // file live, so heal the stored flag once. Judged on the *stored* provider
     // — never the activeProvider fallback below, which must not leak into the
     // file and clobber a saved (half-configured) BYOK selection.
-    if ((stored.provider ?? 'genspark') === 'genspark' && stored.gskToolsEnabled === false) {
-      stored.gskToolsEnabled = true
+    if ((stored.provider ?? 'onedesk') === 'onedesk' && stored.onedeskToolsEnabled === false) {
+      stored.onedeskToolsEnabled = true
       writeJsonAtomic(SETTINGS_PATH(), stored, 0o600)
     }
     // heal the file mode of a settings file saved by an older build: BYOK keys
     // are credentials and must not stay readable by other local accounts
     restrictFileToOwner(SETTINGS_PATH())
     const settings = resolveAiSettings(stored, defaultAiSettings())
-    // a stored BYOK provider is honored when usable; half-filled configs fall back to genspark
+    // a stored BYOK provider is honored when usable; half-filled configs fall back to onedesk
     settings.provider = activeProvider(settings)
     return settings
   })
 
-  // Genspark account (gsk login state): auth source for AI features; the frontend uses it to prompt login when logged out
+  // OneDesk account (onedesk login state): auth source for AI features; the frontend uses it to prompt login when logged out
   ipcMain.handle(
-    'ai:gsk-status',
-    async (_event, withEmail?: boolean): Promise<GenSparkAccountStatus> => {
-      if (!hasGskAuth()) return { loggedIn: false }
+    'ai:onedesk-status',
+    async (_event, withEmail?: boolean): Promise<OneDeskAccountStatus> => {
+      if (!hasOneDeskAuth()) return { loggedIn: false }
       if (!withEmail) return { loggedIn: true }
-      const info = await gskLoginInfo()
+      const info = await onedeskLoginInfo()
       return info?.email ? { loggedIn: true, email: info.email } : { loggedIn: true }
     },
   )
 
-  // a 401 on the gsk key opens the device-code login once (onedesk-auth recovery)
+  // a 401 on the onedesk key opens the device-code login once (onedesk-auth recovery)
   setOneDeskLoginOpener((url) => void shell.openExternal(url))
 
-  ipcMain.handle('ai:gsk-login', () => {
+  ipcMain.handle('ai:onedesk-login', () => {
     ensureOneDeskLogin((url) => void shell.openExternal(url))
   })
 
   ipcMain.handle('ai:set-settings', (_event, settings: AiSettings) => {
     // SECURITY.md: payloads are schema-checked in the main process. The settings
-    // file feeds cliPath into spawn() and baseUrl receives the gsk bearer token,
+    // file feeds cliPath into spawn() and baseUrl receives the onedesk bearer token,
     // so the renderer's copy is sanitized before it touches disk.
     const sanitized = sanitizeAiSettings(settings)
     if (!sanitized) {
@@ -7946,12 +7947,12 @@ export function registerAiIpc(): void {
     const maxTokens = request.maxTokens ?? maxOutputTokensOf(settings)
     const provider = settings.provider
     let config = settings.providers?.[provider]
-    // the genspark key never enters the settings file; requests take it from the gsk login state
-    // set only when the gsk key was injected: a 401 then means that key expired
-    let gskKey = ''
-    if (provider === 'genspark' && config && !config.apiKey) {
-      gskKey = gskApiKey()
-      config = { ...config, apiKey: gskKey }
+    // the onedesk key never enters the settings file; requests take it from the onedesk login state
+    // set only when the onedesk key was injected: a 401 then means that key expired
+    let onedeskKey = ''
+    if (provider === 'onedesk' && config && !config.apiKey) {
+      onedeskKey = onedeskCliApiKey()
+      config = { ...config, apiKey: onedeskKey }
     }
     // a custom endpoint may name an environment variable instead of storing a key
     config = config ? resolveProfileCredential(config) : config
@@ -7962,7 +7963,8 @@ export function registerAiIpc(): void {
       send({
         requestId,
         type: 'error',
-        error: provider === 'genspark' ? tm('errGskNotLoggedIn') : tm('errNoApiKey', { provider }),
+        error:
+          provider === 'onedesk' ? tm('errOneDeskNotLoggedIn') : tm('errNoApiKey', { provider }),
       })
       return
     }
@@ -8029,7 +8031,7 @@ export function registerAiIpc(): void {
         send({ requestId, type: 'done' })
       } else {
         // an expired/revoked key drops to signed-out so the inline sign-in button shows
-        noteGskCallFailure(gskKey, err)
+        noteOneDeskCallFailure(onedeskKey, err)
         send({
           requestId,
           type: 'error',
@@ -8082,7 +8084,7 @@ export function registerAiIpc(): void {
   })
 
   // media understanding (pictures in the document, attachments, local files): BYOK media
-  // provider when one is configured, otherwise the Genspark CLI behind its login gate.
+  // provider when one is configured, otherwise the OneDesk CLI behind its login gate.
   // docs-prefixed: slides registers its own ai:analyze-media in the same shell process.
   ipcMain.handle(
     'docs:analyze-media',
@@ -8148,20 +8150,20 @@ export function registerAiIpc(): void {
 
   ipcMain.handle('ai:search-test', (_event, input: unknown) => {
     const { provider, apiKey } = (input ?? {}) as { provider?: AiSearchProviderId; apiKey?: string }
-    if (!provider || provider === 'genspark') {
-      return hasGskAuth() ? { ok: true } : { ok: false, error: tm('errGskNotLoggedIn') }
+    if (!provider || provider === 'onedesk') {
+      return hasOneDeskAuth() ? { ok: true } : { ok: false, error: tm('errOneDeskNotLoggedIn') }
     }
     return testSearchProvider(provider, String(apiKey ?? ''))
   })
 
-  // settings-UI connection test for the media provider (genspark = the gsk login state)
+  // settings-UI connection test for the media provider (onedesk = the onedesk login state)
   ipcMain.handle('ai:media-test', (_event, input: unknown) => {
     const { provider, config } = (input ?? {}) as {
       provider?: AiMediaProviderId
       config?: AiMediaProviderConfig
     }
-    if (!provider || provider === 'genspark') {
-      return hasGskAuth() ? { ok: true } : { ok: false, error: tm('errGskNotLoggedIn') }
+    if (!provider || provider === 'onedesk') {
+      return hasOneDeskAuth() ? { ok: true } : { ok: false, error: tm('errOneDeskNotLoggedIn') }
     }
     if (!config) return { ok: false, error: 'No media provider configuration' }
     return testMediaProvider(provider, config)
@@ -8175,18 +8177,19 @@ export function registerAiIpc(): void {
     const { system, user } = request
     const provider = settings.provider
     let config = settings.providers?.[provider]
-    // set only when the gsk key was injected: a 401 then means that key expired
-    let gskKey = ''
-    if (provider === 'genspark' && config && !config.apiKey) {
-      gskKey = gskApiKey()
-      config = { ...config, apiKey: gskKey }
+    // set only when the onedesk key was injected: a 401 then means that key expired
+    let onedeskKey = ''
+    if (provider === 'onedesk' && config && !config.apiKey) {
+      onedeskKey = onedeskCliApiKey()
+      config = { ...config, apiKey: onedeskKey }
     }
     // a custom endpoint may name an environment variable instead of storing a key
     config = config ? resolveProfileCredential(config) : config
     if (!config || (provider !== 'codex' && !config.apiKey)) {
       return {
         ok: false,
-        error: provider === 'genspark' ? tm('errGskNotLoggedIn') : tm('errNoApiKey', { provider }),
+        error:
+          provider === 'onedesk' ? tm('errOneDeskNotLoggedIn') : tm('errNoApiKey', { provider }),
       }
     }
     if (provider !== 'codex' && !config.model) return { ok: false, error: tm('errNoModel') }
@@ -8200,10 +8203,10 @@ export function registerAiIpc(): void {
       if (!result.ok && isAiRegionBlockedError(result.error)) {
         return { ok: false, error: tm('errAiRegion') }
       }
-      if (!result.ok) noteGskCallFailure(gskKey, result.error)
+      if (!result.ok) noteOneDeskCallFailure(onedeskKey, result.error)
       return result
     } catch (err) {
-      noteGskCallFailure(gskKey, err)
+      noteOneDeskCallFailure(onedeskKey, err)
       return {
         ok: false,
         error: isAiOverloadedError(err)

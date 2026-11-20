@@ -62,7 +62,7 @@ Windows 與 Linux。它能開啟並儲存原生的 `.docx`、`.xlsx` 與 `.pptx`
 - **向你的檔案提問，並附上來源。** 為一組文件加上星號，主畫面的
   **Ask AI** 就能跨這些文件回答問題，每一項說法都會引用背後的檔案，
   方便你開啟查證。
-- **用你自己的金鑰，或完全不用。** 用 Genspark 登入即可省去金鑰設定，
+- **用你自己的金鑰，或完全不用。** 用 OneDesk 登入即可省去金鑰設定，
   或自行帶入 Claude、OpenAI、Gemini、DeepSeek、Kimi、GLM、Qwen、
   Doubao、MiniMax、Grok、Mistral、OpenRouter、Requesty、Opper、
   Cheaper Inference、Atlas Cloud，或任何相容 OpenAI 介面的服務端點，
@@ -333,7 +333,7 @@ Word 97–2003 的 `.doc`、Excel 的 `.xls` 或 PowerPoint 的 `.ppt` 會在本
   的部分會原樣複製。
 - **AI 直接編輯文件本身。** Docs 中的追蹤修訂、Sheets 中即時運算的公式與圖表、
   直接在畫布上生成的投影片，每一次 AI 操作都會留下可回復的快照。
-- **自帶模型，自帶金鑰。** 使用 Genspark 登入，或帶上 Claude、OpenAI、Gemini、
+- **自帶模型，自帶金鑰。** 使用 OneDesk 登入，或帶上 Claude、OpenAI、Gemini、
   DeepSeek 等服務的金鑰，同時支援本機伺服器與任何相容 OpenAI 的服務端點。
 - **認真做好 PDF。** 直接在頁面內編輯文字，並在本機將 PDF 轉換為 Word、Excel 或
   PowerPoint，掃描檔案支援系統 OCR。
@@ -350,7 +350,7 @@ Word 97–2003 的 `.doc`、Excel 的 `.xls` 或 PowerPoint 的 `.ppt` 會在本
 
 ## AI 後端
 
-**用 Genspark 登入**就完全不用設定：模型呼叫會透過 Genspark 代理路由
+**用 OneDesk 登入**就完全不用設定：模型呼叫會透過 OneDesk 代理路由
 （涵蓋 Claude、GPT 與 Gemini 家族），代理也能使用網頁與圖片搜尋、
 圖片生成，以及圖片／音訊／影片分析。
 
@@ -370,7 +370,7 @@ OpenAI、Gemini、Doubao/Seedream、GLM、Grok、Qwen、MiniMax、Stability、FL
 TypeSafe 自家的 API。金鑰只會儲存在這台裝置上。這項功能預設關閉；開啟後，
 本機排名前 20 的結果摘錄會送出評判，除此之外沒有任何資料離開這台裝置。
 
-**Parallel** 不需要帳號就能使用：只要沒有設定 Genspark 登入或搜尋金鑰，
+**Parallel** 不需要帳號就能使用：只要沒有設定 OneDesk 登入或搜尋金鑰，
 它的免費 Search MCP（有速率限制）就是預設的網頁搜尋，而且優先於
 DuckDuckGo 擷取。在「網頁搜尋」下選擇 Parallel 並輸入
 [Parallel](https://platform.parallel.ai/) 金鑰，即可改用 Search API。
@@ -672,7 +672,7 @@ Office 中依然能正常使用。
 
 文件編輯完全在本機執行——檔案在開啟、編輯、儲存或轉換的過程中
 都不會離開你的裝置。AI 功能（代理、搜尋、圖片工具）需要網路連線，
-可透過 Genspark 登入或使用你自己的模型 API 金鑰。
+可透過 OneDesk 登入或使用你自己的模型 API 金鑰。
 
 </details>
 
@@ -697,7 +697,7 @@ Office 中依然能正常使用。
 <details>
 <summary><b>我可以使用自己的 AI 模型或 API 金鑰嗎？</b></summary>
 
-可以。除了免金鑰的 Genspark 登入之外，OneDesk 也支援自帶金鑰，
+可以。除了免金鑰的 OneDesk 登入之外，OneDesk 也支援自帶金鑰，
 涵蓋 Claude、OpenAI、Gemini、DeepSeek、Kimi、GLM、Qwen、Doubao、
 MiniMax、Grok、Mistral、OpenRouter、Requesty、Opper、Cheaper Inference、
 Atlas Cloud 與 OpenCode Zen/Go，以及任何相容 OpenAI 的服務端點——包括本機模型伺服器。搜尋、圖片生成與圖片／影片
@@ -807,6 +807,6 @@ OneDesk 採用 [Apache License 2.0](../../LICENSE) 授權，唯一例外是
 `ee/` 目錄，該目錄保留給未來的企業模組，適用
 [OneDesk 企業授權](../../ee/LICENSE)。
 
-OneDesk 與 Genspark 的名稱與標誌皆為 Mainfunc, Inc. 的商標。
+OneDesk 與 OneDesk 的名稱與標誌皆為 Mainfunc, Inc. 的商標。
 Apache-2.0 授權並未授予使用這些商標的權利（詳見第 6 節）；
 基於本專案的分支請使用自己的品牌識別。

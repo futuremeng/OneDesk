@@ -61,11 +61,11 @@ describe('media settings', () => {
     }
   })
 
-  it('defaults every provider to its default models and genspark as the active one', () => {
+  it('defaults every provider to its default models and onedesk as the active one', () => {
     const media = defaultAiMediaSettings()
-    expect(media.imageProvider).toBe('genspark')
-    expect(media.analysisProvider).toBe('genspark')
-    expect(media.videoAnalysisProvider).toBe('genspark')
+    expect(media.imageProvider).toBe('onedesk')
+    expect(media.analysisProvider).toBe('onedesk')
+    expect(media.videoAnalysisProvider).toBe('onedesk')
     for (const meta of AI_MEDIA_PROVIDERS) {
       expect(media.providers[meta.id].imageModel).toBe(meta.defaultImageModel)
       expect(media.providers[meta.id].apiKey).toBe('')
@@ -76,9 +76,9 @@ describe('media settings', () => {
 
   it('is carried by defaultAiSettings and healed in from a pre-media settings file', () => {
     const defaults = defaultAiSettings()
-    expect(defaults.media?.imageProvider).toBe('genspark')
+    expect(defaults.media?.imageProvider).toBe('onedesk')
     const resolved = resolveAiSettings(
-      { provider: 'genspark', providers: defaults.providers },
+      { provider: 'onedesk', providers: defaults.providers },
       defaultAiSettings(),
     )
     expect(resolved.media).toEqual(defaultAiMediaSettings())
@@ -129,14 +129,14 @@ describe('media settings', () => {
   it('activates a BYOK media provider per capability, only when usable and capable', () => {
     expect(activeMediaProvider(openaiSettings(), 'image')).toBe('openai')
     expect(activeMediaProvider(openaiSettings(), 'analysis')).toBe('openai')
-    expect(activeMediaProvider(openaiSettings(''), 'image')).toBe('genspark')
-    expect(activeMediaProvider(openaiSettings('   '), 'image')).toBe('genspark')
+    expect(activeMediaProvider(openaiSettings(''), 'image')).toBe('onedesk')
+    expect(activeMediaProvider(openaiSettings('   '), 'image')).toBe('onedesk')
     const custom = defaultAiMediaSettings()
     custom.imageProvider = 'custom'
-    expect(activeMediaProvider(withMedia(custom), 'image')).toBe('genspark')
+    expect(activeMediaProvider(withMedia(custom), 'image')).toBe('onedesk')
     custom.providers.custom.baseUrl = 'http://localhost:1234/v1'
     expect(activeMediaProvider(withMedia(custom), 'image')).toBe('custom')
-    expect(activeMediaProvider(withMedia(custom), 'analysis')).toBe('genspark')
+    expect(activeMediaProvider(withMedia(custom), 'analysis')).toBe('onedesk')
     expect(activeMediaConfig(withMedia(custom), 'image')?.provider).toBe('custom')
     // MiniMax-M3 supports both image and video analysis
     const mm = defaultAiMediaSettings()
@@ -151,30 +151,30 @@ describe('media settings', () => {
     ds.providers.deepseek.apiKey = 'sk-ds'
     expect(activeMediaProvider(withMedia(ds), 'analysis')).toBe('deepseek')
     ds.videoAnalysisProvider = 'deepseek'
-    expect(activeMediaProvider(withMedia(ds), 'video')).toBe('genspark')
+    expect(activeMediaProvider(withMedia(ds), 'video')).toBe('onedesk')
     // OpenAI reads images but not video: as the video provider it falls back
     const oa = openaiSettings()
     oa.media!.videoAnalysisProvider = 'openai'
-    expect(activeMediaProvider(oa, 'video')).toBe('genspark')
+    expect(activeMediaProvider(oa, 'video')).toBe('onedesk')
     oa.media!.videoAnalysisProvider = 'gemini'
     oa.media!.providers.gemini.apiKey = 'AIza'
     expect(activeMediaProvider(oa, 'video')).toBe('gemini')
-    expect(activeMediaProvider({ media: undefined }, 'image')).toBe('genspark')
+    expect(activeMediaProvider({ media: undefined }, 'image')).toBe('onedesk')
     expect(
       activeMediaProvider({ media: { imageProvider: 'nope', providers: {} } as never }, 'image'),
-    ).toBe('genspark')
+    ).toBe('onedesk')
   })
 
-  it('gates the tools on gsk login + toggle without BYOK, and on the BYOK model with it', () => {
-    const genspark = defaultAiSettings()
-    expect(imageGenerationAvailable(genspark, true)).toBe(true)
-    expect(imageGenerationAvailable(genspark, false)).toBe(false)
-    expect(imageGenerationAvailable({ ...genspark, gskToolsEnabled: false }, true)).toBe(false)
-    expect(mediaAnalysisAvailable({ ...genspark, gskToolsEnabled: false }, true)).toBe(false)
+  it('gates the tools on onedesk login + toggle without BYOK, and on the BYOK model with it', () => {
+    const onedesk = defaultAiSettings()
+    expect(imageGenerationAvailable(onedesk, true)).toBe(true)
+    expect(imageGenerationAvailable(onedesk, false)).toBe(false)
+    expect(imageGenerationAvailable({ ...onedesk, onedeskToolsEnabled: false }, true)).toBe(false)
+    expect(mediaAnalysisAvailable({ ...onedesk, onedeskToolsEnabled: false }, true)).toBe(false)
 
     const byok = openaiSettings()
     expect(imageGenerationAvailable(byok, false)).toBe(true)
-    expect(imageGenerationAvailable({ ...byok, gskToolsEnabled: false }, false)).toBe(true)
+    expect(imageGenerationAvailable({ ...byok, onedeskToolsEnabled: false }, false)).toBe(true)
     expect(mediaAnalysisAvailable(byok, false)).toBe(true)
     // built-in vendors fall back to their default model; a custom endpoint
     // without a model for one capability disables that tool alone

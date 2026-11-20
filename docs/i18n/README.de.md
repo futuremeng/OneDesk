@@ -71,7 +71,7 @@ Quellformat.
   einem Stern, und **Ask AI** auf dem Startbildschirm beantwortet Fragen über
   alle hinweg und nennt zu jeder Aussage die Datei dahinter, sodass du sie
   öffnen und nachprüfen kannst.
-- **Deine Schlüssel oder keine.** Melde dich mit Genspark an und du brauchst
+- **Deine Schlüssel oder keine.** Melde dich mit OneDesk an und du brauchst
   keine Schlüssel, oder bring deinen eigenen Schlüssel für Claude, OpenAI,
   Gemini, DeepSeek, Kimi, GLM, Qwen, Doubao, MiniMax, Grok, Mistral,
   OpenRouter, Requesty, Opper, Cheaper Inference, Atlas Cloud oder jeden
@@ -312,7 +312,7 @@ Eine Word-97–2003-Datei `.doc`, eine Excel-Datei `.xls` oder eine PowerPoint-D
   Docs, echte Formeln und Diagramme in Sheets, Folien werden direkt auf die
   Arbeitsfläche gezeichnet, und jeder KI-Schritt hinterlässt einen Snapshot,
   den du zurückrollen kannst.
-- **Dein Modell, dein Schlüssel.** Melde dich mit Genspark an oder bring einen
+- **Dein Modell, dein Schlüssel.** Melde dich mit OneDesk an oder bring einen
   eigenen Schlüssel für Claude, OpenAI, Gemini, DeepSeek und mehr mit – lokale
   Server und jeder OpenAI-kompatible Endpunkt sind ebenfalls möglich.
 - **PDF richtig gemacht.** Text direkt auf der Seite bearbeiten und PDF lokal
@@ -333,8 +333,8 @@ Eine Word-97–2003-Datei `.doc`, eine Excel-Datei `.xls` oder eine PowerPoint-D
 
 ## KI-Backends
 
-**Mit Genspark anmelden**, und es gibt nichts zu konfigurieren:
-Modellaufrufe laufen über den Genspark-Proxy (die Modellfamilien Claude, GPT
+**Mit OneDesk anmelden**, und es gibt nichts zu konfigurieren:
+Modellaufrufe laufen über den OneDesk-Proxy (die Modellfamilien Claude, GPT
 und Gemini), und die Agenten erhalten Web- und Bildsuche, Bildgenerierung
 sowie Bild-/Audio-/Videoanalyse.
 
@@ -359,7 +359,7 @@ sonst verlässt nichts den Rechner.
 
 **Parallel** funktioniert ohne Konto: Sein kostenloses Search MCP
 (ratenbegrenzt) ist die Standard-Websuche, wann immer weder eine
-Genspark-Anmeldung noch ein Suchschlüssel konfiguriert ist, und es läuft vor
+OneDesk-Anmeldung noch ein Suchschlüssel konfiguriert ist, und es läuft vor
 dem DuckDuckGo-Scraping. Wähle Parallel unter Websuche und gib einen
 [Parallel](https://platform.parallel.ai/)-Schlüssel ein, um stattdessen die
 Search API zu nutzen. Auch Keenable kommt ohne Schlüssel aus; ein Schlüssel
@@ -694,7 +694,7 @@ Kopien](#legacy-and-odf-files-open-as-converted-copies).
 Die Dokumentbearbeitung ist vollständig lokal – Dateien verlassen deinen
 Rechner nie, um geöffnet, bearbeitet, gespeichert oder konvertiert zu
 werden. Die KI-Funktionen (Agenten, Suche, Bildwerkzeuge) benötigen eine
-Netzwerkverbindung, entweder über eine Genspark-Anmeldung oder deinen
+Netzwerkverbindung, entweder über eine OneDesk-Anmeldung oder deinen
 eigenen Modell-API-Schlüssel.
 
 </details>
@@ -721,7 +721,7 @@ Seitenbild konvertiert werden.
 <details>
 <summary><b>Kann ich mein eigenes KI-Modell oder meinen eigenen API-Schlüssel verwenden?</b></summary>
 
-Ja. Neben der schlüssellosen Genspark-Anmeldung unterstützt OneDesk das
+Ja. Neben der schlüssellosen OneDesk-Anmeldung unterstützt OneDesk das
 Mitbringen eigener Schlüssel für Claude, OpenAI, Gemini, DeepSeek, Kimi,
 GLM, Qwen, Doubao, MiniMax, Grok, Mistral, OpenRouter, Requesty, Opper, Cheaper Inference, Atlas Cloud und OpenCode Zen/Go,
 plus jeden OpenAI-kompatiblen Endpunkt – einschließlich lokaler
@@ -842,6 +842,6 @@ Ausnahme: Das Verzeichnis `ee/` ist für zukünftige Enterprise-Module
 reserviert und unterliegt der
 [OneDesk Enterprise License](../../ee/LICENSE).
 
-Die Namen und Logos OneDesk und Genspark sind Marken von Mainfunc, Inc.
+Die Namen und Logos OneDesk und OneDesk sind Marken von Mainfunc, Inc.
 Die Apache-2.0-Lizenz gewährt keine Berechtigung zu ihrer Nutzung (siehe
 Abschnitt 6); Forks sollten ihr eigenes Branding verwenden.

@@ -16,7 +16,7 @@ import type { AiProviderId } from '../src/types'
 describe('defaultAiSettings', () => {
   it('gives every provider its default model and an empty key by default', () => {
     const settings = defaultAiSettings()
-    expect(settings.provider).toBe('genspark')
+    expect(settings.provider).toBe('onedesk')
     for (const meta of AI_PROVIDERS) {
       expect(settings.providers[meta.id].apiKey).toBe('')
       expect(settings.providers[meta.id].model).toBe(meta.defaultModel)
@@ -35,22 +35,22 @@ describe('defaultAiSettings', () => {
 })
 
 describe('provider model catalog', () => {
-  it("offers the vendor's own DeepSeek ids, not the Genspark pool spelling", () => {
-    const genspark = AI_PROVIDERS.find((provider) => provider.id === 'genspark')!
+  it("offers the vendor's own DeepSeek ids, not the OneDesk pool spelling", () => {
+    const onedesk = AI_PROVIDERS.find((provider) => provider.id === 'onedesk')!
     const deepseek = AI_PROVIDERS.find((provider) => provider.id === 'deepseek')!
 
     expect(deepseek.models).toContain('deepseek-flash')
     expect(deepseek.models).not.toContain('deep-seek-v4.1-flash')
     expect(deepseek.models).not.toContain('deepseek-v4-flash')
     expect(deepseek.models).not.toContain('deepseek-v4-flash-vision-exp')
-    expect(genspark.models).not.toContain('deep-seek-v4-flash')
-    expect(genspark.models).not.toContain('deep-seek-v4-flash-vision-exp-openrouter')
+    expect(onedesk.models).not.toContain('deep-seek-v4-flash')
+    expect(onedesk.models).not.toContain('deep-seek-v4-flash-vision-exp-openrouter')
   })
 
-  it('serves DeepSeek V4.1 Flash through the Genspark proxy under its hyphenated pool id', () => {
-    const genspark = AI_PROVIDERS.find((provider) => provider.id === 'genspark')!
-    expect(genspark.models).toContain('deep-seek-v4.1-flash')
-    expect(genspark.models).not.toContain('deep-seek-v4-pro')
+  it('serves DeepSeek V4.1 Flash through the OneDesk proxy under its hyphenated pool id', () => {
+    const onedesk = AI_PROVIDERS.find((provider) => provider.id === 'onedesk')!
+    expect(onedesk.models).toContain('deep-seek-v4.1-flash')
+    expect(onedesk.models).not.toContain('deep-seek-v4-pro')
   })
 
   it('keeps Responses-only models out of the OpenCode tiers (no such protocol yet)', () => {
@@ -224,7 +224,7 @@ describe('resolveAiSettings', () => {
         defaults,
       )
       expect(resolved.providers.anthropic).toEqual(defaults.providers.anthropic)
-      expect(activeProvider(resolved)).toBe('genspark')
+      expect(activeProvider(resolved)).toBe('onedesk')
     }
   })
 
@@ -299,26 +299,26 @@ describe('resolveAiSettings', () => {
     }
   })
 
-  it('rewrites genspark model ids the proxy no longer serves', () => {
+  it('rewrites onedesk model ids the proxy no longer serves', () => {
     const resolved = resolveAiSettings(
       {
         providers: {
-          genspark: { apiKey: '', model: 'gemini-3.7-flash' },
+          onedesk: { apiKey: '', model: 'gemini-3.7-flash' },
         } as never,
       },
       defaultAiSettings(),
     )
-    expect(resolved.providers.genspark.model).toBe('claude-opus-5-5')
+    expect(resolved.providers.onedesk.model).toBe('claude-opus-5-5')
 
     const gpt = resolveAiSettings(
       {
         providers: {
-          genspark: { apiKey: '', model: 'gpt-5.6' },
+          onedesk: { apiKey: '', model: 'gpt-5.6' },
         } as never,
       },
       defaultAiSettings(),
     )
-    expect(gpt.providers.genspark.model).toBe('gpt-5.6-terra')
+    expect(gpt.providers.onedesk.model).toBe('gpt-5.6-terra')
 
     const glm = resolveAiSettings(
       { providers: { glm: { apiKey: '', model: 'glm-5-turbo' } } as never },
@@ -428,12 +428,12 @@ describe('clampMaxOutputTokens', () => {
 })
 
 describe('activeProvider', () => {
-  it('honors a configured BYOK provider and falls back to genspark otherwise', () => {
+  it('honors a configured BYOK provider and falls back to onedesk otherwise', () => {
     const settings = defaultAiSettings()
-    expect(activeProvider(settings)).toBe('genspark')
+    expect(activeProvider(settings)).toBe('onedesk')
 
     settings.provider = 'kimi'
-    expect(activeProvider(settings)).toBe('genspark') // no key yet
+    expect(activeProvider(settings)).toBe('onedesk') // no key yet
     settings.providers.kimi.apiKey = 'sk-user'
     expect(activeProvider(settings)).toBe('kimi')
   })
@@ -442,9 +442,9 @@ describe('activeProvider', () => {
     const settings = defaultAiSettings()
     settings.provider = 'custom'
     settings.providers.custom.apiKey = 'k'
-    expect(activeProvider(settings)).toBe('genspark')
+    expect(activeProvider(settings)).toBe('onedesk')
     settings.providers.custom.baseUrl = 'http://localhost:1234/v1'
-    expect(activeProvider(settings)).toBe('genspark') // custom's default model is empty
+    expect(activeProvider(settings)).toBe('onedesk') // custom's default model is empty
     settings.providers.custom.model = 'my-model'
     expect(activeProvider(settings)).toBe('custom')
   })
@@ -477,10 +477,10 @@ describe('activeProvider', () => {
     const settings = defaultAiSettings()
     settings.provider = 'kimi'
     settings.providers.kimi.apiKey = '   '
-    expect(activeProvider(settings)).toBe('genspark')
+    expect(activeProvider(settings)).toBe('onedesk')
     settings.providers.kimi.apiKey = 'sk-user'
     settings.providers.kimi.model = '  '
-    expect(activeProvider(settings)).toBe('genspark')
+    expect(activeProvider(settings)).toBe('onedesk')
     settings.providers.kimi.model = 'kimi-k2'
     expect(activeProvider(settings)).toBe('kimi')
 
@@ -488,33 +488,33 @@ describe('activeProvider', () => {
     custom.provider = 'custom'
     custom.providers.custom.baseUrl = '   '
     custom.providers.custom.model = 'my-model'
-    expect(activeProvider(custom)).toBe('genspark')
+    expect(activeProvider(custom)).toBe('onedesk')
   })
 
-  it('falls back to genspark for unknown ids from a hand-edited settings file', () => {
+  it('falls back to onedesk for unknown ids from a hand-edited settings file', () => {
     const settings = defaultAiSettings()
     settings.provider = 'nonsense' as AiProviderId
-    expect(activeProvider(settings)).toBe('genspark')
+    expect(activeProvider(settings)).toBe('onedesk')
   })
 
-  it('genspark never requires a key (injected from the gsk login at request time)', () => {
+  it('onedesk never requires a key (injected from the onedesk login at request time)', () => {
     const settings = defaultAiSettings()
-    settings.provider = 'genspark'
-    expect(activeProvider(settings)).toBe('genspark')
+    settings.provider = 'onedesk'
+    expect(activeProvider(settings)).toBe('onedesk')
   })
 })
 
-describe('gskToolsEnabled', () => {
+describe('onedeskToolsEnabled', () => {
   it('defaults on, survives resolveAiSettings, and only an explicit false turns it off', () => {
     expect(cloudToolsEnabled(defaultAiSettings())).toBe(true)
     // pre-toggle settings file (field absent) stays on
     const legacy = resolveAiSettings({ providers: {} as never }, defaultAiSettings())
     expect(cloudToolsEnabled(legacy)).toBe(true)
     const off = resolveAiSettings(
-      { providers: {} as never, gskToolsEnabled: false },
+      { providers: {} as never, onedeskToolsEnabled: false },
       defaultAiSettings(),
     )
-    expect(off.gskToolsEnabled).toBe(false)
+    expect(off.onedeskToolsEnabled).toBe(false)
     expect(cloudToolsEnabled(off)).toBe(false)
   })
 })

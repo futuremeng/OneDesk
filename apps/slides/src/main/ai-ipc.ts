@@ -33,7 +33,7 @@ import {
   type AiSettings,
   type AiStreamChunk,
   type AiStreamRequest,
-  type GenSparkAccountStatus,
+  type OneDeskAccountStatus,
   type LegacyAiSettings,
 } from '@onedesk/ai-provider'
 import { shutdownCodexAppServers } from '@onedesk/ai-provider/codex-app-server'
@@ -50,14 +50,14 @@ import {
   webSearchTool,
   imageSearchTool,
   ensureOneDeskLogin,
-  noteGskCallFailure,
+  noteOneDeskCallFailure,
   setOneDeskLoginOpener,
-  gskApiKey,
+  onedeskCliApiKey,
   generateImageTool,
   analyzeMediaTool,
   documentMediaRoots,
-  gskLoginInfo,
-  hasGskAuth,
+  onedeskLoginInfo,
+  hasOneDeskAuth,
 } from '@onedesk/ai-search'
 import { addPicture, editPictureSrcRect, replacePictureBytes } from '@onedesk/pptx-engine'
 import { rasterImageExt } from './media-mime'
@@ -133,32 +133,32 @@ export function registerAiIpc(): void {
     // are credentials and must not stay readable by other local accounts
     restrictFileToOwner(AI_SETTINGS_PATH())
     const settings = resolveAiSettings(stored, defaultAiSettings())
-    // a stored BYOK provider is honored when usable; half-filled configs fall back to genspark
+    // a stored BYOK provider is honored when usable; half-filled configs fall back to onedesk
     settings.provider = activeProvider(settings)
     return settings
   })
 
-  // Genspark account (gsk login state): the auth source for AI features; when logged out the frontend uses this to guide login
+  // OneDesk account (onedesk login state): the auth source for AI features; when logged out the frontend uses this to guide login
   ipcMain.handle(
-    'ai:gsk-status',
-    async (_event, withEmail?: boolean): Promise<GenSparkAccountStatus> => {
-      if (!hasGskAuth()) return { loggedIn: false }
+    'ai:onedesk-status',
+    async (_event, withEmail?: boolean): Promise<OneDeskAccountStatus> => {
+      if (!hasOneDeskAuth()) return { loggedIn: false }
       if (!withEmail) return { loggedIn: true }
-      const info = await gskLoginInfo()
+      const info = await onedeskLoginInfo()
       return info?.email ? { loggedIn: true, email: info.email } : { loggedIn: true }
     },
   )
 
-  // a 401 on the gsk key opens the device-code login once (onedesk-auth recovery)
+  // a 401 on the onedesk key opens the device-code login once (onedesk-auth recovery)
   setOneDeskLoginOpener((url) => void shell.openExternal(url))
 
-  ipcMain.handle('ai:gsk-login', () => {
+  ipcMain.handle('ai:onedesk-login', () => {
     ensureOneDeskLogin((url) => void shell.openExternal(url))
   })
 
   ipcMain.handle('ai:set-settings', (_event, settings: AiSettings) => {
     // SECURITY.md: payloads are schema-checked in the main process. The settings
-    // file feeds cliPath into spawn() and baseUrl receives the gsk bearer token,
+    // file feeds cliPath into spawn() and baseUrl receives the onedesk bearer token,
     // so the renderer's copy is sanitized before it touches disk.
     const sanitized = sanitizeAiSettings(settings)
     if (!sanitized) {
@@ -192,12 +192,12 @@ export function registerAiIpc(): void {
     const maxTokens = request.maxTokens ?? maxOutputTokensOf(settings)
     const provider = settings.provider
     let config = settings.providers?.[provider]
-    // The genspark key never enters the settings file; it is fetched from the gsk login state per request
-    // set only when the gsk key was injected: a 401 then means that key expired
-    let gskKey = ''
-    if (provider === 'genspark' && config && !config.apiKey) {
-      gskKey = gskApiKey()
-      config = { ...config, apiKey: gskKey }
+    // The onedesk key never enters the settings file; it is fetched from the onedesk login state per request
+    // set only when the onedesk key was injected: a 401 then means that key expired
+    let onedeskKey = ''
+    if (provider === 'onedesk' && config && !config.apiKey) {
+      onedeskKey = onedeskCliApiKey()
+      config = { ...config, apiKey: onedeskKey }
     }
     // a custom endpoint may name an environment variable instead of storing a key
     config = config ? resolveProfileCredential(config) : config
@@ -208,7 +208,8 @@ export function registerAiIpc(): void {
       send({
         requestId,
         type: 'error',
-        error: provider === 'genspark' ? tm('errGskNotLoggedIn') : tm('errNoApiKey', { provider }),
+        error:
+          provider === 'onedesk' ? tm('errOneDeskNotLoggedIn') : tm('errNoApiKey', { provider }),
       })
       return
     }
@@ -279,7 +280,7 @@ export function registerAiIpc(): void {
         send({ requestId, type: 'done' })
       } else {
         // an expired/revoked key drops to signed-out so the inline sign-in button shows
-        noteGskCallFailure(gskKey, err)
+        noteOneDeskCallFailure(onedeskKey, err)
         const msg = err instanceof Error ? err.message : String(err)
         console.error(`[ai-stream] ${requestId} (${provider}/${config.model}) failed:`, msg)
         send({
@@ -341,7 +342,7 @@ export function registerAiIpc(): void {
 // never called; docs does not have these channels, so putting them in the wrong place raises
 // "No handler registered".
 export function registerSlidesOnlyAiIpc(): void {
-  // gsk (Genspark CLI) capabilities: AI image generation / media analysis. Returns an error prompt when not logged in.
+  // onedesk (OneDesk CLI) capabilities: AI image generation / media analysis. Returns an error prompt when not logged in.
   ipcMain.handle(
     'ai:generate-image',
     async (
@@ -368,7 +369,7 @@ export function registerSlidesOnlyAiIpc(): void {
           transparentBackground: op.transparentBackground === true,
         },
         {
-          notLoggedInError: tm('errGskCli'),
+          notLoggedInError: tm('errOneDeskCli'),
           mediaRoots: slidesMediaRoots(event.sender.id),
         },
       )
@@ -385,7 +386,7 @@ export function registerSlidesOnlyAiIpc(): void {
           requirements: String(op.requirements ?? ''),
         },
         {
-          notLoggedInError: tm('errGskCli'),
+          notLoggedInError: tm('errOneDeskCli'),
           mediaRoots: slidesMediaRoots(event.sender.id),
         },
       )

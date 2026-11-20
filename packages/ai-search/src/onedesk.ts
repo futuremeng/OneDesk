@@ -1,5 +1,5 @@
 /**
- * Wrapper around gsk (Genspark CLI, @genspark/cli) — search / image generation /
+ * Wrapper around onedesk (OneDesk CLI, @onedesk/tool-cli) — search / image generation /
  * media analysis / upload / transcription.
  *
  * Execution: the main process spawns the CLI's JS entry with
@@ -7,7 +7,7 @@
  * no-op in a plain Node environment), avoiding the Windows problem where
  * .cmd files cannot be passed to execFile.
  *
- * Auth: gskApiKey() below. When not logged in, hasGskAuth() returns false and
+ * Auth: onedeskCliApiKey() below. When not logged in, hasOneDeskAuth() returns false and
  * callers should fall back to other implementations (e.g. Serper search).
  */
 
@@ -19,7 +19,7 @@ import { createRequire } from 'node:module'
 import {
   asRecord,
   firstItem,
-  gskProxyUrl,
+  onedeskProxyUrl,
   isCopyrightHost,
   safeHost,
   type ImageSearchResult,
@@ -28,9 +28,9 @@ import {
 import {
   onedeskApiKey,
   onedeskAuthPath,
-  recoverFromRejectedGskKey,
+  recoverFromRejectedOneDeskKey,
   reloadOneDeskAuth,
-  type GskRecoveryOutcome,
+  type OneDeskRecoveryOutcome,
 } from './onedesk-auth'
 // deep import: the package root re-exports Electron-bound modules, and this file also runs in the onedesk CLI
 
@@ -42,19 +42,19 @@ const MAX_BUFFER = 32 * 1024 * 1024
 
 let cachedEntry: string | null | undefined
 
-/** JS entry of @genspark/cli (null if not found). Can be overridden via GSK_CLI_PATH. */
-export function resolveGskEntry(): string | null {
-  if (process.env.GSK_CLI_PATH) return process.env.GSK_CLI_PATH
+/** JS entry of @onedesk/tool-cli (null if not found). Can be overridden via ONEDESK_CLI_PATH. */
+export function resolveOneDeskEntry(): string | null {
+  if (process.env.ONEDESK_CLI_PATH) return process.env.ONEDESK_CLI_PATH
   if (cachedEntry !== undefined) return cachedEntry
   try {
     const require = createRequire(import.meta.url)
-    cachedEntry = require.resolve('@genspark/cli/dist/index.js')
+    cachedEntry = require.resolve('@onedesk/tool-cli/dist/index.js')
   } catch {
     // The packaged app has no node_modules; electron-builder extraResources
-    // copies the CLI into Resources/gsk/
+    // copies the CLI into Resources/onedesk/
     const resourcesPath = (process as { resourcesPath?: string }).resourcesPath
     const packed = resourcesPath
-      ? join(resourcesPath, 'gsk', 'node_modules', '@genspark', 'cli', 'dist', 'index.js')
+      ? join(resourcesPath, 'onedesk', 'node_modules', '@onedesk', 'cli', 'dist', 'index.js')
       : null
     cachedEntry = packed && existsSync(packed) ? packed : null
   }
@@ -86,12 +86,12 @@ function electronCompatArgs(): string[] {
 }
 
 /**
- * API key for Genspark LLM proxy / tool_cli auth; '' when not logged in.
+ * API key for OneDesk LLM proxy / tool_cli auth; '' when not logged in.
  * Priority: explicit GSK_API_KEY env → OneDesk's own login.
  * Never borrow the shared CLI login: it can belong to another app or account,
  * and must not silently undo OneDesk sign-out.
  */
-export function gskApiKey(): string {
+export function onedeskCliApiKey(): string {
   const env = process.env.GSK_API_KEY
   if (env && !rejectedKeys.has(env)) return env
   const own = onedeskApiKey()
@@ -107,44 +107,44 @@ export function gskApiKey(): string {
  */
 const rejectedKeys = new Set<string>()
 
-/** Thrown when a gsk-key call is refused with 401 and no fresh key could be minted. */
-export class GskAuthError extends Error {
+/** Thrown when a onedesk-key call is refused with 401 and no fresh key could be minted. */
+export class OneDeskAuthError extends Error {
   constructor(message: string) {
     super(message)
-    this.name = 'GskAuthError'
+    this.name = 'OneDeskAuthError'
   }
 }
 
-/** Whether an error text reports an HTTP 401 (gsk CLI, tool_cli, LLM proxy shapes). */
-export function isGskUnauthorizedText(text: unknown): boolean {
+/** Whether an error text reports an HTTP 401 (onedesk CLI, tool_cli, LLM proxy shapes). */
+export function isOneDeskUnauthorizedText(text: unknown): boolean {
   return /\bHTTP 401\b|\b401 Unauthorized\b/i.test(String(text ?? ''))
 }
 
 /**
  * Records that `key` was refused with 401: it stops being offered (so
- * hasGskAuth() / ai:gsk-status report signed-out and the existing sign-in UI
+ * hasOneDeskAuth() / ai:onedesk-status report signed-out and the existing sign-in UI
  * appears) and the re-mint / re-login recovery starts. The invalidation is
  * synchronous, before the first await, so a caller can report the failure
  * right after this returns.
  */
-export function noteGskKeyRejected(
+export function noteOneDeskKeyRejected(
   key: string,
   options: { allowLogin?: boolean } = {},
-): Promise<GskRecoveryOutcome> {
+): Promise<OneDeskRecoveryOutcome> {
   if (key) rejectedKeys.add(key)
-  return recoverFromRejectedGskKey(key, options)
+  return recoverFromRejectedOneDeskKey(key, options)
 }
 
 /**
- * For callers that used the gsk key outside this module (the Genspark LLM
+ * For callers that used the onedesk key outside this module (the OneDesk LLM
  * proxy chat/stream): when `error` reports a 401, drop the key and start the
  * recovery in the background. Returns whether it was an auth failure.
  */
-export function noteGskCallFailure(key: string, error: unknown): boolean {
+export function noteOneDeskCallFailure(key: string, error: unknown): boolean {
   if (!key) return false
   const text = error instanceof Error ? error.message : String(error ?? '')
-  if (!isGskUnauthorizedText(text)) return false
-  void noteGskKeyRejected(key).catch(() => {})
+  if (!isOneDeskUnauthorizedText(text)) return false
+  void noteOneDeskKeyRejected(key).catch(() => {})
   return true
 }
 
@@ -156,34 +156,37 @@ async function withKeyRecovery<T>(
   call: (key: string) => Promise<T>,
   options: { allowLogin?: boolean } = {},
 ): Promise<T> {
-  const key = gskApiKey()
+  const key = onedeskCliApiKey()
   try {
     return await call(key)
   } catch (err) {
-    if (!(err instanceof GskAuthError)) throw err
-    const outcome = await noteGskKeyRejected(key, options)
-    const next = gskApiKey()
+    if (!(err instanceof OneDeskAuthError)) throw err
+    const outcome = await noteOneDeskKeyRejected(key, options)
+    const next = onedeskCliApiKey()
     if (outcome !== 'reminted' || !next || next === key) throw err
     return call(next)
   }
 }
 
 /** Test hook: forget rejected keys. */
-export function resetGskRejectedKeys(): void {
+export function resetOneDeskRejectedKeys(): void {
   rejectedKeys.clear()
 }
 
 /**
- * Fires when the effective gsk key changes on disk — another OneDesk-family
+ * Fires when the effective onedesk key changes on disk — another OneDesk-family
  * app re-logging in mints a new key and revokes the one this process holds.
  * Polls by path (watchFile): auth.json is replaced whole, and fs.watch misses
  * events for a moment after it is armed.
  */
-export function watchGskApiKey(onChange: (key: string) => void, intervalMs = 2000): () => void {
-  let last = gskApiKey()
+export function watchOneDeskCliApiKey(
+  onChange: (key: string) => void,
+  intervalMs = 2000,
+): () => void {
+  let last = onedeskCliApiKey()
   const check = (): void => {
     reloadOneDeskAuth()
-    const key = gskApiKey()
+    const key = onedeskCliApiKey()
     if (key === last) return
     last = key
     onChange(key)
@@ -196,30 +199,30 @@ export function watchGskApiKey(onChange: (key: string) => void, intervalMs = 200
 }
 
 /**
- * Whether gsk is usable (CLI installed and logged in / has a key). Callers use this to decide fallback.
- * Set AI_SEARCH_DISABLE_GSK=1 to force-disable (test isolation / force Serper).
+ * Whether onedesk is usable (CLI installed and logged in / has a key). Callers use this to decide fallback.
+ * Set AI_SEARCH_DISABLE_ONEDESK=1 to force-disable (test isolation / force Serper).
  */
-export function hasGskAuth(): boolean {
-  if (process.env.AI_SEARCH_DISABLE_GSK === '1') return false
-  return !!gskApiKey() && resolveGskEntry() !== null
+export function hasOneDeskAuth(): boolean {
+  if (process.env.AI_SEARCH_DISABLE_ONEDESK === '1') return false
+  return !!onedeskCliApiKey() && resolveOneDeskEntry() !== null
 }
 
 // ── Child-process proxy plumbing ────────────────────────────────────
 
 // The main process's undici dispatcher (see the apps' proxy bootstraps) never
 // reaches child processes: without forwarding they dial onedesk.jiulu.ltd directly.
-export { setGskProxyUrl, gskProxyUrl } from './shared'
+export { setOneDeskProxyUrl, onedeskProxyUrl } from './shared'
 
 /**
- * env for gsk CLI children: Electron-as-Node plus proxy forwarding. The CLI
+ * env for onedesk CLI children: Electron-as-Node plus proxy forwarding. The CLI
  * uses Node's built-in fetch, which ignores proxy env vars unless
  * NODE_USE_ENV_PROXY=1 (Node >= 24 — Electron 41 ships Node 24). Only
  * http(s):// proxies are forwarded; undici's env proxy cannot speak SOCKS.
  */
-export function gskChildEnv(base: NodeJS.ProcessEnv = process.env): NodeJS.ProcessEnv {
+export function onedeskChildEnv(base: NodeJS.ProcessEnv = process.env): NodeJS.ProcessEnv {
   const env: NodeJS.ProcessEnv = { ...base, ELECTRON_RUN_AS_NODE: '1' }
   const proxy = [
-    gskProxyUrl(),
+    onedeskProxyUrl(),
     base.HTTPS_PROXY,
     base.https_proxy,
     base.HTTP_PROXY,
@@ -244,19 +247,19 @@ export function gskChildEnv(base: NodeJS.ProcessEnv = process.env): NodeJS.Proce
 // ── Low-level execution ─────────────────────────────────────────────
 
 /**
- * gsk failures can arrive as a full HTML error page (a gateway or CDN
+ * onedesk failures can arrive as a full HTML error page (a gateway or CDN
  * answering for an unavailable service) in the message or on stderr. That text
  * otherwise lands verbatim in CLI output, logs and agent context, so distill
  * it to one readable line: the HTTP status plus the page's visible text for an
- * HTML page, the [ERROR] lines for gsk's own multi-line logs, a plain clip
+ * HTML page, the [ERROR] lines for onedesk's own multi-line logs, a plain clip
  * otherwise. Exported for tests.
  */
-export function summarizeGskFailure(raw: unknown, fallback = 'unknown error'): string {
+export function summarizeOneDeskFailure(raw: unknown, fallback = 'unknown error'): string {
   const text = (typeof raw === 'string' ? raw : raw == null ? '' : String(raw)).trim()
   if (!text) return fallback
   const isHtml = /<!doctype|<html[\s>]|<\/html>|<body[\s>]/i.test(text)
   if (!isHtml) {
-    // gsk logs mix [INFO] progress chatter, [ERROR] failures and crash noise;
+    // onedesk logs mix [INFO] progress chatter, [ERROR] failures and crash noise;
     // prefer the [ERROR] lines, drop [INFO] ones, and keep it to one line
     const lines = text
       .split(/\r?\n/)
@@ -324,12 +327,12 @@ interface ScanBudget {
 const MAX_RECOVERY_SCAN_CHARS = 4 * 1024 * 1024
 
 /**
- * gsk output may have [INFO] log lines mixed in before or after the JSON;
+ * onedesk output may have [INFO] log lines mixed in before or after the JSON;
  * find the first line that opens a JSON block and take that block, so a
  * pretty-printed payload is located in one linear scan instead of by reparsing
  * every line-bounded prefix.
  */
-export function parseGskOutput(stdout: string): unknown {
+export function parseOneDeskOutput(stdout: string): unknown {
   const trimmed = stdout.trim()
   try {
     return JSON.parse(trimmed)
@@ -353,24 +356,24 @@ export function parseGskOutput(stdout: string): unknown {
     }
     offset += line.length + 1
   }
-  throw new Error(`No JSON found in gsk output: ${summarizeGskFailure(stdout, '')}`)
+  throw new Error(`No JSON found in onedesk output: ${summarizeOneDeskFailure(stdout, '')}`)
 }
 
 /** `passive`: a status/background call — a rejected key is dropped but no browser login opens */
-function runGsk(
+function runOneDesk(
   args: string[],
   timeoutMs: number,
   signal?: AbortSignal,
   passive = false,
 ): Promise<unknown> {
-  const entry = resolveGskEntry()
-  if (!entry) return Promise.reject(new Error('@genspark/cli is not installed'))
-  return withKeyRecovery((key) => runGskOnce(entry, key, args, timeoutMs, signal), {
+  const entry = resolveOneDeskEntry()
+  if (!entry) return Promise.reject(new Error('@onedesk/tool-cli is not installed'))
+  return withKeyRecovery((key) => runOneDeskOnce(entry, key, args, timeoutMs, signal), {
     allowLogin: !passive,
   })
 }
 
-function runGskOnce(
+function runOneDeskOnce(
   entry: string,
   key: string,
   args: string[],
@@ -378,7 +381,7 @@ function runGskOnce(
   signal?: AbortSignal,
 ): Promise<unknown> {
   // With no injected key the CLI would independently load its shared login.
-  if (!key) return Promise.reject(new GskAuthError('Sign in to OneDesk to use Genspark'))
+  if (!key) return Promise.reject(new OneDeskAuthError('Sign in to OneDesk to use OneDesk'))
   // inject the resolved key so the CLI bills the same identity as our direct HTTP calls
   return new Promise((resolve, reject) => {
     execFile(
@@ -388,34 +391,34 @@ function runGskOnce(
         timeout: timeoutMs,
         maxBuffer: MAX_BUFFER,
         env: {
-          ...gskChildEnv(),
+          ...onedeskChildEnv(),
           GSK_API_KEY: key,
         },
         ...(signal ? { signal } : {}),
       },
       (err, stdout, stderr) => {
         if (err) {
-          // stderr carries gsk's real reason ([ERROR] lines, or a whole HTML
+          // stderr carries onedesk's real reason ([ERROR] lines, or a whole HTML
           // page); err.message only repeats the command line, so use it alone
           // when stderr has nothing
-          const stderrText = summarizeGskFailure(stderr, '')
+          const stderrText = summarizeOneDeskFailure(stderr, '')
           const message = stderrText
-            ? `gsk failed: ${stderrText}`
-            : summarizeGskFailure((err as Error).message, 'gsk failed')
+            ? `onedesk failed: ${stderrText}`
+            : summarizeOneDeskFailure((err as Error).message, 'onedesk failed')
           // the CLI prints a refused call's {status:'error', message:'HTTP 401…'} on stdout
           const unauthorized =
-            !!key && (isGskUnauthorizedText(stdout) || isGskUnauthorizedText(stderr))
-          reject(unauthorized ? new GskAuthError(message) : new Error(message))
+            !!key && (isOneDeskUnauthorizedText(stdout) || isOneDeskUnauthorizedText(stderr))
+          reject(unauthorized ? new OneDeskAuthError(message) : new Error(message))
           return
         }
         try {
-          const result = parseGskOutput(String(stdout))
+          const result = parseOneDeskOutput(String(stdout))
           const rec = asRecord(result)
           if (rec.status && rec.status !== 'ok') {
-            const message = `gsk returned an error: ${summarizeGskFailure(rec.message ?? rec.status)}`
+            const message = `onedesk returned an error: ${summarizeOneDeskFailure(rec.message ?? rec.status)}`
             reject(
-              key && isGskUnauthorizedText(rec.message)
-                ? new GskAuthError(message)
+              key && isOneDeskUnauthorizedText(rec.message)
+                ? new OneDeskAuthError(message)
                 : new Error(message),
             )
             return
@@ -432,22 +435,22 @@ function runGskOnce(
 // ── Search ──────────────────────────────────────────────────────────
 
 /** Max search results kept; longest snippet/title chars (prevents MB fields blowing context). */
-export const MAX_GSK_RESULTS = 20
-export const MAX_GSK_SNIPPET_CHARS = 2_000
-const MAX_GSK_URL_CHARS = 8_192
+export const MAX_ONEDESK_RESULTS = 20
+export const MAX_ONEDESK_SNIPPET_CHARS = 2_000
+const MAX_ONEDESK_URL_CHARS = 8_192
 
 function normalizeMaxResults(n: number): number {
   if (!Number.isFinite(n)) return 6
   return Math.min(20, Math.max(1, Math.floor(n)))
 }
 
-function clipField(v: unknown, max = MAX_GSK_SNIPPET_CHARS): string {
+function clipField(v: unknown, max = MAX_ONEDESK_SNIPPET_CHARS): string {
   const s = String(v ?? '')
   return s.length > max ? s.slice(0, max) : s
 }
 
-/** Parses the `gsk search` response shape data.organic_results[{title,link,snippet}] (exported for tests) */
-export function parseGskWebSearch(
+/** Parses the `onedesk search` response shape data.organic_results[{title,link,snippet}] (exported for tests) */
+export function parseOneDeskWebSearch(
   raw: unknown,
   maxResults: number,
 ): { results: WebSearchResult[]; answer?: string } {
@@ -458,28 +461,28 @@ export function parseGskWebSearch(
     const o = asRecord(item)
     return {
       title: clipField(o.title),
-      url: clipField(o.link, MAX_GSK_URL_CHARS),
+      url: clipField(o.link, MAX_ONEDESK_URL_CHARS),
       snippet: clipField(o.snippet),
     }
   })
   const answerRaw = typeof data.answer === 'string' && data.answer ? data.answer : undefined
   const answer =
-    answerRaw !== undefined && answerRaw.length > MAX_GSK_SNIPPET_CHARS
-      ? `${answerRaw.slice(0, MAX_GSK_SNIPPET_CHARS)}…`
+    answerRaw !== undefined && answerRaw.length > MAX_ONEDESK_SNIPPET_CHARS
+      ? `${answerRaw.slice(0, MAX_ONEDESK_SNIPPET_CHARS)}…`
       : answerRaw
   return answer !== undefined ? { results, answer } : { results }
 }
 
-export async function gskWebSearch(
+export async function onedeskWebSearch(
   query: string,
   maxResults = 6,
 ): Promise<{ results: WebSearchResult[]; answer?: string }> {
-  const raw = await runGsk(['search', query], SEARCH_TIMEOUT_MS)
-  return parseGskWebSearch(raw, maxResults)
+  const raw = await runOneDesk(['search', query], SEARCH_TIMEOUT_MS)
+  return parseOneDeskWebSearch(raw, maxResults)
 }
 
-/** Parses the `gsk img-search` response shape data[{image_url,title,source,link,width,height}] (exported for tests) */
-export function parseGskImageSearch(raw: unknown, maxResults: number): ImageSearchResult[] {
+/** Parses the `onedesk img-search` response shape data[{image_url,title,source,link,width,height}] (exported for tests) */
+export function parseOneDeskImageSearch(raw: unknown, maxResults: number): ImageSearchResult[] {
   const bounded = normalizeMaxResults(maxResults)
   const dataRaw = asRecord(raw).data
   const data: unknown[] = Array.isArray(dataRaw) ? dataRaw : []
@@ -505,14 +508,17 @@ export function parseGskImageSearch(raw: unknown, maxResults: number): ImageSear
   return images
 }
 
-export async function gskImageSearch(query: string, maxResults = 8): Promise<ImageSearchResult[]> {
-  const raw = await runGsk(['img-search', query], SEARCH_TIMEOUT_MS)
-  return parseGskImageSearch(raw, maxResults)
+export async function onedeskImageSearch(
+  query: string,
+  maxResults = 8,
+): Promise<ImageSearchResult[]> {
+  const raw = await runOneDesk(['img-search', query], SEARCH_TIMEOUT_MS)
+  return parseOneDeskImageSearch(raw, maxResults)
 }
 
 // ── Image generation ────────────────────────────────────────────────
 
-export interface GskGenerateImageOptions {
+export interface OneDeskGenerateImageOptions {
   /** Image description (English works better; text that must appear in the image stays verbatim) */
   prompt: string
   /** Generation model; defaults to the CLI default (nano-banana-2). Special-purpose: fal-bria-rmbg background removal, fal-ai/recraft-clarity-upscale upscaling, flux-pro/outpaint outpainting, fal-ai/image-editing/text-removal watermark text removal */
@@ -525,49 +531,51 @@ export interface GskGenerateImageOptions {
   imageSize?: string
 }
 
-export interface GskGeneratedImage {
+export interface OneDeskGeneratedImage {
   /** Watermark-free image URL (preferred); can be downloaded and inserted directly */
   url: string
   taskId: string
 }
 
-/** Parses `gsk img` results: prefers data.generated_images[].image_urls_nowatermark (exported for tests) */
-export function parseGskGeneratedImage(raw: unknown): GskGeneratedImage {
+/** Parses `onedesk img` results: prefers data.generated_images[].image_urls_nowatermark (exported for tests) */
+export function parseOneDeskGeneratedImage(raw: unknown): OneDeskGeneratedImage {
   const data = asRecord(asRecord(raw).data ?? raw)
   const img = asRecord(firstItem(data.generated_images ?? data.images ?? []))
   const url = firstItem(img.image_urls_nowatermark) ?? firstItem(img.image_urls) ?? img.url ?? ''
   if (!url) {
-    throw new Error(`gsk image generation returned no result: ${JSON.stringify(raw).slice(0, 200)}`)
+    throw new Error(
+      `onedesk image generation returned no result: ${JSON.stringify(raw).slice(0, 200)}`,
+    )
   }
   return { url: String(url), taskId: String(img.task_id ?? '') }
 }
 
-export async function gskGenerateImage(
-  options: GskGenerateImageOptions,
+export async function onedeskGenerateImage(
+  options: OneDeskGenerateImageOptions,
   signal?: AbortSignal,
-): Promise<GskGeneratedImage> {
+): Promise<OneDeskGeneratedImage> {
   const args = ['img', options.prompt]
   if (options.model) args.push('-m', options.model)
   if (options.referenceImageUrls?.length) args.push('--image_urls', ...options.referenceImageUrls)
   if (options.aspectRatio) args.push('--aspect_ratio', options.aspectRatio)
   if (options.imageSize) args.push('--image_size', options.imageSize)
-  const raw = await runGsk(args, GENERATE_TIMEOUT_MS, signal)
-  const result = parseGskGeneratedImage(raw)
-  // Bare genspark file URLs (/api/files/) return 403; swap for a signed direct link with a token
+  const raw = await runOneDesk(args, GENERATE_TIMEOUT_MS, signal)
+  const result = parseOneDeskGeneratedImage(raw)
+  // Bare onedesk file URLs (/api/files/) return 403; swap for a signed direct link with a token
   // so later plain fetch downloads (e.g. insert_web_image) need no auth
-  result.url = await gskResolveDownloadUrl(result.url)
+  result.url = await onedeskResolveDownloadUrl(result.url)
   return result
 }
 
 /**
- * Swaps a genspark file wrapper URL for an anonymously downloadable signed direct link (`gsk download`).
- * Non-genspark file URLs are returned as-is; on swap failure the URL is also returned as-is
+ * Swaps a onedesk file wrapper URL for an anonymously downloadable signed direct link (`onedesk download`).
+ * Non-onedesk file URLs are returned as-is; on swap failure the URL is also returned as-is
  * (callers handle download failures themselves).
  */
-export async function gskResolveDownloadUrl(url: string): Promise<string> {
+export async function onedeskResolveDownloadUrl(url: string): Promise<string> {
   if (!url.includes('/api/files/')) return url
   try {
-    const raw = asRecord(await runGsk(['download', url], SEARCH_TIMEOUT_MS))
+    const raw = asRecord(await runOneDesk(['download', url], SEARCH_TIMEOUT_MS))
     const downloadUrl = asRecord(raw.data).download_url ?? raw.download_url
     return downloadUrl ? String(downloadUrl) : url
   } catch {
@@ -577,8 +585,8 @@ export async function gskResolveDownloadUrl(url: string): Promise<string> {
 
 // ── Media analysis / transcription ──────────────────────────────────
 
-/** Best-effort text extraction from gsk analysis-type command output (shape varies by task, so be lenient; exported for tests) */
-export function extractGskText(raw: unknown): string {
+/** Best-effort text extraction from onedesk analysis-type command output (shape varies by task, so be lenient; exported for tests) */
+export function extractOneDeskText(raw: unknown): string {
   const data = asRecord(raw).data ?? raw
   if (typeof data === 'string') return data
   if (data && typeof data === 'object') {
@@ -598,15 +606,15 @@ export function extractGskText(raw: unknown): string {
   return JSON.stringify(data ?? raw)
 }
 
-export interface GskAnalyzeMediaOptions {
+export interface OneDeskAnalyzeMediaOptions {
   /** Media URLs or local paths (image/audio/video; the CLI uploads local files automatically) */
   mediaUrls: string[]
   /** Analysis requirements (in English): what info to extract and what it's for */
   requirements: string
 }
 
-export async function gskAnalyzeMedia(
-  options: GskAnalyzeMediaOptions,
+export async function onedeskAnalyzeMedia(
+  options: OneDeskAnalyzeMediaOptions,
   signal?: AbortSignal,
 ): Promise<string> {
   const args = [
@@ -616,11 +624,11 @@ export async function gskAnalyzeMedia(
     '--requirements',
     options.requirements,
   ]
-  const raw = await runGsk(args, GENERATE_TIMEOUT_MS, signal)
-  return extractGskText(raw)
+  const raw = await runOneDesk(args, GENERATE_TIMEOUT_MS, signal)
+  return extractOneDeskText(raw)
 }
 
-export interface GskTranscribeOptions {
+export interface OneDeskTranscribeOptions {
   /** Audio URLs or local paths */
   audioUrls: string[]
   /** Prompt (context / proper nouns; can improve recognition quality) */
@@ -629,20 +637,20 @@ export interface GskTranscribeOptions {
   model?: string
 }
 
-export async function gskTranscribe(
-  options: GskTranscribeOptions,
+export async function onedeskTranscribe(
+  options: OneDeskTranscribeOptions,
   signal?: AbortSignal,
 ): Promise<string> {
   const args = ['transcribe', '--audio_urls', ...options.audioUrls]
   if (options.prompt) args.push('--prompt', options.prompt)
   if (options.model) args.push('-m', options.model)
-  const raw = await runGsk(args, GENERATE_TIMEOUT_MS, signal)
-  return extractGskText(raw)
+  const raw = await runOneDesk(args, GENERATE_TIMEOUT_MS, signal)
+  return extractOneDeskText(raw)
 }
 
-// ── Past projects (Genspark web) ────────────────────────────────────
+// ── Past projects (OneDesk web) ────────────────────────────────────
 
-export interface GskPastProject {
+export interface OneDeskPastProject {
   projectId: string
   /** raw project type, e.g. 'slides_agent_git' */
   type: string
@@ -653,18 +661,18 @@ export interface GskPastProject {
   projectUrl: string
 }
 
-export interface GskPastProjectsPage {
-  projects: GskPastProject[]
+export interface OneDeskPastProjectsPage {
+  projects: OneDeskPastProject[]
   total: number
   hasMore: boolean
 }
 
 /**
- * Parses `gsk projects`. data.projects lacks project_url — it only appears in
+ * Parses `onedesk projects`. data.projects lacks project_url — it only appears in
  * session_state.past_projects — so take it from there, falling back to
  * deriving it from the project id. (exported for tests)
  */
-export function parseGskPastProjects(raw: unknown): GskPastProjectsPage {
+export function parseOneDeskPastProjects(raw: unknown): OneDeskPastProjectsPage {
   const rec = asRecord(raw)
   const data = asRecord(rec.data ?? raw)
   const urlById = new Map<string, string>()
@@ -678,7 +686,7 @@ export function parseGskPastProjects(raw: unknown): GskPastProjectsPage {
     }
   }
   const listRaw: unknown[] = Array.isArray(data.projects) ? data.projects : []
-  const projects: GskPastProject[] = []
+  const projects: OneDeskPastProject[] = []
   for (const item of listRaw) {
     const p = asRecord(item)
     const projectId = String(p.project_id ?? '')
@@ -699,7 +707,7 @@ export function parseGskPastProjects(raw: unknown): GskPastProjectsPage {
   }
 }
 
-export interface GskListPastProjectsOptions {
+export interface OneDeskListPastProjectsOptions {
   /** 'slides' | 'docs' | 'sheets' | ...; omit for all kinds */
   artifactTypes?: string[]
   /** page size, CLI default 20, max 100 */
@@ -708,32 +716,32 @@ export interface GskListPastProjectsOptions {
   signal?: AbortSignal
 }
 
-/** Lists the user's own past Genspark web projects, newest first (`gsk projects`). */
-export async function gskListPastProjects(
-  options: GskListPastProjectsOptions = {},
-): Promise<GskPastProjectsPage> {
+/** Lists the user's own past OneDesk web projects, newest first (`onedesk projects`). */
+export async function onedeskListPastProjects(
+  options: OneDeskListPastProjectsOptions = {},
+): Promise<OneDeskPastProjectsPage> {
   const args = ['projects']
   if (options.artifactTypes?.length) args.push('--artifact_types', ...options.artifactTypes)
   if (options.limit !== undefined) args.push('--limit', String(options.limit))
   if (options.offset) args.push('--offset', String(options.offset))
   // background sync: never the reason a browser window opens
-  const raw = await runGsk(args, SEARCH_TIMEOUT_MS, options.signal, true)
-  return parseGskPastProjects(raw)
+  const raw = await runOneDesk(args, SEARCH_TIMEOUT_MS, options.signal, true)
+  return parseOneDeskPastProjects(raw)
 }
 
-export interface GskLoginInfo {
+export interface OneDeskLoginInfo {
   email: string
   plan: string
   creditBalance?: number
 }
 
 /** Current login info; null when not logged in */
-export async function gskLoginInfo(): Promise<GskLoginInfo | null> {
+export async function onedeskLoginInfo(): Promise<OneDeskLoginInfo | null> {
   try {
-    const raw = await runGsk(['login-info'], SEARCH_TIMEOUT_MS, undefined, true)
+    const raw = await runOneDesk(['login-info'], SEARCH_TIMEOUT_MS, undefined, true)
     const d = asRecord(asRecord(raw).data ?? raw)
     if (!d.email) return null
-    const info: GskLoginInfo = {
+    const info: OneDeskLoginInfo = {
       email: String(d.email),
       plan: String(d.plan ?? d.personal_plan ?? ''),
     }

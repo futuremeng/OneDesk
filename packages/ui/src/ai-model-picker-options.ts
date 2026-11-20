@@ -23,12 +23,15 @@ export interface AiModelPickerSelection {
 }
 
 /**
- * Providers the composer chip may switch to: Genspark while signed in, every
+ * Providers the composer chip may switch to: OneDesk while signed in, every
  * other vendor once its settings pass the same usability test the chat path
  * applies (`activeProvider`), so picking a row never lands on a 401. A model
  * typed into the settings page that is not in the catalog is listed first.
  */
-export function aiModelPickerGroups(input: AiSettings, gskLoggedIn: boolean): AiModelPickerGroup[] {
+export function aiModelPickerGroups(
+  input: AiSettings,
+  onedeskLoggedIn: boolean,
+): AiModelPickerGroup[] {
   const settings = resolveCustomEndpoints(input)
   const groups: AiModelPickerGroup[] = []
   for (const meta of AI_PROVIDERS) {
@@ -60,8 +63,8 @@ export function aiModelPickerGroups(input: AiSettings, gskLoggedIn: boolean): Ai
     // CLI vendors pass activeProvider unconfigured (the binary auto-discovers);
     // list them only once the settings page holds a model or a path
     const usable =
-      meta.id === 'genspark'
-        ? gskLoggedIn
+      meta.id === 'onedesk'
+        ? onedeskLoggedIn
         : meta.needsCliPath
           ? Boolean(stored || config?.cliPath?.trim())
           : activeProvider({ ...settings, provider: meta.id }) === meta.id

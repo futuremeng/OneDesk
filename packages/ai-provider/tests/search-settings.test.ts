@@ -8,9 +8,9 @@ import {
 } from '../src/search-settings'
 
 describe('search settings', () => {
-  it('defaults to genspark with empty keys and rides along in defaultAiSettings', () => {
+  it('defaults to onedesk with empty keys and rides along in defaultAiSettings', () => {
     expect(defaultAiSearchSettings()).toEqual({
-      provider: 'genspark',
+      provider: 'onedesk',
       providers: {
         serper: { apiKey: '' },
         serply: { apiKey: '' },
@@ -22,9 +22,9 @@ describe('search settings', () => {
         keenable: { apiKey: '' },
       },
     })
-    expect(defaultAiSettings().search?.provider).toBe('genspark')
+    expect(defaultAiSettings().search?.provider).toBe('onedesk')
     const resolved = resolveAiSettings(
-      { provider: 'genspark', providers: {} as never },
+      { provider: 'onedesk', providers: {} as never },
       defaultAiSettings(),
     )
     expect(resolved.search).toEqual(defaultAiSearchSettings())
@@ -41,7 +41,7 @@ describe('search settings', () => {
   })
 
   it('activates a BYOK search provider only with a key', () => {
-    expect(activeSearchProvider({ search: undefined })).toBe('genspark')
+    expect(activeSearchProvider({ search: undefined })).toBe('onedesk')
     expect(
       activeSearchProvider({
         search: {
@@ -58,7 +58,7 @@ describe('search settings', () => {
           },
         },
       }),
-    ).toBe('genspark')
+    ).toBe('onedesk')
     expect(
       activeSearchProvider({
         search: {
@@ -92,9 +92,9 @@ describe('search settings', () => {
           },
         },
       }),
-    ).toBe('genspark')
+    ).toBe('onedesk')
     expect(activeSearchProvider({ search: { provider: 'bing', providers: {} } as never })).toBe(
-      'genspark',
+      'onedesk',
     )
   })
 })
@@ -112,7 +112,7 @@ describe('Serply search settings', () => {
       activeSearchProvider({
         search: { ...settings, providers: { ...settings.providers, serply: { apiKey: '  ' } } },
       }),
-    ).toBe('genspark')
+    ).toBe('onedesk')
   })
 })
 
@@ -132,7 +132,7 @@ describe('SearchApi search settings', () => {
           providers: { ...settings.providers, searchapi: { apiKey: '  ' } },
         },
       }),
-    ).toBe('genspark')
+    ).toBe('onedesk')
   })
 })
 
@@ -188,7 +188,7 @@ describe('exa and firecrawl providers', () => {
     expect(s.providers.firecrawl.apiKey).toBe('')
   })
 
-  it('activate with a key and fall back to genspark without one', () => {
+  it('activate with a key and fall back to onedesk without one', () => {
     const mk = (id: 'exa' | 'firecrawl', apiKey: string) => ({
       search: {
         provider: id,
@@ -204,9 +204,9 @@ describe('exa and firecrawl providers', () => {
         },
       },
     })
-    expect(activeSearchProvider(mk('exa', ''))).toBe('genspark')
+    expect(activeSearchProvider(mk('exa', ''))).toBe('onedesk')
     expect(activeSearchProvider(mk('exa', 'exa-1'))).toBe('exa')
-    expect(activeSearchProvider(mk('firecrawl', ' '))).toBe('genspark')
+    expect(activeSearchProvider(mk('firecrawl', ' '))).toBe('onedesk')
     expect(activeSearchProvider(mk('firecrawl', 'fc-1'))).toBe('firecrawl')
   })
 
@@ -252,8 +252,8 @@ describe('Keenable search settings', () => {
     expect(activeSearchProvider({ search: settings })).toBe('keenable')
   })
 
-  it('leaves the default provider on Genspark', () => {
-    expect(defaultAiSearchSettings().provider).toBe('genspark')
-    expect(activeSearchProvider({ search: defaultAiSearchSettings() })).toBe('genspark')
+  it('leaves the default provider on OneDesk', () => {
+    expect(defaultAiSearchSettings().provider).toBe('onedesk')
+    expect(activeSearchProvider({ search: defaultAiSearchSettings() })).toBe('onedesk')
   })
 })

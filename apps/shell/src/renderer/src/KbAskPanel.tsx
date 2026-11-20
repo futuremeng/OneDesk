@@ -204,7 +204,7 @@ export function KbAskPanel({
   const [corpusFiles, setCorpusFiles] = useState<KbFileInfo[]>([])
   /** whether the file list under the header is open */
   const [corpusOpen, setCorpusOpen] = useState(false)
-  const [gskEmail, setGskEmail] = useState<string | null>(null)
+  const [onedeskEmail, setOneDeskEmail] = useState<string | null>(null)
   const [provider, setProvider] = useState<string | null>(null)
   const corpusRef = useRef<KbFileInfo[]>([])
   const settingsRef = useRef<AiSettings | null>(null)
@@ -364,7 +364,7 @@ export function KbAskPanel({
       getSettings: () => window.aiOffice.aiGetSettings(),
       setSettings: (settings) => window.aiOffice.setAiSettings(settings),
       onSettingsChanged: (handler) => window.aiOffice.onAiSettingsChanged(handler),
-      gskLoggedIn: () => window.aiOffice.aiGskStatus().then((s) => !!s.loggedIn),
+      onedeskLoggedIn: () => window.aiOffice.aiOneDeskStatus().then((s) => !!s.loggedIn),
       openModelSettings: onOpenModelSettings,
     }),
     [onOpenModelSettings],
@@ -396,8 +396,8 @@ export function KbAskPanel({
       .catch(() => applyCorpus([]))
     refreshSettings()
     void window.aiOffice
-      .aiGskStatus()
-      .then((status) => setGskEmail(status.loggedIn ? (status.email ?? '') : null))
+      .aiOneDeskStatus()
+      .then((status) => setOneDeskEmail(status.loggedIn ? (status.email ?? '') : null))
       .catch(() => undefined)
     const cliSkill = createCliSkill({
       context: () => cliContextRef.current,
@@ -962,7 +962,7 @@ export function KbAskPanel({
           {t('askNoSave')}
         </p>
       )}
-      {gskEmail === null && provider === 'genspark' && (
+      {onedeskEmail === null && provider === 'onedesk' && (
         <p className="kb-ask-login">{t('askNeedsLogin')}</p>
       )}
       {attachNotice && (

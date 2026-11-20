@@ -1,15 +1,15 @@
 /**
- * Optional signed edge admission (native-tok-v1) for Genspark LLM proxy requests whose final
- * credential is a gsk key. On by default in Node host processes; ONEDESK_NATIVE_WAF=0 turns it off.
+ * Optional signed edge admission (native-tok-v1) for OneDesk LLM proxy requests whose final
+ * credential is a onedesk key. On by default in Node host processes; ONEDESK_NATIVE_WAF=0 turns it off.
  * Browsers and Electron renderers never take part.
  *
  * Eligible: HTTPS to an admitted host (default proxy host, GSK_BASE_URL, ONEDESK_NATIVE_WAF_HOSTS), path /api/llm_proxy/ or /api/anthropic (family
- * "llm"), and exactly one credential header carrying a gsk key — `Authorization: Bearer gsk-…`
- * (OpenAI-compatible) or `x-api-key: gsk-…` (Anthropic). BYOK keys, custom endpoints and every
+ * "llm"), and exactly one credential header carrying a onedesk key — `Authorization: Bearer onedesk-…`
+ * (OpenAI-compatible) or `x-api-key: onedesk-…` (Anthropic). BYOK keys, custom endpoints and every
  * other host are never sent to the issuer. Issuer failure leaves the request unchanged.
  */
 
-const PASS_HEADER = 'X-Genspark-Token-Pass'
+const PASS_HEADER = 'X-OneDesk-Token-Pass'
 
 /**
  * The default proxy host (providers.ts always targets it), the configured service host and any
@@ -70,7 +70,7 @@ function subjectOf(raw: string, headers: Headers): Subject | undefined {
   const value = key ?? bearer
   if (
     !value ||
-    !value.startsWith(name === 'x-api-key' ? 'gsk-' : 'Bearer gsk-') ||
+    !value.startsWith(name === 'x-api-key' ? 'onedesk-' : 'Bearer onedesk-') ||
     /[,\r\n]/.test(value)
   ) {
     return undefined

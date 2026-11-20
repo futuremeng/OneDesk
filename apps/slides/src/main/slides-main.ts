@@ -35,7 +35,7 @@ import { loadPrintHtml } from '@onedesk/electron-utils/print-window'
 import { printOutcome, printJobOptions } from '@onedesk/electron-utils/print-job'
 import { printPdfViaCups, printToPdfOptionsFor } from '@onedesk/electron-utils/print-cups'
 import { queryPrinterOptions, DRIVER_OPTION_NAMES } from '@onedesk/electron-utils/printer-options'
-import { setGskProxyUrl } from '@onedesk/ai-search'
+import { setOneDeskProxyUrl } from '@onedesk/ai-search'
 import {
   appMenuLabels,
   appMenuTemplate,
@@ -5343,9 +5343,9 @@ export function installSlidesMenu(): void {
  */
 async function applyMainProcessProxy(): Promise<void> {
   const setDispatcher = async (proxyUrl: string) => {
-    // spawned gsk CLI children do their own fetch and never see the
+    // spawned onedesk CLI children do their own fetch and never see the
     // dispatcher below — forward the proxy to them via env
-    setGskProxyUrl(proxyUrl)
+    setOneDeskProxyUrl(proxyUrl)
     try {
       const { setGlobalDispatcher } = await import('undici')
       // loopback stays direct: a Custom provider on 127.0.0.1 must not ride
@@ -5372,7 +5372,7 @@ async function applyMainProcessProxy(): Promise<void> {
   try {
     await app.whenReady()
     // PAC/rule proxies answer per-host: probe the host the login flow, the
-    // Genspark LLM proxy and the gsk CLI actually target
+    // OneDesk LLM proxy and the onedesk CLI actually target
     const resolved = await electronSession.defaultSession.resolveProxy('https://onedesk.jiulu.ltd/')
     // resolveProxy returns strings like "PROXY 127.0.0.1:1087" or "DIRECT"
     const m = /PROXY\s+([^;]+)/i.exec(resolved || '')

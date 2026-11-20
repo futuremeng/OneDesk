@@ -54,7 +54,7 @@ const DATA_SOURCES = ['@fluentui/svg-icons']
 
 /**
  * Packages copied into the installer verbatim by electron-builder rather than
- * bundled — the gsk CLI and its runtime deps are spawned, never imported, so
+ * bundled — the onedesk CLI and its runtime deps are spawned, never imported, so
  * they are invisible to the import scan.
  */
 function extraResourceSeeds() {
@@ -76,8 +76,8 @@ const NOTE = {
     'Copyright (c) Microsoft Corporation. Licensed under the MIT License.\nhttps://github.com/microsoft/fluentui-system-icons',
   '@fluentui/svg-icons':
     'Copyright (c) 2020 Microsoft Corporation. Licensed under the MIT License.\nhttps://github.com/microsoft/fluentui-system-icons',
-  '@genspark/cli':
-    'Copyright (c) Genspark. Licensed under the MIT License.\nhttps://www.npmjs.com/package/@genspark/cli',
+  '@onedesk/tool-cli':
+    'Copyright (c) OneDesk. Licensed under the MIT License.\nhttps://www.npmjs.com/package/@onedesk/tool-cli',
 }
 
 /**

@@ -15,7 +15,7 @@ const fallback = () =>
 let dir: string
 
 beforeEach(() => {
-  vi.stubEnv('AI_SEARCH_DISABLE_GSK', '1')
+  vi.stubEnv('AI_SEARCH_DISABLE_ONEDESK', '1')
   for (const key of [
     'SERPER_API_KEY',
     'SERPLY_API_KEY',
@@ -45,7 +45,7 @@ describe('Parallel search', () => {
     vi.stubGlobal('fetch', fetch)
     expect(
       await webSearch('office tools', 1, {
-        useGsk: false,
+        useOneDesk: false,
         parallelKey: 'saved-key',
         prefer: 'parallel',
       }),
@@ -98,7 +98,7 @@ describe('Parallel search', () => {
         }),
       )
       const r = await webSearch('office', 1, {
-        useGsk: false,
+        useOneDesk: false,
         parallelKey: 'key',
         prefer: 'parallel',
       })

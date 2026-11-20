@@ -227,8 +227,8 @@ const homeApi: HomeApi = {
     ipcRenderer.on('ai:stream-chunk', listener)
     return () => ipcRenderer.removeListener('ai:stream-chunk', listener)
   },
-  async aiGskStatus() {
-    return ipcRenderer.invoke('ai:gsk-status')
+  async aiOneDeskStatus() {
+    return ipcRenderer.invoke('ai:onedesk-status')
   },
   async openPath(path) {
     if (typeof path !== 'string' || !path) throw new Error('Invalid path.')
@@ -643,8 +643,8 @@ const homeApi: HomeApi = {
   getAiProviders() {
     return AI_PROVIDERS.map((meta) => {
       let defaultBaseUrl = ''
-      // genspark routes by model and custom has no default — both stay ''
-      if (meta.id !== 'genspark' && !meta.needsBaseUrl && !meta.needsCliPath) {
+      // onedesk routes by model and custom has no default — both stay ''
+      if (meta.id !== 'onedesk' && !meta.needsBaseUrl && !meta.needsCliPath) {
         defaultBaseUrl = getProviderAdapter(meta.id).resolveEndpoint({
           apiKey: '',
           model: meta.defaultModel,

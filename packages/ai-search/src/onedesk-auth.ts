@@ -1,7 +1,7 @@
 /**
- * OneDesk's own Genspark identity: device-code login (office_addin_auth,
- * app_type=onedesk) minting a gsk API key named "onedesk" — the key_name
- * lands in billing as billing_tag, attributing all traffic (incl. gsk CLI
+ * OneDesk's own OneDesk identity: device-code login (office_addin_auth,
+ * app_type=onedesk) minting a onedesk API key named "onedesk" — the key_name
+ * lands in billing as billing_tag, attributing all traffic (incl. onedesk CLI
  * subprocesses) to OneDesk. Stored in ~/.onedesk/auth.json, deliberately
  * NOT the shared config.json that Claw Desktop overwrites on every launch.
  *
@@ -14,11 +14,11 @@ import { existsSync, mkdirSync, readFileSync, unlinkSync, writeFileSync } from '
 import { createRequire } from 'node:module'
 import { homedir } from 'node:os'
 import { dirname, join } from 'node:path'
-import { asRecord, gskProxyUrl } from './shared'
+import { asRecord, onedeskProxyUrl } from './shared'
 import { nativeWaf } from './native-waf'
 
 /** Progress event for the browser login flow. */
-export interface GskLoginProgress {
+export interface OneDeskLoginProgress {
   phase: 'url' | 'success' | 'error'
   url?: string
   expiresInSec?: number
@@ -96,7 +96,7 @@ const GATEWAY_ERROR_STATUSES = new Set([407, 502, 504])
  * is bot-challenged, see resolveFetch). null when no proxy is registered.
  */
 async function proxyFallbackFetch(): Promise<typeof fetch | null> {
-  const proxyUrl = gskProxyUrl()
+  const proxyUrl = onedeskProxyUrl()
   if (!proxyUrl) return null
   if (proxyFetchCache?.url === proxyUrl) return proxyFetchCache.impl
   let impl: typeof fetch = (...args) => fetch(...args)
@@ -201,7 +201,7 @@ function clearAuth(): void {
 
 class LoginFlowError extends Error {
   constructor(
-    /** matches GskLoginProgress.error conventions */
+    /** matches OneDeskLoginProgress.error conventions */
     public reason: 'network' | 'expired' | string,
   ) {
     super(reason)
@@ -360,7 +360,7 @@ async function mintKey(cookie: string, signal: AbortSignal): Promise<MintResult>
 
 async function runDeviceLogin(
   signal: AbortSignal,
-  emit: (progress: GskLoginProgress) => void,
+  emit: (progress: OneDeskLoginProgress) => void,
 ): Promise<void> {
   const { resp, json } = await httpJson(
     `${baseUrl()}/api/office_addin_auth/device_code?app_type=${APP_TYPE}`,
@@ -434,7 +434,7 @@ let activeLogin: { cancel: () => void } | null = null
  * (its device code would otherwise be approved into a dead flow). The caller
  * opens `url` in the system browser. Returns whether the flow was started.
  */
-export function startOneDeskLogin(onEvent?: (progress: GskLoginProgress) => void): boolean {
+export function startOneDeskLogin(onEvent?: (progress: OneDeskLoginProgress) => void): boolean {
   activeLogin?.cancel()
   const emit = onEvent ?? (() => {})
   const controller = new AbortController()
@@ -446,7 +446,7 @@ export function startOneDeskLogin(onEvent?: (progress: GskLoginProgress) => void
     },
   }
   activeLogin = self
-  const finish = (progress: GskLoginProgress) => {
+  const finish = (progress: OneDeskLoginProgress) => {
     if (done) return
     done = true
     if (activeLogin === self) activeLogin = null
@@ -477,11 +477,11 @@ let lastRemintedKey: string | undefined
 /** one automatic browser launch per rejected key; reset by a completed login */
 let autoLoginLaunched = false
 let loginOpener: ((url: string) => void) | null = null
-let recovery: Promise<GskRecoveryOutcome> | null = null
+let recovery: Promise<OneDeskRecoveryOutcome> | null = null
 /** bumped by an explicit sign-out: a recovery started before it must not sign back in */
 let signOutGeneration = 0
 
-export type GskRecoveryOutcome =
+export type OneDeskRecoveryOutcome =
   /** the stored session minted a new key (server gate off) — the next call just works */
   | 'reminted'
   /** the device-code login was opened in the browser */
@@ -510,7 +510,7 @@ export function setOneDeskLoginSuccessListener(listener: (() => void) | null): v
 
 /**
  * Drops OneDesk's own key from memory and disk when it equals `key` (the
- * server answered 401: expired or revoked), so hasGskAuth() turns false and
+ * server answered 401: expired or revoked), so hasOneDeskAuth() turns false and
  * the existing sign-in UI shows. Returns whether our key was dropped.
  */
 export function invalidateOneDeskKey(key: string): boolean {
@@ -554,17 +554,17 @@ async function remintWithStoredSession(accessToken: string, generation: number):
 }
 
 /**
- * Recovery after a gsk-key call answered 401: drop the key, try one silent
+ * Recovery after a onedesk-key call answered 401: drop the key, try one silent
  * re-mint with the stored session, and when that is refused (the server
  * requires a fresh login) open the device-code login once. Concurrent
  * failures share one recovery; a login cancelled or expired leaves the
  * signed-out state for the existing "sign in" button rather than relaunching.
  * `allowLogin: false` (background/status calls) stops before the browser.
  */
-export function recoverFromRejectedGskKey(
+export function recoverFromRejectedOneDeskKey(
   key: string,
   options: { allowLogin?: boolean } = {},
-): Promise<GskRecoveryOutcome> {
+): Promise<OneDeskRecoveryOutcome> {
   const allowLogin = options.allowLogin ?? true
   const generation = signOutGeneration
   if (recovery) {
@@ -573,10 +573,10 @@ export function recoverFromRejectedGskKey(
     return recovery.then((outcome) =>
       outcome !== 'login_required' || !allowLogin || generation !== signOutGeneration
         ? outcome
-        : recoverFromRejectedGskKey('', options),
+        : recoverFromRejectedOneDeskKey('', options),
     )
   }
-  const run = (async (): Promise<GskRecoveryOutcome> => {
+  const run = (async (): Promise<OneDeskRecoveryOutcome> => {
     const wasReminted = !!key && key === lastRemintedKey
     invalidateOneDeskKey(key)
     // the Bearer gets one silent attempt: a refused re-mint will be refused again
@@ -626,8 +626,8 @@ export function ensureOneDeskLogin(openUrl: (url: string) => void): void {
 
 /**
  * Signs out of OneDesk only: best-effort server-side revoke of the
- * onedesk key, then local removal. The shared gsk CLI login
- * (~/.genspark-tool-cli) is untouched — terminal gsk and Claw keep working.
+ * onedesk key, then local removal. The shared onedesk CLI login
+ * (~/.onedesk-tool-cli) is untouched — terminal onedesk and Claw keep working.
  */
 export async function onedeskLogout(): Promise<void> {
   // invalidate any in-flight recovery first: its re-mint or login must not undo this sign-out

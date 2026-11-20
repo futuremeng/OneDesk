@@ -5,7 +5,7 @@ import type {
   AiChatResponse,
   AiSettings,
   AiStreamChunk,
-  GenSparkAccountStatus,
+  OneDeskAccountStatus,
 } from '@onedesk/ai-provider'
 import type { ProjectApi } from '@onedesk/project-store'
 import type {
@@ -751,20 +751,20 @@ const desktopApi: DesktopApi = {
     if (!requestId) throw new Error('Invalid AI stream request id.')
     await ipcRenderer.invoke(IPC_CHANNELS.aiStreamCancel, requestId)
   },
-  async aiGskStatus(withEmail) {
-    const result: unknown = await ipcRenderer.invoke(IPC_CHANNELS.aiGskStatus, withEmail)
+  async aiOneDeskStatus(withEmail) {
+    const result: unknown = await ipcRenderer.invoke(IPC_CHANNELS.aiOneDeskStatus, withEmail)
     if (!isRecord(result) || typeof result.loggedIn !== 'boolean') {
-      throw new Error('Invalid Genspark account status response.')
+      throw new Error('Invalid OneDesk account status response.')
     }
-    return result as unknown as GenSparkAccountStatus
+    return result as unknown as OneDeskAccountStatus
   },
-  async aiGskLogin() {
-    await ipcRenderer.invoke(IPC_CHANNELS.aiGskLogin)
+  async aiOneDeskLogin() {
+    await ipcRenderer.invoke(IPC_CHANNELS.aiOneDeskLogin)
   },
-  onGskLoginLanded(handler) {
+  onOneDeskLoginLanded(handler) {
     const listener = () => handler()
-    ipcRenderer.on(IPC_CHANNELS.aiGskLoginLanded, listener)
-    return () => ipcRenderer.removeListener(IPC_CHANNELS.aiGskLoginLanded, listener)
+    ipcRenderer.on(IPC_CHANNELS.aiOneDeskLoginLanded, listener)
+    return () => ipcRenderer.removeListener(IPC_CHANNELS.aiOneDeskLoginLanded, listener)
   },
   async webSearch(query, maxResults) {
     if (typeof query !== 'string' || !query.trim() || query.length > 512) {

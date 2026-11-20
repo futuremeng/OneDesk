@@ -21,7 +21,7 @@
       <li>A local-first design: files stay on disk, working offline</li>
     </ul>
   </description>
-  <developer id="ai.genspark">
+  <developer id="ai.onedesk">
     <name>Mainfunc, Inc.</name>
   </developer>
   <launchable type="desktop-id">ltd.jiulu.onedesk.app.desktop</launchable>

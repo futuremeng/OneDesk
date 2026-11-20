@@ -71,7 +71,7 @@ import {
   type AiScopeQuoteData,
   type AiTokenUsageView,
 } from '@onedesk/ui'
-import { GensparkMark } from '../components/icons'
+import { OneDeskMark } from '../components/icons'
 import { showToast } from '../components/toast-bus'
 import sendEnterOn from '../assets/send-enter-on.png'
 import sendEnterOff from '../assets/send-enter-off.png'
@@ -104,7 +104,7 @@ const PASTE_MIME_EXT: Record<string, string> = {
   'image/webp': 'webp',
 }
 
-/** File-type icons for attachment cards (Genspark attachment icon set); exts the
+/** File-type icons for attachment cards (OneDesk attachment icon set); exts the
  *  attachment allowlist doesn't accept yet are mapped ahead so they light up when added */
 
 /** Cap on tool args/output persisted to the transcript (the store layer has another 16k truncation fallback) */
@@ -125,7 +125,7 @@ interface ChatEntry {
   text: string
   error?: string
   streaming?: boolean
-  /** the run failed because Genspark is signed out — render an inline sign-in button */
+  /** the run failed because OneDesk is signed out — render an inline sign-in button */
   loginRequired?: boolean
   tools?: ToolActivity[]
   /** Generation progress card (only one per turn, replaced in real time) */
@@ -252,7 +252,7 @@ const MODEL_BRIDGE: AiModelPickerBridge = {
   getSettings: () => window.slidesApi.getAiSettings(),
   setSettings: (settings) => window.slidesApi.setAiSettings(settings),
   onSettingsChanged: (handler) => window.slidesApi.onAiSettingsChanged(handler),
-  gskLoggedIn: () => window.slidesApi.aiGskStatus().then((s) => !!s?.loggedIn),
+  onedeskLoggedIn: () => window.slidesApi.aiOneDeskStatus().then((s) => !!s?.loggedIn),
   openModelSettings: () => window.slidesApi.openAiModelSettings().catch(() => {}),
 }
 
@@ -312,7 +312,7 @@ export function AiPanel({
   const [attachments, setAttachments] = useState<AttachmentMeta[]>([])
   const [attachedSkills, setAttachedSkills] = useState<string[]>([])
   const [attachNotice, setAttachNotice] = useState<string | null>(null)
-  /** data-URL previews for image attachments, keyed by path (Genspark composer thumbnails) */
+  /** data-URL previews for image attachments, keyed by path (OneDesk composer thumbnails) */
   const [attachmentPreviews, setAttachmentPreviews] = useState<Record<string, string>>({})
   /** image paths with a read already issued — one readAttachmentImage per attach, even while pending */
   const previewRequestedRef = useRef(new Set<string>())
@@ -426,15 +426,15 @@ export function AiPanel({
   const settingsRef = useRef(settings)
   settingsRef.current = settings
 
-  /** gsk login state for the cloud-tools gate (refreshed on mount and window focus) */
-  const gskLoggedInRef = useRef(false)
+  /** onedesk login state for the cloud-tools gate (refreshed on mount and window focus) */
+  const onedeskLoggedInRef = useRef(false)
   useEffect(() => {
     let alive = true
     const refresh = () => {
       void window.slidesApi
-        ?.aiGskStatus()
+        ?.aiOneDeskStatus()
         .then((s) => {
-          if (alive) gskLoggedInRef.current = !!s?.loggedIn
+          if (alive) onedeskLoggedInRef.current = !!s?.loggedIn
         })
         .catch(() => {})
     }
@@ -446,19 +446,19 @@ export function AiPanel({
     }
   }, [])
 
-  // A browser-approved Genspark login landed (from this panel's sign-in button
+  // A browser-approved OneDesk login landed (from this panel's sign-in button
   // or any other surface): confirm it where the user is and retire the inline
   // sign-in buttons — nothing else in an editor view changes visibly on login.
   useEffect(
     () =>
-      window.slidesApi?.onGskLoginLanded?.(() => {
-        gskLoggedInRef.current = true
+      window.slidesApi?.onOneDeskLoginLanded?.(() => {
+        onedeskLoggedInRef.current = true
         setChat((prev) =>
           prev.some((e) => e.loginRequired)
             ? prev.map((e) => (e.loginRequired ? { ...e, loginRequired: false } : e))
             : prev,
         )
-        showToast(tGlobal('aiGskLoginOk'), 'success')
+        showToast(tGlobal('aiOneDeskLoginOk'), 'success')
       }),
     [],
   )
@@ -1221,9 +1221,9 @@ export function AiPanel({
         }
       },
       imageGenAvailable: () =>
-        imageGenerationAvailable(settingsRef.current, gskLoggedInRef.current),
+        imageGenerationAvailable(settingsRef.current, onedeskLoggedInRef.current),
       mediaAnalysisAvailable: () =>
-        mediaAnalysisAvailable(settingsRef.current, gskLoggedInRef.current),
+        mediaAnalysisAvailable(settingsRef.current, onedeskLoggedInRef.current),
       unreadTextAttachments: () =>
         availableAttachments()
           .filter(
@@ -1381,14 +1381,14 @@ export function AiPanel({
             return next
           })
           // Signed-out failures get an inline sign-in button; detected via
-          // gsk status rather than matching the localized error text — but only
-          // when Genspark is the provider: a BYOK user's error (e.g. their own
-          // provider's rate limit) must not advertise a Genspark sign-in (onedesk#1948)
+          // onedesk status rather than matching the localized error text — but only
+          // when OneDesk is the provider: a BYOK user's error (e.g. their own
+          // provider's rate limit) must not advertise a OneDesk sign-in (onedesk#1948)
           void window.slidesApi
-            .aiGskStatus()
+            .aiOneDeskStatus()
             .then((status) => {
               if (status.loggedIn) return
-              if ((settingsRef.current?.provider ?? 'genspark') !== 'genspark') return
+              if ((settingsRef.current?.provider ?? 'onedesk') !== 'onedesk') return
               setChat((prev) => {
                 const next = [...prev]
                 const last = next.at(-1)
@@ -2024,7 +2024,7 @@ export function AiPanel({
         aria-label={t('appAiRailExpand')}
         onClick={onExpand}
       >
-        <GensparkMark size={22} />
+        <OneDeskMark size={22} />
       </button>
     )
   }
@@ -2056,7 +2056,7 @@ export function AiPanel({
       />
       <div className="ai-panel-header">
         <span className="ai-panel-title">
-          <GensparkMark size={22} />
+          <OneDeskMark size={22} />
           {t('aiPanelTitle')}
         </span>
         <div className="ai-panel-header-actions">
@@ -2193,8 +2193,11 @@ export function AiPanel({
                 <div className="ai-msg-error">{t('aiMsgError', { error: entry.error })}</div>
               )}
               {entry.loginRequired && (
-                <button className="ai-login-btn" onClick={() => void window.slidesApi.aiGskLogin()}>
-                  {t('aiGskLoginBtn')}
+                <button
+                  className="ai-login-btn"
+                  onClick={() => void window.slidesApi.aiOneDeskLogin()}
+                >
+                  {t('aiOneDeskLoginBtn')}
                 </button>
               )}
               {entry.deckProgress && <DeckProgressCard progress={entry.deckProgress} />}

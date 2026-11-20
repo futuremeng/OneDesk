@@ -10,9 +10,9 @@ export const hu = {
     'Csiszold át a teljes dokumentumot, hogy professzionálisabb hangvételű legyen',
   aiStarterContinue: 'Folytasd az írást ott, ahol a dokumentum abbahagyta',
   aiStarterFillTemplate: 'Keresd meg és töltsd ki a dokumentum helyőrzőit',
-  aiGskLoginBtn: 'Bejelentkezés a Gensparkba',
-  aiGskLoginOk: 'Bejelentkezve a Gensparkba',
-  aiPanelTitle: 'Genspark',
+  aiOneDeskLoginBtn: 'Bejelentkezés a OneDeskba',
+  aiOneDeskLoginOk: 'Bejelentkezve a OneDeskba',
+  aiPanelTitle: 'OneDesk',
   aiOpenAssistant: 'AI-asszisztens megnyitása',
   aiSummarizeBtn: 'AI-összefoglalás',
   aiSummarizePrompt: 'Foglald össze a dokumentum fő tartalmát és legfontosabb pontjait',
@@ -127,7 +127,7 @@ export const hu = {
   aiNetworkError:
     'Hálózati probléma: nem sikerült elérni az AI-szolgáltatást. Ellenőrizd a kapcsolatot, és próbáld újra',
   aiCreditsExhausted:
-    'Elfogytak a Genspark-kreditjeid. Töltsd fel az egyenlegedet a onedesk.jiulu.ltd/pricing oldalon, majd próbáld újra',
+    'Elfogytak a OneDesk-kreditjeid. Töltsd fel az egyenlegedet a onedesk.jiulu.ltd/pricing oldalon, majd próbáld újra',
   aiSumReadAttachment: 'Melléklet elolvasva',
   aiSumImageAttachment: 'Képmelléklet: {name}',
   aiSumRead: '{name} elolvasva',

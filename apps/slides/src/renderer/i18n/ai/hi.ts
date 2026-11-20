@@ -17,9 +17,9 @@ export const hi = {
   aiQcPageSkipped: 'पेज {n}: स्वचालित लेआउट जाँच छोड़ दी गई',
   aiQcStopped: 'लेआउट जाँच रोक दी गई',
   aiQcCapped: 'शेष {count} पेज नहीं जाँचे गए (प्रति रन सीमा)',
-  aiGskLoginBtn: 'Genspark में साइन इन करें',
-  aiGskLoginOk: 'Genspark में साइन इन हो गए',
-  aiPanelTitle: 'Genspark',
+  aiOneDeskLoginBtn: 'OneDesk में साइन इन करें',
+  aiOneDeskLoginOk: 'OneDesk में साइन इन हो गए',
+  aiPanelTitle: 'OneDesk',
   aiOpenAssistant: 'AI सहायक खोलें',
   aiFactCheckBtn: 'AI तथ्य जाँच',
   aiFactCheckPrompt:
@@ -117,7 +117,7 @@ export const hi = {
   aiErrNetwork:
     'नेटवर्क समस्या: AI सेवा से कनेक्ट नहीं हो सका। कनेक्शन जांचें और फिर से प्रयास करें',
   aiCreditsExhausted:
-    'आपके Genspark क्रेडिट समाप्त हो गए हैं। onedesk.jiulu.ltd/pricing पर रिचार्ज करें और फिर से प्रयास करें',
+    'आपके OneDesk क्रेडिट समाप्त हो गए हैं। onedesk.jiulu.ltd/pricing पर रिचार्ज करें और फिर से प्रयास करें',
   aiErrRequestFailed: 'अनुरोध भेजने में विफल: {msg}',
   aiErrGenerateFailed: 'जनरेशन विफल',
   aiErrRegenFailed: 'स्लाइड फिर से बनाने में विफल',

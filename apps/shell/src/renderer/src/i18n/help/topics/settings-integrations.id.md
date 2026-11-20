@@ -46,10 +46,10 @@ Pengaturan dapat mendaftarkan OneDesk sebagai aplikasi penangan .docx / .xlsx / 
 - Bantuan ▸ Pemberitahuan Perangkat Lunak Pihak Ketiga: inventaris lengkap lisensi OSS yang disertakan dengan aplikasi.
 - Bantuan ▸ Periksa Pembaruan…: memicu pemeriksaan manual; versi yang lebih baru menawarkan dipasang.
 
-## Masuk dengan Genspark
+## Masuk dengan OneDesk
 
 - Jalur masuk (di pengaturan atau di daftar proyek cloud) memakai alur **device-code**: OneDesk menampilkan kode dan membuka login di browser; prosesnya dilanjutkan otomatis setelah selesai.
-- Login hanya dipakai untuk: daftar proyek cloud dan model terkelola Genspark. Tanpa login, semua fitur lokal dan model kustom tetap berfungsi.
+- Login hanya dipakai untuk: daftar proyek cloud dan model terkelola OneDesk. Tanpa login, semua fitur lokal dan model kustom tetap berfungsi.
 - Keluar cukup satu klik di pengaturan.
 
 ## Integrasi MCP (untuk pengguna lanjutan / klien AI)

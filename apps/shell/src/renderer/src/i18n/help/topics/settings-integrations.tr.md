@@ -46,10 +46,10 @@ Ayarlar, OneDesk'i .docx / .xlsx / .pptx / .pdf ve benzerleri için işleyici ol
 - Yardım ▸ Üçüncü taraf bildirimleri: uygulamayla gönderilen tam açık kaynak lisans envanteri.
 - Yardım ▸ Güncellemeleri denetle: elle denetimi tetikler; daha yeni bir sürüm yükleme ister.
 
-## Genspark oturum açma
+## OneDesk oturum açma
 
 - Oturum açma girişi (ayarlar veya bulut proje listesi) bir **cihaz kodu** akışı kullanır: OneDesk bir kod gösterir ve tarayıcıda oturum açma sayfasını açar; tamamlandığında otomatik olarak devam eder.
-- Oturum açma yalnızca şunlar için kullanılır: bulut proje listesi ve Genspark'ın barındırılan modelleri. Onsuz her yerel özellik ve özel modeller çalışmaya devam eder.
+- Oturum açma yalnızca şunlar için kullanılır: bulut proje listesi ve OneDesk'ın barındırılan modelleri. Onsuz her yerel özellik ve özel modeller çalışmaya devam eder.
 - Oturumu kapatmak ayarlarda tek tıktır.
 
 ## MCP tümleştirmesi (ileri düzey kullanıcılar / AI istemcileri için)

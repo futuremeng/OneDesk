@@ -152,7 +152,7 @@ import { ZoteroTab } from './ribbon-zotero-tab'
 import type { CommentsMode } from './comments-mode'
 import { WRAP_OPTIONS } from './ContextMenu'
 import {
-  GensparkMark,
+  OneDeskMark,
   IconAlignCenter,
   IconAlignJustify,
   IconAlignLeft,
@@ -3167,7 +3167,7 @@ function RibbonInner({
           </div>
         ) : tab === 'home' ? (
           <>
-            {/* ---- Genspark AI (first slot: entry + one-click AI actions) ---- */}
+            {/* ---- OneDesk AI (first slot: entry + one-click AI actions) ---- */}
             <div className="ribbon-group">
               <div className="ribbon-group-items">
                 <button
@@ -3176,9 +3176,9 @@ function RibbonInner({
                   onClick={aiEntry.run}
                 >
                   <span className="rb-big-icon">
-                    <GensparkMark size={26} />
+                    <OneDeskMark size={26} />
                   </span>
-                  <span>Genspark AI</span>
+                  <span>OneDesk AI</span>
                 </button>
                 <button
                   className="rb-big ai-entry"
@@ -3304,7 +3304,7 @@ function RibbonInner({
                   <span>{t('aiMindMapBtn')}</span>
                 </button>
               </div>
-              <div className="ribbon-group-label">Genspark AI</div>
+              <div className="ribbon-group-label">OneDesk AI</div>
             </div>
 
             <div className="ribbon-sep" />

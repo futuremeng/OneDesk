@@ -705,7 +705,7 @@ describe('streamForProvider: anthropic', () => {
 
   it('replaces an HTML error body (e.g. a gateway block page) with a readable note', async () => {
     const html =
-      '<!doctype html>\n<html>\n<head><title>Genspark</title></head><body>app shell</body></html>'
+      '<!doctype html>\n<html>\n<head><title>OneDesk</title></head><body>app shell</body></html>'
     vi.stubGlobal('fetch', vi.fn().mockResolvedValue(new Response(html, { status: 403 })))
     const { cb } = collector()
     await expect(
@@ -1360,14 +1360,14 @@ describe('streamForProvider: openai-compatible', () => {
   })
 })
 
-describe('streamForProvider: genspark', () => {
+describe('streamForProvider: onedesk', () => {
   it('routes claude models to the Anthropic-compatible proxy endpoint', async () => {
     const fetchMock = vi.fn().mockResolvedValue(okResponse(sseStream([])))
     vi.stubGlobal('fetch', fetchMock)
     const { cb } = collector()
     await streamForProvider(
-      'genspark',
-      { apiKey: 'gsk-k', model: 'claude-opus-4-7' },
+      'onedesk',
+      { apiKey: 'onedesk-k', model: 'claude-opus-4-7' },
       'sys',
       [],
       [],
@@ -1376,7 +1376,7 @@ describe('streamForProvider: genspark', () => {
     ).catch(() => {})
     expect(fetchMock).toHaveBeenCalledWith(
       'https://onedesk.jiulu.ltd/api/anthropic/v1/messages',
-      expect.objectContaining({ headers: expect.objectContaining({ 'x-api-key': 'gsk-k' }) }),
+      expect.objectContaining({ headers: expect.objectContaining({ 'x-api-key': 'onedesk-k' }) }),
     )
   })
 
@@ -1385,8 +1385,8 @@ describe('streamForProvider: genspark', () => {
     vi.stubGlobal('fetch', fetchMock)
     const { cb } = collector()
     await streamForProvider(
-      'genspark',
-      { apiKey: 'gsk-k', model: 'gpt-5.2' },
+      'onedesk',
+      { apiKey: 'onedesk-k', model: 'gpt-5.2' },
       'sys',
       [],
       [],
@@ -1404,9 +1404,15 @@ describe('streamForProvider: genspark', () => {
       const fetchMock = vi.fn().mockResolvedValue(okResponse(sseStream([])))
       vi.stubGlobal('fetch', fetchMock)
       const { cb } = collector()
-      await streamForProvider('genspark', { apiKey: 'gsk-k', model }, 'sys', [], [], 100, cb).catch(
-        () => {},
-      )
+      await streamForProvider(
+        'onedesk',
+        { apiKey: 'onedesk-k', model },
+        'sys',
+        [],
+        [],
+        100,
+        cb,
+      ).catch(() => {})
       expect(fetchMock).toHaveBeenCalledWith(
         expect.anything(),
         expect.objectContaining({
@@ -1482,7 +1488,7 @@ describe('streamForProvider: genspark', () => {
 
 describe('streamForProvider: 200 + non-stream JSON instead of SSE', () => {
   const creditsNotice =
-    'Your Genspark credits have been exhausted. Please visit https://onedesk.jiulu.ltd/pricing to purchase more credits.'
+    'Your OneDesk credits have been exhausted. Please visit https://onedesk.jiulu.ltd/pricing to purchase more credits.'
   const json = (value: unknown) =>
     new Response(JSON.stringify(value), {
       status: 200,
@@ -1703,7 +1709,7 @@ describe('streamForProvider: interleaved-thinking reasoning', () => {
     const reasoning: string[] = []
     const { deltas, cb } = collector()
     await streamForProvider(
-      'genspark',
+      'onedesk',
       { apiKey: 'k', model: 'deep-seek-v4-flash' },
       'sys',
       toolLoopMessages,
@@ -1722,7 +1728,7 @@ describe('streamForProvider: interleaved-thinking reasoning', () => {
     const fetchMock = vi.fn().mockImplementation(() => Promise.resolve(reasoningTurn()))
     vi.stubGlobal('fetch', fetchMock)
     await streamForProvider(
-      'genspark',
+      'onedesk',
       { apiKey: 'k', model: 'gpt-5.6-luna' },
       'sys',
       toolLoopMessages,
@@ -1737,7 +1743,7 @@ describe('streamForProvider: interleaved-thinking reasoning', () => {
 })
 
 describe('streamForProvider: a connection dropped mid tool arguments is not an empty stream', () => {
-  // Tool arguments are buffered upstream; the Genspark gateway closes the SSE
+  // Tool arguments are buffered upstream; the OneDesk gateway closes the SSE
   // after ~125s of that silence. The turn was billed and in progress, so it
   // must not match the "(empty stream)" contract that agent-core replays.
   it('anthropic: open tool_use block with no stop_reason rejects as a dropped connection', async () => {

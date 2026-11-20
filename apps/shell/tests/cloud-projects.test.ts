@@ -2,7 +2,7 @@ import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest'
 import { existsSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
-import { gskListPastProjects, type GskPastProjectsPage } from '@onedesk/ai-search'
+import { onedeskListPastProjects, type OneDeskPastProjectsPage } from '@onedesk/ai-search'
 import {
   cloudStoreOwner,
   clearCloudProjectsStore,
@@ -12,10 +12,10 @@ import {
 
 vi.mock('@onedesk/ai-search', async (importOriginal) => {
   const actual = await importOriginal<typeof import('@onedesk/ai-search')>()
-  return { ...actual, gskListPastProjects: vi.fn() }
+  return { ...actual, onedeskListPastProjects: vi.fn() }
 })
 
-const listMock = vi.mocked(gskListPastProjects)
+const listMock = vi.mocked(onedeskListPastProjects)
 
 const PROJECTS = [
   {
@@ -30,12 +30,12 @@ const PROJECTS = [
 describe('cloud projects store account binding', () => {
   let dir: string
   let storePath: string
-  const envBefore = { key: process.env.GSK_API_KEY, disable: process.env.AI_SEARCH_DISABLE_GSK }
+  const envBefore = { key: process.env.GSK_API_KEY, disable: process.env.AI_SEARCH_DISABLE_ONEDESK }
 
   beforeEach(() => {
     dir = mkdtempSync(join(tmpdir(), 'cloud-store-'))
     storePath = join(dir, 'cloud-projects.json')
-    delete process.env.AI_SEARCH_DISABLE_GSK
+    delete process.env.AI_SEARCH_DISABLE_ONEDESK
     process.env.GSK_API_KEY = 'test-key-account-a'
   })
 
@@ -43,8 +43,8 @@ describe('cloud projects store account binding', () => {
     rmSync(dir, { recursive: true, force: true })
     if (envBefore.key === undefined) delete process.env.GSK_API_KEY
     else process.env.GSK_API_KEY = envBefore.key
-    if (envBefore.disable === undefined) delete process.env.AI_SEARCH_DISABLE_GSK
-    else process.env.AI_SEARCH_DISABLE_GSK = envBefore.disable
+    if (envBefore.disable === undefined) delete process.env.AI_SEARCH_DISABLE_ONEDESK
+    else process.env.AI_SEARCH_DISABLE_ONEDESK = envBefore.disable
   })
 
   const writeStore = (owner: string) => {
@@ -92,9 +92,9 @@ describe('cloud projects store account binding', () => {
 describe('cloud projects sync account isolation', () => {
   let dir: string
   let storePath: string
-  const envBefore = { key: process.env.GSK_API_KEY, disable: process.env.AI_SEARCH_DISABLE_GSK }
+  const envBefore = { key: process.env.GSK_API_KEY, disable: process.env.AI_SEARCH_DISABLE_ONEDESK }
 
-  const pageFor = (title: string): GskPastProjectsPage => ({
+  const pageFor = (title: string): OneDeskPastProjectsPage => ({
     projects: [
       {
         projectId: `id-${title}`,
@@ -111,7 +111,7 @@ describe('cloud projects sync account isolation', () => {
   beforeEach(() => {
     dir = mkdtempSync(join(tmpdir(), 'cloud-sync-'))
     storePath = join(dir, 'cloud-projects.json')
-    delete process.env.AI_SEARCH_DISABLE_GSK
+    delete process.env.AI_SEARCH_DISABLE_ONEDESK
     process.env.GSK_API_KEY = 'test-key-account-a'
     listMock.mockReset()
   })
@@ -120,8 +120,8 @@ describe('cloud projects sync account isolation', () => {
     rmSync(dir, { recursive: true, force: true })
     if (envBefore.key === undefined) delete process.env.GSK_API_KEY
     else process.env.GSK_API_KEY = envBefore.key
-    if (envBefore.disable === undefined) delete process.env.AI_SEARCH_DISABLE_GSK
-    else process.env.AI_SEARCH_DISABLE_GSK = envBefore.disable
+    if (envBefore.disable === undefined) delete process.env.AI_SEARCH_DISABLE_ONEDESK
+    else process.env.AI_SEARCH_DISABLE_ONEDESK = envBefore.disable
   })
 
   it('writes the store bound to the account that synced', async () => {
@@ -189,9 +189,9 @@ describe('cloud projects sync account isolation', () => {
   })
 
   it('does not share an in-flight sync across accounts', async () => {
-    const gates: Array<(page: GskPastProjectsPage) => void> = []
+    const gates: Array<(page: OneDeskPastProjectsPage) => void> = []
     listMock.mockImplementation(
-      () => new Promise<GskPastProjectsPage>((resolve) => gates.push(resolve)),
+      () => new Promise<OneDeskPastProjectsPage>((resolve) => gates.push(resolve)),
     )
 
     const first = syncCloudProjects(storePath)

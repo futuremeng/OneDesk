@@ -60,7 +60,7 @@ beforeEach(async () => {
     onAccountLogin: () => () => {},
     kbList: async () => [],
     aiGetSettings: async () => defaultAiSettings(),
-    aiGskStatus: async () => ({ loggedIn: false }),
+    aiOneDeskStatus: async () => ({ loggedIn: false }),
     onAiSettingsChanged: () => () => {},
   } as unknown as Window['aiOffice']
   container = document.createElement('div')

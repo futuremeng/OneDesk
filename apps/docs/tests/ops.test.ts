@@ -83,7 +83,7 @@ function fixtureDoc(): JsonNode[] {
         docxIndex: 0,
       },
     ),
-    para([text('GenSpark intro,'), text('GenSpark is great', [{ type: 'bold' }])], {
+    para([text('TestWord intro,'), text('TestWord is great', [{ type: 'bold' }])], {
       docxIndex: 1,
     }),
     heading([text('Risk Notes')], 2, { docxIndex: 2 }),
@@ -298,24 +298,24 @@ describe('findReplace', () => {
   it('replaces every occurrence and keeps marks', () => {
     const editor = createEditor(fixtureDoc())
     const outcome = executeOps(editor, [
-      { op: 'findReplace', find: 'GenSpark', replace: 'Genspark' },
+      { op: 'findReplace', find: 'TestWord', replace: 'Testword' },
     ])
     expect(outcome.ok).toBe(true)
     expect(outcome.results[0].detail).toBe('Replaced 2 occurrence(s)')
     const block = editor.state.doc.child(1)
-    expect(block.textContent).toBe('Genspark intro,Genspark is great')
+    expect(block.textContent).toBe('Testword intro,Testword is great')
     const boldChild = block.child(block.childCount - 1)
     expect(boldChild.marks.some((m) => m.type.name === 'bold')).toBe(true)
   })
 
   it('matchCase: sensitive by default, insensitive when false', () => {
     const editor = createEditor(fixtureDoc())
-    const strict = executeOps(editor, [{ op: 'findReplace', find: 'genspark', replace: 'X' }])
+    const strict = executeOps(editor, [{ op: 'findReplace', find: 'testword', replace: 'X' }])
     expect(strict.results[0].changed).toBe(0)
-    expect(editor.state.doc.child(1).textContent).toContain('GenSpark')
+    expect(editor.state.doc.child(1).textContent).toContain('TestWord')
 
     const loose = executeOps(editor, [
-      { op: 'findReplace', find: 'genspark', replace: 'X', matchCase: false },
+      { op: 'findReplace', find: 'testword', replace: 'X', matchCase: false },
     ])
     expect(loose.results[0].detail).toBe('Replaced 2 occurrence(s)')
     expect(editor.state.doc.child(1).textContent).toBe('X intro,X is great')
@@ -392,10 +392,10 @@ describe('findReplace', () => {
 
   it('matches across runs case-insensitively', () => {
     const editor = createEditor([
-      para([text('GEN', [{ type: 'bold' }]), text('spark')], { docxIndex: 0 }),
+      para([text('TEST', [{ type: 'bold' }]), text('word')], { docxIndex: 0 }),
     ])
     const outcome = executeOps(editor, [
-      { op: 'findReplace', find: 'genspark', replace: 'X', matchCase: false },
+      { op: 'findReplace', find: 'testword', replace: 'X', matchCase: false },
     ])
     expect(outcome.ok).toBe(true)
     expect(editor.state.doc.child(0).textContent).toBe('X')
@@ -443,13 +443,13 @@ describe('updateMatchedTextStyle', () => {
   it('merges docTextStyle attrs per match without wiping existing ones', () => {
     const editor = createEditor([
       para([
-        text('keep GenSpark styled', [{ type: 'docTextStyle', attrs: { sizeHalfPoints: 32 } }]),
+        text('keep TestWord styled', [{ type: 'docTextStyle', attrs: { sizeHalfPoints: 32 } }]),
       ]),
     ])
-    executeOps(editor, [{ op: 'setMatchedFont', text: 'GenSpark', color: 'FF0000' }])
+    executeOps(editor, [{ op: 'setMatchedFont', text: 'TestWord', color: 'FF0000' }])
     let styled: Record<string, unknown> | null = null
     editor.state.doc.child(0).forEach((child) => {
-      if (child.isText && child.text === 'GenSpark') {
+      if (child.isText && child.text === 'TestWord') {
         styled = child.marks.find((m) => m.type.name === 'docTextStyle')?.attrs ?? null
       }
     })
@@ -459,12 +459,12 @@ describe('updateMatchedTextStyle', () => {
   it('rejects invalid baselineOffset and malformed link like updateTextStyle does', () => {
     const editor = createEditor(fixtureDoc())
     const badBaseline = executeOps(editor, [
-      { op: 'setMatchedFont', text: 'GenSpark', baseline: 'MIDDLE' },
+      { op: 'setMatchedFont', text: 'TestWord', baseline: 'MIDDLE' },
     ] as never)
     expect(badBaseline.ok).toBe(false)
     expect(badBaseline.error).toContain('baseline')
     const badLink = executeOps(editor, [
-      { op: 'setMatchedFont', text: 'GenSpark', link: 'https://example.com' },
+      { op: 'setMatchedFont', text: 'TestWord', link: 'https://example.com' },
     ] as never)
     expect(badLink.ok).toBe(false)
     expect(badLink.error).toContain('link')
@@ -563,7 +563,7 @@ describe('envelope validation', () => {
     const editor = createEditor(fixtureDoc())
     const before = JSON.stringify(editor.getJSON())
     const outcome = executeOps(editor, [
-      { op: 'findReplace', find: 'GenSpark', replace: 'X' },
+      { op: 'findReplace', find: 'TestWord', replace: 'X' },
       { op: 'insertTable', rows: 2 },
     ])
     expect(outcome.ok).toBe(false)
@@ -608,7 +608,7 @@ describe('transaction atomicity and aiChanged', () => {
     const before = JSON.stringify(editor.getJSON())
     const outcome = executeOps(editor, [
       { op: 'setFont', target: { nodeType: 'docHeading' }, color: 'FF0000' },
-      { op: 'findReplace', find: 'GenSpark', replace: 'Genspark' },
+      { op: 'findReplace', find: 'TestWord', replace: 'Testword' },
       { op: 'deleteBlocks', target: { blockIndexes: [3] } },
     ])
     expect(outcome.ok).toBe(true)
@@ -831,7 +831,7 @@ describe('setImageProperties', () => {
 })
 
 describe('partial selection (character-precise scope)', () => {
-  // block 1 = 'GenSpark intro,' + bold 'GenSpark is great'; content starts at pos 21
+  // block 1 = 'TestWord intro,' + bold 'TestWord is great'; content starts at pos 21
   const BLOCK1_CONTENT = 21
   const styleOfText = (editor: Editor, blockIndex: number, needle: string) => {
     const block = editor.state.doc.child(blockIndex)
@@ -856,10 +856,10 @@ describe('partial selection (character-precise scope)', () => {
     expect(outcome.results[0]).toMatchObject({ matched: 1, changed: 1 })
     const block = editor.state.doc.child(1)
     expect(block.childCount).toBe(3)
-    expect(block.child(0).text).toBe('GenSpark intro,')
-    expect(block.child(1).text).toBe('GenSpark ')
-    expect(styleOfText(editor, 1, 'GenSpark intro,')).toBeNull()
-    expect(styleOfText(editor, 1, 'GenSpark ')).toBeNull()
+    expect(block.child(0).text).toBe('TestWord intro,')
+    expect(block.child(1).text).toBe('TestWord ')
+    expect(styleOfText(editor, 1, 'TestWord intro,')).toBeNull()
+    expect(styleOfText(editor, 1, 'TestWord ')).toBeNull()
     expect(styleOfText(editor, 1, 'is great')).toMatchObject({ color: 'FF0000' })
     // the bold of the enclosing run survives on the styled slice
     expect(block.child(2).marks.some((m) => m.type.name === 'bold')).toBe(true)
@@ -900,7 +900,7 @@ describe('partial selection (character-precise scope)', () => {
     ])
     expect(outcome.results[0].changed).toBe(1)
     expect(editor.state.doc.child(1).attrs.align).toBe('right')
-    expect(editor.state.doc.child(1).textContent).toBe('GenSpark intro,GenSpark is great')
+    expect(editor.state.doc.child(1).textContent).toBe('TestWord intro,TestWord is great')
   })
 
   it('a frozen selection with positions stays character-precise even after the live selection moved', () => {
@@ -919,7 +919,7 @@ describe('partial selection (character-precise scope)', () => {
       },
     })
     expect(styleOfText(editor, 1, 'is great')).toMatchObject({ color: 'FF0000' })
-    expect(styleOfText(editor, 1, 'GenSpark intro,')).toBeNull()
+    expect(styleOfText(editor, 1, 'TestWord intro,')).toBeNull()
     expect(styleOfText(editor, 3, 'Body paragraph')).toBeNull()
   })
 
@@ -928,34 +928,34 @@ describe('partial selection (character-precise scope)', () => {
     executeOps(editor, [{ op: 'setFont', target: { scope: 'selection' }, color: 'FF0000' }], {
       selection: { startIndex: 1, endIndex: 1 },
     })
-    expect(styleOfText(editor, 1, 'GenSpark intro,')).toMatchObject({ color: 'FF0000' })
-    expect(styleOfText(editor, 1, 'GenSpark is great')).toMatchObject({ color: 'FF0000' })
+    expect(styleOfText(editor, 1, 'TestWord intro,')).toMatchObject({ color: 'FF0000' })
+    expect(styleOfText(editor, 1, 'TestWord is great')).toMatchObject({ color: 'FF0000' })
   })
 
   it('replaceAllText scoped to a partial selection skips matches outside the selected span', () => {
     const editor = createEditor(fixtureDoc())
-    // select the second run 'GenSpark is great' (offsets 15..32)
+    // select the second run 'TestWord is great' (offsets 15..32)
     editor.commands.setTextSelection({ from: BLOCK1_CONTENT + 15, to: BLOCK1_CONTENT + 32 })
     const outcome = executeOps(editor, [
-      { op: 'findReplace', find: 'GenSpark', replace: 'Acme', target: { scope: 'selection' } },
+      { op: 'findReplace', find: 'TestWord', replace: 'Acme', target: { scope: 'selection' } },
     ])
     expect(outcome.ok).toBe(true)
-    expect(editor.state.doc.child(1).textContent).toBe('GenSpark intro,Acme is great')
+    expect(editor.state.doc.child(1).textContent).toBe('TestWord intro,Acme is great')
   })
 
   it('updateMatchedTextStyle scoped to a partial selection styles only matches inside the span', () => {
     const editor = createEditor(fixtureDoc())
     editor.commands.setTextSelection({ from: BLOCK1_CONTENT + 15, to: BLOCK1_CONTENT + 32 })
     executeOps(editor, [
-      { op: 'setMatchedFont', text: 'GenSpark', target: { scope: 'selection' }, italic: true },
+      { op: 'setMatchedFont', text: 'TestWord', target: { scope: 'selection' }, italic: true },
     ])
     const block = editor.state.doc.child(1)
     const italic: string[] = []
     block.forEach((child) => {
       if (child.marks.some((m) => m.type.name === 'italic')) italic.push(child.text ?? '')
     })
-    expect(italic).toEqual(['GenSpark'])
-    expect(block.child(0).text).toBe('GenSpark intro,')
+    expect(italic).toEqual(['TestWord'])
+    expect(block.child(0).text).toBe('TestWord intro,')
     expect(block.child(0).marks.some((m) => m.type.name === 'italic')).toBe(false)
   })
 })

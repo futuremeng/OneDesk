@@ -7,9 +7,9 @@ import type {
 
 export const AI_SEARCH_PROVIDERS: AiSearchProviderMeta[] = [
   {
-    id: 'genspark',
-    label: 'Genspark',
-    keyPlaceholder: 'Not required - sign in to Genspark',
+    id: 'onedesk',
+    label: 'OneDesk',
+    keyPlaceholder: 'Not required - sign in to OneDesk',
     imageSearch: true,
   },
   { id: 'serper', label: 'Serper', keyPlaceholder: 'Serper API key', imageSearch: true },
@@ -26,7 +26,7 @@ export const AI_SEARCH_PROVIDERS: AiSearchProviderMeta[] = [
 
 export function defaultAiSearchSettings(): AiSearchSettings {
   return {
-    provider: 'genspark',
+    provider: 'onedesk',
     providers: {
       serper: { apiKey: '' },
       serply: { apiKey: '' },
@@ -64,14 +64,14 @@ export function resolveAiSearchSettings(
 
 /**
  * Parallel and Keenable can run keylessly; other custom providers require a key or fall back
- * to Genspark.
+ * to OneDesk.
  */
 export function activeSearchProvider(settings: Pick<AiSettings, 'search'>): AiSearchProviderId {
   const search = settings.search
-  if (!search || search.provider === 'genspark') return 'genspark'
-  if (!AI_SEARCH_PROVIDERS.some((m) => m.id === search.provider)) return 'genspark'
+  if (!search || search.provider === 'onedesk') return 'onedesk'
+  if (!AI_SEARCH_PROVIDERS.some((m) => m.id === search.provider)) return 'onedesk'
   if (search.provider === 'parallel' || search.provider === 'keenable') return search.provider
   // Trim-aware: a whitespace-only key from in-memory settings falls back
   // instead of sending `Bearer    ` to the search backend.
-  return search.providers?.[search.provider]?.apiKey?.trim() ? search.provider : 'genspark'
+  return search.providers?.[search.provider]?.apiKey?.trim() ? search.provider : 'onedesk'
 }

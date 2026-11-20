@@ -27,7 +27,7 @@ const fallback = () =>
   new Response('<a class="result__a" href="https://fallback.example.com">Fallback</a>')
 
 beforeEach(() => {
-  vi.stubEnv('AI_SEARCH_DISABLE_GSK', '1')
+  vi.stubEnv('AI_SEARCH_DISABLE_ONEDESK', '1')
   for (const key of [
     'SERPER_API_KEY',
     'SERPLY_API_KEY',
@@ -48,7 +48,7 @@ describe('Serply web search', () => {
     const fetch = vi.fn<typeof globalThis.fetch>(async () => webResponse())
     vi.stubGlobal('fetch', fetch)
     const r = await webSearch('onedesk', 5, {
-      useGsk: false,
+      useOneDesk: false,
       serplyKey: 'user-key',
       serperKey: 'serper-key',
       prefer: 'serply',
@@ -99,7 +99,7 @@ describe('Serply web search', () => {
       }),
     )
     const r = await webSearch('onedesk', 3, {
-      useGsk: false,
+      useOneDesk: false,
       serplyKey: 'bad-key',
       prefer: 'serply',
     })
@@ -132,7 +132,7 @@ describe('Serply image search', () => {
     )
     vi.stubGlobal('fetch', fetch)
     const r = await imageSearch('eiffel tower', 2, {
-      useGsk: false,
+      useOneDesk: false,
       serplyKey: 'user-key',
       serperKey: 'serper-key',
       prefer: 'serply',
@@ -176,7 +176,7 @@ describe('Serply image search', () => {
         })
       }),
     )
-    const r = await imageSearch('cats', 3, { useGsk: false, serplyKey: 'a', serperKey: 'b' })
+    const r = await imageSearch('cats', 3, { useOneDesk: false, serplyKey: 'a', serperKey: 'b' })
     expect(r.method).toBe('serper')
     expect(urls).toEqual(['https://google.serper.dev/images'])
   })
@@ -193,7 +193,7 @@ describe('Serply settings wiring', () => {
       },
     }
     expect(searchOptionsFromSettings(settings)).toEqual({
-      useGsk: false,
+      useOneDesk: false,
       serplyKey: 'k',
       prefer: 'serply',
     })

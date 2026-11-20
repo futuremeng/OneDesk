@@ -1,7 +1,7 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import type { AgentMessage } from '@onedesk/agent-core'
 import { streamAnthropic } from '../src/protocols/anthropic'
-import { GENSPARK_LLM_BASE_URLS } from '../src/providers'
+import { ONEDESK_LLM_BASE_URLS } from '../src/providers'
 import { okResponse, sseStream } from './test-utils'
 
 afterEach(() => {
@@ -64,8 +64,8 @@ describe('anthropic prompt-cache breakpoints', () => {
     ])
   })
 
-  it('marks requests to the Genspark proxy', async () => {
-    const body = await requestBody(GENSPARK_LLM_BASE_URLS.anthropic)
+  it('marks requests to the OneDesk proxy', async () => {
+    const body = await requestBody(ONEDESK_LLM_BASE_URLS.anthropic)
     expect(JSON.stringify(body)).toContain('cache_control')
   })
 

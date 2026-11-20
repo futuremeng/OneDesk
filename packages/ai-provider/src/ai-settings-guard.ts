@@ -5,7 +5,7 @@
  * cliPath probe). SECURITY.md promises payloads are schema-checked in the main
  * process; a compromised renderer must not be able to plant an arbitrary
  * cliPath (later spawn()ed by the Codex app-server) or a baseUrl that would
- * receive the user's gsk bearer token. Electron-free so unit tests can import
+ * receive the user's onedesk bearer token. Electron-free so unit tests can import
  * it directly.
  *
  * Coercion follows the file's own house style (String() narrowing like the
@@ -221,7 +221,8 @@ export function sanitizeAiSettings(input: unknown): AiSettings | null {
     provider: provider as AiProviderId,
     providers,
   }
-  if (typeof raw.gskToolsEnabled === 'boolean') settings.gskToolsEnabled = raw.gskToolsEnabled
+  if (typeof raw.onedeskToolsEnabled === 'boolean')
+    settings.onedeskToolsEnabled = raw.onedeskToolsEnabled
   const customEndpoints = sanitizeCustomEndpoints(raw.customEndpoints)
   if (customEndpoints.length > 0) {
     settings.customEndpoints = customEndpoints
