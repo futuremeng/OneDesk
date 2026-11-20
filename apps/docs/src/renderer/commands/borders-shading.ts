@@ -1,4 +1,4 @@
-import { shdPatternDisplay, type ParaBorderLine } from '@genoffice/docx-engine'
+import { shdPatternDisplay, type ParaBorderLine } from '@onedesk/docx-engine'
 
 export const BORDER_SIDES = ['t', 'b', 'l', 'r'] as const
 export type BorderSide = (typeof BORDER_SIDES)[number]

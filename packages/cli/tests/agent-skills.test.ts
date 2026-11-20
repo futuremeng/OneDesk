@@ -20,13 +20,13 @@ import {
   type SkillLedger,
 } from '../src/agent-skills'
 
-const skillText = (version: string, body = 'Run `genoffice --version` first.') =>
-  `---\nname: genoffice\ndescription: test\nmetadata:\n  version: ${version}\n  cli: '>=0.4.0'\n---\n\n${body}\n`
+const skillText = (version: string, body = 'Run `onedesk --version` first.') =>
+  `---\nname: onedesk\ndescription: test\nmetadata:\n  version: ${version}\n  cli: '>=0.4.0'\n---\n\n${body}\n`
 
 const bundled = (version = '1.2.0') => bundledSkillFrom(Buffer.from(skillText(version)))
 
 function home(): string {
-  return mkdtempSync(join(tmpdir(), 'genoffice-skills-'))
+  return mkdtempSync(join(tmpdir(), 'onedesk-skills-'))
 }
 
 describe('detectAgents', () => {
@@ -66,7 +66,7 @@ describe('detectAgents', () => {
     expect(agentTarget('gemini', {}, h)).toBeNull()
     expect(agentTarget('copilot', {}, h)).toBeNull()
     expect(agentTarget('opencode', {}, h)).toBeNull()
-    // `genoffice mcp` still reaches the per-tool dotfolders
+    // `onedesk mcp` still reaches the per-tool dotfolders
     expect(agentConfigDir('codex', {}, h)).toBe(join(h, '.codex'))
     expect(agentConfigDir('cursor', {}, h)).toBe(join(h, '.cursor'))
     expect(agentConfigDir('gemini', {}, h)).toBe(join(h, '.gemini'))
@@ -96,7 +96,7 @@ describe('detectAgents', () => {
 describe('parseSkillFrontmatter / compareVersions', () => {
   it('reads name and metadata.version', () => {
     expect(parseSkillFrontmatter(skillText('2.1.0'))).toEqual({
-      name: 'genoffice',
+      name: 'onedesk',
       version: '2.1.0',
     })
     expect(parseSkillFrontmatter('---\nname: other\n---\nx')).toEqual({
@@ -123,7 +123,7 @@ describe('readInstallState', () => {
 
     // our install, current
     const path = installSkill(dir, b, ledger)
-    expect(path).toBe(join(dir, 'genoffice', 'SKILL.md'))
+    expect(path).toBe(join(dir, 'onedesk', 'SKILL.md'))
     expect(readFileSync(path, 'utf-8')).toBe(b.text)
     expect(ledger[path]).toMatchObject({ version: '1.2.0', sha256: b.sha256, channel: 'app' })
     expect(readInstallState(dir, b, ledger)).toMatchObject({
@@ -162,7 +162,7 @@ describe('readInstallState', () => {
     // the folder holds something else
     writeFileSync(path, '---\nname: other-skill\n---\n')
     expect(readInstallState(dir, b, ledger).status).toBe('occupied')
-    mkdirSync(join(dir, 'genoffice', 'nested'))
+    mkdirSync(join(dir, 'onedesk', 'nested'))
     writeFileSync(path, 'not a skill at all')
     expect(readInstallState(dir, b, ledger).status).toBe('occupied')
   })
@@ -174,16 +174,16 @@ describe('uninstallSkill', () => {
     const b = bundled()
     const ledger: SkillLedger = {}
     // foreign file: never touched
-    mkdirSync(join(dir, 'genoffice'), { recursive: true })
-    writeFileSync(join(dir, 'genoffice', 'SKILL.md'), skillText('1.0.0'))
+    mkdirSync(join(dir, 'onedesk'), { recursive: true })
+    writeFileSync(join(dir, 'onedesk', 'SKILL.md'), skillText('1.0.0'))
     expect(uninstallSkill(dir, ledger)).toBe(false)
-    expect(existsSync(join(dir, 'genoffice', 'SKILL.md'))).toBe(true)
+    expect(existsSync(join(dir, 'onedesk', 'SKILL.md'))).toBe(true)
 
     const path = installSkill(dir, b, ledger)
-    writeFileSync(join(dir, 'genoffice', 'notes.txt'), 'mine')
+    writeFileSync(join(dir, 'onedesk', 'notes.txt'), 'mine')
     expect(uninstallSkill(dir, ledger)).toBe(true)
     expect(existsSync(path)).toBe(false)
-    expect(existsSync(join(dir, 'genoffice', 'notes.txt'))).toBe(true)
+    expect(existsSync(join(dir, 'onedesk', 'notes.txt'))).toBe(true)
     expect(ledger[path]).toBeUndefined()
 
     installSkill(dir, b, ledger)
@@ -191,17 +191,17 @@ describe('uninstallSkill', () => {
     const dir2 = join(home(), 'skills')
     const p2 = installSkill(dir2, b, ledger)
     expect(uninstallSkill(dir2, ledger)).toBe(true)
-    expect(existsSync(join(dir2, 'genoffice'))).toBe(false)
+    expect(existsSync(join(dir2, 'onedesk'))).toBe(false)
     expect(existsSync(p2)).toBe(false)
   })
 })
 
 describe('buildSkillZip', () => {
-  it('holds genoffice/SKILL.md with the exact bundled bytes', async () => {
+  it('holds onedesk/SKILL.md with the exact bundled bytes', async () => {
     const b = bundled('1.2.0')
     const zip = await JSZip.loadAsync(await buildSkillZip(b))
-    expect(Object.keys(zip.files).filter((f) => !zip.files[f]!.dir)).toEqual(['genoffice/SKILL.md'])
-    expect(await zip.file('genoffice/SKILL.md')!.async('string')).toBe(b.text)
+    expect(Object.keys(zip.files).filter((f) => !zip.files[f]!.dir)).toEqual(['onedesk/SKILL.md'])
+    expect(await zip.file('onedesk/SKILL.md')!.async('string')).toBe(b.text)
   })
 })
 
@@ -213,8 +213,8 @@ describe('the legacy per-tool skill copies', () => {
     // a copy this app wrote in the old layout
     installSkill(join(h, '.codex', 'skills'), b, ledger)
     // a copy in a folder the ledger does not know: not ours to touch
-    mkdirSync(join(h, '.gemini', 'skills', 'genoffice'), { recursive: true })
-    writeFileSync(join(h, '.gemini', 'skills', 'genoffice', 'SKILL.md'), 'hand written\n')
+    mkdirSync(join(h, '.gemini', 'skills', 'onedesk'), { recursive: true })
+    writeFileSync(join(h, '.gemini', 'skills', 'onedesk', 'SKILL.md'), 'hand written\n')
 
     const found = findLegacySkillCopies(ledger, {}, h)
     expect(found.map((c) => c.agent)).toEqual(['codex'])
@@ -238,7 +238,7 @@ describe('the legacy per-tool skill copies', () => {
     expect(sweep.removed.map((c) => c.agent)).toEqual(['codex'])
     expect(sweep.kept.map((c) => c.agent)).toEqual(['cursor'])
     expect(existsSync(codexPath)).toBe(false)
-    expect(existsSync(join(h, '.codex', 'skills', 'genoffice'))).toBe(false)
+    expect(existsSync(join(h, '.codex', 'skills', 'onedesk'))).toBe(false)
     expect(existsSync(cursorPath)).toBe(true)
     expect(ledger[codexPath]).toBeUndefined()
     expect(ledger[cursorPath]).toBeDefined()

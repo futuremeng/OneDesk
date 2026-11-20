@@ -1,6 +1,6 @@
 import type { Editor } from '@tiptap/core'
 import { NodeSelection } from '@tiptap/pm/state'
-import { runPictureAltOf } from '@genoffice/docx-engine'
+import { runPictureAltOf } from '@onedesk/docx-engine'
 import { autoCropDataUrl } from './auto-crop'
 import { replaceSelectedPictureBytes } from './picture-bytes'
 

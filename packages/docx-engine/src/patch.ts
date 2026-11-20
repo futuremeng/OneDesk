@@ -6,7 +6,7 @@ import {
   cleanMoveRangeMarkers,
   resolvePropChangeXml,
 } from './revision-xml'
-import { REDACT_EL, REDACT_NS, REDACT_PREFIX } from '@genoffice/agent-core/redact-range'
+import { REDACT_EL, REDACT_NS, REDACT_PREFIX } from '@onedesk/agent-core/redact-range'
 import {
   applyImageWrap,
   generateParagraphXml,
@@ -953,7 +953,7 @@ export async function saveDocx(
       // the final save drops orphan move-range markers (cleanStoryMoveRanges);
       // a document that only carries them must not take the no-op shortcut, or
       // an accept / reject would report success yet save the junk back
-      // (genoffice#2554: the markers ride in the body, so the body is the check)
+      // (onedesk#2554: the markers ride in the body, so the body is the check)
       if (cleanMoveRangeMarkers(documentXml).removed === 0) return originalBytes
     } else {
       const plan = await planRemoveParts(originalBytes, options.removeParts)
@@ -1789,7 +1789,7 @@ export async function saveDocx(
           },
     )
     // comment pictures: the bytes land as media parts and their relationships
-    // live in the comments part's own rels file, not the document's (genoffice#2040)
+    // live in the comments part's own rels file, not the document's (onedesk#2040)
     const commentsFile = zip.file(commentsPath)
     const imageRuns = new Map<string, string>()
     const imageComments = withParaIds.filter((c) => c.image)
@@ -2719,7 +2719,7 @@ export async function saveDocx(
   const out = new JSZip()
   for (const [name, entry] of Object.entries(zip.files)) {
     // source folder entries are not copied over: Word does not write them and
-    // they carry no content (genoffice#2554). JSZip still auto-creates folder
+    // they carry no content (onedesk#2554). JSZip still auto-creates folder
     // entries for every nested out.file() below — those are stripped right
     // before the generate at the end.
     if (entry.dir) continue
@@ -2859,7 +2859,7 @@ export async function saveDocx(
   if (options.properties) await applyPropertyChanges(out, options.properties)
   // Word does not write folder entries and they carry no content: JSZip
   // auto-creates one per nested part, so drop them from the flat files map
-  // before the single generate pass (genoffice#2554)
+  // before the single generate pass (onedesk#2554)
   for (const [name, entry] of Object.entries(out.files)) if (entry.dir) delete out.files[name]
   return out.generateAsync({
     type: 'uint8array',
@@ -3786,7 +3786,7 @@ function maxBookmarkId(documentXml: string): number {
 /**
  * Seed for the docPr sequence counter, which new pictures pre-increment to mint
  * `DOCPR_ID_BASE + ++docPrSeq`. The media count says nothing about the ids the
- * original producer used: seeded from it alone, a document with no GenOffice
+ * original producer used: seeded from it alone, a document with no OneDesk
  * media always started at the base, so a save that inserted one picture next to
  * an existing <wp:docPr id="9002"> emitted a second id 9002, and Word flags the
  * duplicate drawing id for repair. Start above both floors instead.

@@ -1,4 +1,4 @@
-import { DEFAULT_MATH_PR, type MathLimits, type MathPr } from '@genoffice/docx-engine'
+import { DEFAULT_MATH_PR, type MathLimits, type MathPr } from '@onedesk/docx-engine'
 
 let limits: MathLimits = {}
 

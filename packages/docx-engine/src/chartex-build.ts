@@ -1,4 +1,4 @@
-import { colLetter } from '@genoffice/pptx-engine/chart-workbook'
+import { colLetter } from '@onedesk/pptx-engine/chart-workbook'
 import type { ChartexLayout, NewChart } from './types'
 import { escapeXmlText } from './xml-utils'
 

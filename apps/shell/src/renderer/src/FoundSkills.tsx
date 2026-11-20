@@ -1,17 +1,17 @@
 import { useCallback, useEffect, useId, useRef, useState } from 'react'
 import type { CSSProperties, ReactNode } from 'react'
 import { createPortal } from 'react-dom'
-import { Markdown } from '@genoffice/ui'
-import '@genoffice/ui/markdown.css'
+import { Markdown } from '@onedesk/ui'
+import '@onedesk/ui/markdown.css'
 import { useModalFocus } from './use-modal-focus'
 import { useSlidingIndicator } from './settings-fx'
 import type { StringKey, TFunc } from './locale'
 import type { FoundSkill, RecommendedSkill } from '../../shared/found-skill'
 
 /**
- * The skills the user installed into GenOffice.
+ * The skills the user installed into OneDesk.
  *
- * Only GenOffice's own folder is listed. A skill gets in one way: the user
+ * Only OneDesk's own folder is listed. A skill gets in one way: the user
  * picks a folder or a zip and presses Import. Nothing on this screen runs
  * anything.
  */

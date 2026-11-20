@@ -1,4 +1,4 @@
-import type { SectionSettings, ThemeColors, ThemeFonts } from '@genoffice/docx-engine'
+import type { SectionSettings, ThemeColors, ThemeFonts } from '@onedesk/docx-engine'
 
 /** Format > Document > Default…: the page setup new blank documents start with */
 export interface PageDefault {

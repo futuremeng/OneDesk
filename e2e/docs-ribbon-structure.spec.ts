@@ -116,7 +116,7 @@ test.describe('docs ribbon structure', () => {
   let dir: string
 
   test.beforeEach(() => {
-    dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-ribbon-structure-')))
+    dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-ribbon-structure-')))
   })
   test.afterEach(() => {
     rmSync(dir, { recursive: true, force: true })
@@ -131,7 +131,7 @@ test.describe('docs ribbon structure', () => {
       videoDir: 'docs-ribbon-structure',
       openFile: docPath,
       // the Zotero tab follows what the machine has installed; pin it on
-      env: { GENOFFICE_ZOTERO: '1' },
+      env: { ONEDESK_ZOTERO: '1' },
     })
     const { app } = launched
     try {
@@ -179,7 +179,7 @@ test.describe('docs ribbon structure', () => {
       onboardingSeen: true,
       videoDir: 'docs-ribbon-no-zotero',
       openFile: docPath,
-      env: { GENOFFICE_ZOTERO: '0' },
+      env: { ONEDESK_ZOTERO: '0' },
     })
     try {
       const page = await waitForPageWithUrl(launched.app, '://docs/')

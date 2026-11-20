@@ -1,6 +1,6 @@
 {
-  "name": "@genoffice/docs",
-  "productName": "GenOffice Docs",
+  "name": "@onedesk/docs",
+  "productName": "OneDesk Docs",
   "version": "0.1.0",
   "license": "Apache-2.0",
   "private": true,
@@ -19,14 +19,14 @@
   },
   "devDependencies": {
     "@fluentui/svg-icons": "1.1.346",
-    "@genoffice/agent-core": "*",
-    "@genoffice/i18n": "*",
-    "@genoffice/ai-provider": "*",
-    "@genoffice/ai-search": "*",
-    "@genoffice/docx-engine": "*",
-    "@genoffice/file-parse": "*",
-    "@genoffice/project-store": "*",
-    "@genoffice/ui": "*",
+    "@onedesk/agent-core": "*",
+    "@onedesk/i18n": "*",
+    "@onedesk/ai-provider": "*",
+    "@onedesk/ai-search": "*",
+    "@onedesk/docx-engine": "*",
+    "@onedesk/file-parse": "*",
+    "@onedesk/project-store": "*",
+    "@onedesk/ui": "*",
     "@tiptap/core": "3.31.0",
     "@tiptap/extensions": "3.31.0",
     "@tiptap/pm": "3.31.0",
@@ -48,10 +48,10 @@
     "vite": "^7.3.7",
     "vitest": "^4.1.12"
   },
-  "author": "GenOffice",
+  "author": "OneDesk",
   "build": {
-    "appId": "com.genoffice.docs",
-    "productName": "GenOffice Docs",
+    "appId": "ltd.jiulu.onedesk.docs",
+    "productName": "OneDesk Docs",
     "electronVersion": "43.3.0",
     "artifactName": "AIDocx-${version}-${arch}.${ext}",
     "directories": {
@@ -92,13 +92,13 @@
     }
   },
   "dependencies": {
-    "@genoffice/electron-utils": "*",
-    "@genoffice/font-metrics": "*",
+    "@onedesk/electron-utils": "*",
+    "@onedesk/font-metrics": "*",
     "electron-updater": "^6.8.9",
     "pdf-lib": "^1.17.1",
     "pdfjs-dist": "^6.2.108",
-    "@genoffice/pptx-render": "*",
-    "@genoffice/xlsx-gateway": "*",
-    "@genoffice/agent-core": "*"
+    "@onedesk/pptx-render": "*",
+    "@onedesk/xlsx-gateway": "*",
+    "@onedesk/agent-core": "*"
   }
 }

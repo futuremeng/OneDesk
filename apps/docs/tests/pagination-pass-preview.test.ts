@@ -15,12 +15,7 @@ import { readdirSync, readFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { describe, expect, it } from 'vitest'
-import {
-  parseDocx,
-  readSections,
-  type ParsedDoc,
-  type SectionSettings,
-} from '@genoffice/docx-engine'
+import { parseDocx, readSections, type ParsedDoc, type SectionSettings } from '@onedesk/docx-engine'
 import {
   applyBlockMeta,
   pageCutDiffs,

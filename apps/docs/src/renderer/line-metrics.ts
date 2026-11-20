@@ -25,7 +25,7 @@
 
 import { isEastAsianFaceName, isJapaneseFaceName, isKoreanFaceName } from './text-layout/face-info'
 import { openDocumentText } from './text-layout/open-document'
-import type { DocGrid } from '@genoffice/docx-engine'
+import type { DocGrid } from '@onedesk/docx-engine'
 import { LINE_GRIDS } from './char-grid'
 import {
   isCjkLetterChar,
@@ -33,7 +33,7 @@ import {
   isEastAsianChar,
   isHangulChar,
   textHasEastAsian,
-} from '@genoffice/docx-engine'
+} from '@onedesk/docx-engine'
 import {
   SEGOE_SYMBOL_CSS,
   declaredFaceMetrics,

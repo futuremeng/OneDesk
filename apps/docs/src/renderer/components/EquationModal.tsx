@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react'
 import type { Editor } from '@tiptap/core'
-import { latexToOmml, ommlToMathML } from '@genoffice/docx-engine'
+import { latexToOmml, ommlToMathML } from '@onedesk/docx-engine'
 import { t, useI18n, type StringKey } from '../i18n/locale'
 import { autoCaptionInserted } from '../editor/auto-caption'
 import { equationBlockJson, inlineEquationNodeJson } from '../editor/equation'

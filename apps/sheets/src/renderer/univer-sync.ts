@@ -54,24 +54,24 @@ import type {
   StyleColorInput,
   SetDataValidationOperation,
   SetHyperlinkOperation,
-} from '@genoffice/xlsx-gateway/domain/workbook-dsl'
+} from '@onedesk/xlsx-gateway/domain/workbook-dsl'
 import {
   columnIndex,
   columnLabel,
   parseAddress,
   parseRange,
   rangeCellCount,
-} from '@genoffice/xlsx-gateway/domain/cell-address'
-import { splitSheetRef, type CellBounds } from '@genoffice/xlsx-gateway/domain/chart-visual'
-import { InMemoryWorkbookAdapter } from '@genoffice/xlsx-gateway/domain/in-memory-workbook'
-import { normalizeStyleColor, resolveStyleColor } from '@genoffice/xlsx-gateway/domain/style-color'
-import { WORST_FIRST_ICON_SETS } from '@genoffice/xlsx-gateway/gateway/xlsx-cf'
+} from '@onedesk/xlsx-gateway/domain/cell-address'
+import { splitSheetRef, type CellBounds } from '@onedesk/xlsx-gateway/domain/chart-visual'
+import { InMemoryWorkbookAdapter } from '@onedesk/xlsx-gateway/domain/in-memory-workbook'
+import { normalizeStyleColor, resolveStyleColor } from '@onedesk/xlsx-gateway/domain/style-color'
+import { WORST_FIRST_ICON_SETS } from '@onedesk/xlsx-gateway/gateway/xlsx-cf'
 import type {
   CellFormatState,
   CellScalar,
   CellState,
   WorkbookSnapshot,
-} from '@genoffice/xlsx-gateway/domain/workbook.types'
+} from '@onedesk/xlsx-gateway/domain/workbook.types'
 import type {
   WorkbookCellStyle,
   WorkbookCfState,
@@ -125,7 +125,7 @@ import {
 import { isPlainArithmeticFormula } from './formula-cached-fallback'
 import { degradeQuadraticFormulaCells } from './formula-cost'
 import { extractFunctionNames } from './formula-functions'
-import { DEFAULT_SHORT_DATE, setSystemShortDate } from '@genoffice/xlsx-gateway/shared/short-date'
+import { DEFAULT_SHORT_DATE, setSystemShortDate } from '@onedesk/xlsx-gateway/shared/short-date'
 import { getWorkbookMdw, REORDER_JOURNAL_MAX_CELLS, setWorkbookMdw } from './app-constants'
 import { excelRowPitchPx } from './autofit-line-pitch'
 import { batchWrapRowHeights, createUniverWrapMeasurer } from './wrap-row-height-batch'
@@ -3560,7 +3560,7 @@ async function loadRange(
       }
     } else if (isActiveSheet(runtime, sheetId)) {
       // every row is available: the streaming notice clears instead of
-      // lingering after the load with the session's internal file name (genoffice#2841)
+      // lingering after the load with the session's internal file name (onedesk#2841)
       setMessage('')
     }
   } catch (error: unknown) {
@@ -4470,7 +4470,7 @@ export function usesLocaleDependentFunction(formula: string): boolean {
 /// Whether a formula's cached <v> must be kept instead of recalculated:
 /// Google-only, locale-dependent or unsupported functions, defined names and
 /// table references. The verdict only applies when the cell has a cache — with
-/// nothing to keep, the engine's attempt beats a blank cell (genoffice#2125).
+/// nothing to keep, the engine's attempt beats a blank cell (onedesk#2125).
 const keepsCacheMemo = new Map<string, boolean>()
 
 /// Window onto the running formula engine's function registry. Installed
@@ -5064,7 +5064,7 @@ export function patchWorksheetRangeInner(
       // SELECTION — conditional formatting strips the selected cells from
       // every rule, a rule-range rectangle decomposition that costs seconds
       // per eviction on wide rules and permanently fragments the rule
-      // (genoffice#158). Eviction is internal bookkeeping; only cells move.
+      // (onedesk#158). Eviction is internal bookkeeping; only cells move.
       // Engine-owned closure cells must survive the eviction ({} is a merge
       // no-op, so pinned cells stay untouched — clearing and re-installing a
       // formula re-dirties its whole dependency web).
@@ -5493,7 +5493,7 @@ interface PivotBand {
 
 /// Excel keeps pivot styling out of cell xfs entirely; paint the style bands
 /// resolved sidecar-side from pivotTableStyleInfo (calibrated against Excel
-/// for Mac: genoffice-sample/sheets/calib/pivot-style-truths.json).
+/// for Mac: onedesk-sample/sheets/calib/pivot-style-truths.json).
 ///
 /// Precedence, lowest first: wholeTable, row stripe, column stripe,
 /// firstColumn (row-label columns), subheading / subtotal, header (+ the
@@ -8309,7 +8309,7 @@ export function lazyCellEditable(
 }
 
 /**
- * Applies an external-links update (genoffice#2109): installs the freshly
+ * Applies an external-links update (onedesk#2109): installs the freshly
  * computed values into the recalc overlay so the grid shows them and the
  * next save writes them as the formulas' cached `<v>` — the stored `[n]`
  * formula text is untouched. Each cell's `kind` keeps its type: a boolean
@@ -8380,7 +8380,7 @@ export interface ExternalLinkLiteralJournal {
 type CellMatrix = { [row: number]: { [column: number]: ICellData | null } }
 
 /**
- * Breaks one link's cells in the model (genoffice#2109): every formula cell
+ * Breaks one link's cells in the model (onedesk#2109): every formula cell
  * the usage scan reported becomes the literal its cached `<v>` holds, through
  * the set-range-values command so the edit journal records a literal
  * overwrite. A cell whose cache is an error or empty stays on the formula —

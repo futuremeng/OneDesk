@@ -1,10 +1,7 @@
 import { describe, expect, it } from 'vitest'
 
-import {
-  applyVisualEdits,
-  VisualEditError,
-} from '@genoffice/xlsx-gateway/gateway/xlsx-drawing-edit'
-import type { MutablePackage } from '@genoffice/xlsx-gateway/gateway/xlsx-drawing-add'
+import { applyVisualEdits, VisualEditError } from '@onedesk/xlsx-gateway/gateway/xlsx-drawing-edit'
+import type { MutablePackage } from '@onedesk/xlsx-gateway/gateway/xlsx-drawing-add'
 
 const ANCHOR = {
   fromRow: 2,

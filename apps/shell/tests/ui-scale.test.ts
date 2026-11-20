@@ -21,7 +21,7 @@ const {
 } = await import('../src/main/ui-scale')
 
 /**
- * The interface scale (genoffice#1913): the user's "make the UI bigger" preference, and
+ * The interface scale (onedesk#1913): the user's "make the UI bigger" preference, and
  * the arithmetic behind the View menu.
  *
  * The setting lives in a plain JSON file a user can hand-edit, so reading it
@@ -98,7 +98,7 @@ describe('readUiScale', () => {
   })
 
   it('treats a missing settings file as no scaling', () => {
-    expect(readUiScale(join(tmpdir(), 'genoffice-does-not-exist', 'app-settings.json'))).toBe(1)
+    expect(readUiScale(join(tmpdir(), 'onedesk-does-not-exist', 'app-settings.json'))).toBe(1)
   })
 
   const rejected: readonly (readonly [string, unknown])[] = [

@@ -75,7 +75,7 @@ export const IPC_CHANNELS = {
   updateExternalLinks: 'workbook:update-external-links',
   readExternalLinkUsage: 'workbook:read-external-link-usage',
   selectExternalLinkSource: 'workbook:select-external-link-source',
-  /// Cross-workbook range picking (genoffice#2109): the tab editing a formula
+  /// Cross-workbook range picking (onedesk#2109): the tab editing a formula
   /// arms a pick, the user clicks a range in another workbook's tab, main
   /// relays the selection back and re-activates the editing tab.
   listWorkbookTabs: 'workbook:list-tabs',

@@ -2,7 +2,7 @@ import JSZip from 'jszip'
 import { isEastAsianLangTag } from './char-class'
 import type { JSZipObject } from 'jszip'
 import { LAZY_MEDIA_PLACEHOLDER_BYTES, lazyMediaHashOf, lazyMediaUrl } from './lazy-media'
-import { parseCustGeom } from '@genoffice/pptx-engine/custgeom'
+import { parseCustGeom } from '@onedesk/pptx-engine/custgeom'
 import { parseChartPartXml } from './chart'
 import { findInkRuns, stripInkRuns } from './ink'
 import { isMetafileMime, metafileToDataUrl } from './metafile'
@@ -4903,7 +4903,7 @@ function extractRuns(
             const eq = eqField(fieldInstr)!
             pushRun({ ...resultFormat(), text: eq.text, math: { omml: eq.omml } }, rev)
           } else if (fieldInstr.trim() === '') {
-            // an instruction-less field (genoffice#2099 left citations this way)
+            // an instruction-less field (onedesk#2099 left citations this way)
             // keeps its result as an empty-instruction run, not a passthrough
             pushRun(
               {
@@ -7249,7 +7249,7 @@ const FIELD_TOKEN_RE =
 /**
  * The complex fields of a part, as a tree. A field's span runs from its begin
  * to the end that closes it — counting the nested fields, so a child's end
- * does not close the parent (genoffice#2458). Each field carries only its own
+ * does not close the parent (onedesk#2458). Each field carries only its own
  * instruction text: a nested child's instruction belongs to the child.
  */
 function parseFieldTree(xml: string): FieldFrame[] {
@@ -7340,7 +7340,7 @@ function renderField(xml: string, field: FieldFrame, page: { hasPageNumber: bool
   const emit = (inner: string) => `</w:r>${inner}<w:r>`
   // classify by the leading keyword: a nested child field's PAGE inside a
   // DOCPROPERTY instruction must not make the parent a PAGE field
-  // (genoffice#2458 — the span is matched by nesting depth, so the parent's
+  // (onedesk#2458 — the span is matched by nesting depth, so the parent's
   // instruction is its own and the child's instruction stays the child's)
   if (/^\s*SECTIONPAGES\b/.test(field.instr)) {
     return emit(`<w:r>${rPr}<w:t>${SECTION_PAGES_MARK}</w:t></w:r>`)
@@ -7397,7 +7397,7 @@ function hfContentFromXml(
   // page numbers), so only the Choice branch feeds text/paragraph extraction
   let cleaned = xml.replace(/<mc:Fallback[^>]*>[\s\S]*?<\/mc:Fallback>/g, '')
   // rewrite the complex fields by nesting depth: a child's end must not close
-  // its parent (genoffice#2458 — the lazy begin-to-end span stopped at the
+  // its parent (onedesk#2458 — the lazy begin-to-end span stopped at the
   // nested end and took the child's separate/cache for the parent's)
   if (cleaned.includes('<w:fldChar')) {
     const page = { hasPageNumber: false }
@@ -7726,7 +7726,7 @@ function hfParagraphs(
       })
     }
     const boxed = hasDeepChild(pNode, TXBX_CONTENT) ? textboxParagraphs(pNode, ctx) : []
-    // runs carrying only w:rPr are a blank line like a bare w:p (genoffice#2116)
+    // runs carrying only w:rPr are a blank line like a bare w:p (onedesk#2116)
     if (
       runs.length === 0 &&
       !hfOnlyEmptyRuns(pNode) &&

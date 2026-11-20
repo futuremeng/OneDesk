@@ -1,5 +1,5 @@
 import { useState, type ReactNode } from 'react'
-import { formatNumber, type CustomNumberingLevel } from '@genoffice/docx-engine'
+import { formatNumber, type CustomNumberingLevel } from '@onedesk/docx-engine'
 import { useI18n, type StringKey } from '../i18n/locale'
 import {
   libraryCardCustomized,

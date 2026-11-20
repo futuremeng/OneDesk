@@ -4,7 +4,7 @@
  * unknown-name tail; plus the dual / East Asian-only / complex-script run
  * chains (INVENTORY-fonts C1-C11).
  */
-import { faceKey, latinSlotSubstitute } from '@genoffice/font-metrics/resolve'
+import { faceKey, latinSlotSubstitute } from '@onedesk/font-metrics/resolve'
 import { ARABIC_NAME_RE, THAI_FONT_RE } from '../../font-name-patterns'
 import { resolveDeclaredFace } from '../../font-resolve'
 import {
@@ -196,7 +196,7 @@ function substituteFontFamily(font: string): string | null {
 }
 
 /** declared name -> the installed face's other spellings, canonical first;
-    null until the main process answers (genoffice#2449) */
+    null until the main process answers (onedesk#2449) */
 let fontAliasLookup: ((name: string) => readonly string[] | null) | null = null
 
 export function setFontAliasLookup(fn: (name: string) => readonly string[] | null): void {

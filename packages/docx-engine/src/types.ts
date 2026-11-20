@@ -441,7 +441,7 @@ export interface Run {
 }
 
 /** One comment from word/comments.xml (read-only display model). */
-/** a picture inside a comment: shown under the comment's text and saved back into it (genoffice#2040) */
+/** a picture inside a comment: shown under the comment's text and saved back into it (onedesk#2040) */
 export interface CommentImage {
   mime: NewImage['mime']
   /** the picture bytes, base64 */

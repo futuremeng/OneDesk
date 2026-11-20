@@ -1,5 +1,5 @@
 import type { KeyboardEvent } from 'react'
-import { mergeFieldInstruction } from '@genoffice/docx-engine'
+import { mergeFieldInstruction } from '@onedesk/docx-engine'
 import type { MergeDataSource } from '../../shared/ipc'
 import { useI18n } from '../i18n/locale'
 import {
@@ -29,7 +29,7 @@ import type { MergeRange } from '../mail-merge/range'
  * of a record and the merge.
  *
  * The app holds what the user picked (the data source), which record the
- * preview shows and the merge panel; the tab runs the commands. genoffice#2097.
+ * preview shows and the merge panel; the tab runs the commands. onedesk#2097.
  */
 
 export interface MailingsTabProps {

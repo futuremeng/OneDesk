@@ -1,5 +1,5 @@
 import { useContext, useRef, useState } from 'react'
-import { type SectionSettings } from '@genoffice/docx-engine'
+import { type SectionSettings } from '@onedesk/docx-engine'
 import { MarginDialog, marginsFitPage, type PageMargins } from './MarginDialog'
 import { LengthInput } from './LengthInput'
 import { PaperSizeDialog } from './PaperSizeDialog'

@@ -163,7 +163,7 @@ function normalizeItemId(value: string): string {
  * Parts the package structurally depends on (Word repairs or refuses a file
  * without them): the property parts and thumbnail the package root relates,
  * and the document-structure parts a saved document always carries
- * (genoffice#2554). An explicit path that names one is a refusal, not an
+ * (onedesk#2554). An explicit path that names one is a refusal, not an
  * unknown path. docProps/custom.xml is deliberately absent: it is optional in
  * OPC and Word opens a package without it, it is what a pre-filing scrub
  * exists to remove (matter IDs and DMS tags live there), and the pass already
@@ -212,7 +212,7 @@ async function wantedParts(
   }
   // a customXml data store rides with its itemProps part: removing item1.xml
   // alone would orphan itemProps1.xml and skip the dataBinding check
-  // (genoffice#2554)
+  // (onedesk#2554)
   for (const path of [...paths]) {
     const m = /^customXml\/item(?!Props)([^/]*)\.xml$/i.exec(path)
     if (!m) continue

@@ -6,7 +6,7 @@ let pending: Promise<readonly string[]> | null = null
 
 /** declared family name -> the other spellings of the face behind it, the
  *  canonical (en-US) one first. The map is filled from the main process, which
- *  reads the installed faces' name tables (genoffice#2449). */
+ *  reads the installed faces' name tables (onedesk#2449). */
 const aliasMap = new Map<string, readonly string[]>()
 const aliasListeners = new Set<(names: readonly string[]) => void>()
 
@@ -27,7 +27,7 @@ setFontAliasLookup((name) => aliasMap.get(aliasKey(name)) ?? null)
 /**
  * Ask the main process for the other spellings of the installed faces behind
  * these names. The answer comes over IPC, so it lands after the first layout:
- * the subscribers re-style the document when it does (genoffice#2449).
+ * the subscribers re-style the document when it does (onedesk#2449).
  */
 export function resolveFontAliases(names: readonly string[]): Promise<void> {
   if (!names.length) return Promise.resolve()
@@ -91,7 +91,7 @@ let pendingAliases: Promise<void> = Promise.resolve()
 /**
  * Resolves when the alias request of the last open has settled. The headless
  * export waits for it: the map lands after the first layout, and the export
- * must not run against the fallback layout the alias replaces (genoffice#2449).
+ * must not run against the fallback layout the alias replaces (onedesk#2449).
  */
 export function fontAliasesSettled(timeoutMs = 30_000): Promise<void> {
   return Promise.race([
@@ -113,7 +113,7 @@ async function queryFamilies(): Promise<readonly string[] | null> {
     // the query needs transient user activation; a document open may not have
     // any, so the query rejects. A rejected query must not be cached: the
     // pickers would keep an empty system-font list for the rest of the
-    // page's life (genoffice#2449).
+    // page's life (onedesk#2449).
     return null
   }
 }

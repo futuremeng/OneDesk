@@ -4,7 +4,7 @@
  */
 import { afterAll, beforeAll, describe, expect, it } from 'vitest'
 import { DOMSerializer } from '@tiptap/pm/model'
-import type { TableModel, TextboxDisplay } from '@genoffice/docx-engine'
+import type { TableModel, TextboxDisplay } from '@onedesk/docx-engine'
 import { renderTableSpec, renderTextboxSpec } from '../src/renderer/editor/protected-render'
 import { setOpenDocumentText } from '../src/renderer/text-layout/open-document'
 

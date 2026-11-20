@@ -17,7 +17,7 @@ import {
   type FSWatcher,
 } from 'node:fs'
 import { basename, dirname, extname, join, resolve, sep } from 'node:path'
-import { copyFileExclusiveSync } from '@genoffice/electron-utils/copy-file'
+import { copyFileExclusiveSync } from '@onedesk/electron-utils/copy-file'
 import type {
   FolderEntry,
   FolderListing,
@@ -30,7 +30,7 @@ import type {
 import { isValidRenameName } from './rename-validation'
 import { PerFolderWatch } from './per-folder-watch'
 import { statPathEntries } from './recent-files'
-import { mkdirDirs } from '@genoffice/electron-utils'
+import { mkdirDirs } from '@onedesk/electron-utils'
 
 /** files the home tree shows; mirrors the shell's open-dialog filter */
 export const TREE_FILE_EXTENSIONS: ReadonlySet<string> = new Set([
@@ -63,7 +63,7 @@ export const TREE_FILE_EXTENSIONS: ReadonlySet<string> = new Set([
 const HIDDEN_DIR_NAMES = new Set(['node_modules', '__macosx'])
 const HIDDEN_FILE_NAMES = new Set(['thumbs.db', 'desktop.ini'])
 /** the Markdown / HTML apps' image folder is app-owned when it holds this manifest */
-const MD_ASSET_MANIFEST = '.genoffice-assets.json'
+const MD_ASSET_MANIFEST = '.onedesk-assets.json'
 
 export function isSupportedTreeFile(name: string): boolean {
   return TREE_FILE_EXTENSIONS.has(extname(name).slice(1).toLowerCase())

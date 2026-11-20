@@ -55,7 +55,7 @@ for (const [name, body] of [
 ] as const) {
   test(`${name}: the document opens with a caret before the picture`, async () => {
     test.setTimeout(120_000)
-    const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-leading-picture-')))
+    const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-leading-picture-')))
     const docPath = join(dir, 'picture.docx')
     writeFileSync(docPath, await fixture(body))
     const launched = await launchShell({

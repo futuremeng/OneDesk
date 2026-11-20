@@ -5,29 +5,29 @@
  * AI proposes; every function receives its App-scope context explicitly.
  */
 import { IUndoRedoService } from '@univerjs/core'
-import type { CellBounds } from '@genoffice/xlsx-gateway/domain/chart-visual'
+import type { CellBounds } from '@onedesk/xlsx-gateway/domain/chart-visual'
 import {
   columnIndex,
   columnLabel,
   formatAddress,
   parseAddress,
   parseRange,
-} from '@genoffice/xlsx-gateway/domain/cell-address'
-import { offsetFormulaRefs } from '@genoffice/xlsx-gateway/domain/formula-shift'
-import { MAX_GRID_COLUMNS, MAX_GRID_ROWS } from '@genoffice/xlsx-gateway/shared/grid-bounds'
-import { computeSortedRowOrder } from '@genoffice/xlsx-gateway/domain/sort-range'
+} from '@onedesk/xlsx-gateway/domain/cell-address'
+import { offsetFormulaRefs } from '@onedesk/xlsx-gateway/domain/formula-shift'
+import { MAX_GRID_COLUMNS, MAX_GRID_ROWS } from '@onedesk/xlsx-gateway/shared/grid-bounds'
+import { computeSortedRowOrder } from '@onedesk/xlsx-gateway/domain/sort-range'
 import {
   copyTargetBounds,
   filteredCopySourceRows,
   matchableCellText,
   replaceOccurrences,
   type WorkbookOperation,
-} from '@genoffice/xlsx-gateway/domain/workbook-dsl'
+} from '@onedesk/xlsx-gateway/domain/workbook-dsl'
 import type {
   ApplyOutcome,
   ChangePlan,
   StructuralChange,
-} from '@genoffice/xlsx-gateway/domain/workbook.types'
+} from '@onedesk/xlsx-gateway/domain/workbook.types'
 import { pushBulkFillUndo } from './bulk-fill-undo'
 import {
   journalCellContentAt,
@@ -62,7 +62,7 @@ import { effectiveSheetProtection, mergeSheetProtectionAllow } from './sheet-pro
 import {
   hashSheetPassword,
   verifySheetPassword,
-} from '@genoffice/xlsx-gateway/gateway/xlsx-protection-hash'
+} from '@onedesk/xlsx-gateway/gateway/xlsx-protection-hash'
 import type {
   ActiveWorkbook,
   LazyWorkbookState,

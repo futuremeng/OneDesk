@@ -1,5 +1,5 @@
 import { afterEach, beforeAll, describe, expect, it } from 'vitest'
-import type { HfParagraph } from '@genoffice/docx-engine'
+import type { HfParagraph } from '@onedesk/docx-engine'
 import { makeGapHfEl } from '../src/renderer/editor/hf-dom'
 import {
   docHyphenationSig,

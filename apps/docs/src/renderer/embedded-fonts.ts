@@ -1,4 +1,4 @@
-import type { EmbeddedFont, EmbeddedFontLineMetrics } from '@genoffice/docx-engine'
+import type { EmbeddedFont, EmbeddedFontLineMetrics } from '@onedesk/docx-engine'
 import { noteEmbeddedFontsChanged } from './line-metrics'
 import { setEmbeddedLineMetrics } from './text-layout/font-rules'
 

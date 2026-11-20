@@ -1,7 +1,7 @@
 import { afterEach, describe, expect, it } from 'vitest'
 import { Editor } from '@tiptap/core'
 import JSZip from 'jszip'
-import { parseDocx, saveDocx } from '@genoffice/docx-engine'
+import { parseDocx, saveDocx } from '@onedesk/docx-engine'
 import { buildDocx } from '../../../packages/docx-engine/tests/helpers/build-docx'
 import { allowDirtyFields } from '../../../packages/docx-engine/tests/helpers/dirty-fields'
 import { blocksToPmDoc, pmDocToSavePlan, type PmNode } from '../src/renderer/editor/convert'

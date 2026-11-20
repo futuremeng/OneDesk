@@ -7,7 +7,7 @@ import {
   buildBlankDocx,
   parseDocx,
   saveDocx,
-} from '@genoffice/docx-engine'
+} from '@onedesk/docx-engine'
 import { allowDirtyFields } from '../../../packages/docx-engine/tests/helpers/dirty-fields'
 import { blocksToPmDoc, pmDocToSavePlan, type PmNode } from '../src/renderer/editor/convert'
 import { executeTool } from '../src/renderer/ai/tools'

@@ -1,5 +1,5 @@
 import { useState, type CSSProperties, type MutableRefObject, type ReactNode } from 'react'
-import type { SectionSettings } from '@genoffice/docx-engine'
+import type { SectionSettings } from '@onedesk/docx-engine'
 import { useI18n, type StringKey } from '../i18n/locale'
 import { useModalKeys } from './modal-keys'
 import {

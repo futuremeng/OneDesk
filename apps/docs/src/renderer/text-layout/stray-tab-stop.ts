@@ -9,7 +9,7 @@
  * the edge; a title that passes the stop collapses the tab and the number
  * follows it, wrapping only when it would cross the edge.
  */
-import type { TabStop } from '@genoffice/docx-engine'
+import type { TabStop } from '@onedesk/docx-engine'
 
 export type StrayTabPlan =
   /** Chromium tab-size grid from the content edge: the first stop past the indent sizes it */

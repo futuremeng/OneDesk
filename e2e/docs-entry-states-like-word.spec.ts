@@ -393,7 +393,7 @@ async function readOnlyDocx(body: string): Promise<Buffer> {
 
 test('a read-only document keeps Replace… and Thesaurus… live; neither changes it', async () => {
   test.setTimeout(180_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-entry-states-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-entry-states-')))
   const docPath = join(dir, 'protected.docx')
   writeFileSync(docPath, await readOnlyDocx(BODY))
   const before = readFileSync(docPath)

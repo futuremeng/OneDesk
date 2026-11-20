@@ -110,7 +110,7 @@ import {
   type TextboxListMarker,
   TEXTBOX_VERTS,
   rubyAlignOf,
-} from '@genoffice/docx-engine'
+} from '@onedesk/docx-engine'
 import {
   substituteBullet,
   markerFallbackFace,
@@ -1595,7 +1595,7 @@ export const DocListItem = Node.create({
         }),
       },
       // our own clipboard HTML: renderHTML emits <div class="doc-li …">, which
-      // no rule matched before r117 — pasting a GenOffice list item degraded it
+      // no rule matched before r117 — pasting a OneDesk list item degraded it
       // to plain text. kind/ilvl ride in data-para; classes are the fallback.
       {
         tag: 'div.doc-li',
@@ -3660,7 +3660,7 @@ export const DocTable = Node.create({
         },
         // prosemirror-tables previews a column drag by writing px widths onto the
         // colgroup and table; without this ProseMirror treats that as foreign DOM
-        // and redraws the table from the model on every mousemove (genoffice#1156)
+        // and redraws the table from the model on every mousemove (onedesk#1156)
         ignoreMutation: (mutation) => {
           if (mutation.type === 'selection') return false
           const { target } = mutation
@@ -8139,7 +8139,7 @@ export const editorExtensions = [
   NativeTableSupport,
   // after NativeTableSupport on purpose: its border drags (column resize,
   // row height) preventDefault on their mousedown, so the chain stops before
-  // the cross-cell drag can arm over them (genspark-ai/genoffice#2329)
+  // the cross-cell drag can arm over them (genspark-ai/onedesk#2329)
   CrossCellDrag,
   TableHandle,
   TrackChangesExtension,

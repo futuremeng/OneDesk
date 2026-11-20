@@ -6,7 +6,7 @@ import {
   type HfImage,
   type HfParagraph,
   type Run,
-} from '@genoffice/docx-engine'
+} from '@onedesk/docx-engine'
 import { useI18n } from '../i18n/locale'
 import { docHyphenationSig, onDocHyphenationChange } from '../editor/hyphenation'
 import {

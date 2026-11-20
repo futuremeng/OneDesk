@@ -57,7 +57,7 @@ const css = (page: Page, selector: string, prop: string) =>
 
 test('underline style and colour, emphasis mark and OpenType features apply, save and read back', async () => {
   test.setTimeout(180_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-font-gaps-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-font-gaps-')))
   const docPath = join(dir, 'font.docx')
   writeFileSync(
     docPath,
@@ -170,7 +170,7 @@ test('underline style and colour, emphasis mark and OpenType features apply, sav
 
 test('Default… keeps the font for new blank documents', async () => {
   test.setTimeout(180_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-font-gaps-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-font-gaps-')))
   const docPath = join(dir, 'default.docx')
   writeFileSync(docPath, await docxWith(para('apple')))
   const launched = await launchShell({

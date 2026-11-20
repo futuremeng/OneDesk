@@ -11,7 +11,7 @@ import type {
   AiStreamChunk,
   AiStreamRequest,
   CodexModelCatalog,
-} from '@genoffice/ai-provider'
+} from '@onedesk/ai-provider'
 import type { UpdateChannel, UpdateUiState } from './update-api'
 import type {
   AttachmentInfo,
@@ -21,8 +21,8 @@ import type {
   KbFileInfo,
   KbReadPage,
   KbSearchHit,
-} from '@genoffice/agent-core'
-import type { AiPanelPrefs } from '@genoffice/ui/ai-panel-prefs'
+} from '@onedesk/agent-core'
+import type { AiPanelPrefs } from '@onedesk/ui/ai-panel-prefs'
 
 export interface AttachmentAddResult {
   accepted: AttachmentInfo[]
@@ -46,7 +46,7 @@ export interface AttachmentImageResult {
   error?: string
 }
 
-/** UI language; kept self-contained here (mirrors Lang in @genoffice/i18n) */
+/** UI language; kept self-contained here (mirrors Lang in @onedesk/i18n) */
 
 export type UiLanguage =
   | 'zh'
@@ -77,14 +77,14 @@ export type UiLanguage =
 export type UiTheme = 'light' | 'dark' | 'system'
 
 /**
- * Document page theme preference (genoffice#1811): what the editors' canvas/paper does
+ * Document page theme preference (onedesk#1811): what the editors' canvas/paper does
  * relative to the UI theme. 'follow' reproduces the previous single-theme
  * behavior; 'light'/'dark' pin the paper regardless of the UI theme.
  */
 export type DocTheme = 'follow' | 'light' | 'dark'
 
 /** shell-wide AutoSave default for every editor; updatedAt is 0 until first set */
-/** mirrors AUTHOR_NAME_MAX in @genoffice/electron-utils (the renderer cannot import it) */
+/** mirrors AUTHOR_NAME_MAX in @onedesk/electron-utils (the renderer cannot import it) */
 export const AUTHOR_NAME_MAX = 120
 
 /** mirrors PDF_DEFAULT_ZOOMS in electron-utils; kept literal so the renderer never pulls node code */
@@ -110,7 +110,7 @@ export interface AutoSaveDefault {
 export {
   CSV_IMPORT_DEFAULT_LIMIT_MB,
   CSV_IMPORT_LIMIT_CHOICES_MB,
-} from '@genoffice/xlsx-gateway/gateway/csv-limits'
+} from '@onedesk/xlsx-gateway/gateway/csv-limits'
 
 /** local MCP server state (persisted in userData/app-settings.json) */
 export interface McpStatus {
@@ -292,7 +292,7 @@ export interface HomeApi {
   // ---- knowledge-base ask panel: the reader's starred corpus, askable ----
   /** the starred corpus as the AI's knowledge base */
   kbList(): Promise<KbFileInfo[]>
-  /** the skills the user installed into GenOffice */
+  /** the skills the user installed into OneDesk */
   skillsList(): Promise<UserSkillEntry[]>
   /** one installed skill's body, by name */
   skillText(name: string): Promise<string>
@@ -310,7 +310,7 @@ export interface HomeApi {
   }): Promise<{ path: string }>
   /** the work and output directories the Ask AI CLI tools use for one conversation */
   kbCliContext(sessionId: string): Promise<CliContext>
-  /** run the bundled genoffice CLI for one conversation (confined; see main/home-cli.ts);
+  /** run the bundled onedesk CLI for one conversation (confined; see main/home-cli.ts);
    *  `sources` are the attached files whose folders the CLI may read */
   kbRunCli(
     sessionId: string,
@@ -425,7 +425,7 @@ export interface HomeApi {
   getTheme(): Promise<UiTheme>
   /** switch + persist the UI theme; broadcasts 'app:theme-changed' to all web contents */
   setTheme(theme: UiTheme): Promise<void>
-  /** current document page theme preference (genoffice#1811, persisted in userData/app-settings.json) */
+  /** current document page theme preference (onedesk#1811, persisted in userData/app-settings.json) */
   getDocumentTheme(): Promise<DocTheme>
   /** switch + persist the document page theme; broadcasts 'app:document-theme-changed' to all web contents */
   setDocumentTheme(theme: DocTheme): Promise<void>
@@ -475,7 +475,7 @@ export interface HomeApi {
   getAiPanelPrefs(): Promise<AiPanelPrefs>
   /** merge + persist; broadcasts 'app:ai-panel-prefs-changed' to all web contents */
   setAiPanelPrefs(patch: Partial<AiPanelPrefs>): Promise<AiPanelPrefs>
-  /** effective default save folder for new/untitled files (configured in userData/app-settings.json, falls back to <Documents>/GenOffice) */
+  /** effective default save folder for new/untitled files (configured in userData/app-settings.json, falls back to <Documents>/OneDesk) */
   getDefaultSaveDir(): Promise<string>
   /** directory picker to change the default save folder; resolves to the new folder, or null when canceled or the pick was unusable */
   pickDefaultSaveDir(): Promise<string | null>

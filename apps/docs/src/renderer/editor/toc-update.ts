@@ -10,7 +10,7 @@ import {
   type FieldTableLine,
   type StyleInfo,
   type TocEntry,
-} from '@genoffice/docx-engine'
+} from '@onedesk/docx-engine'
 import { collectHeadings } from './headings'
 import { documentStyleId } from './table-formats'
 import { tableLeaderOf, tocEntryField, tocPlan, type TableSpec, type TocPlan } from './index-tables'

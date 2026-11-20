@@ -12,7 +12,7 @@ import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Stage, Layer, Rect, Group } from 'react-konva'
 import type Konva from 'konva'
 import type { Context } from 'konva/lib/Context'
-import type { RenderNode, RenderSlide, ShapeRenderNode } from '@genoffice/pptx-render'
+import type { RenderNode, RenderSlide, ShapeRenderNode } from '@onedesk/pptx-render'
 import type { AnimationItem } from '../../shared/ipc'
 import {
   buildSteps,

@@ -5,7 +5,7 @@ import {
   sectionSettingsFromXml,
   type SectionInfo,
   type SectionSettings,
-} from '@genoffice/docx-engine'
+} from '@onedesk/docx-engine'
 import { describe, expect, it } from 'vitest'
 import { editorExtensions } from '../src/renderer/editor/extensions'
 import {

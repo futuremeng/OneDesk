@@ -1,5 +1,5 @@
 import type { Editor } from '@tiptap/core'
-import { type TextboxDisplay } from '@genoffice/docx-engine'
+import { type TextboxDisplay } from '@onedesk/docx-engine'
 import { WRAP_OPTIONS } from './ContextMenu'
 import { shapeWrapOf } from '../editor/floating-z-order'
 import { canGroupObjects, canUngroupObjects } from '../editor/object-group'

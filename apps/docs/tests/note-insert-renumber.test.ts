@@ -1,6 +1,6 @@
 import { afterEach, describe, expect, it } from 'vitest'
 import { Editor } from '@tiptap/core'
-import { nextNoteId, parseNotesXml, type NoteInfo } from '@genoffice/docx-engine'
+import { nextNoteId, parseNotesXml, type NoteInfo } from '@onedesk/docx-engine'
 import { buildNotesXml } from '../../../packages/docx-engine/src/notes'
 import { editorExtensions } from '../src/renderer/editor/extensions'
 import {

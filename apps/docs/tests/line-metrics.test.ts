@@ -75,7 +75,7 @@ import {
   simsunGapLineFactor,
   wordMetricAliasFace,
 } from '../src/renderer/text-layout/font-rules'
-import type { Run } from '@genoffice/docx-engine'
+import type { Run } from '@onedesk/docx-engine'
 import {
   latinParaFactor,
   layoutParaOfRuns,

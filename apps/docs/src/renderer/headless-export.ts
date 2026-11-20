@@ -12,7 +12,7 @@ import {
   runHeadlessRendererExport,
   type HeadlessExportReport,
   type HeadlessWaitOptions,
-} from '@genoffice/electron-utils/headless-export'
+} from '@onedesk/electron-utils/headless-export'
 import { fontAliasesSettled } from './system-fonts'
 
 /** Pagination publishes its PageCut signature here on every remeasure (App.tsx). */
@@ -58,7 +58,7 @@ export async function waitForDocumentSettled(
   )
   // The alias map lands over IPC after the open: the export must not run
   // against the fallback layout a CJK font's localized name would draw
-  // (genoffice#2449).
+  // (onedesk#2449).
   await fontAliasesSettled()
   // Async @font-face loads change line-break points, so pagination is only
   // trustworthy once the faces the document asked for have settled.

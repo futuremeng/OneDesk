@@ -8,7 +8,7 @@ import { announceFontChange } from './system-fonts'
  * place that names the font (runs, styles, headers, text boxes, the canvas
  * that measures them) then draws and measures the stand-in.
  */
-const STORE_KEY = 'genoffice.docs.fontSubstitutes'
+const STORE_KEY = 'onedesk.docs.fontSubstitutes'
 
 interface SubstituteFace {
   src: string

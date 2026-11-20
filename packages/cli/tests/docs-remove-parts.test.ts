@@ -1,5 +1,5 @@
 /**
- * genoffice docs apply remove_parts: a pre-filing metadata scrub drops customXml
+ * onedesk docs apply remove_parts: a pre-filing metadata scrub drops customXml
  * stores and web-extension parts (plus their package wiring), lists the parts
  * on --dry-run, refuses when a removed store backs a bound content control
  * unless dataBinding: "strip" unbinds it, and leaves every other part alone.
@@ -125,7 +125,7 @@ function partNames(zip: JSZip): string[] {
   return Object.keys(zip.files).filter((name) => !zip.files[name]!.dir)
 }
 
-describe('genoffice docs apply remove_parts', () => {
+describe('onedesk docs apply remove_parts', () => {
   it('lists the parts on --dry-run and writes nothing', async () => {
     const dir = tempDir()
     const file = await fixtureDocx(join(dir, 'motion.docx'), { dataBinding: true })
@@ -204,7 +204,7 @@ describe('genoffice docs apply remove_parts', () => {
     const file = await fixtureDocx(join(dir, 'motion.docx'))
     const out = join(dir, 'scrubbed.docx')
     // a path that misses the package is an op error, not a silent ignore:
-    // a scrub must not half-apply while reporting success (genoffice#2554)
+    // a scrub must not half-apply while reporting success (onedesk#2554)
     const unknown = await run([
       'docs',
       'apply',

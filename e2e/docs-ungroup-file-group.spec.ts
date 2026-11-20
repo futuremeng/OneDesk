@@ -81,7 +81,7 @@ const undoRedo = (app: Awaited<ReturnType<typeof launchShell>>['app'], label: st
 
 test('a group from the file ungroups into objects that select, move, format and delete one by one', async () => {
   test.setTimeout(180_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-ungroup-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-ungroup-')))
   const docPath = join(dir, 'group.docx')
   // a text box, an ellipse, a turned triangle and a picture in a 300 x 170 group
   const children =
@@ -272,7 +272,7 @@ const TURNED: Array<[string, string, string[]]> = [
 for (const [name, attrs, turns] of TURNED) {
   test(`a ${name} group ungroups into children that stay where they showed`, async () => {
     test.setTimeout(120_000)
-    const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-ungroup-')))
+    const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-ungroup-')))
     const docPath = join(dir, 'turned.docx')
     writeFileSync(docPath, await withGroup(groupParagraph(50, [80, 40, 220, 160], KIDS, attrs)))
     writeFileSync(test.info().outputPath('grouped.docx'), readFileSync(docPath))
@@ -355,7 +355,7 @@ for (const [name, attrs, turns] of TURNED) {
 }
 
 test('a group the text flows above and below stays a group: its band cannot be kept around separate drawings', async () => {
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-ungroup-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-ungroup-')))
   const docPath = join(dir, 'band.docx')
   writeFileSync(
     docPath,
@@ -391,7 +391,7 @@ test('a group the text flows above and below stays a group: its band cannot be k
 
 test('a nested group ungroups one level at a time', async () => {
   test.setTimeout(120_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-ungroup-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-ungroup-')))
   const docPath = join(dir, 'nested.docx')
   // an ellipse beside an inner group (turned 20 degrees) of two shapes, in a group turned 30 degrees
   const nested = groupParagraph(

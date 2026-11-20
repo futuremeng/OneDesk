@@ -38,7 +38,7 @@ async function clickMenu(app: ElectronApplication, path: string[]) {
 
 test('the Document dialog, Line Numbers and Page Numbers controls that were greyed out change the document', async () => {
   test.setTimeout(180_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-live-controls-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-live-controls-')))
   const docPath = join(dir, 'letter.docx')
   writeFileSync(docPath, await docxWith(['apple', 'banana', 'cherry'].map(para).join('') + SECT_PR))
   const launched = await launchShell({
@@ -146,7 +146,7 @@ test('the Document dialog, Line Numbers and Page Numbers controls that were grey
 
 test('Line Numbering Options, the default tab stop and Custom Paragraph Spacing change the document', async () => {
   test.setTimeout(180_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-live-controls-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-live-controls-')))
   const docPath = join(dir, 'letter.docx')
   writeFileSync(
     docPath,
@@ -276,7 +276,7 @@ test('Line Numbering Options, the default tab stop and Custom Paragraph Spacing 
 
 test('the Symbol dialog lists the special characters and inserts them', async () => {
   test.setTimeout(120_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-live-controls-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-live-controls-')))
   const docPath = join(dir, 'letter.docx')
   writeFileSync(docPath, await docxWith(para('apple') + SECT_PR))
   const launched = await launchShell({
@@ -342,7 +342,7 @@ const partOf = async (docPath: string, part: string) =>
 
 test('the Document dialog moves the gutter to the top and changes how a section starts', async () => {
   test.setTimeout(180_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-live-controls-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-live-controls-')))
   const docPath = join(dir, 'sections.docx')
   writeFileSync(
     docPath,
@@ -454,7 +454,7 @@ test('the Document dialog moves the gutter to the top and changes how a section 
 
 test('the Columns dialog sets unequal columns, the line between them and equal columns again', async () => {
   test.setTimeout(180_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-live-controls-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-live-controls-')))
   const docPath = join(dir, 'columns.docx')
   const lines = Array.from({ length: 30 }, (_, i) => `line ${String(i + 1).padStart(2, '0')}`)
   writeFileSync(docPath, await docxWith(lines.map(para).join('') + SECT_PR))

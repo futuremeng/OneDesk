@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { DEFAULT_MATH_PR } from '@genoffice/docx-engine'
+import { DEFAULT_MATH_PR } from '@onedesk/docx-engine'
 import {
   breakCandidates,
   mathWrapRulesOf,

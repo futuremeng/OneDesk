@@ -111,7 +111,7 @@ const LINK_BODY =
 
 test('Insert > Link reaches a heading, a bookmark, the top of the document and an e-mail address', async () => {
   test.setTimeout(240_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-link-dialog-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-link-dialog-')))
   const docPath = join(dir, 'links.docx')
   writeFileSync(docPath, await docxWithStyles(LINK_BODY))
   const mod = process.platform === 'darwin' ? 'Meta' : 'Control'
@@ -321,7 +321,7 @@ const PARA_BODY =
 
 test('Format > Paragraph: Mirror indents, hyphenation, the grid, Tabs… and Set As Default', async () => {
   test.setTimeout(240_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-paragraph-dialog-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-paragraph-dialog-')))
   const docPath = join(dir, 'paragraph.docx')
   writeFileSync(docPath, await docxWithStyles(PARA_BODY, '<w:autoHyphenation/>'))
   let session = await openDoc(docPath, 'docs-link-paragraph-dialogs')

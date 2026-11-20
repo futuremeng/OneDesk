@@ -19,7 +19,7 @@
  * right edge to the right margin, both overhanging the margins symmetrically /
  * leftwards when over-wide.
  */
-import type { TableModel } from '@genoffice/docx-engine'
+import type { TableModel } from '@onedesk/docx-engine'
 import { legacyIndentTable } from './convert'
 import type { FontMetricsProvider } from '../line-metrics'
 import { clampTableColWidths, expandAutofitColWidths, type RunDefaults } from '../table-layout'

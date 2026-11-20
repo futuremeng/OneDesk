@@ -8,7 +8,7 @@ import { run, tempDir } from './helpers'
 /**
  * Block-level content controls (w:sdt): a law firm wraps the parts of a
  * filing that must not be reflowed in one, with a tag and a lock, and finds
- * them again by tag (genoffice#2062).
+ * them again by tag (onedesk#2062).
  */
 const SDT =
   '<w:sdt><w:sdtPr><w:alias w:val="Caption"/><w:tag w:val="example:caption"/>' +
@@ -193,7 +193,7 @@ it('rejects an unwrap of a tag no control carries', async () => {
 
 // ---- Nested block-level controls and inline (run-level) controls ----
 
-// matches the genoffice#2062 fixture: outer wraps a paragraph + an inner
+// matches the onedesk#2062 fixture: outer wraps a paragraph + an inner
 // control + a paragraph with a run-level control
 const NESTED_SDT =
   '<w:sdt><w:sdtPr><w:tag w:val="outer"/><w:alias w:val="Outer"/><w:id w:val="10"/>' +

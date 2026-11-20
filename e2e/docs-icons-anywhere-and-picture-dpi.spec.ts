@@ -234,7 +234,7 @@ const BOX_PICTURES = '.doc-page .doc-textbox img.doc-inline-img'
 
 test('Insert > Icons puts icons into a header, a footer and a text box, saved as SVG with a PNG fallback', async () => {
   test.setTimeout(240_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-icons-anywhere-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-icons-anywhere-')))
   const docPath = join(dir, 'icons.docx')
   writeFileSync(docPath, await docxOf(['apple', 'banana'].map(para).join('')))
   let launched = await launchShell({ onboardingSeen: true, videoDir: VIDEO_DIR, openFile: docPath })
@@ -410,7 +410,7 @@ const floatingGraphic = (page: Page) =>
 
 test('Graphics Fill recolours an icon that floats beside text and shows the colour it has', async () => {
   test.setTimeout(240_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-floating-fill-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-floating-fill-')))
   const docPath = join(dir, 'floating.docx')
   writeFileSync(
     docPath,
@@ -508,7 +508,7 @@ const BODY_PICTURES = '.doc-page[contenteditable="true"] img'
 
 test('Size and Position scales from the size a 300 dpi picture has at its own resolution', async () => {
   test.setTimeout(180_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-picture-dpi-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-picture-dpi-')))
   const docPath = join(dir, 'dpi.docx')
   // 600 x 300 px at 300 dpi is 2 x 1 inch: 192 x 96 px on the page
   writeFileSync(

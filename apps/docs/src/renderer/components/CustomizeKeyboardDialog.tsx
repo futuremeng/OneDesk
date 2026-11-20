@@ -5,7 +5,7 @@
  */
 import { useEffect, useState } from 'react'
 import type { KeyboardEvent as ReactKeyboardEvent } from 'react'
-import type { StyleInfo } from '@genoffice/docx-engine'
+import type { StyleInfo } from '@onedesk/docx-engine'
 import { NONE } from '../../shared/commands'
 import { bindingId, isAssignableChord } from '../../shared/keybindings'
 import { HIGHLIGHT_CSS } from '../editor/marks'

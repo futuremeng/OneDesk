@@ -9,7 +9,7 @@ import {
 import {} from '@tiptap/pm/state'
 import type { EditorView } from '@tiptap/pm/view'
 import {} from '@tiptap/pm/tables'
-import { WORDART_PRESETS, wordArtStrokePx } from '@genoffice/ui'
+import { WORDART_PRESETS, wordArtStrokePx } from '@onedesk/ui'
 import {
   autospaceMode,
   cssAutoLineMult,
@@ -81,7 +81,7 @@ import {
   type TextboxDisplay,
   type TextboxParaDisplay,
   type AutoSpace,
-} from '@genoffice/docx-engine'
+} from '@onedesk/docx-engine'
 
 /**
  * Custom schema mirroring the docx-engine Block model 1:1.

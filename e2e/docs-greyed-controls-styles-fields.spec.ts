@@ -110,7 +110,7 @@ const stylesXml = (docPath: string) => part(docPath, 'word/styles.xml')
 
 test('Styles: Delete takes a style out of the document, Organizer copies styles to and from another file', async () => {
   test.setTimeout(240_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-style-organizer-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-style-organizer-')))
   const docPath = join(dir, 'styles.docx')
   const otherPath = join(dir, 'other.docx')
   writeFileSync(
@@ -222,7 +222,7 @@ test('Styles: Delete takes a style out of the document, Organizer copies styles 
 
 test('Field Options adds switches that shape the result; Horizontal Line goes in; typed text is marked with its language', async () => {
   test.setTimeout(240_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-field-options-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-field-options-')))
   const docPath = join(dir, 'fields.docx')
   writeFileSync(
     docPath,
@@ -336,7 +336,7 @@ test('Field Options adds switches that shape the result; Horizontal Line goes in
 
 test('Update Labels copies the first label of a label sheet into the others; the merge fills them record by record', async () => {
   test.setTimeout(240_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-update-labels-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-update-labels-')))
   const docPath = join(dir, 'labels.docx')
   writeFileSync(docPath, await docxWith(para('Dear') + SECT_PR))
   const listPath = join(dir, 'people.csv')

@@ -3,7 +3,7 @@ import type { Node as PmNode } from '@tiptap/pm/model'
 import type { Transaction } from '@tiptap/pm/state'
 import type { EditorView } from '@tiptap/pm/view'
 import { imageDropPages } from './extensions'
-import type { TextboxDisplay } from '@genoffice/docx-engine'
+import type { TextboxDisplay } from '@onedesk/docx-engine'
 import { SHAPE_INLINE_WRAP, shapeWrapOf } from './floating-z-order'
 import {
   selectedObjectPositions,

@@ -116,12 +116,12 @@ describe('listing and exporting with a stubbed platform', () => {
         const script = args[args.length - 1]!
         scripts.push(script)
         expect(script).not.toContain('Export-PfxCertificate')
-        expect(options?.env?.GENOFFICE_THUMBPRINT).toBe(thumbprint)
+        expect(options?.env?.ONEDESK_THUMBPRINT).toBe(thumbprint)
         if (script.includes('X509Chain')) {
           return ok(JSON.stringify([Buffer.from(der, 'binary').toString('base64')]))
         }
         // Stand-in for CNG: sign the SHA-256 digest with PKCS#1 v1.5
-        const digest = Buffer.from(options!.env!.GENOFFICE_DIGEST!, 'hex')
+        const digest = Buffer.from(options!.env!.ONEDESK_DIGEST!, 'hex')
         const fakeMd = {
           algorithm: 'sha256',
           digest: () => forge.util.createBuffer(digest.toString('binary')),
@@ -242,15 +242,13 @@ describe.skipIf(!hasNss || process.platform !== 'linux')('against a real NSS dat
 
   it('leaves no key material behind in the temp directory', async () => {
     const before = new Set(
-      (await import('node:fs'))
-        .readdirSync(tmpdir())
-        .filter((n) => n.startsWith('genoffice-cert-')),
+      (await import('node:fs')).readdirSync(tmpdir()).filter((n) => n.startsWith('onedesk-cert-')),
     )
     const listing = await listSystemCertificates(undefined, env())
     await openSystemSigner(listing.certs[0]!.ref, undefined, env())
     const after = (await import('node:fs'))
       .readdirSync(tmpdir())
-      .filter((n) => n.startsWith('genoffice-cert-') && !before.has(n))
+      .filter((n) => n.startsWith('onedesk-cert-') && !before.has(n))
     expect(after).toEqual([])
   }, 60_000)
 })

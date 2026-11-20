@@ -166,7 +166,7 @@ const open = async (docPath: string) => {
 
 test('Table of Contents: Options builds from styles and TC fields, a format and Modify redefine the TOC styles', async () => {
   test.setTimeout(300_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-it-greyed-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-it-greyed-')))
   const docPath = join(dir, 'contents.docx')
   writeFileSync(
     docPath,
@@ -309,7 +309,7 @@ test('Table of Contents: Options builds from styles and TC fields, a format and 
 
 test('Index: AutoMark from a concordance file, a format with letter headings, headings for accented letters; Table of Figures Options', async () => {
   test.setTimeout(300_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-it-greyed-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-it-greyed-')))
   const docPath = join(dir, 'index.docx')
   const concordance = join(dir, 'concordance.docx')
   const row = (find: string, entry: string) =>
@@ -476,7 +476,7 @@ test('Index: AutoMark from a concordance file, a format with letter headings, he
 
 test('Table of Authorities: Keep original formatting lists a citation as it was marked', async () => {
   test.setTimeout(300_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-it-greyed-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-it-greyed-')))
   const docPath = join(dir, 'authorities.docx')
   writeFileSync(
     docPath,

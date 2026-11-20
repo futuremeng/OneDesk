@@ -22,7 +22,7 @@ interface ShellWindow {
 
 test(`quit exits the app with a clean document in a detached window, ${RUNS} times`, async () => {
   test.setTimeout(RUNS * 40_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-quit-detached-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-quit-detached-')))
   const docPath = join(dir, 'detached.docx')
   writeFileSync(
     docPath,

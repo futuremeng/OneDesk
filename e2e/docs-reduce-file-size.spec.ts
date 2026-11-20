@@ -195,7 +195,7 @@ async function reduce(app: ElectronApplication, page: Page, quality: RegExp) {
 
 test('pictures in the body, in a line of text and in the header are resampled to the size they are shown at', async () => {
   test.setTimeout(240_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-reduce-size-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-reduce-size-')))
   const docPath = join(dir, 'pictures.docx')
   writeFileSync(docPath, await fixture())
   const before = await stored(docPath)
@@ -294,7 +294,7 @@ test('pictures in the body, in a line of text and in the header are resampled to
 
 test('a large picture served from the file on disk is resampled too', async () => {
   test.setTimeout(240_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-reduce-size-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-reduce-size-')))
   const docPath = join(dir, 'large.docx')
   const zip = await JSZip.loadAsync(
     await docxWith(
@@ -334,7 +334,7 @@ test('a large picture served from the file on disk is resampled too', async () =
       )
     await expect
       .poll(sources, { timeout: 30_000 })
-      .toEqual(['genoffice-docx-media', 'genoffice-docx-media'])
+      .toEqual(['onedesk-docx-media', 'onedesk-docx-media'])
     await expect
       .poll(() => pictures(page), { timeout: 30_000 })
       .toEqual([
@@ -401,7 +401,7 @@ const meanDifference = (a: number[], b: number[]) =>
 
 test('the cropped areas of the selected picture are deleted, then of every picture, and the page looks the same', async () => {
   test.setTimeout(300_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-reduce-crop-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-reduce-crop-')))
   const docPath = join(dir, 'cropped.docx')
   const zip = await JSZip.loadAsync(
     await docxWith(

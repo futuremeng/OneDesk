@@ -110,7 +110,7 @@ async function openDoc(docPath: string) {
 
 test('number format, start number and per-section restart renumber the notes, save and reopen', async () => {
   test.setTimeout(240_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-footnote-dialog-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-footnote-dialog-')))
   const docPath = join(dir, 'notes.docx')
   writeFileSync(
     docPath,
@@ -214,7 +214,7 @@ const numbering = async (dialog: ReturnType<Page['locator']>) => [
 
 test('Apply changes to This section numbers that section on its own, saves and reopens', async () => {
   test.setTimeout(300_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-footnote-dialog-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-footnote-dialog-')))
   const docPath = join(dir, 'sections.docx')
   writeFileSync(
     docPath,
@@ -319,7 +319,7 @@ test('Apply changes to This section numbers that section on its own, saves and r
 
 test('a custom mark replaces the number, and Convert turns footnotes into endnotes', async () => {
   test.setTimeout(240_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-footnote-dialog-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-footnote-dialog-')))
   const docPath = join(dir, 'marks.docx')
   writeFileSync(docPath, await docxWith(para('Alpha first') + para('Bravo second') + SECT_PR))
   let session = await openDoc(docPath)
@@ -417,7 +417,7 @@ test('a custom mark replaces the number, and Convert turns footnotes into endnot
 
 test('Below text moves a page footnote area up under the last line', async () => {
   test.setTimeout(240_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-footnote-dialog-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-footnote-dialog-')))
   const docPath = join(dir, 'position.docx')
   const pageBreak = '<w:p><w:r><w:br w:type="page"/></w:r></w:p>'
   writeFileSync(

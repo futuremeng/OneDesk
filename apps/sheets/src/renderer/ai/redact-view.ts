@@ -26,8 +26,8 @@
 /// `{{private}}` — a visible false refusal, which is the better trade against a
 /// silent leak.
 
-import { parseAddress } from '@genoffice/xlsx-gateway/domain/cell-address'
-import type { CellScalar } from '@genoffice/xlsx-gateway/domain/workbook.types'
+import { parseAddress } from '@onedesk/xlsx-gateway/domain/cell-address'
+import type { CellScalar } from '@onedesk/xlsx-gateway/domain/workbook.types'
 import { placeholderSource, type RedactionIndex } from './redact'
 import { WITHHELD_UNKNOWN } from './redact-load'
 

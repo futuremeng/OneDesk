@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { Editor } from '@tiptap/core'
-import type { Block, FieldDisplay } from '@genoffice/docx-engine'
+import type { Block, FieldDisplay } from '@onedesk/docx-engine'
 import { editorExtensions } from '../src/renderer/editor/extensions'
 import {
   figuresOptionsOf,

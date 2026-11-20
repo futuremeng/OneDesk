@@ -27,7 +27,7 @@ import {
   positionDecl,
   textEffectDecls,
 } from './text-effects'
-import { symbolGlyph, symbolPuaChar } from '@genoffice/docx-engine'
+import { symbolGlyph, symbolPuaChar } from '@onedesk/docx-engine'
 import { symbolFontCovers } from '../font-check'
 
 /**
@@ -443,7 +443,7 @@ export const InstrFieldMark = Mark.create({
         // getAttrs the mark falls back to its defaults, so a pasted citation
         // loses its instruction and saves as an empty w:instrText — which the
         // next parse turns into a protected passthrough, locking the whole
-        // paragraph (genoffice#2099).
+        // paragraph (onedesk#2099).
         getAttrs: (el) => ({ instr: el.getAttribute('data-instr-field') ?? '' }),
       },
     ]
@@ -512,10 +512,11 @@ export function fontAttrsFromFamilyChain(chain: string | undefined): Record<stri
         !/^var\(|\)$/.test(x) &&
         !/^(serif|sans-serif|monospace|cursive|fantasy|system-ui)$/i.test(x) &&
         !CSS_ONLY_FAMILY.test(x) &&
-        // internal fonts.css aliases are not user picks: 'GenOffice *', the
-        // '* GO' renamed/range-limited faces (Carlito GO, KR Theme Latin GO,
+        // internal fonts.css aliases are not user picks: 'OneDesk *' (and the
+        // legacy 'GenOffice *' name in older documents), the '* GO'
+        // renamed/range-limited faces (Carlito GO, KR Theme Latin GO,
         // Noto Sans/Serif CJK GO...) and the size-adjusted Noto Arabic aliases
-        !/^genoffice /i.test(x) &&
+        !/^(onedesk|genoffice) /i.test(x) &&
         !/ go$/i.test(x) &&
         !/^noto (naskh|sans) arabic (w|ta|tnr)$/i.test(x),
     )

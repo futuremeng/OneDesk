@@ -123,7 +123,7 @@ async function pdfLineEndHyphens(file: string): Promise<number> {
 
 test('words in capitals, the consecutive limit and the zone change where the page hyphenates and are saved', async () => {
   test.setTimeout(240_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-hyphenation-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-hyphenation-')))
   const docPath = join(dir, 'hyphenation.docx')
   writeFileSync(docPath, await fixture('<w:autoHyphenation/>'))
   let session = await open(docPath)
@@ -243,7 +243,7 @@ test('words in capitals, the consecutive limit and the zone change where the pag
 
 test('a document that does not hyphenate carries no break points; the zone is off in a Word 2013 layout', async () => {
   test.setTimeout(180_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-hyphenation-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-hyphenation-')))
   const plainPath = join(dir, 'plain.docx')
   const modernPath = join(dir, 'modern.docx')
   writeFileSync(plainPath, await fixture('<w:hyphenationZone w:val="425"/>'))
@@ -279,7 +279,7 @@ test('a document that does not hyphenate carries no break points; the zone is of
 
 test('Manual… asks about each word that could break at a line end and puts an optional hyphen where told', async () => {
   test.setTimeout(180_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-hyphenation-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-hyphenation-')))
   const docPath = join(dir, 'manual.docx')
   writeFileSync(docPath, await fixture('', para(LOWER)))
   const session = await open(docPath)

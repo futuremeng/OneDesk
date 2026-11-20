@@ -31,7 +31,7 @@ const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms))
 const sleepSync = (ms: number) => Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms)
 
 // No leading dot: the macOS SMB client marks dot-files hidden and the flag
-// survives the rename onto the real document (genoffice#2145).
+// survives the rename onto the real document (onedesk#2145).
 const tempPathBeside = (filePath: string) =>
   join(dirname(filePath), `${basename(filePath)}.${randomBytes(6).toString('hex')}.tmp`)
 
@@ -43,7 +43,7 @@ const tempPathBeside = (filePath: string) =>
  * must not share it — but the rescue copy must not: a save that keeps
  * failing (the document is open in another program, and the autosave retries
  * it every 30 s) would otherwise leave a new file beside the document on
- * every attempt, and the user's folder fills with them (genoffice#2567).
+ * every attempt, and the user's folder fills with them (onedesk#2567).
  */
 const rescuePathFor = (filePath: string) =>
   join(dirname(filePath), `${basename(filePath)}.unsaved.tmp`)
@@ -114,7 +114,7 @@ function syncFileBestEffortSync(path: string): void {
 /**
  * Same-dir temp file, best-effort fsync, then rename. Rename-over-existing fails
  * transiently on Windows (Defender/indexer locks: retry) and permanently on some
- * network mounts (gvfs SMB refuses with EEXIST, genoffice#1877); either way the
+ * network mounts (gvfs SMB refuses with EEXIST, onedesk#1877); either way the
  * save falls back to an in-place write rather than failing.
  */
 export async function atomicWriteFile(filePath: string, data: Buffer): Promise<void> {
@@ -140,7 +140,7 @@ export async function atomicWriteFile(filePath: string, data: Buffer): Promise<v
   } catch (error) {
     // The target could not be written at all: park the new bytes beside it
     // under one stable name, so a save that keeps failing replaces the same
-    // file instead of leaving a new one on every attempt (genoffice#2567).
+    // file instead of leaving a new one on every attempt (onedesk#2567).
     await keepRescueCopy(filePath, tmp)
     throw error
   }
@@ -197,7 +197,7 @@ export async function atomicCopyFile(source: string, filePath: string): Promise<
  * only a temp that `write` completed is synced and renamed over the target. A
  * writer that throws part-way leaves the target untouched, so a save that dies
  * mid-stream keeps the previous file on disk instead of a truncated one
- * (genoffice#2123).
+ * (onedesk#2123).
  */
 export async function atomicWriteVia(
   filePath: string,

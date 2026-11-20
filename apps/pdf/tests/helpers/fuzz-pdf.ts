@@ -23,7 +23,7 @@ export async function buildFuzzPdf(seed: number): Promise<Uint8Array> {
   const bold = await doc.embedFont(StandardFonts.HelveticaBold)
   const pages = 2 + (seed % 3)
   doc.setTitle(`Fuzz seed ${seed}`)
-  doc.setAuthor('genoffice fuzz')
+  doc.setAuthor('onedesk fuzz')
   for (let i = 0; i < pages; i++) {
     const page = doc.addPage([595, 842])
     page.setFont(font)

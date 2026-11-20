@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { Editor } from '@tiptap/core'
 import JSZip from 'jszip'
-import { parseDocx, saveDocx } from '@genoffice/docx-engine'
+import { parseDocx, saveDocx } from '@onedesk/docx-engine'
 import { buildDocx } from '../../../packages/docx-engine/tests/helpers/build-docx'
 import { editorExtensions } from '../src/renderer/editor/extensions'
 import { blocksToPmDoc, pmDocToSavePlan } from '../src/renderer/editor/convert'

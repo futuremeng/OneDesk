@@ -2,7 +2,7 @@ import { memo, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'rea
 import { wrapBigCaptions } from './ribbon-caption-wrap'
 import { fitRibbon, styleCardRoom } from './ribbon-fit'
 import { ArrangeGroup } from './ribbon-arrange-group'
-import type { Lang } from '@genoffice/i18n'
+import type { Lang } from '@onedesk/i18n'
 
 import type {
   ChangeEvent,
@@ -31,7 +31,7 @@ import type {
   ThemeColors,
   ThemeFonts,
   PictureWatermarkSpec,
-} from '@genoffice/docx-engine'
+} from '@onedesk/docx-engine'
 import {
   PAINTER_BLOCK_EXTRA,
   PAINTER_MARK_TYPES,
@@ -47,7 +47,7 @@ import {
   useDismissablePopover,
   useRibbonCollapse,
   useScrollWindow,
-} from '@genoffice/ui'
+} from '@onedesk/ui'
 import { HIGHLIGHT_CSS } from '../editor/extensions'
 import type { CaseMode } from '../editor/case-transform'
 import { isRtlUiLang, setSelectionAlign } from '../editor/direction'
@@ -743,7 +743,7 @@ function RibbonInner({
   const collapse = useRibbonCollapse('aidocs.ribbonCollapsed', {
     collapse: t('ribbonCollapse'),
     expand: t('ribbonExpand'),
-    // ⌥⌘K / Ctrl+Alt+K: the icon-only middle density (see genoffice#362)
+    // ⌥⌘K / Ctrl+Alt+K: the icon-only middle density (see onedesk#362)
     compact: t('ribbonCompact'),
     expandFull: t('ribbonExpand'),
   })

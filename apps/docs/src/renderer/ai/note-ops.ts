@@ -1,7 +1,7 @@
 import type { Editor } from '@tiptap/core'
 import type { Node as PmNode } from '@tiptap/pm/model'
 import type { Transaction } from '@tiptap/pm/state'
-import type { NoteInfo, NoteRun } from '@genoffice/docx-engine'
+import type { NoteInfo, NoteRun } from '@onedesk/docx-engine'
 import { posAfterText } from './after-text'
 import { refreshNoteRefFields } from '../editor/note-ref-fields'
 import { noteNumbering, type NoteSection } from '../note-format'

@@ -86,7 +86,7 @@ const paragraphXml = (xml: string, text: string) =>
 
 test('Field keeps formatting on update, Date and Time follows a language and writes full width, Language turns proofing off', async () => {
   test.setTimeout(180_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-small-dialogs-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-small-dialogs-')))
   const docPath = join(dir, 'fields.docx')
   writeFileSync(
     docPath,
@@ -237,7 +237,7 @@ test('Field keeps formatting on update, Date and Time follows a language and wri
 
 test('Drop Cap takes a font and a distance from the text, Phonetic Guide a font, size and distance', async () => {
   test.setTimeout(180_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-small-dialogs-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-small-dialogs-')))
   const docPath = join(dir, 'caps.docx')
   const ruby =
     '<w:ruby><w:rubyPr><w:rubyAlign w:val="center"/><w:hps w:val="16"/><w:hpsRaise w:val="30"/>' +
@@ -410,7 +410,7 @@ test('Drop Cap takes a font and a distance from the text, Phonetic Guide a font,
 
 test('the Styles pane modifies the current style; Hyphenation shows the zone of the document', async () => {
   test.setTimeout(180_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-small-dialogs-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-small-dialogs-')))
   const docPath = join(dir, 'styles.docx')
   const zip = await JSZip.loadAsync(await docxWith(para('Styled words') + SECT_PR))
   zip.file(

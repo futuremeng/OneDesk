@@ -26,18 +26,18 @@ import {
   installRendererProtocol,
   registerRendererScheme,
   rendererUrl,
-} from '@genoffice/electron-utils'
-import { createI18n, getUiLang } from '@genoffice/i18n'
-import { generateImageTool, documentMediaRoots } from '@genoffice/ai-search'
+} from '@onedesk/electron-utils'
+import { createI18n, getUiLang } from '@onedesk/i18n'
+import { generateImageTool, documentMediaRoots } from '@onedesk/ai-search'
 import { PDF_CHANNELS, PDF_READ_CHUNK_BYTES } from '../shared/ipc'
-import { printJobOptions, printOutcome } from '@genoffice/electron-utils/print-job'
+import { printJobOptions, printOutcome } from '@onedesk/electron-utils/print-job'
 import {
   printFileViaCups,
   printPdfViaCups,
   printToPdfOptionsFor,
-} from '@genoffice/electron-utils/print-cups'
-import { DRIVER_OPTION_NAMES, queryPrinterOptions } from '@genoffice/electron-utils/printer-options'
-import { copyFileExclusiveSync } from '@genoffice/electron-utils/copy-file'
+} from '@onedesk/electron-utils/print-cups'
+import { DRIVER_OPTION_NAMES, queryPrinterOptions } from '@onedesk/electron-utils/printer-options'
+import { copyFileExclusiveSync } from '@onedesk/electron-utils/copy-file'
 
 /** 1-based file page positions for the lp `-P` page-list: integers within a
  * real document's reach, undefined = the whole document. Anything else is
@@ -662,7 +662,7 @@ interface RuntimePaths {
   preloadPath: string
   rendererUrl?: string
   rendererFile?: string
-  /** Shell router used to open generated PDFs in a new GenOffice tab. */
+  /** Shell router used to open generated PDFs in a new OneDesk tab. */
   openGeneratedPath?: (path: string) => boolean
   /** Host-owned cross-app document creator (the shell routes DOCX into Docs). */
   createDocument?: (request: CreateDocumentRequest) => Promise<CreateDocumentResult>
@@ -719,7 +719,7 @@ async function createStandaloneDocument(
   if (request.type === 'docx') {
     return {
       ok: false,
-      error: 'Creating DOCX files requires the GenOffice shell or Docs app.',
+      error: 'Creating DOCX files requires the OneDesk shell or Docs app.',
     }
   }
   const title = sanitizeGeneratedDocumentTitle(request.title)
@@ -1255,7 +1255,7 @@ function registerPdfIpc(): void {
     // the renderer's print stylesheet already lays one rasterized page per sheet
     if (process.platform === 'darwin' && opts.silent) {
       // Chromium's silent print on macOS can drop the job outright — no queue
-      // entry, no callback error (genoffice#2347). Route through CUPS:
+      // entry, no callback error (onedesk#2347). Route through CUPS:
       // printToPDF bakes the sheets at the document's own paper size (the
       // renderer measured it), and lp spools a real, diagnosable job.
       const printed = await e.sender.printToPDF(
@@ -1299,7 +1299,7 @@ function registerPdfIpc(): void {
   })
 
   // Chunked reads for the same grant: one 42 MB ArrayBuffer over IPC has
-  // killed renderers before first paint on Windows (genoffice#2366), while
+  // killed renderers before first paint on Windows (onedesk#2366), while
   // small slices deserialize fine. The size rides along so the renderer's
   // loop needs no separate stat.
   ipcMain.handle(
@@ -2135,7 +2135,7 @@ function registerPdfIpc(): void {
         // pdf keeps its media (exported/edited images) beside the open file
         mediaRoots: documentMediaRoots(
           openPathByWc.get(e.sender.id),
-          join(app.getPath('temp'), 'genoffice-pasted'),
+          join(app.getPath('temp'), 'onedesk-pasted'),
         ),
       },
     ),
@@ -2402,7 +2402,7 @@ export function createPdfView(openPath?: string | null): WebContentsView {
   return view
 }
 
-/** Standalone window mode: `npm run dev -w @genoffice/pdf`, pdf path passed via argv */
+/** Standalone window mode: `npm run dev -w @onedesk/pdf`, pdf path passed via argv */
 export function startPdfStandalone(): void {
   registerRendererScheme()
   installNavigationGuard(app)

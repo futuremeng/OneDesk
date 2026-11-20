@@ -48,9 +48,9 @@ import { writePdfAtomically } from './atomic-write'
 import { redactPdf } from './redaction'
 
 const num = (v: number) => Math.round(v * 100) / 100
-const STATIC_FORM_FILLS_KEY = PDFName.of('GenOfficeStaticFormFills')
+const STATIC_FORM_FILLS_KEY = PDFName.of('OneDeskStaticFormFills')
 /** /T of a new annotation when the request names no author */
-const DEFAULT_ANNOT_AUTHOR = 'GenOffice'
+const DEFAULT_ANNOT_AUTHOR = 'OneDesk'
 
 const rectsIntersect = (a: readonly number[], b: readonly number[]): boolean =>
   Math.min(a[0]!, a[2]!) < Math.max(b[0]!, b[2]!) &&
@@ -112,7 +112,7 @@ function resultingStaticFormFills(
 
 function setVisualSignatureMetadata(annot: PDFDict, fieldName: string | undefined): void {
   if (!fieldName) return
-  annot.set(PDFName.of('GenOfficeFormField'), PDFHexString.fromText(fieldName))
+  annot.set(PDFName.of('OneDeskFormField'), PDFHexString.fromText(fieldName))
   annot.set(
     PDFName.of('Contents'),
     PDFHexString.fromText(`${VISUAL_SIGNATURE_CONTENT_PREFIX}${fieldName}`),
@@ -625,7 +625,7 @@ const CARET_DEPTH = 6
  *  Polygon); notes get an AP icon so Preview (Quartz) draws them instead of nothing.
  *  The AP is what makes a saved shape visible: pdf.js has no default appearance for
  *  a Caret and pdfium's generator covers neither Caret nor Polygon, so both would
- *  come back blank in GenOffice, Preview, Chrome or Edge. */
+ *  come back blank in OneDesk, Preview, Chrome or Edge. */
 function addDrawing(
   pdfDoc: PDFDocument,
   page: PDFPage,

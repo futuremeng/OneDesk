@@ -1,6 +1,6 @@
 import { HALFWIDTH_FORM_RE } from '../text-layout/script-rules'
 import { Extension } from '@tiptap/core'
-import { charClass, isEastAsianChar } from '@genoffice/docx-engine'
+import { charClass, isEastAsianChar } from '@onedesk/docx-engine'
 import type { Node as PmNode } from '@tiptap/pm/model'
 import { Plugin, PluginKey } from '@tiptap/pm/state'
 import { Decoration, DecorationSet } from '@tiptap/pm/view'

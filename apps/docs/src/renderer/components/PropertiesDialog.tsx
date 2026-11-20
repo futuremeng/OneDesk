@@ -4,7 +4,7 @@ import {
   type CustomPropertyKind,
   type DocumentProperties,
   type PropertyChanges,
-} from '@genoffice/docx-engine'
+} from '@onedesk/docx-engine'
 import type { DocFileInfo } from '../../shared/ipc'
 import type { HeadingRef } from '../editor/headings'
 import { useI18n, type StringKey } from '../i18n/locale'

@@ -1,4 +1,4 @@
-import { citationText, type SourceInfo } from '@genoffice/docx-engine'
+import { citationText, type SourceInfo } from '@onedesk/docx-engine'
 import { useI18n } from '../i18n/locale'
 
 /** Word's Citations pane: the document's sources; a click puts a citation of one at the caret */

@@ -42,7 +42,7 @@ describe('printJobOptions', () => {
   })
 
   // Chromium prints on Letter unless the job states the document's own paper,
-  // and a sheet taller than the paper is split in two (genoffice#2563)
+  // and a sheet taller than the paper is split in two (onedesk#2563)
   it("states the document's paper in the unit Electron takes", () => {
     const opts = printJobOptions({ deviceName: 'HP', pageSizeIn: { width: 8.27, height: 11.69 } })
     expect(opts.pageSize).toEqual({

@@ -58,7 +58,7 @@ const near = (a: number[][], b: number[][], by: number): boolean =>
 
 test('grouped objects select and move as one, save as one Word group, and ungroup again', async () => {
   test.setTimeout(180_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-object-group-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-object-group-')))
   const docPath = join(dir, 'objects.docx')
   writeFileSync(docPath, await docxWithObjects())
   let launched = await launchShell({
@@ -262,7 +262,7 @@ const ALIGNED_OBJECTS = '.doc-page .doc-textbox, .doc-page .doc-img-wrap'
 for (const [where, body] of Object.entries(ALIGNED)) {
   test(`shapes placed by alignment ${where} keep their places when they are grouped and saved`, async () => {
     test.setTimeout(180_000)
-    const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-object-group-')))
+    const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-object-group-')))
     const docPath = join(dir, 'aligned.docx')
     writeFileSync(docPath, await docxWith(body()))
     let launched = await launchShell({

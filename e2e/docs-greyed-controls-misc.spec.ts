@@ -116,7 +116,7 @@ async function openPageNumberFormat(app: ElectronApplication, page: Page) {
 
 test('Page Number Format puts the chapter number in front of the page number', async () => {
   test.setTimeout(240_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-greyed-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-greyed-')))
   const docPath = join(dir, 'chapters.docx')
   writeFileSync(docPath, await chapterDocx())
   let { launched, page } = await openDoc(docPath, 'beta text')
@@ -226,7 +226,7 @@ async function setFitText(app: ElectronApplication, page: Page, cellIndex: numbe
 
 test('Table Properties fits the text of a cell into one line as wide as the cell', async () => {
   test.setTimeout(240_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-greyed-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-greyed-')))
   const docPath = join(dir, 'fit.docx')
   writeFileSync(docPath, await docxWith(TABLE + para('after the table') + SECT_PR))
   let { launched, page } = await openDoc(docPath, 'after the table')
@@ -294,7 +294,7 @@ test('Table Properties fits the text of a cell into one line as wide as the cell
 
 test('AutoCaption captions a table as it is inserted', async () => {
   test.setTimeout(240_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-greyed-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-greyed-')))
   const docPath = join(dir, 'caption.docx')
   writeFileSync(docPath, await docxWith(para('Opening line') + para('') + SECT_PR))
   const { launched, page } = await openDoc(docPath, 'Opening line')

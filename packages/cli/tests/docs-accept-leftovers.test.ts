@@ -1,11 +1,11 @@
 /**
- * genoffice#2337 (move-range half): genoffice docs apply accept_changes / reject_changes
+ * onedesk#2337 (move-range half): onedesk docs apply accept_changes / reject_changes
  * {all:true} used to leave w:moveFromRangeEnd / w:moveToRangeEnd behind in the
  * paragraphs Word wrote them into (the following, untouched paragraphs). The
  * fixture is the issue's synthetic document (JSZip + XML strings: python-docx
  * is not available in CI).
  *
- * The section-property half (the body w:sectPrChange record) is genoffice#2344 and
+ * The section-property half (the body w:sectPrChange record) is onedesk#2344 and
  * is deliberately not covered here.
  */
 import { readFileSync, writeFileSync } from 'node:fs'
@@ -82,7 +82,7 @@ function writeOps(dir: string, ops: unknown[]): string {
   return opsPath
 }
 
-describe('genoffice docs apply accept/reject move-range leftovers', () => {
+describe('onedesk docs apply accept/reject move-range leftovers', () => {
   it('accept all removes the cross-paragraph move range ends', async () => {
     const dir = tempDir()
     const file = await buildFixture(join(dir, 'accept.docx'), ISSUE_BODY)
@@ -135,13 +135,13 @@ describe('genoffice docs apply accept/reject move-range leftovers', () => {
 })
 
 /**
- * genoffice#2555: a w:ins / w:del whose only run holds an atom (a footnote
+ * onedesk#2555: a w:ins / w:del whose only run holds an atom (a footnote
  * reference, a line break) used to be invisible to the revision list, so
  * accept_changes left the wrapper in the file — and a document whose only
  * revision was such a wrapper was rejected outright as having no pending
- * changes. genoffice#2554 (case 3): the same rejection hit files whose only
+ * changes. onedesk#2554 (case 3): the same rejection hit files whose only
  * markup is orphan move-range markers, which the save already strips
- * (genoffice#2349) — accept / reject now succeed and let the save clean them.
+ * (onedesk#2349) — accept / reject now succeed and let the save clean them.
  */
 describe('accept/reject wrappers around atomic runs and orphan-only files', () => {
   const FN_XML =

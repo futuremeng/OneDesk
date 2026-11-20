@@ -1,5 +1,5 @@
 import type { Editor } from '@tiptap/core'
-import { parseDocx, type Block } from '@genoffice/docx-engine'
+import { parseDocx, type Block } from '@onedesk/docx-engine'
 import { fetchDocBytes } from '../doc-bytes'
 import { insertFieldMarks, occurrenceEnds } from './index-entry'
 

@@ -8,7 +8,7 @@ import {
   numberingLevelFromCustom,
   type CustomNumberingLevel,
   type ListStyleInfo,
-} from '@genoffice/docx-engine'
+} from '@onedesk/docx-engine'
 import type { StringKey } from './i18n/locale'
 
 export const NO_LIST_STYLE_ID = 'NoList'

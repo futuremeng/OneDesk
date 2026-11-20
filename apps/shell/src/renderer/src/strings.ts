@@ -212,7 +212,7 @@ export const strings = {
     docThemeFollowApp: '跟随应用主题',
     saveLocation: '默认保存位置',
     setRestoreSession: '启动时重新打开上次的文档',
-    setRestoreSessionDesc: '关闭 GenOffice 时打开的文档会在下次启动时自动重新打开。',
+    setRestoreSessionDesc: '关闭 OneDesk 时打开的文档会在下次启动时自动重新打开。',
     setTabSleep: '休眠不活跃的标签页',
     setTabSleepDesc:
       '标签页多到一定数量后，长时间没有查看的会释放内存；回到它时会重新打开文件。有未保存修改或已固定的标签页不会休眠。',
@@ -250,8 +250,8 @@ export const strings = {
     setLegacyImportPromptDesc:
       '打开 .doc、.odt、.hwp、.ods、.odp 等旧格式文件时，先说明哪些内容会转换过来。关闭后直接进入另存为。',
     setDefaultApp: '设为 Office 文档默认程序',
-    setDefaultAppDesc: '双击 .docx、.xlsx、.pptx 文件时用 GenOffice 打开。',
-    setDefaultAppIs: 'GenOffice 已是默认程序。',
+    setDefaultAppDesc: '双击 .docx、.xlsx、.pptx 文件时用 OneDesk 打开。',
+    setDefaultAppIs: 'OneDesk 已是默认程序。',
     setDefaultAppOther: '当前默认程序：{app}',
     setDefaultAppSet: '设为默认',
     setDefaultAppOpenSettings: '打开系统设置',
@@ -306,7 +306,7 @@ export const strings = {
     setSecAbout: '关于',
     setSecIntegrations: '集成',
     setSecSkills: '技能',
-    intgHeroTitle: '在 AI 助手里使用 GenOffice',
+    intgHeroTitle: '在 AI 助手里使用 OneDesk',
     intgHeroDesc:
       '接好后，Claude Code、Codex、Cursor、Claude Desktop 等助手就能替你创建、转换、读取和编辑 Word、Excel、PowerPoint、PDF 和 Markdown 文件。全部在本机完成，不会上传任何内容。',
     intgHeroStep1: '选接法：助手能运行终端命令就用 CLI，不能就用 MCP',
@@ -314,21 +314,21 @@ export const strings = {
     intgHeroStep3: '新开一个对话，直接提需求',
     intgStep1Title: '把 skill 安装到你的助手',
     intgStep1Desc: '这里只列出本机检测到的助手。装到你实际在用的那一个即可，不必全装。',
-    intgStep1Update: 'GenOffice 升级带来新版 skill 时，对应助手旁会出现「更新」按钮。',
+    intgStep1Update: 'OneDesk 升级带来新版 skill 时，对应助手旁会出现「更新」按钮。',
     intgSkillVersion: 'skill {v}',
     intgStateMissing: 'skill 未安装',
     intgSharedReaders: '{list} 共用的 skills 目录',
     intgStateInstalled: '已安装 skill {v} · 下次对话即可使用',
     intgLegacyTitle: '旧版 skill 副本',
     intgLegacyDesc:
-      'GenOffice 以前会把副本写进每个工具自己的目录。现在还有 {n} 份留在那里:工具仍在读取它们,所以永远拿不到当前版本。',
+      'OneDesk 以前会把副本写进每个工具自己的目录。现在还有 {n} 份留在那里:工具仍在读取它们,所以永远拿不到当前版本。',
     intgLegacyClean: '删除旧副本',
     intgLegacyCleaned: '已删除 {n} 份旧副本,{k} 份被手动改过的保留未动。',
     intgLegacyFailed: '删除旧副本失败:{msg}',
     intgOtherToggle: '没有列出我的助手',
     intgOtherDesc: '以下三种方式任选一种即可。装的是同一份 skill，不需要重复操作。',
     intgOtherFolderTitle: '任何能读取 SKILL.md 目录的助手',
-    intgOtherFolderDesc: '选择它的 skills 目录，GenOffice 把文件写进去。',
+    intgOtherFolderDesc: '选择它的 skills 目录，OneDesk 把文件写进去。',
     intgOtherZipTitle: '把文件交给助手',
     intgOtherZipDesc: '把 skill 保存为 zip，然后让助手自己安装。',
     intgOtherNpxTitle: '用 skills 命令安装（需要 Node.js）',
@@ -338,20 +338,20 @@ export const strings = {
     intgStep2Desc: '在助手里新开一个对话，用平常说话的方式提需求，例如：',
     intgExample1: '把 ~/Downloads/report.md 转成 Word 文档',
     intgExample2: '做一份 6 页的幻灯片，介绍我们第三季度的业绩',
-    intgExample3: '把 budget.xlsx 转成 PDF，并在 GenOffice 里打开',
-    intgStep2Note: '助手会自己调用 GenOffice（命令行或 MCP），你不需要输入任何命令。',
+    intgExample3: '把 budget.xlsx 转成 PDF，并在 OneDesk 里打开',
+    intgStep2Note: '助手会自己调用 OneDesk（命令行或 MCP），你不需要输入任何命令。',
     intgCliPartTitle: 'CLI · 命令行 + skill',
     intgCliPartDesc:
-      '适合能运行终端命令的助手（Claude Code、Codex、Cursor 等）。安装 skill 后，助手会自己调用 genoffice 命令行创建、转换、读取和编辑文件，你不需要输入任何命令。',
+      '适合能运行终端命令的助手（Claude Code、Codex、Cursor 等）。安装 skill 后，助手会自己调用 onedesk 命令行创建、转换、读取和编辑文件，你不需要输入任何命令。',
     intgMcpPartTitle: 'MCP',
     intgMcpPartDesc:
-      'MCP 是 AI 助手调用外部工具的通用协议。助手不能运行命令（如 Claude Desktop），或你想让它直接操作 GenOffice 窗口时用这条路。下面两种接法任选一种。',
+      'MCP 是 AI 助手调用外部工具的通用协议。助手不能运行命令（如 Claude Desktop），或你想让它直接操作 OneDesk 窗口时用这条路。下面两种接法任选一种。',
     intgMcpStdioTitle: '由助手启动（推荐）',
     intgMcpStdioDesc:
-      '助手自己拉起 genoffice mcp，不需要在这里开任何开关，GenOffice 也不用开着。功能与 CLI 完全相同。',
+      '助手自己拉起 onedesk mcp，不需要在这里开任何开关，OneDesk 也不用开着。功能与 CLI 完全相同。',
     intgMcpHttpTitle: '本地 HTTP 服务',
     intgMcpHttpDesc:
-      '在 GenOffice 内运行，助手通过网址连接，可以看着它在 Word 编辑器里逐步生成。需要 GenOffice 保持打开；目前只支持 Word。',
+      '在 OneDesk 内运行，助手通过网址连接，可以看着它在 Word 编辑器里逐步生成。需要 OneDesk 保持打开；目前只支持 Word。',
     intgMcpHttpAdvanced: '高级：其他地址与日志',
     intgMcpClaudeTitle: 'Claude Code',
     intgMcpClaudeDesc: '在终端运行一次：',
@@ -359,10 +359,10 @@ export const strings = {
     intgMcpOtherDesc:
       '把这段加进它的 MCP 服务器配置（一个 JSON 文件，或设置里的「添加 MCP 服务器」）：',
     intgMcpNote: 'skill 和 MCP 可以同时存在，助手会自己选用；两者做的事完全一样。',
-    intgCliTitle: '高级：命令行 genoffice',
-    intgCliReady: 'genoffice {v} · 已可在终端直接使用（{path}）',
+    intgCliTitle: '高级：命令行 onedesk',
+    intgCliReady: 'onedesk {v} · 已可在终端直接使用（{path}）',
     intgCliNotOnPath:
-      'genoffice {v} · 尚未加入终端 PATH。助手仍能通过 ~/.genoffice/launcher 找到它，skill 不受影响。若想自己在终端输入 genoffice，运行一次：',
+      'onedesk {v} · 尚未加入终端 PATH。助手仍能通过 ~/.onedesk/launcher 找到它，skill 不受影响。若想自己在终端输入 onedesk，运行一次：',
     intgCliLauncher: '启动器目录',
     intgStateOutdated: '已安装 {v}，可更新到 {next}',
     intgStateModified: '已安装 {v}（已被修改）',
@@ -386,9 +386,9 @@ export const strings = {
     intgSaveZipTitle: '保存 skill',
     intgSavedTo: '已保存到 {path}',
     intgCopied: '已复制',
-    intgCliEphemeral: '请先把 GenOffice 拖到「应用程序」，再使用命令行。',
+    intgCliEphemeral: '请先把 OneDesk 拖到「应用程序」，再使用命令行。',
     intgCopyPath: '复制路径',
-    intgCliNeedsUpdate: '此 skill 需要命令行 {v} 或更新版本，请更新 GenOffice。',
+    intgCliNeedsUpdate: '此 skill 需要命令行 {v} 或更新版本，请更新 OneDesk。',
     intgLoading: '正在检测…',
     intgUpdateDue: 'skill 有新版本可更新',
     setSecAiModel: 'AI 模型',
@@ -446,13 +446,13 @@ export const strings = {
       '服务商选择 Genspark 时，网页搜索、生图与媒体解析经 Genspark 云端并消耗积分；关闭后搜索改用免费来源，Genspark 生图工具不可用。',
     setGithub: '开源项目',
     starOnGitHub: '去 GitHub 点 Star',
-    starPromptTitle: '喜欢 GenOffice 吗？',
-    starPromptTitleN: '你已经用 GenOffice 打开了 {n} 个文档',
-    starPromptBody: 'GenOffice 是免费开源软件。到 GitHub 给我们一个 Star，是对团队最好的支持。',
+    starPromptTitle: '喜欢 OneDesk 吗？',
+    starPromptTitleN: '你已经用 OneDesk 打开了 {n} 个文档',
+    starPromptBody: 'OneDesk 是免费开源软件。到 GitHub 给我们一个 Star，是对团队最好的支持。',
     starPromptGo: '去点 Star',
     starPromptDone: '已经点过了',
     starPromptLater: '以后再说',
-    onbStarHint: '如果你喜欢 GenOffice，欢迎到 GitHub 给我们一个 Star。',
+    onbStarHint: '如果你喜欢 OneDesk，欢迎到 GitHub 给我们一个 Star。',
     setEmail: '邮箱',
     setNotLoggedIn: '未登录',
     setViewUsage: '查看用量',
@@ -467,11 +467,11 @@ export const strings = {
     appMenu: '菜单',
     newTab: '新建标签页',
     // First-run onboarding
-    onbTitle1: '欢迎使用 GenOffice',
+    onbTitle1: '欢迎使用 OneDesk',
     onbSubtitle1: '第一个开源的 AI 原生 Office 套件',
     onbBody1: '创建文档、制作表格、生成演示、审阅 PDF。AI 深度融入每个环节。',
     onbTitle2: '这只是一个开始',
-    onbBody2: 'GenOffice 目前处于 alpha 阶段。欢迎加入 GenTeam 群聊，分享反馈，一起塑造它的未来。',
+    onbBody2: 'OneDesk 目前处于 alpha 阶段。欢迎加入 GenTeam 群聊，分享反馈，一起塑造它的未来。',
     onbCredits: '活跃贡献者可获得 **1,000+ Genspark 积分**',
     onbJoinGenTeam: '加入 GenTeam',
     onbSkip: '跳过',
@@ -483,7 +483,7 @@ export const strings = {
     onbNote3: 'AI 功能可能消耗 Genspark 积分。',
     onbBack: '上一步',
     intgSkillsDesc:
-      'GenOffice 只使用自己技能文件夹里的技能。从文件夹或 zip 导入会把整个技能复制进来；导入不会自动运行任何东西。',
+      'OneDesk 只使用自己技能文件夹里的技能。从文件夹或 zip 导入会把整个技能复制进来；导入不会自动运行任何东西。',
     intgSkillsEmpty: '还没有安装技能。',
     intgSkillsImportFolder: '导入文件夹…',
     intgSkillsImportZip: '导入技能包（zip / .md）…',
@@ -492,7 +492,7 @@ export const strings = {
     intgSkillsImportDone: '已导入 {name}',
     intgSkillsImportFailed: '导入失败：{reason}',
     intgSkillsRemove: '移除',
-    intgSkillsRemoveConfirm: '移除技能「{name}」？其文件夹会从 GenOffice 中删除。',
+    intgSkillsRemoveConfirm: '移除技能「{name}」？其文件夹会从 OneDesk 中删除。',
     intgSkillsRemoved: '已移除 {name}',
     skillDetailClose: '关闭',
     skillDetailLoading: '正在加载说明…',
@@ -747,10 +747,10 @@ export const strings = {
     setUpdateRestart: 'Restart & install',
     setAutoUpdateCheck: 'Check for updates automatically',
     setAutoUpdateCheckDesc:
-      'When off, GenOffice no longer checks for new versions at launch or in the background. You can still check from Help › Check for Updates.',
+      'When off, OneDesk no longer checks for new versions at launch or in the background. You can still check from Help › Check for Updates.',
     setSilentInstall: 'Install updates silently',
     setSilentInstallDesc:
-      'When on, a new version found by the background check is downloaded quietly and installed when you quit GenOffice; nothing interrupts you while you work. When off, an update prompt lets you decide when to update.',
+      'When on, a new version found by the background check is downloaded quietly and installed when you quit OneDesk; nothing interrupts you while you work. When off, an update prompt lets you decide when to update.',
     updateChannel: 'Update Channel',
     channelStable: 'Stable',
     channelBeta: 'Beta',
@@ -763,7 +763,7 @@ export const strings = {
     saveLocation: 'Save Location',
     setRestoreSession: 'Reopen documents from last time',
     setRestoreSessionDesc:
-      'Documents open when GenOffice closes reopen automatically the next time it starts.',
+      'Documents open when OneDesk closes reopen automatically the next time it starts.',
     setTabSleep: 'Sleep inactive tabs',
     setTabSleepDesc:
       'Once many tabs are open, ones you have not looked at for a while release their memory and reopen their file when you return. Tabs with unsaved changes or pinned tabs never sleep.',
@@ -802,8 +802,8 @@ export const strings = {
     setLegacyImportPromptDesc:
       'Explain what carries over before opening .doc, .odt, .hwp, .ods or .odp files. When off, Save As opens right away.',
     setDefaultApp: 'Default app for Office documents',
-    setDefaultAppDesc: 'Open .docx, .xlsx and .pptx files in GenOffice when double-clicked.',
-    setDefaultAppIs: 'GenOffice is already the default.',
+    setDefaultAppDesc: 'Open .docx, .xlsx and .pptx files in OneDesk when double-clicked.',
+    setDefaultAppIs: 'OneDesk is already the default.',
     setDefaultAppOther: 'Current default: {app}',
     setDefaultAppSet: 'Make default',
     setDefaultAppOpenSettings: 'Open system settings',
@@ -860,7 +860,7 @@ export const strings = {
     setSecAbout: 'About',
     setSecIntegrations: 'Integrations',
     setSecSkills: 'Skills',
-    intgHeroTitle: 'Use GenOffice from your AI assistant',
+    intgHeroTitle: 'Use OneDesk from your AI assistant',
     intgHeroDesc:
       'Once connected, Claude Code, Codex, Cursor, Claude Desktop and similar assistants can create, convert, read and edit Word, Excel, PowerPoint, PDF and Markdown files for you. Everything runs on this computer; nothing is uploaded.',
     intgHeroStep1:
@@ -871,14 +871,14 @@ export const strings = {
     intgStep1Desc:
       'Only assistants found on this computer are listed. Install into the one you actually use; you do not need all of them.',
     intgStep1Update:
-      'When a GenOffice update ships a newer skill, an Update button appears next to that assistant.',
+      'When a OneDesk update ships a newer skill, an Update button appears next to that assistant.',
     intgSkillVersion: 'skill {v}',
     intgStateMissing: 'Skill not installed',
     intgSharedReaders: 'Shared skills folder read by {list}',
     intgStateInstalled: 'Skill {v} installed · ready in your next chat',
     intgLegacyTitle: 'Older skill copies',
     intgLegacyDesc:
-      'GenOffice used to write a copy into the folder of each tool. {n} of them are still there: the tool keeps reading them, so they never get the current skill.',
+      'OneDesk used to write a copy into the folder of each tool. {n} of them are still there: the tool keeps reading them, so they never get the current skill.',
     intgLegacyClean: 'Remove old copies',
     intgLegacyCleaned: 'Removed {n} old copies, {k} edited by hand left in place.',
     intgLegacyFailed: 'Could not remove the old copies: {msg}',
@@ -886,7 +886,7 @@ export const strings = {
     intgOtherDesc:
       'Pick any one of these three ways. They all install the same skill, so there is no need to do more than one.',
     intgOtherFolderTitle: 'Any assistant that reads SKILL.md folders',
-    intgOtherFolderDesc: 'Pick its skills folder and GenOffice writes the file there.',
+    intgOtherFolderDesc: 'Pick its skills folder and OneDesk writes the file there.',
     intgOtherZipTitle: 'Hand the file to the assistant',
     intgOtherZipDesc: 'Save the skill as a zip, then ask the assistant to install it.',
     intgOtherNpxTitle: 'With the skills command (needs Node.js)',
@@ -896,21 +896,21 @@ export const strings = {
     intgStep2Desc: 'Open a new chat in your assistant and ask in plain words, for example:',
     intgExample1: 'Turn ~/Downloads/report.md into a Word document',
     intgExample2: 'Make a 6-slide deck about our Q3 results',
-    intgExample3: 'Convert budget.xlsx to PDF and open it in GenOffice',
+    intgExample3: 'Convert budget.xlsx to PDF and open it in OneDesk',
     intgStep2Note:
-      'The assistant calls GenOffice itself, through the command line or MCP; you never have to type a command.',
+      'The assistant calls OneDesk itself, through the command line or MCP; you never have to type a command.',
     intgCliPartTitle: 'CLI · command line + skill',
     intgCliPartDesc:
-      'For assistants that can run terminal commands (Claude Code, Codex, Cursor and others). Once the skill is installed, the assistant calls the genoffice command line itself to create, convert, read and edit files; you never type a command.',
+      'For assistants that can run terminal commands (Claude Code, Codex, Cursor and others). Once the skill is installed, the assistant calls the onedesk command line itself to create, convert, read and edit files; you never type a command.',
     intgMcpPartTitle: 'MCP',
     intgMcpPartDesc:
-      'MCP is the common protocol AI assistants use to call external tools. Use it when your assistant cannot run commands (Claude Desktop, for example) or when you want it to drive the GenOffice window directly. Pick either of the two ways below.',
+      'MCP is the common protocol AI assistants use to call external tools. Use it when your assistant cannot run commands (Claude Desktop, for example) or when you want it to drive the OneDesk window directly. Pick either of the two ways below.',
     intgMcpStdioTitle: 'Started by the assistant (recommended)',
     intgMcpStdioDesc:
-      'The assistant launches genoffice mcp itself: nothing to switch on here, and GenOffice does not need to be open. Same features as the CLI.',
+      'The assistant launches onedesk mcp itself: nothing to switch on here, and OneDesk does not need to be open. Same features as the CLI.',
     intgMcpHttpTitle: 'Local HTTP server',
     intgMcpHttpDesc:
-      'Runs inside GenOffice; the assistant connects to a URL and you can watch it build the document step by step in the Word editor. GenOffice must stay open; Word documents only for now.',
+      'Runs inside OneDesk; the assistant connects to a URL and you can watch it build the document step by step in the Word editor. OneDesk must stay open; Word documents only for now.',
     intgMcpHttpAdvanced: 'Advanced: other endpoints and log',
     intgMcpClaudeTitle: 'Claude Code',
     intgMcpClaudeDesc: 'Run this once in a terminal:',
@@ -919,10 +919,10 @@ export const strings = {
       'Add this to its MCP server settings (a JSON file, or "Add MCP server" in its settings):',
     intgMcpNote:
       'The skill and MCP can be set up side by side; the assistant picks one. They do exactly the same things.',
-    intgCliTitle: 'Advanced: genoffice command line',
-    intgCliReady: 'genoffice {v} · ready in your terminal ({path})',
+    intgCliTitle: 'Advanced: onedesk command line',
+    intgCliReady: 'onedesk {v} · ready in your terminal ({path})',
     intgCliNotOnPath:
-      "genoffice {v} · not on your terminal's PATH. Assistants still find it through ~/.genoffice/launcher, so the skill works. To type genoffice yourself, run this once:",
+      "onedesk {v} · not on your terminal's PATH. Assistants still find it through ~/.onedesk/launcher, so the skill works. To type onedesk yourself, run this once:",
     intgCliLauncher: 'Launcher folder',
     intgStateOutdated: 'Installed {v}, update to {next} available',
     intgStateModified: 'Installed {v} (modified)',
@@ -946,9 +946,9 @@ export const strings = {
     intgSaveZipTitle: 'Save skill',
     intgSavedTo: 'Saved to {path}',
     intgCopied: 'Copied',
-    intgCliEphemeral: 'Drag GenOffice into Applications first, then use the command line.',
+    intgCliEphemeral: 'Drag OneDesk into Applications first, then use the command line.',
     intgCopyPath: 'Copy path',
-    intgCliNeedsUpdate: 'This skill needs command line {v} or newer; update GenOffice.',
+    intgCliNeedsUpdate: 'This skill needs command line {v} or newer; update OneDesk.',
     intgLoading: 'Checking…',
     intgUpdateDue: 'Skill update available',
     setSecAiModel: 'AI Model',
@@ -1008,14 +1008,14 @@ export const strings = {
       'Web search, image generation and media analysis run through Genspark and use credits while their provider is set to Genspark; when off, search uses free sources and the Genspark image tools are unavailable.',
     setGithub: 'Open Source',
     starOnGitHub: 'Star on GitHub',
-    starPromptTitle: 'Enjoying GenOffice?',
-    starPromptTitleN: "You've opened {n} documents with GenOffice",
+    starPromptTitle: 'Enjoying OneDesk?',
+    starPromptTitleN: "You've opened {n} documents with OneDesk",
     starPromptBody:
-      'GenOffice is free and open source. A star on GitHub is the best way to support the team.',
+      'OneDesk is free and open source. A star on GitHub is the best way to support the team.',
     starPromptGo: 'Star on GitHub',
     starPromptDone: 'Already starred',
     starPromptLater: 'Maybe later',
-    onbStarHint: 'If you like GenOffice, give us a star on GitHub.',
+    onbStarHint: 'If you like OneDesk, give us a star on GitHub.',
     setEmail: 'Email',
     setNotLoggedIn: 'Not signed in',
     setViewUsage: 'View usage',
@@ -1028,13 +1028,13 @@ export const strings = {
     appMenu: 'Menu',
     newTab: 'New tab',
     // First-run onboarding
-    onbTitle1: 'Welcome to GenOffice',
+    onbTitle1: 'Welcome to OneDesk',
     onbSubtitle1: 'The first open-source, AI-native office suite',
     onbBody1:
       'Create docs, build sheets, make slides, and review PDFs. AI is built into every step.',
     onbTitle2: 'This is just the beginning',
     onbBody2:
-      'GenOffice is still in alpha. Join the group chat on GenTeam to share feedback and help shape what comes next.',
+      'OneDesk is still in alpha. Join the group chat on GenTeam to share feedback and help shape what comes next.',
     onbCredits: 'Active contributors get **1,000+ Genspark credits**',
     onbJoinGenTeam: 'Join GenTeam',
     onbSkip: 'Skip',
@@ -1046,7 +1046,7 @@ export const strings = {
     onbNote3: 'AI features may consume Genspark credits.',
     onbBack: 'Back',
     intgSkillsDesc:
-      'GenOffice only uses skills in its own skills folder. Importing a folder or a zip copies the whole skill in; nothing runs on import.',
+      'OneDesk only uses skills in its own skills folder. Importing a folder or a zip copies the whole skill in; nothing runs on import.',
     intgSkillsEmpty: 'No skills installed yet.',
     intgSkillsImportFolder: 'Import folder…',
     intgSkillsImportZip: 'Import skill package (zip / .md)…',
@@ -1055,7 +1055,7 @@ export const strings = {
     intgSkillsImportDone: 'Imported {name}',
     intgSkillsImportFailed: 'Import failed: {reason}',
     intgSkillsRemove: 'Remove',
-    intgSkillsRemoveConfirm: 'Remove the skill "{name}"? Its folder is deleted from GenOffice.',
+    intgSkillsRemoveConfirm: 'Remove the skill "{name}"? Its folder is deleted from OneDesk.',
     intgSkillsRemoved: 'Removed {name}',
     skillDetailClose: 'Close',
     skillDetailLoading: 'Loading instructions…',
@@ -1313,10 +1313,10 @@ export const strings = {
     setUpdateRestart: 'Khởi động lại và cài đặt',
     setAutoUpdateCheck: 'Tự động kiểm tra cập nhật',
     setAutoUpdateCheckDesc:
-      'Khi tắt, GenOffice không còn kiểm tra phiên bản mới khi khởi động hoặc chạy nền. Bạn vẫn có thể kiểm tra trong Trợ giúp › Kiểm tra bản cập nhật.',
+      'Khi tắt, OneDesk không còn kiểm tra phiên bản mới khi khởi động hoặc chạy nền. Bạn vẫn có thể kiểm tra trong Trợ giúp › Kiểm tra bản cập nhật.',
     setSilentInstall: 'Cài đặt cập nhật âm thầm',
     setSilentInstallDesc:
-      'Khi bật, phiên bản mới được phát hiện ở chế độ nền sẽ tự tải âm thầm và cài khi bạn thoát GenOffice; không làm gián đoạn khi bạn đang làm việc. Khi tắt, một lời nhắc cập nhật sẽ hiện để bạn tự quyết định.',
+      'Khi bật, phiên bản mới được phát hiện ở chế độ nền sẽ tự tải âm thầm và cài khi bạn thoát OneDesk; không làm gián đoạn khi bạn đang làm việc. Khi tắt, một lời nhắc cập nhật sẽ hiện để bạn tự quyết định.',
     updateChannel: 'Kênh cập nhật',
     channelStable: 'Ổn định',
     channelBeta: 'Beta',
@@ -1329,7 +1329,7 @@ export const strings = {
     saveLocation: 'Vị trí lưu',
     setRestoreSession: 'Mở lại tài liệu của lần trước',
     setRestoreSessionDesc:
-      'Các tài liệu đang mở khi đóng GenOffice sẽ tự động mở lại vào lần khởi động tiếp theo.',
+      'Các tài liệu đang mở khi đóng OneDesk sẽ tự động mở lại vào lần khởi động tiếp theo.',
     setTabSleep: 'Tạm ngủ các thẻ không hoạt động',
     setTabSleepDesc:
       'Khi mở nhiều thẻ, những thẻ lâu không xem sẽ giải phóng bộ nhớ và mở lại tệp khi bạn quay lại. Thẻ có thay đổi chưa lưu hoặc đã ghim sẽ không ngủ.',
@@ -1368,8 +1368,8 @@ export const strings = {
     setLegacyImportPromptDesc:
       'Giải thích nội dung được giữ lại trước khi mở tệp .doc, .odt, .hwp, .ods hoặc .odp. Khi tắt, hộp thoại Lưu dưới dạng mở ngay.',
     setDefaultApp: 'Ứng dụng mặc định cho tài liệu Office',
-    setDefaultAppDesc: 'Mở các tệp .docx, .xlsx và .pptx bằng GenOffice khi bấm đúp.',
-    setDefaultAppIs: 'GenOffice đã là ứng dụng mặc định.',
+    setDefaultAppDesc: 'Mở các tệp .docx, .xlsx và .pptx bằng OneDesk khi bấm đúp.',
+    setDefaultAppIs: 'OneDesk đã là ứng dụng mặc định.',
     setDefaultAppOther: 'Mặc định hiện tại: {app}',
     setDefaultAppSet: 'Đặt làm mặc định',
     setDefaultAppOpenSettings: 'Mở cài đặt hệ thống',
@@ -1426,7 +1426,7 @@ export const strings = {
     setSecAbout: 'Giới thiệu',
     setSecIntegrations: 'Tích hợp',
     setSecSkills: 'Kỹ năng',
-    intgHeroTitle: 'Sử dụng GenOffice từ trợ lý AI của bạn',
+    intgHeroTitle: 'Sử dụng OneDesk từ trợ lý AI của bạn',
     intgHeroDesc:
       'Sau khi kết nối, Claude Code, Codex, Cursor, Claude Desktop và các trợ lý tương tự có thể tạo, chuyển đổi, đọc và chỉnh sửa các tệp Word, Excel, PowerPoint, PDF và Markdown cho bạn. Mọi thứ đều chạy trên máy tính này; không có gì được tải lên.',
     intgHeroStep1:
@@ -1437,14 +1437,14 @@ export const strings = {
     intgStep1Desc:
       'Chỉ các trợ lý được tìm thấy trên máy tính này mới được liệt kê. Hãy cài đặt vào trợ lý bạn thực sự sử dụng; bạn không cần phải cài đặt tất cả.',
     intgStep1Update:
-      'Khi bản cập nhật GenOffice cung cấp kỹ năng mới hơn, nút Cập nhật sẽ xuất hiện bên cạnh trợ lý đó.',
+      'Khi bản cập nhật OneDesk cung cấp kỹ năng mới hơn, nút Cập nhật sẽ xuất hiện bên cạnh trợ lý đó.',
     intgSkillVersion: 'kỹ năng {v}',
     intgStateMissing: 'Chưa cài đặt kỹ năng',
     intgSharedReaders: 'Thư mục kỹ năng dùng chung mà {list} đọc',
     intgStateInstalled: 'Đã cài đặt kỹ năng {v} · sẵn sàng cho cuộc trò chuyện tiếp theo của bạn',
     intgLegacyTitle: 'Bản sao skill cũ',
     intgLegacyDesc:
-      'Trước đây GenOffice ghi một bản sao vào thư mục riêng của từng công cụ. Còn {n} bản vẫn nằm đó: công cụ vẫn đọc chúng, nên chúng không bao giờ có bản skill hiện hành.',
+      'Trước đây OneDesk ghi một bản sao vào thư mục riêng của từng công cụ. Còn {n} bản vẫn nằm đó: công cụ vẫn đọc chúng, nên chúng không bao giờ có bản skill hiện hành.',
     intgLegacyClean: 'Xóa bản sao cũ',
     intgLegacyCleaned: 'Đã xóa {n} bản sao cũ, giữ lại {k} bản đã sửa tay.',
     intgLegacyFailed: 'Không xóa được bản sao cũ: {msg}',
@@ -1452,7 +1452,7 @@ export const strings = {
     intgOtherDesc:
       'Chọn bất kỳ cách nào trong ba cách này. Tất cả đều cài đặt cùng một kỹ năng, vì vậy không cần làm nhiều hơn một cách.',
     intgOtherFolderTitle: 'Bất kỳ trợ lý nào đọc thư mục SKILL.md',
-    intgOtherFolderDesc: 'Chọn thư mục kỹ năng của trợ lý và GenOffice sẽ ghi tệp vào đó.',
+    intgOtherFolderDesc: 'Chọn thư mục kỹ năng của trợ lý và OneDesk sẽ ghi tệp vào đó.',
     intgOtherZipTitle: 'Giao tệp cho trợ lý',
     intgOtherZipDesc: 'Lưu kỹ năng dưới dạng zip, sau đó yêu cầu trợ lý cài đặt.',
     intgOtherNpxTitle: 'Bằng lệnh skills (yêu cầu Node.js)',
@@ -1463,21 +1463,21 @@ export const strings = {
       'Mở một cuộc trò chuyện mới trong trợ lý của bạn và hỏi bằng ngôn ngữ tự nhiên, ví dụ:',
     intgExample1: 'Chuyển đổi ~/Downloads/report.md thành tài liệu Word',
     intgExample2: 'Tạo bài thuyết trình 6 trang trình bày về kết quả quý 3 của chúng tôi',
-    intgExample3: 'Chuyển đổi budget.xlsx sang PDF và mở trong GenOffice',
+    intgExample3: 'Chuyển đổi budget.xlsx sang PDF và mở trong OneDesk',
     intgStep2Note:
-      'Trợ lý tự gọi GenOffice qua dòng lệnh hoặc MCP; bạn không bao giờ phải nhập lệnh.',
+      'Trợ lý tự gọi OneDesk qua dòng lệnh hoặc MCP; bạn không bao giờ phải nhập lệnh.',
     intgCliPartTitle: 'CLI · dòng lệnh + kỹ năng',
     intgCliPartDesc:
-      'Dành cho các trợ lý có thể chạy lệnh terminal (Claude Code, Codex, Cursor và các trợ lý khác). Khi kỹ năng đã được cài đặt, trợ lý sẽ tự gọi dòng lệnh genoffice để tạo, chuyển đổi, đọc và chỉnh sửa tệp; bạn không cần nhập lệnh.',
+      'Dành cho các trợ lý có thể chạy lệnh terminal (Claude Code, Codex, Cursor và các trợ lý khác). Khi kỹ năng đã được cài đặt, trợ lý sẽ tự gọi dòng lệnh onedesk để tạo, chuyển đổi, đọc và chỉnh sửa tệp; bạn không cần nhập lệnh.',
     intgMcpPartTitle: 'MCP',
     intgMcpPartDesc:
-      'MCP là giao thức tiêu chuẩn mà các trợ lý AI dùng để gọi công cụ bên ngoài. Sử dụng khi trợ lý của bạn không thể chạy lệnh (ví dụ Claude Desktop) hoặc khi bạn muốn trợ lý điều khiển trực tiếp cửa sổ GenOffice. Chọn một trong hai cách bên dưới.',
+      'MCP là giao thức tiêu chuẩn mà các trợ lý AI dùng để gọi công cụ bên ngoài. Sử dụng khi trợ lý của bạn không thể chạy lệnh (ví dụ Claude Desktop) hoặc khi bạn muốn trợ lý điều khiển trực tiếp cửa sổ OneDesk. Chọn một trong hai cách bên dưới.',
     intgMcpStdioTitle: 'Được khởi động bởi trợ lý (khuyến nghị)',
     intgMcpStdioDesc:
-      'Trợ lý sẽ tự khởi chạy genoffice mcp: không cần bật gì ở đây và GenOffice không cần phải mở. Có đầy đủ tính năng tương tự CLI.',
+      'Trợ lý sẽ tự khởi chạy onedesk mcp: không cần bật gì ở đây và OneDesk không cần phải mở. Có đầy đủ tính năng tương tự CLI.',
     intgMcpHttpTitle: 'Máy chủ HTTP cục bộ',
     intgMcpHttpDesc:
-      'Chạy bên trong GenOffice; trợ lý kết nối với một URL và bạn có thể theo dõi nó tạo tài liệu từng bước trong trình chỉnh sửa Word. GenOffice phải luôn mở; hiện tại chỉ hỗ trợ tài liệu Word.',
+      'Chạy bên trong OneDesk; trợ lý kết nối với một URL và bạn có thể theo dõi nó tạo tài liệu từng bước trong trình chỉnh sửa Word. OneDesk phải luôn mở; hiện tại chỉ hỗ trợ tài liệu Word.',
     intgMcpHttpAdvanced: 'Nâng cao: các điểm cuối khác và nhật ký',
     intgMcpClaudeTitle: 'Claude Code',
     intgMcpClaudeDesc: 'Chạy lệnh này một lần trong terminal:',
@@ -1486,10 +1486,10 @@ export const strings = {
       'Thêm nội dung này vào cài đặt máy chủ MCP của trợ lý (tệp JSON hoặc "Add MCP server" trong phần cài đặt):',
     intgMcpNote:
       'Kỹ năng và MCP có thể được thiết lập song song; trợ lý sẽ chọn một trong hai. Chúng thực hiện chức năng hoàn toàn giống nhau.',
-    intgCliTitle: 'Nâng cao: dòng lệnh genoffice',
-    intgCliReady: 'genoffice {v} · đã sẵn sàng trong terminal của bạn ({path})',
+    intgCliTitle: 'Nâng cao: dòng lệnh onedesk',
+    intgCliReady: 'onedesk {v} · đã sẵn sàng trong terminal của bạn ({path})',
     intgCliNotOnPath:
-      'genoffice {v} · không có trong PATH của terminal. Trợ lý vẫn tìm thấy qua ~/.genoffice/launcher, vì vậy kỹ năng vẫn hoạt động. Để tự chạy lệnh genoffice, hãy thực hiện lệnh này một lần:',
+      'onedesk {v} · không có trong PATH của terminal. Trợ lý vẫn tìm thấy qua ~/.onedesk/launcher, vì vậy kỹ năng vẫn hoạt động. Để tự chạy lệnh onedesk, hãy thực hiện lệnh này một lần:',
     intgCliLauncher: 'Thư mục trình khởi chạy',
     intgStateOutdated: 'Đã cài đặt {v}, có bản cập nhật lên {next}',
     intgStateModified: 'Đã cài đặt {v} (đã sửa đổi)',
@@ -1513,11 +1513,10 @@ export const strings = {
     intgSaveZipTitle: 'Lưu kỹ năng',
     intgSavedTo: 'Đã lưu vào {path}',
     intgCopied: 'Đã sao chép',
-    intgCliEphemeral:
-      'Trước tiên hãy kéo GenOffice vào Applications, sau đó mới sử dụng dòng lệnh.',
+    intgCliEphemeral: 'Trước tiên hãy kéo OneDesk vào Applications, sau đó mới sử dụng dòng lệnh.',
     intgCopyPath: 'Sao chép đường dẫn',
     intgCliNeedsUpdate:
-      'Kỹ năng này yêu cầu dòng lệnh {v} hoặc mới hơn; vui lòng cập nhật GenOffice.',
+      'Kỹ năng này yêu cầu dòng lệnh {v} hoặc mới hơn; vui lòng cập nhật OneDesk.',
     intgLoading: 'Đang kiểm tra…',
     intgUpdateDue: 'Có bản cập nhật kỹ năng',
     setSecAiModel: 'Mô hình AI',
@@ -1578,14 +1577,14 @@ export const strings = {
       'Tìm kiếm web, tạo hình ảnh và phân tích phương tiện được xử lý qua Genspark và tiêu tốn credit khi nhà cung cấp được đặt là Genspark; khi tắt, tìm kiếm sẽ dùng các nguồn miễn phí và công cụ hình ảnh Genspark sẽ không khả dụng.',
     setGithub: 'Mã nguồn mở',
     starOnGitHub: 'Gắn sao trên GitHub',
-    starPromptTitle: 'Bạn thích GenOffice chứ?',
-    starPromptTitleN: 'Bạn đã mở {n} tài liệu với GenOffice',
+    starPromptTitle: 'Bạn thích OneDesk chứ?',
+    starPromptTitleN: 'Bạn đã mở {n} tài liệu với OneDesk',
     starPromptBody:
-      'GenOffice là phần mềm nguồn mở và miễn phí. Tặng một sao trên GitHub là cách tuyệt vời nhất để ủng hộ đội ngũ phát triển.',
+      'OneDesk là phần mềm nguồn mở và miễn phí. Tặng một sao trên GitHub là cách tuyệt vời nhất để ủng hộ đội ngũ phát triển.',
     starPromptGo: 'Gắn sao trên GitHub',
     starPromptDone: 'Đã gắn sao',
     starPromptLater: 'Để sau',
-    onbStarHint: 'Nếu bạn yêu thích GenOffice, hãy tặng chúng tôi một sao trên GitHub.',
+    onbStarHint: 'Nếu bạn yêu thích OneDesk, hãy tặng chúng tôi một sao trên GitHub.',
     setEmail: 'Email',
     setNotLoggedIn: 'Chưa đăng nhập',
     setViewUsage: 'Xem mức sử dụng',
@@ -1598,13 +1597,13 @@ export const strings = {
     appMenu: 'Menu',
     newTab: 'Tab mới',
     // First-run onboarding
-    onbTitle1: 'Chào mừng đến với GenOffice',
+    onbTitle1: 'Chào mừng đến với OneDesk',
     onbSubtitle1: 'Bộ ứng dụng văn phòng AI nguồn mở đầu tiên',
     onbBody1:
       'Tạo tài liệu, xây dựng bảng tính, tạo bản trình bày và xem lại PDF. AI được tích hợp trong từng bước.',
     onbTitle2: 'Đây mới chỉ là khởi đầu',
     onbBody2:
-      'GenOffice vẫn đang trong giai đoạn alpha. Hãy tham gia nhóm trò chuyện trên GenTeam để chia sẻ phản hồi và định hình những bước phát triển tiếp theo.',
+      'OneDesk vẫn đang trong giai đoạn alpha. Hãy tham gia nhóm trò chuyện trên GenTeam để chia sẻ phản hồi và định hình những bước phát triển tiếp theo.',
     onbCredits: 'Thành viên đóng góp tích cực nhận được **1.000+ credit Genspark**',
     onbJoinGenTeam: 'Tham gia GenTeam',
     onbSkip: 'Bỏ qua',
@@ -1616,7 +1615,7 @@ export const strings = {
     onbNote3: 'Các tính năng AI có thể tiêu tốn credit Genspark.',
     onbBack: 'Quay lại',
     intgSkillsDesc:
-      'GenOffice chỉ dùng kỹ năng trong thư mục kỹ năng của chính nó. Nhập từ thư mục hoặc zip sẽ sao chép toàn bộ kỹ năng vào; không có gì chạy khi nhập.',
+      'OneDesk chỉ dùng kỹ năng trong thư mục kỹ năng của chính nó. Nhập từ thư mục hoặc zip sẽ sao chép toàn bộ kỹ năng vào; không có gì chạy khi nhập.',
     intgSkillsEmpty: 'Chưa cài kỹ năng nào.',
     intgSkillsImportFolder: 'Nhập thư mục…',
     intgSkillsImportZip: 'Nhập gói kỹ năng (zip / .md)…',
@@ -1625,7 +1624,7 @@ export const strings = {
     intgSkillsImportDone: 'Đã nhập {name}',
     intgSkillsImportFailed: 'Nhập thất bại: {reason}',
     intgSkillsRemove: 'Gỡ bỏ',
-    intgSkillsRemoveConfirm: 'Gỡ kỹ năng "{name}"? Thư mục của nó sẽ bị xóa khỏi GenOffice.',
+    intgSkillsRemoveConfirm: 'Gỡ kỹ năng "{name}"? Thư mục của nó sẽ bị xóa khỏi OneDesk.',
     intgSkillsRemoved: 'Đã gỡ {name}',
     skillDetailClose: 'Đóng',
     skillDetailLoading: 'Đang tải hướng dẫn…',
@@ -1884,10 +1883,10 @@ export const strings = {
     setUpdateRestart: 'Yeniden başlat ve yükle',
     setAutoUpdateCheck: 'Güncellemeleri otomatik denetle',
     setAutoUpdateCheckDesc:
-      'Kapalıyken GenOffice açılışta veya arka planda yeni sürümleri denetlemez. Yardım › Güncellemeleri Denetle üzerinden yine de denetleyebilirsiniz.',
+      'Kapalıyken OneDesk açılışta veya arka planda yeni sürümleri denetlemez. Yardım › Güncellemeleri Denetle üzerinden yine de denetleyebilirsiniz.',
     setSilentInstall: 'Güncellemeleri sessizce yükle',
     setSilentInstallDesc:
-      'Açıkken arka plan denetiminin bulduğu yeni sürüm sessizce indirilir ve GenOffice’ten çıkarken yüklenir; çalışırken hiçbir şey sizi kesmez. Kapalıyken bir güncelleme bildirimi ne zaman güncelleyeceğinize karar vermenizi sağlar.',
+      'Açıkken arka plan denetiminin bulduğu yeni sürüm sessizce indirilir ve OneDesk’ten çıkarken yüklenir; çalışırken hiçbir şey sizi kesmez. Kapalıyken bir güncelleme bildirimi ne zaman güncelleyeceğinize karar vermenizi sağlar.',
     updateChannel: 'Güncelleme Kanalı',
     channelStable: 'Kararlı',
     channelBeta: 'Beta',
@@ -1900,7 +1899,7 @@ export const strings = {
     saveLocation: 'Kayıt Konumu',
     setRestoreSession: 'Son oturumdaki belgeleri yeniden aç',
     setRestoreSessionDesc:
-      'GenOffice kapatılırken açık olan belgeler bir sonraki başlatmada otomatik olarak yeniden açılır.',
+      'OneDesk kapatılırken açık olan belgeler bir sonraki başlatmada otomatik olarak yeniden açılır.',
     setTabSleep: 'Etkin olmayan sekmeleri uyut',
     setTabSleepDesc:
       'Çok sayıda sekme açıkken bir süredir bakmadıklarınız belleklerini serbest bırakır ve geri döndüğünüzde dosyalarını yeniden açar. Kaydedilmemiş değişiklikleri olan veya sabitlenmiş sekmeler hiçbir zaman uyumaz.',
@@ -1940,8 +1939,8 @@ export const strings = {
     setLegacyImportPromptDesc:
       '.doc, .odt, .hwp, .ods veya .odp dosyalarını açmadan önce nelerin aktarılacağını açıklar. Kapalıyken doğrudan Farklı Kaydet açılır.',
     setDefaultApp: 'Office belgeleri için varsayılan uygulama',
-    setDefaultAppDesc: '.docx, .xlsx ve .pptx dosyalarını çift tıklandığında GenOffice ile açar.',
-    setDefaultAppIs: 'GenOffice zaten varsayılan.',
+    setDefaultAppDesc: '.docx, .xlsx ve .pptx dosyalarını çift tıklandığında OneDesk ile açar.',
+    setDefaultAppIs: 'OneDesk zaten varsayılan.',
     setDefaultAppOther: 'Geçerli varsayılan: {app}',
     setDefaultAppSet: 'Varsayılan yap',
     setDefaultAppOpenSettings: 'Sistem ayarlarını aç',
@@ -1998,7 +1997,7 @@ export const strings = {
     setSecAbout: 'Hakkında',
     setSecIntegrations: 'Tümleştirmeler',
     setSecSkills: 'Beceriler',
-    intgHeroTitle: 'GenOffice’i AI asistanınızdan kullanın',
+    intgHeroTitle: 'OneDesk’i AI asistanınızdan kullanın',
     intgHeroDesc:
       'Bağlandıktan sonra Claude Code, Codex, Cursor, Claude Desktop ve benzeri asistanlar sizin için Word, Excel, PowerPoint, PDF ve Markdown dosyaları oluşturabilir, dönüştürebilir, okuyabilir ve düzenleyebilir. Her şey bu bilgisayarda çalışır; hiçbir şey yüklenmez.',
     intgHeroStep1:
@@ -2009,14 +2008,14 @@ export const strings = {
     intgStep1Desc:
       'Yalnızca bu bilgisayarda bulunan asistanlar listelenir. Gerçekten kullandığınıza yükleyin; hepsine gerek yok.',
     intgStep1Update:
-      'Bir GenOffice güncellemesi daha yeni bir beceri getirdiğinde o asistanın yanında bir Güncelle düğmesi görünür.',
+      'Bir OneDesk güncellemesi daha yeni bir beceri getirdiğinde o asistanın yanında bir Güncelle düğmesi görünür.',
     intgSkillVersion: 'beceri {v}',
     intgStateMissing: 'Beceri yüklü değil',
     intgSharedReaders: '{list} tarafından okunan ortak beceri klasörü',
     intgStateInstalled: 'Beceri {v} yüklü · bir sonraki sohbetinizde hazır',
     intgLegacyTitle: 'Eski skill kopyaları',
     intgLegacyDesc:
-      'GenOffice eskiden her aracın kendi klasörüne bir kopya yazıyordu. Hâlâ orada {n} tane var: araç bunları okumaya devam ediyor, bu yüzden hiçbir zaman güncel skilli göremiyor.',
+      'OneDesk eskiden her aracın kendi klasörüne bir kopya yazıyordu. Hâlâ orada {n} tane var: araç bunları okumaya devam ediyor, bu yüzden hiçbir zaman güncel skilli göremiyor.',
     intgLegacyClean: 'Eski kopyaları kaldır',
     intgLegacyCleaned: '{n} eski kopya kaldırıldı, elle düzenlenen {k} tanesi yerinde bırakıldı.',
     intgLegacyFailed: 'Eski kopyalar kaldırılamadı: {msg}',
@@ -2024,7 +2023,7 @@ export const strings = {
     intgOtherDesc:
       'Bu üç yoldan herhangi birini seçin. Hepsi aynı beceriyi yükler, bu yüzden birden fazlasını yapmanıza gerek yok.',
     intgOtherFolderTitle: 'SKILL.md klasörlerini okuyan herhangi bir asistan',
-    intgOtherFolderDesc: 'Beceri klasörünü seçin, GenOffice dosyayı oraya yazsın.',
+    intgOtherFolderDesc: 'Beceri klasörünü seçin, OneDesk dosyayı oraya yazsın.',
     intgOtherZipTitle: 'Dosyayı asistana verin',
     intgOtherZipDesc: 'Beceriyi zip olarak kaydedin, sonra asistandan yüklemesini isteyin.',
     intgOtherNpxTitle: 'skills komutuyla (Node.js gerekir)',
@@ -2034,21 +2033,21 @@ export const strings = {
     intgStep2Desc: 'Asistanınızda yeni bir sohbet açın ve düz sözcüklerle isteyin, örneğin:',
     intgExample1: '~/Downloads/report.md dosyasını Word belgesine dönüştür',
     intgExample2: '3. çeyrek sonuçlarımız hakkında 6 slaytlık bir sunu hazırla',
-    intgExample3: 'budget.xlsx dosyasını PDF’e dönüştür ve GenOffice’te aç',
+    intgExample3: 'budget.xlsx dosyasını PDF’e dönüştür ve OneDesk’te aç',
     intgStep2Note:
-      'Asistan GenOffice’i komut satırı veya MCP üzerinden kendisi çağırır; sizin yazmanız hiç gerekmez.',
+      'Asistan OneDesk’i komut satırı veya MCP üzerinden kendisi çağırır; sizin yazmanız hiç gerekmez.',
     intgCliPartTitle: 'CLI · komut satırı + beceri',
     intgCliPartDesc:
-      'Terminal komutları çalıştırabilen asistanlar için (Claude Code, Codex, Cursor ve diğerleri). Beceri yüklendikten sonra asistan, dosya oluşturmak, dönüştürmek, okumak ve düzenlemek için genoffice komut satırını kendisi çağırır; siz hiç komut yazmazsınız.',
+      'Terminal komutları çalıştırabilen asistanlar için (Claude Code, Codex, Cursor ve diğerleri). Beceri yüklendikten sonra asistan, dosya oluşturmak, dönüştürmek, okumak ve düzenlemek için onedesk komut satırını kendisi çağırır; siz hiç komut yazmazsınız.',
     intgMcpPartTitle: 'MCP',
     intgMcpPartDesc:
-      'MCP, AI asistanlarının harici araçları çağırmak için kullandığı ortak protokoldür. Asistanınız komut çalıştıramıyorsa (örneğin Claude Desktop) ya da GenOffice penceresini doğrudan yönetmesini istiyorsanız kullanın. Aşağıdaki iki yoldan birini seçin.',
+      'MCP, AI asistanlarının harici araçları çağırmak için kullandığı ortak protokoldür. Asistanınız komut çalıştıramıyorsa (örneğin Claude Desktop) ya da OneDesk penceresini doğrudan yönetmesini istiyorsanız kullanın. Aşağıdaki iki yoldan birini seçin.',
     intgMcpStdioTitle: 'Asistan tarafından başlatılır (önerilen)',
     intgMcpStdioDesc:
-      'Asistan genoffice mcp’yi kendisi başlatır: burada açılacak bir şey yoktur ve GenOffice’in açık olması gerekmez. CLI ile aynı özellikler.',
+      'Asistan onedesk mcp’yi kendisi başlatır: burada açılacak bir şey yoktur ve OneDesk’in açık olması gerekmez. CLI ile aynı özellikler.',
     intgMcpHttpTitle: 'Yerel HTTP sunucusu',
     intgMcpHttpDesc:
-      'GenOffice içinde çalışır; asistan bir URL’ye bağlanır ve belgeyi Word düzenleyicisinde adım adım oluşturmasını izleyebilirsiniz. GenOffice açık kalmalıdır; şimdilik yalnızca Word belgeleri.',
+      'OneDesk içinde çalışır; asistan bir URL’ye bağlanır ve belgeyi Word düzenleyicisinde adım adım oluşturmasını izleyebilirsiniz. OneDesk açık kalmalıdır; şimdilik yalnızca Word belgeleri.',
     intgMcpHttpAdvanced: 'Gelişmiş: diğer uç noktalar ve günlük',
     intgMcpClaudeTitle: 'Claude Code',
     intgMcpClaudeDesc: 'Bunu bir terminalde bir kez çalıştırın:',
@@ -2057,10 +2056,10 @@ export const strings = {
       'Bunu MCP sunucu ayarlarına ekleyin (bir JSON dosyası ya da ayarlarındaki "MCP sunucusu ekle"):',
     intgMcpNote:
       'Beceri ve MCP yan yana kurulabilir; asistan birini seçer. İkisi de tamamen aynı şeyleri yapar.',
-    intgCliTitle: 'Gelişmiş: genoffice komut satırı',
-    intgCliReady: 'genoffice {v} · terminalinizde hazır ({path})',
+    intgCliTitle: 'Gelişmiş: onedesk komut satırı',
+    intgCliReady: 'onedesk {v} · terminalinizde hazır ({path})',
     intgCliNotOnPath:
-      'genoffice {v} · terminalinizin PATH’inde değil. Asistanlar onu yine de ~/.genoffice/launcher üzerinden bulur, bu yüzden beceri çalışır. genoffice’i kendiniz yazmak için bunu bir kez çalıştırın:',
+      'onedesk {v} · terminalinizin PATH’inde değil. Asistanlar onu yine de ~/.onedesk/launcher üzerinden bulur, bu yüzden beceri çalışır. onedesk’i kendiniz yazmak için bunu bir kez çalıştırın:',
     intgCliLauncher: 'Başlatıcı klasörü',
     intgStateOutdated: '{v} yüklü, {next} sürümüne güncelleme mevcut',
     intgStateModified: '{v} yüklü (değiştirilmiş)',
@@ -2085,10 +2084,10 @@ export const strings = {
     intgSavedTo: '{path} konumuna kaydedildi',
     intgCopied: 'Kopyalandı',
     intgCliEphemeral:
-      'Önce GenOffice’i Uygulamalar klasörüne sürükleyin, sonra komut satırını kullanın.',
+      'Önce OneDesk’i Uygulamalar klasörüne sürükleyin, sonra komut satırını kullanın.',
     intgCopyPath: 'Yolu kopyala',
     intgCliNeedsUpdate:
-      'Bu beceri komut satırı {v} veya daha yenisini gerektirir; GenOffice’i güncelleyin.',
+      'Bu beceri komut satırı {v} veya daha yenisini gerektirir; OneDesk’i güncelleyin.',
     intgLoading: 'Denetleniyor…',
     intgUpdateDue: 'Beceri güncellemesi mevcut',
     setSecAiModel: 'AI Modeli',
@@ -2151,14 +2150,14 @@ export const strings = {
       'Sağlayıcıları Genspark olarak ayarlıyken web araması, görüntü oluşturma ve medya analizi Genspark üzerinden çalışır ve kredi kullanır; kapalıyken arama ücretsiz kaynakları kullanır ve Genspark görüntü araçları kullanılamaz.',
     setGithub: 'Açık Kaynak',
     starOnGitHub: 'GitHub’da yıldızla',
-    starPromptTitle: 'GenOffice’i beğeniyor musunuz?',
-    starPromptTitleN: 'GenOffice ile {n} belge açtınız',
+    starPromptTitle: 'OneDesk’i beğeniyor musunuz?',
+    starPromptTitleN: 'OneDesk ile {n} belge açtınız',
     starPromptBody:
-      'GenOffice ücretsiz ve açık kaynaklıdır. GitHub’da bir yıldız, ekibi desteklemenin en iyi yoludur.',
+      'OneDesk ücretsiz ve açık kaynaklıdır. GitHub’da bir yıldız, ekibi desteklemenin en iyi yoludur.',
     starPromptGo: 'GitHub’da yıldızla',
     starPromptDone: 'Zaten yıldızladım',
     starPromptLater: 'Belki daha sonra',
-    onbStarHint: 'GenOffice’i beğendiyseniz GitHub’da bize bir yıldız verin.',
+    onbStarHint: 'OneDesk’i beğendiyseniz GitHub’da bize bir yıldız verin.',
     setEmail: 'E-posta',
     setNotLoggedIn: 'Giriş yapılmadı',
     setViewUsage: 'Kullanımı görüntüle',
@@ -2171,13 +2170,13 @@ export const strings = {
     appMenu: 'Menü',
     newTab: 'Yeni sekme',
     // First-run onboarding
-    onbTitle1: 'GenOffice’e hoş geldiniz',
+    onbTitle1: 'OneDesk’e hoş geldiniz',
     onbSubtitle1: 'İlk açık kaynaklı, AI yerlisi ofis paketi',
     onbBody1:
       'Belgeler oluşturun, tablolar hazırlayın, sunular yapın ve PDF’leri inceleyin. AI her adıma yerleşiktir.',
     onbTitle2: 'Bu daha başlangıç',
     onbBody2:
-      'GenOffice hâlâ alfa aşamasında. Geri bildirim paylaşmak ve sıradakileri şekillendirmeye yardım etmek için GenTeam’deki grup sohbetine katılın.',
+      'OneDesk hâlâ alfa aşamasında. Geri bildirim paylaşmak ve sıradakileri şekillendirmeye yardım etmek için GenTeam’deki grup sohbetine katılın.',
     onbCredits: 'Etkin katkıda bulunanlar **1.000+ Genspark kredisi** kazanır',
     onbJoinGenTeam: 'GenTeam’e katıl',
     onbSkip: 'Atla',
@@ -2189,7 +2188,7 @@ export const strings = {
     onbNote3: 'AI özellikleri Genspark kredisi tüketebilir.',
     onbBack: 'Geri',
     intgSkillsDesc:
-      'GenOffice yalnızca kendi beceri klasöründeki becerileri kullanır. Bir klasör veya zip içe aktarıldığında becerinin tamamı kopyalanır; içe aktarma sırasında hiçbir şey çalıştırılmaz.',
+      'OneDesk yalnızca kendi beceri klasöründeki becerileri kullanır. Bir klasör veya zip içe aktarıldığında becerinin tamamı kopyalanır; içe aktarma sırasında hiçbir şey çalıştırılmaz.',
     intgSkillsEmpty: 'Henüz beceri yüklenmedi.',
     intgSkillsImportFolder: 'Klasörü içe aktar…',
     intgSkillsImportZip: 'Beceri paketini içe aktar (zip / .md)…',
@@ -2198,7 +2197,7 @@ export const strings = {
     intgSkillsImportDone: '{name} içe aktarıldı',
     intgSkillsImportFailed: 'İçe aktarma başarısız oldu: {reason}',
     intgSkillsRemove: 'Kaldır',
-    intgSkillsRemoveConfirm: '"{name}" becerisi kaldırılsın mı? Klasörü GenOffice’ten silinir.',
+    intgSkillsRemoveConfirm: '"{name}" becerisi kaldırılsın mı? Klasörü OneDesk’ten silinir.',
     intgSkillsRemoved: '{name} kaldırıldı',
     skillDetailClose: 'Kapat',
     skillDetailLoading: 'Talimatlar yükleniyor…',
@@ -2462,10 +2461,10 @@ export const strings = {
     setUpdateRestart: 'Újraindítás és telepítés',
     setAutoUpdateCheck: 'Frissítések automatikus keresése',
     setAutoUpdateCheckDesc:
-      'Ha kikapcsolod, a GenOffice nem keres új verziót indításkor és a háttérben sem. A frissítést továbbra is elindíthatod a Súgó › Frissítések keresése menüből.',
+      'Ha kikapcsolod, a OneDesk nem keres új verziót indításkor és a háttérben sem. A frissítést továbbra is elindíthatod a Súgó › Frissítések keresése menüből.',
     setSilentInstall: 'Frissítések csendes telepítése',
     setSilentInstallDesc:
-      'Ha bekapcsolod, a háttérbeli ellenőrzés által megtalált új verzió csendben letöltődik, és a GenOffice bezárásakor települ; munka közben semmi sem zavar meg. Ha kikapcsolod, egy frissítési értesítésnél döntheted el, mikor telepítsd.',
+      'Ha bekapcsolod, a háttérbeli ellenőrzés által megtalált új verzió csendben letöltődik, és a OneDesk bezárásakor települ; munka közben semmi sem zavar meg. Ha kikapcsolod, egy frissítési értesítésnél döntheted el, mikor telepítsd.',
     updateChannel: 'Frissítési csatorna',
     channelStable: 'Stabil',
     channelBeta: 'Béta',
@@ -2478,7 +2477,7 @@ export const strings = {
     saveLocation: 'Mentési hely',
     setRestoreSession: 'Legutóbbi dokumentumok újranyitása',
     setRestoreSessionDesc:
-      'A GenOffice bezárásakor nyitva lévő dokumentumok a következő indításkor automatikusan megnyílnak.',
+      'A OneDesk bezárásakor nyitva lévő dokumentumok a következő indításkor automatikusan megnyílnak.',
     setTabSleep: 'Inaktív lapok elaltatása',
     setTabSleepDesc:
       'Ha már sok lap van megnyitva, azok, amelyeket egy ideje nem néztél meg, felszabadítják a memóriájukat, és visszatéréskor újra betöltik a fájljukat. A mentetlen módosításokat tartalmazó lapok és a rögzített lapok soha nem kerülnek alvó állapotba.',
@@ -2519,8 +2518,8 @@ export const strings = {
       'Megmutatja, mi kerül át a .doc, .odt, .hwp, .ods vagy .odp fájlok megnyitása előtt. Kikapcsolva a Mentés másként azonnal megnyílik.',
     setDefaultApp: 'Alapértelmezett alkalmazás Office-dokumentumokhoz',
     setDefaultAppDesc:
-      'A .docx, .xlsx és .pptx fájlok dupla kattintáskor a GenOffice-ban nyílnak meg.',
-    setDefaultAppIs: 'A GenOffice már most az alapértelmezett.',
+      'A .docx, .xlsx és .pptx fájlok dupla kattintáskor a OneDesk-ban nyílnak meg.',
+    setDefaultAppIs: 'A OneDesk már most az alapértelmezett.',
     setDefaultAppOther: 'Aktuális alapértelmezett: {app}',
     setDefaultAppSet: 'Beállítás alapértelmezettként',
     setDefaultAppOpenSettings: 'Rendszerbeállítások megnyitása',
@@ -2578,7 +2577,7 @@ export const strings = {
     setSecAbout: 'Névjegy',
     setSecIntegrations: 'Integrációk',
     setSecSkills: 'Képességek',
-    intgHeroTitle: 'GenOffice használata az AI-asszisztensedből',
+    intgHeroTitle: 'OneDesk használata az AI-asszisztensedből',
     intgHeroDesc:
       'Csatlakozás után a Claude Code, a Codex, a Cursor, a Claude Desktop és hasonló asszisztensek Word-, Excel-, PowerPoint-, PDF- és Markdown-fájlokat hozhatnak létre, konvertálhatnak, olvashatnak és szerkeszthetnek helyetted. Minden ezen a számítógépen fut; semmi nem kerül feltöltésre.',
     intgHeroStep1:
@@ -2589,14 +2588,14 @@ export const strings = {
     intgStep1Desc:
       'Csak az ezen a számítógépen talált asszisztensek szerepelnek a listán. Telepítsd azt, amelyet valójában használsz; nem kell mindegyikbe.',
     intgStep1Update:
-      'Ha egy GenOffice-frissítés újabb képességet tartalmaz, egy Frissítés gomb jelenik meg az adott asszisztens mellett.',
+      'Ha egy OneDesk-frissítés újabb képességet tartalmaz, egy Frissítés gomb jelenik meg az adott asszisztens mellett.',
     intgSkillVersion: 'képesség {v}',
     intgStateMissing: 'A képesség nincs telepítve',
     intgSharedReaders: 'Megosztott képességmappa, amelyet ezek olvasnak: {list}',
     intgStateInstalled: 'Képesség telepítve: {v} · a következő csevegésben már elérhető',
     intgLegacyTitle: 'Régebbi képességmásolatok',
     intgLegacyDesc:
-      'A GenOffice korábban minden eszköz mappájába írt egy másolatot. Ezek közül {n} még mindig ott van: az eszköz továbbra is ezeket olvassa, így soha nem kapja meg az aktuális képességet.',
+      'A OneDesk korábban minden eszköz mappájába írt egy másolatot. Ezek közül {n} még mindig ott van: az eszköz továbbra is ezeket olvassa, így soha nem kapja meg az aktuális képességet.',
     intgLegacyClean: 'Régi másolatok eltávolítása',
     intgLegacyCleaned: '{n} régi másolat eltávolítva, {k} kézzel szerkesztett a helyén maradt.',
     intgLegacyFailed: 'Nem sikerült eltávolítani a régi másolatokat: {msg}',
@@ -2604,7 +2603,7 @@ export const strings = {
     intgOtherDesc:
       'Válassz e három módszer közül bármelyiket. Mindegyik ugyanazt a képességet telepíti, így egy is elég.',
     intgOtherFolderTitle: 'Bármely asszisztens, amely SKILL.md mappákat olvas',
-    intgOtherFolderDesc: 'Válaszd ki a képességmappáját, és a GenOffice oda írja a fájlt.',
+    intgOtherFolderDesc: 'Válaszd ki a képességmappáját, és a OneDesk oda írja a fájlt.',
     intgOtherZipTitle: 'A fájl átadása az asszisztensnek',
     intgOtherZipDesc:
       'Mentsd a képességet zip-fájlként, majd kérd meg az asszisztenst a telepítésére.',
@@ -2615,21 +2614,21 @@ export const strings = {
     intgStep2Desc: 'Nyiss új csevegést az asszisztensedben, és kérdezz közérthetően, például:',
     intgExample1: 'Alakítsd át a ~/Downloads/report.md fájlt Word-dokumentummá',
     intgExample2: 'Készíts egy 6 diás bemutatót a Q3-as eredményeinkről',
-    intgExample3: 'Konvertáld a budget.xlsx fájlt PDF-be, és nyisd meg a GenOffice-ban',
+    intgExample3: 'Konvertáld a budget.xlsx fájlt PDF-be, és nyisd meg a OneDesk-ban',
     intgStep2Note:
-      'Az asszisztens maga hívja a GenOffice-ot, parancssorból vagy MCP-n keresztül; neked soha nem kell parancsot beírnod.',
+      'Az asszisztens maga hívja a OneDesk-ot, parancssorból vagy MCP-n keresztül; neked soha nem kell parancsot beírnod.',
     intgCliPartTitle: 'CLI · parancssor + képesség',
     intgCliPartDesc:
-      'Olyan asszisztenseknek, amelyek terminálparancsokat tudnak futtatni (Claude Code, Codex, Cursor és mások). A képesség telepítése után az asszisztens maga hívja a genoffice parancssort fájlok létrehozására, konvertálására, olvasására és szerkesztésére; neked soha nem kell parancsot beírnod.',
+      'Olyan asszisztenseknek, amelyek terminálparancsokat tudnak futtatni (Claude Code, Codex, Cursor és mások). A képesség telepítése után az asszisztens maga hívja a onedesk parancssort fájlok létrehozására, konvertálására, olvasására és szerkesztésére; neked soha nem kell parancsot beírnod.',
     intgMcpPartTitle: 'MCP',
     intgMcpPartDesc:
-      'Az MCP az a közös protokoll, amellyel az AI-asszisztensek külső eszközöket hívnak meg. Akkor használd, ha az asszisztensed nem tud parancsokat futtatni (például a Claude Desktop), vagy ha azt szeretnéd, hogy közvetlenül irányítsa a GenOffice ablakát. Az alábbi két mód közül válassz egyet.',
+      'Az MCP az a közös protokoll, amellyel az AI-asszisztensek külső eszközöket hívnak meg. Akkor használd, ha az asszisztensed nem tud parancsokat futtatni (például a Claude Desktop), vagy ha azt szeretnéd, hogy közvetlenül irányítsa a OneDesk ablakát. Az alábbi két mód közül válassz egyet.',
     intgMcpStdioTitle: 'Az asszisztens indítja (ajánlott)',
     intgMcpStdioDesc:
-      'Az asszisztens maga indítja a genoffice mcp parancsot: itt nincs semmi bekapcsolnivaló, és nem kell, hogy a GenOffice nyitva legyen. Ugyanazok a funkciók, mint a CLI-nél.',
+      'Az asszisztens maga indítja a onedesk mcp parancsot: itt nincs semmi bekapcsolnivaló, és nem kell, hogy a OneDesk nyitva legyen. Ugyanazok a funkciók, mint a CLI-nél.',
     intgMcpHttpTitle: 'Helyi HTTP-kiszolgáló',
     intgMcpHttpDesc:
-      'A GenOffice-on belül fut; az asszisztens egy URL-hez csatlakozik, te pedig lépésről lépésre nézheted, ahogy elkészíti a dokumentumot a Word-szerkesztőben. A GenOffice-nak nyitva kell maradnia; egyelőre csak Word-dokumentumokhoz működik.',
+      'A OneDesk-on belül fut; az asszisztens egy URL-hez csatlakozik, te pedig lépésről lépésre nézheted, ahogy elkészíti a dokumentumot a Word-szerkesztőben. A OneDesk-nak nyitva kell maradnia; egyelőre csak Word-dokumentumokhoz működik.',
     intgMcpHttpAdvanced: 'Speciális: egyéb végpontok és a napló',
     intgMcpClaudeTitle: 'Claude Code',
     intgMcpClaudeDesc: 'Futtasd egyszer egy terminálban:',
@@ -2638,10 +2637,10 @@ export const strings = {
       'Add hozzá ezt az asszisztens MCP-kiszolgáló beállításaihoz (JSON-fájlhoz, vagy a beállításaiban lévő „Add MCP server” lehetőséghez):',
     intgMcpNote:
       'A képesség és az MCP egymás mellett is beállítható; az asszisztens választ egyet közülük. Pontosan ugyanazt tudják.',
-    intgCliTitle: 'Speciális: genoffice parancssor',
-    intgCliReady: 'genoffice {v} · elérhető a terminálodban ({path})',
+    intgCliTitle: 'Speciális: onedesk parancssor',
+    intgCliReady: 'onedesk {v} · elérhető a terminálodban ({path})',
     intgCliNotOnPath:
-      'genoffice {v} · nem szerepel a terminálod PATH-jában. Az asszisztensek így is megtalálják a ~/.genoffice/launcher útvonalon, így a képesség működik. Ha magad akarod beírni a genoffice parancsot, futtasd egyszer ezt:',
+      'onedesk {v} · nem szerepel a terminálod PATH-jában. Az asszisztensek így is megtalálják a ~/.onedesk/launcher útvonalon, így a képesség működik. Ha magad akarod beírni a onedesk parancsot, futtasd egyszer ezt:',
     intgCliLauncher: 'Indítóprogram mappája',
     intgStateOutdated: 'Telepítve: {v}, frissítés érhető el erre: {next}',
     intgStateModified: 'Telepítve: {v} (módosítva)',
@@ -2666,10 +2665,9 @@ export const strings = {
     intgSavedTo: 'Mentve ide: {path}',
     intgCopied: 'Másolva',
     intgCliEphemeral:
-      'Előbb húzd a GenOffice-ot az Alkalmazások mappába, csak utána használd a parancssort.',
+      'Előbb húzd a OneDesk-ot az Alkalmazások mappába, csak utána használd a parancssort.',
     intgCopyPath: 'Elérési út másolása',
-    intgCliNeedsUpdate:
-      'Ez a képesség {v} vagy újabb parancssort igényel; frissítsd a GenOffice-ot.',
+    intgCliNeedsUpdate: 'Ez a képesség {v} vagy újabb parancssort igényel; frissítsd a OneDesk-ot.',
     intgLoading: 'Ellenőrzés…',
     intgUpdateDue: 'Képességfrissítés érhető el',
     setSecAiModel: 'AI-modell',
@@ -2732,14 +2730,14 @@ export const strings = {
       'A webes keresés, a képgenerálás és a médiaelemzés a Gensparkon keresztül fut, és krediteket fogyaszt, amíg a szolgáltatójuk Genspark; kikapcsoláskor a keresés ingyenes forrásokat használ, és a Genspark képeszközei nem érhetők el.',
     setGithub: 'Nyílt forráskód',
     starOnGitHub: 'Csillag a GitHubon',
-    starPromptTitle: 'Tetszik a GenOffice?',
-    starPromptTitleN: 'Már {n} dokumentumot nyitottál meg a GenOffice-szal',
+    starPromptTitle: 'Tetszik a OneDesk?',
+    starPromptTitleN: 'Már {n} dokumentumot nyitottál meg a OneDesk-szal',
     starPromptBody:
-      'A GenOffice ingyenes és nyílt forráskódú. Egy csillag a GitHubon a legjobb módja a csapat támogatásának.',
+      'A OneDesk ingyenes és nyílt forráskódú. Egy csillag a GitHubon a legjobb módja a csapat támogatásának.',
     starPromptGo: 'Csillag a GitHubon',
     starPromptDone: 'Már csillagozva',
     starPromptLater: 'Talán később',
-    onbStarHint: 'Ha tetszik a GenOffice, csillagozz minket a GitHubon.',
+    onbStarHint: 'Ha tetszik a OneDesk, csillagozz minket a GitHubon.',
     setEmail: 'E-mail',
     setNotLoggedIn: 'Nem vagy bejelentkezve',
     setViewUsage: 'Használat megtekintése',
@@ -2752,13 +2750,13 @@ export const strings = {
     appMenu: 'Menü',
     newTab: 'Új lap',
     // First-run onboarding
-    onbTitle1: 'Üdvözlünk a GenOffice-ban',
+    onbTitle1: 'Üdvözlünk a OneDesk-ban',
     onbSubtitle1: 'Az első nyílt forráskódú, AI-natív irodai csomag',
     onbBody1:
       'Készíts dokumentumokat, táblázatokat, bemutatókat, és nézd át a PDF-eket. Az AI minden lépésbe be van építve.',
     onbTitle2: 'Ez csak a kezdet',
     onbBody2:
-      'A GenOffice még alfa állapotban van. Csatlakozz a GenTeam csoportcsevegőjéhez, oszd meg a visszajelzésedet, és segíts alakítani a jövőbeli fejlesztéseket.',
+      'A OneDesk még alfa állapotban van. Csatlakozz a GenTeam csoportcsevegőjéhez, oszd meg a visszajelzésedet, és segíts alakítani a jövőbeli fejlesztéseket.',
     onbCredits: 'Az aktív közreműködők **1000+ Genspark-kreditet** kapnak',
     onbJoinGenTeam: 'Csatlakozás a GenTeamhez',
     onbSkip: 'Kihagyás',
@@ -2770,7 +2768,7 @@ export const strings = {
     onbNote3: 'Az AI-funkciók Genspark-krediteket használhatnak fel.',
     onbBack: 'Vissza',
     intgSkillsDesc:
-      'A GenOffice csak a saját képességmappájában lévő képességeket használja. Mappa vagy zip importálásakor a teljes képesség bemásolódik; importáláskor semmi nem fut le.',
+      'A OneDesk csak a saját képességmappájában lévő képességeket használja. Mappa vagy zip importálásakor a teljes képesség bemásolódik; importáláskor semmi nem fut le.',
     intgSkillsEmpty: 'Még nincs telepített képesség.',
     intgSkillsImportFolder: 'Mappa importálása…',
     intgSkillsImportZip: 'Képességcsomag importálása (zip / .md)…',
@@ -2780,7 +2778,7 @@ export const strings = {
     intgSkillsImportFailed: 'Az importálás nem sikerült: {reason}',
     intgSkillsRemove: 'Eltávolítás',
     intgSkillsRemoveConfirm:
-      'Eltávolítod ezt a képességet: {name}? A mappája törlődik a GenOffice-ból.',
+      'Eltávolítod ezt a képességet: {name}? A mappája törlődik a OneDesk-ból.',
     intgSkillsRemoved: 'Eltávolítva: {name}',
     intgSkillsRead: 'Részletek',
     intgSkillsMine: 'Saját képességek',
@@ -3053,7 +3051,7 @@ export const strings = {
       'オフにすると、起動時やバックグラウンドで新しいバージョンを確認しなくなります。「ヘルプ › 更新を確認」から手動で確認できます。',
     setSilentInstall: 'アップデートをサイレントインストール',
     setSilentInstallDesc:
-      'オンにすると、バックグラウンドで見つかった新バージョンをサイレントにダウンロードし、GenOffice の終了時にインストールします。作業中に中断や再起動はありません。オフの場合は更新の案内が表示され、更新のタイミングを自分で決められます。',
+      'オンにすると、バックグラウンドで見つかった新バージョンをサイレントにダウンロードし、OneDesk の終了時にインストールします。作業中に中断や再起動はありません。オフの場合は更新の案内が表示され、更新のタイミングを自分で決められます。',
     updateChannel: '更新チャネル',
     channelStable: '安定版',
     channelBeta: 'ベータ版',
@@ -3066,7 +3064,7 @@ export const strings = {
     saveLocation: '保存先',
     setRestoreSession: '前回のドキュメントを再度開く',
     setRestoreSessionDesc:
-      'GenOffice を閉じたときに開いていたドキュメントを、次回起動時に自動で開き直します。',
+      'OneDesk を閉じたときに開いていたドキュメントを、次回起動時に自動で開き直します。',
     setTabSleep: '非アクティブなタブをスリープ',
     setTabSleepDesc:
       '多くのタブを開いているとき、しばらく見ていないタブはメモリを解放し、戻ったときにファイルを再度開きます。未保存の変更があるタブやピン留めしたタブはスリープしません。',
@@ -3105,9 +3103,8 @@ export const strings = {
     setLegacyImportPromptDesc:
       '.doc、.odt、.hwp、.ods、.odp を開く前に、引き継がれる内容を説明します。オフにすると直接「名前を付けて保存」が開きます。',
     setDefaultApp: 'Office 文書の既定のアプリ',
-    setDefaultAppDesc:
-      '.docx、.xlsx、.pptx ファイルをダブルクリックしたとき GenOffice で開きます。',
-    setDefaultAppIs: 'GenOffice はすでに既定のアプリです。',
+    setDefaultAppDesc: '.docx、.xlsx、.pptx ファイルをダブルクリックしたとき OneDesk で開きます。',
+    setDefaultAppIs: 'OneDesk はすでに既定のアプリです。',
     setDefaultAppOther: '現在の既定：{app}',
     setDefaultAppSet: '既定にする',
     setDefaultAppOpenSettings: 'システム設定を開く',
@@ -3164,7 +3161,7 @@ export const strings = {
     setSecAbout: '情報',
     setSecIntegrations: '連携',
     setSecSkills: 'スキル',
-    intgHeroTitle: 'AI アシスタントから GenOffice を使う',
+    intgHeroTitle: 'AI アシスタントから OneDesk を使う',
     intgHeroDesc:
       '接続すると、Claude Code、Codex、Cursor、Claude Desktop などのアシスタントが Word、Excel、PowerPoint、PDF、Markdown ファイルの作成・変換・読み取り・編集を代行します。すべてこの PC 上で完結し、何もアップロードされません。',
     intgHeroStep1:
@@ -3175,14 +3172,14 @@ export const strings = {
     intgStep1Desc:
       'このパソコンで見つかったアシスタントだけを表示しています。実際に使っているものにだけインストールすれば十分で、すべてに入れる必要はありません。',
     intgStep1Update:
-      'GenOffice の更新で新しいスキルが届くと、そのアシスタントの横に「更新」ボタンが表示されます。',
+      'OneDesk の更新で新しいスキルが届くと、そのアシスタントの横に「更新」ボタンが表示されます。',
     intgSkillVersion: 'スキル {v}',
     intgStateMissing: 'スキル未インストール',
     intgSharedReaders: '{list} が共通で読み込む skills フォルダー',
     intgStateInstalled: 'スキル {v} をインストール済み · 次のチャットから使えます',
     intgLegacyTitle: '古い skill のコピー',
     intgLegacyDesc:
-      'GenOffice はかつて各ツールのフォルダーごとにコピーを書き込んでいました。まだ {n} 個残っています:ツールはそれらを読み続けるため、現在の skill に更新されません。',
+      'OneDesk はかつて各ツールのフォルダーごとにコピーを書き込んでいました。まだ {n} 個残っています:ツールはそれらを読み続けるため、現在の skill に更新されません。',
     intgLegacyClean: '古いコピーを削除',
     intgLegacyCleaned:
       '古いコピーを {n} 個削除しました。手動で編集した {k} 個はそのまま残しました。',
@@ -3191,7 +3188,7 @@ export const strings = {
     intgOtherDesc:
       '次の 3 つの方法からどれか 1 つを選んでください。どれも同じスキルをインストールするので、複数行う必要はありません。',
     intgOtherFolderTitle: 'SKILL.md フォルダーを読むアシスタント全般',
-    intgOtherFolderDesc: 'その skills フォルダーを選ぶと、GenOffice がファイルを書き込みます。',
+    intgOtherFolderDesc: 'その skills フォルダーを選ぶと、OneDesk がファイルを書き込みます。',
     intgOtherZipTitle: 'ファイルをアシスタントに渡す',
     intgOtherZipDesc: 'スキルを zip で保存し、アシスタントにインストールを頼みます。',
     intgOtherNpxTitle: 'skills コマンドで入れる（Node.js が必要）',
@@ -3201,21 +3198,21 @@ export const strings = {
     intgStep2Desc: 'アシスタントで新しいチャットを開き、普通の言葉で頼んでください。例：',
     intgExample1: '~/Downloads/report.md を Word 文書にして',
     intgExample2: '第 3 四半期の業績について 6 枚のスライドを作って',
-    intgExample3: 'budget.xlsx を PDF に変換して GenOffice で開いて',
+    intgExample3: 'budget.xlsx を PDF に変換して OneDesk で開いて',
     intgStep2Note:
-      'アシスタントがコマンドラインまたは MCP 経由で GenOffice を自分で呼び出します。あなたが入力する必要はありません。',
+      'アシスタントがコマンドラインまたは MCP 経由で OneDesk を自分で呼び出します。あなたが入力する必要はありません。',
     intgCliPartTitle: 'CLI · コマンドライン + skill',
     intgCliPartDesc:
-      'ターミナルコマンドを実行できるアシスタント（Claude Code、Codex、Cursor など）向け。skill をインストールすると、アシスタントが自分で genoffice コマンドラインを呼び出してファイルを作成・変換・読み取り・編集します。コマンドを入力する必要はありません。',
+      'ターミナルコマンドを実行できるアシスタント（Claude Code、Codex、Cursor など）向け。skill をインストールすると、アシスタントが自分で onedesk コマンドラインを呼び出してファイルを作成・変換・読み取り・編集します。コマンドを入力する必要はありません。',
     intgMcpPartTitle: 'MCP',
     intgMcpPartDesc:
-      'MCP は AI アシスタントが外部ツールを呼び出すための共通プロトコルです。アシスタントがコマンドを実行できない場合（Claude Desktop など）や、GenOffice のウィンドウを直接操作させたい場合に使います。下の 2 つの方法からどちらか 1 つを選んでください。',
+      'MCP は AI アシスタントが外部ツールを呼び出すための共通プロトコルです。アシスタントがコマンドを実行できない場合（Claude Desktop など）や、OneDesk のウィンドウを直接操作させたい場合に使います。下の 2 つの方法からどちらか 1 つを選んでください。',
     intgMcpStdioTitle: 'アシスタントが起動する（推奨）',
     intgMcpStdioDesc:
-      'アシスタントが genoffice mcp を自分で起動します。ここで何かをオンにする必要はなく、GenOffice を開いておく必要もありません。機能は CLI と同じです。',
+      'アシスタントが onedesk mcp を自分で起動します。ここで何かをオンにする必要はなく、OneDesk を開いておく必要もありません。機能は CLI と同じです。',
     intgMcpHttpTitle: 'ローカル HTTP サーバー',
     intgMcpHttpDesc:
-      'GenOffice 内で動作し、アシスタントは URL で接続します。Word エディター上で文書が段階的に生成される様子を見られます。GenOffice を開いたままにする必要があり、現時点では Word のみ対応です。',
+      'OneDesk 内で動作し、アシスタントは URL で接続します。Word エディター上で文書が段階的に生成される様子を見られます。OneDesk を開いたままにする必要があり、現時点では Word のみ対応です。',
     intgMcpHttpAdvanced: '詳細：その他のエンドポイントとログ',
     intgMcpClaudeTitle: 'Claude Code',
     intgMcpClaudeDesc: 'ターミナルで一度だけ実行します：',
@@ -3224,10 +3221,10 @@ export const strings = {
       'これを MCP サーバー設定（JSON ファイル、または設定の「MCP サーバーを追加」）に追加します：',
     intgMcpNote:
       'スキルと MCP は併用できます。アシスタントがどちらかを選びます。両者の機能はまったく同じです。',
-    intgCliTitle: '上級：コマンドライン genoffice',
-    intgCliReady: 'genoffice {v} · ターミナルで使えます（{path}）',
+    intgCliTitle: '上級：コマンドライン onedesk',
+    intgCliReady: 'onedesk {v} · ターミナルで使えます（{path}）',
     intgCliNotOnPath:
-      'genoffice {v} · ターミナルの PATH にありません。アシスタントは ~/.genoffice/launcher 経由で見つけられるため、スキルは動作します。自分で genoffice を入力したい場合は一度だけ次を実行：',
+      'onedesk {v} · ターミナルの PATH にありません。アシスタントは ~/.onedesk/launcher 経由で見つけられるため、スキルは動作します。自分で onedesk を入力したい場合は一度だけ次を実行：',
     intgCliLauncher: 'ランチャーフォルダー',
     intgStateOutdated: 'インストール済み {v}、{next} に更新できます',
     intgStateModified: 'インストール済み {v}（変更されています）',
@@ -3252,10 +3249,10 @@ export const strings = {
     intgSavedTo: '{path} に保存しました',
     intgCopied: 'コピーしました',
     intgCliEphemeral:
-      '先に GenOffice を「アプリケーション」に移してから、コマンドラインを使ってください。',
+      '先に OneDesk を「アプリケーション」に移してから、コマンドラインを使ってください。',
     intgCopyPath: 'パスをコピー',
     intgCliNeedsUpdate:
-      'このスキルにはコマンドライン {v} 以降が必要です。GenOffice を更新してください。',
+      'このスキルにはコマンドライン {v} 以降が必要です。OneDesk を更新してください。',
     intgLoading: '確認中…',
     intgUpdateDue: 'スキルの更新があります',
     setSecAiModel: 'AIモデル',
@@ -3314,14 +3311,14 @@ export const strings = {
       'プロバイダーが Genspark のとき、Web 検索・画像生成・メディア解析は Genspark 経由でクレジットを消費します。オフにすると検索は無料ソースを使い、Genspark の画像ツールは利用できません。',
     setGithub: 'オープンソース',
     starOnGitHub: 'GitHub でスターを付ける',
-    starPromptTitle: 'GenOffice はいかがですか？',
-    starPromptTitleN: 'GenOffice で {n} 件のドキュメントを開きました',
+    starPromptTitle: 'OneDesk はいかがですか？',
+    starPromptTitleN: 'OneDesk で {n} 件のドキュメントを開きました',
     starPromptBody:
-      'GenOffice は無料のオープンソースソフトウェアです。GitHub のスターがチームへの何よりの応援になります。',
+      'OneDesk は無料のオープンソースソフトウェアです。GitHub のスターがチームへの何よりの応援になります。',
     starPromptGo: 'スターを付ける',
     starPromptDone: 'スター済み',
     starPromptLater: 'あとで',
-    onbStarHint: 'GenOffice が気に入ったら、GitHub でスターをお願いします。',
+    onbStarHint: 'OneDesk が気に入ったら、GitHub でスターをお願いします。',
     setEmail: 'メール',
     setNotLoggedIn: '未ログイン',
     setViewUsage: '使用状況を見る',
@@ -3336,13 +3333,13 @@ export const strings = {
     appMenu: 'メニュー',
     newTab: '新しいタブ',
     // First-run onboarding
-    onbTitle1: 'GenOffice へようこそ',
+    onbTitle1: 'OneDesk へようこそ',
     onbSubtitle1: '初のオープンソース AI ネイティブ Office スイート',
     onbBody1:
       '文書の作成、表計算、プレゼン作成、PDF のレビュー。あらゆるステップに AI が組み込まれています。',
     onbTitle2: 'これはまだ始まりにすぎません',
     onbBody2:
-      'GenOffice はまだアルファ版です。GenTeam のグループチャットに参加して、フィードバックを共有し、今後の開発を一緒に形作りましょう。',
+      'OneDesk はまだアルファ版です。GenTeam のグループチャットに参加して、フィードバックを共有し、今後の開発を一緒に形作りましょう。',
     onbCredits: 'アクティブな貢献者への特典 **1,000+ Genspark クレジット**',
     onbJoinGenTeam: 'GenTeam に参加',
     onbSkip: 'スキップ',
@@ -3354,7 +3351,7 @@ export const strings = {
     onbNote3: 'AI 機能は Genspark クレジットを消費する場合があります。',
     onbBack: '戻る',
     intgSkillsDesc:
-      'GenOffice は自身のスキルフォルダ内のスキルのみ使用します。フォルダまたは zip からの読み込みはスキル全体をコピーします。読み込み時に何も実行されません。',
+      'OneDesk は自身のスキルフォルダ内のスキルのみ使用します。フォルダまたは zip からの読み込みはスキル全体をコピーします。読み込み時に何も実行されません。',
     intgSkillsEmpty: 'スキルはまだインストールされていません。',
     intgSkillsImportFolder: 'フォルダを読み込む…',
     intgSkillsImportZip: 'スキルパッケージを読み込む（zip / .md）…',
@@ -3364,7 +3361,7 @@ export const strings = {
     intgSkillsImportFailed: '読み込みに失敗しました：{reason}',
     intgSkillsRemove: '削除',
     intgSkillsRemoveConfirm:
-      'スキル「{name}」を削除しますか？フォルダーは GenOffice から削除されます。',
+      'スキル「{name}」を削除しますか？フォルダーは OneDesk から削除されます。',
     intgSkillsRemoved: '{name} を削除しました',
     skillDetailClose: '閉じる',
     skillDetailLoading: '手順を読み込み中…',
@@ -3631,7 +3628,7 @@ export const strings = {
       '끄면 실행 시나 백그라운드에서 새 버전을 확인하지 않습니다. 도움말 › 업데이트 확인에서 직접 확인할 수 있습니다.',
     setSilentInstall: '업데이트 자동 설치',
     setSilentInstallDesc:
-      '켜면 백그라운드 검사에서 발견된 새 버전을 조용히 다운로드하고 GenOffice를 종료할 때 설치합니다. 작업 중에는 방해하거나 다시 시작하지 않습니다. 끄면 업데이트 알림이 표시되어 직접 시점을 정할 수 있습니다.',
+      '켜면 백그라운드 검사에서 발견된 새 버전을 조용히 다운로드하고 OneDesk를 종료할 때 설치합니다. 작업 중에는 방해하거나 다시 시작하지 않습니다. 끄면 업데이트 알림이 표시되어 직접 시점을 정할 수 있습니다.',
     updateChannel: '업데이트 채널',
     channelStable: '안정 버전',
     channelBeta: '베타 버전',
@@ -3643,8 +3640,7 @@ export const strings = {
     docThemeFollowApp: '앱 테마 따르기',
     saveLocation: '저장 위치',
     setRestoreSession: '지난번 문서 다시 열기',
-    setRestoreSessionDesc:
-      'GenOffice를 닫을 때 열려 있던 문서를 다음 실행 시 자동으로 다시 엽니다.',
+    setRestoreSessionDesc: 'OneDesk를 닫을 때 열려 있던 문서를 다음 실행 시 자동으로 다시 엽니다.',
     setTabSleep: '비활성 탭 절전',
     setTabSleepDesc:
       '탭이 많이 열려 있으면 한동안 보지 않은 탭은 메모리를 해제하고 돌아올 때 파일을 다시 엽니다. 저장하지 않은 변경이 있거나 고정된 탭은 절전되지 않습니다.',
@@ -3682,8 +3678,8 @@ export const strings = {
     setLegacyImportPromptDesc:
       '.doc, .odt, .hwp, .ods, .odp 파일을 열기 전에 어떤 내용이 유지되는지 안내합니다. 끄면 바로 다른 이름으로 저장이 열립니다.',
     setDefaultApp: 'Office 문서 기본 앱',
-    setDefaultAppDesc: '.docx, .xlsx, .pptx 파일을 두 번 클릭하면 GenOffice로 엽니다.',
-    setDefaultAppIs: 'GenOffice가 이미 기본 앱입니다.',
+    setDefaultAppDesc: '.docx, .xlsx, .pptx 파일을 두 번 클릭하면 OneDesk로 엽니다.',
+    setDefaultAppIs: 'OneDesk가 이미 기본 앱입니다.',
     setDefaultAppOther: '현재 기본 앱: {app}',
     setDefaultAppSet: '기본으로 설정',
     setDefaultAppOpenSettings: '시스템 설정 열기',
@@ -3740,7 +3736,7 @@ export const strings = {
     setSecAbout: '정보',
     setSecIntegrations: '연동',
     setSecSkills: '스킬',
-    intgHeroTitle: 'AI 어시스턴트에서 GenOffice 사용하기',
+    intgHeroTitle: 'AI 어시스턴트에서 OneDesk 사용하기',
     intgHeroDesc:
       '연결하면 Claude Code, Codex, Cursor, Claude Desktop 등의 어시스턴트가 Word, Excel, PowerPoint, PDF, Markdown 파일을 대신 만들고 변환하고 읽고 편집합니다. 모두 이 컴퓨터에서 처리되며 어떤 내용도 업로드되지 않습니다.',
     intgHeroStep1: '연결 방식 선택: 어시스턴트가 터미널 명령을 실행할 수 있으면 CLI, 없으면 MCP',
@@ -3750,14 +3746,14 @@ export const strings = {
     intgStep1Desc:
       '이 컴퓨터에서 발견된 어시스턴트만 표시됩니다. 실제로 사용하는 하나에만 설치하면 되고, 모두 설치할 필요는 없습니다.',
     intgStep1Update:
-      'GenOffice 업데이트에 새 스킬이 포함되면 해당 어시스턴트 옆에 업데이트 버튼이 나타납니다.',
+      'OneDesk 업데이트에 새 스킬이 포함되면 해당 어시스턴트 옆에 업데이트 버튼이 나타납니다.',
     intgSkillVersion: '스킬 {v}',
     intgStateMissing: '스킬 미설치',
     intgSharedReaders: '{list}이(가) 함께 읽는 공용 스킬 폴더',
     intgStateInstalled: '스킬 {v} 설치됨 · 다음 대화부터 사용 가능',
     intgLegacyTitle: '오래된 skill 사본',
     intgLegacyDesc:
-      'GenOffice는 예전에 각 도구 폴더마다 사본을 썼습니다. 아직 {n}개가 남아 있습니다: 도구가 계속 읽기 때문에 현재 skill로 갱신되지 않습니다.',
+      'OneDesk는 예전에 각 도구 폴더마다 사본을 썼습니다. 아직 {n}개가 남아 있습니다: 도구가 계속 읽기 때문에 현재 skill로 갱신되지 않습니다.',
     intgLegacyClean: '오래된 사본 삭제',
     intgLegacyCleaned: '오래된 사본 {n}개를 삭제했고, 직접 수정한 {k}개는 그대로 두었습니다.',
     intgLegacyFailed: '오래된 사본을 삭제하지 못했습니다: {msg}',
@@ -3765,7 +3761,7 @@ export const strings = {
     intgOtherDesc:
       '다음 세 가지 방법 중 하나만 선택하세요. 모두 같은 스킬을 설치하므로 여러 번 할 필요가 없습니다.',
     intgOtherFolderTitle: 'SKILL.md 폴더를 읽는 모든 어시스턴트',
-    intgOtherFolderDesc: '해당 skills 폴더를 선택하면 GenOffice가 파일을 기록합니다.',
+    intgOtherFolderDesc: '해당 skills 폴더를 선택하면 OneDesk가 파일을 기록합니다.',
     intgOtherZipTitle: '파일을 어시스턴트에게 전달',
     intgOtherZipDesc: '스킬을 zip으로 저장한 뒤 어시스턴트에게 설치를 요청하세요.',
     intgOtherNpxTitle: 'skills 명령으로 설치(Node.js 필요)',
@@ -3775,21 +3771,21 @@ export const strings = {
     intgStep2Desc: '어시스턴트에서 새 대화를 열고 평소 말투로 요청하세요. 예:',
     intgExample1: '~/Downloads/report.md를 Word 문서로 만들어 줘',
     intgExample2: '3분기 실적을 소개하는 6장짜리 슬라이드를 만들어 줘',
-    intgExample3: 'budget.xlsx를 PDF로 변환해서 GenOffice에서 열어 줘',
+    intgExample3: 'budget.xlsx를 PDF로 변환해서 OneDesk에서 열어 줘',
     intgStep2Note:
-      '어시스턴트가 명령줄 또는 MCP를 통해 GenOffice를 직접 호출하므로 여러분이 입력할 필요가 없습니다.',
+      '어시스턴트가 명령줄 또는 MCP를 통해 OneDesk를 직접 호출하므로 여러분이 입력할 필요가 없습니다.',
     intgCliPartTitle: 'CLI · 명령줄 + skill',
     intgCliPartDesc:
-      '터미널 명령을 실행할 수 있는 어시스턴트(Claude Code, Codex, Cursor 등)용입니다. skill을 설치하면 어시스턴트가 스스로 genoffice 명령줄을 호출해 파일을 만들고 변환하고 읽고 편집합니다. 명령을 직접 입력할 필요가 없습니다.',
+      '터미널 명령을 실행할 수 있는 어시스턴트(Claude Code, Codex, Cursor 등)용입니다. skill을 설치하면 어시스턴트가 스스로 onedesk 명령줄을 호출해 파일을 만들고 변환하고 읽고 편집합니다. 명령을 직접 입력할 필요가 없습니다.',
     intgMcpPartTitle: 'MCP',
     intgMcpPartDesc:
-      'MCP는 AI 어시스턴트가 외부 도구를 호출하는 공통 프로토콜입니다. 어시스턴트가 명령을 실행할 수 없거나(예: Claude Desktop) GenOffice 창을 직접 조작하게 하려면 이 방식을 사용하세요. 아래 두 방법 중 하나를 선택하면 됩니다.',
+      'MCP는 AI 어시스턴트가 외부 도구를 호출하는 공통 프로토콜입니다. 어시스턴트가 명령을 실행할 수 없거나(예: Claude Desktop) OneDesk 창을 직접 조작하게 하려면 이 방식을 사용하세요. 아래 두 방법 중 하나를 선택하면 됩니다.',
     intgMcpStdioTitle: '어시스턴트가 실행(권장)',
     intgMcpStdioDesc:
-      '어시스턴트가 genoffice mcp를 직접 실행합니다. 여기서 켤 것이 없고 GenOffice가 열려 있을 필요도 없습니다. 기능은 CLI와 같습니다.',
+      '어시스턴트가 onedesk mcp를 직접 실행합니다. 여기서 켤 것이 없고 OneDesk가 열려 있을 필요도 없습니다. 기능은 CLI와 같습니다.',
     intgMcpHttpTitle: '로컬 HTTP 서버',
     intgMcpHttpDesc:
-      'GenOffice 안에서 실행되며 어시스턴트가 URL로 연결합니다. Word 편집기에서 문서가 단계별로 만들어지는 과정을 볼 수 있습니다. GenOffice를 열어 두어야 하며 현재는 Word만 지원합니다.',
+      'OneDesk 안에서 실행되며 어시스턴트가 URL로 연결합니다. Word 편집기에서 문서가 단계별로 만들어지는 과정을 볼 수 있습니다. OneDesk를 열어 두어야 하며 현재는 Word만 지원합니다.',
     intgMcpHttpAdvanced: '고급: 기타 주소와 로그',
     intgMcpClaudeTitle: 'Claude Code',
     intgMcpClaudeDesc: '터미널에서 한 번만 실행하세요:',
@@ -3798,10 +3794,10 @@ export const strings = {
       '이 내용을 해당 어시스턴트의 MCP 서버 설정(JSON 파일 또는 설정의 "MCP 서버 추가")에 추가하세요:',
     intgMcpNote:
       '스킬과 MCP는 함께 설정할 수 있으며 어시스턴트가 하나를 선택합니다. 두 방식이 하는 일은 완전히 같습니다.',
-    intgCliTitle: '고급: 명령줄 genoffice',
-    intgCliReady: 'genoffice {v} · 터미널에서 바로 사용 가능({path})',
+    intgCliTitle: '고급: 명령줄 onedesk',
+    intgCliReady: 'onedesk {v} · 터미널에서 바로 사용 가능({path})',
     intgCliNotOnPath:
-      'genoffice {v} · 터미널 PATH에 없습니다. 어시스턴트는 ~/.genoffice/launcher로 찾을 수 있어 스킬은 정상 작동합니다. 직접 genoffice를 입력하려면 한 번만 실행:',
+      'onedesk {v} · 터미널 PATH에 없습니다. 어시스턴트는 ~/.onedesk/launcher로 찾을 수 있어 스킬은 정상 작동합니다. 직접 onedesk를 입력하려면 한 번만 실행:',
     intgCliLauncher: '런처 폴더',
     intgStateOutdated: '설치됨 {v}, {next}(으)로 업데이트 가능',
     intgStateModified: '설치됨 {v} (수정됨)',
@@ -3825,9 +3821,9 @@ export const strings = {
     intgSaveZipTitle: '스킬 저장',
     intgSavedTo: '{path}에 저장됨',
     intgCopied: '복사됨',
-    intgCliEphemeral: '먼저 GenOffice를 응용 프로그램 폴더로 옮긴 뒤 명령줄을 사용하세요.',
+    intgCliEphemeral: '먼저 OneDesk를 응용 프로그램 폴더로 옮긴 뒤 명령줄을 사용하세요.',
     intgCopyPath: '경로 복사',
-    intgCliNeedsUpdate: '이 스킬은 명령줄 {v} 이상이 필요합니다. GenOffice를 업데이트하세요.',
+    intgCliNeedsUpdate: '이 스킬은 명령줄 {v} 이상이 필요합니다. OneDesk를 업데이트하세요.',
     intgLoading: '확인 중…',
     intgUpdateDue: '스킬 업데이트 가능',
     setSecAiModel: 'AI 모델',
@@ -3886,14 +3882,14 @@ export const strings = {
       '제공자가 Genspark일 때 웹 검색, 이미지 생성, 미디어 분석은 Genspark를 거쳐 크레딧을 사용합니다. 끄면 검색은 무료 소스를 사용하고 Genspark 이미지 도구는 사용할 수 없습니다.',
     setGithub: '오픈 소스',
     starOnGitHub: 'GitHub에서 스타 누르기',
-    starPromptTitle: 'GenOffice가 마음에 드시나요?',
-    starPromptTitleN: 'GenOffice로 문서를 {n}개 열어보셨네요',
+    starPromptTitle: 'OneDesk가 마음에 드시나요?',
+    starPromptTitleN: 'OneDesk로 문서를 {n}개 열어보셨네요',
     starPromptBody:
-      'GenOffice는 무료 오픈 소스 소프트웨어입니다. GitHub 스타 하나가 팀에게 가장 큰 응원이 됩니다.',
+      'OneDesk는 무료 오픈 소스 소프트웨어입니다. GitHub 스타 하나가 팀에게 가장 큰 응원이 됩니다.',
     starPromptGo: '스타 누르기',
     starPromptDone: '이미 눌렀어요',
     starPromptLater: '나중에',
-    onbStarHint: 'GenOffice가 마음에 들면 GitHub에서 스타를 눌러 주세요.',
+    onbStarHint: 'OneDesk가 마음에 들면 GitHub에서 스타를 눌러 주세요.',
     setEmail: '이메일',
     setNotLoggedIn: '로그인되지 않음',
     setViewUsage: '사용량 보기',
@@ -3908,13 +3904,13 @@ export const strings = {
     appMenu: '메뉴',
     newTab: '새 탭',
     // First-run onboarding
-    onbTitle1: 'GenOffice에 오신 것을 환영합니다',
+    onbTitle1: 'OneDesk에 오신 것을 환영합니다',
     onbSubtitle1: '최초의 오픈소스 AI 네이티브 오피스 제품군',
     onbBody1:
       '문서 작성, 스프레드시트 제작, 프레젠테이션 생성, PDF 검토. 모든 단계에 AI가 녹아 있습니다.',
     onbTitle2: '이제 시작일 뿐입니다',
     onbBody2:
-      'GenOffice는 아직 알파 단계입니다. GenTeam 그룹 채팅에 참여해 피드백을 공유하고 앞으로의 방향을 함께 만들어 가세요.',
+      'OneDesk는 아직 알파 단계입니다. GenTeam 그룹 채팅에 참여해 피드백을 공유하고 앞으로의 방향을 함께 만들어 가세요.',
     onbCredits: '활발한 기여자를 위한 혜택 **1,000+ Genspark 크레딧**',
     onbJoinGenTeam: 'GenTeam 참여하기',
     onbSkip: '건너뛰기',
@@ -3926,7 +3922,7 @@ export const strings = {
     onbNote3: 'AI 기능은 Genspark 크레딧을 소모할 수 있습니다.',
     onbBack: '이전',
     intgSkillsDesc:
-      'GenOffice는 자체 스킬 폴더의 스킬만 사용합니다. 폴더나 zip에서 가져오면 스킬 전체가 복사되며, 가져오기 시 아무것도 실행되지 않습니다.',
+      'OneDesk는 자체 스킬 폴더의 스킬만 사용합니다. 폴더나 zip에서 가져오면 스킬 전체가 복사되며, 가져오기 시 아무것도 실행되지 않습니다.',
     intgSkillsEmpty: '설치된 스킬이 없습니다.',
     intgSkillsImportFolder: '폴더 가져오기…',
     intgSkillsImportZip: '스킬 패키지 가져오기(zip / .md)…',
@@ -3935,8 +3931,7 @@ export const strings = {
     intgSkillsImportDone: '{name} 가져옴',
     intgSkillsImportFailed: '가져오기 실패: {reason}',
     intgSkillsRemove: '제거',
-    intgSkillsRemoveConfirm:
-      '스킬 "{name}"을(를) 제거할까요? 해당 폴더가 GenOffice에서 삭제됩니다.',
+    intgSkillsRemoveConfirm: '스킬 "{name}"을(를) 제거할까요? 해당 폴더가 OneDesk에서 삭제됩니다.',
     intgSkillsRemoved: '{name} 제거됨',
     skillDetailClose: '닫기',
     skillDetailLoading: '지침을 불러오는 중…',
@@ -4207,10 +4202,10 @@ export const strings = {
     setUpdateRestart: 'Redémarrer et installer',
     setAutoUpdateCheck: 'Rechercher automatiquement les mises à jour',
     setAutoUpdateCheckDesc:
-      'Désactivé, GenOffice ne recherche plus de nouvelle version au démarrage ni en arrière-plan. Vous pouvez toujours vérifier via Aide › Rechercher des mises à jour.',
+      'Désactivé, OneDesk ne recherche plus de nouvelle version au démarrage ni en arrière-plan. Vous pouvez toujours vérifier via Aide › Rechercher des mises à jour.',
     setSilentInstall: 'Installer les mises à jour silencieusement',
     setSilentInstallDesc:
-      'Si activé, une nouvelle version détectée en arrière-plan est téléchargée silencieusement et installée à la fermeture de GenOffice ; rien ne vous interrompt pendant le travail. Sinon, une invite de mise à jour vous laisse choisir le moment.',
+      'Si activé, une nouvelle version détectée en arrière-plan est téléchargée silencieusement et installée à la fermeture de OneDesk ; rien ne vous interrompt pendant le travail. Sinon, une invite de mise à jour vous laisse choisir le moment.',
     updateChannel: 'Canal de mise à jour',
     channelStable: 'Stable',
     channelBeta: 'Bêta',
@@ -4223,7 +4218,7 @@ export const strings = {
     saveLocation: "Emplacement d'enregistrement",
     setRestoreSession: 'Rouvrir les documents de la dernière fois',
     setRestoreSessionDesc:
-      'Les documents ouverts à la fermeture de GenOffice se rouvrent automatiquement au prochain démarrage.',
+      'Les documents ouverts à la fermeture de OneDesk se rouvrent automatiquement au prochain démarrage.',
     setTabSleep: 'Mettre en veille les onglets inactifs',
     setTabSleepDesc:
       'Lorsque de nombreux onglets sont ouverts, ceux que vous n’avez pas consultés depuis un moment libèrent leur mémoire et rouvrent leur fichier à votre retour. Les onglets avec des modifications non enregistrées ou épinglés ne sont jamais mis en veille.',
@@ -4263,8 +4258,8 @@ export const strings = {
     setLegacyImportPromptDesc:
       'Explique ce qui est conservé avant d’ouvrir un fichier .doc, .odt, .hwp, .ods ou .odp. Désactivé, Enregistrer sous s’ouvre directement.',
     setDefaultApp: 'Application par défaut pour les documents Office',
-    setDefaultAppDesc: 'Ouvrir les fichiers .docx, .xlsx et .pptx dans GenOffice par double-clic.',
-    setDefaultAppIs: 'GenOffice est déjà l’application par défaut.',
+    setDefaultAppDesc: 'Ouvrir les fichiers .docx, .xlsx et .pptx dans OneDesk par double-clic.',
+    setDefaultAppIs: 'OneDesk est déjà l’application par défaut.',
     setDefaultAppOther: 'Par défaut actuellement : {app}',
     setDefaultAppSet: 'Définir par défaut',
     setDefaultAppOpenSettings: 'Ouvrir les réglages système',
@@ -4322,7 +4317,7 @@ export const strings = {
     setSecAbout: 'À propos',
     setSecIntegrations: 'Intégrations',
     setSecSkills: 'Compétences',
-    intgHeroTitle: 'Utiliser GenOffice depuis votre assistant IA',
+    intgHeroTitle: 'Utiliser OneDesk depuis votre assistant IA',
     intgHeroDesc:
       'Une fois connectés, Claude Code, Codex, Cursor, Claude Desktop et les assistants similaires peuvent créer, convertir, lire et modifier vos fichiers Word, Excel, PowerPoint, PDF et Markdown. Tout se passe sur cet ordinateur ; rien n’est envoyé.',
     intgHeroStep1:
@@ -4333,14 +4328,14 @@ export const strings = {
     intgStep1Desc:
       'Seuls les assistants trouvés sur cet ordinateur sont listés. Installez-le dans celui que vous utilisez vraiment ; inutile de le faire pour tous.',
     intgStep1Update:
-      'Quand une mise à jour de GenOffice apporte un skill plus récent, un bouton Mettre à jour apparaît à côté de cet assistant.',
+      'Quand une mise à jour de OneDesk apporte un skill plus récent, un bouton Mettre à jour apparaît à côté de cet assistant.',
     intgSkillVersion: 'skill {v}',
     intgStateMissing: 'Skill non installé',
     intgSharedReaders: 'Dossier de skills partagé, lu par {list}',
     intgStateInstalled: 'Skill {v} installé · prêt pour votre prochaine discussion',
     intgLegacyTitle: 'Anciennes copies du skill',
     intgLegacyDesc:
-      "GenOffice écrivait autrefois une copie dans le dossier de chaque outil. Il en reste {n} : l'outil continue de les lire, donc elles ne reçoivent jamais le skill actuel.",
+      "OneDesk écrivait autrefois une copie dans le dossier de chaque outil. Il en reste {n} : l'outil continue de les lire, donc elles ne reçoivent jamais le skill actuel.",
     intgLegacyClean: 'Supprimer les anciennes copies',
     intgLegacyCleaned:
       '{n} anciennes copies supprimées, {k} modifiées à la main laissées en place.',
@@ -4349,7 +4344,7 @@ export const strings = {
     intgOtherDesc:
       "Choisissez une seule de ces trois méthodes. Elles installent toutes le même skill : inutile d'en faire plusieurs.",
     intgOtherFolderTitle: 'Tout assistant qui lit des dossiers SKILL.md',
-    intgOtherFolderDesc: 'Choisissez son dossier skills et GenOffice y écrit le fichier.',
+    intgOtherFolderDesc: 'Choisissez son dossier skills et OneDesk y écrit le fichier.',
     intgOtherZipTitle: "Remettre le fichier à l'assistant",
     intgOtherZipDesc: "Enregistrez le skill en zip, puis demandez à l'assistant de l'installer.",
     intgOtherNpxTitle: 'Avec la commande skills (nécessite Node.js)',
@@ -4360,21 +4355,21 @@ export const strings = {
       'Ouvrez une nouvelle discussion dans votre assistant et demandez simplement, par exemple :',
     intgExample1: 'Transforme ~/Downloads/report.md en document Word',
     intgExample2: 'Prépare une présentation de 6 diapositives sur nos résultats du T3',
-    intgExample3: 'Convertis budget.xlsx en PDF et ouvre-le dans GenOffice',
+    intgExample3: 'Convertis budget.xlsx en PDF et ouvre-le dans OneDesk',
     intgStep2Note:
-      "L'assistant appelle lui-même GenOffice, par la ligne de commande ou MCP ; vous n'avez jamais à saisir de commande.",
+      "L'assistant appelle lui-même OneDesk, par la ligne de commande ou MCP ; vous n'avez jamais à saisir de commande.",
     intgCliPartTitle: 'CLI · ligne de commande + skill',
     intgCliPartDesc:
-      'Pour les assistants capables de lancer des commandes dans le terminal (Claude Code, Codex, Cursor, etc.). Une fois le skill installé, l’assistant appelle lui-même la ligne de commande genoffice pour créer, convertir, lire et modifier les fichiers ; vous ne tapez jamais de commande.',
+      'Pour les assistants capables de lancer des commandes dans le terminal (Claude Code, Codex, Cursor, etc.). Une fois le skill installé, l’assistant appelle lui-même la ligne de commande onedesk pour créer, convertir, lire et modifier les fichiers ; vous ne tapez jamais de commande.',
     intgMcpPartTitle: 'MCP',
     intgMcpPartDesc:
-      'MCP est le protocole commun que les assistants IA utilisent pour appeler des outils externes. Utilisez-le si votre assistant ne peut pas lancer de commandes (Claude Desktop, par exemple) ou si vous voulez qu’il pilote directement la fenêtre GenOffice. Choisissez l’une des deux méthodes ci-dessous.',
+      'MCP est le protocole commun que les assistants IA utilisent pour appeler des outils externes. Utilisez-le si votre assistant ne peut pas lancer de commandes (Claude Desktop, par exemple) ou si vous voulez qu’il pilote directement la fenêtre OneDesk. Choisissez l’une des deux méthodes ci-dessous.',
     intgMcpStdioTitle: 'Lancé par l’assistant (recommandé)',
     intgMcpStdioDesc:
-      'L’assistant lance lui-même genoffice mcp : rien à activer ici, et GenOffice n’a pas besoin d’être ouvert. Mêmes fonctions que la CLI.',
+      'L’assistant lance lui-même onedesk mcp : rien à activer ici, et OneDesk n’a pas besoin d’être ouvert. Mêmes fonctions que la CLI.',
     intgMcpHttpTitle: 'Serveur HTTP local',
     intgMcpHttpDesc:
-      'Tourne dans GenOffice ; l’assistant se connecte à une URL et vous voyez le document se construire pas à pas dans l’éditeur Word. GenOffice doit rester ouvert ; documents Word uniquement pour l’instant.',
+      'Tourne dans OneDesk ; l’assistant se connecte à une URL et vous voyez le document se construire pas à pas dans l’éditeur Word. OneDesk doit rester ouvert ; documents Word uniquement pour l’instant.',
     intgMcpHttpAdvanced: 'Avancé : autres adresses et journal',
     intgMcpClaudeTitle: 'Claude Code',
     intgMcpClaudeDesc: 'Exécutez ceci une fois dans un terminal :',
@@ -4383,10 +4378,10 @@ export const strings = {
       'Ajoutez ceci à sa configuration de serveurs MCP (un fichier JSON, ou « Ajouter un serveur MCP » dans ses réglages) :',
     intgMcpNote:
       "Le skill et MCP peuvent coexister ; l'assistant choisit l'un des deux. Ils font exactement la même chose.",
-    intgCliTitle: 'Avancé : ligne de commande genoffice',
-    intgCliReady: 'genoffice {v} · prêt dans votre terminal ({path})',
+    intgCliTitle: 'Avancé : ligne de commande onedesk',
+    intgCliReady: 'onedesk {v} · prêt dans votre terminal ({path})',
     intgCliNotOnPath:
-      'genoffice {v} · absent du PATH de votre terminal. Les assistants le trouvent quand même via ~/.genoffice/launcher, le skill fonctionne donc. Pour taper genoffice vous-même, exécutez ceci une fois :',
+      'onedesk {v} · absent du PATH de votre terminal. Les assistants le trouvent quand même via ~/.onedesk/launcher, le skill fonctionne donc. Pour taper onedesk vous-même, exécutez ceci une fois :',
     intgCliLauncher: 'Dossier du lanceur',
     intgStateOutdated: 'Installé {v}, mise à jour {next} disponible',
     intgStateModified: 'Installé {v} (modifié)',
@@ -4411,10 +4406,10 @@ export const strings = {
     intgSavedTo: 'Enregistré dans {path}',
     intgCopied: 'Copié',
     intgCliEphemeral:
-      "Glissez d'abord GenOffice dans Applications, puis utilisez la ligne de commande.",
+      "Glissez d'abord OneDesk dans Applications, puis utilisez la ligne de commande.",
     intgCopyPath: 'Copier le chemin',
     intgCliNeedsUpdate:
-      'Ce skill requiert la ligne de commande {v} ou plus récente ; mettez GenOffice à jour.',
+      'Ce skill requiert la ligne de commande {v} ou plus récente ; mettez OneDesk à jour.',
     intgLoading: 'Vérification…',
     intgUpdateDue: 'Mise à jour du skill disponible',
     setSecAiModel: 'Modèle IA',
@@ -4478,14 +4473,14 @@ export const strings = {
       "Lorsque leur fournisseur est Genspark, la recherche web, la génération d'images et l'analyse de médias passent par Genspark et consomment des crédits ; désactivé, la recherche utilise des sources gratuites et les outils d'image Genspark sont indisponibles.",
     setGithub: 'Open source',
     starOnGitHub: 'Mettre une étoile sur GitHub',
-    starPromptTitle: 'GenOffice vous plaît ?',
-    starPromptTitleN: 'Vous avez ouvert {n} documents avec GenOffice',
+    starPromptTitle: 'OneDesk vous plaît ?',
+    starPromptTitleN: 'Vous avez ouvert {n} documents avec OneDesk',
     starPromptBody:
-      'GenOffice est gratuit et open source. Une étoile sur GitHub est le meilleur moyen de soutenir l’équipe.',
+      'OneDesk est gratuit et open source. Une étoile sur GitHub est le meilleur moyen de soutenir l’équipe.',
     starPromptGo: 'Mettre une étoile',
     starPromptDone: 'Déjà fait',
     starPromptLater: 'Plus tard',
-    onbStarHint: 'Si GenOffice vous plaît, mettez-nous une étoile sur GitHub.',
+    onbStarHint: 'Si OneDesk vous plaît, mettez-nous une étoile sur GitHub.',
     setEmail: 'E-mail',
     setNotLoggedIn: 'Non connecté',
     setViewUsage: "Voir l'utilisation",
@@ -4500,13 +4495,13 @@ export const strings = {
     appMenu: 'Menu',
     newTab: 'Nouvel onglet',
     // First-run onboarding
-    onbTitle1: 'Bienvenue dans GenOffice',
+    onbTitle1: 'Bienvenue dans OneDesk',
     onbSubtitle1: 'La première suite bureautique open source et native IA',
     onbBody1:
       'Créez des documents, des feuilles de calcul et des présentations, et relisez des PDF. L’IA est intégrée à chaque étape.',
     onbTitle2: 'Ce n’est qu’un début',
     onbBody2:
-      'GenOffice est encore en alpha. Rejoignez la discussion de groupe sur GenTeam pour partager vos retours et façonner la suite.',
+      'OneDesk est encore en alpha. Rejoignez la discussion de groupe sur GenTeam pour partager vos retours et façonner la suite.',
     onbCredits: 'Les contributeurs actifs reçoivent **1 000+ crédits Genspark**',
     onbJoinGenTeam: 'Rejoindre GenTeam',
     onbSkip: 'Passer',
@@ -4518,7 +4513,7 @@ export const strings = {
     onbNote3: 'Les fonctions IA peuvent consommer des crédits Genspark.',
     onbBack: 'Retour',
     intgSkillsDesc:
-      'GenOffice n’utilise que les compétences de son propre dossier. Importer un dossier ou un zip copie toute la compétence ; rien ne s’exécute à l’import.',
+      'OneDesk n’utilise que les compétences de son propre dossier. Importer un dossier ou un zip copie toute la compétence ; rien ne s’exécute à l’import.',
     intgSkillsEmpty: 'Aucune compétence installée.',
     intgSkillsImportFolder: 'Importer un dossier…',
     intgSkillsImportZip: 'Importer un paquet de compétence (zip / .md)…',
@@ -4528,7 +4523,7 @@ export const strings = {
     intgSkillsImportFailed: 'Échec de l’import : {reason}',
     intgSkillsRemove: 'Supprimer',
     intgSkillsRemoveConfirm:
-      'Supprimer la compétence « {name} » ? Son dossier sera supprimé de GenOffice.',
+      'Supprimer la compétence « {name} » ? Son dossier sera supprimé de OneDesk.',
     intgSkillsRemoved: '{name} supprimée',
     skillDetailClose: 'Fermer',
     skillDetailLoading: 'Chargement des instructions…',
@@ -4803,10 +4798,10 @@ export const strings = {
     setUpdateRestart: 'Neustarten & installieren',
     setAutoUpdateCheck: 'Automatisch nach Updates suchen',
     setAutoUpdateCheckDesc:
-      'Wenn aus, sucht GenOffice weder beim Start noch im Hintergrund nach neuen Versionen. Über Hilfe › Nach Updates suchen können Sie weiterhin selbst prüfen.',
+      'Wenn aus, sucht OneDesk weder beim Start noch im Hintergrund nach neuen Versionen. Über Hilfe › Nach Updates suchen können Sie weiterhin selbst prüfen.',
     setSilentInstall: 'Updates still installieren',
     setSilentInstallDesc:
-      'Wenn aktiviert, wird eine im Hintergrund gefundene neue Version still heruntergeladen und beim Beenden von GenOffice installiert; nichts unterbricht Sie bei der Arbeit. Sonst lässt Sie eine Update-Meldung den Zeitpunkt selbst wählen.',
+      'Wenn aktiviert, wird eine im Hintergrund gefundene neue Version still heruntergeladen und beim Beenden von OneDesk installiert; nichts unterbricht Sie bei der Arbeit. Sonst lässt Sie eine Update-Meldung den Zeitpunkt selbst wählen.',
     updateChannel: 'Update-Kanal',
     channelStable: 'Stabil',
     channelBeta: 'Beta',
@@ -4819,7 +4814,7 @@ export const strings = {
     saveLocation: 'Speicherort',
     setRestoreSession: 'Dokumente vom letzten Mal wieder öffnen',
     setRestoreSessionDesc:
-      'Dokumente, die beim Schließen von GenOffice geöffnet waren, werden beim nächsten Start automatisch wieder geöffnet.',
+      'Dokumente, die beim Schließen von OneDesk geöffnet waren, werden beim nächsten Start automatisch wieder geöffnet.',
     setTabSleep: 'Inaktive Tabs schlafen legen',
     setTabSleepDesc:
       'Sind viele Tabs offen, geben länger nicht angesehene ihren Speicher frei und öffnen ihre Datei bei der Rückkehr neu. Tabs mit ungespeicherten Änderungen oder angeheftete Tabs schlafen nie.',
@@ -4858,8 +4853,8 @@ export const strings = {
     setLegacyImportPromptDesc:
       'Erklärt vor dem Öffnen von .doc-, .odt-, .hwp-, .ods- oder .odp-Dateien, was übernommen wird. Ausgeschaltet öffnet sich direkt „Speichern unter“.',
     setDefaultApp: 'Standard-App für Office-Dokumente',
-    setDefaultAppDesc: '.docx-, .xlsx- und .pptx-Dateien per Doppelklick in GenOffice öffnen.',
-    setDefaultAppIs: 'GenOffice ist bereits die Standard-App.',
+    setDefaultAppDesc: '.docx-, .xlsx- und .pptx-Dateien per Doppelklick in OneDesk öffnen.',
+    setDefaultAppIs: 'OneDesk ist bereits die Standard-App.',
     setDefaultAppOther: 'Aktueller Standard: {app}',
     setDefaultAppSet: 'Als Standard festlegen',
     setDefaultAppOpenSettings: 'Systemeinstellungen öffnen',
@@ -4917,7 +4912,7 @@ export const strings = {
     setSecAbout: 'Über',
     setSecIntegrations: 'Integrationen',
     setSecSkills: 'Skills',
-    intgHeroTitle: 'GenOffice aus Ihrem KI-Assistenten nutzen',
+    intgHeroTitle: 'OneDesk aus Ihrem KI-Assistenten nutzen',
     intgHeroDesc:
       'Einmal verbunden, können Claude Code, Codex, Cursor, Claude Desktop und ähnliche Assistenten Word-, Excel-, PowerPoint-, PDF- und Markdown-Dateien für Sie erstellen, konvertieren, lesen und bearbeiten. Alles läuft auf diesem Rechner; nichts wird hochgeladen.',
     intgHeroStep1: 'Weg wählen: CLI, wenn der Assistent Terminalbefehle ausführen kann, sonst MCP',
@@ -4927,14 +4922,14 @@ export const strings = {
     intgStep1Desc:
       'Es werden nur Assistenten angezeigt, die auf diesem Rechner gefunden wurden. Installieren Sie ihn in dem, den Sie tatsächlich nutzen; Sie brauchen nicht alle.',
     intgStep1Update:
-      'Bringt ein GenOffice-Update einen neueren Skill mit, erscheint neben diesem Assistenten ein Aktualisieren-Button.',
+      'Bringt ein OneDesk-Update einen neueren Skill mit, erscheint neben diesem Assistenten ein Aktualisieren-Button.',
     intgSkillVersion: 'Skill {v}',
     intgStateMissing: 'Skill nicht installiert',
     intgSharedReaders: 'Gemeinsamer Skill-Ordner, gelesen von {list}',
     intgStateInstalled: 'Skill {v} installiert · ab dem nächsten Chat bereit',
     intgLegacyTitle: 'Alte Skill-Kopien',
     intgLegacyDesc:
-      'GenOffice schrieb früher eine Kopie in den Ordner jedes Werkzeugs. {n} davon liegen noch dort: Das Werkzeug liest sie weiter, sie bekommen also nie den aktuellen Skill.',
+      'OneDesk schrieb früher eine Kopie in den Ordner jedes Werkzeugs. {n} davon liegen noch dort: Das Werkzeug liest sie weiter, sie bekommen also nie den aktuellen Skill.',
     intgLegacyClean: 'Alte Kopien entfernen',
     intgLegacyCleaned: '{n} alte Kopien entfernt, {k} von Hand bearbeitete stehen gelassen.',
     intgLegacyFailed: 'Alte Kopien konnten nicht entfernt werden: {msg}',
@@ -4942,8 +4937,7 @@ export const strings = {
     intgOtherDesc:
       'Wählen Sie genau einen dieser drei Wege. Alle installieren denselben Skill, mehr als einer ist nicht nötig.',
     intgOtherFolderTitle: 'Jeder Assistent, der SKILL.md-Ordner liest',
-    intgOtherFolderDesc:
-      'Wählen Sie seinen Skills-Ordner, und GenOffice schreibt die Datei dorthin.',
+    intgOtherFolderDesc: 'Wählen Sie seinen Skills-Ordner, und OneDesk schreibt die Datei dorthin.',
     intgOtherZipTitle: 'Datei an den Assistenten übergeben',
     intgOtherZipDesc:
       'Speichern Sie den Skill als Zip und bitten Sie den Assistenten, ihn zu installieren.',
@@ -4955,21 +4949,21 @@ export const strings = {
       'Öffnen Sie einen neuen Chat in Ihrem Assistenten und fragen Sie in normalen Worten, zum Beispiel:',
     intgExample1: 'Mach aus ~/Downloads/report.md ein Word-Dokument',
     intgExample2: 'Erstelle eine Präsentation mit 6 Folien zu unseren Q3-Ergebnissen',
-    intgExample3: 'Wandle budget.xlsx in PDF um und öffne es in GenOffice',
+    intgExample3: 'Wandle budget.xlsx in PDF um und öffne es in OneDesk',
     intgStep2Note:
-      'Der Assistent ruft GenOffice selbst auf – über die Befehlszeile oder MCP; Sie müssen nie einen Befehl eintippen.',
+      'Der Assistent ruft OneDesk selbst auf – über die Befehlszeile oder MCP; Sie müssen nie einen Befehl eintippen.',
     intgCliPartTitle: 'CLI · Kommandozeile + Skill',
     intgCliPartDesc:
-      'Für Assistenten, die Terminalbefehle ausführen können (Claude Code, Codex, Cursor u. a.). Nach der Installation des Skills ruft der Assistent die genoffice-Kommandozeile selbst auf, um Dateien zu erstellen, zu konvertieren, zu lesen und zu bearbeiten; Sie tippen nie einen Befehl.',
+      'Für Assistenten, die Terminalbefehle ausführen können (Claude Code, Codex, Cursor u. a.). Nach der Installation des Skills ruft der Assistent die onedesk-Kommandozeile selbst auf, um Dateien zu erstellen, zu konvertieren, zu lesen und zu bearbeiten; Sie tippen nie einen Befehl.',
     intgMcpPartTitle: 'MCP',
     intgMcpPartDesc:
-      'MCP ist das gemeinsame Protokoll, über das KI-Assistenten externe Werkzeuge aufrufen. Nutzen Sie es, wenn der Assistent keine Befehle ausführen kann (z. B. Claude Desktop) oder wenn er das GenOffice-Fenster direkt steuern soll. Wählen Sie einen der beiden Wege unten.',
+      'MCP ist das gemeinsame Protokoll, über das KI-Assistenten externe Werkzeuge aufrufen. Nutzen Sie es, wenn der Assistent keine Befehle ausführen kann (z. B. Claude Desktop) oder wenn er das OneDesk-Fenster direkt steuern soll. Wählen Sie einen der beiden Wege unten.',
     intgMcpStdioTitle: 'Vom Assistenten gestartet (empfohlen)',
     intgMcpStdioDesc:
-      'Der Assistent startet genoffice mcp selbst: hier ist nichts einzuschalten, und GenOffice muss nicht geöffnet sein. Gleicher Funktionsumfang wie die CLI.',
+      'Der Assistent startet onedesk mcp selbst: hier ist nichts einzuschalten, und OneDesk muss nicht geöffnet sein. Gleicher Funktionsumfang wie die CLI.',
     intgMcpHttpTitle: 'Lokaler HTTP-Server',
     intgMcpHttpDesc:
-      'Läuft in GenOffice; der Assistent verbindet sich über eine URL, und Sie sehen im Word-Editor zu, wie das Dokument Schritt für Schritt entsteht. GenOffice muss geöffnet bleiben; derzeit nur Word-Dokumente.',
+      'Läuft in OneDesk; der Assistent verbindet sich über eine URL, und Sie sehen im Word-Editor zu, wie das Dokument Schritt für Schritt entsteht. OneDesk muss geöffnet bleiben; derzeit nur Word-Dokumente.',
     intgMcpHttpAdvanced: 'Erweitert: weitere Adressen und Protokoll',
     intgMcpClaudeTitle: 'Claude Code',
     intgMcpClaudeDesc: 'Einmal im Terminal ausführen:',
@@ -4978,10 +4972,10 @@ export const strings = {
       'Fügen Sie dies in seine MCP-Server-Konfiguration ein (eine JSON-Datei oder „MCP-Server hinzufügen“ in den Einstellungen):',
     intgMcpNote:
       'Skill und MCP können nebeneinander eingerichtet sein; der Assistent wählt eines. Beide tun genau dasselbe.',
-    intgCliTitle: 'Erweitert: Befehlszeile genoffice',
-    intgCliReady: 'genoffice {v} · im Terminal verfügbar ({path})',
+    intgCliTitle: 'Erweitert: Befehlszeile onedesk',
+    intgCliReady: 'onedesk {v} · im Terminal verfügbar ({path})',
     intgCliNotOnPath:
-      'genoffice {v} · nicht im PATH Ihres Terminals. Assistenten finden es trotzdem über ~/.genoffice/launcher, der Skill funktioniert also. Um genoffice selbst einzugeben, führen Sie dies einmal aus:',
+      'onedesk {v} · nicht im PATH Ihres Terminals. Assistenten finden es trotzdem über ~/.onedesk/launcher, der Skill funktioniert also. Um onedesk selbst einzugeben, führen Sie dies einmal aus:',
     intgCliLauncher: 'Launcher-Ordner',
     intgStateOutdated: 'Installiert {v}, Update auf {next} verfügbar',
     intgStateModified: 'Installiert {v} (geändert)',
@@ -5005,11 +4999,10 @@ export const strings = {
     intgSaveZipTitle: 'Skill speichern',
     intgSavedTo: 'Gespeichert unter {path}',
     intgCopied: 'Kopiert',
-    intgCliEphemeral:
-      'Ziehen Sie GenOffice zuerst in „Programme“, dann nutzen Sie die Befehlszeile.',
+    intgCliEphemeral: 'Ziehen Sie OneDesk zuerst in „Programme“, dann nutzen Sie die Befehlszeile.',
     intgCopyPath: 'Pfad kopieren',
     intgCliNeedsUpdate:
-      'Dieser Skill braucht Befehlszeile {v} oder neuer; aktualisieren Sie GenOffice.',
+      'Dieser Skill braucht Befehlszeile {v} oder neuer; aktualisieren Sie OneDesk.',
     intgLoading: 'Prüfe …',
     intgUpdateDue: 'Skill-Update verfügbar',
     setSecAiModel: 'KI-Modell',
@@ -5070,14 +5063,14 @@ export const strings = {
       'Steht ihr Anbieter auf Genspark, laufen Websuche, Bildgenerierung und Medienanalyse über Genspark und verbrauchen Credits; ausgeschaltet nutzt die Suche kostenlose Quellen und die Genspark-Bildwerkzeuge sind nicht verfügbar.',
     setGithub: 'Open Source',
     starOnGitHub: 'Auf GitHub Stern geben',
-    starPromptTitle: 'Gefällt Ihnen GenOffice?',
-    starPromptTitleN: 'Sie haben {n} Dokumente mit GenOffice geöffnet',
+    starPromptTitle: 'Gefällt Ihnen OneDesk?',
+    starPromptTitleN: 'Sie haben {n} Dokumente mit OneDesk geöffnet',
     starPromptBody:
-      'GenOffice ist kostenlos und Open Source. Ein Stern auf GitHub ist die beste Unterstützung für das Team.',
+      'OneDesk ist kostenlos und Open Source. Ein Stern auf GitHub ist die beste Unterstützung für das Team.',
     starPromptGo: 'Stern geben',
     starPromptDone: 'Schon erledigt',
     starPromptLater: 'Später',
-    onbStarHint: 'Wenn Ihnen GenOffice gefällt, geben Sie uns einen Stern auf GitHub.',
+    onbStarHint: 'Wenn Ihnen OneDesk gefällt, geben Sie uns einen Stern auf GitHub.',
     setEmail: 'E-Mail',
     setNotLoggedIn: 'Nicht angemeldet',
     setViewUsage: 'Verbrauch anzeigen',
@@ -5092,13 +5085,13 @@ export const strings = {
     appMenu: 'Menü',
     newTab: 'Neuer Tab',
     // First-run onboarding
-    onbTitle1: 'Willkommen bei GenOffice',
+    onbTitle1: 'Willkommen bei OneDesk',
     onbSubtitle1: 'Die erste quelloffene, KI-native Office-Suite',
     onbBody1:
       'Dokumente erstellen, Tabellen bauen, Präsentationen gestalten und PDFs prüfen. KI ist in jedem Schritt integriert.',
     onbTitle2: 'Das ist erst der Anfang',
     onbBody2:
-      'GenOffice ist noch in der Alpha-Phase. Treten Sie dem Gruppenchat auf GenTeam bei, um Feedback zu teilen und die Zukunft mitzugestalten.',
+      'OneDesk ist noch in der Alpha-Phase. Treten Sie dem Gruppenchat auf GenTeam bei, um Feedback zu teilen und die Zukunft mitzugestalten.',
     onbCredits: 'Aktive Mitwirkende erhalten **1.000+ Genspark-Guthaben**',
     onbJoinGenTeam: 'GenTeam beitreten',
     onbSkip: 'Überspringen',
@@ -5110,7 +5103,7 @@ export const strings = {
     onbNote3: 'KI-Funktionen können Genspark-Credits verbrauchen.',
     onbBack: 'Zurück',
     intgSkillsDesc:
-      'GenOffice verwendet nur Skills aus seinem eigenen Skills-Ordner. Der Import eines Ordners oder einer ZIP kopiert den ganzen Skill; beim Import wird nichts ausgeführt.',
+      'OneDesk verwendet nur Skills aus seinem eigenen Skills-Ordner. Der Import eines Ordners oder einer ZIP kopiert den ganzen Skill; beim Import wird nichts ausgeführt.',
     intgSkillsEmpty: 'Noch keine Skills installiert.',
     intgSkillsImportFolder: 'Ordner importieren…',
     intgSkillsImportZip: 'Skill-Paket importieren (ZIP / .md)…',
@@ -5119,7 +5112,7 @@ export const strings = {
     intgSkillsImportDone: '{name} importiert',
     intgSkillsImportFailed: 'Import fehlgeschlagen: {reason}',
     intgSkillsRemove: 'Entfernen',
-    intgSkillsRemoveConfirm: 'Skill „{name}“ entfernen? Sein Ordner wird aus GenOffice gelöscht.',
+    intgSkillsRemoveConfirm: 'Skill „{name}“ entfernen? Sein Ordner wird aus OneDesk gelöscht.',
     intgSkillsRemoved: '{name} entfernt',
     skillDetailClose: 'Schließen',
     skillDetailLoading: 'Anleitung wird geladen…',
@@ -5391,10 +5384,10 @@ export const strings = {
     setUpdateRestart: 'Reiniciar e instalar',
     setAutoUpdateCheck: 'Buscar actualizaciones automáticamente',
     setAutoUpdateCheckDesc:
-      'Si está desactivado, GenOffice deja de buscar nuevas versiones al iniciar y en segundo plano. Puede seguir comprobándolo en Ayuda › Buscar actualizaciones.',
+      'Si está desactivado, OneDesk deja de buscar nuevas versiones al iniciar y en segundo plano. Puede seguir comprobándolo en Ayuda › Buscar actualizaciones.',
     setSilentInstall: 'Instalar actualizaciones en silencio',
     setSilentInstallDesc:
-      'Si está activado, una nueva versión detectada en segundo plano se descarga en silencio y se instala al salir de GenOffice; nada te interrumpe mientras trabajas. Si está desactivado, un aviso de actualización te deja decidir cuándo actualizar.',
+      'Si está activado, una nueva versión detectada en segundo plano se descarga en silencio y se instala al salir de OneDesk; nada te interrumpe mientras trabajas. Si está desactivado, un aviso de actualización te deja decidir cuándo actualizar.',
     updateChannel: 'Canal de actualización',
     channelStable: 'Estable',
     channelBeta: 'Beta',
@@ -5407,7 +5400,7 @@ export const strings = {
     saveLocation: 'Ubicación de guardado',
     setRestoreSession: 'Volver a abrir los documentos de la última vez',
     setRestoreSessionDesc:
-      'Los documentos abiertos al cerrar GenOffice se vuelven a abrir automáticamente la próxima vez que se inicie.',
+      'Los documentos abiertos al cerrar OneDesk se vuelven a abrir automáticamente la próxima vez que se inicie.',
     setTabSleep: 'Suspender pestañas inactivas',
     setTabSleepDesc:
       'Con muchas pestañas abiertas, las que no has mirado durante un tiempo liberan su memoria y vuelven a abrir el archivo al regresar. Las pestañas con cambios sin guardar o fijadas nunca se suspenden.',
@@ -5446,8 +5439,8 @@ export const strings = {
     setLegacyImportPromptDesc:
       'Explica qué se conserva antes de abrir archivos .doc, .odt, .hwp, .ods u .odp. Desactivado, se abre directamente Guardar como.',
     setDefaultApp: 'App predeterminada para documentos de Office',
-    setDefaultAppDesc: 'Abrir archivos .docx, .xlsx y .pptx en GenOffice al hacer doble clic.',
-    setDefaultAppIs: 'GenOffice ya es la app predeterminada.',
+    setDefaultAppDesc: 'Abrir archivos .docx, .xlsx y .pptx en OneDesk al hacer doble clic.',
+    setDefaultAppIs: 'OneDesk ya es la app predeterminada.',
     setDefaultAppOther: 'Predeterminada actual: {app}',
     setDefaultAppSet: 'Establecer como predeterminada',
     setDefaultAppOpenSettings: 'Abrir ajustes del sistema',
@@ -5506,7 +5499,7 @@ export const strings = {
     setSecAbout: 'Acerca de',
     setSecIntegrations: 'Integraciones',
     setSecSkills: 'Habilidades',
-    intgHeroTitle: 'Usa GenOffice desde tu asistente de IA',
+    intgHeroTitle: 'Usa OneDesk desde tu asistente de IA',
     intgHeroDesc:
       'Una vez conectados, Claude Code, Codex, Cursor, Claude Desktop y asistentes similares pueden crear, convertir, leer y editar archivos Word, Excel, PowerPoint, PDF y Markdown por ti. Todo ocurre en este equipo; no se sube nada.',
     intgHeroStep1:
@@ -5517,14 +5510,14 @@ export const strings = {
     intgStep1Desc:
       'Solo se muestran los asistentes encontrados en este equipo. Instálalo en el que realmente usas; no necesitas todos.',
     intgStep1Update:
-      'Cuando una actualización de GenOffice traiga un skill más nuevo, aparecerá un botón Actualizar junto a ese asistente.',
+      'Cuando una actualización de OneDesk traiga un skill más nuevo, aparecerá un botón Actualizar junto a ese asistente.',
     intgSkillVersion: 'skill {v}',
     intgStateMissing: 'Skill no instalado',
     intgSharedReaders: 'Carpeta de skills compartida que leen {list}',
     intgStateInstalled: 'Skill {v} instalado · listo en tu próximo chat',
     intgLegacyTitle: 'Copias antiguas de la skill',
     intgLegacyDesc:
-      'GenOffice escribía antes una copia en la carpeta de cada herramienta. Quedan {n}: la herramienta sigue leyéndolas, así que nunca reciben la skill actual.',
+      'OneDesk escribía antes una copia en la carpeta de cada herramienta. Quedan {n}: la herramienta sigue leyéndolas, así que nunca reciben la skill actual.',
     intgLegacyClean: 'Quitar las copias antiguas',
     intgLegacyCleaned:
       'Se quitaron {n} copias antiguas; {k} editadas a mano se dejaron en su sitio.',
@@ -5533,7 +5526,7 @@ export const strings = {
     intgOtherDesc:
       'Elige solo una de estas tres formas. Todas instalan el mismo skill, así que no hace falta hacer más de una.',
     intgOtherFolderTitle: 'Cualquier asistente que lea carpetas SKILL.md',
-    intgOtherFolderDesc: 'Elige su carpeta de skills y GenOffice escribe el archivo ahí.',
+    intgOtherFolderDesc: 'Elige su carpeta de skills y OneDesk escribe el archivo ahí.',
     intgOtherZipTitle: 'Entrega el archivo al asistente',
     intgOtherZipDesc: 'Guarda el skill como zip y pide al asistente que lo instale.',
     intgOtherNpxTitle: 'Con el comando skills (requiere Node.js)',
@@ -5543,21 +5536,21 @@ export const strings = {
     intgStep2Desc: 'Abre un chat nuevo en tu asistente y pídelo con tus palabras, por ejemplo:',
     intgExample1: 'Convierte ~/Downloads/report.md en un documento de Word',
     intgExample2: 'Haz una presentación de 6 diapositivas sobre nuestros resultados del T3',
-    intgExample3: 'Convierte budget.xlsx a PDF y ábrelo en GenOffice',
+    intgExample3: 'Convierte budget.xlsx a PDF y ábrelo en OneDesk',
     intgStep2Note:
-      'El asistente llama a GenOffice por sí mismo, mediante la línea de comandos o MCP; nunca tienes que escribir un comando.',
+      'El asistente llama a OneDesk por sí mismo, mediante la línea de comandos o MCP; nunca tienes que escribir un comando.',
     intgCliPartTitle: 'CLI · línea de comandos + skill',
     intgCliPartDesc:
-      'Para asistentes que pueden ejecutar comandos de terminal (Claude Code, Codex, Cursor y otros). Con el skill instalado, el asistente llama por sí mismo a la línea de comandos genoffice para crear, convertir, leer y editar archivos; nunca escribes un comando.',
+      'Para asistentes que pueden ejecutar comandos de terminal (Claude Code, Codex, Cursor y otros). Con el skill instalado, el asistente llama por sí mismo a la línea de comandos onedesk para crear, convertir, leer y editar archivos; nunca escribes un comando.',
     intgMcpPartTitle: 'MCP',
     intgMcpPartDesc:
-      'MCP es el protocolo común con el que los asistentes de IA llaman a herramientas externas. Úsalo cuando tu asistente no pueda ejecutar comandos (Claude Desktop, por ejemplo) o cuando quieras que controle directamente la ventana de GenOffice. Elige una de las dos formas de abajo.',
+      'MCP es el protocolo común con el que los asistentes de IA llaman a herramientas externas. Úsalo cuando tu asistente no pueda ejecutar comandos (Claude Desktop, por ejemplo) o cuando quieras que controle directamente la ventana de OneDesk. Elige una de las dos formas de abajo.',
     intgMcpStdioTitle: 'Iniciado por el asistente (recomendado)',
     intgMcpStdioDesc:
-      'El asistente lanza genoffice mcp por sí mismo: nada que activar aquí, y GenOffice no necesita estar abierto. Mismas funciones que la CLI.',
+      'El asistente lanza onedesk mcp por sí mismo: nada que activar aquí, y OneDesk no necesita estar abierto. Mismas funciones que la CLI.',
     intgMcpHttpTitle: 'Servidor HTTP local',
     intgMcpHttpDesc:
-      'Se ejecuta dentro de GenOffice; el asistente se conecta a una URL y puedes ver cómo construye el documento paso a paso en el editor de Word. GenOffice debe permanecer abierto; por ahora solo documentos Word.',
+      'Se ejecuta dentro de OneDesk; el asistente se conecta a una URL y puedes ver cómo construye el documento paso a paso en el editor de Word. OneDesk debe permanecer abierto; por ahora solo documentos Word.',
     intgMcpHttpAdvanced: 'Avanzado: otras direcciones y registro',
     intgMcpClaudeTitle: 'Claude Code',
     intgMcpClaudeDesc: 'Ejecuta esto una vez en una terminal:',
@@ -5566,10 +5559,10 @@ export const strings = {
       'Añade esto a su configuración de servidores MCP (un archivo JSON, o «Añadir servidor MCP» en sus ajustes):',
     intgMcpNote:
       'El skill y MCP pueden convivir; el asistente elige uno. Ambos hacen exactamente lo mismo.',
-    intgCliTitle: 'Avanzado: línea de comandos genoffice',
-    intgCliReady: 'genoffice {v} · listo en tu terminal ({path})',
+    intgCliTitle: 'Avanzado: línea de comandos onedesk',
+    intgCliReady: 'onedesk {v} · listo en tu terminal ({path})',
     intgCliNotOnPath:
-      'genoffice {v} · no está en el PATH de tu terminal. Los asistentes lo encuentran igualmente mediante ~/.genoffice/launcher, así que el skill funciona. Para escribir genoffice tú mismo, ejecuta esto una vez:',
+      'onedesk {v} · no está en el PATH de tu terminal. Los asistentes lo encuentran igualmente mediante ~/.onedesk/launcher, así que el skill funciona. Para escribir onedesk tú mismo, ejecuta esto una vez:',
     intgCliLauncher: 'Carpeta del lanzador',
     intgStateOutdated: 'Instalado {v}, actualización a {next} disponible',
     intgStateModified: 'Instalado {v} (modificado)',
@@ -5593,10 +5586,10 @@ export const strings = {
     intgSaveZipTitle: 'Guardar skill',
     intgSavedTo: 'Guardado en {path}',
     intgCopied: 'Copiado',
-    intgCliEphemeral: 'Arrastra primero GenOffice a Aplicaciones y luego usa la línea de comandos.',
+    intgCliEphemeral: 'Arrastra primero OneDesk a Aplicaciones y luego usa la línea de comandos.',
     intgCopyPath: 'Copiar ruta',
     intgCliNeedsUpdate:
-      'Este skill necesita la línea de comandos {v} o superior; actualiza GenOffice.',
+      'Este skill necesita la línea de comandos {v} o superior; actualiza OneDesk.',
     intgLoading: 'Comprobando…',
     intgUpdateDue: 'Actualización del skill disponible',
     setSecAiModel: 'Modelo de IA',
@@ -5657,14 +5650,14 @@ export const strings = {
       'Cuando su proveedor es Genspark, la búsqueda web, la generación de imágenes y el análisis de medios pasan por Genspark y consumen créditos; desactivado, la búsqueda usa fuentes gratuitas y las herramientas de imagen de Genspark no están disponibles.',
     setGithub: 'Código abierto',
     starOnGitHub: 'Dar una estrella en GitHub',
-    starPromptTitle: '¿Te gusta GenOffice?',
-    starPromptTitleN: 'Has abierto {n} documentos con GenOffice',
+    starPromptTitle: '¿Te gusta OneDesk?',
+    starPromptTitleN: 'Has abierto {n} documentos con OneDesk',
     starPromptBody:
-      'GenOffice es gratuito y de código abierto. Una estrella en GitHub es la mejor forma de apoyar al equipo.',
+      'OneDesk es gratuito y de código abierto. Una estrella en GitHub es la mejor forma de apoyar al equipo.',
     starPromptGo: 'Dar una estrella',
     starPromptDone: 'Ya la di',
     starPromptLater: 'Más tarde',
-    onbStarHint: 'Si te gusta GenOffice, danos una estrella en GitHub.',
+    onbStarHint: 'Si te gusta OneDesk, danos una estrella en GitHub.',
     setEmail: 'Correo electrónico',
     setNotLoggedIn: 'Sesión no iniciada',
     setViewUsage: 'Ver uso',
@@ -5679,13 +5672,13 @@ export const strings = {
     appMenu: 'Menú',
     newTab: 'Nueva pestaña',
     // First-run onboarding
-    onbTitle1: 'Bienvenido a GenOffice',
+    onbTitle1: 'Bienvenido a OneDesk',
     onbSubtitle1: 'La primera suite ofimática de código abierto y nativa de IA',
     onbBody1:
       'Crea documentos, hojas de cálculo y presentaciones, y revisa PDF. La IA está integrada en cada paso.',
     onbTitle2: 'Esto es solo el comienzo',
     onbBody2:
-      'GenOffice aún está en alfa. Únete al chat grupal en GenTeam para compartir comentarios y ayudar a dar forma a lo que viene.',
+      'OneDesk aún está en alfa. Únete al chat grupal en GenTeam para compartir comentarios y ayudar a dar forma a lo que viene.',
     onbCredits: 'Los colaboradores activos reciben **1.000+ créditos de Genspark**',
     onbJoinGenTeam: 'Unirse a GenTeam',
     onbSkip: 'Omitir',
@@ -5697,7 +5690,7 @@ export const strings = {
     onbNote3: 'Las funciones de IA pueden consumir créditos de Genspark.',
     onbBack: 'Atrás',
     intgSkillsDesc:
-      'GenOffice solo usa habilidades de su propia carpeta. Importar una carpeta o un zip copia la habilidad completa; nada se ejecuta al importar.',
+      'OneDesk solo usa habilidades de su propia carpeta. Importar una carpeta o un zip copia la habilidad completa; nada se ejecuta al importar.',
     intgSkillsEmpty: 'Aún no hay habilidades instaladas.',
     intgSkillsImportFolder: 'Importar carpeta…',
     intgSkillsImportZip: 'Importar paquete de habilidad (zip / .md)…',
@@ -5706,7 +5699,7 @@ export const strings = {
     intgSkillsImportDone: '{name} importada',
     intgSkillsImportFailed: 'Error al importar: {reason}',
     intgSkillsRemove: 'Quitar',
-    intgSkillsRemoveConfirm: '¿Quitar la habilidad "{name}"? Su carpeta se eliminará de GenOffice.',
+    intgSkillsRemoveConfirm: '¿Quitar la habilidad "{name}"? Su carpeta se eliminará de OneDesk.',
     intgSkillsRemoved: '{name} quitada',
     skillDetailClose: 'Cerrar',
     skillDetailLoading: 'Cargando instrucciones…',
@@ -5971,10 +5964,10 @@ export const strings = {
     setUpdateRestart: 'รีสตาร์ตและติดตั้ง',
     setAutoUpdateCheck: 'ตรวจหาอัปเดตโดยอัตโนมัติ',
     setAutoUpdateCheckDesc:
-      'เมื่อปิด GenOffice จะไม่ตรวจหาเวอร์ชันใหม่ตอนเปิดโปรแกรมหรือในเบื้องหลัง คุณยังตรวจเองได้จาก วิธีใช้ › ตรวจหาการอัปเดต',
+      'เมื่อปิด OneDesk จะไม่ตรวจหาเวอร์ชันใหม่ตอนเปิดโปรแกรมหรือในเบื้องหลัง คุณยังตรวจเองได้จาก วิธีใช้ › ตรวจหาการอัปเดต',
     setSilentInstall: 'ติดตั้งอัปเดตแบบเงียบ',
     setSilentInstallDesc:
-      'เมื่อเปิด เวอร์ชันใหม่ที่ตรวจพบเบื้องหลังจะถูกดาวน์โหลดแบบเงียบและติดตั้งเมื่อคุณออกจาก GenOffice โดยไม่รบกวนระหว่างทำงาน เมื่อปิด จะมีข้อความแจ้งอัปเดตให้คุณตัดสินใจเอง',
+      'เมื่อเปิด เวอร์ชันใหม่ที่ตรวจพบเบื้องหลังจะถูกดาวน์โหลดแบบเงียบและติดตั้งเมื่อคุณออกจาก OneDesk โดยไม่รบกวนระหว่างทำงาน เมื่อปิด จะมีข้อความแจ้งอัปเดตให้คุณตัดสินใจเอง',
     updateChannel: 'ช่องทางอัปเดต',
     channelStable: 'เสถียร',
     channelBeta: 'เบต้า',
@@ -5987,7 +5980,7 @@ export const strings = {
     saveLocation: 'ตำแหน่งบันทึก',
     setRestoreSession: 'เปิดเอกสารจากครั้งที่แล้วอีกครั้ง',
     setRestoreSessionDesc:
-      'เอกสารที่เปิดอยู่ตอนปิด GenOffice จะเปิดขึ้นอีกครั้งโดยอัตโนมัติเมื่อเริ่มโปรแกรมครั้งถัดไป',
+      'เอกสารที่เปิดอยู่ตอนปิด OneDesk จะเปิดขึ้นอีกครั้งโดยอัตโนมัติเมื่อเริ่มโปรแกรมครั้งถัดไป',
     setTabSleep: 'พักแท็บที่ไม่ได้ใช้งาน',
     setTabSleepDesc:
       'เมื่อเปิดแท็บจำนวนมาก แท็บที่ไม่ได้ดูสักพักจะคืนหน่วยความจำและเปิดไฟล์ใหม่เมื่อคุณกลับมา แท็บที่มีการเปลี่ยนแปลงที่ยังไม่บันทึกหรือปักหมุดไว้จะไม่พัก',
@@ -6025,8 +6018,8 @@ export const strings = {
     setLegacyImportPromptDesc:
       'อธิบายว่าเนื้อหาใดจะถูกแปลงมาก่อนเปิดไฟล์ .doc, .odt, .hwp, .ods หรือ .odp เมื่อปิด จะเปิดบันทึกเป็นทันที',
     setDefaultApp: 'แอปเริ่มต้นสำหรับเอกสาร Office',
-    setDefaultAppDesc: 'เปิดไฟล์ .docx, .xlsx และ .pptx ด้วย GenOffice เมื่อดับเบิลคลิก',
-    setDefaultAppIs: 'GenOffice เป็นแอปเริ่มต้นอยู่แล้ว',
+    setDefaultAppDesc: 'เปิดไฟล์ .docx, .xlsx และ .pptx ด้วย OneDesk เมื่อดับเบิลคลิก',
+    setDefaultAppIs: 'OneDesk เป็นแอปเริ่มต้นอยู่แล้ว',
     setDefaultAppOther: 'แอปเริ่มต้นปัจจุบัน: {app}',
     setDefaultAppSet: 'ตั้งเป็นค่าเริ่มต้น',
     setDefaultAppOpenSettings: 'เปิดการตั้งค่าระบบ',
@@ -6082,7 +6075,7 @@ export const strings = {
     setSecAbout: 'เกี่ยวกับ',
     setSecIntegrations: 'การเชื่อมต่อ',
     setSecSkills: 'ทักษะ',
-    intgHeroTitle: 'ใช้ GenOffice จากผู้ช่วย AI ของคุณ',
+    intgHeroTitle: 'ใช้ OneDesk จากผู้ช่วย AI ของคุณ',
     intgHeroDesc:
       'เมื่อเชื่อมต่อแล้ว Claude Code, Codex, Cursor, Claude Desktop และผู้ช่วยลักษณะเดียวกันจะสร้าง แปลง อ่าน และแก้ไขไฟล์ Word, Excel, PowerPoint, PDF และ Markdown แทนคุณได้ ทุกอย่างทำงานบนคอมพิวเตอร์เครื่องนี้ ไม่มีการอัปโหลดใด ๆ',
     intgHeroStep1: 'เลือกวิธี: ใช้ CLI ถ้าผู้ช่วยรันคำสั่งเทอร์มินัลได้ ใช้ MCP ถ้าไม่ได้',
@@ -6092,14 +6085,14 @@ export const strings = {
     intgStep1Desc:
       'แสดงเฉพาะผู้ช่วยที่พบบนคอมพิวเตอร์เครื่องนี้ ติดตั้งเฉพาะตัวที่คุณใช้จริงก็พอ ไม่จำเป็นต้องติดตั้งทั้งหมด',
     intgStep1Update:
-      'เมื่อการอัปเดต GenOffice มาพร้อมสกิลเวอร์ชันใหม่ ปุ่มอัปเดตจะปรากฏข้างผู้ช่วยนั้น',
+      'เมื่อการอัปเดต OneDesk มาพร้อมสกิลเวอร์ชันใหม่ ปุ่มอัปเดตจะปรากฏข้างผู้ช่วยนั้น',
     intgSkillVersion: 'สกิล {v}',
     intgStateMissing: 'ยังไม่ติดตั้งสกิล',
     intgSharedReaders: 'โฟลเดอร์สกิลที่ใช้ร่วมกัน ซึ่ง {list} อ่าน',
     intgStateInstalled: 'ติดตั้งสกิล {v} แล้ว · พร้อมใช้ในแชตถัดไป',
     intgLegacyTitle: 'สำเนา skill เก่า',
     intgLegacyDesc:
-      'เมื่อก่อน GenOffice เขียนสำเนาไว้ในโฟลเดอร์ของแต่ละเครื่องมือ ตอนนี้ยังเหลือ {n} ชุด: เครื่องมือยังอ่านไฟล์เหล่านั้น จึงไม่เคยได้ skill ปัจจุบัน',
+      'เมื่อก่อน OneDesk เขียนสำเนาไว้ในโฟลเดอร์ของแต่ละเครื่องมือ ตอนนี้ยังเหลือ {n} ชุด: เครื่องมือยังอ่านไฟล์เหล่านั้น จึงไม่เคยได้ skill ปัจจุบัน',
     intgLegacyClean: 'ลบสำเนาเก่า',
     intgLegacyCleaned: 'ลบสำเนาเก่าแล้ว {n} ชุด เก็บไว้ {k} ชุดที่แก้ไขด้วยมือ',
     intgLegacyFailed: 'ลบสำเนาเก่าไม่สำเร็จ: {msg}',
@@ -6107,7 +6100,7 @@ export const strings = {
     intgOtherDesc:
       'เลือกเพียงวิธีใดวิธีหนึ่งจากสามวิธีนี้ ทุกวิธีติดตั้งสกิลเดียวกัน จึงไม่ต้องทำมากกว่าหนึ่งวิธี',
     intgOtherFolderTitle: 'ผู้ช่วยใดก็ได้ที่อ่านโฟลเดอร์ SKILL.md',
-    intgOtherFolderDesc: 'เลือกโฟลเดอร์ skills ของผู้ช่วย แล้ว GenOffice จะเขียนไฟล์ลงไป',
+    intgOtherFolderDesc: 'เลือกโฟลเดอร์ skills ของผู้ช่วย แล้ว OneDesk จะเขียนไฟล์ลงไป',
     intgOtherZipTitle: 'ส่งไฟล์ให้ผู้ช่วย',
     intgOtherZipDesc: 'บันทึกสกิลเป็น zip แล้วขอให้ผู้ช่วยติดตั้งเอง',
     intgOtherNpxTitle: 'ใช้คำสั่ง skills (ต้องมี Node.js)',
@@ -6117,20 +6110,20 @@ export const strings = {
     intgStep2Desc: 'เปิดแชตใหม่ในผู้ช่วยแล้วสั่งด้วยภาษาธรรมดา เช่น:',
     intgExample1: 'แปลง ~/Downloads/report.md เป็นเอกสาร Word',
     intgExample2: 'ทำสไลด์ 6 หน้าเกี่ยวกับผลประกอบการไตรมาส 3 ของเรา',
-    intgExample3: 'แปลง budget.xlsx เป็น PDF แล้วเปิดใน GenOffice',
-    intgStep2Note: 'ผู้ช่วยจะเรียก GenOffice เองผ่านบรรทัดคำสั่งหรือ MCP คุณไม่ต้องพิมพ์คำสั่งใด ๆ',
+    intgExample3: 'แปลง budget.xlsx เป็น PDF แล้วเปิดใน OneDesk',
+    intgStep2Note: 'ผู้ช่วยจะเรียก OneDesk เองผ่านบรรทัดคำสั่งหรือ MCP คุณไม่ต้องพิมพ์คำสั่งใด ๆ',
     intgCliPartTitle: 'CLI · บรรทัดคำสั่ง + skill',
     intgCliPartDesc:
-      'สำหรับผู้ช่วยที่รันคำสั่งเทอร์มินัลได้ (Claude Code, Codex, Cursor และอื่น ๆ) เมื่อติดตั้ง skill แล้ว ผู้ช่วยจะเรียกบรรทัดคำสั่ง genoffice เองเพื่อสร้าง แปลง อ่าน และแก้ไขไฟล์ คุณไม่ต้องพิมพ์คำสั่งใด ๆ',
+      'สำหรับผู้ช่วยที่รันคำสั่งเทอร์มินัลได้ (Claude Code, Codex, Cursor และอื่น ๆ) เมื่อติดตั้ง skill แล้ว ผู้ช่วยจะเรียกบรรทัดคำสั่ง onedesk เองเพื่อสร้าง แปลง อ่าน และแก้ไขไฟล์ คุณไม่ต้องพิมพ์คำสั่งใด ๆ',
     intgMcpPartTitle: 'MCP',
     intgMcpPartDesc:
-      'MCP คือโปรโตคอลกลางที่ผู้ช่วย AI ใช้เรียกเครื่องมือภายนอก ใช้เมื่อผู้ช่วยรันคำสั่งไม่ได้ (เช่น Claude Desktop) หรือเมื่อต้องการให้มันควบคุมหน้าต่าง GenOffice โดยตรง เลือกวิธีใดวิธีหนึ่งจากสองวิธีด้านล่าง',
+      'MCP คือโปรโตคอลกลางที่ผู้ช่วย AI ใช้เรียกเครื่องมือภายนอก ใช้เมื่อผู้ช่วยรันคำสั่งไม่ได้ (เช่น Claude Desktop) หรือเมื่อต้องการให้มันควบคุมหน้าต่าง OneDesk โดยตรง เลือกวิธีใดวิธีหนึ่งจากสองวิธีด้านล่าง',
     intgMcpStdioTitle: 'ให้ผู้ช่วยเป็นผู้เริ่ม (แนะนำ)',
     intgMcpStdioDesc:
-      'ผู้ช่วยจะเรียก genoffice mcp ขึ้นมาเอง ไม่ต้องเปิดสวิตช์ใดที่นี่ และไม่ต้องเปิด GenOffice ไว้ ความสามารถเหมือน CLI ทุกประการ',
+      'ผู้ช่วยจะเรียก onedesk mcp ขึ้นมาเอง ไม่ต้องเปิดสวิตช์ใดที่นี่ และไม่ต้องเปิด OneDesk ไว้ ความสามารถเหมือน CLI ทุกประการ',
     intgMcpHttpTitle: 'เซิร์ฟเวอร์ HTTP ในเครื่อง',
     intgMcpHttpDesc:
-      'ทำงานอยู่ใน GenOffice ผู้ช่วยเชื่อมต่อผ่าน URL และคุณจะเห็นเอกสารค่อย ๆ ถูกสร้างขึ้นในตัวแก้ไข Word ต้องเปิด GenOffice ไว้ตลอด ปัจจุบันรองรับเฉพาะ Word',
+      'ทำงานอยู่ใน OneDesk ผู้ช่วยเชื่อมต่อผ่าน URL และคุณจะเห็นเอกสารค่อย ๆ ถูกสร้างขึ้นในตัวแก้ไข Word ต้องเปิด OneDesk ไว้ตลอด ปัจจุบันรองรับเฉพาะ Word',
     intgMcpHttpAdvanced: 'ขั้นสูง: ที่อยู่อื่นและบันทึก',
     intgMcpClaudeTitle: 'Claude Code',
     intgMcpClaudeDesc: 'รันคำสั่งนี้ครั้งเดียวในเทอร์มินัล:',
@@ -6139,10 +6132,10 @@ export const strings = {
       'เพิ่มส่วนนี้ลงในการตั้งค่าเซิร์ฟเวอร์ MCP ของผู้ช่วย (ไฟล์ JSON หรือ "เพิ่มเซิร์ฟเวอร์ MCP" ในการตั้งค่า):',
     intgMcpNote:
       'สกิลและ MCP ตั้งค่าไว้พร้อมกันได้ ผู้ช่วยจะเลือกใช้เอง ทั้งสองทำงานเหมือนกันทุกอย่าง',
-    intgCliTitle: 'ขั้นสูง: บรรทัดคำสั่ง genoffice',
-    intgCliReady: 'genoffice {v} · พร้อมใช้ในเทอร์มินัล ({path})',
+    intgCliTitle: 'ขั้นสูง: บรรทัดคำสั่ง onedesk',
+    intgCliReady: 'onedesk {v} · พร้อมใช้ในเทอร์มินัล ({path})',
     intgCliNotOnPath:
-      'genoffice {v} · ยังไม่อยู่ใน PATH ของเทอร์มินัล ผู้ช่วยยังหาเจอผ่าน ~/.genoffice/launcher สกิลจึงใช้งานได้ตามปกติ หากต้องการพิมพ์ genoffice เอง ให้รันคำสั่งนี้ครั้งเดียว:',
+      'onedesk {v} · ยังไม่อยู่ใน PATH ของเทอร์มินัล ผู้ช่วยยังหาเจอผ่าน ~/.onedesk/launcher สกิลจึงใช้งานได้ตามปกติ หากต้องการพิมพ์ onedesk เอง ให้รันคำสั่งนี้ครั้งเดียว:',
     intgCliLauncher: 'โฟลเดอร์ตัวเรียกใช้',
     intgStateOutdated: 'ติดตั้งแล้ว {v} อัปเดตเป็น {next} ได้',
     intgStateModified: 'ติดตั้งแล้ว {v} (ถูกแก้ไข)',
@@ -6166,9 +6159,9 @@ export const strings = {
     intgSaveZipTitle: 'บันทึกสกิล',
     intgSavedTo: 'บันทึกไว้ที่ {path}',
     intgCopied: 'คัดลอกแล้ว',
-    intgCliEphemeral: 'กรุณาลาก GenOffice ไปที่ Applications ก่อน แล้วจึงใช้บรรทัดคำสั่ง',
+    intgCliEphemeral: 'กรุณาลาก OneDesk ไปที่ Applications ก่อน แล้วจึงใช้บรรทัดคำสั่ง',
     intgCopyPath: 'คัดลอกพาธ',
-    intgCliNeedsUpdate: 'สกิลนี้ต้องใช้บรรทัดคำสั่ง {v} หรือใหม่กว่า โปรดอัปเดต GenOffice',
+    intgCliNeedsUpdate: 'สกิลนี้ต้องใช้บรรทัดคำสั่ง {v} หรือใหม่กว่า โปรดอัปเดต OneDesk',
     intgLoading: 'กำลังตรวจสอบ…',
     intgUpdateDue: 'มีอัปเดตสกิล',
     setSecAiModel: 'โมเดล AI',
@@ -6228,14 +6221,13 @@ export const strings = {
       'เมื่อผู้ให้บริการตั้งเป็น Genspark การค้นหาเว็บ การสร้างภาพ และการวิเคราะห์สื่อจะผ่าน Genspark และใช้เครดิต เมื่อปิด การค้นหาจะใช้แหล่งข้อมูลฟรีและเครื่องมือภาพของ Genspark จะใช้ไม่ได้',
     setGithub: 'โอเพนซอร์ส',
     starOnGitHub: 'กดดาวบน GitHub',
-    starPromptTitle: 'ชอบ GenOffice ไหม?',
-    starPromptTitleN: 'คุณเปิดเอกสารด้วย GenOffice ไปแล้ว {n} ไฟล์',
-    starPromptBody:
-      'GenOffice ฟรีและเป็นโอเพนซอร์ส การกดดาวบน GitHub คือกำลังใจที่ดีที่สุดสำหรับทีม',
+    starPromptTitle: 'ชอบ OneDesk ไหม?',
+    starPromptTitleN: 'คุณเปิดเอกสารด้วย OneDesk ไปแล้ว {n} ไฟล์',
+    starPromptBody: 'OneDesk ฟรีและเป็นโอเพนซอร์ส การกดดาวบน GitHub คือกำลังใจที่ดีที่สุดสำหรับทีม',
     starPromptGo: 'กดดาวเลย',
     starPromptDone: 'กดแล้ว',
     starPromptLater: 'ไว้ทีหลัง',
-    onbStarHint: 'ถ้าชอบ GenOffice ฝากกดดาวให้เราบน GitHub ด้วยนะ',
+    onbStarHint: 'ถ้าชอบ OneDesk ฝากกดดาวให้เราบน GitHub ด้วยนะ',
     setEmail: 'อีเมล',
     setNotLoggedIn: 'ยังไม่ได้เข้าสู่ระบบ',
     setViewUsage: 'ดูการใช้งาน',
@@ -6250,12 +6242,12 @@ export const strings = {
     appMenu: 'เมนู',
     newTab: 'แท็บใหม่',
     // First-run onboarding
-    onbTitle1: 'ยินดีต้อนรับสู่ GenOffice',
+    onbTitle1: 'ยินดีต้อนรับสู่ OneDesk',
     onbSubtitle1: 'ชุดโปรแกรมออฟฟิศ AI-native โอเพนซอร์สตัวแรก',
     onbBody1: 'สร้างเอกสาร ทำสเปรดชีต สร้างงานนำเสนอ และตรวจทาน PDF ทุกขั้นตอนมี AI ในตัว',
     onbTitle2: 'นี่เป็นเพียงจุดเริ่มต้น',
     onbBody2:
-      'GenOffice ยังอยู่ในช่วงอัลฟ่า เข้าร่วมแชทกลุ่มบน GenTeam เพื่อแบ่งปันความคิดเห็นและร่วมกำหนดทิศทางต่อไป',
+      'OneDesk ยังอยู่ในช่วงอัลฟ่า เข้าร่วมแชทกลุ่มบน GenTeam เพื่อแบ่งปันความคิดเห็นและร่วมกำหนดทิศทางต่อไป',
     onbCredits: 'ผู้มีส่วนร่วมอย่างต่อเนื่องจะได้รับ **เครดิต Genspark กว่า 1,000**',
     onbJoinGenTeam: 'เข้าร่วม GenTeam',
     onbSkip: 'ข้าม',
@@ -6267,7 +6259,7 @@ export const strings = {
     onbNote3: 'ฟีเจอร์ AI อาจใช้เครดิต Genspark',
     onbBack: 'ย้อนกลับ',
     intgSkillsDesc:
-      'GenOffice ใช้เฉพาะทักษะในโฟลเดอร์ทักษะของตัวเอง การนำเข้าจากโฟลเดอร์หรือ zip จะคัดลอกทักษะทั้งชุด และไม่มีสิ่งใดทำงานเมื่อนำเข้า',
+      'OneDesk ใช้เฉพาะทักษะในโฟลเดอร์ทักษะของตัวเอง การนำเข้าจากโฟลเดอร์หรือ zip จะคัดลอกทักษะทั้งชุด และไม่มีสิ่งใดทำงานเมื่อนำเข้า',
     intgSkillsEmpty: 'ยังไม่ได้ติดตั้งทักษะ',
     intgSkillsImportFolder: 'นำเข้าโฟลเดอร์…',
     intgSkillsImportZip: 'นำเข้าแพ็กเกจทักษะ (zip / .md)…',
@@ -6276,7 +6268,7 @@ export const strings = {
     intgSkillsImportDone: 'นำเข้า {name} แล้ว',
     intgSkillsImportFailed: 'นำเข้าไม่สำเร็จ: {reason}',
     intgSkillsRemove: 'ลบ',
-    intgSkillsRemoveConfirm: 'ลบทักษะ "{name}" หรือไม่ โฟลเดอร์ของทักษะจะถูกลบออกจาก GenOffice',
+    intgSkillsRemoveConfirm: 'ลบทักษะ "{name}" หรือไม่ โฟลเดอร์ของทักษะจะถูกลบออกจาก OneDesk',
     intgSkillsRemoved: 'ลบ {name} แล้ว',
     skillDetailClose: 'ปิด',
     skillDetailLoading: 'กำลังโหลดคำแนะนำ…',
@@ -6543,10 +6535,10 @@ export const strings = {
     setUpdateRestart: 'Mulai ulang & instal',
     setAutoUpdateCheck: 'Periksa pembaruan secara otomatis',
     setAutoUpdateCheckDesc:
-      'Jika dimatikan, GenOffice tidak lagi memeriksa versi baru saat dijalankan atau di latar belakang. Anda tetap bisa memeriksa dari Bantuan › Periksa Pembaruan.',
+      'Jika dimatikan, OneDesk tidak lagi memeriksa versi baru saat dijalankan atau di latar belakang. Anda tetap bisa memeriksa dari Bantuan › Periksa Pembaruan.',
     setSilentInstall: 'Pasang pembaruan secara senyap',
     setSilentInstallDesc:
-      'Jika aktif, versi baru yang ditemukan di latar belakang diunduh secara senyap dan dipasang saat Anda keluar dari GenOffice; tidak ada yang mengganggu saat bekerja. Jika nonaktif, sebuah pemberitahuan pembaruan membiarkan Anda menentukan waktunya.',
+      'Jika aktif, versi baru yang ditemukan di latar belakang diunduh secara senyap dan dipasang saat Anda keluar dari OneDesk; tidak ada yang mengganggu saat bekerja. Jika nonaktif, sebuah pemberitahuan pembaruan membiarkan Anda menentukan waktunya.',
     updateChannel: 'Saluran Pembaruan',
     channelStable: 'Stabil',
     channelBeta: 'Beta',
@@ -6559,7 +6551,7 @@ export const strings = {
     saveLocation: 'Lokasi penyimpanan',
     setRestoreSession: 'Buka kembali dokumen dari sesi terakhir',
     setRestoreSessionDesc:
-      'Dokumen yang terbuka saat GenOffice ditutup akan dibuka kembali secara otomatis saat dijalankan berikutnya.',
+      'Dokumen yang terbuka saat OneDesk ditutup akan dibuka kembali secara otomatis saat dijalankan berikutnya.',
     setTabSleep: 'Tidurkan tab tidak aktif',
     setTabSleepDesc:
       'Saat banyak tab terbuka, tab yang lama tidak dilihat melepaskan memorinya dan membuka kembali berkasnya saat Anda kembali. Tab dengan perubahan belum disimpan atau yang disematkan tidak pernah tidur.',
@@ -6598,8 +6590,8 @@ export const strings = {
     setLegacyImportPromptDesc:
       'Jelaskan apa yang ikut terbawa sebelum membuka file .doc, .odt, .hwp, .ods, atau .odp. Jika nonaktif, Simpan Sebagai langsung terbuka.',
     setDefaultApp: 'Aplikasi default untuk dokumen Office',
-    setDefaultAppDesc: 'Buka file .docx, .xlsx, dan .pptx di GenOffice saat diklik dua kali.',
-    setDefaultAppIs: 'GenOffice sudah menjadi aplikasi default.',
+    setDefaultAppDesc: 'Buka file .docx, .xlsx, dan .pptx di OneDesk saat diklik dua kali.',
+    setDefaultAppIs: 'OneDesk sudah menjadi aplikasi default.',
     setDefaultAppOther: 'Default saat ini: {app}',
     setDefaultAppSet: 'Jadikan default',
     setDefaultAppOpenSettings: 'Buka pengaturan sistem',
@@ -6656,7 +6648,7 @@ export const strings = {
     setSecAbout: 'Tentang',
     setSecIntegrations: 'Integrasi',
     setSecSkills: 'Keterampilan',
-    intgHeroTitle: 'Gunakan GenOffice dari asisten AI Anda',
+    intgHeroTitle: 'Gunakan OneDesk dari asisten AI Anda',
     intgHeroDesc:
       'Setelah terhubung, Claude Code, Codex, Cursor, Claude Desktop, dan asisten serupa dapat membuat, mengonversi, membaca, dan mengedit file Word, Excel, PowerPoint, PDF, dan Markdown untuk Anda. Semuanya berjalan di komputer ini; tidak ada yang diunggah.',
     intgHeroStep1:
@@ -6667,14 +6659,14 @@ export const strings = {
     intgStep1Desc:
       'Hanya asisten yang ditemukan di komputer ini yang ditampilkan. Pasang ke yang benar-benar Anda pakai; tidak perlu semuanya.',
     intgStep1Update:
-      'Saat pembaruan GenOffice membawa skill yang lebih baru, tombol Perbarui muncul di samping asisten itu.',
+      'Saat pembaruan OneDesk membawa skill yang lebih baru, tombol Perbarui muncul di samping asisten itu.',
     intgSkillVersion: 'skill {v}',
     intgStateMissing: 'Skill belum terpasang',
     intgSharedReaders: 'Folder skill bersama yang dibaca {list}',
     intgStateInstalled: 'Skill {v} terpasang · siap di obrolan berikutnya',
     intgLegacyTitle: 'Salinan skill lama',
     intgLegacyDesc:
-      'Dulu GenOffice menulis satu salinan ke folder tiap alat. Masih ada {n} yang tertinggal: alat itu tetap membacanya, jadi tidak pernah dapat skill yang sekarang.',
+      'Dulu OneDesk menulis satu salinan ke folder tiap alat. Masih ada {n} yang tertinggal: alat itu tetap membacanya, jadi tidak pernah dapat skill yang sekarang.',
     intgLegacyClean: 'Hapus salinan lama',
     intgLegacyCleaned: '{n} salinan lama dihapus, {k} yang diedit manual tetap dibiarkan.',
     intgLegacyFailed: 'Gagal menghapus salinan lama: {msg}',
@@ -6682,7 +6674,7 @@ export const strings = {
     intgOtherDesc:
       'Pilih salah satu saja dari tiga cara ini. Semuanya memasang skill yang sama, jadi tidak perlu lebih dari satu.',
     intgOtherFolderTitle: 'Asisten apa pun yang membaca folder SKILL.md',
-    intgOtherFolderDesc: 'Pilih folder skills-nya dan GenOffice menulis file di sana.',
+    intgOtherFolderDesc: 'Pilih folder skills-nya dan OneDesk menulis file di sana.',
     intgOtherZipTitle: 'Serahkan file ke asisten',
     intgOtherZipDesc: 'Simpan skill sebagai zip, lalu minta asisten memasangnya.',
     intgOtherNpxTitle: 'Dengan perintah skills (butuh Node.js)',
@@ -6692,21 +6684,21 @@ export const strings = {
     intgStep2Desc: 'Buka obrolan baru di asisten Anda dan minta dengan bahasa biasa, misalnya:',
     intgExample1: 'Ubah ~/Downloads/report.md menjadi dokumen Word',
     intgExample2: 'Buat presentasi 6 slide tentang hasil Q3 kami',
-    intgExample3: 'Konversi budget.xlsx ke PDF dan buka di GenOffice',
+    intgExample3: 'Konversi budget.xlsx ke PDF dan buka di OneDesk',
     intgStep2Note:
-      'Asisten memanggil GenOffice sendiri, melalui baris perintah atau MCP; Anda tidak perlu mengetik perintah apa pun.',
+      'Asisten memanggil OneDesk sendiri, melalui baris perintah atau MCP; Anda tidak perlu mengetik perintah apa pun.',
     intgCliPartTitle: 'CLI · baris perintah + skill',
     intgCliPartDesc:
-      'Untuk asisten yang bisa menjalankan perintah terminal (Claude Code, Codex, Cursor, dan lainnya). Setelah skill terpasang, asisten memanggil baris perintah genoffice sendiri untuk membuat, mengonversi, membaca, dan mengedit file; Anda tidak pernah mengetik perintah.',
+      'Untuk asisten yang bisa menjalankan perintah terminal (Claude Code, Codex, Cursor, dan lainnya). Setelah skill terpasang, asisten memanggil baris perintah onedesk sendiri untuk membuat, mengonversi, membaca, dan mengedit file; Anda tidak pernah mengetik perintah.',
     intgMcpPartTitle: 'MCP',
     intgMcpPartDesc:
-      'MCP adalah protokol umum yang dipakai asisten AI untuk memanggil alat eksternal. Gunakan saat asisten Anda tidak bisa menjalankan perintah (misalnya Claude Desktop) atau saat Anda ingin ia mengendalikan jendela GenOffice secara langsung. Pilih salah satu dari dua cara di bawah.',
+      'MCP adalah protokol umum yang dipakai asisten AI untuk memanggil alat eksternal. Gunakan saat asisten Anda tidak bisa menjalankan perintah (misalnya Claude Desktop) atau saat Anda ingin ia mengendalikan jendela OneDesk secara langsung. Pilih salah satu dari dua cara di bawah.',
     intgMcpStdioTitle: 'Dijalankan oleh asisten (disarankan)',
     intgMcpStdioDesc:
-      'Asisten menjalankan genoffice mcp sendiri: tidak ada yang perlu dinyalakan di sini, dan GenOffice tidak perlu terbuka. Fitur sama dengan CLI.',
+      'Asisten menjalankan onedesk mcp sendiri: tidak ada yang perlu dinyalakan di sini, dan OneDesk tidak perlu terbuka. Fitur sama dengan CLI.',
     intgMcpHttpTitle: 'Server HTTP lokal',
     intgMcpHttpDesc:
-      'Berjalan di dalam GenOffice; asisten terhubung lewat URL dan Anda bisa melihat dokumen dibangun langkah demi langkah di editor Word. GenOffice harus tetap terbuka; untuk saat ini hanya dokumen Word.',
+      'Berjalan di dalam OneDesk; asisten terhubung lewat URL dan Anda bisa melihat dokumen dibangun langkah demi langkah di editor Word. OneDesk harus tetap terbuka; untuk saat ini hanya dokumen Word.',
     intgMcpHttpAdvanced: 'Lanjutan: alamat lain dan log',
     intgMcpClaudeTitle: 'Claude Code',
     intgMcpClaudeDesc: 'Jalankan ini sekali di terminal:',
@@ -6715,10 +6707,10 @@ export const strings = {
       'Tambahkan ini ke pengaturan server MCP miliknya (berkas JSON, atau "Tambah server MCP" di pengaturannya):',
     intgMcpNote:
       'Skill dan MCP bisa dipasang bersamaan; asisten akan memilih salah satu. Keduanya melakukan hal yang sama persis.',
-    intgCliTitle: 'Lanjutan: baris perintah genoffice',
-    intgCliReady: 'genoffice {v} · siap di terminal Anda ({path})',
+    intgCliTitle: 'Lanjutan: baris perintah onedesk',
+    intgCliReady: 'onedesk {v} · siap di terminal Anda ({path})',
     intgCliNotOnPath:
-      'genoffice {v} · belum ada di PATH terminal Anda. Asisten tetap menemukannya lewat ~/.genoffice/launcher, jadi skill tetap berfungsi. Untuk mengetik genoffice sendiri, jalankan ini sekali:',
+      'onedesk {v} · belum ada di PATH terminal Anda. Asisten tetap menemukannya lewat ~/.onedesk/launcher, jadi skill tetap berfungsi. Untuk mengetik onedesk sendiri, jalankan ini sekali:',
     intgCliLauncher: 'Folder peluncur',
     intgStateOutdated: 'Terpasang {v}, pembaruan ke {next} tersedia',
     intgStateModified: 'Terpasang {v} (dimodifikasi)',
@@ -6742,10 +6734,10 @@ export const strings = {
     intgSaveZipTitle: 'Simpan skill',
     intgSavedTo: 'Disimpan ke {path}',
     intgCopied: 'Disalin',
-    intgCliEphemeral: 'Seret GenOffice ke Applications dulu, lalu gunakan baris perintah.',
+    intgCliEphemeral: 'Seret OneDesk ke Applications dulu, lalu gunakan baris perintah.',
     intgCopyPath: 'Salin path',
     intgCliNeedsUpdate:
-      'Skill ini memerlukan baris perintah {v} atau lebih baru; perbarui GenOffice.',
+      'Skill ini memerlukan baris perintah {v} atau lebih baru; perbarui OneDesk.',
     intgLoading: 'Memeriksa…',
     intgUpdateDue: 'Pembaruan skill tersedia',
     setSecAiModel: 'Model AI',
@@ -6805,14 +6797,14 @@ export const strings = {
       'Saat penyedianya disetel ke Genspark, pencarian web, pembuatan gambar, dan analisis media berjalan lewat Genspark dan memakai kredit; jika dimatikan, pencarian memakai sumber gratis dan alat gambar Genspark tidak tersedia.',
     setGithub: 'Sumber Terbuka',
     starOnGitHub: 'Beri Bintang di GitHub',
-    starPromptTitle: 'Suka GenOffice?',
-    starPromptTitleN: 'Anda telah membuka {n} dokumen dengan GenOffice',
+    starPromptTitle: 'Suka OneDesk?',
+    starPromptTitleN: 'Anda telah membuka {n} dokumen dengan OneDesk',
     starPromptBody:
-      'GenOffice gratis dan open source. Bintang di GitHub adalah dukungan terbaik untuk tim kami.',
+      'OneDesk gratis dan open source. Bintang di GitHub adalah dukungan terbaik untuk tim kami.',
     starPromptGo: 'Beri Bintang',
     starPromptDone: 'Sudah',
     starPromptLater: 'Nanti saja',
-    onbStarHint: 'Jika Anda menyukai GenOffice, beri kami bintang di GitHub.',
+    onbStarHint: 'Jika Anda menyukai OneDesk, beri kami bintang di GitHub.',
     setEmail: 'Email',
     setNotLoggedIn: 'Belum masuk',
     setViewUsage: 'Lihat penggunaan',
@@ -6827,13 +6819,13 @@ export const strings = {
     appMenu: 'Menu',
     newTab: 'Tab baru',
     // First-run onboarding
-    onbTitle1: 'Selamat datang di GenOffice',
+    onbTitle1: 'Selamat datang di OneDesk',
     onbSubtitle1: 'Suite office open source AI-native pertama',
     onbBody1:
       'Buat dokumen, susun spreadsheet, rancang presentasi, dan tinjau PDF. AI hadir di setiap langkah.',
     onbTitle2: 'Ini baru permulaan',
     onbBody2:
-      'GenOffice masih dalam tahap alpha. Gabung obrolan grup di GenTeam untuk berbagi masukan dan ikut menentukan arah ke depan.',
+      'OneDesk masih dalam tahap alpha. Gabung obrolan grup di GenTeam untuk berbagi masukan dan ikut menentukan arah ke depan.',
     onbCredits: 'Kontributor aktif mendapat **1.000+ kredit Genspark**',
     onbJoinGenTeam: 'Gabung GenTeam',
     onbSkip: 'Lewati',
@@ -6845,7 +6837,7 @@ export const strings = {
     onbNote3: 'Fitur AI dapat menggunakan kredit Genspark.',
     onbBack: 'Kembali',
     intgSkillsDesc:
-      'GenOffice hanya memakai keterampilan di folder keterampilannya sendiri. Mengimpor folder atau zip menyalin seluruh keterampilan; tidak ada yang dijalankan saat impor.',
+      'OneDesk hanya memakai keterampilan di folder keterampilannya sendiri. Mengimpor folder atau zip menyalin seluruh keterampilan; tidak ada yang dijalankan saat impor.',
     intgSkillsEmpty: 'Belum ada keterampilan terpasang.',
     intgSkillsImportFolder: 'Impor folder…',
     intgSkillsImportZip: 'Impor paket keterampilan (zip / .md)…',
@@ -6854,7 +6846,7 @@ export const strings = {
     intgSkillsImportDone: '{name} diimpor',
     intgSkillsImportFailed: 'Impor gagal: {reason}',
     intgSkillsRemove: 'Hapus',
-    intgSkillsRemoveConfirm: 'Hapus keterampilan "{name}"? Foldernya akan dihapus dari GenOffice.',
+    intgSkillsRemoveConfirm: 'Hapus keterampilan "{name}"? Foldernya akan dihapus dari OneDesk.',
     intgSkillsRemoved: '{name} dihapus',
     skillDetailClose: 'Tutup',
     skillDetailLoading: 'Memuat instruksi…',
@@ -7121,10 +7113,10 @@ export const strings = {
     setUpdateRestart: 'Перезапустить и установить',
     setAutoUpdateCheck: 'Автоматически проверять обновления',
     setAutoUpdateCheckDesc:
-      'Если выключено, GenOffice не проверяет новые версии при запуске и в фоне. Проверить вручную можно через Справка › Проверить обновления.',
+      'Если выключено, OneDesk не проверяет новые версии при запуске и в фоне. Проверить вручную можно через Справка › Проверить обновления.',
     setSilentInstall: 'Устанавливать обновления автоматически',
     setSilentInstallDesc:
-      'Если включено, новая версия, найденная фоновой проверкой, скачивается незаметно и устанавливается при выходе из GenOffice; во время работы ничто вас не прерывает. Если выключено, появляется предложение обновиться, и вы решаете сами.',
+      'Если включено, новая версия, найденная фоновой проверкой, скачивается незаметно и устанавливается при выходе из OneDesk; во время работы ничто вас не прерывает. Если выключено, появляется предложение обновиться, и вы решаете сами.',
     updateChannel: 'Канал обновлений',
     channelStable: 'Стабильный',
     channelBeta: 'Бета',
@@ -7137,7 +7129,7 @@ export const strings = {
     saveLocation: 'Папка сохранения',
     setRestoreSession: 'Открывать документы прошлого сеанса',
     setRestoreSessionDesc:
-      'Документы, открытые при закрытии GenOffice, автоматически откроются при следующем запуске.',
+      'Документы, открытые при закрытии OneDesk, автоматически откроются при следующем запуске.',
     setTabSleep: 'Усыплять неактивные вкладки',
     setTabSleepDesc:
       'Когда открыто много вкладок, давно не просматриваемые освобождают память и заново открывают файл при возврате. Вкладки с несохранёнными изменениями и закреплённые не усыпляются.',
@@ -7176,8 +7168,8 @@ export const strings = {
     setLegacyImportPromptDesc:
       'Перед открытием файлов .doc, .odt, .hwp, .ods или .odp поясняет, что будет перенесено. Если выключено, сразу открывается «Сохранить как».',
     setDefaultApp: 'Приложение по умолчанию для документов Office',
-    setDefaultAppDesc: 'Открывать файлы .docx, .xlsx и .pptx в GenOffice по двойному щелчку.',
-    setDefaultAppIs: 'GenOffice уже является приложением по умолчанию.',
+    setDefaultAppDesc: 'Открывать файлы .docx, .xlsx и .pptx в OneDesk по двойному щелчку.',
+    setDefaultAppIs: 'OneDesk уже является приложением по умолчанию.',
     setDefaultAppOther: 'Сейчас по умолчанию: {app}',
     setDefaultAppSet: 'Сделать по умолчанию',
     setDefaultAppOpenSettings: 'Открыть системные настройки',
@@ -7234,7 +7226,7 @@ export const strings = {
     setSecAbout: 'О программе',
     setSecIntegrations: 'Интеграции',
     setSecSkills: 'Навыки',
-    intgHeroTitle: 'Используйте GenOffice из своего ИИ-ассистента',
+    intgHeroTitle: 'Используйте OneDesk из своего ИИ-ассистента',
     intgHeroDesc:
       'После подключения Claude Code, Codex, Cursor, Claude Desktop и похожие ассистенты смогут создавать, конвертировать, читать и редактировать файлы Word, Excel, PowerPoint, PDF и Markdown за вас. Всё выполняется на этом компьютере; ничего не загружается.',
     intgHeroStep1:
@@ -7245,14 +7237,14 @@ export const strings = {
     intgStep1Desc:
       'Показаны только ассистенты, найденные на этом компьютере. Установите скилл в тот, которым действительно пользуетесь; все не нужны.',
     intgStep1Update:
-      'Когда обновление GenOffice принесёт более новый скилл, рядом с этим ассистентом появится кнопка «Обновить».',
+      'Когда обновление OneDesk принесёт более новый скилл, рядом с этим ассистентом появится кнопка «Обновить».',
     intgSkillVersion: 'скилл {v}',
     intgStateMissing: 'Скилл не установлен',
     intgSharedReaders: 'Общая папка скиллов, которую читают {list}',
     intgStateInstalled: 'Скилл {v} установлен · готов к следующему чату',
     intgLegacyTitle: 'Старые копии skill',
     intgLegacyDesc:
-      'Раньше GenOffice записывал копию в папку каждого инструмента. Их ещё осталось {n}: инструмент продолжает их читать, поэтому они никогда не получают текущий skill.',
+      'Раньше OneDesk записывал копию в папку каждого инструмента. Их ещё осталось {n}: инструмент продолжает их читать, поэтому они никогда не получают текущий skill.',
     intgLegacyClean: 'Удалить старые копии',
     intgLegacyCleaned: 'Удалено старых копий: {n}; отредактированных вручную оставлено: {k}.',
     intgLegacyFailed: 'Не удалось удалить старые копии: {msg}',
@@ -7260,7 +7252,7 @@ export const strings = {
     intgOtherDesc:
       'Выберите только один из трёх способов. Все они устанавливают один и тот же скилл, повторять не нужно.',
     intgOtherFolderTitle: 'Любой ассистент, читающий папки SKILL.md',
-    intgOtherFolderDesc: 'Выберите его папку skills, и GenOffice запишет файл туда.',
+    intgOtherFolderDesc: 'Выберите его папку skills, и OneDesk запишет файл туда.',
     intgOtherZipTitle: 'Передать файл ассистенту',
     intgOtherZipDesc: 'Сохраните скилл как zip и попросите ассистента установить его.',
     intgOtherNpxTitle: 'Командой skills (нужен Node.js)',
@@ -7270,21 +7262,21 @@ export const strings = {
     intgStep2Desc: 'Откройте новый чат в ассистенте и попросите обычными словами, например:',
     intgExample1: 'Преврати ~/Downloads/report.md в документ Word',
     intgExample2: 'Сделай презентацию из 6 слайдов о наших результатах за 3-й квартал',
-    intgExample3: 'Конвертируй budget.xlsx в PDF и открой в GenOffice',
+    intgExample3: 'Конвертируй budget.xlsx в PDF и открой в OneDesk',
     intgStep2Note:
-      'Ассистент сам вызывает GenOffice — через командную строку или MCP; вам не нужно вводить команды.',
+      'Ассистент сам вызывает OneDesk — через командную строку или MCP; вам не нужно вводить команды.',
     intgCliPartTitle: 'CLI · командная строка + skill',
     intgCliPartDesc:
-      'Для ассистентов, умеющих выполнять команды терминала (Claude Code, Codex, Cursor и другие). После установки skill ассистент сам вызывает командную строку genoffice, чтобы создавать, конвертировать, читать и редактировать файлы; вам не нужно вводить команды.',
+      'Для ассистентов, умеющих выполнять команды терминала (Claude Code, Codex, Cursor и другие). После установки skill ассистент сам вызывает командную строку onedesk, чтобы создавать, конвертировать, читать и редактировать файлы; вам не нужно вводить команды.',
     intgMcpPartTitle: 'MCP',
     intgMcpPartDesc:
-      'MCP — общий протокол, через который ИИ-ассистенты вызывают внешние инструменты. Используйте его, если ассистент не умеет выполнять команды (например, Claude Desktop) или если хотите, чтобы он напрямую управлял окном GenOffice. Выберите один из двух способов ниже.',
+      'MCP — общий протокол, через который ИИ-ассистенты вызывают внешние инструменты. Используйте его, если ассистент не умеет выполнять команды (например, Claude Desktop) или если хотите, чтобы он напрямую управлял окном OneDesk. Выберите один из двух способов ниже.',
     intgMcpStdioTitle: 'Запускает ассистент (рекомендуется)',
     intgMcpStdioDesc:
-      'Ассистент сам запускает genoffice mcp: здесь ничего включать не нужно, и GenOffice не обязан быть открыт. Те же возможности, что у CLI.',
+      'Ассистент сам запускает onedesk mcp: здесь ничего включать не нужно, и OneDesk не обязан быть открыт. Те же возможности, что у CLI.',
     intgMcpHttpTitle: 'Локальный HTTP-сервер',
     intgMcpHttpDesc:
-      'Работает внутри GenOffice; ассистент подключается по URL, и вы видите, как документ шаг за шагом собирается в редакторе Word. GenOffice должен оставаться открытым; пока только документы Word.',
+      'Работает внутри OneDesk; ассистент подключается по URL, и вы видите, как документ шаг за шагом собирается в редакторе Word. OneDesk должен оставаться открытым; пока только документы Word.',
     intgMcpHttpAdvanced: 'Дополнительно: другие адреса и журнал',
     intgMcpClaudeTitle: 'Claude Code',
     intgMcpClaudeDesc: 'Выполните один раз в терминале:',
@@ -7293,10 +7285,10 @@ export const strings = {
       'Добавьте это в его настройки MCP-серверов (JSON-файл или «Добавить MCP-сервер» в настройках):',
     intgMcpNote:
       'Скилл и MCP могут быть настроены одновременно; ассистент выберет один из них. Они делают одно и то же.',
-    intgCliTitle: 'Дополнительно: командная строка genoffice',
-    intgCliReady: 'genoffice {v} · доступен в терминале ({path})',
+    intgCliTitle: 'Дополнительно: командная строка onedesk',
+    intgCliReady: 'onedesk {v} · доступен в терминале ({path})',
     intgCliNotOnPath:
-      'genoffice {v} · отсутствует в PATH терминала. Ассистенты всё равно находят его через ~/.genoffice/launcher, так что скилл работает. Чтобы вводить genoffice самостоятельно, выполните один раз:',
+      'onedesk {v} · отсутствует в PATH терминала. Ассистенты всё равно находят его через ~/.onedesk/launcher, так что скилл работает. Чтобы вводить onedesk самостоятельно, выполните один раз:',
     intgCliLauncher: 'Папка лаунчера',
     intgStateOutdated: 'Установлен {v}, доступно обновление до {next}',
     intgStateModified: 'Установлен {v} (изменён)',
@@ -7321,9 +7313,9 @@ export const strings = {
     intgSavedTo: 'Сохранено в {path}',
     intgCopied: 'Скопировано',
     intgCliEphemeral:
-      'Сначала перетащите GenOffice в «Программы», затем используйте командную строку.',
+      'Сначала перетащите OneDesk в «Программы», затем используйте командную строку.',
     intgCopyPath: 'Копировать путь',
-    intgCliNeedsUpdate: 'Этому скиллу нужна командная строка {v} или новее; обновите GenOffice.',
+    intgCliNeedsUpdate: 'Этому скиллу нужна командная строка {v} или новее; обновите OneDesk.',
     intgLoading: 'Проверка…',
     intgUpdateDue: 'Доступно обновление скилла',
     setSecAiModel: 'Модель ИИ',
@@ -7385,14 +7377,14 @@ export const strings = {
       'Когда провайдером выбран Genspark, веб-поиск, генерация изображений и анализ медиа идут через Genspark и расходуют кредиты; при выключении поиск использует бесплатные источники, а инструменты изображений Genspark недоступны.',
     setGithub: 'Открытый код',
     starOnGitHub: 'Поставить звезду на GitHub',
-    starPromptTitle: 'Нравится GenOffice?',
-    starPromptTitleN: 'Вы уже открыли {n} документов в GenOffice',
+    starPromptTitle: 'Нравится OneDesk?',
+    starPromptTitleN: 'Вы уже открыли {n} документов в OneDesk',
     starPromptBody:
-      'GenOffice — бесплатное ПО с открытым кодом. Звезда на GitHub — лучшая поддержка для команды.',
+      'OneDesk — бесплатное ПО с открытым кодом. Звезда на GitHub — лучшая поддержка для команды.',
     starPromptGo: 'Поставить звезду',
     starPromptDone: 'Уже поставлена',
     starPromptLater: 'Позже',
-    onbStarHint: 'Если вам нравится GenOffice, поставьте нам звезду на GitHub.',
+    onbStarHint: 'Если вам нравится OneDesk, поставьте нам звезду на GitHub.',
     setEmail: 'Эл. почта',
     setNotLoggedIn: 'Вы не вошли',
     setViewUsage: 'Посмотреть расход',
@@ -7407,13 +7399,13 @@ export const strings = {
     appMenu: 'Меню',
     newTab: 'Новая вкладка',
     // First-run onboarding
-    onbTitle1: 'Добро пожаловать в GenOffice',
+    onbTitle1: 'Добро пожаловать в OneDesk',
     onbSubtitle1: 'Первый открытый ИИ-нативный офисный пакет',
     onbBody1:
       'Создавайте документы, таблицы и презентации, работайте с PDF. ИИ встроен в каждый шаг.',
     onbTitle2: 'Это только начало',
     onbBody2:
-      'GenOffice пока в альфа-версии. Присоединяйтесь к групповому чату в GenTeam, чтобы делиться отзывами и влиять на дальнейшее развитие.',
+      'OneDesk пока в альфа-версии. Присоединяйтесь к групповому чату в GenTeam, чтобы делиться отзывами и влиять на дальнейшее развитие.',
     onbCredits: 'Активные участники получают **1000+ кредитов Genspark**',
     onbJoinGenTeam: 'Присоединиться к GenTeam',
     onbSkip: 'Пропустить',
@@ -7425,7 +7417,7 @@ export const strings = {
     onbNote3: 'Функции ИИ могут расходовать кредиты Genspark.',
     onbBack: 'Назад',
     intgSkillsDesc:
-      'GenOffice использует только навыки из своей папки навыков. Импорт папки или zip копирует навык целиком; при импорте ничего не запускается.',
+      'OneDesk использует только навыки из своей папки навыков. Импорт папки или zip копирует навык целиком; при импорте ничего не запускается.',
     intgSkillsEmpty: 'Навыки ещё не установлены.',
     intgSkillsImportFolder: 'Импорт папки…',
     intgSkillsImportZip: 'Импорт пакета навыка (zip / .md)…',
@@ -7434,7 +7426,7 @@ export const strings = {
     intgSkillsImportDone: 'Импортирован {name}',
     intgSkillsImportFailed: 'Ошибка импорта: {reason}',
     intgSkillsRemove: 'Удалить',
-    intgSkillsRemoveConfirm: 'Удалить навык «{name}»? Его папка будет удалена из GenOffice.',
+    intgSkillsRemoveConfirm: 'Удалить навык «{name}»? Его папка будет удалена из OneDesk.',
     intgSkillsRemoved: '{name} удалён',
     skillDetailClose: 'Закрыть',
     skillDetailLoading: 'Загрузка инструкций…',
@@ -7700,10 +7692,10 @@ export const strings = {
     setUpdateRestart: 'إعادة التشغيل والتثبيت',
     setAutoUpdateCheck: 'التحقق من التحديثات تلقائيًا',
     setAutoUpdateCheckDesc:
-      'عند الإيقاف، لن يتحقق GenOffice من الإصدارات الجديدة عند التشغيل أو في الخلفية. يمكنك التحقق يدويًا من تعليمات › التحقق من التحديثات.',
+      'عند الإيقاف، لن يتحقق OneDesk من الإصدارات الجديدة عند التشغيل أو في الخلفية. يمكنك التحقق يدويًا من تعليمات › التحقق من التحديثات.',
     setSilentInstall: 'تثبيت التحديثات بصمت',
     setSilentInstallDesc:
-      'عند التفعيل، يُحمَّل الإصدار الجديد الذي يكتشفه الفحص في الخلفية بصمت ويُثبَّت عند الخروج من GenOffice، دون أي مقاطعة أثناء العمل. عند الإيقاف، يظهر تنبيه تحديث لتقرر أنت موعد التحديث.',
+      'عند التفعيل، يُحمَّل الإصدار الجديد الذي يكتشفه الفحص في الخلفية بصمت ويُثبَّت عند الخروج من OneDesk، دون أي مقاطعة أثناء العمل. عند الإيقاف، يظهر تنبيه تحديث لتقرر أنت موعد التحديث.',
     updateChannel: 'قناة التحديث',
     channelStable: 'مستقر',
     channelBeta: 'تجريبي',
@@ -7716,7 +7708,7 @@ export const strings = {
     saveLocation: 'موقع الحفظ',
     setRestoreSession: 'إعادة فتح مستندات المرة السابقة',
     setRestoreSessionDesc:
-      'تُعاد فتح المستندات المفتوحة عند إغلاق GenOffice تلقائيًا في المرة التالية التي يبدأ فيها.',
+      'تُعاد فتح المستندات المفتوحة عند إغلاق OneDesk تلقائيًا في المرة التالية التي يبدأ فيها.',
     setTabSleep: 'إسبات علامات التبويب غير النشطة',
     setTabSleepDesc:
       'عند فتح علامات تبويب كثيرة، تحرّر التي لم تطّلع عليها منذ فترة ذاكرتها وتعيد فتح ملفها عند عودتك. علامات التبويب ذات التغييرات غير المحفوظة أو المثبّتة لا تُسبَت أبدًا.',
@@ -7755,8 +7747,8 @@ export const strings = {
     setLegacyImportPromptDesc:
       'يوضح ما سيتم نقله قبل فتح ملفات .doc أو .odt أو .hwp أو .ods أو .odp. عند الإيقاف يُفتح «حفظ باسم» مباشرة.',
     setDefaultApp: 'التطبيق الافتراضي لمستندات Office',
-    setDefaultAppDesc: 'فتح ملفات .docx و.xlsx و.pptx في GenOffice عند النقر المزدوج.',
-    setDefaultAppIs: 'GenOffice هو التطبيق الافتراضي بالفعل.',
+    setDefaultAppDesc: 'فتح ملفات .docx و.xlsx و.pptx في OneDesk عند النقر المزدوج.',
+    setDefaultAppIs: 'OneDesk هو التطبيق الافتراضي بالفعل.',
     setDefaultAppOther: 'الافتراضي الحالي: {app}',
     setDefaultAppSet: 'تعيين كافتراضي',
     setDefaultAppOpenSettings: 'فتح إعدادات النظام',
@@ -7814,7 +7806,7 @@ export const strings = {
     setSecAbout: 'حول',
     setSecIntegrations: 'التكاملات',
     setSecSkills: 'المهارات',
-    intgHeroTitle: 'استخدم GenOffice من مساعد الذكاء الاصطناعي',
+    intgHeroTitle: 'استخدم OneDesk من مساعد الذكاء الاصطناعي',
     intgHeroDesc:
       'بعد الربط، يمكن لـ Claude Code وCodex وCursor وClaude Desktop والمساعدين المشابهين إنشاء ملفات Word وExcel وPowerPoint وPDF وMarkdown وتحويلها وقراءتها وتحريرها نيابةً عنك. كل شيء يعمل على هذا الجهاز؛ لا يُرفع أي شيء.',
     intgHeroStep1: 'اختر الطريقة: CLI إذا كان مساعدك يستطيع تنفيذ أوامر الطرفية، وMCP إذا لم يستطع',
@@ -7823,14 +7815,14 @@ export const strings = {
     intgStep1Title: 'ثبّت المهارة في مساعدك',
     intgStep1Desc:
       'تُعرض فقط المساعدات الموجودة على هذا الجهاز. ثبّتها في المساعد الذي تستخدمه فعلاً؛ لا حاجة لتثبيتها في الجميع.',
-    intgStep1Update: 'عندما يجلب تحديث GenOffice مهارة أحدث، يظهر زر «تحديث» بجوار ذلك المساعد.',
+    intgStep1Update: 'عندما يجلب تحديث OneDesk مهارة أحدث، يظهر زر «تحديث» بجوار ذلك المساعد.',
     intgSkillVersion: 'المهارة {v}',
     intgStateMissing: 'المهارة غير مثبّتة',
     intgSharedReaders: 'مجلد مهارات مشترك يقرأه {list}',
     intgStateInstalled: 'المهارة {v} مثبّتة · جاهزة في محادثتك التالية',
     intgLegacyTitle: 'نسخ skill القديمة',
     intgLegacyDesc:
-      'كان GenOffice يكتب نسخة في مجلد كل أداة. ما زالت هناك {n}: الأداة ما زالت تقرأها، فلا تصل إليها نسخة skill الحالية أبدًا.',
+      'كان OneDesk يكتب نسخة في مجلد كل أداة. ما زالت هناك {n}: الأداة ما زالت تقرأها، فلا تصل إليها نسخة skill الحالية أبدًا.',
     intgLegacyClean: 'إزالة النسخ القديمة',
     intgLegacyCleaned: 'أُزيلت {n} نسخة قديمة، وأُبقيت {k} نسخة عدّلها المستخدم يدويًا.',
     intgLegacyFailed: 'تعذّرت إزالة النسخ القديمة: {msg}',
@@ -7838,7 +7830,7 @@ export const strings = {
     intgOtherDesc:
       'اختر طريقة واحدة فقط من هذه الطرق الثلاث. جميعها تثبّت المهارة نفسها، فلا حاجة لأكثر من واحدة.',
     intgOtherFolderTitle: 'أي مساعد يقرأ مجلدات SKILL.md',
-    intgOtherFolderDesc: 'اختر مجلد skills الخاص به وسيكتب GenOffice الملف هناك.',
+    intgOtherFolderDesc: 'اختر مجلد skills الخاص به وسيكتب OneDesk الملف هناك.',
     intgOtherZipTitle: 'سلّم الملف إلى المساعد',
     intgOtherZipDesc: 'احفظ المهارة كملف zip ثم اطلب من المساعد تثبيتها.',
     intgOtherNpxTitle: 'بأمر skills (يتطلب Node.js)',
@@ -7848,21 +7840,21 @@ export const strings = {
     intgStep2Desc: 'افتح محادثة جديدة في مساعدك واطلب بكلمات عادية، مثلاً:',
     intgExample1: 'حوّل ~/Downloads/report.md إلى مستند Word',
     intgExample2: 'أنشئ عرضاً من 6 شرائح عن نتائج الربع الثالث',
-    intgExample3: 'حوّل budget.xlsx إلى PDF وافتحه في GenOffice',
+    intgExample3: 'حوّل budget.xlsx إلى PDF وافتحه في OneDesk',
     intgStep2Note:
-      'المساعد يستدعي GenOffice بنفسه، عبر سطر الأوامر أو MCP؛ لن تحتاج إلى كتابة أي أمر.',
+      'المساعد يستدعي OneDesk بنفسه، عبر سطر الأوامر أو MCP؛ لن تحتاج إلى كتابة أي أمر.',
     intgCliPartTitle: 'CLI · سطر الأوامر + skill',
     intgCliPartDesc:
-      'للمساعدين الذين يستطيعون تنفيذ أوامر الطرفية (Claude Code وCodex وCursor وغيرها). بعد تثبيت skill، يستدعي المساعد سطر أوامر genoffice بنفسه لإنشاء الملفات وتحويلها وقراءتها وتحريرها؛ لن تكتب أي أمر.',
+      'للمساعدين الذين يستطيعون تنفيذ أوامر الطرفية (Claude Code وCodex وCursor وغيرها). بعد تثبيت skill، يستدعي المساعد سطر أوامر onedesk بنفسه لإنشاء الملفات وتحويلها وقراءتها وتحريرها؛ لن تكتب أي أمر.',
     intgMcpPartTitle: 'MCP',
     intgMcpPartDesc:
-      'MCP هو البروتوكول المشترك الذي يستخدمه مساعدو الذكاء الاصطناعي لاستدعاء أدوات خارجية. استخدمه إذا كان مساعدك لا يستطيع تنفيذ الأوامر (مثل Claude Desktop) أو إذا أردت أن يتحكم في نافذة GenOffice مباشرة. اختر إحدى الطريقتين أدناه.',
+      'MCP هو البروتوكول المشترك الذي يستخدمه مساعدو الذكاء الاصطناعي لاستدعاء أدوات خارجية. استخدمه إذا كان مساعدك لا يستطيع تنفيذ الأوامر (مثل Claude Desktop) أو إذا أردت أن يتحكم في نافذة OneDesk مباشرة. اختر إحدى الطريقتين أدناه.',
     intgMcpStdioTitle: 'يشغّله المساعد (موصى به)',
     intgMcpStdioDesc:
-      'يشغّل المساعد genoffice mcp بنفسه: لا شيء لتفعيله هنا، ولا يلزم أن يكون GenOffice مفتوحًا. نفس إمكانات CLI.',
+      'يشغّل المساعد onedesk mcp بنفسه: لا شيء لتفعيله هنا، ولا يلزم أن يكون OneDesk مفتوحًا. نفس إمكانات CLI.',
     intgMcpHttpTitle: 'خادم HTTP محلي',
     intgMcpHttpDesc:
-      'يعمل داخل GenOffice؛ يتصل المساعد عبر عنوان URL ويمكنك مشاهدة المستند يُبنى خطوة بخطوة في محرر Word. يجب أن يبقى GenOffice مفتوحًا؛ مستندات Word فقط حاليًا.',
+      'يعمل داخل OneDesk؛ يتصل المساعد عبر عنوان URL ويمكنك مشاهدة المستند يُبنى خطوة بخطوة في محرر Word. يجب أن يبقى OneDesk مفتوحًا؛ مستندات Word فقط حاليًا.',
     intgMcpHttpAdvanced: 'متقدم: عناوين أخرى والسجل',
     intgMcpClaudeTitle: 'Claude Code',
     intgMcpClaudeDesc: 'شغّل هذا مرة واحدة في الطرفية:',
@@ -7871,10 +7863,10 @@ export const strings = {
       'أضف هذا إلى إعدادات خوادم MCP لديه (ملف JSON، أو «إضافة خادم MCP» في إعداداته):',
     intgMcpNote:
       'يمكن إعداد المهارة و MCP معاً؛ يختار المساعد أحدهما. كلاهما يقوم بالأشياء نفسها تماماً.',
-    intgCliTitle: 'متقدم: سطر أوامر genoffice',
-    intgCliReady: 'genoffice {v} · جاهز في الطرفية ({path})',
+    intgCliTitle: 'متقدم: سطر أوامر onedesk',
+    intgCliReady: 'onedesk {v} · جاهز في الطرفية ({path})',
     intgCliNotOnPath:
-      'genoffice {v} · غير موجود في PATH الطرفية. ما زال المساعدون يجدونه عبر ~/.genoffice/launcher، فالمهارة تعمل. لكتابة genoffice بنفسك، شغّل هذا مرة واحدة:',
+      'onedesk {v} · غير موجود في PATH الطرفية. ما زال المساعدون يجدونه عبر ~/.onedesk/launcher، فالمهارة تعمل. لكتابة onedesk بنفسك، شغّل هذا مرة واحدة:',
     intgCliLauncher: 'مجلد المشغّل',
     intgStateOutdated: 'مثبّت {v}، يتوفر تحديث إلى {next}',
     intgStateModified: 'مثبّت {v} (تم تعديله)',
@@ -7898,9 +7890,9 @@ export const strings = {
     intgSaveZipTitle: 'حفظ المهارة',
     intgSavedTo: 'تم الحفظ في {path}',
     intgCopied: 'تم النسخ',
-    intgCliEphemeral: 'اسحب GenOffice إلى مجلد التطبيقات أولاً، ثم استخدم سطر الأوامر.',
+    intgCliEphemeral: 'اسحب OneDesk إلى مجلد التطبيقات أولاً، ثم استخدم سطر الأوامر.',
     intgCopyPath: 'نسخ المسار',
-    intgCliNeedsUpdate: 'تحتاج هذه المهارة إلى سطر الأوامر {v} أو أحدث؛ حدّث GenOffice.',
+    intgCliNeedsUpdate: 'تحتاج هذه المهارة إلى سطر الأوامر {v} أو أحدث؛ حدّث OneDesk.',
     intgLoading: 'جارٍ التحقق…',
     intgUpdateDue: 'يتوفر تحديث للمهارة',
     setSecAiModel: 'نموذج الذكاء الاصطناعي',
@@ -7959,13 +7951,13 @@ export const strings = {
       'عندما يكون المزوّد Genspark، يمر البحث في الويب وتوليد الصور وتحليل الوسائط عبر Genspark ويستهلك الرصيد؛ عند الإيقاف يستخدم البحث مصادر مجانية وتصبح أدوات صور Genspark غير متاحة.',
     setGithub: 'مفتوح المصدر',
     starOnGitHub: 'ضع نجمة على GitHub',
-    starPromptTitle: 'هل أعجبك GenOffice؟',
-    starPromptTitleN: 'لقد فتحت {n} من المستندات في GenOffice',
-    starPromptBody: 'GenOffice مجاني ومفتوح المصدر. نجمة على GitHub هي أفضل دعم للفريق.',
+    starPromptTitle: 'هل أعجبك OneDesk؟',
+    starPromptTitleN: 'لقد فتحت {n} من المستندات في OneDesk',
+    starPromptBody: 'OneDesk مجاني ومفتوح المصدر. نجمة على GitHub هي أفضل دعم للفريق.',
     starPromptGo: 'ضع نجمة',
     starPromptDone: 'وضعتها بالفعل',
     starPromptLater: 'لاحقًا',
-    onbStarHint: 'إذا أعجبك GenOffice، ضع لنا نجمة على GitHub.',
+    onbStarHint: 'إذا أعجبك OneDesk، ضع لنا نجمة على GitHub.',
     setEmail: 'البريد الإلكتروني',
     setNotLoggedIn: 'لم يتم تسجيل الدخول',
     setViewUsage: 'عرض الاستخدام',
@@ -7980,13 +7972,13 @@ export const strings = {
     appMenu: 'القائمة',
     newTab: 'علامة تبويب جديدة',
     // First-run onboarding
-    onbTitle1: 'مرحبًا بك في GenOffice',
+    onbTitle1: 'مرحبًا بك في OneDesk',
     onbSubtitle1: 'أول حزمة مكتبية مفتوحة المصدر وأصيلة في الذكاء الاصطناعي',
     onbBody1:
       'أنشئ المستندات وجداول البيانات والعروض التقديمية وراجع ملفات PDF. الذكاء الاصطناعي مدمج في كل خطوة.',
     onbTitle2: 'هذه مجرد البداية',
     onbBody2:
-      'لا يزال GenOffice في مرحلة ألفا. انضم إلى الدردشة الجماعية على GenTeam لمشاركة ملاحظاتك والمساهمة في تشكيل المستقبل.',
+      'لا يزال OneDesk في مرحلة ألفا. انضم إلى الدردشة الجماعية على GenTeam لمشاركة ملاحظاتك والمساهمة في تشكيل المستقبل.',
     onbCredits: 'يحصل المساهمون النشطون على **+1,000 من أرصدة Genspark**',
     onbJoinGenTeam: 'الانضمام إلى GenTeam',
     onbSkip: 'تخطي',
@@ -7998,7 +7990,7 @@ export const strings = {
     onbNote3: 'قد تستهلك ميزات الذكاء الاصطناعي أرصدة Genspark.',
     onbBack: 'رجوع',
     intgSkillsDesc:
-      'يستخدم GenOffice المهارات الموجودة في مجلد مهاراته فقط. استيراد مجلد أو ملف zip ينسخ المهارة كاملة؛ ولا يُشغَّل شيء عند الاستيراد.',
+      'يستخدم OneDesk المهارات الموجودة في مجلد مهاراته فقط. استيراد مجلد أو ملف zip ينسخ المهارة كاملة؛ ولا يُشغَّل شيء عند الاستيراد.',
     intgSkillsEmpty: 'لم تُثبَّت أي مهارات بعد.',
     intgSkillsImportFolder: 'استيراد مجلد…',
     intgSkillsImportZip: 'استيراد حزمة مهارة (zip / .md)…',
@@ -8007,7 +7999,7 @@ export const strings = {
     intgSkillsImportDone: 'تم استيراد {name}',
     intgSkillsImportFailed: 'فشل الاستيراد: {reason}',
     intgSkillsRemove: 'إزالة',
-    intgSkillsRemoveConfirm: 'هل تريد إزالة المهارة "{name}"؟ سيتم حذف مجلدها من GenOffice.',
+    intgSkillsRemoveConfirm: 'هل تريد إزالة المهارة "{name}"؟ سيتم حذف مجلدها من OneDesk.',
     intgSkillsRemoved: 'تمت إزالة {name}',
     skillDetailClose: 'إغلاق',
     skillDetailLoading: 'جارٍ تحميل التعليمات…',
@@ -8269,10 +8261,10 @@ export const strings = {
     setUpdateRestart: 'Reiniciar e instalar',
     setAutoUpdateCheck: 'Verificar atualizações automaticamente',
     setAutoUpdateCheckDesc:
-      'Desligado, o GenOffice deixa de procurar novas versões ao iniciar e em segundo plano. Você ainda pode verificar em Ajuda › Procurar atualizações.',
+      'Desligado, o OneDesk deixa de procurar novas versões ao iniciar e em segundo plano. Você ainda pode verificar em Ajuda › Procurar atualizações.',
     setSilentInstall: 'Instalar atualizações silenciosamente',
     setSilentInstallDesc:
-      'Quando ativado, uma nova versão encontrada em segundo plano é baixada silenciosamente e instalada ao sair do GenOffice; nada interrompe seu trabalho. Quando desativado, um aviso de atualização deixa você decidir quando atualizar.',
+      'Quando ativado, uma nova versão encontrada em segundo plano é baixada silenciosamente e instalada ao sair do OneDesk; nada interrompe seu trabalho. Quando desativado, um aviso de atualização deixa você decidir quando atualizar.',
     updateChannel: 'Canal de atualização',
     channelStable: 'Estável',
     channelBeta: 'Beta',
@@ -8285,7 +8277,7 @@ export const strings = {
     saveLocation: 'Local de salvamento',
     setRestoreSession: 'Reabrir os documentos da última vez',
     setRestoreSessionDesc:
-      'Os documentos abertos ao fechar o GenOffice são reabertos automaticamente na próxima vez que ele for iniciado.',
+      'Os documentos abertos ao fechar o OneDesk são reabertos automaticamente na próxima vez que ele for iniciado.',
     setTabSleep: 'Suspender guias inativas',
     setTabSleepDesc:
       'As guias que você não acessa há algum tempo liberam memória e reabrem o arquivo quando você volta. Guias fixadas ou com alterações não salvas nunca são suspensas.',
@@ -8324,8 +8316,8 @@ export const strings = {
     setLegacyImportPromptDesc:
       'Explica o que é preservado antes de abrir arquivos .doc, .odt, .hwp, .ods ou .odp. Desativado, Salvar como abre diretamente.',
     setDefaultApp: 'App padrão para documentos do Office',
-    setDefaultAppDesc: 'Abrir arquivos .docx, .xlsx e .pptx no GenOffice ao clicar duas vezes.',
-    setDefaultAppIs: 'O GenOffice já é o app padrão.',
+    setDefaultAppDesc: 'Abrir arquivos .docx, .xlsx e .pptx no OneDesk ao clicar duas vezes.',
+    setDefaultAppIs: 'O OneDesk já é o app padrão.',
     setDefaultAppOther: 'Padrão atual: {app}',
     setDefaultAppSet: 'Definir como padrão',
     setDefaultAppOpenSettings: 'Abrir configurações do sistema',
@@ -8384,7 +8376,7 @@ export const strings = {
     setSecAbout: 'Sobre',
     setSecIntegrations: 'Integrações',
     setSecSkills: 'Habilidades',
-    intgHeroTitle: 'Use o GenOffice a partir do seu assistente de IA',
+    intgHeroTitle: 'Use o OneDesk a partir do seu assistente de IA',
     intgHeroDesc:
       'Depois de conectados, Claude Code, Codex, Cursor, Claude Desktop e assistentes semelhantes podem criar, converter, ler e editar arquivos Word, Excel, PowerPoint, PDF e Markdown por você. Tudo roda neste computador; nada é enviado.',
     intgHeroStep1:
@@ -8395,14 +8387,14 @@ export const strings = {
     intgStep1Desc:
       'Só aparecem os assistentes encontrados neste computador. Instale no que você realmente usa; não precisa de todos.',
     intgStep1Update:
-      'Quando uma atualização do GenOffice trouxer um skill mais novo, um botão Atualizar aparece ao lado desse assistente.',
+      'Quando uma atualização do OneDesk trouxer um skill mais novo, um botão Atualizar aparece ao lado desse assistente.',
     intgSkillVersion: 'skill {v}',
     intgStateMissing: 'Skill não instalado',
     intgSharedReaders: 'Pasta de skills partilhada, lida por {list}',
     intgStateInstalled: 'Skill {v} instalado · pronto no seu próximo chat',
     intgLegacyTitle: 'Cópias antigas do skill',
     intgLegacyDesc:
-      'O GenOffice antes gravava uma cópia na pasta de cada ferramenta. Ainda há {n} lá: a ferramenta continua a lê-las, por isso nunca recebem o skill atual.',
+      'O OneDesk antes gravava uma cópia na pasta de cada ferramenta. Ainda há {n} lá: a ferramenta continua a lê-las, por isso nunca recebem o skill atual.',
     intgLegacyClean: 'Remover cópias antigas',
     intgLegacyCleaned: '{n} cópias antigas removidas, {k} editadas à mão foram mantidas.',
     intgLegacyFailed: 'Não foi possível remover as cópias antigas: {msg}',
@@ -8410,7 +8402,7 @@ export const strings = {
     intgOtherDesc:
       'Escolha apenas uma destas três formas. Todas instalam o mesmo skill, então não é preciso fazer mais de uma.',
     intgOtherFolderTitle: 'Qualquer assistente que leia pastas SKILL.md',
-    intgOtherFolderDesc: 'Escolha a pasta de skills dele e o GenOffice grava o arquivo lá.',
+    intgOtherFolderDesc: 'Escolha a pasta de skills dele e o OneDesk grava o arquivo lá.',
     intgOtherZipTitle: 'Entregue o arquivo ao assistente',
     intgOtherZipDesc: 'Salve o skill como zip e peça ao assistente para instalá-lo.',
     intgOtherNpxTitle: 'Com o comando skills (requer Node.js)',
@@ -8420,21 +8412,21 @@ export const strings = {
     intgStep2Desc: 'Abra um chat novo no seu assistente e peça com suas palavras, por exemplo:',
     intgExample1: 'Transforme ~/Downloads/report.md em um documento Word',
     intgExample2: 'Monte uma apresentação de 6 slides sobre nossos resultados do 3º trimestre',
-    intgExample3: 'Converta budget.xlsx para PDF e abra no GenOffice',
+    intgExample3: 'Converta budget.xlsx para PDF e abra no OneDesk',
     intgStep2Note:
-      'O assistente chama o GenOffice sozinho, pela linha de comando ou MCP; você nunca precisa digitar um comando.',
+      'O assistente chama o OneDesk sozinho, pela linha de comando ou MCP; você nunca precisa digitar um comando.',
     intgCliPartTitle: 'CLI · linha de comando + skill',
     intgCliPartDesc:
-      'Para assistentes que executam comandos de terminal (Claude Code, Codex, Cursor e outros). Com o skill instalado, o assistente chama a linha de comando genoffice sozinho para criar, converter, ler e editar arquivos; você nunca digita um comando.',
+      'Para assistentes que executam comandos de terminal (Claude Code, Codex, Cursor e outros). Com o skill instalado, o assistente chama a linha de comando onedesk sozinho para criar, converter, ler e editar arquivos; você nunca digita um comando.',
     intgMcpPartTitle: 'MCP',
     intgMcpPartDesc:
-      'MCP é o protocolo comum que assistentes de IA usam para chamar ferramentas externas. Use-o quando o assistente não puder executar comandos (Claude Desktop, por exemplo) ou quando quiser que ele controle a janela do GenOffice diretamente. Escolha uma das duas formas abaixo.',
+      'MCP é o protocolo comum que assistentes de IA usam para chamar ferramentas externas. Use-o quando o assistente não puder executar comandos (Claude Desktop, por exemplo) ou quando quiser que ele controle a janela do OneDesk diretamente. Escolha uma das duas formas abaixo.',
     intgMcpStdioTitle: 'Iniciado pelo assistente (recomendado)',
     intgMcpStdioDesc:
-      'O assistente inicia o genoffice mcp sozinho: nada para ligar aqui, e o GenOffice não precisa estar aberto. Mesmos recursos da CLI.',
+      'O assistente inicia o onedesk mcp sozinho: nada para ligar aqui, e o OneDesk não precisa estar aberto. Mesmos recursos da CLI.',
     intgMcpHttpTitle: 'Servidor HTTP local',
     intgMcpHttpDesc:
-      'Roda dentro do GenOffice; o assistente conecta por URL e você acompanha o documento sendo montado passo a passo no editor Word. O GenOffice precisa ficar aberto; por enquanto só documentos Word.',
+      'Roda dentro do OneDesk; o assistente conecta por URL e você acompanha o documento sendo montado passo a passo no editor Word. O OneDesk precisa ficar aberto; por enquanto só documentos Word.',
     intgMcpHttpAdvanced: 'Avançado: outros endereços e log',
     intgMcpClaudeTitle: 'Claude Code',
     intgMcpClaudeDesc: 'Execute isto uma vez no terminal:',
@@ -8443,10 +8435,10 @@ export const strings = {
       'Adicione isto à configuração de servidores MCP dele (um arquivo JSON, ou "Adicionar servidor MCP" nas configurações):',
     intgMcpNote:
       'O skill e o MCP podem coexistir; o assistente escolhe um deles. Ambos fazem exatamente as mesmas coisas.',
-    intgCliTitle: 'Avançado: linha de comando genoffice',
-    intgCliReady: 'genoffice {v} · pronto no seu terminal ({path})',
+    intgCliTitle: 'Avançado: linha de comando onedesk',
+    intgCliReady: 'onedesk {v} · pronto no seu terminal ({path})',
     intgCliNotOnPath:
-      'genoffice {v} · não está no PATH do seu terminal. Os assistentes ainda o encontram por ~/.genoffice/launcher, então o skill funciona. Para digitar genoffice você mesmo, execute isto uma vez:',
+      'onedesk {v} · não está no PATH do seu terminal. Os assistentes ainda o encontram por ~/.onedesk/launcher, então o skill funciona. Para digitar onedesk você mesmo, execute isto uma vez:',
     intgCliLauncher: 'Pasta do inicializador',
     intgStateOutdated: 'Instalado {v}, atualização para {next} disponível',
     intgStateModified: 'Instalado {v} (modificado)',
@@ -8471,10 +8463,10 @@ export const strings = {
     intgSavedTo: 'Salvo em {path}',
     intgCopied: 'Copiado',
     intgCliEphemeral:
-      'Arraste o GenOffice para Aplicativos primeiro e depois use a linha de comando.',
+      'Arraste o OneDesk para Aplicativos primeiro e depois use a linha de comando.',
     intgCopyPath: 'Copiar caminho',
     intgCliNeedsUpdate:
-      'Este skill precisa da linha de comando {v} ou mais recente; atualize o GenOffice.',
+      'Este skill precisa da linha de comando {v} ou mais recente; atualize o OneDesk.',
     intgLoading: 'Verificando…',
     intgUpdateDue: 'Atualização do skill disponível',
     setSecAiModel: 'Modelo de IA',
@@ -8535,14 +8527,14 @@ export const strings = {
       'Quando o provedor é o Genspark, a busca na web, a geração de imagens e a análise de mídia passam pelo Genspark e consomem créditos; desativado, a busca usa fontes gratuitas e as ferramentas de imagem do Genspark ficam indisponíveis.',
     setGithub: 'Código aberto',
     starOnGitHub: 'Dar uma estrela no GitHub',
-    starPromptTitle: 'Gostando do GenOffice?',
-    starPromptTitleN: 'Você já abriu {n} documentos com o GenOffice',
+    starPromptTitle: 'Gostando do OneDesk?',
+    starPromptTitleN: 'Você já abriu {n} documentos com o OneDesk',
     starPromptBody:
-      'O GenOffice é gratuito e de código aberto. Uma estrela no GitHub é a melhor forma de apoiar a equipe.',
+      'O OneDesk é gratuito e de código aberto. Uma estrela no GitHub é a melhor forma de apoiar a equipe.',
     starPromptGo: 'Dar uma estrela',
     starPromptDone: 'Já dei',
     starPromptLater: 'Mais tarde',
-    onbStarHint: 'Se você gosta do GenOffice, deixe uma estrela no GitHub.',
+    onbStarHint: 'Se você gosta do OneDesk, deixe uma estrela no GitHub.',
     setEmail: 'E-mail',
     setNotLoggedIn: 'Não conectado',
     setViewUsage: 'Ver uso',
@@ -8555,13 +8547,13 @@ export const strings = {
     appMenu: 'Menu',
     newTab: 'Nova guia',
     // First-run onboarding
-    onbTitle1: 'Bem-vindo ao GenOffice',
+    onbTitle1: 'Bem-vindo ao OneDesk',
     onbSubtitle1: 'A primeira suíte de escritório open source e nativa de IA',
     onbBody1:
       'Crie documentos, planilhas e apresentações e revise PDFs. A IA está integrada em cada etapa.',
     onbTitle2: 'Isto é só o começo',
     onbBody2:
-      'O GenOffice ainda está em alfa. Entre no chat em grupo no GenTeam para compartilhar feedback e ajudar a moldar o que vem a seguir.',
+      'O OneDesk ainda está em alfa. Entre no chat em grupo no GenTeam para compartilhar feedback e ajudar a moldar o que vem a seguir.',
     onbCredits: 'Contribuidores ativos recebem **1.000+ créditos Genspark**',
     onbJoinGenTeam: 'Entrar no GenTeam',
     onbSkip: 'Pular',
@@ -8573,7 +8565,7 @@ export const strings = {
     onbNote3: 'Os recursos de IA podem consumir créditos Genspark.',
     onbBack: 'Voltar',
     intgSkillsDesc:
-      'O GenOffice só usa habilidades da sua própria pasta. Importar uma pasta ou um zip copia a habilidade inteira; nada é executado na importação.',
+      'O OneDesk só usa habilidades da sua própria pasta. Importar uma pasta ou um zip copia a habilidade inteira; nada é executado na importação.',
     intgSkillsEmpty: 'Nenhuma habilidade instalada.',
     intgSkillsImportFolder: 'Importar pasta…',
     intgSkillsImportZip: 'Importar pacote de habilidade (zip / .md)…',
@@ -8583,7 +8575,7 @@ export const strings = {
     intgSkillsImportFailed: 'Falha na importação: {reason}',
     intgSkillsRemove: 'Remover',
     intgSkillsRemoveConfirm:
-      'Remover a habilidade "{name}"? A pasta dela será excluída do GenOffice.',
+      'Remover a habilidade "{name}"? A pasta dela será excluída do OneDesk.',
     intgSkillsRemoved: '{name} removida',
     skillDetailClose: 'Fechar',
     skillDetailLoading: 'Carregando instruções…',
@@ -8846,10 +8838,10 @@ export const strings = {
     setUpdateRestart: 'Riavvia e installa',
     setAutoUpdateCheck: 'Controlla automaticamente gli aggiornamenti',
     setAutoUpdateCheckDesc:
-      "Se disattivato, GenOffice non cerca più nuove versioni all'avvio o in background. Puoi comunque controllare da Aiuto › Controlla aggiornamenti.",
+      "Se disattivato, OneDesk non cerca più nuove versioni all'avvio o in background. Puoi comunque controllare da Aiuto › Controlla aggiornamenti.",
     setSilentInstall: 'Installa gli aggiornamenti in silenzio',
     setSilentInstallDesc:
-      'Se attivo, una nuova versione trovata in background viene scaricata in silenzio e installata alla chiusura di GenOffice; nulla ti interrompe mentre lavori. Se disattivato, un avviso di aggiornamento ti lascia decidere quando aggiornare.',
+      'Se attivo, una nuova versione trovata in background viene scaricata in silenzio e installata alla chiusura di OneDesk; nulla ti interrompe mentre lavori. Se disattivato, un avviso di aggiornamento ti lascia decidere quando aggiornare.',
     updateChannel: 'Canale di aggiornamento',
     channelStable: 'Stabile',
     channelBeta: 'Beta',
@@ -8862,7 +8854,7 @@ export const strings = {
     saveLocation: 'Posizione di salvataggio',
     setRestoreSession: "Riapri i documenti dell'ultima volta",
     setRestoreSessionDesc:
-      'I documenti aperti alla chiusura di GenOffice si riaprono automaticamente al successivo avvio.',
+      'I documenti aperti alla chiusura di OneDesk si riaprono automaticamente al successivo avvio.',
     setTabSleep: 'Sospendi le schede inattive',
     setTabSleepDesc:
       'Con molte schede aperte, quelle che non guardi da un po’ liberano la memoria e riaprono il file al tuo ritorno. Le schede con modifiche non salvate o fissate non vengono mai sospese.',
@@ -8902,8 +8894,8 @@ export const strings = {
     setLegacyImportPromptDesc:
       'Spiega cosa viene mantenuto prima di aprire file .doc, .odt, .hwp, .ods o .odp. Se disattivato, Salva con nome si apre subito.',
     setDefaultApp: 'App predefinita per i documenti Office',
-    setDefaultAppDesc: 'Apri i file .docx, .xlsx e .pptx in GenOffice con un doppio clic.',
-    setDefaultAppIs: 'GenOffice è già l’app predefinita.',
+    setDefaultAppDesc: 'Apri i file .docx, .xlsx e .pptx in OneDesk con un doppio clic.',
+    setDefaultAppIs: 'OneDesk è già l’app predefinita.',
     setDefaultAppOther: 'Predefinita attuale: {app}',
     setDefaultAppSet: 'Imposta come predefinita',
     setDefaultAppOpenSettings: 'Apri impostazioni di sistema',
@@ -8961,7 +8953,7 @@ export const strings = {
     setSecAbout: 'Informazioni',
     setSecIntegrations: 'Integrazioni',
     setSecSkills: 'Competenze',
-    intgHeroTitle: 'Usa GenOffice dal tuo assistente IA',
+    intgHeroTitle: 'Usa OneDesk dal tuo assistente IA',
     intgHeroDesc:
       'Una volta collegati, Claude Code, Codex, Cursor, Claude Desktop e assistenti simili possono creare, convertire, leggere e modificare file Word, Excel, PowerPoint, PDF e Markdown per te. Tutto avviene su questo computer; nulla viene caricato.',
     intgHeroStep1:
@@ -8972,14 +8964,14 @@ export const strings = {
     intgStep1Desc:
       'Sono elencati solo gli assistenti trovati su questo computer. Installalo in quello che usi davvero; non servono tutti.',
     intgStep1Update:
-      "Quando un aggiornamento di GenOffice porta uno skill più recente, accanto a quell'assistente compare un pulsante Aggiorna.",
+      "Quando un aggiornamento di OneDesk porta uno skill più recente, accanto a quell'assistente compare un pulsante Aggiorna.",
     intgSkillVersion: 'skill {v}',
     intgStateMissing: 'Skill non installato',
     intgSharedReaders: 'Cartella skill condivisa, letta da {list}',
     intgStateInstalled: 'Skill {v} installato · pronto nella prossima chat',
     intgLegacyTitle: 'Copie obsolete dello skill',
     intgLegacyDesc:
-      'Prima GenOffice scriveva una copia nella cartella di ogni strumento. Ne restano {n}: lo strumento continua a leggerle, quindi non ricevono mai lo skill attuale.',
+      'Prima OneDesk scriveva una copia nella cartella di ogni strumento. Ne restano {n}: lo strumento continua a leggerle, quindi non ricevono mai lo skill attuale.',
     intgLegacyClean: 'Rimuovi le copie obsolete',
     intgLegacyCleaned: '{n} copie obsolete rimosse, {k} modificate a mano lasciate al loro posto.',
     intgLegacyFailed: 'Impossibile rimuovere le copie obsolete: {msg}',
@@ -8987,7 +8979,7 @@ export const strings = {
     intgOtherDesc:
       'Scegli una sola di queste tre strade. Installano tutte lo stesso skill, quindi non serve farne più di una.',
     intgOtherFolderTitle: 'Qualsiasi assistente che legge cartelle SKILL.md',
-    intgOtherFolderDesc: 'Scegli la sua cartella skills e GenOffice vi scrive il file.',
+    intgOtherFolderDesc: 'Scegli la sua cartella skills e OneDesk vi scrive il file.',
     intgOtherZipTitle: "Consegna il file all'assistente",
     intgOtherZipDesc: "Salva lo skill come zip, poi chiedi all'assistente di installarlo.",
     intgOtherNpxTitle: 'Con il comando skills (richiede Node.js)',
@@ -8998,21 +8990,21 @@ export const strings = {
       'Apri una nuova chat nel tuo assistente e chiedi con parole semplici, ad esempio:',
     intgExample1: 'Trasforma ~/Downloads/report.md in un documento Word',
     intgExample2: 'Prepara una presentazione di 6 slide sui nostri risultati del terzo trimestre',
-    intgExample3: 'Converti budget.xlsx in PDF e aprilo in GenOffice',
+    intgExample3: 'Converti budget.xlsx in PDF e aprilo in OneDesk',
     intgStep2Note:
-      "L'assistente richiama GenOffice da solo, tramite la riga di comando o MCP; non dovrai mai digitare un comando.",
+      "L'assistente richiama OneDesk da solo, tramite la riga di comando o MCP; non dovrai mai digitare un comando.",
     intgCliPartTitle: 'CLI · riga di comando + skill',
     intgCliPartDesc:
-      'Per assistenti che possono eseguire comandi da terminale (Claude Code, Codex, Cursor e altri). Installato lo skill, l’assistente richiama da sé la riga di comando genoffice per creare, convertire, leggere e modificare file; non digiti mai un comando.',
+      'Per assistenti che possono eseguire comandi da terminale (Claude Code, Codex, Cursor e altri). Installato lo skill, l’assistente richiama da sé la riga di comando onedesk per creare, convertire, leggere e modificare file; non digiti mai un comando.',
     intgMcpPartTitle: 'MCP',
     intgMcpPartDesc:
-      'MCP è il protocollo comune con cui gli assistenti IA richiamano strumenti esterni. Usalo quando l’assistente non può eseguire comandi (Claude Desktop, ad esempio) o quando vuoi che controlli direttamente la finestra di GenOffice. Scegli uno dei due modi qui sotto.',
+      'MCP è il protocollo comune con cui gli assistenti IA richiamano strumenti esterni. Usalo quando l’assistente non può eseguire comandi (Claude Desktop, ad esempio) o quando vuoi che controlli direttamente la finestra di OneDesk. Scegli uno dei due modi qui sotto.',
     intgMcpStdioTitle: 'Avviato dall’assistente (consigliato)',
     intgMcpStdioDesc:
-      'L’assistente avvia genoffice mcp da sé: niente da attivare qui, e GenOffice non deve essere aperto. Stesse funzioni della CLI.',
+      'L’assistente avvia onedesk mcp da sé: niente da attivare qui, e OneDesk non deve essere aperto. Stesse funzioni della CLI.',
     intgMcpHttpTitle: 'Server HTTP locale',
     intgMcpHttpDesc:
-      'Gira dentro GenOffice; l’assistente si collega a un URL e puoi vedere il documento prendere forma passo dopo passo nell’editor Word. GenOffice deve restare aperto; per ora solo documenti Word.',
+      'Gira dentro OneDesk; l’assistente si collega a un URL e puoi vedere il documento prendere forma passo dopo passo nell’editor Word. OneDesk deve restare aperto; per ora solo documenti Word.',
     intgMcpHttpAdvanced: 'Avanzato: altri indirizzi e registro',
     intgMcpClaudeTitle: 'Claude Code',
     intgMcpClaudeDesc: 'Esegui questo una volta nel terminale:',
@@ -9021,10 +9013,10 @@ export const strings = {
       'Aggiungi questo alla sua configurazione dei server MCP (un file JSON, oppure «Aggiungi server MCP» nelle impostazioni):',
     intgMcpNote:
       "Skill e MCP possono convivere; l'assistente ne sceglie uno. Fanno esattamente le stesse cose.",
-    intgCliTitle: 'Avanzato: riga di comando genoffice',
-    intgCliReady: 'genoffice {v} · pronto nel terminale ({path})',
+    intgCliTitle: 'Avanzato: riga di comando onedesk',
+    intgCliReady: 'onedesk {v} · pronto nel terminale ({path})',
     intgCliNotOnPath:
-      'genoffice {v} · non è nel PATH del terminale. Gli assistenti lo trovano comunque tramite ~/.genoffice/launcher, quindi lo skill funziona. Per digitare genoffice tu stesso, esegui questo una volta:',
+      'onedesk {v} · non è nel PATH del terminale. Gli assistenti lo trovano comunque tramite ~/.onedesk/launcher, quindi lo skill funziona. Per digitare onedesk tu stesso, esegui questo una volta:',
     intgCliLauncher: 'Cartella del launcher',
     intgStateOutdated: 'Installato {v}, aggiornamento a {next} disponibile',
     intgStateModified: 'Installato {v} (modificato)',
@@ -9048,10 +9040,10 @@ export const strings = {
     intgSaveZipTitle: 'Salva skill',
     intgSavedTo: 'Salvato in {path}',
     intgCopied: 'Copiato',
-    intgCliEphemeral: 'Trascina prima GenOffice in Applicazioni, poi usa la riga di comando.',
+    intgCliEphemeral: 'Trascina prima OneDesk in Applicazioni, poi usa la riga di comando.',
     intgCopyPath: 'Copia percorso',
     intgCliNeedsUpdate:
-      'Questo skill richiede la riga di comando {v} o successiva; aggiorna GenOffice.',
+      'Questo skill richiede la riga di comando {v} o successiva; aggiorna OneDesk.',
     intgLoading: 'Verifica in corso…',
     intgUpdateDue: 'Aggiornamento dello skill disponibile',
     setSecAiModel: 'Modello IA',
@@ -9112,14 +9104,14 @@ export const strings = {
       "Quando il provider è Genspark, la ricerca web, la generazione di immagini e l'analisi dei media passano da Genspark e consumano crediti; se disattivato, la ricerca usa fonti gratuite e gli strumenti immagine di Genspark non sono disponibili.",
     setGithub: 'Open source',
     starOnGitHub: 'Metti una stella su GitHub',
-    starPromptTitle: 'Ti piace GenOffice?',
-    starPromptTitleN: 'Hai aperto {n} documenti con GenOffice',
+    starPromptTitle: 'Ti piace OneDesk?',
+    starPromptTitleN: 'Hai aperto {n} documenti con OneDesk',
     starPromptBody:
-      'GenOffice è gratuito e open source. Una stella su GitHub è il modo migliore per sostenere il team.',
+      'OneDesk è gratuito e open source. Una stella su GitHub è il modo migliore per sostenere il team.',
     starPromptGo: 'Metti una stella',
     starPromptDone: 'Già fatto',
     starPromptLater: 'Più tardi',
-    onbStarHint: 'Se ti piace GenOffice, lasciaci una stella su GitHub.',
+    onbStarHint: 'Se ti piace OneDesk, lasciaci una stella su GitHub.',
     setEmail: 'Email',
     setNotLoggedIn: 'Non connesso',
     setViewUsage: 'Vedi utilizzo',
@@ -9132,13 +9124,13 @@ export const strings = {
     appMenu: 'Menu',
     newTab: 'Nuova scheda',
     // First-run onboarding
-    onbTitle1: 'Benvenuto in GenOffice',
+    onbTitle1: 'Benvenuto in OneDesk',
     onbSubtitle1: 'La prima suite per ufficio open source e nativa per l’IA',
     onbBody1:
       'Crea documenti, fogli di calcolo e presentazioni e rivedi i PDF. L’IA è integrata in ogni passaggio.',
     onbTitle2: 'Questo è solo l’inizio',
     onbBody2:
-      'GenOffice è ancora in alpha. Unisciti alla chat di gruppo su GenTeam per condividere feedback e contribuire a plasmare il futuro.',
+      'OneDesk è ancora in alpha. Unisciti alla chat di gruppo su GenTeam per condividere feedback e contribuire a plasmare il futuro.',
     onbCredits: 'I collaboratori attivi ricevono **1.000+ crediti Genspark**',
     onbJoinGenTeam: 'Unisciti a GenTeam',
     onbSkip: 'Salta',
@@ -9150,7 +9142,7 @@ export const strings = {
     onbNote3: 'Le funzioni IA possono consumare crediti Genspark.',
     onbBack: 'Indietro',
     intgSkillsDesc:
-      'GenOffice usa solo le competenze nella propria cartella. Importare una cartella o uno zip copia l’intera competenza; nulla viene eseguito all’importazione.',
+      'OneDesk usa solo le competenze nella propria cartella. Importare una cartella o uno zip copia l’intera competenza; nulla viene eseguito all’importazione.',
     intgSkillsEmpty: 'Nessuna competenza installata.',
     intgSkillsImportFolder: 'Importa cartella…',
     intgSkillsImportZip: 'Importa pacchetto competenza (zip / .md)…',
@@ -9160,7 +9152,7 @@ export const strings = {
     intgSkillsImportFailed: 'Importazione non riuscita: {reason}',
     intgSkillsRemove: 'Rimuovi',
     intgSkillsRemoveConfirm:
-      'Rimuovere la competenza "{name}"? La sua cartella sarà eliminata da GenOffice.',
+      'Rimuovere la competenza "{name}"? La sua cartella sarà eliminata da OneDesk.',
     intgSkillsRemoved: '{name} rimossa',
     skillDetailClose: 'Chiudi',
     skillDetailLoading: 'Caricamento istruzioni…',
@@ -9422,10 +9414,10 @@ export const strings = {
     setUpdateRestart: 'Uruchom ponownie i zainstaluj',
     setAutoUpdateCheck: 'Automatycznie sprawdzaj aktualizacje',
     setAutoUpdateCheckDesc:
-      'Po wyłączeniu GenOffice nie sprawdza nowych wersji przy uruchomieniu ani w tle. Nadal możesz sprawdzić ręcznie w Pomoc › Sprawdź aktualizacje.',
+      'Po wyłączeniu OneDesk nie sprawdza nowych wersji przy uruchomieniu ani w tle. Nadal możesz sprawdzić ręcznie w Pomoc › Sprawdź aktualizacje.',
     setSilentInstall: 'Instaluj aktualizacje po cichu',
     setSilentInstallDesc:
-      'Gdy włączone, nowa wersja znaleziona w tle jest pobierana po cichu i instalowana przy wyjściu z GenOffice; nic nie przerywa pracy. Gdy wyłączone, monit o aktualizacji pozwala samodzielnie wybrać moment.',
+      'Gdy włączone, nowa wersja znaleziona w tle jest pobierana po cichu i instalowana przy wyjściu z OneDesk; nic nie przerywa pracy. Gdy wyłączone, monit o aktualizacji pozwala samodzielnie wybrać moment.',
     updateChannel: 'Kanał aktualizacji',
     channelStable: 'Stabilny',
     channelBeta: 'Beta',
@@ -9438,7 +9430,7 @@ export const strings = {
     saveLocation: 'Lokalizacja zapisu',
     setRestoreSession: 'Otwieraj ponownie dokumenty z ostatniej sesji',
     setRestoreSessionDesc:
-      'Dokumenty otwarte w chwili zamknięcia GenOffice zostaną automatycznie otwarte przy następnym uruchomieniu.',
+      'Dokumenty otwarte w chwili zamknięcia OneDesk zostaną automatycznie otwarte przy następnym uruchomieniu.',
     setTabSleep: 'Usypiaj nieaktywne karty',
     setTabSleepDesc:
       'Gdy otwartych jest wiele kart, te dawno nieoglądane zwalniają pamięć i ponownie otwierają plik po powrocie. Karty z niezapisanymi zmianami lub przypięte nigdy nie są usypiane.',
@@ -9478,8 +9470,8 @@ export const strings = {
     setLegacyImportPromptDesc:
       'Wyjaśnia, co zostanie przeniesione przed otwarciem plików .doc, .odt, .hwp, .ods lub .odp. Po wyłączeniu od razu otwiera się Zapisz jako.',
     setDefaultApp: 'Domyślna aplikacja dla dokumentów Office',
-    setDefaultAppDesc: 'Otwieraj pliki .docx, .xlsx i .pptx w GenOffice po dwukrotnym kliknięciu.',
-    setDefaultAppIs: 'GenOffice jest już aplikacją domyślną.',
+    setDefaultAppDesc: 'Otwieraj pliki .docx, .xlsx i .pptx w OneDesk po dwukrotnym kliknięciu.',
+    setDefaultAppIs: 'OneDesk jest już aplikacją domyślną.',
     setDefaultAppOther: 'Obecnie domyślna: {app}',
     setDefaultAppSet: 'Ustaw jako domyślną',
     setDefaultAppOpenSettings: 'Otwórz ustawienia systemu',
@@ -9536,7 +9528,7 @@ export const strings = {
     setSecAbout: 'O aplikacji',
     setSecIntegrations: 'Integracje',
     setSecSkills: 'Umiejętności',
-    intgHeroTitle: 'Używaj GenOffice ze swojego asystenta AI',
+    intgHeroTitle: 'Używaj OneDesk ze swojego asystenta AI',
     intgHeroDesc:
       'Po połączeniu Claude Code, Codex, Cursor, Claude Desktop i podobni asystenci mogą tworzyć, konwertować, czytać i edytować pliki Word, Excel, PowerPoint, PDF i Markdown za Ciebie. Wszystko działa na tym komputerze; nic nie jest przesyłane.',
     intgHeroStep1:
@@ -9547,14 +9539,14 @@ export const strings = {
     intgStep1Desc:
       'Widoczne są tylko asystenty znalezione na tym komputerze. Zainstaluj w tym, którego naprawdę używasz; nie potrzebujesz wszystkich.',
     intgStep1Update:
-      'Gdy aktualizacja GenOffice przyniesie nowszy skill, obok tego asystenta pojawi się przycisk Aktualizuj.',
+      'Gdy aktualizacja OneDesk przyniesie nowszy skill, obok tego asystenta pojawi się przycisk Aktualizuj.',
     intgSkillVersion: 'skill {v}',
     intgStateMissing: 'Skill niezainstalowany',
     intgSharedReaders: 'Wspólny folder skilli odczytywany przez {list}',
     intgStateInstalled: 'Skill {v} zainstalowany · gotowy w następnym czacie',
     intgLegacyTitle: 'Stare kopie wtyczki',
     intgLegacyDesc:
-      'GenOffice wcześniej zapisywał kopię w folderze każdego narzędzia. Wciąż jest tam {n}: narzędzie czyta je dalej, więc nigdy nie dostają aktualnej wtyczki.',
+      'OneDesk wcześniej zapisywał kopię w folderze każdego narzędzia. Wciąż jest tam {n}: narzędzie czyta je dalej, więc nigdy nie dostają aktualnej wtyczki.',
     intgLegacyClean: 'Usuń stare kopie',
     intgLegacyCleaned: 'Usunięto {n} starych kopii, {k} edytowanych ręcznie zostawiono.',
     intgLegacyFailed: 'Nie udało się usunąć starych kopii: {msg}',
@@ -9562,7 +9554,7 @@ export const strings = {
     intgOtherDesc:
       'Wybierz tylko jeden z tych trzech sposobów. Wszystkie instalują ten sam skill, więc nie trzeba robić więcej niż jednego.',
     intgOtherFolderTitle: 'Dowolny asystent czytający foldery SKILL.md',
-    intgOtherFolderDesc: 'Wybierz jego folder skills, a GenOffice zapisze tam plik.',
+    intgOtherFolderDesc: 'Wybierz jego folder skills, a OneDesk zapisze tam plik.',
     intgOtherZipTitle: 'Przekaż plik asystentowi',
     intgOtherZipDesc: 'Zapisz skill jako zip, a potem poproś asystenta o instalację.',
     intgOtherNpxTitle: 'Poleceniem skills (wymaga Node.js)',
@@ -9572,21 +9564,21 @@ export const strings = {
     intgStep2Desc: 'Otwórz nowy czat w asystencie i poproś zwykłymi słowami, na przykład:',
     intgExample1: 'Zamień ~/Downloads/report.md na dokument Word',
     intgExample2: 'Zrób prezentację z 6 slajdów o naszych wynikach za III kwartał',
-    intgExample3: 'Przekonwertuj budget.xlsx do PDF i otwórz w GenOffice',
+    intgExample3: 'Przekonwertuj budget.xlsx do PDF i otwórz w OneDesk',
     intgStep2Note:
-      'Asystent sam wywołuje GenOffice — przez wiersz poleceń lub MCP; nigdy nie musisz wpisywać polecenia.',
+      'Asystent sam wywołuje OneDesk — przez wiersz poleceń lub MCP; nigdy nie musisz wpisywać polecenia.',
     intgCliPartTitle: 'CLI · wiersz poleceń + skill',
     intgCliPartDesc:
-      'Dla asystentów, które potrafią uruchamiać polecenia terminala (Claude Code, Codex, Cursor i inne). Po zainstalowaniu skilla asystent sam wywołuje wiersz poleceń genoffice, aby tworzyć, konwertować, czytać i edytować pliki; nigdy nie wpisujesz polecenia.',
+      'Dla asystentów, które potrafią uruchamiać polecenia terminala (Claude Code, Codex, Cursor i inne). Po zainstalowaniu skilla asystent sam wywołuje wiersz poleceń onedesk, aby tworzyć, konwertować, czytać i edytować pliki; nigdy nie wpisujesz polecenia.',
     intgMcpPartTitle: 'MCP',
     intgMcpPartDesc:
-      'MCP to wspólny protokół, którym asystenci AI wywołują zewnętrzne narzędzia. Użyj go, gdy asystent nie potrafi uruchamiać poleceń (np. Claude Desktop) lub gdy chcesz, aby bezpośrednio sterował oknem GenOffice. Wybierz jeden z dwóch sposobów poniżej.',
+      'MCP to wspólny protokół, którym asystenci AI wywołują zewnętrzne narzędzia. Użyj go, gdy asystent nie potrafi uruchamiać poleceń (np. Claude Desktop) lub gdy chcesz, aby bezpośrednio sterował oknem OneDesk. Wybierz jeden z dwóch sposobów poniżej.',
     intgMcpStdioTitle: 'Uruchamiany przez asystenta (zalecane)',
     intgMcpStdioDesc:
-      'Asystent sam uruchamia genoffice mcp: nic tu nie trzeba włączać, a GenOffice nie musi być otwarty. Te same funkcje co CLI.',
+      'Asystent sam uruchamia onedesk mcp: nic tu nie trzeba włączać, a OneDesk nie musi być otwarty. Te same funkcje co CLI.',
     intgMcpHttpTitle: 'Lokalny serwer HTTP',
     intgMcpHttpDesc:
-      'Działa wewnątrz GenOffice; asystent łączy się przez URL, a Ty widzisz, jak dokument powstaje krok po kroku w edytorze Word. GenOffice musi pozostać otwarty; na razie tylko dokumenty Word.',
+      'Działa wewnątrz OneDesk; asystent łączy się przez URL, a Ty widzisz, jak dokument powstaje krok po kroku w edytorze Word. OneDesk musi pozostać otwarty; na razie tylko dokumenty Word.',
     intgMcpHttpAdvanced: 'Zaawansowane: inne adresy i dziennik',
     intgMcpClaudeTitle: 'Claude Code',
     intgMcpClaudeDesc: 'Uruchom to raz w terminalu:',
@@ -9595,10 +9587,10 @@ export const strings = {
       'Dodaj to do jego konfiguracji serwerów MCP (plik JSON lub „Dodaj serwer MCP” w ustawieniach):',
     intgMcpNote:
       'Skill i MCP mogą działać obok siebie; asystent wybiera jedno z nich. Oba robią dokładnie to samo.',
-    intgCliTitle: 'Zaawansowane: wiersz poleceń genoffice',
-    intgCliReady: 'genoffice {v} · gotowy w terminalu ({path})',
+    intgCliTitle: 'Zaawansowane: wiersz poleceń onedesk',
+    intgCliReady: 'onedesk {v} · gotowy w terminalu ({path})',
     intgCliNotOnPath:
-      'genoffice {v} · nie ma go w PATH terminala. Asystenty i tak znajdą go przez ~/.genoffice/launcher, więc skill działa. Aby samodzielnie wpisywać genoffice, uruchom to raz:',
+      'onedesk {v} · nie ma go w PATH terminala. Asystenty i tak znajdą go przez ~/.onedesk/launcher, więc skill działa. Aby samodzielnie wpisywać onedesk, uruchom to raz:',
     intgCliLauncher: 'Folder programu uruchamiającego',
     intgStateOutdated: 'Zainstalowano {v}, dostępna aktualizacja do {next}',
     intgStateModified: 'Zainstalowano {v} (zmodyfikowano)',
@@ -9622,9 +9614,9 @@ export const strings = {
     intgSaveZipTitle: 'Zapisz skill',
     intgSavedTo: 'Zapisano w {path}',
     intgCopied: 'Skopiowano',
-    intgCliEphemeral: 'Najpierw przenieś GenOffice do Aplikacji, potem użyj wiersza poleceń.',
+    intgCliEphemeral: 'Najpierw przenieś OneDesk do Aplikacji, potem użyj wiersza poleceń.',
     intgCopyPath: 'Kopiuj ścieżkę',
-    intgCliNeedsUpdate: 'Ten skill wymaga wiersza poleceń {v} lub nowszego; zaktualizuj GenOffice.',
+    intgCliNeedsUpdate: 'Ten skill wymaga wiersza poleceń {v} lub nowszego; zaktualizuj OneDesk.',
     intgLoading: 'Sprawdzanie…',
     intgUpdateDue: 'Dostępna aktualizacja skilla',
     setSecAiModel: 'Model AI',
@@ -9686,14 +9678,14 @@ export const strings = {
       'Gdy dostawcą jest Genspark, wyszukiwanie w sieci, generowanie obrazów i analiza mediów przechodzą przez Genspark i zużywają kredyty; po wyłączeniu wyszukiwanie używa darmowych źródeł, a narzędzia obrazów Genspark są niedostępne.',
     setGithub: 'Open source',
     starOnGitHub: 'Gwiazdka na GitHubie',
-    starPromptTitle: 'Podoba Ci się GenOffice?',
-    starPromptTitleN: 'Otwarto już {n} dokumentów w GenOffice',
+    starPromptTitle: 'Podoba Ci się OneDesk?',
+    starPromptTitleN: 'Otwarto już {n} dokumentów w OneDesk',
     starPromptBody:
-      'GenOffice jest darmowy i open source. Gwiazdka na GitHubie to najlepsze wsparcie dla zespołu.',
+      'OneDesk jest darmowy i open source. Gwiazdka na GitHubie to najlepsze wsparcie dla zespołu.',
     starPromptGo: 'Daj gwiazdkę',
     starPromptDone: 'Już zrobione',
     starPromptLater: 'Później',
-    onbStarHint: 'Jeśli podoba Ci się GenOffice, zostaw nam gwiazdkę na GitHubie.',
+    onbStarHint: 'Jeśli podoba Ci się OneDesk, zostaw nam gwiazdkę na GitHubie.',
     setEmail: 'E-mail',
     setNotLoggedIn: 'Nie zalogowano',
     setViewUsage: 'Zobacz zużycie',
@@ -9706,13 +9698,13 @@ export const strings = {
     appMenu: 'Menu',
     newTab: 'Nowa karta',
     // First-run onboarding
-    onbTitle1: 'Witamy w GenOffice',
+    onbTitle1: 'Witamy w OneDesk',
     onbSubtitle1: 'Pierwszy otwartoźródłowy, natywnie oparty na AI pakiet biurowy',
     onbBody1:
       'Twórz dokumenty, arkusze i prezentacje oraz przeglądaj pliki PDF. AI jest wbudowana w każdy etap.',
     onbTitle2: 'To dopiero początek',
     onbBody2:
-      'GenOffice jest wciąż w fazie alfa. Dołącz do czatu grupowego na GenTeam, aby dzielić się opiniami i współtworzyć jego przyszłość.',
+      'OneDesk jest wciąż w fazie alfa. Dołącz do czatu grupowego na GenTeam, aby dzielić się opiniami i współtworzyć jego przyszłość.',
     onbCredits: 'Aktywni współtwórcy otrzymują **1000+ kredytów Genspark**',
     onbJoinGenTeam: 'Dołącz do GenTeam',
     onbSkip: 'Pomiń',
@@ -9724,7 +9716,7 @@ export const strings = {
     onbNote3: 'Funkcje AI mogą zużywać kredyty Genspark.',
     onbBack: 'Wstecz',
     intgSkillsDesc:
-      'GenOffice używa tylko umiejętności z własnego folderu. Import folderu lub pliku zip kopiuje całą umiejętność; podczas importu nic nie jest uruchamiane.',
+      'OneDesk używa tylko umiejętności z własnego folderu. Import folderu lub pliku zip kopiuje całą umiejętność; podczas importu nic nie jest uruchamiane.',
     intgSkillsEmpty: 'Brak zainstalowanych umiejętności.',
     intgSkillsImportFolder: 'Importuj folder…',
     intgSkillsImportZip: 'Importuj pakiet umiejętności (zip / .md)…',
@@ -9733,8 +9725,7 @@ export const strings = {
     intgSkillsImportDone: 'Zaimportowano {name}',
     intgSkillsImportFailed: 'Import nie powiódł się: {reason}',
     intgSkillsRemove: 'Usuń',
-    intgSkillsRemoveConfirm:
-      'Usunąć umiejętność „{name}”? Jej folder zostanie usunięty z GenOffice.',
+    intgSkillsRemoveConfirm: 'Usunąć umiejętność „{name}”? Jej folder zostanie usunięty z OneDesk.',
     intgSkillsRemoved: 'Usunięto {name}',
     skillDetailClose: 'Zamknij',
     skillDetailLoading: 'Wczytywanie instrukcji…',
@@ -9994,10 +9985,10 @@ export const strings = {
     setUpdateRestart: 'Restartovat a nainstalovat',
     setAutoUpdateCheck: 'Automaticky kontrolovat aktualizace',
     setAutoUpdateCheckDesc:
-      'Po vypnutí GenOffice nekontroluje nové verze při spuštění ani na pozadí. Ručně můžete zkontrolovat v Nápověda › Zkontrolovat aktualizace.',
+      'Po vypnutí OneDesk nekontroluje nové verze při spuštění ani na pozadí. Ručně můžete zkontrolovat v Nápověda › Zkontrolovat aktualizace.',
     setSilentInstall: 'Instalovat aktualizace tiše',
     setSilentInstallDesc:
-      'Je-li zapnuto, nová verze nalezená na pozadí se tiše stáhne a nainstaluje při ukončení GenOffice; při práci vás nic nepřeruší. Je-li vypnuto, výzva k aktualizaci vám nechá rozhodnout kdy.',
+      'Je-li zapnuto, nová verze nalezená na pozadí se tiše stáhne a nainstaluje při ukončení OneDesk; při práci vás nic nepřeruší. Je-li vypnuto, výzva k aktualizaci vám nechá rozhodnout kdy.',
     updateChannel: 'Kanál aktualizací',
     channelStable: 'Stabilní',
     channelBeta: 'Beta',
@@ -10050,7 +10041,7 @@ export const strings = {
     setSecAbout: 'O aplikaci',
     setSecIntegrations: 'Integrace',
     setSecSkills: 'Dovednosti',
-    intgHeroTitle: 'Používejte GenOffice ze svého AI asistenta',
+    intgHeroTitle: 'Používejte OneDesk ze svého AI asistenta',
     intgHeroDesc:
       'Po připojení mohou Claude Code, Codex, Cursor, Claude Desktop a podobní asistenti za vás vytvářet, převádět, číst a upravovat soubory Word, Excel, PowerPoint, PDF a Markdown. Vše běží na tomto počítači; nic se neodesílá.',
     intgHeroStep1: 'Zvolte cestu: CLI, pokud asistent umí spouštět příkazy terminálu, jinak MCP',
@@ -10060,14 +10051,14 @@ export const strings = {
     intgStep1Desc:
       'Zobrazeni jsou jen asistenti nalezení na tomto počítači. Nainstalujte jej do toho, který skutečně používáte; všechny nepotřebujete.',
     intgStep1Update:
-      'Když aktualizace GenOffice přinese novější skill, u daného asistenta se objeví tlačítko Aktualizovat.',
+      'Když aktualizace OneDesk přinese novější skill, u daného asistenta se objeví tlačítko Aktualizovat.',
     intgSkillVersion: 'skill {v}',
     intgStateMissing: 'Skill není nainstalován',
     intgSharedReaders: 'Sdílená složka skillů, kterou čtou {list}',
     intgStateInstalled: 'Skill {v} nainstalován · připraven v příštím chatu',
     intgLegacyTitle: 'Staré kopie skillu',
     intgLegacyDesc:
-      'GenOffice dříve zapisoval kopii do složky každého nástroje. Pořád jich tam je {n}: nástroj je stále čte, takže se k nim nikdy nedostane aktuální skill.',
+      'OneDesk dříve zapisoval kopii do složky každého nástroje. Pořád jich tam je {n}: nástroj je stále čte, takže se k nim nikdy nedostane aktuální skill.',
     intgLegacyClean: 'Odebrat staré kopie',
     intgLegacyCleaned: 'Odebráno {n} starých kopií, {k} ručně upravených ponecháno.',
     intgLegacyFailed: 'Staré kopie se nepodařilo odebrat: {msg}',
@@ -10075,7 +10066,7 @@ export const strings = {
     intgOtherDesc:
       'Zvolte pouze jeden z těchto tří způsobů. Všechny instalují stejný skill, takže není třeba dělat více než jeden.',
     intgOtherFolderTitle: 'Jakýkoli asistent, který čte složky SKILL.md',
-    intgOtherFolderDesc: 'Vyberte jeho složku skills a GenOffice tam soubor zapíše.',
+    intgOtherFolderDesc: 'Vyberte jeho složku skills a OneDesk tam soubor zapíše.',
     intgOtherZipTitle: 'Předejte soubor asistentovi',
     intgOtherZipDesc: 'Uložte skill jako zip a požádejte asistenta, aby jej nainstaloval.',
     intgOtherNpxTitle: 'Příkazem skills (vyžaduje Node.js)',
@@ -10085,21 +10076,21 @@ export const strings = {
     intgStep2Desc: 'Otevřete v asistentovi nový chat a požádejte běžnými slovy, například:',
     intgExample1: 'Převeď ~/Downloads/report.md na dokument Word',
     intgExample2: 'Udělej prezentaci o 6 snímcích o našich výsledcích za 3. čtvrtletí',
-    intgExample3: 'Převeď budget.xlsx do PDF a otevři ho v GenOffice',
+    intgExample3: 'Převeď budget.xlsx do PDF a otevři ho v OneDesk',
     intgStep2Note:
-      'Asistent volá GenOffice sám – přes příkazový řádek nebo MCP; nikdy nemusíte psát žádný příkaz.',
+      'Asistent volá OneDesk sám – přes příkazový řádek nebo MCP; nikdy nemusíte psát žádný příkaz.',
     intgCliPartTitle: 'CLI · příkazový řádek + skill',
     intgCliPartDesc:
-      'Pro asistenty, kteří umí spouštět příkazy terminálu (Claude Code, Codex, Cursor a další). Po instalaci skillu asistent sám volá příkazový řádek genoffice k vytváření, převodu, čtení a úpravám souborů; žádný příkaz nepíšete.',
+      'Pro asistenty, kteří umí spouštět příkazy terminálu (Claude Code, Codex, Cursor a další). Po instalaci skillu asistent sám volá příkazový řádek onedesk k vytváření, převodu, čtení a úpravám souborů; žádný příkaz nepíšete.',
     intgMcpPartTitle: 'MCP',
     intgMcpPartDesc:
-      'MCP je společný protokol, kterým AI asistenti volají externí nástroje. Použijte ho, když asistent neumí spouštět příkazy (např. Claude Desktop) nebo když chcete, aby přímo ovládal okno GenOffice. Vyberte jeden ze dvou způsobů níže.',
+      'MCP je společný protokol, kterým AI asistenti volají externí nástroje. Použijte ho, když asistent neumí spouštět příkazy (např. Claude Desktop) nebo když chcete, aby přímo ovládal okno OneDesk. Vyberte jeden ze dvou způsobů níže.',
     intgMcpStdioTitle: 'Spouští asistent (doporučeno)',
     intgMcpStdioDesc:
-      'Asistent spustí genoffice mcp sám: tady není co zapínat a GenOffice nemusí být otevřený. Stejné funkce jako CLI.',
+      'Asistent spustí onedesk mcp sám: tady není co zapínat a OneDesk nemusí být otevřený. Stejné funkce jako CLI.',
     intgMcpHttpTitle: 'Místní HTTP server',
     intgMcpHttpDesc:
-      'Běží uvnitř GenOffice; asistent se připojí přes URL a v editoru Word sledujete, jak dokument krok za krokem vzniká. GenOffice musí zůstat otevřený; zatím jen dokumenty Word.',
+      'Běží uvnitř OneDesk; asistent se připojí přes URL a v editoru Word sledujete, jak dokument krok za krokem vzniká. OneDesk musí zůstat otevřený; zatím jen dokumenty Word.',
     intgMcpHttpAdvanced: 'Pokročilé: další adresy a protokol',
     intgMcpClaudeTitle: 'Claude Code',
     intgMcpClaudeDesc: 'Spusťte jednou v terminálu:',
@@ -10108,10 +10099,10 @@ export const strings = {
       'Přidejte toto do jeho nastavení MCP serverů (soubor JSON nebo „Přidat MCP server“ v nastavení):',
     intgMcpNote:
       'Skill a MCP mohou být nastaveny současně; asistent si jeden vybere. Oba dělají přesně to samé.',
-    intgCliTitle: 'Pokročilé: příkazový řádek genoffice',
-    intgCliReady: 'genoffice {v} · připraven v terminálu ({path})',
+    intgCliTitle: 'Pokročilé: příkazový řádek onedesk',
+    intgCliReady: 'onedesk {v} · připraven v terminálu ({path})',
     intgCliNotOnPath:
-      'genoffice {v} · není v PATH terminálu. Asistenti ho i tak najdou přes ~/.genoffice/launcher, skill tedy funguje. Chcete-li genoffice psát sami, spusťte jednou:',
+      'onedesk {v} · není v PATH terminálu. Asistenti ho i tak najdou přes ~/.onedesk/launcher, skill tedy funguje. Chcete-li onedesk psát sami, spusťte jednou:',
     intgCliLauncher: 'Složka spouštěče',
     intgStateOutdated: 'Nainstalováno {v}, k dispozici aktualizace na {next}',
     intgStateModified: 'Nainstalováno {v} (upraveno)',
@@ -10135,10 +10126,10 @@ export const strings = {
     intgSaveZipTitle: 'Uložit skill',
     intgSavedTo: 'Uloženo do {path}',
     intgCopied: 'Zkopírováno',
-    intgCliEphemeral: 'Nejprve přetáhněte GenOffice do Aplikací a poté použijte příkazový řádek.',
+    intgCliEphemeral: 'Nejprve přetáhněte OneDesk do Aplikací a poté použijte příkazový řádek.',
     intgCopyPath: 'Kopírovat cestu',
     intgCliNeedsUpdate:
-      'Tento skill vyžaduje příkazový řádek {v} nebo novější; aktualizujte GenOffice.',
+      'Tento skill vyžaduje příkazový řádek {v} nebo novější; aktualizujte OneDesk.',
     intgLoading: 'Kontrola…',
     intgUpdateDue: 'K dispozici je aktualizace skillu',
     setSecAiModel: 'Model AI',
@@ -10200,14 +10191,14 @@ export const strings = {
       'Webové vyhledávání, generování obrázků a analýza médií běží přes Genspark a čerpají kredity, pokud je jejich poskytovatel nastaven na Genspark; při vypnutí vyhledávání používá bezplatné zdroje a obrázkové nástroje Genspark nejsou dostupné.',
     setGithub: 'Open source',
     starOnGitHub: 'Dát hvězdičku na GitHubu',
-    starPromptTitle: 'Líbí se vám GenOffice?',
-    starPromptTitleN: 'V GenOffice jste otevřeli už {n} dokumentů',
+    starPromptTitle: 'Líbí se vám OneDesk?',
+    starPromptTitleN: 'V OneDesk jste otevřeli už {n} dokumentů',
     starPromptBody:
-      'GenOffice je zdarma a open source. Hvězdička na GitHubu je nejlepší způsob, jak tým podpořit.',
+      'OneDesk je zdarma a open source. Hvězdička na GitHubu je nejlepší způsob, jak tým podpořit.',
     starPromptGo: 'Dát hvězdičku na GitHubu',
     starPromptDone: 'Hvězdička už udělena',
     starPromptLater: 'Možná později',
-    onbStarHint: 'Pokud se vám GenOffice líbí, dejte nám hvězdičku na GitHubu.',
+    onbStarHint: 'Pokud se vám OneDesk líbí, dejte nám hvězdičku na GitHubu.',
     setEmail: 'E-mail',
     setNotLoggedIn: 'Nepřihlášeno',
     setViewUsage: 'Zobrazit využití',
@@ -10220,13 +10211,13 @@ export const strings = {
     appMenu: 'Nabídka',
     newTab: 'Nová karta',
     // First-run onboarding
-    onbTitle1: 'Vítejte v GenOffice',
+    onbTitle1: 'Vítejte v OneDesk',
     onbSubtitle1: 'První open-source kancelářský balík s nativní AI',
     onbBody1:
       'Vytvářejte dokumenty, tabulky a prezentace a kontrolujte PDF. AI je součástí každého kroku.',
     onbTitle2: 'Toto je jen začátek',
     onbBody2:
-      'GenOffice je stále ve fázi alfa. Připojte se ke skupinovému chatu na GenTeam, sdílejte zpětnou vazbu a pomozte utvářet, co přijde dál.',
+      'OneDesk je stále ve fázi alfa. Připojte se ke skupinovému chatu na GenTeam, sdílejte zpětnou vazbu a pomozte utvářet, co přijde dál.',
     onbCredits: 'Aktivní přispěvatelé získají **1 000+ kreditů Genspark**',
     onbJoinGenTeam: 'Připojit se ke GenTeam',
     onbSkip: 'Přeskočit',
@@ -10239,7 +10230,7 @@ export const strings = {
     onbBack: 'Zpět',
     setRestoreSession: 'Znovu otevřít dokumenty z minula',
     setRestoreSessionDesc:
-      'Dokumenty otevřené při zavření GenOffice se při příštím spuštění automaticky znovu otevřou.',
+      'Dokumenty otevřené při zavření OneDesk se při příštím spuštění automaticky znovu otevřou.',
     setTabSleep: 'Uspávat neaktivní karty',
     setTabSleepDesc:
       'Když je otevřeno mnoho karet, ty dlouho nezobrazené uvolní paměť a při návratu znovu otevřou soubor. Karty s neuloženými změnami nebo připnuté se nikdy neuspí.',
@@ -10275,8 +10266,8 @@ export const strings = {
     setLegacyImportPromptDesc:
       'Před otevřením souborů .doc, .odt, .hwp, .ods nebo .odp vysvětlí, co se převede. Při vypnutí se rovnou otevře Uložit jako.',
     setDefaultApp: 'Výchozí aplikace pro dokumenty Office',
-    setDefaultAppDesc: 'Otevírat soubory .docx, .xlsx a .pptx v GenOffice poklepáním.',
-    setDefaultAppIs: 'GenOffice už je výchozí aplikací.',
+    setDefaultAppDesc: 'Otevírat soubory .docx, .xlsx a .pptx v OneDesk poklepáním.',
+    setDefaultAppIs: 'OneDesk už je výchozí aplikací.',
     setDefaultAppOther: 'Aktuální výchozí: {app}',
     setDefaultAppSet: 'Nastavit jako výchozí',
     setDefaultAppOpenSettings: 'Otevřít nastavení systému',
@@ -10292,7 +10283,7 @@ export const strings = {
     setAiShowAskTriggerDesc:
       'Když je vypnuto, plovoucí tlačítko „Zeptat se AI” následující výběr se již nezobrazuje. Panel AI zůstává dostupný.',
     intgSkillsDesc:
-      'GenOffice používá pouze dovednosti ze své vlastní složky. Import složky nebo zipu zkopíruje celou dovednost; při importu se nic nespouští.',
+      'OneDesk používá pouze dovednosti ze své vlastní složky. Import složky nebo zipu zkopíruje celou dovednost; při importu se nic nespouští.',
     intgSkillsEmpty: 'Zatím nejsou nainstalovány žádné dovednosti.',
     intgSkillsImportFolder: 'Importovat složku…',
     intgSkillsImportZip: 'Importovat balíček dovednosti (zip / .md)…',
@@ -10301,7 +10292,7 @@ export const strings = {
     intgSkillsImportDone: 'Importováno: {name}',
     intgSkillsImportFailed: 'Import se nezdařil: {reason}',
     intgSkillsRemove: 'Odebrat',
-    intgSkillsRemoveConfirm: 'Odebrat dovednost „{name}“? Její složka bude z GenOffice smazána.',
+    intgSkillsRemoveConfirm: 'Odebrat dovednost „{name}“? Její složka bude z OneDesk smazána.',
     intgSkillsRemoved: '{name} odebrána',
     skillDetailClose: 'Zavřít',
     skillDetailLoading: 'Načítání pokynů…',
@@ -10563,10 +10554,10 @@ export const strings = {
     setUpdateRestart: 'Herstarten en installeren',
     setAutoUpdateCheck: 'Automatisch controleren op updates',
     setAutoUpdateCheckDesc:
-      'Uitgeschakeld controleert GenOffice niet meer op nieuwe versies bij het starten of op de achtergrond. Je kunt nog steeds controleren via Help › Controleren op updates.',
+      'Uitgeschakeld controleert OneDesk niet meer op nieuwe versies bij het starten of op de achtergrond. Je kunt nog steeds controleren via Help › Controleren op updates.',
     setSilentInstall: 'Updates stil installeren',
     setSilentInstallDesc:
-      'Indien aan, wordt een nieuwe versie die op de achtergrond is gevonden stil gedownload en geïnstalleerd wanneer u GenOffice afsluit; niets onderbreekt u tijdens het werk. Indien uit, laat een updatemelding u zelf kiezen wanneer.',
+      'Indien aan, wordt een nieuwe versie die op de achtergrond is gevonden stil gedownload en geïnstalleerd wanneer u OneDesk afsluit; niets onderbreekt u tijdens het werk. Indien uit, laat een updatemelding u zelf kiezen wanneer.',
     updateChannel: 'Updatekanaal',
     channelStable: 'Stabiel',
     channelBeta: 'Bèta',
@@ -10579,7 +10570,7 @@ export const strings = {
     saveLocation: 'Opslaglocatie',
     setRestoreSession: 'Documenten van de vorige keer opnieuw openen',
     setRestoreSessionDesc:
-      'Documenten die open waren toen GenOffice werd gesloten, worden bij de volgende start automatisch opnieuw geopend.',
+      'Documenten die open waren toen OneDesk werd gesloten, worden bij de volgende start automatisch opnieuw geopend.',
     setTabSleep: 'Inactieve tabbladen laten slapen',
     setTabSleepDesc:
       'Als er veel tabbladen open zijn, geven tabbladen die u een tijd niet hebt bekeken hun geheugen vrij en openen ze het bestand opnieuw als u terugkeert. Tabbladen met niet-opgeslagen wijzigingen of vastgemaakte tabbladen slapen nooit.',
@@ -10618,8 +10609,8 @@ export const strings = {
     setLegacyImportPromptDesc:
       'Legt uit wat behouden blijft voordat een .doc-, .odt-, .hwp-, .ods- of .odp-bestand wordt geopend. Uitgeschakeld opent direct Opslaan als.',
     setDefaultApp: 'Standaardapp voor Office-documenten',
-    setDefaultAppDesc: '.docx-, .xlsx- en .pptx-bestanden in GenOffice openen bij dubbelklikken.',
-    setDefaultAppIs: 'GenOffice is al de standaardapp.',
+    setDefaultAppDesc: '.docx-, .xlsx- en .pptx-bestanden in OneDesk openen bij dubbelklikken.',
+    setDefaultAppIs: 'OneDesk is al de standaardapp.',
     setDefaultAppOther: 'Huidige standaard: {app}',
     setDefaultAppSet: 'Als standaard instellen',
     setDefaultAppOpenSettings: 'Systeeminstellingen openen',
@@ -10677,7 +10668,7 @@ export const strings = {
     setSecAbout: 'Over',
     setSecIntegrations: 'Integraties',
     setSecSkills: 'Vaardigheden',
-    intgHeroTitle: 'GenOffice gebruiken vanuit uw AI-assistent',
+    intgHeroTitle: 'OneDesk gebruiken vanuit uw AI-assistent',
     intgHeroDesc:
       'Eenmaal verbonden kunnen Claude Code, Codex, Cursor, Claude Desktop en vergelijkbare assistenten Word-, Excel-, PowerPoint-, PDF- en Markdown-bestanden voor je maken, converteren, lezen en bewerken. Alles draait op deze computer; er wordt niets geüpload.',
     intgHeroStep1:
@@ -10688,14 +10679,14 @@ export const strings = {
     intgStep1Desc:
       'Alleen assistenten die op deze computer zijn gevonden staan hier. Installeer in die u echt gebruikt; u hebt ze niet allemaal nodig.',
     intgStep1Update:
-      'Wanneer een GenOffice-update een nieuwere skill meebrengt, verschijnt naast die assistent een knop Bijwerken.',
+      'Wanneer een OneDesk-update een nieuwere skill meebrengt, verschijnt naast die assistent een knop Bijwerken.',
     intgSkillVersion: 'skill {v}',
     intgStateMissing: 'Skill niet geïnstalleerd',
     intgSharedReaders: 'Gedeelde skills-map, gelezen door {list}',
     intgStateInstalled: 'Skill {v} geïnstalleerd · klaar in uw volgende chat',
     intgLegacyTitle: 'Oude skillkopieën',
     intgLegacyDesc:
-      'GenOffice schreef vroeger een kopie in de map van elke tool. Er staan er nog {n}: de tool leest ze nog, dus ze krijgen nooit de huidige skill.',
+      'OneDesk schreef vroeger een kopie in de map van elke tool. Er staan er nog {n}: de tool leest ze nog, dus ze krijgen nooit de huidige skill.',
     intgLegacyClean: 'Oude kopieën verwijderen',
     intgLegacyCleaned: '{n} oude kopieën verwijderd, {k} met de hand bewerkte laten we staan.',
     intgLegacyFailed: 'Kon de oude kopieën niet verwijderen: {msg}',
@@ -10703,7 +10694,7 @@ export const strings = {
     intgOtherDesc:
       'Kies één van deze drie manieren. Ze installeren allemaal dezelfde skill, dus meer dan één is niet nodig.',
     intgOtherFolderTitle: 'Elke assistent die SKILL.md-mappen leest',
-    intgOtherFolderDesc: 'Kies zijn skills-map en GenOffice schrijft het bestand daar.',
+    intgOtherFolderDesc: 'Kies zijn skills-map en OneDesk schrijft het bestand daar.',
     intgOtherZipTitle: 'Geef het bestand aan de assistent',
     intgOtherZipDesc: 'Sla de skill op als zip en vraag de assistent hem te installeren.',
     intgOtherNpxTitle: 'Met de skills-opdracht (vereist Node.js)',
@@ -10714,21 +10705,21 @@ export const strings = {
       'Open een nieuwe chat in uw assistent en vraag het in gewone woorden, bijvoorbeeld:',
     intgExample1: 'Maak van ~/Downloads/report.md een Word-document',
     intgExample2: 'Maak een presentatie van 6 dia’s over onze Q3-resultaten',
-    intgExample3: 'Zet budget.xlsx om naar PDF en open het in GenOffice',
+    intgExample3: 'Zet budget.xlsx om naar PDF en open het in OneDesk',
     intgStep2Note:
-      'De assistent roept GenOffice zelf aan, via de opdrachtregel of MCP; u hoeft nooit een opdracht te typen.',
+      'De assistent roept OneDesk zelf aan, via de opdrachtregel of MCP; u hoeft nooit een opdracht te typen.',
     intgCliPartTitle: 'CLI · opdrachtregel + skill',
     intgCliPartDesc:
-      'Voor assistenten die terminalopdrachten kunnen uitvoeren (Claude Code, Codex, Cursor en andere). Na installatie van de skill roept de assistent zelf de genoffice-opdrachtregel aan om bestanden te maken, converteren, lezen en bewerken; je typt nooit een opdracht.',
+      'Voor assistenten die terminalopdrachten kunnen uitvoeren (Claude Code, Codex, Cursor en andere). Na installatie van de skill roept de assistent zelf de onedesk-opdrachtregel aan om bestanden te maken, converteren, lezen en bewerken; je typt nooit een opdracht.',
     intgMcpPartTitle: 'MCP',
     intgMcpPartDesc:
-      'MCP is het gemeenschappelijke protocol waarmee AI-assistenten externe tools aanroepen. Gebruik het als je assistent geen opdrachten kan uitvoeren (bijvoorbeeld Claude Desktop) of als je wilt dat hij het GenOffice-venster rechtstreeks bestuurt. Kies een van de twee manieren hieronder.',
+      'MCP is het gemeenschappelijke protocol waarmee AI-assistenten externe tools aanroepen. Gebruik het als je assistent geen opdrachten kan uitvoeren (bijvoorbeeld Claude Desktop) of als je wilt dat hij het OneDesk-venster rechtstreeks bestuurt. Kies een van de twee manieren hieronder.',
     intgMcpStdioTitle: 'Gestart door de assistent (aanbevolen)',
     intgMcpStdioDesc:
-      'De assistent start genoffice mcp zelf: hier hoeft niets aan, en GenOffice hoeft niet open te staan. Dezelfde functies als de CLI.',
+      'De assistent start onedesk mcp zelf: hier hoeft niets aan, en OneDesk hoeft niet open te staan. Dezelfde functies als de CLI.',
     intgMcpHttpTitle: 'Lokale HTTP-server',
     intgMcpHttpDesc:
-      'Draait in GenOffice; de assistent verbindt via een URL en je ziet het document stap voor stap ontstaan in de Word-editor. GenOffice moet open blijven; voorlopig alleen Word-documenten.',
+      'Draait in OneDesk; de assistent verbindt via een URL en je ziet het document stap voor stap ontstaan in de Word-editor. OneDesk moet open blijven; voorlopig alleen Word-documenten.',
     intgMcpHttpAdvanced: 'Geavanceerd: andere adressen en logboek',
     intgMcpClaudeTitle: 'Claude Code',
     intgMcpClaudeDesc: 'Voer dit één keer uit in een terminal:',
@@ -10737,10 +10728,10 @@ export const strings = {
       'Voeg dit toe aan de MCP-serverinstellingen (een JSON-bestand, of "MCP-server toevoegen" in de instellingen):',
     intgMcpNote:
       'De skill en MCP kunnen naast elkaar bestaan; de assistent kiest er een. Ze doen precies hetzelfde.',
-    intgCliTitle: 'Geavanceerd: genoffice-opdrachtregel',
-    intgCliReady: 'genoffice {v} · klaar in uw terminal ({path})',
+    intgCliTitle: 'Geavanceerd: onedesk-opdrachtregel',
+    intgCliReady: 'onedesk {v} · klaar in uw terminal ({path})',
     intgCliNotOnPath:
-      'genoffice {v} · staat niet in het PATH van uw terminal. Assistenten vinden het toch via ~/.genoffice/launcher, dus de skill werkt. Om zelf genoffice te typen, voert u dit één keer uit:',
+      'onedesk {v} · staat niet in het PATH van uw terminal. Assistenten vinden het toch via ~/.onedesk/launcher, dus de skill werkt. Om zelf onedesk te typen, voert u dit één keer uit:',
     intgCliLauncher: 'Launcher-map',
     intgStateOutdated: 'Geïnstalleerd {v}, update naar {next} beschikbaar',
     intgStateModified: 'Geïnstalleerd {v} (gewijzigd)',
@@ -10764,9 +10755,9 @@ export const strings = {
     intgSaveZipTitle: 'Skill opslaan',
     intgSavedTo: 'Opgeslagen in {path}',
     intgCopied: 'Gekopieerd',
-    intgCliEphemeral: "Sleep GenOffice eerst naar Programma's en gebruik daarna de opdrachtregel.",
+    intgCliEphemeral: "Sleep OneDesk eerst naar Programma's en gebruik daarna de opdrachtregel.",
     intgCopyPath: 'Pad kopiëren',
-    intgCliNeedsUpdate: 'Deze skill vereist opdrachtregel {v} of nieuwer; werk GenOffice bij.',
+    intgCliNeedsUpdate: 'Deze skill vereist opdrachtregel {v} of nieuwer; werk OneDesk bij.',
     intgLoading: 'Controleren…',
     intgUpdateDue: 'Skill-update beschikbaar',
     setSecAiModel: 'AI-model',
@@ -10827,14 +10818,14 @@ export const strings = {
       'Staat de provider op Genspark, dan lopen zoeken op het web, afbeeldingen genereren en media-analyse via Genspark en kosten ze credits; uitgeschakeld gebruikt zoeken gratis bronnen en zijn de Genspark-afbeeldingstools niet beschikbaar.',
     setGithub: 'Open source',
     starOnGitHub: 'Geef een ster op GitHub',
-    starPromptTitle: 'Bevalt GenOffice?',
-    starPromptTitleN: 'Je hebt al {n} documenten geopend met GenOffice',
+    starPromptTitle: 'Bevalt OneDesk?',
+    starPromptTitleN: 'Je hebt al {n} documenten geopend met OneDesk',
     starPromptBody:
-      'GenOffice is gratis en open source. Een ster op GitHub is de beste steun voor het team.',
+      'OneDesk is gratis en open source. Een ster op GitHub is de beste steun voor het team.',
     starPromptGo: 'Geef een ster',
     starPromptDone: 'Al gedaan',
     starPromptLater: 'Later',
-    onbStarHint: 'Als GenOffice je bevalt, geef ons dan een ster op GitHub.',
+    onbStarHint: 'Als OneDesk je bevalt, geef ons dan een ster op GitHub.',
     setEmail: 'E-mail',
     setNotLoggedIn: 'Niet ingelogd',
     setViewUsage: 'Verbruik bekijken',
@@ -10847,13 +10838,13 @@ export const strings = {
     appMenu: 'Menu',
     newTab: 'Nieuw tabblad',
     // First-run onboarding
-    onbTitle1: 'Welkom bij GenOffice',
+    onbTitle1: 'Welkom bij OneDesk',
     onbSubtitle1: 'De eerste open source, AI-native officesuite',
     onbBody1:
       'Maak documenten, bouw spreadsheets, maak presentaties en beoordeel PDF-bestanden. AI zit in elke stap ingebouwd.',
     onbTitle2: 'Dit is nog maar het begin',
     onbBody2:
-      'GenOffice is nog in alfa. Doe mee aan de groepschat op GenTeam om feedback te delen en mee te bepalen wat er komt.',
+      'OneDesk is nog in alfa. Doe mee aan de groepschat op GenTeam om feedback te delen en mee te bepalen wat er komt.',
     onbCredits: 'Actieve bijdragers krijgen **1.000+ Genspark-credits**',
     onbJoinGenTeam: 'Word lid van GenTeam',
     onbSkip: 'Overslaan',
@@ -10865,7 +10856,7 @@ export const strings = {
     onbNote3: 'AI-functies kunnen Genspark-credits verbruiken.',
     onbBack: 'Terug',
     intgSkillsDesc:
-      'GenOffice gebruikt alleen vaardigheden uit zijn eigen map. Een map of zip importeren kopieert de hele vaardigheid; bij het importeren wordt niets uitgevoerd.',
+      'OneDesk gebruikt alleen vaardigheden uit zijn eigen map. Een map of zip importeren kopieert de hele vaardigheid; bij het importeren wordt niets uitgevoerd.',
     intgSkillsEmpty: 'Nog geen vaardigheden geïnstalleerd.',
     intgSkillsImportFolder: 'Map importeren…',
     intgSkillsImportZip: 'Vaardigheidspakket importeren (zip / .md)…',
@@ -10875,7 +10866,7 @@ export const strings = {
     intgSkillsImportFailed: 'Importeren mislukt: {reason}',
     intgSkillsRemove: 'Verwijderen',
     intgSkillsRemoveConfirm:
-      'Vaardigheid "{name}" verwijderen? De map wordt uit GenOffice verwijderd.',
+      'Vaardigheid "{name}" verwijderen? De map wordt uit OneDesk verwijderd.',
     intgSkillsRemoved: '{name} verwijderd',
     skillDetailClose: 'Sluiten',
     skillDetailLoading: 'Instructies laden…',
@@ -11136,10 +11127,10 @@ export const strings = {
     setUpdateRestart: 'Mulakan semula dan pasang',
     setAutoUpdateCheck: 'Semak kemas kini secara automatik',
     setAutoUpdateCheckDesc:
-      'Apabila dimatikan, GenOffice tidak lagi menyemak versi baharu semasa dimulakan atau di latar belakang. Anda masih boleh menyemak melalui Bantuan › Semak Kemas Kini.',
+      'Apabila dimatikan, OneDesk tidak lagi menyemak versi baharu semasa dimulakan atau di latar belakang. Anda masih boleh menyemak melalui Bantuan › Semak Kemas Kini.',
     setSilentInstall: 'Pasang kemas kini secara senyap',
     setSilentInstallDesc:
-      'Apabila dihidupkan, versi baharu yang ditemui di latar belakang dimuat turun secara senyap dan dipasang apabila anda keluar dari GenOffice; tiada gangguan semasa bekerja. Apabila dimatikan, gesaan kemas kini membiarkan anda memutuskan bila.',
+      'Apabila dihidupkan, versi baharu yang ditemui di latar belakang dimuat turun secara senyap dan dipasang apabila anda keluar dari OneDesk; tiada gangguan semasa bekerja. Apabila dimatikan, gesaan kemas kini membiarkan anda memutuskan bila.',
     updateChannel: 'Saluran Kemas Kini',
     channelStable: 'Stabil',
     channelBeta: 'Beta',
@@ -11152,7 +11143,7 @@ export const strings = {
     saveLocation: 'Lokasi simpanan',
     setRestoreSession: 'Buka semula dokumen dari kali terakhir',
     setRestoreSessionDesc:
-      'Dokumen yang dibuka semasa GenOffice ditutup akan dibuka semula secara automatik apabila ia dimulakan seterusnya.',
+      'Dokumen yang dibuka semasa OneDesk ditutup akan dibuka semula secara automatik apabila ia dimulakan seterusnya.',
     setTabSleep: 'Tidurkan tab tidak aktif',
     setTabSleepDesc:
       'Apabila banyak tab dibuka, tab yang lama tidak dilihat melepaskan memorinya dan membuka semula failnya apabila anda kembali. Tab dengan perubahan belum disimpan atau yang disemat tidak akan tidur.',
@@ -11192,8 +11183,8 @@ export const strings = {
     setLegacyImportPromptDesc:
       'Terangkan apa yang dikekalkan sebelum membuka fail .doc, .odt, .hwp, .ods atau .odp. Jika dimatikan, Simpan Sebagai terus dibuka.',
     setDefaultApp: 'Apl lalai untuk dokumen Office',
-    setDefaultAppDesc: 'Buka fail .docx, .xlsx dan .pptx dalam GenOffice apabila diklik dua kali.',
-    setDefaultAppIs: 'GenOffice sudah menjadi apl lalai.',
+    setDefaultAppDesc: 'Buka fail .docx, .xlsx dan .pptx dalam OneDesk apabila diklik dua kali.',
+    setDefaultAppIs: 'OneDesk sudah menjadi apl lalai.',
     setDefaultAppOther: 'Lalai semasa: {app}',
     setDefaultAppSet: 'Jadikan lalai',
     setDefaultAppOpenSettings: 'Buka tetapan sistem',
@@ -11251,7 +11242,7 @@ export const strings = {
     setSecAbout: 'Perihal',
     setSecIntegrations: 'Integrasi',
     setSecSkills: 'Kemahiran',
-    intgHeroTitle: 'Gunakan GenOffice daripada pembantu AI anda',
+    intgHeroTitle: 'Gunakan OneDesk daripada pembantu AI anda',
     intgHeroDesc:
       'Setelah disambungkan, Claude Code, Codex, Cursor, Claude Desktop dan pembantu serupa boleh mencipta, menukar, membaca dan mengedit fail Word, Excel, PowerPoint, PDF dan Markdown untuk anda. Semuanya berjalan di komputer ini; tiada apa yang dimuat naik.',
     intgHeroStep1:
@@ -11262,14 +11253,14 @@ export const strings = {
     intgStep1Desc:
       'Hanya pembantu yang ditemui pada komputer ini disenaraikan. Pasang pada yang anda benar-benar guna; tidak perlu kesemuanya.',
     intgStep1Update:
-      'Apabila kemas kini GenOffice membawa skill yang lebih baharu, butang Kemas kini muncul di sebelah pembantu itu.',
+      'Apabila kemas kini OneDesk membawa skill yang lebih baharu, butang Kemas kini muncul di sebelah pembantu itu.',
     intgSkillVersion: 'skill {v}',
     intgStateMissing: 'Skill belum dipasang',
     intgSharedReaders: 'Folder skill dikongsi yang dibaca oleh {list}',
     intgStateInstalled: 'Skill {v} dipasang · sedia dalam sembang seterusnya',
     intgLegacyTitle: 'Salinan skill lama',
     intgLegacyDesc:
-      'GenOffice dahulu menulis salinan ke dalam folder setiap alatan. Masih ada {n} di sana: alatan itu masih membacanya, jadi ia tidak pernah menerima skill semasa.',
+      'OneDesk dahulu menulis salinan ke dalam folder setiap alatan. Masih ada {n} di sana: alatan itu masih membacanya, jadi ia tidak pernah menerima skill semasa.',
     intgLegacyClean: 'Buang salinan lama',
     intgLegacyCleaned: '{n} salinan lama dibuang, {k} yang disunting secara manual dikekalkan.',
     intgLegacyFailed: 'Gagal membuang salinan lama: {msg}',
@@ -11277,7 +11268,7 @@ export const strings = {
     intgOtherDesc:
       'Pilih satu sahaja daripada tiga cara ini. Semuanya memasang skill yang sama, jadi tidak perlu lebih daripada satu.',
     intgOtherFolderTitle: 'Mana-mana pembantu yang membaca folder SKILL.md',
-    intgOtherFolderDesc: 'Pilih folder skills pembantu itu dan GenOffice menulis fail di sana.',
+    intgOtherFolderDesc: 'Pilih folder skills pembantu itu dan OneDesk menulis fail di sana.',
     intgOtherZipTitle: 'Serahkan fail kepada pembantu',
     intgOtherZipDesc: 'Simpan skill sebagai zip, kemudian minta pembantu memasangnya.',
     intgOtherNpxTitle: 'Dengan arahan skills (perlukan Node.js)',
@@ -11288,21 +11279,21 @@ export const strings = {
       'Buka sembang baharu dalam pembantu anda dan minta dengan bahasa biasa, contohnya:',
     intgExample1: 'Tukar ~/Downloads/report.md kepada dokumen Word',
     intgExample2: 'Buat pembentangan 6 slaid tentang hasil S3 kami',
-    intgExample3: 'Tukar budget.xlsx kepada PDF dan buka dalam GenOffice',
+    intgExample3: 'Tukar budget.xlsx kepada PDF dan buka dalam OneDesk',
     intgStep2Note:
-      'Pembantu memanggil GenOffice sendiri, melalui baris arahan atau MCP; anda tidak perlu menaip sebarang arahan.',
+      'Pembantu memanggil OneDesk sendiri, melalui baris arahan atau MCP; anda tidak perlu menaip sebarang arahan.',
     intgCliPartTitle: 'CLI · baris arahan + skill',
     intgCliPartDesc:
-      'Untuk pembantu yang boleh menjalankan arahan terminal (Claude Code, Codex, Cursor dan lain-lain). Setelah skill dipasang, pembantu memanggil baris arahan genoffice sendiri untuk mencipta, menukar, membaca dan mengedit fail; anda tidak perlu menaip sebarang arahan.',
+      'Untuk pembantu yang boleh menjalankan arahan terminal (Claude Code, Codex, Cursor dan lain-lain). Setelah skill dipasang, pembantu memanggil baris arahan onedesk sendiri untuk mencipta, menukar, membaca dan mengedit fail; anda tidak perlu menaip sebarang arahan.',
     intgMcpPartTitle: 'MCP',
     intgMcpPartDesc:
-      'MCP ialah protokol umum yang digunakan pembantu AI untuk memanggil alat luaran. Gunakannya apabila pembantu anda tidak boleh menjalankan arahan (contohnya Claude Desktop) atau apabila anda mahu ia mengawal tetingkap GenOffice secara langsung. Pilih salah satu daripada dua cara di bawah.',
+      'MCP ialah protokol umum yang digunakan pembantu AI untuk memanggil alat luaran. Gunakannya apabila pembantu anda tidak boleh menjalankan arahan (contohnya Claude Desktop) atau apabila anda mahu ia mengawal tetingkap OneDesk secara langsung. Pilih salah satu daripada dua cara di bawah.',
     intgMcpStdioTitle: 'Dimulakan oleh pembantu (disyorkan)',
     intgMcpStdioDesc:
-      'Pembantu melancarkan genoffice mcp sendiri: tiada apa yang perlu dihidupkan di sini, dan GenOffice tidak perlu dibuka. Ciri sama seperti CLI.',
+      'Pembantu melancarkan onedesk mcp sendiri: tiada apa yang perlu dihidupkan di sini, dan OneDesk tidak perlu dibuka. Ciri sama seperti CLI.',
     intgMcpHttpTitle: 'Pelayan HTTP tempatan',
     intgMcpHttpDesc:
-      'Berjalan di dalam GenOffice; pembantu menyambung melalui URL dan anda boleh melihat dokumen dibina langkah demi langkah dalam editor Word. GenOffice mesti kekal dibuka; buat masa ini dokumen Word sahaja.',
+      'Berjalan di dalam OneDesk; pembantu menyambung melalui URL dan anda boleh melihat dokumen dibina langkah demi langkah dalam editor Word. OneDesk mesti kekal dibuka; buat masa ini dokumen Word sahaja.',
     intgMcpHttpAdvanced: 'Lanjutan: alamat lain dan log',
     intgMcpClaudeTitle: 'Claude Code',
     intgMcpClaudeDesc: 'Jalankan ini sekali dalam terminal:',
@@ -11311,10 +11302,10 @@ export const strings = {
       'Tambahkan ini pada tetapan pelayan MCP pembantu tersebut (fail JSON, atau "Tambah pelayan MCP" dalam tetapannya):',
     intgMcpNote:
       'Skill dan MCP boleh dipasang serentak; pembantu akan memilih satu. Kedua-duanya melakukan perkara yang sama.',
-    intgCliTitle: 'Lanjutan: baris arahan genoffice',
-    intgCliReady: 'genoffice {v} · sedia dalam terminal anda ({path})',
+    intgCliTitle: 'Lanjutan: baris arahan onedesk',
+    intgCliReady: 'onedesk {v} · sedia dalam terminal anda ({path})',
     intgCliNotOnPath:
-      'genoffice {v} · tiada dalam PATH terminal anda. Pembantu masih menemuinya melalui ~/.genoffice/launcher, jadi skill berfungsi. Untuk menaip genoffice sendiri, jalankan ini sekali:',
+      'onedesk {v} · tiada dalam PATH terminal anda. Pembantu masih menemuinya melalui ~/.onedesk/launcher, jadi skill berfungsi. Untuk menaip onedesk sendiri, jalankan ini sekali:',
     intgCliLauncher: 'Folder pelancar',
     intgStateOutdated: 'Dipasang {v}, kemas kini ke {next} tersedia',
     intgStateModified: 'Dipasang {v} (diubah suai)',
@@ -11338,10 +11329,10 @@ export const strings = {
     intgSaveZipTitle: 'Simpan skill',
     intgSavedTo: 'Disimpan ke {path}',
     intgCopied: 'Disalin',
-    intgCliEphemeral: 'Seret GenOffice ke Applications dahulu, kemudian gunakan baris arahan.',
+    intgCliEphemeral: 'Seret OneDesk ke Applications dahulu, kemudian gunakan baris arahan.',
     intgCopyPath: 'Salin laluan',
     intgCliNeedsUpdate:
-      'Skill ini memerlukan baris arahan {v} atau lebih baharu; kemas kini GenOffice.',
+      'Skill ini memerlukan baris arahan {v} atau lebih baharu; kemas kini OneDesk.',
     intgLoading: 'Menyemak…',
     intgUpdateDue: 'Kemas kini skill tersedia',
     setSecAiModel: 'Model AI',
@@ -11403,14 +11394,14 @@ export const strings = {
       'Apabila pembekalnya ditetapkan kepada Genspark, carian web, penjanaan imej dan analisis media melalui Genspark dan menggunakan kredit; apabila dimatikan, carian menggunakan sumber percuma dan alat imej Genspark tidak tersedia.',
     setGithub: 'Sumber Terbuka',
     starOnGitHub: 'Beri Bintang di GitHub',
-    starPromptTitle: 'Suka GenOffice?',
-    starPromptTitleN: 'Anda telah membuka {n} dokumen dengan GenOffice',
+    starPromptTitle: 'Suka OneDesk?',
+    starPromptTitleN: 'Anda telah membuka {n} dokumen dengan OneDesk',
     starPromptBody:
-      'GenOffice percuma dan sumber terbuka. Bintang di GitHub ialah sokongan terbaik untuk pasukan kami.',
+      'OneDesk percuma dan sumber terbuka. Bintang di GitHub ialah sokongan terbaik untuk pasukan kami.',
     starPromptGo: 'Beri Bintang',
     starPromptDone: 'Sudah',
     starPromptLater: 'Kemudian',
-    onbStarHint: 'Jika anda suka GenOffice, beri kami bintang di GitHub.',
+    onbStarHint: 'Jika anda suka OneDesk, beri kami bintang di GitHub.',
     setEmail: 'E-mel',
     setNotLoggedIn: 'Belum log masuk',
     setViewUsage: 'Lihat penggunaan',
@@ -11423,13 +11414,13 @@ export const strings = {
     appMenu: 'Menu',
     newTab: 'Tab baharu',
     // First-run onboarding
-    onbTitle1: 'Selamat datang ke GenOffice',
+    onbTitle1: 'Selamat datang ke OneDesk',
     onbSubtitle1: 'Suite pejabat sumber terbuka natif AI yang pertama',
     onbBody1:
       'Cipta dokumen, bina hamparan, hasilkan persembahan dan semak PDF. AI tersedia pada setiap langkah.',
     onbTitle2: 'Ini baru permulaan',
     onbBody2:
-      'GenOffice masih dalam peringkat alfa. Sertai sembang kumpulan di GenTeam untuk berkongsi maklum balas dan membentuk masa depannya.',
+      'OneDesk masih dalam peringkat alfa. Sertai sembang kumpulan di GenTeam untuk berkongsi maklum balas dan membentuk masa depannya.',
     onbCredits: 'Penyumbang aktif menerima **1,000+ kredit Genspark**',
     onbJoinGenTeam: 'Sertai GenTeam',
     onbSkip: 'Langkau',
@@ -11441,7 +11432,7 @@ export const strings = {
     onbNote3: 'Ciri AI mungkin menggunakan kredit Genspark.',
     onbBack: 'Kembali',
     intgSkillsDesc:
-      'GenOffice hanya menggunakan kemahiran dalam folder kemahirannya sendiri. Mengimport folder atau zip menyalin keseluruhan kemahiran; tiada apa yang dijalankan semasa import.',
+      'OneDesk hanya menggunakan kemahiran dalam folder kemahirannya sendiri. Mengimport folder atau zip menyalin keseluruhan kemahiran; tiada apa yang dijalankan semasa import.',
     intgSkillsEmpty: 'Belum ada kemahiran dipasang.',
     intgSkillsImportFolder: 'Import folder…',
     intgSkillsImportZip: 'Import pakej kemahiran (zip / .md)…',
@@ -11450,7 +11441,7 @@ export const strings = {
     intgSkillsImportDone: '{name} diimport',
     intgSkillsImportFailed: 'Import gagal: {reason}',
     intgSkillsRemove: 'Buang',
-    intgSkillsRemoveConfirm: 'Buang kemahiran "{name}"? Foldernya akan dipadam daripada GenOffice.',
+    intgSkillsRemoveConfirm: 'Buang kemahiran "{name}"? Foldernya akan dipadam daripada OneDesk.',
     intgSkillsRemoved: '{name} dibuang',
     skillDetailClose: 'Tutup',
     skillDetailLoading: 'Memuatkan arahan…',
@@ -11707,10 +11698,10 @@ export const strings = {
     setUpdateRestart: 'הפעל מחדש והתקן',
     setAutoUpdateCheck: 'בדיקת עדכונים אוטומטית',
     setAutoUpdateCheckDesc:
-      'כשהאפשרות כבויה, GenOffice לא בודקת גרסאות חדשות בהפעלה או ברקע. עדיין אפשר לבדוק ידנית דרך עזרה › בדוק עדכונים.',
+      'כשהאפשרות כבויה, OneDesk לא בודקת גרסאות חדשות בהפעלה או ברקע. עדיין אפשר לבדוק ידנית דרך עזרה › בדוק עדכונים.',
     setSilentInstall: 'התקנת עדכונים בשקט',
     setSilentInstallDesc:
-      'כשמופעל, גרסה חדשה שנמצאה ברקע מורדת בשקט ומותקנת ביציאה מ‑GenOffice; שום דבר לא מפריע בזמן העבודה. כשכבוי, הודעת עדכון מאפשרת לכם להחליט מתי לעדכן.',
+      'כשמופעל, גרסה חדשה שנמצאה ברקע מורדת בשקט ומותקנת ביציאה מ‑OneDesk; שום דבר לא מפריע בזמן העבודה. כשכבוי, הודעת עדכון מאפשרת לכם להחליט מתי לעדכן.',
     updateChannel: 'ערוץ עדכונים',
     channelStable: 'יציב',
     channelBeta: 'בטא',
@@ -11722,8 +11713,7 @@ export const strings = {
     docThemeFollowApp: 'לפי ערכת הנושא של האפליקציה',
     saveLocation: 'מיקום שמירה',
     setRestoreSession: 'פתיחה מחדש של המסמכים מהפעם הקודמת',
-    setRestoreSessionDesc:
-      'מסמכים שהיו פתוחים כש-GenOffice נסגרה ייפתחו מחדש אוטומטית בהפעלה הבאה.',
+    setRestoreSessionDesc: 'מסמכים שהיו פתוחים כש-OneDesk נסגרה ייפתחו מחדש אוטומטית בהפעלה הבאה.',
     setTabSleep: 'השהה כרטיסיות לא פעילות',
     setTabSleepDesc:
       'כשפתוחות כרטיסיות רבות, כרטיסיות שלא נצפו זמן מה משחררות את הזיכרון ופותחות מחדש את הקובץ כשחוזרים אליהן. כרטיסיות עם שינויים שלא נשמרו או מוצמדות לעולם לא מושהות.',
@@ -11761,8 +11751,8 @@ export const strings = {
     setLegacyImportPromptDesc:
       'מסביר מה יישמר לפני פתיחת קובצי ‎.doc, ‎.odt, ‎.hwp, ‎.ods או ‎.odp. כשכבוי, „שמירה בשם” נפתח מיד.',
     setDefaultApp: 'אפליקציית ברירת המחדל למסמכי Office',
-    setDefaultAppDesc: 'פתיחת קובצי .docx‏, .xlsx ו‑.pptx ב‑GenOffice בלחיצה כפולה.',
-    setDefaultAppIs: 'GenOffice היא כבר ברירת המחדל.',
+    setDefaultAppDesc: 'פתיחת קובצי .docx‏, .xlsx ו‑.pptx ב‑OneDesk בלחיצה כפולה.',
+    setDefaultAppIs: 'OneDesk היא כבר ברירת המחדל.',
     setDefaultAppOther: 'ברירת המחדל הנוכחית: {app}',
     setDefaultAppSet: 'הגדרה כברירת מחדל',
     setDefaultAppOpenSettings: 'פתיחת הגדרות המערכת',
@@ -11819,7 +11809,7 @@ export const strings = {
     setSecAbout: 'אודות',
     setSecIntegrations: 'שילובים',
     setSecSkills: 'מיומנויות',
-    intgHeroTitle: 'שימוש ב-GenOffice מתוך עוזר ה-AI שלכם',
+    intgHeroTitle: 'שימוש ב-OneDesk מתוך עוזר ה-AI שלכם',
     intgHeroDesc:
       'לאחר החיבור, Claude Code‏, Codex‏, Cursor‏, Claude Desktop ועוזרים דומים יכולים ליצור, להמיר, לקרוא ולערוך עבורך קובצי Word‏, Excel‏, PowerPoint‏, PDF ו‑Markdown. הכול פועל במחשב זה; דבר אינו נשלח.',
     intgHeroStep1: 'בחרו מסלול: CLI אם העוזר יכול להריץ פקודות טרמינל, MCP אם לא',
@@ -11828,14 +11818,14 @@ export const strings = {
     intgStep1Title: 'התקינו את ה-skill בעוזר שלכם',
     intgStep1Desc:
       'מוצגים רק עוזרים שנמצאו במחשב הזה. התקינו בזה שבו אתם משתמשים באמת; אין צורך בכולם.',
-    intgStep1Update: 'כשעדכון של GenOffice מביא skill חדש יותר, ליד אותו עוזר יופיע כפתור עדכון.',
+    intgStep1Update: 'כשעדכון של OneDesk מביא skill חדש יותר, ליד אותו עוזר יופיע כפתור עדכון.',
     intgSkillVersion: 'skill {v}',
     intgStateMissing: 'ה-skill לא מותקן',
     intgSharedReaders: 'תיקיית skills משותפת שנקראת על ידי {list}',
     intgStateInstalled: 'skill {v} מותקן · מוכן בשיחה הבאה',
     intgLegacyTitle: 'עותקי skill ישנים',
     intgLegacyDesc:
-      'GenOffice כתב בעבר עותק בתיקייה של כל כלי. עדיין נשארו שם {n}: הכלי ממשיך לקרוא אותם, ולכן הם לעולם לא מקבלים את ה-skill הנוכחי.',
+      'OneDesk כתב בעבר עותק בתיקייה של כל כלי. עדיין נשארו שם {n}: הכלי ממשיך לקרוא אותם, ולכן הם לעולם לא מקבלים את ה-skill הנוכחי.',
     intgLegacyClean: 'הסר עותקים ישנים',
     intgLegacyCleaned: 'הוסרו {n} עותקים ישנים, {k} שעורכו ידנית נותרו במקומם.',
     intgLegacyFailed: 'לא ניתן להסיר את העותקים הישנים: {msg}',
@@ -11843,7 +11833,7 @@ export const strings = {
     intgOtherDesc:
       'בחרו רק דרך אחת מבין השלוש. כולן מתקינות את אותו skill, ולכן אין צורך ביותר מאחת.',
     intgOtherFolderTitle: 'כל עוזר שקורא תיקיות SKILL.md',
-    intgOtherFolderDesc: 'בחרו את תיקיית ה-skills שלו ו-GenOffice יכתוב שם את הקובץ.',
+    intgOtherFolderDesc: 'בחרו את תיקיית ה-skills שלו ו-OneDesk יכתוב שם את הקובץ.',
     intgOtherZipTitle: 'מסרו את הקובץ לעוזר',
     intgOtherZipDesc: 'שמרו את ה-skill כ-zip ובקשו מהעוזר להתקין אותו.',
     intgOtherNpxTitle: 'באמצעות פקודת skills (דורש Node.js)',
@@ -11853,21 +11843,21 @@ export const strings = {
     intgStep2Desc: 'פתחו שיחה חדשה בעוזר ובקשו במילים פשוטות, למשל:',
     intgExample1: 'הפוך את ~/Downloads/report.md למסמך Word',
     intgExample2: 'הכן מצגת של 6 שקופיות על תוצאות הרבעון השלישי שלנו',
-    intgExample3: 'המר את budget.xlsx ל-PDF ופתח אותו ב-GenOffice',
+    intgExample3: 'המר את budget.xlsx ל-PDF ופתח אותו ב-OneDesk',
     intgStep2Note:
-      'העוזר קורא ל-GenOffice בעצמו, דרך שורת הפקודה או MCP; לעולם לא תצטרכו להקליד פקודה.',
+      'העוזר קורא ל-OneDesk בעצמו, דרך שורת הפקודה או MCP; לעולם לא תצטרכו להקליד פקודה.',
     intgCliPartTitle: 'CLI · שורת פקודה + skill',
     intgCliPartDesc:
-      'לעוזרים שיכולים להריץ פקודות טרמינל (Claude Code‏, Codex‏, Cursor ואחרים). לאחר התקנת ה‑skill העוזר קורא בעצמו לשורת הפקודה genoffice כדי ליצור, להמיר, לקרוא ולערוך קבצים; אתם לא מקלידים שום פקודה.',
+      'לעוזרים שיכולים להריץ פקודות טרמינל (Claude Code‏, Codex‏, Cursor ואחרים). לאחר התקנת ה‑skill העוזר קורא בעצמו לשורת הפקודה onedesk כדי ליצור, להמיר, לקרוא ולערוך קבצים; אתם לא מקלידים שום פקודה.',
     intgMcpPartTitle: 'MCP',
     intgMcpPartDesc:
-      'MCP הוא הפרוטוקול המשותף שבו עוזרי AI קוראים לכלים חיצוניים. השתמשו בו כשהעוזר אינו יכול להריץ פקודות (למשל Claude Desktop) או כשאתם רוצים שהוא ישלוט ישירות בחלון GenOffice. בחרו אחת משתי הדרכים למטה.',
+      'MCP הוא הפרוטוקול המשותף שבו עוזרי AI קוראים לכלים חיצוניים. השתמשו בו כשהעוזר אינו יכול להריץ פקודות (למשל Claude Desktop) או כשאתם רוצים שהוא ישלוט ישירות בחלון OneDesk. בחרו אחת משתי הדרכים למטה.',
     intgMcpStdioTitle: 'מופעל על ידי העוזר (מומלץ)',
     intgMcpStdioDesc:
-      'העוזר מפעיל את genoffice mcp בעצמו: אין מה להפעיל כאן, ו‑GenOffice לא חייב להיות פתוח. אותן יכולות כמו ב‑CLI.',
+      'העוזר מפעיל את onedesk mcp בעצמו: אין מה להפעיל כאן, ו‑OneDesk לא חייב להיות פתוח. אותן יכולות כמו ב‑CLI.',
     intgMcpHttpTitle: 'שרת HTTP מקומי',
     intgMcpHttpDesc:
-      'פועל בתוך GenOffice; העוזר מתחבר דרך כתובת URL ואפשר לראות את המסמך נבנה צעד אחר צעד בעורך Word. GenOffice חייב להישאר פתוח; בשלב זה מסמכי Word בלבד.',
+      'פועל בתוך OneDesk; העוזר מתחבר דרך כתובת URL ואפשר לראות את המסמך נבנה צעד אחר צעד בעורך Word. OneDesk חייב להישאר פתוח; בשלב זה מסמכי Word בלבד.',
     intgMcpHttpAdvanced: 'מתקדם: כתובות נוספות ויומן',
     intgMcpClaudeTitle: 'Claude Code',
     intgMcpClaudeDesc: 'הריצו זאת פעם אחת בטרמינל:',
@@ -11875,10 +11865,10 @@ export const strings = {
     intgMcpOtherDesc: 'הוסיפו זאת להגדרות שרתי ה-MCP שלו (קובץ JSON, או "הוספת שרת MCP" בהגדרות):',
     intgMcpNote:
       'הסקיל ו-MCP יכולים להיות מוגדרים יחד; העוזר יבחר אחד מהם. שניהם עושים בדיוק את אותם הדברים.',
-    intgCliTitle: 'מתקדם: שורת הפקודה genoffice',
-    intgCliReady: 'genoffice {v} · מוכן בטרמינל ({path})',
+    intgCliTitle: 'מתקדם: שורת הפקודה onedesk',
+    intgCliReady: 'onedesk {v} · מוכן בטרמינל ({path})',
     intgCliNotOnPath:
-      'genoffice {v} · לא נמצא ב-PATH של הטרמינל. העוזרים עדיין מוצאים אותו דרך ~/.genoffice/launcher, ולכן ה-skill עובד. כדי להקליד genoffice בעצמכם, הריצו זאת פעם אחת:',
+      'onedesk {v} · לא נמצא ב-PATH של הטרמינל. העוזרים עדיין מוצאים אותו דרך ~/.onedesk/launcher, ולכן ה-skill עובד. כדי להקליד onedesk בעצמכם, הריצו זאת פעם אחת:',
     intgCliLauncher: 'תיקיית המשגר',
     intgStateOutdated: 'מותקן {v}, זמין עדכון ל-{next}',
     intgStateModified: 'מותקן {v} (שונה)',
@@ -11902,9 +11892,9 @@ export const strings = {
     intgSaveZipTitle: 'שמירת skill',
     intgSavedTo: 'נשמר אל {path}',
     intgCopied: 'הועתק',
-    intgCliEphemeral: 'גררו קודם את GenOffice לתיקיית היישומים, ואז השתמשו בשורת הפקודה.',
+    intgCliEphemeral: 'גררו קודם את OneDesk לתיקיית היישומים, ואז השתמשו בשורת הפקודה.',
     intgCopyPath: 'העתקת נתיב',
-    intgCliNeedsUpdate: 'skill זה דורש שורת פקודה {v} ומעלה; עדכנו את GenOffice.',
+    intgCliNeedsUpdate: 'skill זה דורש שורת פקודה {v} ומעלה; עדכנו את OneDesk.',
     intgLoading: 'בודק…',
     intgUpdateDue: 'עדכון skill זמין',
     setSecAiModel: 'מודל AI',
@@ -11963,13 +11953,13 @@ export const strings = {
       'כשהספק מוגדר ל-Genspark, חיפוש באינטרנט, יצירת תמונות וניתוח מדיה עוברים דרך Genspark וצורכים קרדיטים; כשהוא כבוי החיפוש משתמש במקורות חינמיים וכלי התמונות של Genspark אינם זמינים.',
     setGithub: 'קוד פתוח',
     starOnGitHub: 'תנו כוכב ב-GitHub',
-    starPromptTitle: 'נהנים מ-GenOffice?',
-    starPromptTitleN: 'פתחת {n} מסמכים עם GenOffice',
-    starPromptBody: 'GenOffice חינמי ובקוד פתוח. כוכב ב-GitHub הוא התמיכה הטובה ביותר בצוות.',
+    starPromptTitle: 'נהנים מ-OneDesk?',
+    starPromptTitleN: 'פתחת {n} מסמכים עם OneDesk',
+    starPromptBody: 'OneDesk חינמי ובקוד פתוח. כוכב ב-GitHub הוא התמיכה הטובה ביותר בצוות.',
     starPromptGo: 'לתת כוכב',
     starPromptDone: 'כבר נתתי',
     starPromptLater: 'אחר כך',
-    onbStarHint: 'אם GenOffice מוצא חן בעיניכם, תנו לנו כוכב ב-GitHub.',
+    onbStarHint: 'אם OneDesk מוצא חן בעיניכם, תנו לנו כוכב ב-GitHub.',
     setEmail: 'אימייל',
     setNotLoggedIn: 'לא מחובר',
     setViewUsage: 'הצגת שימוש',
@@ -11982,12 +11972,12 @@ export const strings = {
     appMenu: 'תפריט',
     newTab: 'כרטיסייה חדשה',
     // First-run onboarding
-    onbTitle1: 'ברוכים הבאים ל-GenOffice',
+    onbTitle1: 'ברוכים הבאים ל-OneDesk',
     onbSubtitle1: 'חבילת המשרד הראשונה בקוד פתוח שהיא AI-נייטיב',
     onbBody1: 'צרו מסמכים, בנו גיליונות, הכינו מצגות ובדקו קובצי PDF. ה-AI מובנה בכל שלב.',
     onbTitle2: 'זו רק ההתחלה',
     onbBody2:
-      'GenOffice עדיין בגרסת אלפא. הצטרפו לצ׳אט הקבוצתי ב-GenTeam כדי לשתף משוב ולעזור לעצב את ההמשך.',
+      'OneDesk עדיין בגרסת אלפא. הצטרפו לצ׳אט הקבוצתי ב-GenTeam כדי לשתף משוב ולעזור לעצב את ההמשך.',
     onbCredits: 'תורמים פעילים מקבלים **1,000+ נקודות Genspark**',
     onbJoinGenTeam: 'הצטרפו ל-GenTeam',
     onbSkip: 'דילוג',
@@ -11999,7 +11989,7 @@ export const strings = {
     onbNote3: 'תכונות AI עשויות לצרוך קרדיטים של Genspark.',
     onbBack: 'חזרה',
     intgSkillsDesc:
-      'GenOffice משתמש רק במיומנויות שבתיקיית המיומנויות שלו. ייבוא תיקייה או zip מעתיק את המיומנות כולה; שום דבר לא מופעל בייבוא.',
+      'OneDesk משתמש רק במיומנויות שבתיקיית המיומנויות שלו. ייבוא תיקייה או zip מעתיק את המיומנות כולה; שום דבר לא מופעל בייבוא.',
     intgSkillsEmpty: 'עדיין לא הותקנו מיומנויות.',
     intgSkillsImportFolder: 'ייבוא תיקייה…',
     intgSkillsImportZip: 'ייבוא חבילת מיומנות (zip / .md)…',
@@ -12008,7 +11998,7 @@ export const strings = {
     intgSkillsImportDone: '{name} יובאה',
     intgSkillsImportFailed: 'הייבוא נכשל: {reason}',
     intgSkillsRemove: 'הסרה',
-    intgSkillsRemoveConfirm: 'להסיר את המיומנות "{name}"? התיקייה שלה תימחק מ-GenOffice.',
+    intgSkillsRemoveConfirm: 'להסיר את המיומנות "{name}"? התיקייה שלה תימחק מ-OneDesk.',
     intgSkillsRemoved: '{name} הוסרה',
     skillDetailClose: 'סגירה',
     skillDetailLoading: 'טוען הוראות…',
@@ -12268,10 +12258,10 @@ export const strings = {
     setUpdateRestart: 'रीस्टार्ट कर इंस्टॉल करें',
     setAutoUpdateCheck: 'अपडेट अपने-आप जाँचें',
     setAutoUpdateCheckDesc:
-      'बंद होने पर GenOffice शुरू होते समय या बैकग्राउंड में नए संस्करण नहीं जाँचता। आप फिर भी सहायता › अपडेट जांचें से जाँच सकते हैं।',
+      'बंद होने पर OneDesk शुरू होते समय या बैकग्राउंड में नए संस्करण नहीं जाँचता। आप फिर भी सहायता › अपडेट जांचें से जाँच सकते हैं।',
     setSilentInstall: 'अपडेट चुपचाप इंस्टॉल करें',
     setSilentInstallDesc:
-      'चालू होने पर, पृष्ठभूमि जाँच में मिला नया संस्करण चुपचाप डाउनलोड होता है और GenOffice से बाहर निकलते समय इंस्टॉल होता है; काम के दौरान कोई रुकावट नहीं। बंद होने पर, अपडेट सूचना से आप तय करते हैं कि कब अपडेट करना है।',
+      'चालू होने पर, पृष्ठभूमि जाँच में मिला नया संस्करण चुपचाप डाउनलोड होता है और OneDesk से बाहर निकलते समय इंस्टॉल होता है; काम के दौरान कोई रुकावट नहीं। बंद होने पर, अपडेट सूचना से आप तय करते हैं कि कब अपडेट करना है।',
     updateChannel: 'अपडेट चैनल',
     channelStable: 'स्थिर',
     channelBeta: 'बीटा',
@@ -12284,7 +12274,7 @@ export const strings = {
     saveLocation: 'सहेजने का स्थान',
     setRestoreSession: 'पिछली बार के दस्तावेज़ फिर से खोलें',
     setRestoreSessionDesc:
-      'GenOffice बंद करते समय खुले दस्तावेज़ अगली बार शुरू होने पर अपने-आप फिर से खुल जाते हैं।',
+      'OneDesk बंद करते समय खुले दस्तावेज़ अगली बार शुरू होने पर अपने-आप फिर से खुल जाते हैं।',
     setTabSleep: 'निष्क्रिय टैब को सुलाएँ',
     setTabSleepDesc:
       'कई टैब खुले होने पर, जिन्हें आपने कुछ समय से नहीं देखा वे मेमोरी छोड़ देते हैं और लौटने पर फ़ाइल फिर खोलते हैं। बिना सहेजे बदलाव वाले या पिन किए गए टैब कभी नहीं सोते।',
@@ -12323,8 +12313,8 @@ export const strings = {
     setLegacyImportPromptDesc:
       '.doc, .odt, .hwp, .ods या .odp फ़ाइलें खोलने से पहले बताता है कि क्या-क्या बदला जाएगा। बंद होने पर सीधे “इस रूप में सहेजें” खुलता है।',
     setDefaultApp: 'Office दस्तावेज़ों के लिए डिफ़ॉल्ट ऐप',
-    setDefaultAppDesc: '.docx, .xlsx और .pptx फ़ाइलें डबल-क्लिक करने पर GenOffice में खोलें।',
-    setDefaultAppIs: 'GenOffice पहले से डिफ़ॉल्ट ऐप है।',
+    setDefaultAppDesc: '.docx, .xlsx और .pptx फ़ाइलें डबल-क्लिक करने पर OneDesk में खोलें।',
+    setDefaultAppIs: 'OneDesk पहले से डिफ़ॉल्ट ऐप है।',
     setDefaultAppOther: 'वर्तमान डिफ़ॉल्ट: {app}',
     setDefaultAppSet: 'डिफ़ॉल्ट बनाएँ',
     setDefaultAppOpenSettings: 'सिस्टम सेटिंग खोलें',
@@ -12381,7 +12371,7 @@ export const strings = {
     setSecAbout: 'जानकारी',
     setSecIntegrations: 'इंटीग्रेशन',
     setSecSkills: 'कौशल',
-    intgHeroTitle: 'अपने AI असिस्टेंट से GenOffice इस्तेमाल करें',
+    intgHeroTitle: 'अपने AI असिस्टेंट से OneDesk इस्तेमाल करें',
     intgHeroDesc:
       'कनेक्ट होने के बाद Claude Code, Codex, Cursor, Claude Desktop और ऐसे ही सहायक आपके लिए Word, Excel, PowerPoint, PDF और Markdown फ़ाइलें बना, बदल, पढ़ और संपादित कर सकते हैं। सब कुछ इसी कंप्यूटर पर चलता है; कुछ भी अपलोड नहीं होता।',
     intgHeroStep1: 'रास्ता चुनें: सहायक टर्मिनल कमांड चला सकता है तो CLI, नहीं तो MCP',
@@ -12391,14 +12381,14 @@ export const strings = {
     intgStep1Desc:
       'यहाँ केवल इस कंप्यूटर पर मिले असिस्टेंट दिखते हैं। जिसे आप सच में इस्तेमाल करते हैं उसी में इंस्टॉल करें; सभी की ज़रूरत नहीं।',
     intgStep1Update:
-      'जब GenOffice के अपडेट में नया skill आता है, तो उस असिस्टेंट के पास अपडेट बटन दिखता है।',
+      'जब OneDesk के अपडेट में नया skill आता है, तो उस असिस्टेंट के पास अपडेट बटन दिखता है।',
     intgSkillVersion: 'skill {v}',
     intgStateMissing: 'skill इंस्टॉल नहीं है',
     intgSharedReaders: '{list} द्वारा पढ़ा जाने वाला साझा skills फ़ोल्डर',
     intgStateInstalled: 'skill {v} इंस्टॉल हो गया · अगली चैट में तैयार',
     intgLegacyTitle: 'पुरानी skill प्रतियाँ',
     intgLegacyDesc:
-      'GenOffice पहले हर टूल के अपने फ़ोल्डर में एक प्रति लिखता था। अभी भी {n} वहाँ हैं: टूल उन्हें पढ़ता रहता है, इसलिए उन्हें कभी मौजूदा skill नहीं मिलती।',
+      'OneDesk पहले हर टूल के अपने फ़ोल्डर में एक प्रति लिखता था। अभी भी {n} वहाँ हैं: टूल उन्हें पढ़ता रहता है, इसलिए उन्हें कभी मौजूदा skill नहीं मिलती।',
     intgLegacyClean: 'पुरानी प्रतियाँ हटाएँ',
     intgLegacyCleaned: '{n} पुरानी प्रतियाँ हटा दी गईं, {k} हाथ से बदली गई प्रतियाँ बनी रखी गईं।',
     intgLegacyFailed: 'पुरानी प्रतियाँ नहीं हटाई जा सकीं: {msg}',
@@ -12406,7 +12396,7 @@ export const strings = {
     intgOtherDesc:
       'इन तीन तरीकों में से कोई एक ही चुनें। सभी एक ही skill इंस्टॉल करते हैं, इसलिए एक से ज़्यादा की ज़रूरत नहीं।',
     intgOtherFolderTitle: 'कोई भी असिस्टेंट जो SKILL.md फ़ोल्डर पढ़ता है',
-    intgOtherFolderDesc: 'उसका skills फ़ोल्डर चुनें, GenOffice वहाँ फ़ाइल लिख देगा।',
+    intgOtherFolderDesc: 'उसका skills फ़ोल्डर चुनें, OneDesk वहाँ फ़ाइल लिख देगा।',
     intgOtherZipTitle: 'फ़ाइल असिस्टेंट को दें',
     intgOtherZipDesc: 'skill को zip के रूप में सहेजें, फिर असिस्टेंट से इंस्टॉल करने को कहें।',
     intgOtherNpxTitle: 'skills कमांड से (Node.js ज़रूरी)',
@@ -12416,21 +12406,21 @@ export const strings = {
     intgStep2Desc: 'अपने असिस्टेंट में नई चैट खोलें और सादे शब्दों में कहें, जैसे:',
     intgExample1: '~/Downloads/report.md को Word दस्तावेज़ बना दो',
     intgExample2: 'हमारे Q3 नतीजों पर 6 स्लाइड का प्रेज़ेंटेशन बनाओ',
-    intgExample3: 'budget.xlsx को PDF में बदलो और GenOffice में खोलो',
+    intgExample3: 'budget.xlsx को PDF में बदलो और OneDesk में खोलो',
     intgStep2Note:
-      'असिस्टेंट GenOffice को कमांड लाइन या MCP के ज़रिए खुद कॉल करता है; आपको कभी कोई कमांड टाइप नहीं करनी पड़ती।',
+      'असिस्टेंट OneDesk को कमांड लाइन या MCP के ज़रिए खुद कॉल करता है; आपको कभी कोई कमांड टाइप नहीं करनी पड़ती।',
     intgCliPartTitle: 'CLI · कमांड लाइन + skill',
     intgCliPartDesc:
-      'उन सहायकों के लिए जो टर्मिनल कमांड चला सकते हैं (Claude Code, Codex, Cursor आदि)। skill इंस्टॉल होने के बाद सहायक फ़ाइलें बनाने, बदलने, पढ़ने और संपादित करने के लिए खुद genoffice कमांड लाइन चलाता है; आपको कोई कमांड टाइप नहीं करना पड़ता।',
+      'उन सहायकों के लिए जो टर्मिनल कमांड चला सकते हैं (Claude Code, Codex, Cursor आदि)। skill इंस्टॉल होने के बाद सहायक फ़ाइलें बनाने, बदलने, पढ़ने और संपादित करने के लिए खुद onedesk कमांड लाइन चलाता है; आपको कोई कमांड टाइप नहीं करना पड़ता।',
     intgMcpPartTitle: 'MCP',
     intgMcpPartDesc:
-      'MCP वह साझा प्रोटोकॉल है जिससे AI सहायक बाहरी टूल बुलाते हैं। इसे तब चुनें जब सहायक कमांड न चला सके (जैसे Claude Desktop) या आप चाहें कि वह GenOffice की विंडो को सीधे चलाए। नीचे दिए दो तरीकों में से कोई एक चुनें।',
+      'MCP वह साझा प्रोटोकॉल है जिससे AI सहायक बाहरी टूल बुलाते हैं। इसे तब चुनें जब सहायक कमांड न चला सके (जैसे Claude Desktop) या आप चाहें कि वह OneDesk की विंडो को सीधे चलाए। नीचे दिए दो तरीकों में से कोई एक चुनें।',
     intgMcpStdioTitle: 'सहायक द्वारा शुरू (अनुशंसित)',
     intgMcpStdioDesc:
-      'सहायक खुद genoffice mcp चलाता है: यहाँ कुछ चालू करने की ज़रूरत नहीं, और GenOffice खुला होना भी ज़रूरी नहीं। सुविधाएँ CLI जैसी ही।',
+      'सहायक खुद onedesk mcp चलाता है: यहाँ कुछ चालू करने की ज़रूरत नहीं, और OneDesk खुला होना भी ज़रूरी नहीं। सुविधाएँ CLI जैसी ही।',
     intgMcpHttpTitle: 'स्थानीय HTTP सर्वर',
     intgMcpHttpDesc:
-      'GenOffice के अंदर चलता है; सहायक URL से जुड़ता है और आप Word संपादक में दस्तावेज़ को चरण-दर-चरण बनते देख सकते हैं। GenOffice खुला रहना चाहिए; अभी केवल Word दस्तावेज़।',
+      'OneDesk के अंदर चलता है; सहायक URL से जुड़ता है और आप Word संपादक में दस्तावेज़ को चरण-दर-चरण बनते देख सकते हैं। OneDesk खुला रहना चाहिए; अभी केवल Word दस्तावेज़।',
     intgMcpHttpAdvanced: 'उन्नत: अन्य पते और लॉग',
     intgMcpClaudeTitle: 'Claude Code',
     intgMcpClaudeDesc: 'टर्मिनल में इसे एक बार चलाएँ:',
@@ -12439,10 +12429,10 @@ export const strings = {
       'इसे उसकी MCP सर्वर सेटिंग्स में जोड़ें (एक JSON फ़ाइल, या सेटिंग्स में "MCP सर्वर जोड़ें"):',
     intgMcpNote:
       'स्किल और MCP एक साथ सेट किए जा सकते हैं; असिस्टेंट एक को चुन लेता है। दोनों बिल्कुल एक जैसे काम करते हैं।',
-    intgCliTitle: 'उन्नत: genoffice कमांड लाइन',
-    intgCliReady: 'genoffice {v} · टर्मिनल में तैयार ({path})',
+    intgCliTitle: 'उन्नत: onedesk कमांड लाइन',
+    intgCliReady: 'onedesk {v} · टर्मिनल में तैयार ({path})',
     intgCliNotOnPath:
-      'genoffice {v} · टर्मिनल के PATH में नहीं है। असिस्टेंट इसे ~/.genoffice/launcher से फिर भी ढूँढ लेते हैं, इसलिए skill काम करता है। खुद genoffice टाइप करने के लिए यह एक बार चलाएँ:',
+      'onedesk {v} · टर्मिनल के PATH में नहीं है। असिस्टेंट इसे ~/.onedesk/launcher से फिर भी ढूँढ लेते हैं, इसलिए skill काम करता है। खुद onedesk टाइप करने के लिए यह एक बार चलाएँ:',
     intgCliLauncher: 'लॉन्चर फ़ोल्डर',
     intgStateOutdated: 'इंस्टॉल {v}, {next} पर अपडेट उपलब्ध',
     intgStateModified: 'इंस्टॉल {v} (बदला गया)',
@@ -12466,9 +12456,9 @@ export const strings = {
     intgSaveZipTitle: 'skill सहेजें',
     intgSavedTo: '{path} में सहेजा गया',
     intgCopied: 'कॉपी हो गया',
-    intgCliEphemeral: 'पहले GenOffice को Applications में खींचें, फिर कमांड लाइन का उपयोग करें।',
+    intgCliEphemeral: 'पहले OneDesk को Applications में खींचें, फिर कमांड लाइन का उपयोग करें।',
     intgCopyPath: 'पथ कॉपी करें',
-    intgCliNeedsUpdate: 'इस skill को कमांड लाइन {v} या नया चाहिए; GenOffice अपडेट करें।',
+    intgCliNeedsUpdate: 'इस skill को कमांड लाइन {v} या नया चाहिए; OneDesk अपडेट करें।',
     intgLoading: 'जाँच हो रही है…',
     intgUpdateDue: 'skill अपडेट उपलब्ध',
     setSecAiModel: 'AI मॉडल',
@@ -12529,14 +12519,14 @@ export const strings = {
       'जब प्रदाता Genspark हो, वेब खोज, इमेज जनरेशन और मीडिया विश्लेषण Genspark से होकर चलते हैं और क्रेडिट खर्च करते हैं; बंद होने पर खोज मुफ़्त स्रोत उपयोग करती है और Genspark इमेज टूल उपलब्ध नहीं रहते।',
     setGithub: 'ओपन सोर्स',
     starOnGitHub: 'GitHub पर स्टार दें',
-    starPromptTitle: 'GenOffice पसंद आ रहा है?',
-    starPromptTitleN: 'आपने GenOffice में {n} दस्तावेज़ खोले हैं',
+    starPromptTitle: 'OneDesk पसंद आ रहा है?',
+    starPromptTitleN: 'आपने OneDesk में {n} दस्तावेज़ खोले हैं',
     starPromptBody:
-      'GenOffice मुफ़्त और ओपन सोर्स है। GitHub पर एक स्टार टीम का सबसे अच्छा समर्थन है।',
+      'OneDesk मुफ़्त और ओपन सोर्स है। GitHub पर एक स्टार टीम का सबसे अच्छा समर्थन है।',
     starPromptGo: 'स्टार दें',
     starPromptDone: 'पहले ही दे दिया',
     starPromptLater: 'बाद में',
-    onbStarHint: 'अगर आपको GenOffice पसंद है, तो हमें GitHub पर स्टार दें।',
+    onbStarHint: 'अगर आपको OneDesk पसंद है, तो हमें GitHub पर स्टार दें।',
     setEmail: 'ईमेल',
     setNotLoggedIn: 'साइन इन नहीं किया गया',
     setViewUsage: 'उपयोग देखें',
@@ -12549,13 +12539,13 @@ export const strings = {
     appMenu: 'मेनू',
     newTab: 'नया टैब',
     // First-run onboarding
-    onbTitle1: 'GenOffice में आपका स्वागत है',
+    onbTitle1: 'OneDesk में आपका स्वागत है',
     onbSubtitle1: 'पहला ओपन-सोर्स, AI-नेटिव ऑफ़िस सुइट',
     onbBody1:
       'दस्तावेज़ बनाएँ, स्प्रेडशीट तैयार करें, प्रस्तुतियाँ बनाएँ और PDF की समीक्षा करें। AI हर चरण में शामिल है।',
     onbTitle2: 'यह तो बस शुरुआत है',
     onbBody2:
-      'GenOffice अभी अल्फ़ा में है। GenTeam पर ग्रुप चैट से जुड़ें, फ़ीडबैक साझा करें और आगे की दिशा तय करने में मदद करें।',
+      'OneDesk अभी अल्फ़ा में है। GenTeam पर ग्रुप चैट से जुड़ें, फ़ीडबैक साझा करें और आगे की दिशा तय करने में मदद करें।',
     onbCredits: 'सक्रिय योगदानकर्ताओं के लिए **1,000+ Genspark क्रेडिट**',
     onbJoinGenTeam: 'GenTeam से जुड़ें',
     onbSkip: 'छोड़ें',
@@ -12567,7 +12557,7 @@ export const strings = {
     onbNote3: 'AI सुविधाएँ Genspark क्रेडिट खर्च कर सकती हैं।',
     onbBack: 'वापस',
     intgSkillsDesc:
-      'GenOffice केवल अपने कौशल फ़ोल्डर के कौशल उपयोग करता है। फ़ोल्डर या zip से आयात पूरा कौशल कॉपी करता है; आयात पर कुछ नहीं चलता।',
+      'OneDesk केवल अपने कौशल फ़ोल्डर के कौशल उपयोग करता है। फ़ोल्डर या zip से आयात पूरा कौशल कॉपी करता है; आयात पर कुछ नहीं चलता।',
     intgSkillsEmpty: 'अभी कोई कौशल इंस्टॉल नहीं है।',
     intgSkillsImportFolder: 'फ़ोल्डर आयात करें…',
     intgSkillsImportZip: 'कौशल पैकेज आयात करें (zip / .md)…',
@@ -12576,7 +12566,7 @@ export const strings = {
     intgSkillsImportDone: '{name} आयात हुआ',
     intgSkillsImportFailed: 'आयात विफल: {reason}',
     intgSkillsRemove: 'हटाएँ',
-    intgSkillsRemoveConfirm: 'कौशल "{name}" हटाएँ? इसका फ़ोल्डर GenOffice से हटा दिया जाएगा।',
+    intgSkillsRemoveConfirm: 'कौशल "{name}" हटाएँ? इसका फ़ोल्डर OneDesk से हटा दिया जाएगा।',
     intgSkillsRemoved: '{name} हटाया गया',
     skillDetailClose: 'बंद करें',
     skillDetailLoading: 'निर्देश लोड हो रहे हैं…',
@@ -12844,7 +12834,7 @@ export const strings = {
     docThemeFollowApp: '跟隨應用程式主題',
     saveLocation: '預設儲存位置',
     setRestoreSession: '啟動時重新開啟上次的文件',
-    setRestoreSessionDesc: '關閉 GenOffice 時開啟的文件會在下次啟動時自動重新開啟。',
+    setRestoreSessionDesc: '關閉 OneDesk 時開啟的文件會在下次啟動時自動重新開啟。',
     setTabSleep: '休眠閒置的標籤頁',
     setTabSleepDesc:
       '開啟的標籤頁多到一定數量後，長時間未查看的會釋放記憶體；回到它時會重新開啟檔案。有未儲存變更或已釘選的標籤頁不會休眠。',
@@ -12882,8 +12872,8 @@ export const strings = {
     setLegacyImportPromptDesc:
       '開啟 .doc、.odt、.hwp、.ods、.odp 等舊格式檔案時，先說明哪些內容會轉換過來。關閉後直接進入另存新檔。',
     setDefaultApp: '設為 Office 文件預設程式',
-    setDefaultAppDesc: '雙擊 .docx、.xlsx、.pptx 檔案時用 GenOffice 開啟。',
-    setDefaultAppIs: 'GenOffice 已是預設程式。',
+    setDefaultAppDesc: '雙擊 .docx、.xlsx、.pptx 檔案時用 OneDesk 開啟。',
+    setDefaultAppIs: 'OneDesk 已是預設程式。',
     setDefaultAppOther: '目前預設程式：{app}',
     setDefaultAppSet: '設為預設',
     setDefaultAppOpenSettings: '開啟系統設定',
@@ -12938,7 +12928,7 @@ export const strings = {
     setSecAbout: '關於',
     setSecIntegrations: '整合',
     setSecSkills: '技能',
-    intgHeroTitle: '在 AI 助理中使用 GenOffice',
+    intgHeroTitle: '在 AI 助理中使用 OneDesk',
     intgHeroDesc:
       '接好後，Claude Code、Codex、Cursor、Claude Desktop 等助理就能替你建立、轉換、讀取和編輯 Word、Excel、PowerPoint、PDF 和 Markdown 檔案。全部在本機完成，不會上傳任何內容。',
     intgHeroStep1: '選接法：助理能執行終端機指令就用 CLI，不能就用 MCP',
@@ -12946,21 +12936,21 @@ export const strings = {
     intgHeroStep3: '開一個新對話，直接提需求',
     intgStep1Title: '將 skill 安裝到你的助理',
     intgStep1Desc: '這裡只列出本機偵測到的助理。安裝到你實際使用的那一個即可，不必全部安裝。',
-    intgStep1Update: 'GenOffice 升級帶來新版 skill 時，對應助理旁會出現「更新」按鈕。',
+    intgStep1Update: 'OneDesk 升級帶來新版 skill 時，對應助理旁會出現「更新」按鈕。',
     intgSkillVersion: 'skill {v}',
     intgStateMissing: 'skill 未安裝',
     intgSharedReaders: '{list} 共用的 skills 資料夾',
     intgStateInstalled: '已安裝 skill {v} · 下次對話即可使用',
     intgLegacyTitle: '舊版 skill 副本',
     intgLegacyDesc:
-      'GenOffice 以前會把副本寫進每個工具自己的目錄。現在還有 {n} 份留在那裡:工具仍在讀取它們,所以永遠拿不到目前版本。',
+      'OneDesk 以前會把副本寫進每個工具自己的目錄。現在還有 {n} 份留在那裡:工具仍在讀取它們,所以永遠拿不到目前版本。',
     intgLegacyClean: '刪除舊副本',
     intgLegacyCleaned: '已刪除 {n} 份舊副本,{k} 份被手動改過的保留不動。',
     intgLegacyFailed: '刪除舊副本失敗:{msg}',
     intgOtherToggle: '沒有列出我的助理',
     intgOtherDesc: '以下三種方式任選一種即可。安裝的是同一份 skill，不需要重複操作。',
     intgOtherFolderTitle: '任何能讀取 SKILL.md 資料夾的助理',
-    intgOtherFolderDesc: '選擇它的 skills 資料夾，GenOffice 會把檔案寫進去。',
+    intgOtherFolderDesc: '選擇它的 skills 資料夾，OneDesk 會把檔案寫進去。',
     intgOtherZipTitle: '把檔案交給助理',
     intgOtherZipDesc: '把 skill 儲存為 zip，然後讓助理自行安裝。',
     intgOtherNpxTitle: '用 skills 指令安裝（需要 Node.js）',
@@ -12970,20 +12960,20 @@ export const strings = {
     intgStep2Desc: '在助理中開一個新對話，用平常說話的方式提出需求，例如：',
     intgExample1: '把 ~/Downloads/report.md 轉成 Word 文件',
     intgExample2: '做一份 6 頁的簡報，介紹我們第三季的業績',
-    intgExample3: '把 budget.xlsx 轉成 PDF，並在 GenOffice 中開啟',
-    intgStep2Note: '助理會透過命令列或 MCP 自行呼叫 GenOffice，你不需要輸入任何指令。',
+    intgExample3: '把 budget.xlsx 轉成 PDF，並在 OneDesk 中開啟',
+    intgStep2Note: '助理會透過命令列或 MCP 自行呼叫 OneDesk，你不需要輸入任何指令。',
     intgCliPartTitle: 'CLI · 命令列 + skill',
     intgCliPartDesc:
-      '適合能執行終端機指令的助理（Claude Code、Codex、Cursor 等）。安裝 skill 後，助理會自己呼叫 genoffice 命令列建立、轉換、讀取和編輯檔案，你不需要輸入任何指令。',
+      '適合能執行終端機指令的助理（Claude Code、Codex、Cursor 等）。安裝 skill 後，助理會自己呼叫 onedesk 命令列建立、轉換、讀取和編輯檔案，你不需要輸入任何指令。',
     intgMcpPartTitle: 'MCP',
     intgMcpPartDesc:
-      'MCP 是 AI 助理呼叫外部工具的通用協定。助理不能執行指令（如 Claude Desktop），或你想讓它直接操作 GenOffice 視窗時用這條路。下面兩種接法任選一種。',
+      'MCP 是 AI 助理呼叫外部工具的通用協定。助理不能執行指令（如 Claude Desktop），或你想讓它直接操作 OneDesk 視窗時用這條路。下面兩種接法任選一種。',
     intgMcpStdioTitle: '由助理啟動（建議）',
     intgMcpStdioDesc:
-      '助理自己啟動 genoffice mcp，不需要在這裡開任何開關，GenOffice 也不用開著。功能與 CLI 完全相同。',
+      '助理自己啟動 onedesk mcp，不需要在這裡開任何開關，OneDesk 也不用開著。功能與 CLI 完全相同。',
     intgMcpHttpTitle: '本機 HTTP 服務',
     intgMcpHttpDesc:
-      '在 GenOffice 內執行，助理透過網址連線，可以看著它在 Word 編輯器裡逐步產生。需要 GenOffice 保持開啟；目前只支援 Word。',
+      '在 OneDesk 內執行，助理透過網址連線，可以看著它在 Word 編輯器裡逐步產生。需要 OneDesk 保持開啟；目前只支援 Word。',
     intgMcpHttpAdvanced: '進階：其他位址與記錄',
     intgMcpClaudeTitle: 'Claude Code',
     intgMcpClaudeDesc: '在終端機執行一次：',
@@ -12991,10 +12981,10 @@ export const strings = {
     intgMcpOtherDesc:
       '把這段加進它的 MCP 伺服器設定（一個 JSON 檔，或設定裡的「新增 MCP 伺服器」）：',
     intgMcpNote: 'skill 和 MCP 可以同時存在，助理會自行選用；兩者做的事完全相同。',
-    intgCliTitle: '進階：命令列 genoffice',
-    intgCliReady: 'genoffice {v} · 已可在終端機直接使用（{path}）',
+    intgCliTitle: '進階：命令列 onedesk',
+    intgCliReady: 'onedesk {v} · 已可在終端機直接使用（{path}）',
     intgCliNotOnPath:
-      'genoffice {v} · 尚未加入終端機 PATH。助理仍能透過 ~/.genoffice/launcher 找到它，skill 不受影響。若想自己在終端機輸入 genoffice，執行一次：',
+      'onedesk {v} · 尚未加入終端機 PATH。助理仍能透過 ~/.onedesk/launcher 找到它，skill 不受影響。若想自己在終端機輸入 onedesk，執行一次：',
     intgCliLauncher: '啟動器資料夾',
     intgStateOutdated: '已安裝 {v}，可更新至 {next}',
     intgStateModified: '已安裝 {v}（已被修改）',
@@ -13018,9 +13008,9 @@ export const strings = {
     intgSaveZipTitle: '儲存 skill',
     intgSavedTo: '已儲存至 {path}',
     intgCopied: '已複製',
-    intgCliEphemeral: '請先把 GenOffice 拖到「應用程式」，再使用命令列。',
+    intgCliEphemeral: '請先把 OneDesk 拖到「應用程式」，再使用命令列。',
     intgCopyPath: '複製路徑',
-    intgCliNeedsUpdate: '此 skill 需要命令列 {v} 或更新版本，請更新 GenOffice。',
+    intgCliNeedsUpdate: '此 skill 需要命令列 {v} 或更新版本，請更新 OneDesk。',
     intgLoading: '正在檢查…',
     intgUpdateDue: 'skill 有新版本可更新',
     setSecAiModel: 'AI 模型',
@@ -13078,13 +13068,13 @@ export const strings = {
       '服務商選擇 Genspark 時，網頁搜尋、生圖與媒體解析經 Genspark 雲端並消耗點數；關閉後搜尋改用免費來源，Genspark 生圖工具不可用。',
     setGithub: '開源專案',
     starOnGitHub: '到 GitHub 給我們一顆星',
-    starPromptTitle: '喜歡 GenOffice 嗎？',
-    starPromptTitleN: '你已經用 GenOffice 開啟了 {n} 個文件',
-    starPromptBody: 'GenOffice 是免費的開源軟體。到 GitHub 給我們一顆星，是對團隊最好的支持。',
+    starPromptTitle: '喜歡 OneDesk 嗎？',
+    starPromptTitleN: '你已經用 OneDesk 開啟了 {n} 個文件',
+    starPromptBody: 'OneDesk 是免費的開源軟體。到 GitHub 給我們一顆星，是對團隊最好的支持。',
     starPromptGo: '去給星星',
     starPromptDone: '已經給過了',
     starPromptLater: '以後再說',
-    onbStarHint: '如果你喜歡 GenOffice，歡迎到 GitHub 給我們一顆星。',
+    onbStarHint: '如果你喜歡 OneDesk，歡迎到 GitHub 給我們一顆星。',
     setEmail: '電子郵件',
     setNotLoggedIn: '未登入',
     setViewUsage: '查看用量',
@@ -13097,11 +13087,11 @@ export const strings = {
     appMenu: '選單',
     newTab: '新分頁',
     // First-run onboarding
-    onbTitle1: '歡迎使用 GenOffice',
+    onbTitle1: '歡迎使用 OneDesk',
     onbSubtitle1: '第一個開源的 AI 原生 Office 套件',
     onbBody1: '建立文件、製作試算表、產生簡報、審閱 PDF。AI 深度融入每個環節。',
     onbTitle2: '這只是一個開始',
-    onbBody2: 'GenOffice 目前仍在 alpha 階段。歡迎加入 GenTeam 群聊，分享回饋，一起打造它的未來。',
+    onbBody2: 'OneDesk 目前仍在 alpha 階段。歡迎加入 GenTeam 群聊，分享回饋，一起打造它的未來。',
     onbCredits: '活躍貢獻者可獲得 **1,000+ Genspark 點數**',
     onbJoinGenTeam: '加入 GenTeam',
     onbSkip: '略過',
@@ -13113,7 +13103,7 @@ export const strings = {
     onbNote3: 'AI 功能可能消耗 Genspark 點數。',
     onbBack: '上一步',
     intgSkillsDesc:
-      'GenOffice 只使用自己技能資料夾裡的技能。從資料夾或 zip 匯入會把整個技能複製進來；匯入不會自動執行任何東西。',
+      'OneDesk 只使用自己技能資料夾裡的技能。從資料夾或 zip 匯入會把整個技能複製進來；匯入不會自動執行任何東西。',
     intgSkillsEmpty: '尚未安裝技能。',
     intgSkillsImportFolder: '匯入資料夾…',
     intgSkillsImportZip: '匯入技能包（zip / .md）…',
@@ -13122,7 +13112,7 @@ export const strings = {
     intgSkillsImportDone: '已匯入 {name}',
     intgSkillsImportFailed: '匯入失敗：{reason}',
     intgSkillsRemove: '移除',
-    intgSkillsRemoveConfirm: '移除技能「{name}」？其資料夾會從 GenOffice 中刪除。',
+    intgSkillsRemoveConfirm: '移除技能「{name}」？其資料夾會從 OneDesk 中刪除。',
     intgSkillsRemoved: '已移除 {name}',
     skillDetailClose: '關閉',
     skillDetailLoading: '正在載入說明…',

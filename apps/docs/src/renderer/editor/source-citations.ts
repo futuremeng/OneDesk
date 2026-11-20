@@ -10,7 +10,7 @@ import {
   type Block,
   type CitationStyleId,
   type SourceInfo,
-} from '@genoffice/docx-engine'
+} from '@onedesk/docx-engine'
 import { t } from '../i18n/locale'
 import { findFieldRange, type TocRange } from './toc-update'
 

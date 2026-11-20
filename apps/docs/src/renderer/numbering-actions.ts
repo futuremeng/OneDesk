@@ -13,7 +13,7 @@ import {
   type ListItemRef,
   type NumberingDef,
   type NumberingLevel,
-} from '@genoffice/docx-engine'
+} from '@onedesk/docx-engine'
 import type { DocState, PendingNumbering } from './doc-state'
 import { t } from './i18n/locale'
 import { newListStyleId, type ListStyleEntry } from './list-styles'

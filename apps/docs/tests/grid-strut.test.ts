@@ -8,7 +8,7 @@
  */
 import { Editor } from '@tiptap/core'
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import type { ParsedDocFull } from '@genoffice/docx-engine'
+import type { ParsedDocFull } from '@onedesk/docx-engine'
 import { docStyleCss } from '../src/renderer/doc-style-css'
 import { editorExtensions } from '../src/renderer/editor/extensions'
 import { declaredStrutFace, resetStrutFaces } from '../src/renderer/text-layout/strut-face'

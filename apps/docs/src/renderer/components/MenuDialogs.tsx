@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, type ReactNode } from 'react'
-import { DEFAULT_MATH_BREAKS, type LineNumbering, type MathPr } from '@genoffice/docx-engine'
+import { DEFAULT_MATH_BREAKS, type LineNumbering, type MathPr } from '@onedesk/docx-engine'
 import type { DocMoveResult, TemplateEntry } from '../../shared/ipc'
 import { originalPictureSizeOf } from '../editor/picture-bytes'
 import type { PictureGeometry, PicturePreset } from '../editor/picture-props'

@@ -50,7 +50,7 @@ async function align(page: Page, item: string): Promise<void> {
 
 test('Shift+click selects several shapes and Align lines them up, on screen and in the saved file', async () => {
   test.setTimeout(120_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-object-align-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-object-align-')))
   const docPath = join(dir, 'shapes.docx')
   writeFileSync(docPath, await docxWithShapes())
   const launched = await launchShell({
@@ -150,7 +150,7 @@ test('Shift+click selects several shapes and Align lines them up, on screen and 
 
 test('a picture alone in its paragraph and one beside text line up together and against the margin', async () => {
   test.setTimeout(120_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-object-align-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-object-align-')))
   const docPath = join(dir, 'pictures.docx')
   writeFileSync(docPath, await docxWithPictures())
   const launched = await launchShell({

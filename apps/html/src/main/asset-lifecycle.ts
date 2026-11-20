@@ -1,10 +1,10 @@
 import { createHash } from 'node:crypto'
 import { lstat, mkdir, readFile, readdir, realpath, rm, stat, writeFile } from 'node:fs/promises'
 import { basename, dirname, extname, isAbsolute, join, relative, resolve, sep } from 'node:path'
-import { copyFileExclusive } from '@genoffice/electron-utils/copy-file'
+import { copyFileExclusive } from '@onedesk/electron-utils/copy-file'
 import { atomicWriteFile } from './atomic-write'
 
-export const ASSET_MANIFEST_FILENAME = '.genoffice-assets.json'
+export const ASSET_MANIFEST_FILENAME = '.onedesk-assets.json'
 
 export interface OwnedAssetRecord {
   name: string

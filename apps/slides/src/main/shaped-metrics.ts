@@ -336,8 +336,8 @@ export async function refineComplexWidths(wc: {
       // The renderer's own drawing stack (konva-adapter displayFontFamily): glyphs the face
       // lacks fall back per family (Korean-named faces to Malgun/Apple SD Gothic Neo, …), and
       // measuring them in any other fallback font would shift every following glyph
-      const stackOf = typeof window.__genofficeDisplayFontFamily === 'function'
-        ? window.__genofficeDisplayFontFamily
+      const stackOf = typeof window.__onedeskDisplayFontFamily === 'function'
+        ? window.__onedeskDisplayFontFamily
         : (f) => '"' + f + '", \\'PingFang SC\\', \\'Microsoft YaHei\\', \\'Yu Gothic\\', \\'Malgun Gothic\\', sans-serif'
       const out = {}
       for (const it of items) {

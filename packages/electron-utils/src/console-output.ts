@@ -90,7 +90,7 @@ export function decodeCommandOutput(
   }
 }
 
-/** UTF-8 for children known to emit it (the genoffice CLI; PowerShell after
+/** UTF-8 for children known to emit it (the onedesk CLI; PowerShell after
  *  `[Console]::OutputEncoding = UTF8`). Non-fatal, so a truncated tail at the
  *  byte cap or on timeout becomes U+FFFD instead of failing the whole buffer. */
 export function decodeUtf8(output: Buffer | string): string {

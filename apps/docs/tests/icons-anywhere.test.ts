@@ -15,7 +15,7 @@ import {
   saveDocx,
   type HeaderFooter,
   type TextboxDisplay,
-} from '@genoffice/docx-engine'
+} from '@onedesk/docx-engine'
 import { buildDocx, TINY_PNG_BASE64 } from '../../../packages/docx-engine/tests/helpers/build-docx'
 import { setActiveSubEditor } from '../src/renderer/editor/active-editor'
 import {

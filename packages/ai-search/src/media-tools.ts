@@ -19,15 +19,15 @@ import {
   type AiSettings,
   type LegacyAiSettings,
   type MediaBlob,
-} from '@genoffice/ai-provider'
-// deep imports: the package root re-exports Electron-bound modules, and this file also runs in the genoffice CLI
-import { readGeneratedImage, storeGeneratedImage } from '@genoffice/electron-utils/generated-images'
+} from '@onedesk/ai-provider'
+// deep imports: the package root re-exports Electron-bound modules, and this file also runs in the onedesk CLI
+import { readGeneratedImage, storeGeneratedImage } from '@onedesk/electron-utils/generated-images'
 import {
   ResponseTooLargeError,
   fetchRemoteImage,
   readBodyCapped,
-} from '@genoffice/electron-utils/remote-image'
-import { fetchWithSsrfGuard } from '@genoffice/electron-utils/safe-remote-url'
+} from '@onedesk/electron-utils/remote-image'
+import { fetchWithSsrfGuard } from '@onedesk/electron-utils/safe-remote-url'
 import { gskAnalyzeMedia, gskGenerateImage, hasGskAuth, type GskGenerateImageOptions } from './gsk'
 
 export const GSK_NOT_LOGGED_IN_ERROR =

@@ -30,9 +30,9 @@ import type {
   StyleUpsert,
   ThemeColors,
   ThemeFonts,
-} from '@genoffice/docx-engine'
-import { CITATION_STYLES, DEFAULT_LINE_PITCH_TWIPS } from '@genoffice/docx-engine'
-import { WORDART_PRESETS } from '@genoffice/ui'
+} from '@onedesk/docx-engine'
+import { CITATION_STYLES, DEFAULT_LINE_PITCH_TWIPS } from '@onedesk/docx-engine'
+import { WORDART_PRESETS } from '@onedesk/ui'
 import { runUiOps } from '../ai/ops'
 import {
   TEXTBOX_HEIGHT_EMU,

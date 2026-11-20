@@ -12,11 +12,11 @@
  */
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react'
 import type { ReactElement } from 'react'
-import { useImeEnterGuard } from '@genoffice/ui'
+import { useImeEnterGuard } from '@onedesk/ui'
 import type { Editor } from '@tiptap/core'
 import { NodeSelection } from '@tiptap/pm/state'
 import { CellSelection } from '@tiptap/pm/tables'
-import { useAiPanelPrefs } from '@genoffice/ui'
+import { useAiPanelPrefs } from '@onedesk/ui'
 import { useI18n, type StringKey } from '../i18n/locale'
 import { AI_QUEUE_ANCHOR_CLICK, queueAnchorRange } from '../editor/aiQueueAnchors'
 import { setInactiveSelectionShown } from '../editor/inactiveSelection'

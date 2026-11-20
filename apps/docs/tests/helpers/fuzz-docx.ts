@@ -1,5 +1,5 @@
 /** A seeded generator of varied-but-valid DOCX packages for the round-trip
- *  fuzz suite. The external genoffice#2381 trial measured one hand-built hostile
+ *  fuzz suite. The external onedesk#2381 trial measured one hand-built hostile
  *  document; this generator composes the same feature vocabulary (rich runs,
  *  CJK, hyperlinks, tables with gridSpan/vMerge shapes including orphan
  *  continuations, nested tables, images, math, tracked changes, simple fields,
@@ -128,7 +128,7 @@ function tableXml(r: () => number, seed: number, tableIndex: number): string {
   // per column: where a vMerge restart sits (or none); a later row may then continue it
   const restartAt = new Map<number, number>()
   for (let c = 0; c < cols; c++) if (r() < 0.35) restartAt.set(c, Math.floor(r() * rows))
-  // an orphan continuation in one column of one row (the genoffice#2381/genoffice#2405 shape)
+  // an orphan continuation in one column of one row (the onedesk#2381/onedesk#2405 shape)
   const orphanCol = r() < 0.3 ? Math.floor(r() * cols) : -1
   const orphanRow = orphanCol >= 0 ? Math.floor(r() * rows) : -1
 

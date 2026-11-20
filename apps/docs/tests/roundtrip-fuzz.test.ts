@@ -1,5 +1,5 @@
 /** Seeded round-trip fuzz for the DOCX save pipeline — the in-repo
- *  continuation of the genoffice#2381 editors_trial methodology. The external trial
+ *  continuation of the onedesk#2381 editors_trial methodology. The external trial
  *  measured one hand-built document; this suite asserts the same properties
  *  over many random combinations (see helpers/fuzz-docx.ts):
  *
@@ -24,7 +24,7 @@
  *  model: fidelity here is exact byte preservation through a body edit. */
 import { Editor } from '@tiptap/core'
 import JSZip from 'jszip'
-import { parseDocx, saveDocx } from '@genoffice/docx-engine'
+import { parseDocx, saveDocx } from '@onedesk/docx-engine'
 import { describe, expect, it } from 'vitest'
 import { blocksToPmDoc, pmDocToSavePlan, type PmNode } from '../src/renderer/editor/convert'
 import { editorExtensions } from '../src/renderer/editor/extensions'

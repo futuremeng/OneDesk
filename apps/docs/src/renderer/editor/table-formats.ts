@@ -1,4 +1,4 @@
-import type { StyleParaProps, StyleRunProps, StyleUpsert } from '@genoffice/docx-engine'
+import type { StyleParaProps, StyleRunProps, StyleUpsert } from '@onedesk/docx-engine'
 import type { IndexTablesKind } from './index-tables'
 
 /** a built-in paragraph style the entries of a generated table are written in */

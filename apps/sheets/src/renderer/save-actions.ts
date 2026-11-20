@@ -34,12 +34,12 @@ import {
   serializeActiveSheetCsv,
 } from './csv-export'
 import { settleFormulas } from './formula-settle'
-import type { CellScalar, CellState } from '@genoffice/xlsx-gateway/domain/workbook.types'
-import type { SheetRedactionState } from '@genoffice/xlsx-gateway/gateway/xlsx-redaction'
+import type { CellScalar, CellState } from '@onedesk/xlsx-gateway/domain/workbook.types'
+import type { SheetRedactionState } from '@onedesk/xlsx-gateway/gateway/xlsx-redaction'
 /// The slicerState member of a save request (zod: non-strict object shape).
 type WorkbookSlicerSaveState = NonNullable<WorkbookSaveRequest['slicerState']>
 import type { ExternalLinkOps } from '../shared/desktop-api'
-import { formatAddress } from '@genoffice/xlsx-gateway/domain/cell-address'
+import { formatAddress } from '@onedesk/xlsx-gateway/domain/cell-address'
 import { isErrorResult, verifiedFormulaValues } from './formula-values'
 import { COORDINATE_SHIFTING_OPS } from './formula-cached-fallback'
 import { t } from './i18n/locale'
@@ -274,7 +274,7 @@ function formulaTextOf(
 
 /**
  * Cache refreshes the recalc overlay cannot contribute, read from the live
- * model at save time (genoffice#2466). In closure 'idle' — the full-load path
+ * model at save time (onedesk#2466). In closure 'idle' — the full-load path
  * where Univer's own engine computes every formula — no sidecar recalc ever
  * runs, so until now a formula typed into the grid was saved as text alone
  * (the journal deliberately drops the engine's `fromFormula` results) and a
@@ -555,7 +555,7 @@ export async function handleSave(
   // engine's fromFormula results are dropped on purpose), and a dependent
   // keeps the cached value from before its precedent's edit — the recalc
   // overlay only covers the sidecar's streamed-mode windows, never the
-  // engine-backed full-load path (genoffice#2466).
+  // engine-backed full-load path (onedesk#2466).
   const refreshedValues = ctx.readCells ? liveFormulaCacheValues(state, ctx.readCells) : []
   // freshest last: the overlay's sidecar windows < this save's live reads
   const formulaValues = dedupeFormulaValues([

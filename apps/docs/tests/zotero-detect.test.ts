@@ -28,12 +28,8 @@ describe('Zotero detection', () => {
   })
 
   it('lets the environment pin the answer either way', async () => {
-    expect(await zoteroAvailable({ env: { GENOFFICE_ZOTERO: '1' }, exists: () => false })).toBe(
-      true,
-    )
-    expect(await zoteroAvailable({ env: { GENOFFICE_ZOTERO: '0' }, exists: () => true })).toBe(
-      false,
-    )
+    expect(await zoteroAvailable({ env: { ONEDESK_ZOTERO: '1' }, exists: () => false })).toBe(true)
+    expect(await zoteroAvailable({ env: { ONEDESK_ZOTERO: '0' }, exists: () => true })).toBe(false)
   })
 
   it('finds an install on disk without probing the port', async () => {

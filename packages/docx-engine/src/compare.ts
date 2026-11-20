@@ -93,7 +93,7 @@ export const DEFAULT_COMPARE_SETTINGS: CompareSettings = {
 }
 
 export interface CompareOptions {
-  /** author recorded on every revision; default "GenOffice" */
+  /** author recorded on every revision; default "OneDesk" */
   author?: string
   /** ISO timestamp recorded on every revision; default: now */
   date?: string
@@ -201,7 +201,7 @@ interface Token {
 const PAIR_THRESHOLD = 0.6
 
 /** the author recorded when the caller names none */
-export const DEFAULT_COMPARE_AUTHOR = 'GenOffice'
+export const DEFAULT_COMPARE_AUTHOR = 'OneDesk'
 
 /**
  * Build the redline: the revised document with the differences marked as

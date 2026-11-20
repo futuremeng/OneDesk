@@ -2,7 +2,7 @@ import { Extension } from '@tiptap/core'
 import { Plugin, PluginKey } from '@tiptap/pm/state'
 import { parseLangAttr, type LangSlots } from './proofing-language'
 
-const PREF_KEY = 'genoffice.docs.detectLanguage'
+const PREF_KEY = 'onedesk.docs.detectLanguage'
 
 /** off unless turned on in Tools > Language: marking text changes what a save writes */
 export function detectLanguageEnabled(): boolean {

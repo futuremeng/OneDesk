@@ -129,7 +129,7 @@ async function accept(dialog: Locator) {
 
 test('a line and character grid is set in characters per line or pitch', async () => {
   test.setTimeout(240_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-char-grid-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-char-grid-')))
   const docPath = join(dir, 'grid.docx')
   writeFileSync(
     docPath,
@@ -212,7 +212,7 @@ test('a line and character grid is set in characters per line or pitch', async (
 
 test('text snaps to the character grid, and Set Font changes the font its cells are counted from', async () => {
   test.setTimeout(240_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-char-grid-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-char-grid-')))
   const docPath = join(dir, 'snap.docx')
   // cells of 10.5pt + 6144/4096pt = 12pt on lines of 18pt
   writeFileSync(

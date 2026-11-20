@@ -16,7 +16,7 @@ import {
   type CommentInfo,
   type NoteInfo,
   type ParsedDocFull,
-} from '@genoffice/docx-engine'
+} from '@onedesk/docx-engine'
 import type { Dispatch, SetStateAction } from 'react'
 import { authorName } from './author-name'
 import type { CompareRequest, CompareSide } from './compare-request'

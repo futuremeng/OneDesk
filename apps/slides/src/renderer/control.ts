@@ -1,6 +1,6 @@
-import type { RenderNode, RenderSlide } from '@genoffice/pptx-render'
+import type { RenderNode, RenderSlide } from '@onedesk/pptx-render'
 
-/** Request/reply the shell relays from `genoffice open --slide/--el` and `genoffice selection`. */
+/** Request/reply the shell relays from `onedesk open --slide/--el` and `onedesk selection`. */
 export type ControlRequest =
   { cmd: 'goto'; target: { kind: string; slide?: number; el?: string } } | { cmd: 'selection' }
 

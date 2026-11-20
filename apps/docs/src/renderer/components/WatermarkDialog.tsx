@@ -12,7 +12,7 @@ import {
   type SectionSettings,
   type Watermark,
   type WatermarkSpec,
-} from '@genoffice/docx-engine'
+} from '@onedesk/docx-engine'
 import { useI18n } from '../i18n/locale'
 import { fontFamiliesFor } from '../font-list'
 import { hfWashoutFilter, wordArtSvgMarkup } from '../editor/hf-dom'

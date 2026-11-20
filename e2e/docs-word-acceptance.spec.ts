@@ -23,7 +23,7 @@ import {
 const VIDEO_DIR = 'docs-word-acceptance'
 
 async function open(body: string, name: string) {
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-acceptance-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-acceptance-')))
   const docPath = join(dir, name)
   writeFileSync(docPath, await docxWith(body + SECT_PR))
   const launched = await launchShell({

@@ -1,4 +1,4 @@
-import type { DocDefaults, DocGrid, StyleInfo } from '@genoffice/docx-engine'
+import type { DocDefaults, DocGrid, StyleInfo } from '@onedesk/docx-engine'
 
 /** the grids that give every line a pitch */
 export const LINE_GRIDS: ReadonlyArray<DocGrid['type']> = ['lines', 'linesAndChars', 'snapToChars']

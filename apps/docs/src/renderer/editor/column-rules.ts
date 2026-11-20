@@ -1,4 +1,4 @@
-import type { SectionInfo } from '@genoffice/docx-engine'
+import type { SectionInfo } from '@onedesk/docx-engine'
 import type { PageCut } from '../pagination-cuts'
 import { sectionColGeom, sectionColumns } from '../pagination-sections'
 import type { BlockBox } from '../pagination-types'

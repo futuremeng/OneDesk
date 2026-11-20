@@ -5,7 +5,7 @@ import type {
   TextOutline,
   TextReflection,
   TextShadow,
-} from '@genoffice/docx-engine'
+} from '@onedesk/docx-engine'
 import {
   glowAndShadowDecl,
   parseFxOwnAttr,

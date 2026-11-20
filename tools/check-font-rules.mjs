@@ -54,7 +54,7 @@ const RULES = [
   [/\b(?:LINE_FACTOR_RULES|LINE_FACTORS|LINE_FACTOR_PINS)\b/, 'line-factor table read'],
   [/\b(?:STAND_IN_CHAINS|FACE_CHAIN_RULES|namedFaceChain)\b/, 'chain table read'],
   // a quoted family chain or a stand-in alias literal
-  [/'[^']+ GO'|'GenOffice [^']+'|'Noto (?:Sans|Serif) CJK/, 'font chain literal'],
+  [/'[^']+ GO'|'OneDesk [^']+'|'Noto (?:Sans|Serif) CJK/, 'font chain literal'],
   // a regex over font names (vendor / script family words)
   [
     /\/[^/\n]*(?:simsun|mincho|gothic|batang|malgun|gulim|yahei|dengxian|calibri|cambria|arial|helvetica|segoe|aptos|times|courier|verdana|georgia|tahoma)[^/\n]*\/[a-z]*/i,

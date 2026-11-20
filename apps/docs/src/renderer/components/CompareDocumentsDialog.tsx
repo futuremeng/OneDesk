@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import type { CompareGranularity } from '@genoffice/docx-engine'
+import type { CompareGranularity } from '@onedesk/docx-engine'
 import {
   ALL_COMPARE_SETTINGS,
   COMPARE_SETTING_KEYS,

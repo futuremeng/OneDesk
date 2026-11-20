@@ -6,7 +6,7 @@ import { Decoration, DecorationSet, type EditorView } from '@tiptap/pm/view'
 import type { Node as ProseMirrorNode } from '@tiptap/pm/model'
 import { isInTable } from '@tiptap/pm/tables'
 import { t } from '../i18n/locale'
-import { type TabStop } from '@genoffice/docx-engine'
+import { type TabStop } from '@onedesk/docx-engine'
 
 /**
  * Custom schema mirroring the docx-engine Block model 1:1.
@@ -224,7 +224,7 @@ const TWIPS_PER_PX = 15
 /** fallback when the document's settings.xml declares no w:defaultTabStop (Word: 0.5") */
 const DEFAULT_TAB_TWIPS = 720
 /** the document's default tab stop was changed: every default tab is measured again */
-export const DEFAULT_TAB_STOP_CHANGED_EVENT = 'genoffice:default-tab-stop'
+export const DEFAULT_TAB_STOP_CHANGED_EVENT = 'onedesk:default-tab-stop'
 
 export interface TabStopStorage {
   /** settings.xml w:defaultTabStop (twips); 0 = zero-width default tabs (Word barely advances) */
@@ -1048,7 +1048,7 @@ export const TabStopExtension = Extension.create({
     // stops, or the paragraph's custom w:tabs). Lists indent and tables move
     // to the next cell — those handlers live on DocListItem / NativeTableSupport
     // and run after this one returns false. An unhandled Tab would leave the
-    // editor and cycle the ribbon buttons (github.com/genspark-ai/genoffice/issues/101).
+    // editor and cycle the ribbon buttons (onedesk.jiulu.ltd/issues/101).
     const insertTab = () => {
       if (!this.editor.isEditable) return false
       if (this.editor.isActive('docListItem')) return false

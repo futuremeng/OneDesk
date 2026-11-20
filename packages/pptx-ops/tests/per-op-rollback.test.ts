@@ -10,7 +10,7 @@ import {
   savePptx,
   type OpenedPptx,
   type TextElement,
-} from '@genoffice/pptx-engine'
+} from '@onedesk/pptx-engine'
 import { runTxn } from '../src/ops/executor'
 import { GuidedError, lookup, register, type Op } from '../src/ops/registry'
 import '../src/ops/index'

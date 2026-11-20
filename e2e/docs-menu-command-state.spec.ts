@@ -219,7 +219,7 @@ const tableItems = (app: ElectronApplication, paths: string[][]) =>
 
 test('Table menu items are greyed out until the caret is in a table', async () => {
   test.setTimeout(120_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-menu-state-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-menu-state-')))
   const docPath = join(dir, 'table.docx')
   writeFileSync(docPath, await docxWithTable())
   const launched = await launchShell({
@@ -1035,7 +1035,7 @@ test('the Tools items, Add Text and Finish & Merge that held a place now run', a
 
 test('Ribbon, Footnotes, Reset Ignored Words, Properties, Always Open Read-Only and the recipient dialogs run', async () => {
   test.setTimeout(180_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-menu-batch11-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-menu-batch11-')))
   const docPath = join(dir, 'letter.docx')
   writeFileSync(docPath, await docxWithTable())
   const listPath = join(dir, 'people.csv')
@@ -1221,7 +1221,7 @@ test('Ribbon, Footnotes, Reset Ignored Words, Properties, Always Open Read-Only 
 
 test('Focus, Number, Text Direction, Sort, Rename and Move run from the places Word has them in', async () => {
   test.setTimeout(180_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-menu-batch12-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-menu-batch12-')))
   const docPath = join(dir, 'letter.docx')
   writeFileSync(docPath, await docxWithTable(['cherry', 'apple']))
   const archive = join(dir, 'archive')
@@ -1368,7 +1368,7 @@ test('Focus, Number, Text Direction, Sort, Rename and Move run from the places W
 
 test('Bar, Area and Radar charts, Borders and Shading, Font Substitution and Rules run', async () => {
   test.setTimeout(180_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-menu-batch13-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-menu-batch13-')))
   const docPath = join(dir, 'letter.docx')
   // a section of its own, as every document Word writes has: the page border is saved on it
   const sectPr =
@@ -1507,7 +1507,7 @@ test('Bar, Area and Radar charts, Borders and Shading, Font Substitution and Rul
 
 test('Character Shading, Index and Tables and Hyphenation run, and Hyphenation is saved with the file', async () => {
   test.setTimeout(120_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-menu-state-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-menu-state-')))
   const docPath = join(dir, 'hyphenation.docx')
   writeFileSync(docPath, await docxWithTable())
   const launched = await launchShell({
@@ -1582,7 +1582,7 @@ test('Character Shading, Index and Tables and Hyphenation run, and Hyphenation i
 
 test('Design > Paragraph Spacing re-spaces the body text and is saved with the file', async () => {
   test.setTimeout(120_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-menu-state-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-menu-state-')))
   const docPath = join(dir, 'spacing.docx')
   writeFileSync(docPath, await docxWithTable(['One', 'Two']))
   const launched = await launchShell({
@@ -1633,7 +1633,7 @@ test('Design > Paragraph Spacing re-spaces the body text and is saved with the f
 
 test('Home > Character Border boxes the selected text and the box is saved with the file', async () => {
   test.setTimeout(120_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-menu-state-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-menu-state-')))
   const docPath = join(dir, 'border.docx')
   writeFileSync(docPath, await docxWithTable())
   const launched = await launchShell({
@@ -1733,7 +1733,7 @@ test('a table of figures lists the captions, from Index and Tables and the Refer
 
 test('AutoText keeps and re-inserts a selection, Reveal Formatting describes it, and a marked citation reaches a saved table of authorities', async () => {
   test.setTimeout(150_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-menu-state-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-menu-state-')))
   const docPath = join(dir, 'authorities.docx')
   writeFileSync(docPath, await docxWithTable())
   const launched = await launchShell({
@@ -1848,7 +1848,7 @@ test('AutoText keeps and re-inserts a selection, Reveal Formatting describes it,
 
 test('Language marks the selected text and saves it; the Selection Pane selects a text box; Format Object shows its tab; the Citations pane cites a source', async () => {
   test.setTimeout(120_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-menu-state-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-menu-state-')))
   const docPath = join(dir, 'language.docx')
   writeFileSync(docPath, await docxWithTable())
   const launched = await launchShell({
@@ -1963,7 +1963,7 @@ test('Language marks the selected text and saves it; the Selection Pane selects 
 
 test('Save as Template writes a .dotx and leaves the document alone; New from Template starts an untitled document that saves as a .docx', async () => {
   test.setTimeout(120_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-menu-state-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-menu-state-')))
   const docPath = join(dir, 'letter.docx')
   const templatePath = join(dir, 'letter.dotx')
   const madePath = join(dir, 'from-template.docx')
@@ -2076,7 +2076,7 @@ test('Save as Template writes a .dotx and leaves the document alone; New from Te
 
 test('Phonetic Guide puts a reading on the selected text, changes it, saves it and clears it', async () => {
   test.setTimeout(120_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-menu-state-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-menu-state-')))
   const docPath = join(dir, 'ruby.docx')
   writeFileSync(docPath, await docxWithTable())
   const launched = await launchShell({
@@ -2143,7 +2143,7 @@ test('Phonetic Guide puts a reading on the selected text, changes it, saves it a
 
 test('Two Lines in One, Fit Text and the Asian Layout button set the layout of selected text, and it is saved', async () => {
   test.setTimeout(120_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-menu-state-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-menu-state-')))
   const docPath = join(dir, 'asian.docx')
   writeFileSync(docPath, await docxWithTable())
   const launched = await launchShell({
@@ -2215,7 +2215,7 @@ test('Two Lines in One, Fit Text and the Asian Layout button set the layout of s
 
 test('Insert > Chart > Stock and Surface insert their charts, and each is saved as its own type', async () => {
   test.setTimeout(120_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-menu-state-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-menu-state-')))
   const docPath = join(dir, 'stock.docx')
   writeFileSync(docPath, await docxWithTable())
   const launched = await launchShell({
@@ -2285,7 +2285,7 @@ test('Insert > Chart > Stock and Surface insert their charts, and each is saved 
 
 test('Insert > Chart inserts the seven types of the chart extension, each drawn as itself and saved as its own part', async () => {
   test.setTimeout(180_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-menu-state-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-menu-state-')))
   const docPath = join(dir, 'charts.docx')
   writeFileSync(docPath, await docxWithTable())
   const launched = await launchShell({
@@ -2359,7 +2359,7 @@ test('Insert > Chart inserts the seven types of the chart extension, each drawn 
 
 test('Insert > Chart > X Y (Scatter) inserts a scatter chart, Select Data opens its data, and it is saved as one', async () => {
   test.setTimeout(120_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-menu-state-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-menu-state-')))
   const docPath = join(dir, 'scatter.docx')
   writeFileSync(docPath, await docxWithTable())
   const launched = await launchShell({

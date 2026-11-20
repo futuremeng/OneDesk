@@ -4,7 +4,7 @@ import type {
   TextGlow,
   TextReflection,
   TextShadow,
-} from '@genoffice/docx-engine'
+} from '@onedesk/docx-engine'
 
 const TEXT_EFFECTS: ReadonlySet<string> = new Set(['outline', 'emboss', 'imprint', 'shadow'])
 

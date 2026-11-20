@@ -61,7 +61,7 @@ const documentXml = async (docPath: string) =>
 
 test('Combine Characters takes a font and size, Phonetic Guide a base text and alignment, the Symbol dialog a symbol font', async () => {
   test.setTimeout(180_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-live-controls-2-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-live-controls-2-')))
   const docPath = join(dir, 'layout.docx')
   writeFileSync(
     docPath,
@@ -188,7 +188,7 @@ test('Combine Characters takes a font and size, Phonetic Guide a base text and a
 
 test('the Columns dialog applies from the caret on and to the whole document', async () => {
   test.setTimeout(180_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-live-controls-2-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-live-controls-2-')))
   const docPath = join(dir, 'columns.docx')
   writeFileSync(docPath, await docxWith(['apple', 'banana', 'cherry'].map(para).join('') + SECT_PR))
   const launched = await launchShell({
@@ -257,7 +257,7 @@ test('the Columns dialog applies from the caret on and to the whole document', a
 
 test('the Document dialog keeps its page setup as the default for new blank documents', async () => {
   test.setTimeout(180_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-live-controls-2-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-live-controls-2-')))
   const docPath = join(dir, 'letter.docx')
   writeFileSync(docPath, await docxWith(para('apple') + SECT_PR))
   const launched = await launchShell({
@@ -304,7 +304,7 @@ test('the Document dialog keeps its page setup as the default for new blank docu
 
 test('the Document dialog applies from the caret on and sets the document grid', async () => {
   test.setTimeout(180_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-live-controls-2-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-live-controls-2-')))
   const docPath = join(dir, 'letter.docx')
   writeFileSync(docPath, await docxWith(['apple', 'banana', 'cherry'].map(para).join('') + SECT_PR))
   const launched = await launchShell({
@@ -380,7 +380,7 @@ test('the Document dialog applies from the caret on and sets the document grid',
 
 test('Page Numbers puts the number at the outside of facing pages', async () => {
   test.setTimeout(180_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-live-controls-2-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-live-controls-2-')))
   const docPath = join(dir, 'pages.docx')
   const pageBreak = '<w:p><w:r><w:br w:type="page"/></w:r></w:p>'
   writeFileSync(docPath, await docxWith(para('apple') + pageBreak + para('banana') + SECT_PR))

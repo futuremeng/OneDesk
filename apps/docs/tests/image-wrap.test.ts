@@ -1,7 +1,7 @@
 import { Editor } from '@tiptap/core'
 import type { Node as ProseNode } from '@tiptap/pm/model'
 import { NodeSelection } from '@tiptap/pm/state'
-import { parseDocx, saveDocx } from '@genoffice/docx-engine'
+import { parseDocx, saveDocx } from '@onedesk/docx-engine'
 import JSZip from 'jszip'
 import { describe, expect, it } from 'vitest'
 import {
@@ -973,7 +973,7 @@ describe('side-wrapped pictures that leave no room for text', () => {
     expect(free['data-cell-lift']).toBeUndefined()
   })
 
-  it('keeps a layoutInCell side wrap inside its cell and grows the row by the empty line (genoffice#2480)', async () => {
+  it('keeps a layoutInCell side wrap inside its cell and grows the row by the empty line (onedesk#2480)', async () => {
     const cell = (body: string) =>
       '<w:tbl><w:tblPr><w:tblW w:w="3402" w:type="dxa"/></w:tblPr>' +
       '<w:tblGrid><w:gridCol w:w="3402"/></w:tblGrid><w:tr><w:tc>' +

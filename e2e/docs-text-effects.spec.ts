@@ -13,7 +13,7 @@ import { docxWith, para, saveFromMenu } from './docs-objects-fixture'
 
 test('text effects are set from the dialog, shown, saved and read back', async () => {
   test.setTimeout(180_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-text-fx-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-text-fx-')))
   const docPath = join(dir, 'effects.docx')
   writeFileSync(docPath, await docxWith(para('Plain fancy words') + para('Last')))
   let launched = await launchShell({

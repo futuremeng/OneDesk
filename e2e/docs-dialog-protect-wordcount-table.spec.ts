@@ -65,7 +65,7 @@ const tableDialog = (page: Page) =>
 
 test('Table Properties measures a column in percent and keeps cell options behind Options, Page Number Format restarts numbering', async () => {
   test.setTimeout(240_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-parity-m-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-parity-m-')))
   const docPath = join(dir, 'table.docx')
   writeFileSync(
     docPath,
@@ -204,7 +204,7 @@ test('Table Properties measures a column in percent and keeps cell options behin
 
 test('Word Count adds footnotes on request, Paste Special names its source and result, Protect Document lists Sections', async () => {
   test.setTimeout(240_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-parity-m-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-parity-m-')))
   const docPath = join(dir, 'notes.docx')
   const zip = await JSZip.loadAsync(
     await docxWith(

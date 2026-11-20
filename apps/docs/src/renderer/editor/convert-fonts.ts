@@ -1,5 +1,5 @@
 import type { Editor } from '@tiptap/core'
-import { replaceFontsXml } from '@genoffice/docx-engine'
+import { replaceFontsXml } from '@onedesk/docx-engine'
 import { FONT_CONVERSION_RECORDING, FontConversionStep } from './font-conversion-history'
 
 const FONT_ATTRS = ['font', 'fontAscii', 'eastAsiaFont', 'csFont'] as const

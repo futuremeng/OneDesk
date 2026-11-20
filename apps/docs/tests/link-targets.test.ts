@@ -4,7 +4,7 @@
  */
 import { afterEach, describe, expect, it } from 'vitest'
 import { Editor } from '@tiptap/core'
-import { generateParagraphXml } from '@genoffice/docx-engine'
+import { generateParagraphXml } from '@onedesk/docx-engine'
 import { editorExtensions } from '../src/renderer/editor/extensions'
 import { pmNodeToGeneratedBlock } from '../src/renderer/editor/convert'
 import { linkTarget } from '../src/renderer/editor/link-actions'

@@ -143,7 +143,7 @@ const drawnSizePx = (page: Page, text: string) =>
 
 test('a font, a style and a font size given a chord in Customize Keyboard apply in the document and survive a restart', async () => {
   test.setTimeout(300_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-ck-values-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-ck-values-')))
   const docPath = join(dir, 'values.docx')
   writeFileSync(docPath, await fixture())
   const first = await openDoc(docPath)

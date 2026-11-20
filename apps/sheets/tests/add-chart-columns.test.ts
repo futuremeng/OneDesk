@@ -1,12 +1,12 @@
-/// The add_chart `columns` parameter (genoffice#2528): named columns of the dataRange —
+/// The add_chart `columns` parameter (onedesk#2528): named columns of the dataRange —
 /// first the labels, then one series each — so non-adjacent columns chart
 /// without copying data around, and the header/direction guesses are settled
 /// by the caller instead of detected from the data.
 import { describe, expect, it } from 'vitest'
 
-import { InMemoryWorkbookAdapter } from '@genoffice/xlsx-gateway/domain/in-memory-workbook'
-import { buildChartVisual } from '@genoffice/xlsx-gateway/domain/chart-visual'
-import type { WorkbookSnapshot } from '@genoffice/xlsx-gateway/domain/workbook.types'
+import { InMemoryWorkbookAdapter } from '@onedesk/xlsx-gateway/domain/in-memory-workbook'
+import { buildChartVisual } from '@onedesk/xlsx-gateway/domain/chart-visual'
+import type { WorkbookSnapshot } from '@onedesk/xlsx-gateway/domain/workbook.types'
 
 /** Item, Units, Price, Revenue — the issue's table: Revenue against Item
     crosses two columns a single dataRange block would drag along. */

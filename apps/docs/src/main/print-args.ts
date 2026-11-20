@@ -57,7 +57,7 @@ export function validPrintPaper(
  * defaults to false), so a document with its own sheet has to state it: an A4
  * page printed on Letter is taller than the paper, so Chromium splits the
  * sheet in two — the printed page loses its bottom and the page order goes
- * with it (genoffice#2563). Absent or malformed = no pageSize, never a wrong
+ * with it (onedesk#2563). Absent or malformed = no pageSize, never a wrong
  * size.
  */
 export function printPaperOption(
@@ -74,5 +74,5 @@ export function printPaperOption(
   }
 }
 
-export { printJobOptions } from '@genoffice/electron-utils/print-job'
-export type { PrintDuplex, PrintJobOptions } from '@genoffice/electron-utils/print-job'
+export { printJobOptions } from '@onedesk/electron-utils/print-job'
+export type { PrintDuplex, PrintJobOptions } from '@onedesk/electron-utils/print-job'

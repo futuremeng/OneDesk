@@ -3,7 +3,7 @@
 ///
 /// A workbook's web query fills a range on a sheet. Finding the query and its
 /// destination is the listing side's job: this module builds on
-/// `listWorkbookQueries` (genoffice#2345), which walks both shapes Excel
+/// `listWorkbookQueries` (onedesk#2345), which walks both shapes Excel
 /// writes — a ListObject-backed query (the range lives in
 /// `xl/tables/tableN.xml`) and a legacy range query (the range lives in a
 /// sheet-scoped `ExternalData_N` defined name). This side answers the two

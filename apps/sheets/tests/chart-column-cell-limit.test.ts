@@ -1,13 +1,13 @@
 /**
- * add_chart's 2000-cell gate counts what the chart actually reads (genoffice#2835).
+ * add_chart's 2000-cell gate counts what the chart actually reads (onedesk#2835).
  * With `columns`, only the named columns are charted — the cells between them
  * never reach the visual — so a wide table with two named columns is cheap.
  */
 import { describe, expect, it } from 'vitest'
-import { parseRange, columnLabel } from '@genoffice/xlsx-gateway/domain/cell-address'
-import { buildChartVisual, chartCellLimitError } from '@genoffice/xlsx-gateway/domain/chart-visual'
-import { InMemoryWorkbookAdapter } from '@genoffice/xlsx-gateway/domain/in-memory-workbook'
-import type { WorkbookSnapshot } from '@genoffice/xlsx-gateway/domain/workbook.types'
+import { parseRange, columnLabel } from '@onedesk/xlsx-gateway/domain/cell-address'
+import { buildChartVisual, chartCellLimitError } from '@onedesk/xlsx-gateway/domain/chart-visual'
+import { InMemoryWorkbookAdapter } from '@onedesk/xlsx-gateway/domain/in-memory-workbook'
+import type { WorkbookSnapshot } from '@onedesk/xlsx-gateway/domain/workbook.types'
 
 const ROWS = 251 // header + 250 data rows
 const COLS = 10 // A..J, so the whole rectangle is 2510 cells

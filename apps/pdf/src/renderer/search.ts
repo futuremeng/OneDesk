@@ -1,5 +1,5 @@
 import type { PDFDocumentProxy } from 'pdfjs-dist'
-import { foldCase, isWordChar } from '@genoffice/ui'
+import { foldCase, isWordChar } from '@onedesk/ui'
 import { findPattern } from './redact-patterns'
 import type { RedactPattern } from './redact-patterns'
 

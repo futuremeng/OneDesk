@@ -3,7 +3,7 @@ import { generateTableModelXml, parseDocx, saveDocx } from '../src/index'
 import { buildDocx } from './helpers/build-docx'
 
 // a table whose first cell paragraph carries a paragraph style and a bookmark
-// anchor its REF fields point at (genoffice#2803, genoffice#2804)
+// anchor its REF fields point at (onedesk#2803, onedesk#2804)
 const CELL_ANCHOR_TABLE_XML =
   '<w:tbl><w:tblPr><w:tblW w:w="0" w:type="auto"/></w:tblPr>' +
   '<w:tblGrid><w:gridCol w:w="4000"/><w:gridCol w:w="4000"/></w:tblGrid>' +

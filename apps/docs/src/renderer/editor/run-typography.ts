@@ -1,4 +1,4 @@
-import type { RunOpenType } from '@genoffice/docx-engine'
+import type { RunOpenType } from '@onedesk/docx-engine'
 
 /** the underline styles the Font dialog offers; a file's other w:u values still draw and save */
 export const UNDERLINE_STYLES = ['single', 'double', 'thick', 'dotted', 'dash', 'wave'] as const

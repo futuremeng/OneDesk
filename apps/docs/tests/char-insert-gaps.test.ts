@@ -6,7 +6,7 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { Editor } from '@tiptap/core'
 import { NodeSelection } from '@tiptap/pm/state'
-import { buildTextboxParagraphXml, parseDocx } from '@genoffice/docx-engine'
+import { buildTextboxParagraphXml, parseDocx } from '@onedesk/docx-engine'
 import { buildDocx } from '../../../packages/docx-engine/tests/helpers/build-docx'
 import { blocksToPmDoc, pmDocToSavePlan, type PmNode } from '../src/renderer/editor/convert'
 import { convertFontsInEditor } from '../src/renderer/editor/convert-fonts'

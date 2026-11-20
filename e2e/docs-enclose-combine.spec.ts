@@ -27,7 +27,7 @@ const documentXml = async (path: string): Promise<string> => {
 
 test('characters are enclosed and combined from their dialogs and saved as the fields Word writes', async () => {
   test.setTimeout(180_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-eq-layout-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-eq-layout-')))
   const docPath = join(dir, 'layout.docx')
   writeFileSync(docPath, await docxWith(para('A grand day') + WORD_ENCLOSED + para('Last')))
   let launched = await launchShell({

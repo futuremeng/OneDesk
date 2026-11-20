@@ -11,7 +11,7 @@ import {
   SEQ_NUMBER_FORMATS,
   type Block,
   type SeqNumberFormat,
-} from '@genoffice/docx-engine'
+} from '@onedesk/docx-engine'
 import { collectCaptions } from '../commands/reference-commands'
 import { renumberAfterInsert, unreliableSeqLabelsOf } from './field-results'
 import { t } from '../i18n/locale'

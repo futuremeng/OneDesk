@@ -1,6 +1,6 @@
 /** Word's Tabs dialog: the stops a paragraph is given and what is written back for them. */
 import { describe, expect, it } from 'vitest'
-import type { TabStop } from '@genoffice/docx-engine'
+import type { TabStop } from '@onedesk/docx-engine'
 import { parseTabStops, tabStopsAttr, withTabStop } from '../src/renderer/components/tab-stops'
 
 describe('tab stops of a paragraph', () => {

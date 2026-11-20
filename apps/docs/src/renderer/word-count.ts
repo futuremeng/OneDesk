@@ -8,7 +8,7 @@
  */
 
 import { eqLayoutText } from './editor/eq-layout'
-import type { TableModel } from '@genoffice/docx-engine'
+import type { TableModel } from '@onedesk/docx-engine'
 import type { Node as ProseMirrorNode } from '@tiptap/pm/model'
 import type { Selection } from '@tiptap/pm/state'
 
@@ -67,7 +67,7 @@ export function textStats(text: string): TextStats {
 /**
  * Words inside the current selection, for the status bar's "selected/total"
  * figure. Word shows that pair while a selection exists and the plain total
- * once the caret collapses; GenOffice reported only the total, so the selected
+ * once the caret collapses; OneDesk reported only the total, so the selected
  * figure was reachable from the AI panel alone.
  *
  * Every no-selection case falls out of the counting rule itself: a collapsed

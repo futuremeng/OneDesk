@@ -1,4 +1,4 @@
-# Contributing to GenOffice
+# Contributing to OneDesk
 
 Thanks for your interest in contributing. This document covers the local
 setup, the checks a change must pass, and the conventions used in this
@@ -136,17 +136,17 @@ over them. Point the output directory at an APFS path instead of moving the
 repository:
 
 ```bash
-BUILD_DIR=/tmp/genoffice-release npm run dist:mac
+BUILD_DIR=/tmp/onedesk-release npm run dist:mac
 ```
 
 `dist:win` takes the xlsx sidecar from the MinGW cross-compilation path when it
 is there (that is what the release pipeline builds). On a Windows host the plain
 `npm run build:all` compiles it with the host toolchain into
 `target/release/xlsx-sidecar.exe` instead, and packaging accepts that build as
-long as the host architecture matches the packaged one (`GENOFFICE_WIN_ARM64=1`
+long as the host architecture matches the packaged one (`ONEDESK_WIN_ARM64=1`
 still needs a cross build for `aarch64-pc-windows-msvc`).
 
-The Windows clipboard helper (`native/win-clipboard-helper`, genoffice#1985)
+The Windows clipboard helper (`native/win-clipboard-helper`, onedesk#1985)
 follows the same layout rule and is built by the same `native:build`/`native:test`
 scripts; it is a Windows-only one-shot binary, so other platforms bundle nothing
 for it and the sheets resolver silently skips the EMF format when it is absent.
@@ -159,9 +159,9 @@ testing and local overrides:
 | Variable                                                                                                               | Effect                                                                                      |
 | ---------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
 | `BUILD_DIR`                                                                                                            | Override the electron-builder output directory (default `apps/shell/release`)               |
-| `GENOFFICE_USER_DATA`                                                                                                  | Override the Electron userData directory (test isolation)                                   |
-| `GENOFFICE_LANG`                                                                                                       | Force the UI language instead of following the OS locale                                    |
-| `GENOFFICE_FAKE_UPDATE`                                                                                                | Exercise the updater UI without a real release feed                                         |
+| `ONEDESK_USER_DATA`                                                                                                    | Override the Electron userData directory (test isolation)                                   |
+| `ONEDESK_LANG`                                                                                                         | Force the UI language instead of following the OS locale                                    |
+| `ONEDESK_FAKE_UPDATE`                                                                                                  | Exercise the updater UI without a real release feed                                         |
 | `GSK_API_KEY`, `GSK_CLI_PATH`                                                                                          | Genspark credentials / CLI location for the built-in AI provider                            |
 | `AI_SEARCH_DISABLE_GSK`, `SERPER_API_KEY`, `SERPLY_API_KEY`, `SEARCHAPI_API_KEY`, `TAVILY_API_KEY`, `PARALLEL_API_KEY` | Disable the gsk search backend / supply a Serper, Serply, SearchApi, Tavily or Parallel key |
 | `XLSX_SIDECAR_PATH`, `XLSX_OPEN_PATH`, `XLSX_DEBUG_PORT`                                                               | Point at a locally built xlsx sidecar and its debug port                                    |

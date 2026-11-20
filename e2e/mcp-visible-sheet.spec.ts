@@ -93,9 +93,9 @@ async function waitForHealth(port: number, timeoutMs = 20_000): Promise<void> {
 test.describe('MCP visible grid session', () => {
   test('creates, fills and saves an xlsx through a visible sheets tab', async () => {
     const port = await freeMcpPort()
-    const outDir = await mkdtemp(join(tmpdir(), 'genoffice-mcp-sheet-'))
+    const outDir = await mkdtemp(join(tmpdir(), 'onedesk-mcp-sheet-'))
     const outFile = join(outDir, 'mcp-sheet.xlsx')
-    const userDataDir = await mkdtemp(join(tmpdir(), 'genoffice-mcp-sheet-userdata-'))
+    const userDataDir = await mkdtemp(join(tmpdir(), 'onedesk-mcp-sheet-userdata-'))
     await writeFile(
       join(userDataDir, 'app-settings.json'),
       // the blank workbook create_session writes lands in the default save folder
@@ -150,7 +150,7 @@ test.describe('MCP visible grid session', () => {
       // the shell UI shows a real sheets tab (the visible half of the feature)
       const editorTab = page.locator('.tab-bar .tab-item:not(.tab-home)')
       await expect(editorTab).toHaveCount(1)
-      const editorPage = await waitForPageWithUrl(app, 'genoffice-app://sheets')
+      const editorPage = await waitForPageWithUrl(app, 'onedesk-app://sheets')
 
       // 2. workbook overview first: ops address sheets by id
       const overview = await call('read_sheet', {})

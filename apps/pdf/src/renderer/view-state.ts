@@ -20,8 +20,8 @@ export type PdfViewState = {
 
 type StoredEntry = PdfViewState & { at: number }
 
-export const VIEW_STATE_KEY = 'genoffice-pdf-view-state'
-export const LAST_ZOOM_KEY = 'genoffice-pdf-last-zoom'
+export const VIEW_STATE_KEY = 'onedesk-pdf-view-state'
+export const LAST_ZOOM_KEY = 'onedesk-pdf-last-zoom'
 export const MAX_VIEW_ENTRIES = 100
 
 export type PdfZoom = Pick<PdfViewState, 'scale' | 'fitMode'>

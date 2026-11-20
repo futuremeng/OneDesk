@@ -8,7 +8,7 @@ import { buildDocx } from './helpers/build-docx'
  * begin-to-end span stops at the inner end. The old classification tested
  * `\bPAGE\b` against the whole concatenated instruction — the child's
  * PAGE leaked through and the outer field was flattened into a page-number
- * marker + a stale cache (genoffice#2458).
+ * marker + a stale cache (onedesk#2458).
  */
 
 const XML_DECL = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\r\n'
@@ -135,7 +135,7 @@ async function headerDocx(headerXml: string): Promise<Uint8Array> {
   })
 }
 
-describe('nested complex field in header (genoffice#2458)', () => {
+describe('nested complex field in header (onedesk#2458)', () => {
   it('the outer DOCPROPERTY cache survives without a PAGE marker prefix', async () => {
     const doc = await parseDocx(await buildNestedFieldDocx())
     // the old code produced: PAGE_MARK + "Strana druhá" (the child's PAGE

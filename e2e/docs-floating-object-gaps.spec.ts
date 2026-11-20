@@ -86,7 +86,7 @@ async function pictureItem(page: Page, nth: number, label: RegExp) {
 
 test('a picture in a line of text is described; Size and Position scales a picture and puts it at a preset place', async () => {
   test.setTimeout(180_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-object-gaps-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-object-gaps-')))
   const docPath = join(dir, 'pictures.docx')
   const zip = await JSZip.loadAsync(
     await docxWith(
@@ -289,7 +289,7 @@ const moved = (now: Rect[], from: Rect[]): number[][] =>
 
 test('Align is on the Shape Format and Picture Format tabs; a dragged group follows the pointer whole and Cut takes all of it', async () => {
   test.setTimeout(180_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-object-gaps-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-object-gaps-')))
   const docPath = join(dir, 'objects.docx')
   writeFileSync(docPath, await docxWithObjects())
   const launched = await launchShell({

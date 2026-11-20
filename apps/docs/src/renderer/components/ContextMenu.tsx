@@ -2,9 +2,9 @@ import { useEffect, useLayoutEffect, useMemo, useRef, useState, type ReactNode }
 import type { Editor } from '@tiptap/core'
 import { NodeSelection } from '@tiptap/pm/state'
 import { mergeCells } from '@tiptap/pm/tables'
-import { platformShortcuts } from '@genoffice/i18n'
+import { platformShortcuts } from '@onedesk/i18n'
 import { redactTextBetween, type RedactableNode } from '../ai/redact-view'
-import type { TextboxDisplay } from '@genoffice/docx-engine'
+import type { TextboxDisplay } from '@onedesk/docx-engine'
 
 import { useI18n, type StringKey } from '../i18n/locale'
 import { NONE, type ActionCommandId } from '../../shared/commands'

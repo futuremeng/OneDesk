@@ -1,7 +1,7 @@
 /** Citations are CITATION fields; the Style: picker rewrites them and the bibliography. */
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { Editor } from '@tiptap/core'
-import type { SourceInfo } from '@genoffice/docx-engine'
+import type { SourceInfo } from '@onedesk/docx-engine'
 import { editorExtensions } from '../src/renderer/editor/extensions'
 import {
   bibliographyRange,

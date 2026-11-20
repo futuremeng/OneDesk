@@ -129,7 +129,7 @@ async function highlightChanges(app: ElectronApplication, page: Page) {
 
 test('a tracked cut and paste of a sentence is one move, saved as a paired moveFrom / moveTo', async () => {
   test.setTimeout(240_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-track-moves-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-track-moves-')))
   const docPath = join(dir, 'moves.docx')
   writeFileSync(docPath, await docxWith(BODY))
   let { launched, page } = await openDoc(docPath)
@@ -234,7 +234,7 @@ test('a tracked cut and paste of a sentence is one move, saved as a paired moveF
 
 test('with Track moves cleared the same edit is a deletion and an insertion, and the document keeps the setting', async () => {
   test.setTimeout(240_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-track-moves-off-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-track-moves-off-')))
   const docPath = join(dir, 'no-moves.docx')
   writeFileSync(docPath, await docxWith(BODY))
   let { launched, page } = await openDoc(docPath)
@@ -281,7 +281,7 @@ test('with Track moves cleared the same edit is a deletion and an insertion, and
 
 test('clearing Track moves leaves a move already in the document drawn as a move', async () => {
   test.setTimeout(240_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-track-moves-kept-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-track-moves-kept-')))
   const docPath = join(dir, 'kept-move.docx')
   writeFileSync(docPath, await docxWith(BODY))
   let { launched, page } = await openDoc(docPath)
@@ -337,7 +337,7 @@ test('clearing Track moves leaves a move already in the document drawn as a move
 
 test('dragging a selected sentence to another paragraph is one move', async () => {
   test.setTimeout(240_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-track-moves-drag-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-track-moves-drag-')))
   const docPath = join(dir, 'drag.docx')
   writeFileSync(docPath, await docxWith(BODY))
   const { launched, page } = await openDoc(docPath)

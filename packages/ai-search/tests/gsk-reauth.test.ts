@@ -12,10 +12,10 @@ vi.mock('node:os', async (importOriginal) => {
 
 import {
   FRESH_AUTH_REQUIRED,
-  genofficeLogout,
-  resetGenofficeAuthCache,
-  setGenofficeLoginOpener,
-} from '../src/genoffice-auth'
+  onedeskLogout,
+  resetOneDeskAuthCache,
+  setOneDeskLoginOpener,
+} from '../src/onedesk-auth'
 import {
   GskAuthError,
   gskApiKey,
@@ -34,11 +34,11 @@ let dir: string
 beforeEach(() => {
   dir = mkdtempSync(join(tmpdir(), 'gsk-reauth-'))
   home.dir = dir
-  process.env.GENOFFICE_AUTH_DIR = dir
+  process.env.ONEDESK_AUTH_DIR = dir
   process.env.GSK_CLI_PATH = '/fake/gsk.js'
   delete process.env.GSK_API_KEY
   delete process.env.AI_SEARCH_DISABLE_GSK
-  resetGenofficeAuthCache()
+  resetOneDeskAuthCache()
   resetGskRejectedKeys()
   writeFileSync(
     join(dir, 'auth.json'),
@@ -48,12 +48,12 @@ beforeEach(() => {
 
 afterEach(() => {
   vi.unstubAllGlobals()
-  setGenofficeLoginOpener(null)
-  resetGenofficeAuthCache()
+  setOneDeskLoginOpener(null)
+  resetOneDeskAuthCache()
   resetGskRejectedKeys()
   rmSync(dir, { recursive: true, force: true })
   home.dir = ''
-  delete process.env.GENOFFICE_AUTH_DIR
+  delete process.env.ONEDESK_AUTH_DIR
   delete process.env.GSK_CLI_PATH
 })
 
@@ -138,7 +138,7 @@ describe('gsk CLI 401 recovery', () => {
     const before = readFileSync(config, 'utf-8')
     const log = fakeCli()
     rmSync(join(dir, 'auth.json'))
-    resetGenofficeAuthCache()
+    resetOneDeskAuthCache()
 
     expect(gskApiKey()).toBe('')
     expect(hasGskAuth()).toBe(false)
@@ -147,13 +147,13 @@ describe('gsk CLI 401 recovery', () => {
     expect(readFileSync(config, 'utf-8')).toBe(before)
   })
 
-  it('does not resume billing through the shared login after GenOffice sign-out', async () => {
+  it('does not resume billing through the shared login after OneDesk sign-out', async () => {
     const config = sharedLogin()
     const before = readFileSync(config, 'utf-8')
     const log = fakeCli()
     stubServer(() => response({ status: 0 }))
 
-    await genofficeLogout()
+    await onedeskLogout()
 
     expect(gskApiKey()).toBe('')
     expect(hasGskAuth()).toBe(false)
@@ -165,7 +165,7 @@ describe('gsk CLI 401 recovery', () => {
   it('never spawns an unauthenticated CLI even without a shared config file', async () => {
     const log = fakeCli()
     rmSync(join(dir, 'auth.json'))
-    resetGenofficeAuthCache()
+    resetOneDeskAuthCache()
 
     await expect(gskWebSearch('q')).rejects.toBeInstanceOf(GskAuthError)
 
@@ -219,7 +219,7 @@ describe('noteGskCallFailure (LLM proxy chat/stream)', () => {
       stubServer(() => response({ detail: FRESH_AUTH_REQUIRED }, 403))
       expect(gskApiKey()).toBe('gsk-env')
       noteGskCallFailure('gsk-env', 'HTTP 401: Unauthorized')
-      // falls through to GenOffice's own (still valid) key
+      // falls through to OneDesk's own (still valid) key
       expect(gskApiKey()).toBe('gsk-expired')
     } finally {
       delete process.env.GSK_API_KEY
@@ -231,7 +231,7 @@ describe('passive calls', () => {
   it('a 401 from a background call drops the key without opening the browser', async () => {
     stubServer(() => response({ detail: FRESH_AUTH_REQUIRED }, 403))
     const opener = vi.fn()
-    setGenofficeLoginOpener(opener)
+    setOneDeskLoginOpener(opener)
     await expect(noteGskKeyRejected('gsk-expired', { allowLogin: false })).resolves.toBe(
       'login_required',
     )

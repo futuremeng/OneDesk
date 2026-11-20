@@ -15,12 +15,12 @@ import {
 import { readFile, readdir } from 'node:fs/promises'
 import { basename, dirname, isAbsolute, join, resolve, sep } from 'node:path'
 import JSZip from 'jszip'
-import { classifySkill, parseSkillFrontmatter } from '@genoffice/agent-core'
-import { getUiLang } from '@genoffice/i18n'
+import { classifySkill, parseSkillFrontmatter } from '@onedesk/agent-core'
+import { getUiLang } from '@onedesk/i18n'
 import type { FoundSkill, RecommendedSkill } from '../shared/found-skill'
 
 /**
- * The skills a user installed into GenOffice.
+ * The skills a user installed into OneDesk.
  *
  * Only `<userData>/skills/<name>/SKILL.md` counts. Nothing is scanned from a
  * coding agent's directories: a developer's `.claude` holds git, test and
@@ -341,7 +341,7 @@ export function isKnownSkillPath(path: unknown, root: string): path is string {
   return resolve(root) === dirname(dirname(file))
 }
 
-/** `metadata:\n  version: x` in the frontmatter, the same shape skills/genoffice uses */
+/** `metadata:\n  version: x` in the frontmatter, the same shape skills/onedesk uses */
 export function skillVersion(path: string): string {
   try {
     const fm = parseSkillFrontmatter(readFileSync(path, 'utf8'))

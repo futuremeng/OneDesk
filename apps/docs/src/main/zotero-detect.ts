@@ -51,8 +51,8 @@ export async function zoteroAvailable(
 ): Promise<boolean> {
   const env = options.env ?? process.env
   // tests pin the answer: the ribbon must not depend on what the machine has installed
-  if (env.GENOFFICE_ZOTERO === '1') return true
-  if (env.GENOFFICE_ZOTERO === '0') return false
+  if (env.ONEDESK_ZOTERO === '1') return true
+  if (env.ONEDESK_ZOTERO === '0') return false
   const exists = options.exists ?? existsSync
   if (zoteroInstallPaths(process.platform, env, homedir()).some(exists)) return true
   return zoteroListening(

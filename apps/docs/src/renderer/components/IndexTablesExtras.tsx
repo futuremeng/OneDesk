@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react'
-import type { StyleInfo, StyleUpsert } from '@genoffice/docx-engine'
+import type { StyleInfo, StyleUpsert } from '@onedesk/docx-engine'
 import type { IndexTablesKind, TocSources, TocStyleLevel } from '../editor/index-tables'
 import { ENTRY_STYLES, entryStyleId, entryStyleUpsert } from '../editor/table-formats'
 import { useI18n } from '../i18n/locale'

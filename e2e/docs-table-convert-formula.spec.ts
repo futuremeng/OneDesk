@@ -100,7 +100,7 @@ async function openDoc(docPath: string) {
 
 test('text becomes a table, a formula totals a column and follows its cells, and the table becomes text again', async () => {
   test.setTimeout(240_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-table-convert-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-table-convert-')))
   const docPath = join(dir, 'convert.docx')
   writeFileSync(
     docPath,
@@ -255,7 +255,7 @@ test('text becomes a table, a formula totals a column and follows its cells, and
 
 test('a formula a document arrives with keeps its result until Update Field, and the Insert tab converts text too', async () => {
   test.setTimeout(180_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-table-formula-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-table-formula-')))
   const docPath = join(dir, 'stale.docx')
   writeFileSync(
     docPath,

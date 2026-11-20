@@ -1,14 +1,11 @@
-/// Regression tests for genoffice#10: workbook.xml serialization styles that
+/// Regression tests for onedesk#10: workbook.xml serialization styles that
 /// differ from Excel's (attribute order, numeric character references,
 /// relationship namespace prefix) are valid OOXML and must not break saves.
 import JSZip from 'jszip'
 import { describe, expect, it } from 'vitest'
 
-import {
-  applyCellEditsToXlsx,
-  readBasicWorkbook,
-} from '@genoffice/xlsx-gateway/gateway/xlsx-gateway'
-import { parseSheetElements } from '@genoffice/xlsx-gateway/gateway/xlsx-sheets'
+import { applyCellEditsToXlsx, readBasicWorkbook } from '@onedesk/xlsx-gateway/gateway/xlsx-gateway'
+import { parseSheetElements } from '@onedesk/xlsx-gateway/gateway/xlsx-sheets'
 
 const CONTENT_TYPES =
   '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>' +

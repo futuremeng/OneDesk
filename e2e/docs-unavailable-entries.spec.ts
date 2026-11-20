@@ -136,7 +136,7 @@ async function open(docPath: string) {
 
 test('the menu bar and the ribbon list no entry that is not built', async () => {
   test.setTimeout(180_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-unavailable-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-unavailable-')))
   const docPath = join(dir, 'menus.docx')
   writeFileSync(docPath, await docxWith(BODY))
   const { launched, app, page } = await open(docPath)
@@ -229,7 +229,7 @@ test('the menu bar and the ribbon list no entry that is not built', async () => 
 
 test('the dialogs list no control that is not built, and the controls next to them work', async () => {
   test.setTimeout(420_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-unavailable-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-unavailable-')))
   const docPath = join(dir, 'dialogs.docx')
   writeFileSync(docPath, await docxWith(BODY))
   const { launched, app, page } = await open(docPath)
@@ -444,7 +444,7 @@ test('the dialogs list no control that is not built, and the controls next to th
 
 test('a footnote restart the file carries is still listed, though it cannot be chosen', async () => {
   test.setTimeout(180_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-unavailable-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-unavailable-')))
   const docPath = join(dir, 'each-page.docx')
   const body = BODY.replace(
     '<w:cols w:space="720"/>',

@@ -1,5 +1,5 @@
 /**
- * Read-back verification on overlapping text objects (genoffice#2797): PDFium's
+ * Read-back verification on overlapping text objects (onedesk#2797): PDFium's
  * shared text page keeps only the first of two same-origin strings with a common
  * prefix, so the second replacement looked missing and aborted the save even
  * though the page had drawn it. The fallback reads each page-owned object with

@@ -1,9 +1,9 @@
 /**
  * Copy also lands the selection as an EMF on the Windows clipboard. CAD paste
  * dialogs (AutoCAD, ZWCAD PASTESPEC) list the formats the clipboard actually
- * carries, so without this a GenOffice copy only offers text; with it a
+ * carries, so without this a OneDesk copy only offers text; with it a
  * "Picture (Enhanced Metafile)" entry appears and the table lands in the
- * drawing as vector artwork (genoffice#1985 stage 1 — no OLE server, no
+ * drawing as vector artwork (onedesk#1985 stage 1 — no OLE server, no
  * embedded-object activation).
  *
  * Failure is silent by contract: the text and HTML formats the grid wrote

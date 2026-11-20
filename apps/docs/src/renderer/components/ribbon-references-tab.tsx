@@ -4,8 +4,8 @@ import {
   citationText,
   type CitationStyleId,
   type SourceInfo,
-} from '@genoffice/docx-engine'
-import { Dropdown } from '@genoffice/ui'
+} from '@onedesk/docx-engine'
+import { Dropdown } from '@onedesk/ui'
 import { useI18n, type StringKey } from '../i18n/locale'
 import type { ActionCommandId } from '../../shared/commands'
 import { RbCommand, useRunCommand } from './ribbon-command'

@@ -1,4 +1,4 @@
-import type { SaveBlock } from '@genoffice/docx-engine'
+import type { SaveBlock } from '@onedesk/docx-engine'
 
 export interface SectPrRewrite {
   /** the parsed sectPr fragment as it sits in the block's original bytes */

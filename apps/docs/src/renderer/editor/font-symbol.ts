@@ -1,4 +1,4 @@
-import { symbolGlyph, symbolPuaChar } from '@genoffice/docx-engine'
+import { symbolGlyph, symbolPuaChar } from '@onedesk/docx-engine'
 import { symbolFontCovers } from '../font-check'
 
 /** the symbol fonts Word's Symbol dialog lists, whose characters save as w:sym */

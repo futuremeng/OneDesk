@@ -1,13 +1,13 @@
 #!/bin/sh
 # deb/rpm post-install. Replaces electron-builder's default template, so its
-# chrome-sandbox and AppArmor steps are repeated here (genoffice#2150).
+# chrome-sandbox and AppArmor steps are repeated here (onedesk#2150).
 set -e
-app="/opt/GenOffice"
+app="/opt/OneDesk"
 # Chromium aborts when the SUID helper exists without 4755; Chrome's deb sets it unconditionally.
 [ -f "$app/chrome-sandbox" ] && { chown root:root "$app/chrome-sandbox" 2>/dev/null || true; chmod 4755 "$app/chrome-sandbox" 2>/dev/null || true; }
 # Ubuntu 24.04+ restricts unprivileged userns; --skip-kernel-load doubles as the abi/4.0 check.
 profile_src="$app/resources/apparmor-profile"
-profile_dst="/etc/apparmor.d/genoffice"
+profile_dst="/etc/apparmor.d/onedesk"
 if [ -f "$profile_src" ] && apparmor_status --enabled >/dev/null 2>&1; then
   if apparmor_parser --skip-kernel-load --debug "$profile_src" >/dev/null 2>&1; then
     cp -f "$profile_src" "$profile_dst"
@@ -19,9 +19,9 @@ fi
 # electron-builder stamps every MIME type it registers with
 # <icon name="x-office-document"/>, which overrides the system's per-type
 # icons (spreadsheet, presentation, text, pdf...) for all 21 types we claim
-# (genoffice#2126). Dropping the line lets each type fall back to its
+# (onedesk#2126). Dropping the line lets each type fall back to its
 # freedesktop generic-icon; the glob/MimeType associations are untouched.
-mime="/usr/share/mime/packages/genoffice.xml"
+mime="/usr/share/mime/packages/onedesk.xml"
 if [ -f "$mime" ] && grep -q '<icon name="x-office-document"' "$mime"; then
   sed -i '/<icon name="x-office-document"/d' "$mime"
 fi
@@ -29,7 +29,7 @@ command -v update-mime-database >/dev/null 2>&1 && update-mime-database /usr/sha
 command -v update-desktop-database >/dev/null 2>&1 && update-desktop-database /usr/share/applications >/dev/null 2>&1 || true
 # KDE Plasma's Dolphin lists the "Create New" menu from the XDG templates
 # directories, which include the system-wide /usr/share/templates
-# (genoffice#2384). Only our three exact file names are written, so another
+# (onedesk#2384). Only our three exact file names are written, so another
 # suite's templates are never overwritten here or removed later. AppImage
 # runs no install script, and a payload without shell-new skips this.
 shell_new="$app/resources/shell-new"
@@ -38,9 +38,9 @@ if [ -d "$shell_new" ]; then
   mkdir -p "$templates_dir"
   for ext in docx xlsx pptx; do
     case "$ext" in
-      docx) name="GenOffice Document.docx" ;;
-      xlsx) name="GenOffice Spreadsheet.xlsx" ;;
-      pptx) name="GenOffice Presentation.pptx" ;;
+      docx) name="OneDesk Document.docx" ;;
+      xlsx) name="OneDesk Spreadsheet.xlsx" ;;
+      pptx) name="OneDesk Presentation.pptx" ;;
     esac
     # cp -f is the fallback for a busybox install(1) without -m. A template
     # that cannot be written must not fail the whole package install.
@@ -48,19 +48,19 @@ if [ -d "$shell_new" ]; then
       cp -f "$shell_new/blank.$ext" "$templates_dir/$name" || true
   done
 fi
-# Expose the genoffice command line shipped inside the app. Only an absent
+# Expose the onedesk command line shipped inside the app. Only an absent
 # name, a dead link or a link into our own install dir is taken over; anything
-# else at /usr/bin/genoffice belongs to another program (genoffice#893).
-launcher="$app/resources/cli/genoffice"
-link="/usr/bin/genoffice"
+# else at /usr/bin/onedesk belongs to another program (onedesk#893).
+launcher="$app/resources/cli/onedesk"
+link="/usr/bin/onedesk"
 [ -x "$launcher" ] || exit 0
 if [ -L "$link" ]; then
   case "$(readlink "$link")" in
-    /opt/GenOffice/*) ;;
-    *) [ -e "$link" ] && { echo "genoffice: $link is another program, left as is; run: ln -s $launcher $link" >&2; exit 0; } ;;
+    /opt/OneDesk/*) ;;
+    *) [ -e "$link" ] && { echo "onedesk: $link is another program, left as is; run: ln -s $launcher $link" >&2; exit 0; } ;;
   esac
 elif [ -e "$link" ]; then
-  echo "genoffice: $link is another program, left as is; run: ln -s $launcher $link" >&2
+  echo "onedesk: $link is another program, left as is; run: ln -s $launcher $link" >&2
   exit 0
 fi
 ln -sfn "$launcher" "$link"

@@ -20,7 +20,7 @@ import {
   type TextAlignment,
   type TextCompareIgnore,
   type TrackedState,
-} from '@genoffice/docx-engine'
+} from '@onedesk/docx-engine'
 import type { PmNode as JsonNode } from './convert'
 import { TRACK_IGNORE } from './revisions'
 

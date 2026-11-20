@@ -28,7 +28,7 @@ import { measureBlocks } from '../src/renderer/pagination-measure'
 import { createLineRectsCache, singleCutCell } from '../src/renderer/pagination'
 import { Editor } from '@tiptap/core'
 import { NodeSelection } from '@tiptap/pm/state'
-import { buildShapeParagraphXml, parseDocx } from '@genoffice/docx-engine'
+import { buildShapeParagraphXml, parseDocx } from '@onedesk/docx-engine'
 import { buildDocx } from '../../../packages/docx-engine/tests/helpers/build-docx'
 import { blocksToPmDoc } from '../src/renderer/editor/convert'
 import { editorExtensions } from '../src/renderer/editor/extensions'
@@ -208,7 +208,7 @@ describe('in-row table cut decorations', () => {
     expect(singleCutCell(tr, anchor)).toBe(tr.children[0])
   })
 
-  // genoffice#2114's "long chin" without a rowspan: Word's most common table
+  // onedesk#2114's "long chin" without a rowspan: Word's most common table
   // shape is a narrow, vertically centred LABEL column (with text) next to a
   // long text cell. The band grows the host, and the centred label (positioned
   // against the whole row height) lands in the new blank. A sliver sibiling has
@@ -679,7 +679,7 @@ describe('alignTableGapFills', () => {
   })
 })
 
-describe('page frames and sheets (differing-width documents, genoffice#246)', () => {
+describe('page frames and sheets (differing-width documents, onedesk#246)', () => {
   const rect = (top: number, height: number, left = 0, width = 1056) =>
     ({ top, height, left, width, bottom: top + height, right: left + width }) as DOMRect
   /** wrap holding a paper and two gaps: page 0 (portrait) → page 1 (landscape) → page 2 (portrait) */

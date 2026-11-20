@@ -3,8 +3,8 @@
  * export. Each function takes the ActionCtx built fresh per call.
  * (Printing lives in components/PrintDialog.tsx — preview + options dialog.)
  */
-import type { RenderSlide } from '@genoffice/pptx-render'
-import { shortFileError } from '@genoffice/ui'
+import type { RenderSlide } from '@onedesk/pptx-render'
+import { shortFileError } from '@onedesk/ui'
 import type { ExportPdfLink } from '../shared/ipc'
 import { baseName } from '../shared/base-name'
 import { modelSaveAsName } from './file-naming'

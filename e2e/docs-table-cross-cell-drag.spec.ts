@@ -1,6 +1,6 @@
 /**
  * Word-style continuous text selection across table cells
- * (genspark-ai/genoffice#2329): dragging from one cell into another extends
+ * (genspark-ai/onedesk#2329): dragging from one cell into another extends
  * the text selection across the boundary instead of jumping to a
  * cell-selection rectangle, and deleting or typing over it clears the covered
  * text while every cell it crossed survives.
@@ -122,7 +122,7 @@ async function dragProbe(page: import('@playwright/test').Page): Promise<DragPro
 
 test('a drag from one cell into another selects text across them', async () => {
   test.setTimeout(150_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-cross-cell-drag-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-cross-cell-drag-')))
   const docPath = join(dir, 'table.docx')
   writeFileSync(docPath, await docx())
   const launched = await launchShell({
@@ -163,7 +163,7 @@ test('a drag from one cell into another selects text across them', async () => {
 
 test('typing over a cross-cell selection replaces it in the first cell', async () => {
   test.setTimeout(150_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-cross-cell-type-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-cross-cell-type-')))
   const docPath = join(dir, 'table.docx')
   writeFileSync(docPath, await docx())
   const launched = await launchShell({

@@ -1,4 +1,4 @@
-import type { ChartexLayout, NewChart } from '@genoffice/docx-engine'
+import type { ChartexLayout, NewChart } from '@onedesk/docx-engine'
 import type { StringKey } from '../i18n/locale'
 
 /** the chart types Insert > Chart can start, in Word's menu order */

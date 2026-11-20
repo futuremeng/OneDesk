@@ -1,5 +1,5 @@
 /**
- * genoffice#2669 regression: an e-invoice whose form is an outer frame plus
+ * onedesk#2669 regression: an e-invoice whose form is an outer frame plus
  * full-width band rules, with the borderless detail table (item name /
  * spec / unit / quantity / unit price / amount / tax rate / tax amount)
  * living in one band that has no interior rules of its own. The lattice
@@ -37,7 +37,7 @@ function tableRows(xml: string): string[][] {
   )
 }
 
-describe('invoice band columns (genoffice#2669)', () => {
+describe('invoice band columns (onedesk#2669)', () => {
   it('keeps the detail band columns, the tax ID and the remark lines apart', async () => {
     const pdfium = await loadPdfium()
     const result = await convertPdfToDocx(new Uint8Array(readFileSync(SAMPLE)), { pdfium })

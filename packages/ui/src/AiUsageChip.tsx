@@ -1,6 +1,6 @@
 import React from 'react'
-import type { Lang } from '@genoffice/i18n'
-import { addTokenUsage, type AgentTokenUsage } from '@genoffice/agent-core'
+import type { Lang } from '@onedesk/i18n'
+import { addTokenUsage, type AgentTokenUsage } from '@onedesk/agent-core'
 import { AI_USAGE_LABELS } from './strings-ai-usage'
 import './ai-usage.css'
 

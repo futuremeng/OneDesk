@@ -1,6 +1,6 @@
 /** Word's Table > Convert: paragraphs into a table's cells, and a table back into paragraphs */
 import type { Editor } from '@tiptap/core'
-import type { TableAutoFitMode, TableModel } from '@genoffice/docx-engine'
+import type { TableAutoFitMode, TableModel } from '@onedesk/docx-engine'
 import { Fragment, type Node as PmNode } from '@tiptap/pm/model'
 import { TextSelection, type EditorState } from '@tiptap/pm/state'
 import { tableModelToPmNode } from './convert'

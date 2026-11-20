@@ -15,16 +15,16 @@ import { join } from 'node:path'
 import JSZip from 'jszip'
 
 /**
- * Installing the bundled `genoffice` skill into the coding agents found on this
- * machine, shared by Settings → Integrations and `genoffice skill`. Every write
+ * Installing the bundled `onedesk` skill into the coding agents found on this
+ * machine, shared by Settings → Integrations and `onedesk skill`. Every write
  * is a click in that pane or an explicit command; nothing installs on its own.
  * Pure functions over an injected home / env so the state table is
  * unit-testable without touching the real dotfolders.
  */
 
-export const SKILL_NAME = 'genoffice'
+export const SKILL_NAME = 'onedesk'
 
-/** app-settings.json key under which every install this machine's GenOffice wrote is remembered */
+/** app-settings.json key under which every install this machine's OneDesk wrote is remembered */
 export const LEDGER_KEY = 'agentSkillInstalls'
 
 export type AgentId =
@@ -50,7 +50,7 @@ export interface AgentTarget {
 }
 
 export type SkillInstallStatus =
-  /** no genoffice/ folder in the skills directory */
+  /** no onedesk/ folder in the skills directory */
   | 'missing'
   /** written by this app, same version and bytes as the bundled skill */
   | 'installed'
@@ -62,12 +62,12 @@ export type SkillInstallStatus =
   | 'foreign'
   /** a newer skill version than the one bundled, whoever wrote it */
   | 'newer'
-  /** genoffice/ exists but does not hold our skill */
+  /** onedesk/ exists but does not hold our skill */
   | 'occupied'
 
 export interface SkillInstallState {
   status: SkillInstallStatus
-  /** `<skillsDir>/genoffice/SKILL.md` */
+  /** `<skillsDir>/onedesk/SKILL.md` */
   path: string
   installedVersion?: string
   /** installed version is older than the bundled one (foreign rows offer an update then) */
@@ -83,7 +83,7 @@ interface AgentDef {
   skills: (probe: string, env: NodeJS.ProcessEnv, home: string) => string
   /**
    * false for a row kept only so `agentConfigDir` still finds the dotfolder
-   * (`genoffice mcp` needs it): the tool reads `~/.agents/skills`, so installing
+   * (`onedesk mcp` needs it): the tool reads `~/.agents/skills`, so installing
    * the skill there gets no per-tool row
    */
   skillsTarget: boolean
@@ -166,7 +166,7 @@ const AGENTS: readonly AgentDef[] = [
   },
   {
     // DSH_HOME (default ~/.dsh): the row exists so `agentConfigDir('dsh')`
-    // finds the dotfolder and `genoffice mcp` can write its Cordis patch
+    // finds the dotfolder and `onedesk mcp` can write its Cordis patch
     id: 'dsh',
     label: 'DeepSeek Harness (dsh)',
     probe: (env, home) => env.DSH_HOME || join(home, '.dsh'),
@@ -402,7 +402,7 @@ export interface LegacySkillCopy {
   label: string
   /** the skills directory that holds the copy */
   skillsDir: string
-  /** `<skillsDir>/genoffice/SKILL.md` */
+  /** `<skillsDir>/onedesk/SKILL.md` */
   path: string
   /** the copy still holds the bytes this app wrote */
   ours: boolean
@@ -488,7 +488,7 @@ export function currentSkillInstalled(
   return Boolean(ledger[path]) && existsSync(path)
 }
 
-/** `genoffice/SKILL.md` inside a zip: the layout claude.ai and the desktop apps accept for an uploaded skill. */
+/** `onedesk/SKILL.md` inside a zip: the layout claude.ai and the desktop apps accept for an uploaded skill. */
 export async function buildSkillZip(bundled: BundledSkill): Promise<Buffer> {
   const zip = new JSZip()
   zip.file(`${SKILL_NAME}/SKILL.md`, bundled.bytes, { date: new Date(0) })

@@ -189,7 +189,7 @@ const THREE_SECTIONS =
 
 test('End of section puts each section’s endnotes under it, and Suppress endnotes hands them on', async () => {
   test.setTimeout(300_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-section-endnotes-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-section-endnotes-')))
   const docPath = join(dir, 'sections.docx')
   writeFileSync(docPath, await endnoteDocx(THREE_SECTIONS, NOTES))
   let session = await openDoc(docPath)
@@ -370,7 +370,7 @@ test('End of section puts each section’s endnotes under it, and Suppress endno
 
 test('a file with endnotes at section ends pages them between entries, on the sheets and in the PDF', async () => {
   test.setTimeout(300_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-section-endnotes-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-section-endnotes-')))
   const docPath = join(dir, 'pages.docx')
   const count = 20
   const body =
@@ -437,7 +437,7 @@ test('a file with endnotes at section ends pages them between entries, on the sh
 
 test('Phonetic Guide sets a reading flush right, on the page, the sheets and in the file', async () => {
   test.setTimeout(240_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-ruby-right-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-ruby-right-')))
   const docPath = join(dir, 'ruby.docx')
   const line =
     `<w:p><w:r><w:t xml:space="preserve">Short reading </w:t></w:r>${ruby('Wide base text', 'ab', 'left')}` +

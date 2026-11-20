@@ -244,7 +244,7 @@ describe('remove_parts package scrub', () => {
       expect(after.has(name), name).toBe(false)
     }
     // the save writes no folder entries at all (Word does not write them;
-    // genoffice#2554), removed families or not
+    // onedesk#2554), removed families or not
     const zip = await JSZip.loadAsync(saved)
     const folders = Object.keys(zip.files).filter((name) => name.endsWith('/'))
     expect(folders).toEqual([])
@@ -305,7 +305,7 @@ describe('remove_parts package scrub', () => {
     expect(plan.refusedPaths).toEqual(['[Content_Types].xml', 'docProps/core.xml'])
     expect(plan.removedPaths).toContain('customXml/item1.xml')
     // a save that names a structural part refuses outright: the package would
-    // be damaged (genoffice#2554 — core.xml used to be removed on request)
+    // be damaged (onedesk#2554 — core.xml used to be removed on request)
     await expect(
       saveFixture(bytes, {
         kinds: ['customXml'],
@@ -316,7 +316,7 @@ describe('remove_parts package scrub', () => {
 
   it('removing a customXml item by path takes its itemProps along and runs the binding check', async () => {
     const bytes = await fixtureDocx({ dataBinding: true })
-    // the bound control would be orphaned by item1.xml alone (genoffice#2554)
+    // the bound control would be orphaned by item1.xml alone (onedesk#2554)
     await expect(saveFixture(bytes, { paths: ['customXml/item1.xml'] })).rejects.toThrow(
       /would orphan content controls/,
     )
@@ -343,7 +343,7 @@ describe('remove_parts package scrub', () => {
     // not write folder entries, so the save drops them and keeps each part
     // entry's source date — that date carry-over is what made two saves
     // byte-identical even when they straddled a 2-second DOS-time tick
-    // (genoffice#2343/#2443); genoffice#2554 adds the folder-entry drop
+    // (onedesk#2343/#2443); onedesk#2554 adds the folder-entry drop
     const saved = await saveFixture(bytes, { kinds: ['customXml'] })
     const zip = await JSZip.loadAsync(saved)
     const folders = Object.keys(zip.files).filter((name) => zip.files[name]!.dir)

@@ -7,7 +7,7 @@
 import type { Editor } from '@tiptap/core'
 import type { Node as PmNode } from '@tiptap/pm/model'
 import { Selection, TextSelection } from '@tiptap/pm/state'
-import type { Block, NoteInfo } from '@genoffice/docx-engine'
+import type { Block, NoteInfo } from '@onedesk/docx-engine'
 import { collectCaptions } from '../commands/reference-commands'
 import { noteMarkOf } from './note-ref-fields'
 import { xmlOfNode } from './toc-update'

@@ -4,7 +4,7 @@ import { join } from 'node:path'
 import { createContext, runInContext } from 'node:vm'
 import ts from 'typescript'
 import { afterEach, expect, it } from 'vitest'
-import { getUiLang, isLang, normalizeLang, setUiLang, type Lang } from '@genoffice/i18n'
+import { getUiLang, isLang, normalizeLang, setUiLang, type Lang } from '@onedesk/i18n'
 import { readAppSettings } from '../src/main/app-settings'
 
 const shell = ts.createSourceFile(
@@ -68,7 +68,7 @@ it.each([
 ] as const)(
   'initializes export language from saved=%s OS=%s override=%s',
   async (saved, locale, override, expected) => {
-    const directory = mkdtempSync(join(tmpdir(), 'genoffice-headless-language-'))
+    const directory = mkdtempSync(join(tmpdir(), 'onedesk-headless-language-'))
     directories.push(directory)
     const settings = join(directory, 'app-settings.json')
     const original = JSON.stringify({ language: saved })
@@ -78,7 +78,7 @@ it.each([
     let exported: Lang | undefined
     const context = createContext({
       uiLang: null,
-      process: { env: { GENOFFICE_LANG: override } },
+      process: { env: { ONEDESK_LANG: override } },
       app: { getLocale: () => locale },
       APP_SETTINGS_PATH: () => settings,
       readAppSettings,

@@ -180,7 +180,7 @@ describe('atomicWriteFile', () => {
   // A save that keeps failing (the document is open in another program, and
   // the autosave retries it every 30s) must not leave a new file beside the
   // document on every attempt: the user's folder fills with them
-  // (genoffice#2567).
+  // (onedesk#2567).
   it('replaces the rescue copy when the save keeps failing', async () => {
     dir = mkdtempSync(join(tmpdir(), 'eu-aw-'))
     const target = join(dir, 'a.docx')
@@ -405,7 +405,7 @@ describe('atomicCopyFile', () => {
 
 // A streamed deck save (JSZip → createWriteStream) cannot go through the
 // Buffer-taking atomicWriteFile; the writer fills the temp itself and the same
-// sync → rename → in-place fallback contract publishes it (genoffice#2123).
+// sync → rename → in-place fallback contract publishes it (onedesk#2123).
 describe('atomicWriteVia', () => {
   it('hands the writer a sibling temp, then fsyncs it before the rename publishes it', async () => {
     dir = mkdtempSync(join(tmpdir(), 'eu-av-'))
@@ -468,7 +468,7 @@ describe('atomicWriteVia', () => {
     expect(readdirSync(dir)).toEqual(['a.pptx'])
   })
 
-  // Same fallback contract as atomicWriteFile (genoffice#1878): a mount that refuses
+  // Same fallback contract as atomicWriteFile (onedesk#1878): a mount that refuses
   // rename-over-existing still receives the completed temp, copied in place.
   it('falls back to an in-place copy when the mount refuses the rename', async () => {
     dir = mkdtempSync(join(tmpdir(), 'eu-av-'))

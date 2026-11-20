@@ -1,5 +1,5 @@
 /**
- * genoffice#2488: with formatting marks on, Word draws a dashed "Page Break"
+ * onedesk#2488: with formatting marks on, Word draws a dashed "Page Break"
  * chip at a w:br page break, an arrow at a text-wrapping break and a
  * "Section Break (type)" chip on the last line of every section-ending
  * paragraph; the editor showed only the pilcrows.
@@ -46,7 +46,7 @@ async function breaksDocx(): Promise<Buffer> {
 test.describe('formatting marks show breaks', () => {
   test('page, wrap and section breaks get Word-style marks only while marks are on', async () => {
     test.setTimeout(240_000)
-    const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-fmt-marks-')))
+    const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-fmt-marks-')))
     const docPath = join(dir, 'breaks.docx')
     writeFileSync(docPath, await breaksDocx())
 

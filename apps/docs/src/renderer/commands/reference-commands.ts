@@ -7,7 +7,7 @@ import type {
   FieldTablePageRun,
   FieldTextRun,
   SourceInfo,
-} from '@genoffice/docx-engine'
+} from '@onedesk/docx-engine'
 import {
   bibliographyFieldNodes,
   bibliographyRange,

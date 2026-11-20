@@ -62,7 +62,7 @@ describe('the ODF import route in the Slides main module', () => {
     expect(source).toContain("error instanceof LegacyPptError && error.code === 'encrypted'")
     expect(source).toContain("tm(encrypted ? 'encryptedPptxTitle' : failedTitleKey)")
     expect(source).toContain(
-      "import { atomicWriteFile, atomicWriteVia } from '@genoffice/electron-utils/atomic-write'",
+      "import { atomicWriteFile, atomicWriteVia } from '@onedesk/electron-utils/atomic-write'",
     )
   })
 })

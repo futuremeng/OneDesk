@@ -124,7 +124,7 @@ async function pdfText(path: string): Promise<{ text: string; maxRight: number; 
 
 test('an over-wide display equation wraps at its operators as Equation Options says, and the file keeps it whole', async () => {
   test.setTimeout(300_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-equation-breaks-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-equation-breaks-')))
   const docPath = join(dir, 'wide-equations.docx')
   writeFileSync(docPath, await docxWith(BODY))
   const dialogOf = (page: Page) => page.locator('.equation-options-dialog')
@@ -309,7 +309,7 @@ test('an over-wide display equation wraps at its operators as Equation Options s
 
 test('pagination counts the lines an equation wraps into', async () => {
   test.setTimeout(180_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-equation-pages-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-equation-pages-')))
   const docPath = join(dir, 'many-wide-equations.docx')
   // 30 one-line equations fit one page; wrapped they need more
   writeFileSync(

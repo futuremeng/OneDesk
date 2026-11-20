@@ -1,5 +1,5 @@
 import { joinLabelSheets, labelTableIndex } from './label-sheet'
-import { mergeOutputFileName, type MergeRecord } from '@genoffice/docx-engine'
+import { mergeOutputFileName, type MergeRecord } from '@onedesk/docx-engine'
 import type { MergeOutputMode } from '../../shared/ipc'
 import { buildDocBytes, type FileActionContext } from '../file-actions'
 import type { PmNode } from '../editor/convert'
@@ -17,7 +17,7 @@ import { cellContentOf, labelSheetDoc, layoutSection, type MergePageLayout } fro
  * The letters are the template with one record's values in it, serialized the
  * way the document itself is serialized — so a merged letter keeps the
  * template's styles, sections, headers and pictures, and carries no field
- * code any more. genoffice#2097.
+ * code any more. onedesk#2097.
  */
 
 /** what the user asked the merge to write */

@@ -1,4 +1,4 @@
-import type { Run } from '@genoffice/docx-engine'
+import type { Run } from '@onedesk/docx-engine'
 import { latinLineFactor } from '../text-layout/font-rules'
 
 /** engine rule plus the run's Latin face: the rule line is one line of that face */

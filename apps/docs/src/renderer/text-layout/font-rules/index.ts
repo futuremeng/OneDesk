@@ -5,7 +5,7 @@
  * rules enter here (or the resolver / the measurement manifests they read),
  * never line-metrics.ts: tools/check-font-rules.mjs enforces it.
  */
-import { faceKey, type SubstituteRule } from '@genoffice/font-metrics/resolve'
+import { faceKey, type SubstituteRule } from '@onedesk/font-metrics/resolve'
 import { resolveDeclaredFace } from '../../font-resolve'
 import { declaredFaceMissing, isBundledFont, isFontAvailable } from './availability'
 import { cssFontFamily } from './css-chains'

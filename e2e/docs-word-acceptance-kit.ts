@@ -207,7 +207,7 @@ export async function open(
   name: string,
   extra: Record<string, string> = {},
 ): Promise<Session> {
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-acceptance-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-acceptance-')))
   const docPath = join(dir, name)
   writeFileSync(docPath, await styledDocx(body))
   for (const [file, otherBody] of Object.entries(extra))

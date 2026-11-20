@@ -11,7 +11,7 @@ import {
   type HfTextBox,
   type Run,
   type SectionSettings,
-} from '@genoffice/docx-engine'
+} from '@onedesk/docx-engine'
 import {
   cssAutoLineMult,
   estimateHfAnchorFloorPx,

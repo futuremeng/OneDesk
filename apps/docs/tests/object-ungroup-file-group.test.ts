@@ -3,7 +3,7 @@ import { NodeSelection } from '@tiptap/pm/state'
 import { closeHistory, undo } from '@tiptap/pm/history'
 import { describe, expect, it } from 'vitest'
 import JSZip from 'jszip'
-import { parseDocx, saveDocx, type Block, type TextboxDisplay } from '@genoffice/docx-engine'
+import { parseDocx, saveDocx, type Block, type TextboxDisplay } from '@onedesk/docx-engine'
 import { buildDocx } from '../../../packages/docx-engine/tests/helpers/build-docx'
 import {
   blocksToPmDoc,

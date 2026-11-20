@@ -104,7 +104,7 @@ async function pdfTextLeft(file: string, word: string): Promise<number> {
 
 test('the left and right distance move the border line, not the text', async () => {
   test.setTimeout(300_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-border-side-distance-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-border-side-distance-')))
   const docPath = join(dir, 'letter.docx')
   writeFileSync(
     docPath,
@@ -260,7 +260,7 @@ async function docxWithList(body: string): Promise<Buffer> {
 
 test('an indented, a listed and a right-to-left paragraph keep their text beside the moved line', async () => {
   test.setTimeout(120_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-border-side-kinds-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-border-side-kinds-')))
   const docPath = join(dir, 'kinds.docx')
   const p = (text: string, pPr: string, spaced: boolean) =>
     `<w:p><w:pPr>${pPr}<w:pBdr>${side('top', 1)}${side('left', spaced ? 8 : 0)}${side('bottom', 1)}${side('right', spaced ? 12 : 0)}</w:pBdr></w:pPr>` +

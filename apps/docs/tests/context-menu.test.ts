@@ -518,7 +518,7 @@ describe('EditorContextMenu \u2014 table items run the shared table commands', (
   })
 })
 
-describe('EditorContextMenu — submenu viewport fit (genoffice translate menu)', () => {
+describe('EditorContextMenu — submenu viewport fit (onedesk translate menu)', () => {
   const byLabel = (container: Element, label: string) =>
     [...container.querySelectorAll<HTMLButtonElement>('.ctx-item')].find(
       (b) => b.querySelector('.ctx-label')?.textContent === label,

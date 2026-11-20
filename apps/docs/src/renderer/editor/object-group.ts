@@ -8,7 +8,7 @@ import {
   type Block,
   type TextboxDisplay,
   type UngroupedMember,
-} from '@genoffice/docx-engine'
+} from '@onedesk/docx-engine'
 import { setObjectDragFollower, type ObjectDragFollow } from './extensions'
 import {
   boundsOf,

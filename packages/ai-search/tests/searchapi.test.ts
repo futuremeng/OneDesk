@@ -1,5 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
-import { defaultAiSettings } from '@genoffice/ai-provider'
+import { defaultAiSettings } from '@onedesk/ai-provider'
 import { imageSearch, webSearch } from '../src/index'
 import { searchOptionsFromSettings, testSearchProvider } from '../src/search-tools'
 
@@ -10,12 +10,17 @@ const webResponse = () =>
     organic_results: [
       {
         position: 1,
-        title: 'GenOffice',
-        link: 'https://genoffice.ai/',
+        title: 'OneDesk',
+        link: 'https://onedesk.jiulu.ltd/',
         snippet: 'A free, open-source office suite.',
       },
       { position: 2, title: 'Not a page', link: 'javascript:void(0)', snippet: 'dropped' },
-      { position: 3, title: 'Docs', link: 'https://genoffice.ai/docs', snippet: 'Documentation.' },
+      {
+        position: 3,
+        title: 'Docs',
+        link: 'https://onedesk.jiulu.ltd/docs',
+        snippet: 'Documentation.',
+      },
     ],
   })
 const image = (title: string, link: string, sourceLink: string, sourceName: string) => ({
@@ -50,7 +55,7 @@ describe('SearchApi web search', () => {
   it('sends a GET with a Bearer token and maps organic_results[]', async () => {
     const fetch = vi.fn<typeof globalThis.fetch>(async () => webResponse())
     vi.stubGlobal('fetch', fetch)
-    const r = await webSearch('genoffice', 5, {
+    const r = await webSearch('onedesk', 5, {
       useGsk: false,
       searchapiKey: 'user-key',
       serperKey: 'serper-key',
@@ -59,11 +64,11 @@ describe('SearchApi web search', () => {
     expect(r).toEqual({
       results: [
         {
-          title: 'GenOffice',
-          url: 'https://genoffice.ai/',
+          title: 'OneDesk',
+          url: 'https://onedesk.jiulu.ltd/',
           snippet: 'A free, open-source office suite.',
         },
-        { title: 'Docs', url: 'https://genoffice.ai/docs', snippet: 'Documentation.' },
+        { title: 'Docs', url: 'https://onedesk.jiulu.ltd/docs', snippet: 'Documentation.' },
       ],
       method: 'searchapi',
     })
@@ -72,14 +77,14 @@ describe('SearchApi web search', () => {
     const parsed = new URL(String(url))
     expect(`${parsed.origin}${parsed.pathname}`).toBe(endpoint)
     expect(parsed.searchParams.get('engine')).toBe('google')
-    expect(parsed.searchParams.get('q')).toBe('genoffice')
+    expect(parsed.searchParams.get('q')).toBe('onedesk')
     // Google ignores a result count, so none is sent; the cap is applied locally
     expect(parsed.searchParams.get('num')).toBeNull()
     expect(parsed.searchParams.get('api_key')).toBeNull()
     expect(init?.method).toBeUndefined()
     expect(init?.headers).toEqual({
       Authorization: 'Bearer user-key',
-      'User-Agent': 'genoffice',
+      'User-Agent': 'onedesk',
     })
   })
 
@@ -89,9 +94,9 @@ describe('SearchApi web search', () => {
       'fetch',
       vi.fn<typeof globalThis.fetch>(async () => webResponse()),
     )
-    const r = await webSearch('genoffice', 1)
+    const r = await webSearch('onedesk', 1)
     expect(r.method).toBe('searchapi')
-    expect(r.results.map((x) => x.url)).toEqual(['https://genoffice.ai/'])
+    expect(r.results.map((x) => x.url)).toEqual(['https://onedesk.jiulu.ltd/'])
   })
 
   it('falls through to the next backend when SearchApi rejects the key', async () => {
@@ -107,7 +112,7 @@ describe('SearchApi web search', () => {
         return fallback()
       }),
     )
-    const r = await webSearch('genoffice', 3, {
+    const r = await webSearch('onedesk', 3, {
       useGsk: false,
       searchapiKey: 'bad-key',
       prefer: 'searchapi',
@@ -131,7 +136,7 @@ describe('SearchApi web search', () => {
         return fallback()
       }),
     )
-    const r = await webSearch('genoffice', 3, {
+    const r = await webSearch('onedesk', 3, {
       useGsk: false,
       searchapiKey: 'k',
       serperKey: 'serper-key',

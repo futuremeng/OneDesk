@@ -4,38 +4,38 @@ import {
   parseRange,
   rangeAddresses,
   type RangeBounds,
-} from '@genoffice/xlsx-gateway/domain/cell-address'
-import { InMemoryWorkbookAdapter } from '@genoffice/xlsx-gateway/domain/in-memory-workbook'
+} from '@onedesk/xlsx-gateway/domain/cell-address'
+import { InMemoryWorkbookAdapter } from '@onedesk/xlsx-gateway/domain/in-memory-workbook'
 import type {
   ChangePlan,
   CellState,
   WorkbookSnapshot,
   WorksheetState,
-} from '@genoffice/xlsx-gateway/domain/workbook.types'
+} from '@onedesk/xlsx-gateway/domain/workbook.types'
 import type {
   CellFormatPatch,
   FillPatch,
   StyleColorInput,
-} from '@genoffice/xlsx-gateway/domain/workbook-dsl'
+} from '@onedesk/xlsx-gateway/domain/workbook-dsl'
 import {
   normalizeStyleColor,
   type FillSpec,
   type StyleColor,
-} from '@genoffice/xlsx-gateway/domain/style-color'
+} from '@onedesk/xlsx-gateway/domain/style-color'
 import {
   readBasicWorkbook,
   type CellEdit,
   type SheetStructuralOps,
-} from '@genoffice/xlsx-gateway/gateway/xlsx-gateway'
+} from '@onedesk/xlsx-gateway/gateway/xlsx-gateway'
 import {
   parseRelationships,
   parseSheetElements,
   type SheetEditPlan,
-} from '@genoffice/xlsx-gateway/gateway/xlsx-sheets'
-import type { StructuralOp } from '@genoffice/xlsx-gateway/gateway/xlsx-structure'
-import type { DefinedNameEntry } from '@genoffice/xlsx-gateway/gateway/xlsx-defined-names'
-import type { SheetNote } from '@genoffice/xlsx-gateway/gateway/xlsx-notes'
-import type { WorkbookStyleEdit } from '@genoffice/xlsx-gateway/shared/edit-schemas'
+} from '@onedesk/xlsx-gateway/gateway/xlsx-sheets'
+import type { StructuralOp } from '@onedesk/xlsx-gateway/gateway/xlsx-structure'
+import type { DefinedNameEntry } from '@onedesk/xlsx-gateway/gateway/xlsx-defined-names'
+import type { SheetNote } from '@onedesk/xlsx-gateway/gateway/xlsx-notes'
+import type { WorkbookStyleEdit } from '@onedesk/xlsx-gateway/shared/edit-schemas'
 import {
   expandToPrimitiveOps,
   isLayoutOp,
@@ -43,7 +43,7 @@ import {
   structuralOpLabel,
   workbookOperationSchema,
   type WorkbookOperation,
-} from '@genoffice/xlsx-gateway/domain/workbook-dsl'
+} from '@onedesk/xlsx-gateway/domain/workbook-dsl'
 import JSZip from 'jszip'
 import type { PathContext } from '../fs'
 import { classifyOpError } from '../op-errors'
@@ -53,7 +53,7 @@ import { computedValues } from './xlsx'
 
 const OP_REJECTED: ErrorHints = {
   reason: 'op_rejected',
-  suggestion: 'fix the op against `genoffice guide sheets`, then resend the whole batch',
+  suggestion: 'fix the op against `onedesk guide sheets`, then resend the whole batch',
 }
 /** Pins a rejection to one op so a non-atomic `sheet apply` can drop that op and rerun the rest. */
 function pinned(
@@ -70,8 +70,8 @@ function pinned(
 function unknownOpSuggestion(op: string): string {
   const guess = didYouMean(op, SUPPORTED_DSL_OPS)
   return guess
-    ? `did you mean "${guess}"? (\`genoffice guide sheets\` lists every op), then resend the whole batch`
-    : 'run `genoffice guide sheets` for the op list, then resend the whole batch'
+    ? `did you mean "${guess}"? (\`onedesk guide sheets\` lists every op), then resend the whole batch`
+    : 'run `onedesk guide sheets` for the op list, then resend the whole batch'
 }
 const TWO_BATCHES: ErrorHints = {
   reason: 'op_rejected',
@@ -336,9 +336,9 @@ export async function runWorkbookDsl(
       try {
         plan = adapter.plan({
           dslVersion: 1,
-          transactionId: `genoffice-${Date.now()}-${position}`,
+          transactionId: `onedesk-${Date.now()}-${position}`,
           baseRevision: adapter.getSnapshot().revision,
-          summary: 'genoffice sheet apply',
+          summary: 'onedesk sheet apply',
           operations: [op],
         })
       } catch (err) {
@@ -763,7 +763,7 @@ function normalizeOp(
   if (!(SUPPORTED_DSL_OPS as readonly string[]).includes(op.op)) {
     const reason = Object.hasOwn(REFUSED_DSL_OPS, op.op) ? REFUSED_DSL_OPS[op.op] : undefined
     const message = reason
-      ? `"${op.op}" is not available headless (${reason}); use the GenOffice app`
+      ? `"${op.op}" is not available headless (${reason}); use the OneDesk app`
       : `unknown op "${op.op}"`
     throw new CliError(
       EXIT.usage,
@@ -775,7 +775,7 @@ function normalizeOp(
       {
         reason: reason ? 'unsupported' : 'unknown_op',
         suggestion: reason
-          ? 'open the workbook in GenOffice for this edit'
+          ? 'open the workbook in OneDesk for this edit'
           : unknownOpSuggestion(op.op),
       },
     )

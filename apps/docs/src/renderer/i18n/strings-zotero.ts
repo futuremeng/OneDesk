@@ -1,4 +1,4 @@
-import { defineStrings } from '@genoffice/i18n'
+import { defineStrings } from '@onedesk/i18n'
 
 /** Strings for the Zotero ribbon tab. */
 export const zoteroStrings = defineStrings({
@@ -16,7 +16,7 @@ export const zoteroStrings = defineStrings({
     zoteroConnectionError: '无法连接 Zotero。请先启动 Zotero，并保持桌面程序运行。',
     zoteroOperationError: 'Zotero 操作失败。',
     zoteroNoteFieldsUnsupported:
-      '此文档的脚注或尾注中含有 Zotero 引文，GenOffice 目前还不能更新它们。为保持参考文献表完整，已停用此文档的 Zotero 命令。',
+      '此文档的脚注或尾注中含有 Zotero 引文，OneDesk 目前还不能更新它们。为保持参考文献表完整，已停用此文档的 Zotero 命令。',
     zoteroGroup: 'Zotero',
   },
   en: {
@@ -34,7 +34,7 @@ export const zoteroStrings = defineStrings({
     zoteroConnectionError: 'Unable to connect to Zotero. Start Zotero and keep it running.',
     zoteroOperationError: 'The Zotero operation failed.',
     zoteroNoteFieldsUnsupported:
-      'This document has Zotero citations in footnotes or endnotes, which GenOffice cannot update yet. Zotero commands are turned off here so the bibliography stays intact.',
+      'This document has Zotero citations in footnotes or endnotes, which OneDesk cannot update yet. Zotero commands are turned off here so the bibliography stays intact.',
     zoteroGroup: 'Zotero',
   },
   ja: {
@@ -52,7 +52,7 @@ export const zoteroStrings = defineStrings({
     zoteroConnectionError: 'Zotero に接続できません。Zotero を起動したままにしてください。',
     zoteroOperationError: 'Zotero の操作に失敗しました。',
     zoteroNoteFieldsUnsupported:
-      'この文書の脚注または文末脚注に Zotero の引用が含まれていますが、GenOffice はまだ更新できません。参考文献一覧を保つため、この文書では Zotero コマンドを無効にしています。',
+      'この文書の脚注または文末脚注に Zotero の引用が含まれていますが、OneDesk はまだ更新できません。参考文献一覧を保つため、この文書では Zotero コマンドを無効にしています。',
     zoteroGroup: 'Zotero',
   },
   ko: {
@@ -70,7 +70,7 @@ export const zoteroStrings = defineStrings({
     zoteroConnectionError: 'Zotero에 연결할 수 없습니다. Zotero를 실행한 상태로 유지하세요.',
     zoteroOperationError: 'Zotero 작업에 실패했습니다.',
     zoteroNoteFieldsUnsupported:
-      '이 문서의 각주 또는 미주에 Zotero 인용이 있으며 GenOffice는 아직 이를 업데이트할 수 없습니다. 참고문헌을 그대로 유지하기 위해 이 문서에서는 Zotero 명령이 비활성화되었습니다.',
+      '이 문서의 각주 또는 미주에 Zotero 인용이 있으며 OneDesk는 아직 이를 업데이트할 수 없습니다. 참고문헌을 그대로 유지하기 위해 이 문서에서는 Zotero 명령이 비활성화되었습니다.',
     zoteroGroup: 'Zotero',
   },
   fr: {
@@ -90,7 +90,7 @@ export const zoteroStrings = defineStrings({
       'Impossible de se connecter à Zotero. Démarrez Zotero et laissez-le ouvert.',
     zoteroOperationError: "L'opération Zotero a échoué.",
     zoteroNoteFieldsUnsupported:
-      'Ce document contient des citations Zotero dans les notes de bas de page ou de fin, que GenOffice ne peut pas encore mettre à jour. Les commandes Zotero sont désactivées ici afin de préserver la bibliographie.',
+      'Ce document contient des citations Zotero dans les notes de bas de page ou de fin, que OneDesk ne peut pas encore mettre à jour. Les commandes Zotero sont désactivées ici afin de préserver la bibliographie.',
     zoteroGroup: 'Zotero',
   },
   de: {
@@ -109,7 +109,7 @@ export const zoteroStrings = defineStrings({
       'Verbindung mit Zotero nicht möglich. Starten Sie Zotero und lassen Sie es geöffnet.',
     zoteroOperationError: 'Der Zotero-Vorgang ist fehlgeschlagen.',
     zoteroNoteFieldsUnsupported:
-      'Dieses Dokument enthält Zotero-Zitate in Fuß- oder Endnoten, die GenOffice noch nicht aktualisieren kann. Die Zotero-Befehle sind hier deaktiviert, damit das Literaturverzeichnis intakt bleibt.',
+      'Dieses Dokument enthält Zotero-Zitate in Fuß- oder Endnoten, die OneDesk noch nicht aktualisieren kann. Die Zotero-Befehle sind hier deaktiviert, damit das Literaturverzeichnis intakt bleibt.',
     zoteroGroup: 'Zotero',
   },
   es: {
@@ -127,7 +127,7 @@ export const zoteroStrings = defineStrings({
     zoteroConnectionError: 'No se puede conectar con Zotero. Inicie Zotero y manténgalo abierto.',
     zoteroOperationError: 'La operación de Zotero ha fallado.',
     zoteroNoteFieldsUnsupported:
-      'Este documento tiene citas de Zotero en notas al pie o al final que GenOffice aún no puede actualizar. Los comandos de Zotero están desactivados aquí para mantener intacta la bibliografía.',
+      'Este documento tiene citas de Zotero en notas al pie o al final que OneDesk aún no puede actualizar. Los comandos de Zotero están desactivados aquí para mantener intacta la bibliografía.',
     zoteroGroup: 'Zotero',
   },
   th: {
@@ -145,7 +145,7 @@ export const zoteroStrings = defineStrings({
     zoteroConnectionError: 'ไม่สามารถเชื่อมต่อกับ Zotero ได้ โปรดเปิด Zotero ทิ้งไว้',
     zoteroOperationError: 'การดำเนินการ Zotero ล้มเหลว',
     zoteroNoteFieldsUnsupported:
-      'เอกสารนี้มีการอ้างอิง Zotero ในเชิงอรรถหรืออ้างอิงท้ายเรื่อง ซึ่ง GenOffice ยังอัปเดตไม่ได้ คำสั่ง Zotero จึงถูกปิดไว้เพื่อรักษาบรรณานุกรมให้ครบถ้วน',
+      'เอกสารนี้มีการอ้างอิง Zotero ในเชิงอรรถหรืออ้างอิงท้ายเรื่อง ซึ่ง OneDesk ยังอัปเดตไม่ได้ คำสั่ง Zotero จึงถูกปิดไว้เพื่อรักษาบรรณานุกรมให้ครบถ้วน',
     zoteroGroup: 'Zotero',
   },
   id: {
@@ -165,7 +165,7 @@ export const zoteroStrings = defineStrings({
       'Tidak dapat terhubung ke Zotero. Jalankan Zotero dan biarkan tetap terbuka.',
     zoteroOperationError: 'Operasi Zotero gagal.',
     zoteroNoteFieldsUnsupported:
-      'Dokumen ini memiliki sitasi Zotero di catatan kaki atau catatan akhir yang belum dapat diperbarui GenOffice. Perintah Zotero dinonaktifkan di sini agar daftar pustaka tetap utuh.',
+      'Dokumen ini memiliki sitasi Zotero di catatan kaki atau catatan akhir yang belum dapat diperbarui OneDesk. Perintah Zotero dinonaktifkan di sini agar daftar pustaka tetap utuh.',
     zoteroGroup: 'Zotero',
   },
   ru: {
@@ -184,7 +184,7 @@ export const zoteroStrings = defineStrings({
       'Не удалось подключиться к Zotero. Запустите Zotero и оставьте его открытым.',
     zoteroOperationError: 'Операция Zotero завершилась с ошибкой.',
     zoteroNoteFieldsUnsupported:
-      'В сносках или концевых сносках этого документа есть цитаты Zotero, которые GenOffice пока не может обновлять. Команды Zotero здесь отключены, чтобы библиография осталась целой.',
+      'В сносках или концевых сносках этого документа есть цитаты Zotero, которые OneDesk пока не может обновлять. Команды Zotero здесь отключены, чтобы библиография осталась целой.',
     zoteroGroup: 'Zotero',
   },
   ar: {
@@ -201,7 +201,7 @@ export const zoteroStrings = defineStrings({
     zoteroConnectionError: 'تعذر الاتصال بـ Zotero. شغّل Zotero واتركه مفتوحًا.',
     zoteroOperationError: 'فشلت عملية Zotero.',
     zoteroNoteFieldsUnsupported:
-      'يحتوي هذا المستند على استشهادات Zotero في الحواشي السفلية أو الختامية، ولا يستطيع GenOffice تحديثها بعد. تم تعطيل أوامر Zotero هنا للحفاظ على قائمة المراجع سليمة.',
+      'يحتوي هذا المستند على استشهادات Zotero في الحواشي السفلية أو الختامية، ولا يستطيع OneDesk تحديثها بعد. تم تعطيل أوامر Zotero هنا للحفاظ على قائمة المراجع سليمة.',
     zoteroGroup: 'Zotero',
   },
   pt: {
@@ -220,7 +220,7 @@ export const zoteroStrings = defineStrings({
       'Não foi possível conectar ao Zotero. Inicie o Zotero e mantenha-o aberto.',
     zoteroOperationError: 'A operação do Zotero falhou.',
     zoteroNoteFieldsUnsupported:
-      'Este documento tem citações do Zotero em notas de rodapé ou de fim que o GenOffice ainda não consegue atualizar. Os comandos do Zotero estão desativados aqui para manter a bibliografia intacta.',
+      'Este documento tem citações do Zotero em notas de rodapé ou de fim que o OneDesk ainda não consegue atualizar. Os comandos do Zotero estão desativados aqui para manter a bibliografia intacta.',
     zoteroGroup: 'Zotero',
   },
   it: {
@@ -239,7 +239,7 @@ export const zoteroStrings = defineStrings({
     zoteroConnectionError: 'Impossibile connettersi a Zotero. Avvia Zotero e lascialo aperto.',
     zoteroOperationError: "L'operazione Zotero non è riuscita.",
     zoteroNoteFieldsUnsupported:
-      'Questo documento contiene citazioni Zotero nelle note a piè di pagina o di chiusura, che GenOffice non può ancora aggiornare. I comandi Zotero sono disattivati qui per mantenere intatta la bibliografia.',
+      'Questo documento contiene citazioni Zotero nelle note a piè di pagina o di chiusura, che OneDesk non può ancora aggiornare. I comandi Zotero sono disattivati qui per mantenere intatta la bibliografia.',
     zoteroGroup: 'Zotero',
   },
   pl: {
@@ -257,7 +257,7 @@ export const zoteroStrings = defineStrings({
     zoteroConnectionError: 'Nie można połączyć się z Zotero. Uruchom Zotero i pozostaw je otwarte.',
     zoteroOperationError: 'Operacja Zotero nie powiodła się.',
     zoteroNoteFieldsUnsupported:
-      'Ten dokument zawiera cytowania Zotero w przypisach dolnych lub końcowych, których GenOffice nie potrafi jeszcze aktualizować. Polecenia Zotero są tu wyłączone, aby bibliografia pozostała nienaruszona.',
+      'Ten dokument zawiera cytowania Zotero w przypisach dolnych lub końcowych, których OneDesk nie potrafi jeszcze aktualizować. Polecenia Zotero są tu wyłączone, aby bibliografia pozostała nienaruszona.',
     zoteroGroup: 'Zotero',
   },
   cs: {
@@ -275,7 +275,7 @@ export const zoteroStrings = defineStrings({
     zoteroConnectionError: 'K Zoteru se nelze připojit. Spusťte Zotero a nechte je otevřené.',
     zoteroOperationError: 'Operace Zotero se nezdařila.',
     zoteroNoteFieldsUnsupported:
-      'Tento dokument obsahuje citace Zotero v poznámkách pod čarou nebo vysvětlivkách, které GenOffice zatím neumí aktualizovat. Příkazy Zotero jsou zde vypnuté, aby bibliografie zůstala nedotčená.',
+      'Tento dokument obsahuje citace Zotero v poznámkách pod čarou nebo vysvětlivkách, které OneDesk zatím neumí aktualizovat. Příkazy Zotero jsou zde vypnuté, aby bibliografie zůstala nedotčená.',
     zoteroGroup: 'Zotero',
   },
   nl: {
@@ -295,7 +295,7 @@ export const zoteroStrings = defineStrings({
       'Kan geen verbinding maken met Zotero. Start Zotero en laat het geopend.',
     zoteroOperationError: 'De Zotero-bewerking is mislukt.',
     zoteroNoteFieldsUnsupported:
-      'Dit document bevat Zotero-citaties in voet- of eindnoten die GenOffice nog niet kan bijwerken. Zotero-opdrachten zijn hier uitgeschakeld zodat de bibliografie intact blijft.',
+      'Dit document bevat Zotero-citaties in voet- of eindnoten die OneDesk nog niet kan bijwerken. Zotero-opdrachten zijn hier uitgeschakeld zodat de bibliografie intact blijft.',
     zoteroGroup: 'Zotero',
   },
   ms: {
@@ -315,7 +315,7 @@ export const zoteroStrings = defineStrings({
       'Tidak dapat menyambung ke Zotero. Mulakan Zotero dan biarkannya terbuka.',
     zoteroOperationError: 'Operasi Zotero gagal.',
     zoteroNoteFieldsUnsupported:
-      'Dokumen ini mempunyai petikan Zotero dalam nota kaki atau nota hujung yang belum boleh dikemas kini oleh GenOffice. Perintah Zotero dimatikan di sini supaya bibliografi kekal utuh.',
+      'Dokumen ini mempunyai petikan Zotero dalam nota kaki atau nota hujung yang belum boleh dikemas kini oleh OneDesk. Perintah Zotero dimatikan di sini supaya bibliografi kekal utuh.',
     zoteroGroup: 'Zotero',
   },
   he: {
@@ -333,7 +333,7 @@ export const zoteroStrings = defineStrings({
     zoteroConnectionError: 'לא ניתן להתחבר ל-Zotero. יש להפעיל את Zotero ולהשאיר אותו פתוח.',
     zoteroOperationError: 'פעולת Zotero נכשלה.',
     zoteroNoteFieldsUnsupported:
-      'מסמך זה מכיל ציטוטים של Zotero בהערות שוליים או הערות סיום, ש-GenOffice עדיין אינו יכול לעדכן. פקודות Zotero מושבתות כאן כדי לשמור על הביבליוגרפיה שלמה.',
+      'מסמך זה מכיל ציטוטים של Zotero בהערות שוליים או הערות סיום, ש-OneDesk עדיין אינו יכול לעדכן. פקודות Zotero מושבתות כאן כדי לשמור על הביבליוגרפיה שלמה.',
     zoteroGroup: 'Zotero',
   },
   hi: {
@@ -351,7 +351,7 @@ export const zoteroStrings = defineStrings({
     zoteroConnectionError: 'Zotero से कनेक्ट नहीं हो सका। Zotero शुरू करें और उसे खुला रखें।',
     zoteroOperationError: 'Zotero कार्रवाई विफल रही।',
     zoteroNoteFieldsUnsupported:
-      'इस दस्तावेज़ के फ़ुटनोट या एंडनोट में Zotero उद्धरण हैं, जिन्हें GenOffice अभी अपडेट नहीं कर सकता। ग्रंथसूची को सुरक्षित रखने के लिए यहाँ Zotero कमांड बंद हैं।',
+      'इस दस्तावेज़ के फ़ुटनोट या एंडनोट में Zotero उद्धरण हैं, जिन्हें OneDesk अभी अपडेट नहीं कर सकता। ग्रंथसूची को सुरक्षित रखने के लिए यहाँ Zotero कमांड बंद हैं।',
     zoteroGroup: 'Zotero',
   },
   'zh-TW': {
@@ -368,7 +368,7 @@ export const zoteroStrings = defineStrings({
     zoteroConnectionError: '無法連線至 Zotero。請先啟動 Zotero，並保持桌面程式執行。',
     zoteroOperationError: 'Zotero 操作失敗。',
     zoteroNoteFieldsUnsupported:
-      '此文件的註腳或章節附註中含有 Zotero 引文，GenOffice 目前還無法更新它們。為保持參考文獻完整，已停用此文件的 Zotero 命令。',
+      '此文件的註腳或章節附註中含有 Zotero 引文，OneDesk 目前還無法更新它們。為保持參考文獻完整，已停用此文件的 Zotero 命令。',
     zoteroGroup: 'Zotero',
   },
   vi: {
@@ -387,7 +387,7 @@ export const zoteroStrings = defineStrings({
       'Không thể kết nối với Zotero. Hãy khởi động Zotero và giữ ứng dụng luôn chạy.',
     zoteroOperationError: 'Thao tác Zotero thất bại.',
     zoteroNoteFieldsUnsupported:
-      'Tài liệu này có chứa trích dẫn Zotero trong chú thích cuối trang hoặc chú thích cuối tài liệu mà GenOffice hiện chưa thể cập nhật. Các lệnh Zotero đã bị tắt tại đây để giữ nguyên danh mục tài liệu tham khảo.',
+      'Tài liệu này có chứa trích dẫn Zotero trong chú thích cuối trang hoặc chú thích cuối tài liệu mà OneDesk hiện chưa thể cập nhật. Các lệnh Zotero đã bị tắt tại đây để giữ nguyên danh mục tài liệu tham khảo.',
     zoteroGroup: 'Zotero',
   },
   tr: {
@@ -407,7 +407,7 @@ export const zoteroStrings = defineStrings({
       'Zotero ile bağlantı kurulamadı. Zotero uygulamasını başlatın ve açık tutun.',
     zoteroOperationError: 'Zotero işlemi başarısız oldu.',
     zoteroNoteFieldsUnsupported:
-      'Bu belgenin dipnotlarında veya son notlarında GenOffice tarafından henüz güncellenemeyen Zotero alıntıları var. Kaynakçanın bozulmaması için Zotero komutları burada kapatıldı.',
+      'Bu belgenin dipnotlarında veya son notlarında OneDesk tarafından henüz güncellenemeyen Zotero alıntıları var. Kaynakçanın bozulmaması için Zotero komutları burada kapatıldı.',
     zoteroGroup: 'Zotero',
   },
   hu: {
@@ -427,7 +427,7 @@ export const zoteroStrings = defineStrings({
       'Nem sikerült csatlakozni a Zoterohoz. Indítsd el a Zoterót, és hagyd futni.',
     zoteroOperationError: 'A Zotero-művelet nem sikerült.',
     zoteroNoteFieldsUnsupported:
-      'Ez a dokumentum lábjegyzetekben vagy végjegyzetekben tartalmaz Zotero-hivatkozásokat, amelyeket a GenOffice egyelőre nem tud frissíteni. A Zotero-parancsok itt le vannak tiltva, hogy az irodalomjegyzék érintetlen maradjon.',
+      'Ez a dokumentum lábjegyzetekben vagy végjegyzetekben tartalmaz Zotero-hivatkozásokat, amelyeket a OneDesk egyelőre nem tud frissíteni. A Zotero-parancsok itt le vannak tiltva, hogy az irodalomjegyzék érintetlen maradjon.',
     zoteroGroup: 'Zotero',
   },
 })

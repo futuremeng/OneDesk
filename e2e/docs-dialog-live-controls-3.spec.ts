@@ -73,7 +73,7 @@ const unzoomed = (page: Page, text: string) =>
 
 test('the Document Grid shows a line grid in lines per page and pitch, and sets it', async () => {
   test.setTimeout(240_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-live-controls-3-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-live-controls-3-')))
   const docPath = join(dir, 'grid.docx')
   writeFileSync(
     docPath,
@@ -164,7 +164,7 @@ test('the Document Grid shows a line grid in lines per page and pitch, and sets 
 
 test('the Columns dialog takes a width and spacing per column, and starts a new column', async () => {
   test.setTimeout(240_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-live-controls-3-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-live-controls-3-')))
   const docPath = join(dir, 'columns.docx')
   const lines = Array.from({ length: 30 }, (_, i) => `line ${String(i + 1).padStart(2, '0')}`)
   writeFileSync(docPath, await docxWith(lines.map(para).join('') + `<w:sectPr>${PAGE}</w:sectPr>`))
@@ -279,7 +279,7 @@ test('the Columns dialog takes a width and spacing per column, and starts a new 
 
 test('Bullets and Numbering restarts the numbering at the caret and continues the previous list', async () => {
   test.setTimeout(240_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-live-controls-3-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-live-controls-3-')))
   const docPath = join(dir, 'list.docx')
   writeFileSync(docPath, await docxWith(['alpha', 'beta', 'gamma', 'delta'].map(para).join('')))
   const markers = (page: Page) =>

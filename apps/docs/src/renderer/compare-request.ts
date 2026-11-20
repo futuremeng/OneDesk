@@ -1,5 +1,5 @@
 /** What the Compare Documents / Combine Documents dialog asks for. */
-import type { CompareGranularity, ParsedDocFull } from '@genoffice/docx-engine'
+import type { CompareGranularity, ParsedDocFull } from '@onedesk/docx-engine'
 
 /** one side of a comparison: the document open in this tab, or a picked file */
 export type CompareSide =

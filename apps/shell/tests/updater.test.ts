@@ -147,7 +147,7 @@ beforeEach(() => {
   vi.resetModules()
   vi.useFakeTimers()
   appState.isPackaged = true
-  delete process.env.GENOFFICE_FAKE_UPDATE
+  delete process.env.ONEDESK_FAKE_UPDATE
   updaterState.listeners.clear()
   updaterState.autoDownload = true
   updaterState.autoInstallOnAppQuit = false
@@ -175,7 +175,7 @@ afterEach(() => {
   vi.useRealTimers()
   platformSpy?.restore()
   platformSpy = null
-  delete process.env.GENOFFICE_FAKE_UPDATE
+  delete process.env.ONEDESK_FAKE_UPDATE
 })
 
 describe('initAutoUpdater', () => {
@@ -435,7 +435,7 @@ describe('initAutoUpdater', () => {
   })
 })
 
-describe('quiet background updates (genoffice#2389)', () => {
+describe('quiet background updates (onedesk#2389)', () => {
   const silent = () => true
 
   it('is off by default: a background check opens the card and downloads nothing', async () => {
@@ -556,10 +556,10 @@ describe('quiet background updates (genoffice#2389)', () => {
 
 describe('manual download fallback', () => {
   const macFiles = [
-    { url: 'GenOffice-0.2.0-arm64.zip' },
-    { url: 'GenOffice-0.2.0.zip' },
-    { url: 'GenOffice-0.2.0-arm64.dmg' },
-    { url: 'GenOffice-0.2.0.dmg' },
+    { url: 'OneDesk-0.2.0-arm64.zip' },
+    { url: 'OneDesk-0.2.0.zip' },
+    { url: 'OneDesk-0.2.0-arm64.dmg' },
+    { url: 'OneDesk-0.2.0.dmg' },
   ]
 
   function setArch(arch: string): () => void {
@@ -591,7 +591,7 @@ describe('manual download fallback', () => {
       const actions = await failTwiceIntoManual(macFiles)
       actions.onOpenDownload()
       expect(openExternal).toHaveBeenCalledWith(
-        'https://cdn.example.com/mac/GenOffice-0.2.0-arm64.dmg',
+        'https://cdn.example.com/mac/OneDesk-0.2.0-arm64.dmg',
       )
     } finally {
       restoreArch()
@@ -605,16 +605,13 @@ describe('manual download fallback', () => {
     try {
       const actions = await failTwiceIntoManual(macFiles)
       actions.onOpenDownload()
-      expect(openExternal).toHaveBeenCalledWith('https://cdn.example.com/mac/GenOffice-0.2.0.dmg')
+      expect(openExternal).toHaveBeenCalledWith('https://cdn.example.com/mac/OneDesk-0.2.0.dmg')
     } finally {
       restoreArch()
     }
   })
 
-  const winFiles = [
-    { url: 'GenOfficeSetup-v0.2.0.exe' },
-    { url: 'GenOfficeSetup-v0.2.0-arm64.exe' },
-  ]
+  const winFiles = [{ url: 'OneDeskSetup-v0.2.0.exe' }, { url: 'OneDeskSetup-v0.2.0-arm64.exe' }]
 
   it('picks the arm64 installer on Windows arm64', async () => {
     Object.defineProperty(process, 'resourcesPath', { value: '/res', configurable: true })
@@ -626,7 +623,7 @@ describe('manual download fallback', () => {
       const actions = await failTwiceIntoManual(winFiles)
       actions.onOpenDownload()
       expect(openExternal).toHaveBeenCalledWith(
-        'https://cdn.example.com/win/GenOfficeSetup-v0.2.0-arm64.exe',
+        'https://cdn.example.com/win/OneDeskSetup-v0.2.0-arm64.exe',
       )
     } finally {
       restoreArch()
@@ -643,7 +640,7 @@ describe('manual download fallback', () => {
       const actions = await failTwiceIntoManual([...winFiles].reverse())
       actions.onOpenDownload()
       expect(openExternal).toHaveBeenCalledWith(
-        'https://cdn.example.com/win/GenOfficeSetup-v0.2.0.exe',
+        'https://cdn.example.com/win/OneDeskSetup-v0.2.0.exe',
       )
     } finally {
       restoreArch()
@@ -657,10 +654,10 @@ describe('manual download fallback', () => {
     setPlatform('win32')
     const restoreArch = setArch('arm64')
     try {
-      const actions = await failTwiceIntoManual([{ url: 'GenOfficeSetup-v0.2.0.exe' }])
+      const actions = await failTwiceIntoManual([{ url: 'OneDeskSetup-v0.2.0.exe' }])
       actions.onOpenDownload()
       expect(openExternal).toHaveBeenCalledWith(
-        'https://cdn.example.com/win/GenOfficeSetup-v0.2.0.exe',
+        'https://cdn.example.com/win/OneDeskSetup-v0.2.0.exe',
       )
     } finally {
       restoreArch()
@@ -673,13 +670,13 @@ describe('manual download fallback', () => {
     const restoreArch = setArch('arm64')
     try {
       const actions = await failTwiceIntoManual([
-        { url: 'https://attacker.example/GenOffice-0.2.0-arm64.zip' },
-        { url: 'https://attacker.example/GenOffice-0.2.0-arm64.dmg' },
-        { url: 'https://attacker.example/GenOffice-0.2.0.dmg' },
+        { url: 'https://attacker.example/OneDesk-0.2.0-arm64.zip' },
+        { url: 'https://attacker.example/OneDesk-0.2.0-arm64.dmg' },
+        { url: 'https://attacker.example/OneDesk-0.2.0.dmg' },
       ])
       actions.onOpenDownload()
       expect(openExternal).toHaveBeenCalledWith(
-        'https://cdn.example.com/mac/GenOffice-0.2.0-arm64.dmg',
+        'https://cdn.example.com/mac/OneDesk-0.2.0-arm64.dmg',
       )
     } finally {
       restoreArch()
@@ -691,27 +688,23 @@ describe('manual download fallback', () => {
     readFileSyncMock.mockReturnValue('url: http://cdn.example.com/mac\n')
     const actions = await failTwiceIntoManual(macFiles)
     actions.onOpenDownload()
-    expect(openExternal).toHaveBeenCalledWith(
-      'https://github.com/genspark-ai/genoffice/releases/latest',
-    )
+    expect(openExternal).toHaveBeenCalledWith('https://onedesk.jiulu.ltd/releases/latest')
   })
 
   it('falls back to the generic download page when the feed base cannot be read', async () => {
     // readFileSyncMock throws by default (no app-update.yml)
     const actions = await failTwiceIntoManual([
-      { url: 'https://attacker.example/GenOffice-0.2.0-arm64.dmg' },
+      { url: 'https://attacker.example/OneDesk-0.2.0-arm64.dmg' },
     ])
     actions.onOpenDownload()
-    expect(openExternal).toHaveBeenCalledWith(
-      'https://github.com/genspark-ai/genoffice/releases/latest',
-    )
+    expect(openExternal).toHaveBeenCalledWith('https://onedesk.jiulu.ltd/releases/latest')
   })
 })
 
 describe('initAutoUpdater (fake update preview)', () => {
   it('runs a simulated download to completion in unpacked runs', async () => {
     appState.isPackaged = false
-    process.env.GENOFFICE_FAKE_UPDATE = '9.9.9'
+    process.env.ONEDESK_FAKE_UPDATE = '9.9.9'
     const { initAutoUpdater } = await loadUpdater()
     initAutoUpdater(() => null)
 
@@ -732,7 +725,7 @@ describe('initAutoUpdater (fake update preview)', () => {
 
   it('closes the window on later and install without touching electron-updater', async () => {
     appState.isPackaged = false
-    process.env.GENOFFICE_FAKE_UPDATE = '9.9.9'
+    process.env.ONEDESK_FAKE_UPDATE = '9.9.9'
     const { initAutoUpdater } = await loadUpdater()
     initAutoUpdater(() => null)
     vi.advanceTimersByTime(1500)
@@ -760,9 +753,7 @@ describe('checkForUpdatesNow (r148 manual check)', () => {
 
     expect(showMessageBox).toHaveBeenCalledTimes(1)
     expect(lastDialogOpts().buttons.length).toBe(2)
-    expect(openExternal).toHaveBeenCalledWith(
-      'https://github.com/genspark-ai/genoffice/releases/latest',
-    )
+    expect(openExternal).toHaveBeenCalledWith('https://onedesk.jiulu.ltd/releases/latest')
     expect(checkForUpdates).not.toHaveBeenCalled()
   })
 
@@ -946,9 +937,9 @@ describe('checkForUpdatesNow (r148 manual check)', () => {
     expect(showUpdateWindow).not.toHaveBeenCalled()
   })
 
-  it('re-shows the simulated update window in GENOFFICE_FAKE_UPDATE runs', async () => {
+  it('re-shows the simulated update window in ONEDESK_FAKE_UPDATE runs', async () => {
     appState.isPackaged = false
-    process.env.GENOFFICE_FAKE_UPDATE = '9.9.9'
+    process.env.ONEDESK_FAKE_UPDATE = '9.9.9'
     const { initAutoUpdater, checkForUpdatesNow } = await loadUpdater()
     initAutoUpdater(() => null)
 

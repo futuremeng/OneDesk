@@ -99,7 +99,7 @@ const endsInHyphen = (line: string) => /[A-Za-z] ?[-­‐]$/.test(line)
 
 test('text boxes, headers, footers and notes hyphenate by the rules of Tools > Hyphenation', async () => {
   test.setTimeout(300_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-hyph-places-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-hyph-places-')))
   const docPath = join(dir, 'places.docx')
   writeFileSync(docPath, await hyphenationPlacesDocx({ settings: '<w:autoHyphenation/>' }))
   const session = await open(docPath)
@@ -289,7 +289,7 @@ test('text boxes, headers, footers and notes hyphenate by the rules of Tools > H
 
 test('a document that does not hyphenate carries nothing of it outside the body either', async () => {
   test.setTimeout(180_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-hyph-places-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-hyph-places-')))
   const docPath = join(dir, 'plain.docx')
   writeFileSync(docPath, await hyphenationPlacesDocx({ settings: '' }))
   const session = await open(docPath)

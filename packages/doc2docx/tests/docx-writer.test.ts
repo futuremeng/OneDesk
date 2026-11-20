@@ -1,7 +1,7 @@
 import JSZip from 'jszip'
 import { beforeAll, describe, expect, it } from 'vitest'
-import { parseDocx, saveDocx } from '@genoffice/docx-engine'
-import type { Block } from '@genoffice/docx-engine'
+import { parseDocx, saveDocx } from '@onedesk/docx-engine'
+import type { Block } from '@onedesk/docx-engine'
 import {
   LegacyDocError,
   convertLegacyDocToDocx,

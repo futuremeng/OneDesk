@@ -2,7 +2,7 @@ import { execFile } from 'node:child_process'
 import { readFileSync } from 'node:fs'
 import { homedir } from 'node:os'
 import { dirname, join } from 'node:path'
-import { decodeCommandOutput } from '@genoffice/electron-utils'
+import { decodeCommandOutput } from '@onedesk/electron-utils'
 import type { DefaultAppStatus } from '../shared/home-api'
 
 // macOS writes the LaunchServices user choice via osascript (no helper binary to
@@ -49,7 +49,7 @@ export const OFFICE_TYPES: readonly OfficeType[] = [
   },
 ]
 
-const LINUX_DESKTOP_ID = 'genoffice.desktop'
+const LINUX_DESKTOP_ID = 'onedesk.desktop'
 const WINDOWS_DEFAULT_APPS_URL = 'ms-settings:defaultapps'
 
 export type RunCommand = (cmd: string, args: string[]) => Promise<string>
@@ -86,7 +86,7 @@ export function execFileRunner(cmd: string, args: string[]): Promise<string> {
   })
 }
 
-/** /Applications/GenOffice.app/Contents/MacOS/GenOffice → /Applications/GenOffice.app */
+/** /Applications/OneDesk.app/Contents/MacOS/OneDesk → /Applications/OneDesk.app */
 export function macAppBundlePath(exePath: string): string | null {
   let dir = exePath
   for (let i = 0; i < 6; i++) {

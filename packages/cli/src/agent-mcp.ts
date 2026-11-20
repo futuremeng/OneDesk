@@ -5,22 +5,22 @@ import { realizedPath, writeOutput } from './fs'
 import { withCompactSchemas, type McpLaunch } from './mcp-launch'
 
 /**
- * Registering `genoffice mcp` (stdio) in each coding agent's MCP config, the
+ * Registering `onedesk mcp` (stdio) in each coding agent's MCP config, the
  * MCP twin of agent-skills.ts. One key per file is set or removed; an entry
- * named genoffice that starts something other than a genoffice launcher is
+ * named onedesk that starts something other than a onedesk launcher is
  * never replaced unless forced. Paths and shapes follow each agent's docs.
  */
 
-export const MCP_SERVER_NAME = 'genoffice'
+export const MCP_SERVER_NAME = 'onedesk'
 
 export type McpEntryStatus =
-  /** no genoffice entry in the file */
+  /** no onedesk entry in the file */
   | 'absent'
-  /** genoffice entry starting our launcher, exactly as this CLI would write it */
+  /** onedesk entry starting our launcher, exactly as this CLI would write it */
   | 'registered'
-  /** a genoffice launcher, but another path or extra fields */
+  /** a onedesk launcher, but another path or extra fields */
   | 'stale'
-  /** an entry named genoffice that starts something else */
+  /** an entry named onedesk that starts something else */
   | 'occupied'
   /** the file cannot be edited safely (unparsable, or a shape we do not know) */
   | 'manual'
@@ -167,7 +167,7 @@ export function mcpConfigFile(id: AgentId, opts: McpConfigOptions = {}): string 
 }
 
 function homeOf(env: NodeJS.ProcessEnv): string {
-  return env.GENOFFICE_HOME || env.HOME || env.USERPROFILE || ''
+  return env.ONEDESK_HOME || env.HOME || env.USERPROFILE || ''
 }
 
 /** What a person pastes when the file cannot be edited for them. */
@@ -212,10 +212,10 @@ export function readMcpEntry(id: AgentId, file: string, launch: McpLaunch): McpE
         : { status: 'registered', command }
     }
   }
-  return { status: isGenofficeLauncher(command, args) ? 'stale' : 'occupied', command }
+  return { status: isOneDeskLauncher(command, args) ? 'stale' : 'occupied', command }
 }
 
-/** Set the genoffice entry (replacing any existing one); the caller has already decided that is allowed. */
+/** Set the onedesk entry (replacing any existing one); the caller has already decided that is allowed. */
 export function writeMcpEntry(id: AgentId, file: string, launch: McpLaunch): void {
   const def = MCP_AGENTS.find((a) => a.id === id)!
   const text = existsSync(file) ? readFileSync(file, 'utf-8') : ''
@@ -236,7 +236,7 @@ export function writeMcpEntry(id: AgentId, file: string, launch: McpLaunch): voi
   save(file, `${JSON.stringify(doc, null, 2)}\n`)
 }
 
-/** Remove the genoffice entry; false when there was none. Other keys stay. */
+/** Remove the onedesk entry; false when there was none. Other keys stay. */
 export function removeMcpEntry(id: AgentId, file: string): boolean {
   const def = MCP_AGENTS.find((a) => a.id === id)!
   if (!existsSync(file)) return false
@@ -266,7 +266,7 @@ export function removeMcpEntry(id: AgentId, file: string): boolean {
 
 // ---- the DSH Cordis patch (yaml-cordis shape) ----
 // The file is a YAML array of `{ insert: [...] }` blocks; this converter only
-// owns the block whose insert carries `id: mcp-genoffice`. Hand-rolled line
+// owns the block whose insert carries `id: mcp-onedesk`. Hand-rolled line
 // walker, not a YAML parser: the format DSH reads is a strict subset of YAML
 // (one nesting shape, no anchors, no multi-line scalars in practice), and a
 // targeted line edit can never reorder or reformat entries the way a full
@@ -348,15 +348,15 @@ function cordisBlockInfo(block: string[]): { id: string | null; serverName: stri
   return { id, serverName }
 }
 
-function isGenofficeCordisBlock(block: string[]): boolean {
+function isOneDeskCordisBlock(block: string[]): boolean {
   const { id, serverName } = cordisBlockInfo(block)
-  return id === 'mcp-genoffice' || serverName === MCP_SERVER_NAME
+  return id === 'mcp-onedesk' || serverName === MCP_SERVER_NAME
 }
 
 /** The line range of the block this app owns, or null when there is none. */
 function cordisOwnRange(lines: string[]): [number, number] | null {
   for (const [start, end] of cordisBlockRanges(lines)) {
-    if (isGenofficeCordisBlock(lines.slice(start, end))) return [start, end]
+    if (isOneDeskCordisBlock(lines.slice(start, end))) return [start, end]
   }
   return null
 }
@@ -399,7 +399,7 @@ function cordisState(text: string, launch: McpLaunch): McpEntryState {
     return { status: 'registered', command, compactSchemas: true }
   // ours, but written for another install path: stale, and ours to update.
   // A foreign command under our id is occupied — not ours to overwrite.
-  return { status: isGenofficeLauncher(command, args) ? 'stale' : 'occupied', command }
+  return { status: isOneDeskLauncher(command, args) ? 'stale' : 'occupied', command }
 }
 
 function cordisEntryLines(launch: McpLaunch): string[] {
@@ -408,10 +408,10 @@ function cordisEntryLines(launch: McpLaunch): string[] {
   const env = Object.entries(launch.env ?? {})
   return [
     '- insert:',
-    '  - id: mcp-genoffice',
+    '  - id: mcp-onedesk',
     "    name: '@deepseek-ai/dsh-mcp-client'",
     '    config:',
-    '      serverName: genoffice',
+    '      serverName: onedesk',
     '      transport: stdio',
     `      command: ${command}`,
     `      args: [${args}]`,
@@ -454,15 +454,15 @@ function cordisRemove(text: string): string {
   return [...lines.slice(0, own[0]), ...lines.slice(own[1])].join('\n')
 }
 
-const LAUNCHER_NAMES = new Set(['genoffice', 'genoffice.cmd', 'genoffice.exe'])
+const LAUNCHER_NAMES = new Set(['onedesk', 'onedesk.cmd', 'onedesk.exe'])
 
 /**
- * Any genoffice launcher, whatever install it came from (an older app path is
- * ours to update): the launcher scripts, or the app run as Node on genoffice.cjs.
+ * Any onedesk launcher, whatever install it came from (an older app path is
+ * ours to update): the launcher scripts, or the app run as Node on onedesk.cjs.
  */
-export function isGenofficeLauncher(command: string | null, args: string[] = []): boolean {
+export function isOneDeskLauncher(command: string | null, args: string[] = []): boolean {
   if (command && LAUNCHER_NAMES.has(fileName(command))) return true
-  return args.some((a) => fileName(a) === 'genoffice.cjs')
+  return args.some((a) => fileName(a) === 'onedesk.cjs')
 }
 
 /** basename for either path flavour: Windows entries are read on any host */
@@ -515,10 +515,9 @@ function isRecord(v: unknown): v is Record<string, unknown> {
   return !!v && typeof v === 'object' && !Array.isArray(v)
 }
 
-const TOML_HEADER =
-  /^\s*\[\s*mcp_servers\s*\.\s*(?:"genoffice"|'genoffice'|genoffice)\s*(\.[^\]]*)?\]/
+const TOML_HEADER = /^\s*\[\s*mcp_servers\s*\.\s*(?:"onedesk"|'onedesk'|onedesk)\s*(\.[^\]]*)?\]/
 
-/** `env` becomes the `[mcp_servers.genoffice.env]` sub-table Codex reads its `env` map from. */
+/** `env` becomes the `[mcp_servers.onedesk.env]` sub-table Codex reads its `env` map from. */
 function tomlTable(launch: McpLaunch): string {
   const head = `[mcp_servers.${MCP_SERVER_NAME}]\ncommand = ${JSON.stringify(launch.command)}\nargs = ${JSON.stringify(launch.args)}\n`
   const env = Object.entries(launch.env ?? {})
@@ -527,7 +526,7 @@ function tomlTable(launch: McpLaunch): string {
   return `${head}\n[mcp_servers.${MCP_SERVER_NAME}.env]\n${body}\n`
 }
 
-/** The `[mcp_servers.genoffice]` table and its sub-tables (`[mcp_servers.genoffice.env]`), as line ranges. */
+/** The `[mcp_servers.onedesk]` table and its sub-tables (`[mcp_servers.onedesk.env]`), as line ranges. */
 function tomlTableLines(lines: string[]): Array<[number, number]> {
   const out: Array<[number, number]> = []
   for (let i = 0; i < lines.length; i++) {
@@ -557,7 +556,7 @@ function tomlState(text: string, launch: McpLaunch): McpEntryState {
   if (written === tableText(withCompactSchemas(launch)))
     return { status: 'registered', command, compactSchemas: true }
   const args = tomlStrings(block, 'args')
-  return { status: isGenofficeLauncher(command, args) ? 'stale' : 'occupied', command }
+  return { status: isOneDeskLauncher(command, args) ? 'stale' : 'occupied', command }
 }
 
 function tomlValue(block: string[], key: string): string | null {

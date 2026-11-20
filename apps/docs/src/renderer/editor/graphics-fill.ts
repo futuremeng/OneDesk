@@ -1,7 +1,7 @@
 import type { Editor } from '@tiptap/core'
 import type { Node as PmNode } from '@tiptap/pm/model'
 import { NodeSelection } from '@tiptap/pm/state'
-import { NEW_PICTURE_SVG_SUFFIX } from '@genoffice/docx-engine'
+import { NEW_PICTURE_SVG_SUFFIX } from '@onedesk/docx-engine'
 import { getActiveSubEditor } from './active-editor'
 import { heldPictureToken, heldPictureXml } from './convert'
 import {

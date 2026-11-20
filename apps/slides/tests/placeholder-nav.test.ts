@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest'
-import type { RenderNode, RenderSlide } from '@genoffice/pptx-render'
+import type { RenderNode, RenderSlide } from '@onedesk/pptx-render'
 import {
   firstPlaceholderId,
   nextPlaceholder,

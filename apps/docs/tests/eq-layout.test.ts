@@ -3,7 +3,7 @@ import { afterEach, beforeEach, describe, expect, it } from 'vitest'
 import { Editor } from '@tiptap/core'
 import { DOMParser as PmDOMParser, DOMSerializer } from '@tiptap/pm/model'
 import { NodeSelection } from '@tiptap/pm/state'
-import { parseDocx } from '@genoffice/docx-engine'
+import { parseDocx } from '@onedesk/docx-engine'
 import { buildDocx } from '../../../packages/docx-engine/tests/helpers/build-docx'
 import { blocksToPmDoc, pmDocToSavePlan, type PmNode } from '../src/renderer/editor/convert'
 import {

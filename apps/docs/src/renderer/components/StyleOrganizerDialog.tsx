@@ -7,7 +7,7 @@ import {
   writeDocxStyles,
   type OrganizerStyle,
   type StyleUpsert,
-} from '@genoffice/docx-engine'
+} from '@onedesk/docx-engine'
 import { fetchDocBytes } from '../doc-bytes'
 import { useI18n } from '../i18n/locale'
 import { useModalKeys } from './modal-keys'

@@ -1,7 +1,7 @@
 import type { Editor } from '@tiptap/core'
 import type { Node as PmNode } from '@tiptap/pm/model'
 import { NodeSelection, type EditorState } from '@tiptap/pm/state'
-import type { TextboxDisplay } from '@genoffice/docx-engine'
+import type { TextboxDisplay } from '@onedesk/docx-engine'
 import { selectedObjectPositions } from './object-multi-select'
 import { selectBoxAt, selectedBoxIndex } from './selected-box'
 

@@ -11,7 +11,7 @@ import { join } from 'node:path'
 import { afterEach, describe, expect, it } from 'vitest'
 import JSZip from 'jszip'
 import { Editor } from '@tiptap/core'
-import { parseDocx, readSections } from '@genoffice/docx-engine'
+import { parseDocx, readSections } from '@onedesk/docx-engine'
 import { buildDocx } from '../../../packages/docx-engine/tests/helpers/build-docx'
 import { editorExtensions } from '../src/renderer/editor/extensions'
 import { blocksToPmDoc, pmDocOptions } from '../src/renderer/editor/convert'
@@ -49,7 +49,7 @@ async function fixture() {
     bodyXml: LINES.map((text) => `<w:p><w:r><w:t>${text}</w:t></w:r></w:p>`).join(''),
   })
   const parsed = await parseDocx(bytes)
-  const dir = await mkdtemp(join(tmpdir(), 'genoffice-save-queued-'))
+  const dir = await mkdtemp(join(tmpdir(), 'onedesk-save-queued-'))
   dirs.push(dir)
   const path = join(dir, 'fixture.docx')
   await writeFile(path, bytes)

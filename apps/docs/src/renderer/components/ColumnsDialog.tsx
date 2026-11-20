@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import type { SectionSettings } from '@genoffice/docx-engine'
+import type { SectionSettings } from '@onedesk/docx-engine'
 import type { SectionScope } from '../commands/menu-commands'
 import { useI18n, type StringKey } from '../i18n/locale'
 import { ApplyToSelect, defaultScope } from './ApplyToSelect'

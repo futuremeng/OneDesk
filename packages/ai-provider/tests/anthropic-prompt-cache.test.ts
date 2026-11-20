@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import type { AgentMessage } from '@genoffice/agent-core'
+import type { AgentMessage } from '@onedesk/agent-core'
 import { streamAnthropic } from '../src/protocols/anthropic'
 import { GENSPARK_LLM_BASE_URLS } from '../src/providers'
 import { okResponse, sseStream } from './test-utils'

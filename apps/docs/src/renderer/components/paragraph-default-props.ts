@@ -1,4 +1,4 @@
-import type { StyleParaProps } from '@genoffice/docx-engine'
+import type { StyleParaProps } from '@onedesk/docx-engine'
 
 const STYLE_FLAGS = [
   'widowControl',

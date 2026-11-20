@@ -32,7 +32,7 @@ async function oneLineDocx(): Promise<Buffer> {
 
 test('Save As writes a PDF, HTML or Markdown copy and leaves the document on its .docx', async () => {
   test.setTimeout(180_000)
-  const dir = await mkdtemp(join(tmpdir(), 'genoffice-save-as-formats-'))
+  const dir = await mkdtemp(join(tmpdir(), 'onedesk-save-as-formats-'))
   const docPath = join(dir, 'report.docx')
   await writeFile(docPath, await oneLineDocx())
   const original = await readFile(docPath)

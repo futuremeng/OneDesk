@@ -76,7 +76,7 @@ async function pdfText(path: string): Promise<string> {
 
 test('an index from the References tab reopens with entry and page apart, on the page and in the PDF', async () => {
   test.setTimeout(240_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-index-reopen-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-index-reopen-')))
   const docPath = join(dir, 'index.docx')
   writeFileSync(
     docPath,
@@ -163,7 +163,7 @@ test('an index from the References tab reopens with entry and page apart, on the
 
 test('an index whose Index 2 style carries the indent, as Word writes it, shows the subentry at that indent', async () => {
   test.setTimeout(120_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-index-reopen-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-index-reopen-')))
   const docPath = join(dir, 'styled-index.docx')
   const NS = 'xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"'
   const stop = '<w:tabs><w:tab w:val="right" w:leader="dot" w:pos="4310"/></w:tabs>'

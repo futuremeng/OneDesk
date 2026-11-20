@@ -14,7 +14,7 @@ import {
   type Block,
   type FieldDisplay,
   type SeqInstruction,
-} from '@genoffice/docx-engine'
+} from '@onedesk/docx-engine'
 import { blocksToPmDoc } from './convert'
 import { collectFields, type FieldRange } from './field-codes'
 

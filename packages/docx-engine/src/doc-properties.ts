@@ -264,9 +264,9 @@ function blankAppPropertiesXml(): string {
   )
 }
 
-/** Application a new GenOffice document records in docProps/app.xml */
-export const NEW_DOCUMENT_APPLICATION = 'GenOffice'
-/** Template a new GenOffice document records (Word's own default) */
+/** Application a new OneDesk document records in docProps/app.xml */
+export const NEW_DOCUMENT_APPLICATION = 'OneDesk'
+/** Template a new OneDesk document records (Word's own default) */
 export const NEW_DOCUMENT_TEMPLATE = 'Normal.dotm'
 /**
  * OOXML AppVersion uses a two-component XX.YYYY value, not semver
@@ -285,7 +285,7 @@ export function w3cdtfStamp(date: Date): string {
  * Word-like core part of a freshly created document: no creator or other
  * people data, just the creation/modification stamp and revision 0 — the
  * template has not been saved anywhere yet, and the first save bumps the
- * revision to 1 the way Word's first Ctrl+S does (genoffice#2554).
+ * revision to 1 the way Word's first Ctrl+S does (onedesk#2554).
  */
 export function newDocumentCorePropertiesXml(created: Date = new Date()): string {
   const stamp = w3cdtfStamp(created)
@@ -304,7 +304,7 @@ export function newDocumentCorePropertiesXml(created: Date = new Date()): string
 /** Word-like extended part of a freshly created document (no company/manager).
  *  `omitGeneratorFields` drops Application and AppVersion — the fields that name
  *  the generating tool — while the harmless Word-default Template stays
- *  (genoffice#2554: consumers that must not look machine-generated then skip a
+ *  (onedesk#2554: consumers that must not look machine-generated then skip a
  *  set_properties pass). */
 export function newDocumentAppPropertiesXml(
   opts: {

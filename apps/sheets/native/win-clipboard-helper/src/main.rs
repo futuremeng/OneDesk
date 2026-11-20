@@ -3,7 +3,7 @@
 //! formats the grid already wrote. CAD paste dialogs (AutoCAD, ZWCAD and
 //! their PASTESPEC) list the formats the clipboard actually carries, so the
 //! EMF is what makes a "Picture (Enhanced Metafile)" entry appear for a
-//! copied spreadsheet range (genoffice#1985, stage 1 — no OLE server, no
+//! copied spreadsheet range (onedesk#1985, stage 1 — no OLE server, no
 //! embedded-object activation).
 //!
 //! The helper never empties the clipboard: OpenClipboard → SetClipboardData

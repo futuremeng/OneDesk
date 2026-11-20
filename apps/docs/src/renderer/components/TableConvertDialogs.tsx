@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import type { Editor } from '@tiptap/core'
-import type { TableAutoFitMode } from '@genoffice/docx-engine'
+import type { TableAutoFitMode } from '@onedesk/docx-engine'
 import {
   MAX_CONVERT_COLS,
   convertTableToText,

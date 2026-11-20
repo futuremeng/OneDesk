@@ -1,6 +1,6 @@
 import { afterEach, beforeEach, describe, expect, it } from 'vitest'
 import { Editor } from '@tiptap/core'
-import { buildBlankDocx, parseDocx } from '@genoffice/docx-engine'
+import { buildBlankDocx, parseDocx } from '@onedesk/docx-engine'
 import { blocksToPmDoc } from '../src/renderer/editor/convert'
 import {
   AUTOCORRECT_KEY,

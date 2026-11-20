@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest'
 import { Editor } from '@tiptap/core'
 import { editorExtensions } from '../src/renderer/editor/extensions'
 import { blocksToPmDoc, pmDocToSavePlan, type PmNode } from '../src/renderer/editor/convert'
-import { buildBlankDocx, parseDocx, saveDocx } from '@genoffice/docx-engine'
+import { buildBlankDocx, parseDocx, saveDocx } from '@onedesk/docx-engine'
 import JSZip from 'jszip'
 import {
   addSwitch,

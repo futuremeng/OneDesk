@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { ENCLOSURES, type EncloseStyle } from '@genoffice/docx-engine'
+import { ENCLOSURES, type EncloseStyle } from '@onedesk/docx-engine'
 import { ENCLOSE_MAX, encloseMarkClass } from '../editor/eq-layout'
 import { useI18n, type StringKey } from '../i18n/locale'
 import { useModalKeys } from './modal-keys'

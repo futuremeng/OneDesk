@@ -645,7 +645,7 @@ function drawWmfText(ctx, state, text, x, y, dx = null) {
   const esc = state.fontEscapement || 0;
   // Dx (device px per glyph) keeps the writer's spacing: MathType previews
   // interleave runs of different fonts/sizes ("Axb" + "=" between x and b)
-  // and rely on the advances, not the substitute font's widths (genoffice#2489).
+  // and rely on the advances, not the substitute font's widths (onedesk#2489).
   const width = dx ? dx.reduce((a, b) => a + b, 0) : ctx.measureText(mapped).width;
   const drawRun = (ox, oy) => {
     if (!dx) {
@@ -3992,7 +3992,7 @@ function handleEmfPlusDrawRecord(rCtx, recType, recFlags, dataOff, recDataSize) 
       }
       return true;
     }
-    // ---- curves (genoffice#2601 follow-up): a cardinal spline becomes the cubic
+    // ---- curves (onedesk#2601 follow-up): a cardinal spline becomes the cubic
     // Bezier segments GDI+ converts it to, so the path is the one GDI+ itself strokes ----
     case EMFPLUS_DRAWBEZIERS: {
       if (recDataSize >= 4) {
@@ -5781,7 +5781,7 @@ function handleWmfDrawRecord(wCtx, recType, offset, dataOff, recSize) {
             // TA_UPDATECP (1) ignores the record coords and draws at — then
             // advances — the current position. MathType OLE previews place
             // every run with MOVETO + a zero-coord ExtTextOut/TextOut, so the
-            // record path stacks all of them at the origin (genoffice#2316).
+            // record path stacks all of them at the origin (onedesk#2316).
             if ((state.textAlign & 1) !== 0) {
               const advance = drawWmfText(ctx, state, text, mx(state.curX), my(state.curY));
               const unit = mx(1) - mx(0);

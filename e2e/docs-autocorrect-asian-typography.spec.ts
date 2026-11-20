@@ -94,7 +94,7 @@ async function closeDialog(dialog: Locator) {
 
 test('AutoCorrect Options: the replace table, exceptions, math names, AutoFormat switches and AutoText', async () => {
   test.setTimeout(240_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-autocorrect-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-autocorrect-')))
   const docPath = join(dir, 'typing.docx')
   writeFileSync(docPath, await docxWith(para('Kind regards from the team') + para('') + SECT_PR))
   const launched = await launchShell({
@@ -218,7 +218,7 @@ test('AutoCorrect Options: the replace table, exceptions, math names, AutoFormat
 
 test('AutoFormat switches that were listed disabled: indents, brackets, the AutoComplete tip and formatted entries', async () => {
   test.setTimeout(240_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-autoformat-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-autoformat-')))
   const docPath = join(dir, 'autoformat.docx')
   const opening =
     '<w:p><w:r><w:rPr><w:b/></w:rPr><w:t>Kind regards</w:t></w:r>' +
@@ -340,7 +340,7 @@ test('AutoFormat switches that were listed disabled: indents, brackets, the Auto
 
 test('Paragraph > Asian Typography switches hanging punctuation and the automatic spacing, and saves them', async () => {
   test.setTimeout(180_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-asian-typography-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-asian-typography-')))
   const docPath = join(dir, 'asian.docx')
   writeFileSync(docPath, await docxWith(para(MIXED) + para('plain') + SECT_PR))
   const launched = await launchShell({
@@ -434,7 +434,7 @@ test('Paragraph > Asian Typography switches hanging punctuation and the automati
 
 test('Asian Typography: the first and last character rules can be switched off, line-start brackets compress', async () => {
   test.setTimeout(180_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-kinsoku-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-kinsoku-')))
   const docPath = join(dir, 'kinsoku.docx')
   const HAN = '\u4e2d'
   // one of these lengths puts the full stop exactly where the second line starts
@@ -525,7 +525,7 @@ test('Asian Typography: the first and last character rules can be switched off, 
 
 test('a line-start bracket keeps its line when compression makes it narrow enough to fit the line above', async () => {
   test.setTimeout(180_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-topline-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-topline-')))
   const docPath = join(dir, 'topline.docx')
   const HAN = '\u4e2d'
   // every leftover width in front of the bracket, in quarter-em steps
@@ -595,7 +595,7 @@ test('a line-start bracket keeps its line when compression makes it narrow enoug
 
 test('the AutoCorrect smart button changes a correction back or stops it; the equation box reads Math AutoCorrect and recognized functions', async () => {
   test.setTimeout(240_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-smart-button-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-smart-button-')))
   const docPath = join(dir, 'smart.docx')
   writeFileSync(docPath, await docxWith(para('') + SECT_PR))
   const launched = await launchShell({
@@ -701,7 +701,7 @@ test('the AutoCorrect smart button changes a correction back or stops it; the eq
 
 test('Typography > Strict keeps small kana off the line start in Japanese text; Text Alignment moves the smaller runs', async () => {
   test.setTimeout(180_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-strict-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-strict-')))
   const docPath = join(dir, 'strict.docx')
   const KANA = '\u3042'
   const SMALL = '\u3083'

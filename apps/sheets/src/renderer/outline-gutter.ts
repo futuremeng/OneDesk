@@ -14,7 +14,7 @@ import {
   type UniverRenderingContext,
 } from '@univerjs/engine-render'
 import { SheetSkeletonManagerService } from '@univerjs/preset-sheets-core'
-import { columnLabel } from '@genoffice/xlsx-gateway/domain/cell-address'
+import { columnLabel } from '@onedesk/xlsx-gateway/domain/cell-address'
 
 import { t } from './i18n/locale'
 import {
@@ -47,7 +47,7 @@ export interface OutlineGutterHandle {
  * paint, and the loop re-arms only while `paint` reports the geometry still
  * moving — one stable frame sends it to sleep until the next trigger. An
  * always-on loop here repainted 60 times a second whether anything changed or
- * not, a steady wakeups floor on every open workbook (genoffice#2113).
+ * not, a steady wakeups floor on every open workbook (onedesk#2113).
  */
 export function paintLoop(
   requestFrame: (callback: () => void) => number,
@@ -119,7 +119,7 @@ interface HeaderStyleSource {
 /// Univer centers the column letters in the whole header; with the gutter
 /// band on top they would sit under it, so repaint the band below it.
 class OutlineColumnHeaderExtension extends SheetExtension {
-  override uKey = 'GenOfficeOutlineColumnHeaderExtension'
+  override uKey = 'OneDeskOutlineColumnHeaderExtension'
   protected override Z_INDEX = 11
 
   override draw(

@@ -47,7 +47,7 @@ import {
   setActiveSlidesWebContents,
   slidesIsDirty,
 } from '../../../slides/src/main/slides-main'
-import { rendererUrl, safeExternalUrl } from '@genoffice/electron-utils'
+import { rendererUrl, safeExternalUrl } from '@onedesk/electron-utils'
 import type { DocumentTabKind, OpenDocumentTab, TabKind, TabSummary } from '../shared/tabs-api'
 import { isSettledRect, tabStripHeight } from '../shared/tab-drag-geometry'
 import {
@@ -95,7 +95,7 @@ const HOME_ID = 'home'
  */
 export class TabManager {
   private readonly tabs: TabRecord[] = [
-    { id: HOME_ID, kind: 'home', view: null, title: 'GenOffice', lastActiveAt: Date.now() },
+    { id: HOME_ID, kind: 'home', view: null, title: 'OneDesk', lastActiveAt: Date.now() },
   ]
   private activeId: string = HOME_ID
   private nextId = 1
@@ -124,7 +124,7 @@ export class TabManager {
     /** localized placeholder title for a tab that has no file yet */
     private readonly untitledTitleFor?: (kind: TabKind) => string,
     /**
-     * The live interface scale (genoffice#1913). A getter rather than a value so a change
+     * The live interface scale (onedesk#1913). A getter rather than a value so a change
      * made from the View menu reaches the next layout without rebuilding this.
      */
     private readonly uiScale: () => number = () => 1,
@@ -133,7 +133,7 @@ export class TabManager {
     // then once more on the next tick. On Linux/X11, `resize` fires before the
     // window manager applies the new size, so getContentBounds() is still the
     // pre-maximize size inside the handler and a follow-up layout is required.
-    // See https://github.com/genspark-ai/genoffice/issues/15
+    // See https://onedesk.jiulu.ltd/issues/15
     shellWindow.on('resize', () => {
       this.layout()
       setImmediate(() => this.layout())
@@ -150,7 +150,7 @@ export class TabManager {
   }
 
   private scheduleSpareSheetsView(delayMs: number): void {
-    if (process.env.GENOFFICE_NO_SPARE_VIEW || this.spareSheetsTimer || this.spareSheetsView) return
+    if (process.env.ONEDESK_NO_SPARE_VIEW || this.spareSheetsTimer || this.spareSheetsView) return
     if (this.tabs.find((t) => t.id === this.activeId)?.kind !== 'sheets') return
     this.spareSheetsTimer = setTimeout(() => {
       this.spareSheetsTimer = null
@@ -354,7 +354,7 @@ export class TabManager {
       id,
       kind: 'help',
       view,
-      title: this.untitled('help', 'GenOffice Help'),
+      title: this.untitled('help', 'OneDesk Help'),
       lastActiveAt: Date.now(),
     })
     this.activateTab(id)
@@ -378,7 +378,7 @@ export class TabManager {
       lastActiveAt: Date.now(),
       kind: 'docs',
       view,
-      title: openPath ? basename(openPath) : this.untitled('docs', 'GenOffice Docs'),
+      title: openPath ? basename(openPath) : this.untitled('docs', 'OneDesk Docs'),
       filePath: openPath,
     })
     this.activateTab(id)
@@ -867,9 +867,9 @@ export class TabManager {
   startSleepSweeper(enabled: () => boolean): () => void {
     const policy: SleepPolicy = {
       maxLiveTabs:
-        envNumber('GENOFFICE_TAB_SLEEP_MAX_LIVE') ??
+        envNumber('ONEDESK_TAB_SLEEP_MAX_LIVE') ??
         defaultMaxLiveTabs(process.getSystemMemoryInfo().total * 1024),
-      idleMs: envNumber('GENOFFICE_TAB_SLEEP_IDLE_MS') ?? DEFAULT_IDLE_MS,
+      idleMs: envNumber('ONEDESK_TAB_SLEEP_IDLE_MS') ?? DEFAULT_IDLE_MS,
     }
     let running = false
     const timer = setInterval(
@@ -880,7 +880,7 @@ export class TabManager {
           running = false
         })
       },
-      envNumber('GENOFFICE_TAB_SLEEP_SWEEP_MS') ?? SLEEP_SWEEP_INTERVAL_MS,
+      envNumber('ONEDESK_TAB_SLEEP_SWEEP_MS') ?? SLEEP_SWEEP_INTERVAL_MS,
     )
     timer.unref?.()
     return () => clearInterval(timer)

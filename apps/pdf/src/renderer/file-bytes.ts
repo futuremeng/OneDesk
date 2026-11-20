@@ -3,7 +3,7 @@ import { PDF_READ_CHUNK_BYTES } from '../shared/ipc'
 /** Reads a granted file through the chunked IPC route: one invoke per slice
  * instead of a single multi-megabyte ArrayBuffer over IPC — a 42 MB
  * structured-clone deserialization has killed renderers before first paint
- * on Windows (genoffice#2366), while small slices arrive fine. The main-side
+ * on Windows (onedesk#2366), while small slices arrive fine. The main-side
  * handler reports the file size with every slice, so the loop needs no
  * separate stat round trip. */
 export interface PdfFileChunkApi {

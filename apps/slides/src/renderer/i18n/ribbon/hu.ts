@@ -1,5 +1,5 @@
 import type { zh } from './zh'
-import { ribbonCommonHu } from '@genoffice/i18n'
+import { ribbonCommonHu } from '@onedesk/i18n'
 
 export const hu = {
   ...ribbonCommonHu,

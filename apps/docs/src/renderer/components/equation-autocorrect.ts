@@ -1,4 +1,4 @@
-import { latexToOmml } from '@genoffice/docx-engine'
+import { latexToOmml } from '@onedesk/docx-engine'
 import { autocorrectEnabled, autocorrectLists } from '../autocorrect-pref'
 
 /** function names LaTeX has a command for; any other recognized name goes through \operatorname */

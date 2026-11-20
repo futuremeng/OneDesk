@@ -1,6 +1,6 @@
 Supplementary notice for hyphen (https://github.com/ytiurin/hyphen)
 
-GenOffice Docs hyphenates with the pattern sets below, which the hyphen package
+OneDesk Docs hyphenates with the pattern sets below, which the hyphen package
 ports from the hyph-utf8 collection of TeX hyphenation patterns
 (https://www.hyphenation.org/tex, https://github.com/hyphenation/tex-hyphen).
 Each set keeps its own copyright and licence, reproduced here from the header

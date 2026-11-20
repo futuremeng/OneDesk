@@ -1,7 +1,7 @@
 /** Tools > Language marks the selected text with a language, in the w:lang slot it belongs to. */
 import { afterEach, beforeEach, describe, expect, it } from 'vitest'
 import { Editor } from '@tiptap/core'
-import type { Run } from '@genoffice/docx-engine'
+import type { Run } from '@onedesk/docx-engine'
 import { editorExtensions } from '../src/renderer/editor/extensions'
 import { inlineToRuns, runsToInline } from '../src/renderer/editor/convert'
 import {

@@ -6,7 +6,7 @@ import {
   parseDocx,
   saveDocx,
   type FieldDisplay,
-} from '@genoffice/docx-engine'
+} from '@onedesk/docx-engine'
 import { afterEach, describe, expect, it } from 'vitest'
 import { buildDocx } from '../../../packages/docx-engine/tests/helpers/build-docx'
 import { allowDirtyFields } from '../../../packages/docx-engine/tests/helpers/dirty-fields'

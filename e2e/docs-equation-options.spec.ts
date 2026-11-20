@@ -95,7 +95,7 @@ async function pdfTextLeft(path: string): Promise<number> {
 
 test('Equation Options moves the display equations that follow the document, saves and reopens', async () => {
   test.setTimeout(240_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-equation-options-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-equation-options-')))
   const docPath = join(dir, 'equations.docx')
   writeFileSync(docPath, await docxWith(BODY))
   const dialogOf = (page: Page) => page.locator('.equation-options-dialog')
@@ -246,7 +246,7 @@ test('Equation Options moves the display equations that follow the document, sav
 
 test('a nested fraction keeps its size until Reduce size of nested fractions is ticked, and the choice is saved', async () => {
   test.setTimeout(180_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-equation-frac-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-equation-frac-')))
   const docPath = join(dir, 'fractions.docx')
   const frac = (num: string, den: string) => `<m:f><m:num>${num}</m:num><m:den>${den}</m:den></m:f>`
   writeFileSync(

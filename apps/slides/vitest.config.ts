@@ -9,49 +9,40 @@ export default defineConfig({
   resolve: {
     alias: {
       // Subpath before the bare name: string aliases are prefix replacements
-      '@genoffice/pptx-engine/table-grid': resolve(
+      '@onedesk/pptx-engine/table-grid': resolve(
         here,
         '../../packages/pptx-engine/src/table-grid.ts',
       ),
-      '@genoffice/pptx-engine/identity': resolve(
-        here,
-        '../../packages/pptx-engine/src/identity.ts',
-      ),
-      '@genoffice/pptx-engine/named-action': resolve(
+      '@onedesk/pptx-engine/identity': resolve(here, '../../packages/pptx-engine/src/identity.ts'),
+      '@onedesk/pptx-engine/named-action': resolve(
         here,
         '../../packages/pptx-engine/src/named-action.ts',
       ),
-      '@genoffice/pptx-engine/background-promote': resolve(
+      '@onedesk/pptx-engine/background-promote': resolve(
         here,
         '../../packages/pptx-engine/src/background-promote.ts',
       ),
-      '@genoffice/pptx-engine/custgeom': resolve(
-        here,
-        '../../packages/pptx-engine/src/custgeom.ts',
-      ),
-      '@genoffice/pptx-engine/model3d': resolve(here, '../../packages/pptx-engine/src/model3d.ts'),
-      '@genoffice/pptx-engine/chart-workbook': resolve(
+      '@onedesk/pptx-engine/custgeom': resolve(here, '../../packages/pptx-engine/src/custgeom.ts'),
+      '@onedesk/pptx-engine/model3d': resolve(here, '../../packages/pptx-engine/src/model3d.ts'),
+      '@onedesk/pptx-engine/chart-workbook': resolve(
         here,
         '../../packages/pptx-engine/src/chart-workbook.ts',
       ),
-      '@genoffice/pptx-engine': resolve(here, '../../packages/pptx-engine/src/index.ts'),
-      '@genoffice/pptx-ops/op-docs': resolve(here, '../../packages/pptx-ops/src/op-docs.ts'),
-      '@genoffice/pptx-ops/font-size': resolve(here, '../../packages/pptx-ops/src/font-size.ts'),
-      '@genoffice/pptx-ops': resolve(here, '../../packages/pptx-ops/src/index.ts'),
-      '@genoffice/pptx-render/preset-geometry': resolve(
+      '@onedesk/pptx-engine': resolve(here, '../../packages/pptx-engine/src/index.ts'),
+      '@onedesk/pptx-ops/op-docs': resolve(here, '../../packages/pptx-ops/src/op-docs.ts'),
+      '@onedesk/pptx-ops/font-size': resolve(here, '../../packages/pptx-ops/src/font-size.ts'),
+      '@onedesk/pptx-ops': resolve(here, '../../packages/pptx-ops/src/index.ts'),
+      '@onedesk/pptx-render/preset-geometry': resolve(
         here,
         '../../packages/pptx-render/src/preset-geometry.ts',
       ),
-      '@genoffice/pptx-render': resolve(here, '../../packages/pptx-render/src/index.ts'),
-      '@genoffice/pipelines/slides/layout-audit': resolve(
+      '@onedesk/pptx-render': resolve(here, '../../packages/pptx-render/src/index.ts'),
+      '@onedesk/pipelines/slides/layout-audit': resolve(
         here,
         '../../packages/pipelines/src/slides/layout-audit.ts',
       ),
-      '@genoffice/pipelines/slides': resolve(here, '../../packages/pipelines/src/slides/index.ts'),
-      '@genoffice/docx-engine/metafile': resolve(
-        here,
-        '../../packages/docx-engine/src/metafile.ts',
-      ),
+      '@onedesk/pipelines/slides': resolve(here, '../../packages/pipelines/src/slides/index.ts'),
+      '@onedesk/docx-engine/metafile': resolve(here, '../../packages/docx-engine/src/metafile.ts'),
     },
   },
   test: {

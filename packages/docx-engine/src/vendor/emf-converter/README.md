@@ -5,7 +5,7 @@ Upstream: emf-converter 2.0.2 (Apache-2.0) — https://github.com/ChristopherVR/
 `index.mjs` / `index.d.mts` are the published npm dist files, plus local WMF fixes
 (marked below); wrapper-level changes still go in `src/metafile.ts`.
 
-Local modifications to `index.mjs` (2026-08, GenOffice):
+Local modifications to `index.mjs` (2026-08, OneDesk):
 - LOGFONT16 FaceName read at offset +18 (upstream read +14, landing in the
   precision/quality bytes, so every WMF font family came out empty)
 - Font escapement parsed and applied (rotated text), TA_* text alignment honored
@@ -88,7 +88,7 @@ Local modifications to `index.mjs` (2026-08, GenOffice):
   position, and the position advances by the measured text extent. MathType OLE
   previews place every run with MOVETO + a zero-coord text record, so all runs
   stacked at the origin (a MathType equation rendered as its fraction line only,
-  genoffice#2316)
+  onedesk#2316)
 - META_EXTTEXTOUT honors its Dx array (per-glyph logical advances) and
   advances the TA_UPDATECP current point by the Dx sum, so MathType previews
   that interleave runs keep their spacing instead of packing glyphs by the
@@ -110,13 +110,13 @@ Local modifications to `index.mjs` (2026-08, GenOffice):
   bracket does not reach the GetDC run after it, and the brackets can no longer pop or
   interleave with the clip saves the EMF+ stream owns. Prism-style charts (dozens of
   GetDC runs between EMF+ comments) accumulated stale clips and lost most content
-  (genoffice#2601; ported from upstream emf-converter 67ecf34)
+  (onedesk#2601; ported from upstream emf-converter 67ecf34)
 - EmfPlusSetPageTransform outlives the EMR_COMMENT it arrived in (page unit and scale
   persist in the shared EMF+ state, like the transform and clip already did), and the
   header's LogicalDpiX/Y are read as the UInt32 pair they are (MS-EMFPLUS 2.3.2.1) to
   convert Point/Inch/Document/Millimeter units per axis instead of a fixed 96 DPI.
   World, unknown units and non-positive scales are ignored, as GDI+ ignores them
-  (upstream emf-converter 311bfa6; genoffice#2601)
+  (upstream emf-converter 311bfa6; onedesk#2601)
 - The EMF+ drawing records the vendored 2.0.2 skipped are implemented: FillRegion,
   FillClosedCurve, DrawClosedCurve, DrawCurve and DrawBeziers, plus the rect form of
   BeginContainer. Splines become the cubic Bezier segments GDI+ converts them to
@@ -128,5 +128,5 @@ Local modifications to `index.mjs` (2026-08, GenOffice):
   composes the src→dest rect mapping (unit from the flags, converted at the header
   DPI) onto the world transform, starting the container at the Display page unit;
   Save/Restore and NoParams containers now bracket the page unit with the transform
-  (genoffice#2601 follow-up; spline and container semantics ported from upstream
+  (onedesk#2601 follow-up; spline and container semantics ported from upstream
   emf-converter)

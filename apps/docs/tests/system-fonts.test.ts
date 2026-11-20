@@ -9,7 +9,7 @@
  *   - the font picker's family list still comes from queryLocalFonts
  */
 
-import type { ParsedDoc } from '@genoffice/docx-engine'
+import type { ParsedDoc } from '@onedesk/docx-engine'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 
 interface LocalFontFace {
@@ -83,7 +83,7 @@ await import('../src/renderer/text-layout/font-rules')
 // the localized FangSong spelling, escaped: a raw Han object key trips the
 // public-hygiene check, and quoting does not survive prettier (quoteProps
 // as-needed strips quotes from a valid identifier) — a computed key with an
-// escaped literal carries the same bytes in ASCII source (genoffice review r5)
+// escaped literal carries the same bytes in ASCII source (onedesk review r5)
 const FANGSONG = '\u4eff\u5b8b_GB2312'
 
 describe('font aliases', () => {

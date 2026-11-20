@@ -2,12 +2,12 @@ import { mkdtempSync, rmSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
-import { defaultAiSettings } from '@genoffice/ai-provider'
+import { defaultAiSettings } from '@onedesk/ai-provider'
 import { imageSearch, webSearch } from '../src/index'
 import { searchOptionsFromSettings, testSearchProvider, webSearchTool } from '../src/search-tools'
 
 const endpoint = 'https://api.parallel.ai/v1/search'
-const result = { title: 'GenOffice', url: 'https://example.com', excerpts: ['First.', 'Second.'] }
+const result = { title: 'OneDesk', url: 'https://example.com', excerpts: ['First.', 'Second.'] }
 const response = () =>
   Response.json({ search_id: 'test-search', session_id: 'test-session', results: [result] })
 const fallback = () =>
@@ -24,7 +24,7 @@ beforeEach(() => {
     'PARALLEL_API_KEY',
   ])
     vi.stubEnv(key, '')
-  dir = mkdtempSync(join(tmpdir(), 'genoffice-parallel-'))
+  dir = mkdtempSync(join(tmpdir(), 'onedesk-parallel-'))
 })
 
 afterEach(() => {
@@ -51,7 +51,7 @@ describe('Parallel search', () => {
       }),
     ).toEqual({
       method: 'parallel',
-      results: [{ title: 'GenOffice', url: 'https://example.com', snippet: 'First.\nSecond.' }],
+      results: [{ title: 'OneDesk', url: 'https://example.com', snippet: 'First.\nSecond.' }],
     })
     expect(fetch).toHaveBeenCalledTimes(1)
     const [url, init] = fetch.mock.calls[0] as unknown as [string, RequestInit]

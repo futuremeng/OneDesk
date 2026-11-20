@@ -74,7 +74,7 @@ describe('pickTransferImage', () => {
   // The engine pastes the file of every transfer that carries one, unless the
   // HTML comes from Excel. A picture left to the engine is a drawing in its
   // own model, which the save path never sees: it is visible, and it is gone
-  // after the next save (genoffice#2566).
+  // after the next save (onedesk#2566).
   it('claims the bitmap of a table copy that is not from Excel', () => {
     const data = transfer([stringItem('text/plain'), stringItem('text/html'), imageItem()], {
       'text/plain': '1\t2\n3\t4',

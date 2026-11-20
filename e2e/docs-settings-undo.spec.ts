@@ -128,7 +128,7 @@ const redo = (app: ElectronApplication) => clickMenu(app, ['Edit', 'Redo'])
 
 test('note numbering for the whole document and for one section undoes in order with typing, and saves what is on the page', async () => {
   test.setTimeout(360_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-settings-undo-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-settings-undo-')))
   const docPath = join(dir, 'notes.docx')
   writeFileSync(
     docPath,
@@ -309,7 +309,7 @@ const hyphenationIn = async (docPath: string) => {
 
 test('one OK in the Hyphenation dialog is one undo step, in order with typing, and saves what is on the page', async () => {
   test.setTimeout(300_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-settings-undo-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-settings-undo-')))
   const docPath = join(dir, 'hyphenation.docx')
   writeFileSync(docPath, await docxWith(para('apple') + para(LOWER) + para(CAPS) + SECT_PR))
   const session = await openDoc(docPath)

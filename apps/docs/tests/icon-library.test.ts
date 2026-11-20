@@ -9,12 +9,7 @@ import { gzipSync } from 'node:zlib'
 import { afterEach, describe, expect, it } from 'vitest'
 import { Editor } from '@tiptap/core'
 import JSZip from 'jszip'
-import {
-  buildBlankDocx,
-  inlinePictureDrawingXml,
-  parseDocx,
-  saveDocx,
-} from '@genoffice/docx-engine'
+import { buildBlankDocx, inlinePictureDrawingXml, parseDocx, saveDocx } from '@onedesk/docx-engine'
 import { buildDocx, TINY_PNG_BASE64 } from '../../../packages/docx-engine/tests/helpers/build-docx'
 import { insertTableAt } from '../src/renderer/components/ribbon-tabs'
 import { blocksToPmDoc, pmDocToSavePlan, type PmNode } from '../src/renderer/editor/convert'

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import type { TabStop } from '@genoffice/docx-engine'
+import type { TabStop } from '@onedesk/docx-engine'
 import { useI18n, type StringKey } from '../i18n/locale'
 import { useMeasurement } from '../use-measurement'
 import { LengthInput } from './LengthInput'

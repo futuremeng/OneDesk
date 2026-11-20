@@ -1,7 +1,7 @@
 /**
  * The family aliases of an installed face: a font file spells its family in
  * several languages, and the canonical (en-US) spelling is the one the browser
- * resolves (genoffice#2449).
+ * resolves (onedesk#2449).
  *
  * The faces here are synthetic: a name table with an en-US and a zh-CN family
  * record for the same face, built from bytes (no binary fixture).

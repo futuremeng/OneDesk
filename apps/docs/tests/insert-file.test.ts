@@ -6,7 +6,7 @@ import {
   docxRootNamespaces,
   parseDocx,
   type NoteInfo,
-} from '@genoffice/docx-engine'
+} from '@onedesk/docx-engine'
 import {
   buildDocx,
   IMAGE_PARAGRAPH_XML,

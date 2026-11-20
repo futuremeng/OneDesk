@@ -42,7 +42,7 @@ export function transferHasImage(data: Pick<TransferLike, 'items'>): boolean {
  * pasted and the bitmap is incidental. Mirrored here because the app has to
  * claim exactly the transfers the engine would paste as a file — the picture
  * the engine inserts is a drawing in its own model, which the save path never
- * sees (genoffice#2566).
+ * sees (onedesk#2566).
  */
 export function htmlIsFromExcel(html: string): boolean {
   if (!html) return false

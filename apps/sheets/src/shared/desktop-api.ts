@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import { normalizeCustomProfile } from '@genoffice/ai-provider/browser'
+import { normalizeCustomProfile } from '@onedesk/ai-provider/browser'
 
 import {
   HEADER_FOOTER_PICTURE_POSITION,
@@ -12,11 +12,11 @@ import {
   SAVE_EDITS_CHUNK_JSON_MAX,
   SAVE_EDITS_CHUNK_MAX,
 } from './ipc-channels'
-import { ADDABLE_SHAPE_TYPES } from '@genoffice/xlsx-gateway/shared/shape-types'
+import { ADDABLE_SHAPE_TYPES } from '@onedesk/xlsx-gateway/shared/shape-types'
 import {
   PIVOT_AGGREGATIONS,
   PIVOT_SHOW_DATA_AS,
-} from '@genoffice/xlsx-gateway/domain/pivot-value-modes'
+} from '@onedesk/xlsx-gateway/domain/pivot-value-modes'
 import {
   CHART_CATEGORY_WIRE_MAX,
   CHART_TEXT_WIRE_MAX,
@@ -27,7 +27,7 @@ import {
   workbookChartEditSchema,
   workbookStyleEditSchema,
   workbookVisualEditSchema,
-} from '@genoffice/xlsx-gateway/shared/edit-schemas'
+} from '@onedesk/xlsx-gateway/shared/edit-schemas'
 import type {
   AiChatRequest,
   AiChatResponse,
@@ -35,8 +35,8 @@ import type {
   AiStreamChunk,
   AiStreamRequest,
   GenSparkAccountStatus,
-} from '@genoffice/ai-provider'
-import type { AiPanelPrefs } from '@genoffice/ui'
+} from '@onedesk/ai-provider'
+import type { AiPanelPrefs } from '@onedesk/ui'
 
 // edit schemas shared with the xlsx gateway package; re-exported so IPC consumers keep one import site
 export {
@@ -47,13 +47,13 @@ export {
   workbookChartEditSchema,
   workbookStyleEditSchema,
   workbookVisualEditSchema,
-} from '@genoffice/xlsx-gateway/shared/edit-schemas'
+} from '@onedesk/xlsx-gateway/shared/edit-schemas'
 export type {
   WorkbookChartEdit,
   WorkbookRichRun,
   WorkbookStyleEdit,
   WorkbookVisualEdit,
-} from '@genoffice/xlsx-gateway/shared/edit-schemas'
+} from '@onedesk/xlsx-gateway/shared/edit-schemas'
 
 const MAX_RANGE_CELLS = 100_000
 const cellScalarSchema = z.union([z.string(), z.number().finite(), z.boolean(), z.null()])
@@ -2115,7 +2115,7 @@ export const externalLinkOpsSchema = z
 export type ExternalLinkOps = z.infer<typeof externalLinkOpsSchema>
 
 /// A copied range as the Windows clipboard helper consumes it: displayed text
-/// plus per-cell alignment, geometry in the grid's pixel units (genoffice#1985
+/// plus per-cell alignment, geometry in the grid's pixel units (onedesk#1985
 /// stage 1 — the helper turns this into an EMF so CAD paste dialogs offer a
 /// "Picture (Enhanced Metafile)" entry).
 export const copyEmfRequestSchema = z
@@ -2920,7 +2920,7 @@ export const externalLinkUsageResultSchema = z
   .strict()
 export type ExternalLinkUsageResult = z.infer<typeof externalLinkUsageResultSchema>
 
-// ── cross-workbook range picking (genoffice#2109) ──────────────────────
+// ── cross-workbook range picking (onedesk#2109) ──────────────────────
 
 /// Another open workbook tab, as the picker's book list shows it.
 export const workbookTabSchema = z
@@ -2979,7 +2979,7 @@ export type WorkbookPivotAdd = z.infer<typeof workbookPivotAddSchema>
 export type WorkbookCellStyle = z.infer<typeof cellStyleSchema>
 export type WorkbookConditionalRule = z.infer<typeof conditionalRuleSchema>
 
-// ---- AI settings + chat/stream: canonical types live in @genoffice/ai-provider,
+// ---- AI settings + chat/stream: canonical types live in @onedesk/ai-provider,
 // shared with apps/docs. Validated here like every other renderer→main request in
 // this file; the validated shape is cast to AiSettings at the main-process call
 // site, which has every known provider key once merged through
@@ -3374,7 +3374,7 @@ export interface AttachmentImageResult {
 export type UiTheme = 'light' | 'dark' | 'system'
 
 /**
- * Document page theme preference (genoffice#1811): what the editors' canvas/paper does
+ * Document page theme preference (onedesk#1811): what the editors' canvas/paper does
  * relative to the UI theme. 'follow' keeps the previous single-theme behavior.
  */
 export type DocTheme = 'follow' | 'light' | 'dark'
@@ -3427,7 +3427,7 @@ export interface DesktopApi {
   getTheme(): Promise<UiTheme>
   /** theme switched from the shell home page */
   onThemeChanged(handler: (theme: UiTheme) => void): () => void
-  /** current document page theme preference (genoffice#1811, persisted by the shell in app-settings.json) */
+  /** current document page theme preference (onedesk#1811, persisted by the shell in app-settings.json) */
   getDocumentTheme(): Promise<DocTheme>
   /** document page theme switched from the shell home page */
   onDocumentThemeChanged(handler: (theme: DocTheme) => void): () => void
@@ -3592,7 +3592,7 @@ export interface DesktopApi {
   openAiModelSettings(): Promise<void>
   /// shell only: switch to Home and open Settings › Integrations (the skills list)
   openSkillsSettings(): Promise<void>
-  /// the skills installed into GenOffice's own folder
+  /// the skills installed into OneDesk's own folder
   skillsList(): Promise<UserSkillEntry[]>
   /// one installed skill's body, by name; the main process resolves the path
   skillText(name: string): Promise<string>
@@ -3673,7 +3673,7 @@ export interface GenerateImageResult {
 /// A workbook's data connections that can be refreshed: a web query fills a
 /// range on a sheet, and its URL lives in the workbook's connection part.
 /// Text queries are not listed yet: a local path cannot go through the SSRF
-/// gate, so refreshing one would only fail (genoffice#2363 review).
+/// gate, so refreshing one would only fail (onedesk#2363 review).
 export const workbookConnectionSchema = z
   .object({
     id: z.string(),

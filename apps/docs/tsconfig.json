@@ -8,22 +8,20 @@
       // resolve workspace types from this checkout's sources: in a git worktree
       // node_modules is a symlink into the main checkout, so bare specifiers
       // would typecheck against the other checkout's (possibly stale) types
-      "@genoffice/docx-engine": ["../../packages/docx-engine/src/index.ts"],
-      "@genoffice/font-metrics": ["../../packages/font-metrics/src/index.ts"],
-      "@genoffice/font-metrics/resolve": ["../../packages/font-metrics/src/resolve.ts"],
-      "@genoffice/font-metrics/word-faces.json": ["../../packages/font-metrics/word-faces.json"],
-      "@genoffice/electron-utils/headless-export": [
+      "@onedesk/docx-engine": ["../../packages/docx-engine/src/index.ts"],
+      "@onedesk/font-metrics": ["../../packages/font-metrics/src/index.ts"],
+      "@onedesk/font-metrics/resolve": ["../../packages/font-metrics/src/resolve.ts"],
+      "@onedesk/font-metrics/word-faces.json": ["../../packages/font-metrics/word-faces.json"],
+      "@onedesk/electron-utils/headless-export": [
         "../../packages/electron-utils/src/headless-export.ts"
       ],
-      "@genoffice/electron-utils/atomic-write": [
-        "../../packages/electron-utils/src/atomic-write.ts"
-      ],
-      "@genoffice/electron-utils": ["../../packages/electron-utils/src/index.ts"],
-      "@genoffice/ai-provider": ["../../packages/ai-provider/src/index.ts"],
-      "@genoffice/agent-core": ["../../packages/agent-core/src/index.ts"],
-      "@genoffice/i18n": ["../../packages/i18n/src/index.ts"],
-      "@genoffice/ui": ["../../packages/ui/src/index.ts"],
-      "@genoffice/xlsx-gateway/*": ["../../packages/xlsx-gateway/src/*"]
+      "@onedesk/electron-utils/atomic-write": ["../../packages/electron-utils/src/atomic-write.ts"],
+      "@onedesk/electron-utils": ["../../packages/electron-utils/src/index.ts"],
+      "@onedesk/ai-provider": ["../../packages/ai-provider/src/index.ts"],
+      "@onedesk/agent-core": ["../../packages/agent-core/src/index.ts"],
+      "@onedesk/i18n": ["../../packages/i18n/src/index.ts"],
+      "@onedesk/ui": ["../../packages/ui/src/index.ts"],
+      "@onedesk/xlsx-gateway/*": ["../../packages/xlsx-gateway/src/*"]
     }
   },
   "include": ["src", "tests", "electron.vite.config.ts", "vitest.config.ts"]

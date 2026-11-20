@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import type { SectionSettings } from '@genoffice/docx-engine'
+import type { SectionSettings } from '@onedesk/docx-engine'
 import {
   borderDraftOf,
   borderSpecOfDraft,

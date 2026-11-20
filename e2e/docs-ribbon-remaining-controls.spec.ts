@@ -21,7 +21,7 @@ const documentXml = async (file: string) =>
 
 test('Mark Entry, Insert Index, Display for Review and the spacing boxes change the page and the saved file', async () => {
   test.setTimeout(240_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-ribbon-rest-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-ribbon-rest-')))
   const docPath = join(dir, 'report.docx')
   writeFileSync(
     docPath,
@@ -141,7 +141,7 @@ test('Mark Entry, Insert Index, Display for Review and the spacing boxes change 
 
 test('Record moves the preview; Merge Range with From and To decides what Finish & Merge writes', async () => {
   test.setTimeout(240_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-merge-range-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-merge-range-')))
   const docPath = join(dir, 'letter.docx')
   writeFileSync(docPath, await docxWith(para('Dear') + para('Regards')))
   const listPath = join(dir, 'people.csv')

@@ -10,7 +10,7 @@
  *   lifts, justification symbols, hinted East Asian curly quotes, whitespace
  *   runs that give up their line box.
  */
-import { textHasEastAsian } from '@genoffice/docx-engine'
+import { textHasEastAsian } from '@onedesk/docx-engine'
 import {
   asciiOnlyCjkFace,
   autospaceHangulSeam,

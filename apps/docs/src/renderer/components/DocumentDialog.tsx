@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
-import { DEFAULT_LINE_PITCH_TWIPS } from '@genoffice/docx-engine'
-import type { DocGrid, SectionSettings } from '@genoffice/docx-engine'
+import { DEFAULT_LINE_PITCH_TWIPS } from '@onedesk/docx-engine'
+import type { DocGrid, SectionSettings } from '@onedesk/docx-engine'
 import type { SectionScope } from '../commands/menu-commands'
 import type { PageDefault } from '../design-default'
 import { useI18n, type StringKey } from '../i18n/locale'

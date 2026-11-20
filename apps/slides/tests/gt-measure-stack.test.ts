@@ -18,7 +18,7 @@ async function refineOn(page: { displayFontFamily?: (name: string) => string }) 
   }
   const window = {
     slidesApi: { privateFontFaces: async () => [] },
-    ...(page.displayFontFamily ? { __genofficeDisplayFontFamily: page.displayFontFamily } : {}),
+    ...(page.displayFontFamily ? { __onedeskDisplayFontFamily: page.displayFontFamily } : {}),
   }
   const document = {
     fonts: { forEach: () => {} },

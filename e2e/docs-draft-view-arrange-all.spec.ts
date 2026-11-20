@@ -141,7 +141,7 @@ async function expectRulesFitTheWindow(app: ElectronApplication, page: Page) {
 
 test('Draft shows the text as one flow with its page breaks, and changes nothing in the file', async () => {
   test.setTimeout(240_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-draft-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-draft-')))
   const docPath = join(dir, 'report.docx')
   writeFileSync(docPath, await draftDocx())
   const original = {
@@ -306,7 +306,7 @@ test('Draft shows the text as one flow with its page breaks, and changes nothing
 
 test("a PDF exported from Draft has the print layout's pages, columns included", async () => {
   test.setTimeout(240_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-draft-pdf-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-draft-pdf-')))
   const docPath = join(dir, 'columns.docx')
   const long =
     'Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor. '.repeat(6)
@@ -396,7 +396,7 @@ const overlaps = (a: Tile, b: Tile) =>
 
 test('Arrange All gives every open document a window and tiles them over the screen', async () => {
   test.setTimeout(240_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-arrange-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-arrange-')))
   const docPath = join(dir, 'report.docx')
   writeFileSync(docPath, await draftDocx())
   const launched = await launchShell({

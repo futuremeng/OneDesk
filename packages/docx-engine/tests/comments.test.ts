@@ -411,7 +411,7 @@ describe('reference-only comments (bare w:commentReference, no range markers)', 
   })
 })
 
-// ---- comment pictures (genoffice#2040) ----
+// ---- comment pictures (onedesk#2040) ----
 
 const IMAGE_COMMENT_XML =
   XML_DECL +

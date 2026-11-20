@@ -3,7 +3,7 @@ import type { IpcRendererEvent } from 'electron'
 import { VIEW_IMAGE_CHANNEL, type MarkdownImage, type PdfInternalLink } from '../shared/ipc'
 import { toCommandMenuState, type CommandMenuState } from '../shared/commands'
 import type { KeyOverrides } from '../shared/keybindings'
-import type { AiPanelPrefs } from '@genoffice/ui'
+import type { AiPanelPrefs } from '@onedesk/ui'
 import type {
   AiChatRequest,
   AiSettings,
@@ -21,8 +21,8 @@ import type {
   MergeOutputRequest,
   TemplatePreviewRect,
 } from '../shared/ipc'
-import type { ProjectApi } from '@genoffice/project-store'
-import { installDropOpenBridge } from '@genoffice/electron-utils/drop-open'
+import type { ProjectApi } from '@onedesk/project-store'
+import { installDropOpenBridge } from '@onedesk/electron-utils/drop-open'
 
 const api: DesktopApi = {
   getLanguage: () => ipcRenderer.invoke('app:get-language'),

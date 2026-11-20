@@ -134,7 +134,7 @@ const updateTable = (page: Page, nth: number) =>
 
 test('Table of Contents and Table of Figures options shape the table, survive Update and are saved as field switches', async () => {
   test.setTimeout(240_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-index-tables-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-index-tables-')))
   const docPath = join(dir, 'tables.docx')
   writeFileSync(
     docPath,
@@ -304,7 +304,7 @@ test('Table of Contents and Table of Figures options shape the table, survive Up
 
 test('a table that arrives with switches keeps them through Update, and the dialog reads them', async () => {
   test.setTimeout(180_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-index-tables-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-index-tables-')))
   const docPath = join(dir, 'arrives.docx')
   const tocLine = (text: string, parts: { begin?: boolean; end?: boolean }) =>
     '<w:p><w:pPr><w:pStyle w:val="TOC1"/><w:tabs><w:tab w:val="right" w:leader="underscore" w:pos="9350"/></w:tabs></w:pPr>' +
@@ -370,7 +370,7 @@ test('a table that arrives with switches keeps them through Update, and the dial
 
 test('Index and Table of Authorities options: run-in, right aligned pages, every category, Mark Citation', async () => {
   test.setTimeout(240_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-index-tables-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-index-tables-')))
   const docPath = join(dir, 'index.docx')
   writeFileSync(
     docPath,

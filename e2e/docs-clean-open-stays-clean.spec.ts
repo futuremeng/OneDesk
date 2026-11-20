@@ -71,7 +71,7 @@ function writeProtectedDocx(password: string): Promise<Buffer> {
 }
 
 async function writeDoc(name: string, bytes: Buffer): Promise<string> {
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-clean-open-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-clean-open-')))
   const docPath = join(dir, name)
   writeFileSync(docPath, bytes)
   return docPath

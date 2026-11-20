@@ -1,5 +1,5 @@
 /**
- * genoffice#2555: a w:ins / w:del whose only run holds an atom (a footnote
+ * onedesk#2555: a w:ins / w:del whose only run holds an atom (a footnote
  * reference, a line break, …) was invisible to collectRevisions, which scans
  * text nodes only. accept_changes {all:true} then left the wrapper in the
  * file while reporting "No tracked changes remain", and a document whose
@@ -9,7 +9,7 @@
 import { Editor } from '@tiptap/core'
 import JSZip from 'jszip'
 import { afterEach, describe, expect, it } from 'vitest'
-import { parseDocx, saveDocx } from '@genoffice/docx-engine'
+import { parseDocx, saveDocx } from '@onedesk/docx-engine'
 import { buildDocx } from '../../../packages/docx-engine/tests/helpers/build-docx'
 import { blocksToPmDoc, pmDocToSavePlan, type PmNode } from '../src/renderer/editor/convert'
 import { editorExtensions } from '../src/renderer/editor/extensions'

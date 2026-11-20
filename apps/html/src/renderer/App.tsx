@@ -10,11 +10,8 @@ import {
   aiPanelInitiallyOpen,
   rememberAiPanelOpen,
   useAiSidebarEnabled,
-} from '@genoffice/ui'
-import {
-  pollUntilReady,
-  runHeadlessRendererExport,
-} from '@genoffice/electron-utils/headless-export'
+} from '@onedesk/ui'
+import { pollUntilReady, runHeadlessRendererExport } from '@onedesk/electron-utils/headless-export'
 import { useI18n } from './i18n/locale'
 import { parseDocText, serializeDocText, type Envelope } from './document/envelope'
 import {
@@ -44,7 +41,7 @@ import {
   type CanvasMode,
   type ViewMode,
 } from './components/Ribbon'
-import { CropDialog, CutoutDialog, type ImageDialogLabels } from '@genoffice/ui'
+import { CropDialog, CutoutDialog, type ImageDialogLabels } from '@onedesk/ui'
 import { FloatToolbar } from './components/FloatToolbar'
 import { RedactDialog } from './components/RedactDialog'
 import { redactClearPlan, redactMarkPlan, type RedactPlan } from './document/redact-edit'

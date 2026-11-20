@@ -2,7 +2,7 @@ import { statSync } from 'node:fs'
 import { isAbsolute } from 'node:path'
 
 /**
- * Reopen the documents of the previous session (genoffice#2162). On unless
+ * Reopen the documents of the previous session (onedesk#2162). On unless
  * switched off: the shell window's file tabs are stored in app-settings.json
  * as it closes and reopened at the next launch, or when the window is
  * recreated from the Dock on macOS, where closing it leaves the app running.

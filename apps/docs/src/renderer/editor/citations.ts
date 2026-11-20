@@ -1,5 +1,5 @@
 import type { Node as PmNode } from '@tiptap/pm/model'
-import type { FieldTextRun } from '@genoffice/docx-engine'
+import type { FieldTextRun } from '@onedesk/docx-engine'
 
 /** Word's table of authorities categories, by the number a TA field's \c switch carries */
 export const CITATION_CATEGORIES = [1, 2, 3, 4, 5, 6, 7] as const

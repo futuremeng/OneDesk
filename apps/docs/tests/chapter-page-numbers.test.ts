@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
 import { describe, expect, it } from 'vitest'
-import type { SectionInfo } from '@genoffice/docx-engine'
+import type { SectionInfo } from '@onedesk/docx-engine'
 import { mergePendingPgNum } from '../src/renderer/ai/page-setup'
 import { fitTextScale } from '../src/renderer/editor/cell-fit-text'
 import { chapterPrefixes } from '../src/renderer/pagination-pass'

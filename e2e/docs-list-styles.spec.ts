@@ -97,7 +97,7 @@ const markers = (page: Page) =>
 
 test('a built-in list style numbers the selection, is written as a style-linked list, and reopens the same', async () => {
   test.setTimeout(240_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-list-styles-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-list-styles-')))
   const docPath = join(dir, 'plain.docx')
   writeFileSync(docPath, await docxWith(BODY))
   let numId = ''
@@ -211,7 +211,7 @@ test('a built-in list style numbers the selection, is written as a style-linked 
 
 test("the document's own list style is listed after the built-ins and applies its levels", async () => {
   test.setTimeout(180_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-list-styles-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-list-styles-')))
   const docPath = join(dir, 'clauses.docx')
   const zip = await JSZip.loadAsync(await docxWith(BODY))
   zip.file(

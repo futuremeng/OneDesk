@@ -37,7 +37,7 @@ export type {
   CreateDocumentSkill,
 } from './create-document-skill'
 export type { AgentSkill, ExecutedToolCall } from './skill'
-export { createCliSkill, GUIDE_DOMAINS, LOAD_GUIDE_TOOL, RUN_GENOFFICE_TOOL } from './cli-skill'
+export { createCliSkill, GUIDE_DOMAINS, LOAD_GUIDE_TOOL, RUN_ONEDESK_TOOL } from './cli-skill'
 export type {
   CliContext,
   CliRunRequest,

@@ -67,7 +67,7 @@ async function openGridTab(app: ElectronApplication, page: Page) {
 
 test('the Document dialog turns the document vertical and back, on the page and in the file', async () => {
   test.setTimeout(240_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-text-direction-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-text-direction-')))
   const docPath = join(dir, 'flow.docx')
   writeFileSync(docPath, await docxWith(para(LONG.repeat(3)) + para('banana') + SECT_PR))
   let launched = await launchShell({ onboardingSeen: true, videoDir: VIDEO_DIR, openFile: docPath })
@@ -164,7 +164,7 @@ test('the Document dialog turns the document vertical and back, on the page and 
 
 test('the direction goes with Apply to and the rest of the dialog in one write', async () => {
   test.setTimeout(240_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-text-direction-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-text-direction-')))
   const docPath = join(dir, 'sections.docx')
   writeFileSync(docPath, await docxWith(['apple', 'banana', 'cherry'].map(para).join('') + SECT_PR))
   const launched = await launchShell({

@@ -69,7 +69,7 @@ const overflow = (page: Page): Promise<number> =>
 test.describe('Docs ribbon follows the window width', () => {
   let dir: string
   test.beforeEach(() => {
-    dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-ribbon-ladder-')))
+    dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-ribbon-ladder-')))
   })
   test.afterEach(() => {
     rmSync(dir, { recursive: true, force: true })

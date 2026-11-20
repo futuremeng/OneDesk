@@ -105,7 +105,7 @@ async function enterFormula(app: ElectronApplication, page: Page, text: string, 
 
 test('the Formula dialog takes IF, logic, whole rows and columns and a pasted bookmark, and the results follow the cells', async () => {
   test.setTimeout(180_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-formula-logic-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-formula-logic-')))
   const docPath = join(dir, 'logic.docx')
   writeFileSync(
     docPath,
@@ -212,7 +212,7 @@ test('the Formula dialog takes IF, logic, whole rows and columns and a pasted bo
 
 test('logic formulas a document arrives with are recomputed on Update Field', async () => {
   test.setTimeout(180_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-formula-logic-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-formula-logic-')))
   const docPath = join(dir, 'stale.docx')
   writeFileSync(
     docPath,

@@ -68,7 +68,7 @@ export function printJobOptions(raw: unknown): {
     // defaults to false): a document with its own sheet has to state it, or an
     // A4 page prints on Letter. The sheet is then taller than the paper and
     // Chromium splits it in two, so the printed page loses its bottom and the
-    // page order goes with it (genoffice#2563).
+    // page order goes with it (onedesk#2563).
     out.pageSize = {
       width: Math.round(size.width * MICRONS_PER_INCH),
       height: Math.round(size.height * MICRONS_PER_INCH),

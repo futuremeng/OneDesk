@@ -2,7 +2,7 @@ import type { Editor } from '@tiptap/core'
 import type { Node as PMNode } from '@tiptap/pm/model'
 import type { Transaction } from '@tiptap/pm/state'
 import { Step, StepResult } from '@tiptap/pm/transform'
-import type { NoteProps, SectionInfo, SectionSettings } from '@genoffice/docx-engine'
+import type { NoteProps, SectionInfo, SectionSettings } from '@onedesk/docx-engine'
 import type { HyphenationSettings } from './hyphenation'
 import { TRACK_IGNORE } from './revisions'
 

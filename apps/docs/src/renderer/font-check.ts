@@ -1,4 +1,4 @@
-import type { ParsedDoc, TableModel } from '@genoffice/docx-engine'
+import type { ParsedDoc, TableModel } from '@onedesk/docx-engine'
 import { BUNDLED_FONTS, cssFontFamily, isBundledFont } from './text-layout/font-rules'
 
 const GENERIC = new Set(['serif', 'sans-serif', 'monospace'])
@@ -40,7 +40,7 @@ export function collectDocFonts(parsed: ParsedDoc): string[] {
 /**
  * The document's declared fonts that an alias update covers: the alias map
  * only matters for a font the open document declares, so an update that
- * touches no declared font must not reflow it (genoffice#2449).
+ * touches no declared font must not reflow it (onedesk#2449).
  */
 export function docFontsCoveredBy(parsed: ParsedDoc, names: readonly string[]): string[] {
   const declared = new Set(collectDocFonts(parsed))

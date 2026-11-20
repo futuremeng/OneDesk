@@ -2,7 +2,7 @@ import { Fragment, Slice, type Node as PmNode } from '@tiptap/pm/model'
 import type { EditorState, Transaction } from '@tiptap/pm/state'
 import { NodeSelection, Plugin, PluginKey } from '@tiptap/pm/state'
 import { Decoration, DecorationSet, type EditorView } from '@tiptap/pm/view'
-import type { TextboxDisplay } from '@genoffice/docx-engine'
+import type { TextboxDisplay } from '@onedesk/docx-engine'
 import { shapeWrapOf } from './floating-z-order'
 
 /** what a moved shape's offsets measure from, per axis */

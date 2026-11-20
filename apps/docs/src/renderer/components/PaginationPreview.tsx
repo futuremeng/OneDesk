@@ -6,7 +6,7 @@ import type {
   HfPartInfo,
   SectionInfo,
   SectionSettings,
-} from '@genoffice/docx-engine'
+} from '@onedesk/docx-engine'
 import {
   pageTextEnds,
   effectiveBottomPx,

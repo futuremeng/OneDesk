@@ -572,7 +572,7 @@ export interface BlankDocxOptions {
   paperSize?: BlankPaperSize
   /** Creation stamp of docProps/core.xml; defaults to now (tests pin a fixed date). */
   createdAt?: Date
-  /** docProps/app.xml Application; defaults to "GenOffice". */
+  /** docProps/app.xml Application; defaults to "OneDesk". */
   application?: string
   /** docProps/app.xml AppVersion; defaults to the OOXML-formatted engine major/minor. */
   appVersion?: string

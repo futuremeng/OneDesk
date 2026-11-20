@@ -17,7 +17,7 @@ import { GapCursor } from '@tiptap/pm/gapcursor'
 import { history } from '@tiptap/pm/history'
 import type { ResolvedPos } from '@tiptap/pm/model'
 import { NodeSelection, Selection } from '@tiptap/pm/state'
-import { suggestFileName } from '@genoffice/ui'
+import { suggestFileName } from '@onedesk/ui'
 import { modelTextOf, type RedactableNode } from './ai/redact-view'
 import {
   applyPageNumType,
@@ -63,7 +63,7 @@ import {
   type PictureWatermarkSpec,
   type WatermarkSpec,
   type WrittenFontConversion,
-} from '@genoffice/docx-engine'
+} from '@onedesk/docx-engine'
 import type { Dispatch, SetStateAction } from 'react'
 import type { AiDocContent, OpenDocxResult } from '../shared/ipc'
 import { twipsToPx } from './units'
@@ -145,7 +145,7 @@ import type { PdfInternalLink } from '../shared/ipc'
 import type { SaveAsExportFormat } from '../shared/save-as-format'
 import { showToast } from './components/toast-bus'
 import { buildStandaloneHtml } from './html-export'
-import { aiPanelInitiallyOpen, shortFileError } from '@genoffice/ui'
+import { aiPanelInitiallyOpen, shortFileError } from '@onedesk/ui'
 
 /** An export waiting for the pagination preview to mount; resolve settles the caller's exportPdf promise. */
 export type PendingPdfExport = {
@@ -579,7 +579,7 @@ let openGeneration = 0
  * them may be known under another spelling (a CJK font declared by its
  * localized name needs the English one the browser takes). The main process
  * reads the name tables of the installed faces, so the answer needs no user
- * activation; it lands over IPC and never blocks the open (genoffice#2449).
+ * activation; it lands over IPC and never blocks the open (onedesk#2449).
  */
 function requestFontAliases(declared: readonly string[]): void {
   void resolveFontAliases(declared.filter((name) => !isBundledFont(name) && !isFontAvailable(name)))
@@ -627,7 +627,7 @@ export async function loadFile(
     // the font picker's family list needs the Local Font Access query, which
     // wants transient user activation: an open often has none (window boot, a
     // native open dialog, an AI-created document), so it never blocks the
-    // open and a rejected query is not cached (genoffice#2449)
+    // open and a rejected query is not cached (onedesk#2449)
     void loadSystemFontFamilies()
     // the localized-name aliases come from the main process, which reads the
     // installed faces' name tables: no user activation needed, and the answer
@@ -888,7 +888,7 @@ export async function newFile(ctx: FileActionContext): Promise<boolean | undefin
     // the font picker's family list needs the Local Font Access query, which
     // wants transient user activation: an open often has none (window boot, a
     // native open dialog, an AI-created document), so it never blocks the
-    // open and a rejected query is not cached (genoffice#2449)
+    // open and a rejected query is not cached (onedesk#2449)
     void loadSystemFontFamilies()
     // the localized-name aliases come from the main process, which reads the
     // installed faces' name tables: no user activation needed, and the answer
@@ -1708,7 +1708,7 @@ async function saveOnce(
       // The caret's marks — the ribbon's font/size live here as storedMarks and
       // apply to whatever is typed next. setContent replaces the doc, so they
       // have to travel with the selection or an autosave silently drops the
-      // font the user just picked (genoffice#2004). Both are read live, not
+      // font the user just picked (onedesk#2004). Both are read live, not
       // before the await: a font chosen or a caret moved during the save must
       // win, and the marks must belong to the position they are restored at.
       const selectionPos = editor.state.selection.from

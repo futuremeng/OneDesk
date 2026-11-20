@@ -6,7 +6,7 @@ import {
   AiSkillChips,
   AiSkillsMenu,
   useImeEnterGuard,
-} from '@genoffice/ui'
+} from '@onedesk/ui'
 import React, { useEffect, useRef, useState, useCallback } from 'react'
 import {
   AgentLoop,
@@ -15,9 +15,9 @@ import {
   IPC_STREAM_SILENCE_TIMEOUT_MS,
   type AgentImage,
   type ToolDisplay,
-} from '@genoffice/agent-core'
-import type { RenderSlide } from '@genoffice/pptx-render'
-import { imageGenerationAvailable, mediaAnalysisAvailable } from '@genoffice/ai-provider/browser'
+} from '@onedesk/agent-core'
+import type { RenderSlide } from '@onedesk/pptx-render'
+import { imageGenerationAvailable, mediaAnalysisAvailable } from '@onedesk/ai-provider/browser'
 import type { AiSettings, AttachmentAddResult, AttachmentMeta } from '../../shared/ipc'
 import { ATTACHMENT_IMAGE_EXTS } from '../../shared/ipc'
 import {
@@ -28,7 +28,7 @@ import {
   formatAttachmentSize,
   SentAttachments,
   truncateCardName,
-} from '@genoffice/ui'
+} from '@onedesk/ui'
 import {
   createSlidesSkill,
   type DeckAccess,
@@ -70,7 +70,7 @@ import {
   useChatRunQueue,
   type AiScopeQuoteData,
   type AiTokenUsageView,
-} from '@genoffice/ui'
+} from '@onedesk/ui'
 import { GensparkMark } from '../components/icons'
 import { showToast } from '../components/toast-bus'
 import sendEnterOn from '../assets/send-enter-on.png'
@@ -1383,7 +1383,7 @@ export function AiPanel({
           // Signed-out failures get an inline sign-in button; detected via
           // gsk status rather than matching the localized error text — but only
           // when Genspark is the provider: a BYOK user's error (e.g. their own
-          // provider's rate limit) must not advertise a Genspark sign-in (genoffice#1948)
+          // provider's rate limit) must not advertise a Genspark sign-in (onedesk#1948)
           void window.slidesApi
             .aiGskStatus()
             .then((status) => {

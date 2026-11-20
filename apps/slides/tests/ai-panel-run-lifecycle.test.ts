@@ -16,9 +16,8 @@ const agentHarness = vi.hoisted(() => ({
   restore: vi.fn(),
 }))
 
-vi.mock('@genoffice/agent-core', async () => {
-  const actual =
-    await vi.importActual<typeof import('@genoffice/agent-core')>('@genoffice/agent-core')
+vi.mock('@onedesk/agent-core', async () => {
+  const actual = await vi.importActual<typeof import('@onedesk/agent-core')>('@onedesk/agent-core')
   return {
     ...actual,
     AgentLoop: class MockAgentLoop {

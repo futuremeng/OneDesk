@@ -6,7 +6,7 @@ import {
   type FieldDisplay,
   type FieldInstruction,
   type FieldTableLeader,
-} from '@genoffice/docx-engine'
+} from '@onedesk/docx-engine'
 
 export type IndexTablesKind = 'index' | 'toc' | 'figures' | 'authorities'
 

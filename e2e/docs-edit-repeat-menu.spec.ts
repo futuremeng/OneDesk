@@ -94,7 +94,7 @@ const savedParagraph = (xml: string, text: string) =>
 
 test('Edit > Repeat runs the last command on the new selection, is Redo after an undo, and greys out once the document moves on', async () => {
   test.setTimeout(180_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-repeat-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-repeat-')))
   const docPath = join(dir, 'repeat.docx')
   writeFileSync(
     docPath,
@@ -202,7 +202,7 @@ test('Edit > Repeat runs the last command on the new selection, is Redo after an
 
 test('Repeat outlives a header that was opened and left alone, and ends once the header was typed in', async () => {
   test.setTimeout(180_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-repeat-header-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-repeat-header-')))
   const docPath = join(dir, 'repeat-header.docx')
   writeFileSync(docPath, await docxWith(para('alpha one') + para('beta two') + SECT_PR))
   const launched = await launchShell({
@@ -271,7 +271,7 @@ test('Repeat outlives a header that was opened and left alone, and ends once the
 
 test("File, Edit and Tools carry Word's remaining items at Word's place", async () => {
   test.setTimeout(120_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-menu-gaps-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-menu-gaps-')))
   const docPath = join(dir, 'first.docx')
   const otherPath = join(dir, 'other.docx')
   writeFileSync(docPath, await docxWith(para('first document') + SECT_PR))

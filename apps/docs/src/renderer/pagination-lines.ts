@@ -67,7 +67,7 @@ const PATCH_KEYS = [
 
 /**
  * Carry the previous pass's line/row samples onto the freshly measured blocks
- * of a streaming open's pass (genoffice#526): only the appended tail can
+ * of a streaming open's pass (onedesk#526): only the appended tail can
  * change layout, and fillLineBoxes skips blocks that already carry samples, so
  * the unchanged prefix pays no DOM sampling at all — the sampler's own
  * per-element cache still charges a full subtree signature per block per pass.
@@ -1484,7 +1484,7 @@ function cellContentBottom(cell: Element): number {
  * spans below it: the row sits inside a vertical merge. Height added inside one
  * of its cells then shifts every row the merge covers, the next measure sees
  * the shifted rows as new content, another boundary lands inside, another band
- * is anchored — the row inflates page by page (genoffice#2114). Such rows take
+ * is anchored — the row inflates page by page (onedesk#2114). Such rows take
  * the zero-height cut marker, never an in-cell gap band.
  */
 function insideVerticalMerge(row: Element): boolean {
@@ -1511,7 +1511,7 @@ function insideVerticalMerge(row: Element): boolean {
  * whole row height, not against its own content. A band inside the host cell
  * grows the row and re-places that sibling's text in the middle of the new
  * blank, so the row's borders frame a page-tall empty area (the "long chin" of
- * genoffice#2114, without a rowspan to trip the insideVerticalMerge guard).
+ * onedesk#2114, without a rowspan to trip the insideVerticalMerge guard).
  * The previous pass's geometry (cellContentBottom) cannot catch this.
  *
  * Only a sibling that carries visible text shows the artefact: every unstyled
@@ -1549,7 +1549,7 @@ export function singleCutCell(
   if (cells.length === 0) return null
   // a row inside a vertical merge never hosts an in-cell band: the band's
   // height shifts every row the merge covers and feeds back into the next
-  // measure (genoffice#2114) — the zero-height cut marker carries the break
+  // measure (onedesk#2114) — the zero-height cut marker carries the break
   if (insideVerticalMerge(row as HTMLTableRowElement)) return null
   if (cells.length === 1) return cells[0]
   if (!anchor) return null
@@ -1559,7 +1559,7 @@ export function singleCutCell(
   // A middle/bottom-aligned, text-bearing sibling is positioned against the
   // whole row height; a band in the host would push its text into the blank.
   // A cell whose own alignment (the host) or with no text (sliver cells) is
-  // unaffected, so it still hosts a band. See hasHeightCoupledCell / genoffice#2114.
+  // unaffected, so it still hosts a band. See hasHeightCoupledCell / onedesk#2114.
   if (hasHeightCoupledCell(cells, host)) return null
   const cutTop = anchorLineTop(anchor, zoomFactor)
   if (cutTop === null) return null

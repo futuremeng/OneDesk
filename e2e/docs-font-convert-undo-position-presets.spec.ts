@@ -57,7 +57,7 @@ test('Convert Permanently follows Undo and Redo into the saved styles and header
   test.setTimeout(240_000)
   const MISSING = 'Zzyzx Gone Sans'
   const HERE = 'Courier New'
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-font-undo-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-font-undo-')))
   const docPath = join(dir, 'fonts.docx')
   const fonts = (name: string) => `<w:rPr><w:rFonts w:ascii="${name}" w:hAnsi="${name}"/></w:rPr>`
   const run = (name: string, text: string) => `<w:r>${fonts(name)}<w:t>${text}</w:t></w:r>`
@@ -231,7 +231,7 @@ async function settled(page: Page): Promise<number[]> {
 
 test('each Position gallery preset shows the picture where the saved file puts it', async () => {
   test.setTimeout(300_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-position-presets-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-position-presets-')))
   const docPath = join(dir, 'picture.docx')
   const [W_PX, H_PX] = [120, 90]
   writeFileSync(

@@ -9,7 +9,7 @@ import {
   useDismissablePopover,
   wordArtSolidColor,
   type WordArtPreset,
-} from '@genoffice/ui'
+} from '@onedesk/ui'
 import {
   buildLineParagraphXml,
   buildShapeParagraphXml,
@@ -20,7 +20,7 @@ import {
   type StyleInfo,
   type TextboxDisplay,
   type TextboxVert,
-} from '@genoffice/docx-engine'
+} from '@onedesk/docx-engine'
 import type { DocsTabInfo } from '../../shared/ipc'
 import { runUiOps } from '../ai/ops'
 import { defaultParagraphStyleId, headingStyleId, type StyleMap } from '../style-gallery'
@@ -1686,7 +1686,7 @@ export function ViewTab({
                     }}
                   >
                     {w.focused ? '✓ ' : ''}
-                    {w.title || 'GenOffice Docs'}
+                    {w.title || 'OneDesk Docs'}
                   </button>
                 ))}
               </div>

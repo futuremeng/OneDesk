@@ -25,7 +25,7 @@ const otherBody = (): string =>
 
 test('the body of another document is inserted at the caret and saved', async () => {
   test.setTimeout(180_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-insert-file-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-insert-file-')))
   const docPath = join(dir, 'host.docx')
   const otherPath = join(dir, 'other.docx')
   writeFileSync(docPath, await docxWith(para('Host first') + para('Host last')))
@@ -149,7 +149,7 @@ async function docxWithFootnotes(body: string, notes: [string, string]): Promise
 
 test('a bookmark of the other document is inserted as a range, with the footnote inside it', async () => {
   test.setTimeout(240_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-insert-range-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-insert-range-')))
   const docPath = join(dir, 'host.docx')
   const otherPath = join(dir, 'other.docx')
   writeFileSync(

@@ -1,5 +1,5 @@
 import type { zh } from './zh'
-import { ribbonCommonEs } from '@genoffice/i18n'
+import { ribbonCommonEs } from '@onedesk/i18n'
 
 export const es = {
   ...ribbonCommonEs,

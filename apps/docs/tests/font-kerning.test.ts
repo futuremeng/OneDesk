@@ -4,14 +4,14 @@
  * renders with font-kerning:none unless the document, style or run asks;
  * complex-script runs keep the face's features (Word shapes them in full)
  * (SAS batch 2: unkerned Calibri lines 0.7-1.9px over a cell width wrapped in
- * Word but not in GenOffice).
+ * Word but not in OneDesk).
  */
 import { readFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { describe, expect, it } from 'vitest'
 import { DOMSerializer } from '@tiptap/pm/model'
-import type { ParsedDocFull, StyleDisplay, StyleInfo, TextboxDisplay } from '@genoffice/docx-engine'
+import type { ParsedDocFull, StyleDisplay, StyleInfo, TextboxDisplay } from '@onedesk/docx-engine'
 import { docStyleCss } from '../src/renderer/doc-style-css'
 import { renderTextboxSpec } from '../src/renderer/editor/protected-render'
 import { TextStyleMark } from '../src/renderer/editor/marks'

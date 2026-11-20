@@ -56,7 +56,7 @@ const linesOnPage = (page: Page) =>
     )
 
 async function openLines() {
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-break-save-race-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-break-save-race-')))
   const docPath = join(dir, 'lines.docx')
   writeFileSync(docPath, await docxWith(LINES.map(para).join('') + SECT_PR))
   const launched = await launchShell({

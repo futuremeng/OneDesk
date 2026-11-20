@@ -1,4 +1,4 @@
-import type { NoteProps, SectionInfo, SectionSettings } from '@genoffice/docx-engine'
+import type { NoteProps, SectionInfo, SectionSettings } from '@onedesk/docx-engine'
 
 export type NoteKind = 'footnote' | 'endnote'
 export type SectionNoteProps = Record<NoteKind, NoteProps>

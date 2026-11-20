@@ -4,8 +4,8 @@
  * current content instead of a snapshot taken at annotation time.
  */
 import React, { useState } from 'react'
-import { useImeEnterGuard } from '@genoffice/ui'
-import type { RenderSlide } from '@genoffice/pptx-render'
+import { useImeEnterGuard } from '@onedesk/ui'
+import type { RenderSlide } from '@onedesk/pptx-render'
 import { useI18n } from '../i18n/locale'
 import {
   describeNode,

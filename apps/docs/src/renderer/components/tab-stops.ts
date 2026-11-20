@@ -1,4 +1,4 @@
-import type { TabStop } from '@genoffice/docx-engine'
+import type { TabStop } from '@onedesk/docx-engine'
 import { directTabStops } from './Ruler'
 
 /** the paragraph's tab stops attribute, split into the stops a user sets and the ones a w:ptab stands for */

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Dropdown } from '@genoffice/ui'
+import { Dropdown } from '@onedesk/ui'
 import { useI18n, type StringKey } from '../i18n/locale'
 import { useModalKeys } from './modal-keys'
 import type { AsianTypographyState, TextAlignment } from './paragraph-asian-typography'

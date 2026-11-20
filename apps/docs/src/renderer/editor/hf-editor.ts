@@ -21,7 +21,7 @@ import {
   type HfTableCell,
   type HfTableRow,
   type Run,
-} from '@genoffice/docx-engine'
+} from '@onedesk/docx-engine'
 import { subEditorClosing } from '../commands/repeat'
 import { dropActiveSubEditor, notifySubEditorState, setActiveSubEditor } from './active-editor'
 import { pictureVectorOf } from './picture-vectors'

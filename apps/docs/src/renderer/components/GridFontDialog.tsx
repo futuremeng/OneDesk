@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Dropdown, type DropdownOption } from '@genoffice/ui'
+import { Dropdown, type DropdownOption } from '@onedesk/ui'
 import { useI18n } from '../i18n/locale'
 import { fontFamiliesFor } from '../font-list'
 import { fontSizeLabel, fontSizeOptions, parseFontSize } from '../font-sizes'

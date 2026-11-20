@@ -1,7 +1,7 @@
 # Optional native admission
 
 The auth module's explicit-cookie API-key create/revoke requests use cookie-v1
-admission by default (gen-spark#72015). `GENOFFICE_NATIVE_WAF=0` is the rollback:
+admission by default (gen-spark#72015). `ONEDESK_NATIVE_WAF=0` is the rollback:
 no issuer request, wait, timer or transport change. Device-code polling and the
 Bearer session exchange stay unchanged, as do all provider/agent/subprocess requests.
 
@@ -15,10 +15,10 @@ redirects, retaining a 302 response without leaking credentials across origins.
 
 ## Genspark provider requests (gsk key)
 
-The provider lane is on by default in Node host processes (`GENOFFICE_NATIVE_WAF=0`
+The provider lane is on by default in Node host processes (`ONEDESK_NATIVE_WAF=0`
 turns it off): the AI provider's Genspark LLM proxy requests use token admission (native-tok-v1, family `llm`) at the shared `aiFetch` seam. Only
 HTTPS requests to an admitted host (the default proxy host, the `GSK_BASE_URL` host and any
-hosts in `GENOFFICE_NATIVE_WAF_HOSTS`) on `/api/llm_proxy/` or `/api/anthropic` that carry
+hosts in `ONEDESK_NATIVE_WAF_HOSTS`) on `/api/llm_proxy/` or `/api/anthropic` that carry
 exactly one gsk credential (`Authorization: Bearer gsk-…` or `x-api-key: gsk-…`)
 qualify. The issuer call binds that exact header; bootstrap is bounded to 2s and
 4096 bytes with no redirects; the memory cache is at most 240s and never past
@@ -33,4 +33,4 @@ at the edge and legacy rules still apply.
 
 Admitted hosts come from configuration, not source: the `GSK_BASE_URL` host
 (default `www.genspark.ai`) plus any comma-separated hostnames in
-`GENOFFICE_NATIVE_WAF_HOSTS`. Requests to any other origin are sent unchanged.
+`ONEDESK_NATIVE_WAF_HOSTS`. Requests to any other origin are sent unchanged.

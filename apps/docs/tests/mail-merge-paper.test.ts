@@ -5,7 +5,7 @@ import {
   mergeFieldInstruction,
   parseDocx,
   readSections,
-} from '@genoffice/docx-engine'
+} from '@onedesk/docx-engine'
 import { editorExtensions } from '../src/renderer/editor/extensions'
 import { blocksToPmDoc } from '../src/renderer/editor/convert'
 import type { FileActionContext } from '../src/renderer/file-actions'

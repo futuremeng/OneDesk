@@ -1,4 +1,4 @@
-import { ribbonCommonZh } from '@genoffice/i18n'
+import { ribbonCommonZh } from '@onedesk/i18n'
 /** ribbon strings, zh: defines the key set every other locale shard must match. */
 export const zh = {
   ...ribbonCommonZh,

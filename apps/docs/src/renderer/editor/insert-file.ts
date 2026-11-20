@@ -9,7 +9,7 @@ import {
   parseDocx,
   type NoteInfo,
   type ParsedDoc,
-} from '@genoffice/docx-engine'
+} from '@onedesk/docx-engine'
 import { renumber } from '../ai/note-ops'
 import { fetchDocBytes } from '../doc-bytes'
 import { blockFingerprint, whileCarrying, type CarriedNodes } from './carried-nodes'

@@ -1,7 +1,7 @@
 import type { Node as PMNode } from '@tiptap/pm/model'
 import type { Transaction } from '@tiptap/pm/state'
 import { Step, StepResult } from '@tiptap/pm/transform'
-import type { WrittenFontConversion } from '@genoffice/docx-engine'
+import type { WrittenFontConversion } from '@onedesk/docx-engine'
 
 /**
  * Convert Permanently reaches parts the editor does not hold (styles, headers,

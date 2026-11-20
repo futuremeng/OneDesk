@@ -1,4 +1,4 @@
-import { conditionHolds } from '@genoffice/docx-engine'
+import { conditionHolds } from '@onedesk/docx-engine'
 import { describe, expect, it } from 'vitest'
 import { ifInstruction, skipIfInstruction } from '../src/renderer/mail-merge/rules'
 

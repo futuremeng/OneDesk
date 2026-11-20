@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { buildBlankDocx, parseDocx, readSectionSettings } from '@genoffice/docx-engine'
+import { buildBlankDocx, parseDocx, readSectionSettings } from '@onedesk/docx-engine'
 import { withDesignDefault } from '../src/renderer/file-actions'
 import { defaultParagraphStyleId } from '../src/renderer/style-gallery'
 

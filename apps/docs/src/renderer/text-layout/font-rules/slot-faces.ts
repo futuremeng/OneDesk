@@ -2,7 +2,7 @@
  * Which face each rFonts slot lays out with under an East Asian docDefaults
  * language (INVENTORY-fonts S1-S4).
  */
-import { isEastAsianLangTag } from '@genoffice/docx-engine'
+import { isEastAsianLangTag } from '@onedesk/docx-engine'
 import { isEastAsianFaceName } from '../face-info'
 import { resolveDeclaredFace } from '../../font-resolve'
 import { openDocumentText } from '../open-document'

@@ -1,5 +1,5 @@
 import JSZip from 'jszip'
-import { chartWorkbookParts, colLetter } from '@genoffice/pptx-engine/chart-workbook'
+import { chartWorkbookParts, colLetter } from '@onedesk/pptx-engine/chart-workbook'
 import type {
   ChartAxis,
   ChartDisplay,
@@ -20,7 +20,7 @@ import {
   type XNode,
 } from './xml-utils'
 
-export { CHART_WORKBOOK_REL_TYPE, colLetter } from '@genoffice/pptx-engine/chart-workbook'
+export { CHART_WORKBOOK_REL_TYPE, colLetter } from '@onedesk/pptx-engine/chart-workbook'
 
 const CHART_KINDS: Record<string, ChartDisplay['kind']> = {
   'c:barChart': 'bar',

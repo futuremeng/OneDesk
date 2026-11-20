@@ -5,7 +5,7 @@ import {
   reducedPixelSize,
   replaceDocxParts,
   type MediaReductionTarget,
-} from '@genoffice/docx-engine'
+} from '@onedesk/docx-engine'
 import type { Node as PmNode } from '@tiptap/pm/model'
 import { NodeSelection, type EditorState } from '@tiptap/pm/state'
 import { selectedObjectPositions } from './editor/object-multi-select'

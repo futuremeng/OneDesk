@@ -259,7 +259,7 @@ test.describe('docs Compare Documents and Combine Documents', () => {
   let revisedPath: string
 
   test.beforeEach(async () => {
-    dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-combine-')))
+    dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-combine-')))
     docPath = join(dir, 'contract.docx')
     revisedPath = join(dir, 'revised.docx')
     writeFileSync(docPath, await docxWith(ORIGINAL.map(para).join('')))

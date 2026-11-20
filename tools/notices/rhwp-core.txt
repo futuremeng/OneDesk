@@ -1,6 +1,6 @@
 Supplementary notice for @rhwp/core (rhwp, https://github.com/edwardkim/rhwp)
 
-rhwp_bg.wasm, which GenOffice ships to read binary .hwp documents, is rhwp
+rhwp_bg.wasm, which OneDesk ships to read binary .hwp documents, is rhwp
 compiled to WebAssembly together with the Rust crates it depends on. rhwp
 v0.8.7 lists those crates and their licenses in
 https://github.com/edwardkim/rhwp/blob/v0.8.7/THIRD_PARTY_LICENSES.md. All of
@@ -48,4 +48,4 @@ Hancom notice, as rhwp states it:
 specification of the Hangul document file format (.hwp).)
 
 "한글", "한컴", "HWP" and "HWPX" are registered trademarks of Hancom Inc.
-Neither rhwp nor GenOffice is affiliated with, sponsored or endorsed by Hancom.
+Neither rhwp nor OneDesk is affiliated with, sponsored or endorsed by Hancom.

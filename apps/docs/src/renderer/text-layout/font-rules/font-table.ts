@@ -16,7 +16,7 @@ import {
   latinFallback,
   type ResolvedFace,
   type SubstituteRule,
-} from '@genoffice/font-metrics/resolve'
+} from '@onedesk/font-metrics/resolve'
 import { resolveDeclaredFace, setResolverFontTable } from '../../font-resolve'
 import { declaredFaceMissing, isBundledFont } from './availability'
 import { batangLineFactor, malgunLineFactor } from './line-factor'

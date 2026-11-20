@@ -1,7 +1,7 @@
 /** The Index and Tables options are the switches of the table's field: written, followed on the page, kept by Update, read back. */
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { Editor } from '@tiptap/core'
-import { generateCaptionXml, type FieldDisplay } from '@genoffice/docx-engine'
+import { generateCaptionXml, type FieldDisplay } from '@onedesk/docx-engine'
 import { editorExtensions } from '../src/renderer/editor/extensions'
 import {
   authoritiesOptionsOf,

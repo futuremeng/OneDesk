@@ -9,7 +9,7 @@ import type { Editor } from '@tiptap/core'
 import type { Node as PmNode } from '@tiptap/pm/model'
 import { Plugin, PluginKey, type EditorState } from '@tiptap/pm/state'
 import { Decoration, DecorationSet } from '@tiptap/pm/view'
-import type { MergeRecord } from '@genoffice/docx-engine'
+import type { MergeRecord } from '@onedesk/docx-engine'
 import { mergeFieldValue } from '../mail-merge/template'
 import { collectFields, fieldCodesPluginKey, isFieldCodeShown } from './field-codes'
 

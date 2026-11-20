@@ -6,13 +6,9 @@
  */
 import { ILayoutService } from '@univerjs/preset-sheets-core'
 
-import { columnLabel } from '@genoffice/xlsx-gateway/domain/cell-address'
-import {
-  decodeCsvBuffer,
-  isNumericCell,
-  parseCsv,
-} from '@genoffice/xlsx-gateway/gateway/csv-import'
-import { CSV_IMPORT_DEFAULT_LIMIT_MB } from '@genoffice/xlsx-gateway/gateway/csv-limits'
+import { columnLabel } from '@onedesk/xlsx-gateway/domain/cell-address'
+import { decodeCsvBuffer, isNumericCell, parseCsv } from '@onedesk/xlsx-gateway/gateway/csv-import'
+import { CSV_IMPORT_DEFAULT_LIMIT_MB } from '@onedesk/xlsx-gateway/gateway/csv-limits'
 import type { AdvancedFilterColumn, AdvancedFilterCriteria } from './AdvancedFilterDialog'
 import {
   buildLabelMatrix,

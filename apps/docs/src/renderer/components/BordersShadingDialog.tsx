@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, type CSSProperties } from 'react'
-import type { ParaBorderLine, SectionSettings } from '@genoffice/docx-engine'
+import type { ParaBorderLine, SectionSettings } from '@onedesk/docx-engine'
 import { NONE } from '../../shared/commands'
 import {
   BORDER_SIDES,

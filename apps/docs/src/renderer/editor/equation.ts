@@ -1,6 +1,6 @@
-import { latexToOmml, mathParagraphXml, mathTokensOf, ommlToMathML } from '@genoffice/docx-engine'
+import { latexToOmml, mathParagraphXml, mathTokensOf, ommlToMathML } from '@onedesk/docx-engine'
 import type { Editor } from '@tiptap/core'
-import type { FormulaDisplay } from '@genoffice/docx-engine'
+import type { FormulaDisplay } from '@onedesk/docx-engine'
 import { t } from '../i18n/locale'
 import type { PmNode } from './convert'
 import { mathLimits, ommlFollowsLimitDefaults } from './math-defaults'

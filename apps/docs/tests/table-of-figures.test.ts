@@ -1,7 +1,7 @@
 /** A table of figures lists the captions of one label, and is rebuilt in place. */
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { Editor } from '@tiptap/core'
-import { generateCaptionXml, generateTocFieldXml } from '@genoffice/docx-engine'
+import { generateCaptionXml, generateTocFieldXml } from '@onedesk/docx-engine'
 import { editorExtensions } from '../src/renderer/editor/extensions'
 import { findTocRange } from '../src/renderer/editor/toc-update'
 import {

@@ -223,7 +223,7 @@ async function savedPackage(docPath: string) {
 
 test('Insert > Icons lists icons by category and search and inserts the picked ones as SVG pictures with a PNG fallback', async () => {
   test.setTimeout(180_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-insert-icons-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-insert-icons-')))
   const docPath = join(dir, 'icons.docx')
   const table =
     '<w:tbl><w:tblPr><w:tblW w:w="0" w:type="auto"/></w:tblPr><w:tblGrid><w:gridCol w:w="4000"/></w:tblGrid>' +

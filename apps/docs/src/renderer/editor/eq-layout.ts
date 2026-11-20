@@ -1,7 +1,7 @@
 import type { Editor } from '@tiptap/core'
 import type { Mark, Schema } from '@tiptap/pm/model'
 import { NodeSelection, type EditorState } from '@tiptap/pm/state'
-import type { EncloseStyle } from '@genoffice/docx-engine'
+import type { EncloseStyle } from '@onedesk/docx-engine'
 import { fontFamilyMarkAttrs } from '../font-list'
 
 export type EqLayoutKind = 'enclose' | 'combine'

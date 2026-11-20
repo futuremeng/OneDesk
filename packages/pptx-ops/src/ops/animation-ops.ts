@@ -21,7 +21,7 @@ import {
   type Slide,
   type SlideAnimation,
   type SlideElement,
-} from '@genoffice/pptx-engine'
+} from '@onedesk/pptx-engine'
 import {
   GuidedError,
   register,

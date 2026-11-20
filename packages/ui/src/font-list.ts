@@ -1,11 +1,11 @@
-import type { Lang } from '@genoffice/i18n'
+import type { Lang } from '@onedesk/i18n'
 import {
   CJK_FAMILY_ALIASES,
   JAPANESE_FAMILIES,
   KOREAN_FAMILIES,
   SIMPLIFIED_CJK_FAMILIES,
   TRADITIONAL_CJK_FAMILIES,
-} from '@genoffice/i18n'
+} from '@onedesk/i18n'
 
 /**
  * Font dropdown candidates grouped by script, ordered per UI language so the

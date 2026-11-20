@@ -23,7 +23,7 @@
  *   the right page margin instead of the bubble column; click focuses the
  *   thread in the Comments panel.
  */
-import type { CommentInfo } from '@genoffice/docx-engine'
+import type { CommentInfo } from '@onedesk/docx-engine'
 import { PAGE_TURN_SEL } from './pagination-gaps'
 import { pagePaperEdges, pageReaderShadow, type PageCut } from '../pagination-cuts'
 import type { EditorView } from '@tiptap/pm/view'
@@ -281,7 +281,7 @@ function makeBubble(
     text.className = 'comment-text'
     text.textContent = c.text
     if (c.image) {
-      // the picture a comment carries (genoffice#2040): shown under its text,
+      // the picture a comment carries (onedesk#2040): shown under its text,
       // sized by the saved extent like the editor draws body pictures
       const img = document.createElement('img')
       img.className = 'comment-image'

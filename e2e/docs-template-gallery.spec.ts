@@ -107,7 +107,7 @@ function officeReads(file: string, outDir: string): boolean | null {
 
 test('a template saved from a document shows in the gallery with its first page, and makes a new document', async () => {
   test.setTimeout(240_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-template-gallery-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-template-gallery-')))
   const docPath = join(dir, 'letter.docx')
   const madePath = join(dir, 'made.docx')
   writeFileSync(docPath, await docxWith(para('Dear reader') + para('Yours truly')))
@@ -222,7 +222,7 @@ test('a template saved from a document shows in the gallery with its first page,
 
 test('a macro-enabled template makes a document that holds no macros', async () => {
   test.setTimeout(240_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-template-dotm-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-template-dotm-')))
   const docPath = join(dir, 'start.docx')
   const madePath = join(dir, 'from-dotm.docx')
   writeFileSync(docPath, await docxWith(para('Start document')))

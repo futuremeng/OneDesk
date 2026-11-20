@@ -3,7 +3,7 @@
  * untouched dialog leaves the section, and its fixed margins, exactly as read.
  */
 import { describe, expect, it } from 'vitest'
-import type { SectionSettings } from '@genoffice/docx-engine'
+import type { SectionSettings } from '@onedesk/docx-engine'
 import {
   documentDialogChanges,
   gutterMoved,

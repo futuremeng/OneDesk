@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react'
-import { RUBY_ALIGNS, type RubyAlign } from '@genoffice/docx-engine'
+import { RUBY_ALIGNS, type RubyAlign } from '@onedesk/docx-engine'
 import { RUBY_BASE_MAX, type RubyEdit, type RubyReading } from '../editor/phonetic-guide'
 import { fontFamiliesFor } from '../font-list'
 import { cssFontFamily } from '../text-layout/font-rules/css-chains'

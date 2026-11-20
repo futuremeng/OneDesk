@@ -79,7 +79,7 @@ const documentXml = async (docPath: string) =>
 
 test('bookmarks sort and go to, references point at headings and pages, captions take labels and formats, find keeps to the selection', async () => {
   test.setTimeout(180_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-find-bookmark-caption-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-find-bookmark-caption-')))
   const docPath = join(dir, 'refs.docx')
   writeFileSync(
     docPath,

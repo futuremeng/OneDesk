@@ -21,8 +21,8 @@ import type {
   GroupRenderNode,
   ArrowEndRender,
   RenderReflection,
-} from '@genoffice/pptx-render'
-import { extrusionFrontFace } from '@genoffice/pptx-render'
+} from '@onedesk/pptx-render'
+import { extrusionFrontFace } from '@onedesk/pptx-render'
 import {
   featheredImage,
   featheredShapeCanvas,

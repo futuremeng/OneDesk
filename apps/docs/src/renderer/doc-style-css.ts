@@ -11,7 +11,7 @@ import {
   type StyleInfo,
   type ThemeColors,
   type ThemeFonts,
-} from '@genoffice/docx-engine'
+} from '@onedesk/docx-engine'
 import {
   cssAutoLineMult,
   gridStrutMetricsPct,

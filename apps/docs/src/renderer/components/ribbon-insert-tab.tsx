@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 import type { CSSProperties } from 'react'
 import type { Editor } from '@tiptap/core'
-import { ShapePreview, WORDART_PRESETS, wordArtStrokePx } from '@genoffice/ui'
-import { scatterXValues, type ChartDisplay, type NewChart } from '@genoffice/docx-engine'
+import { ShapePreview, WORDART_PRESETS, wordArtStrokePx } from '@onedesk/ui'
+import { scatterXValues, type ChartDisplay, type NewChart } from '@onedesk/docx-engine'
 import {
   CHART_TYPES,
   CHART_TYPE_LABELS,

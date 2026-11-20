@@ -4,7 +4,7 @@ import {
   applyFlashFillTemplate,
   flashFillFirstSource,
   inferFlashFillTemplate,
-} from '@genoffice/xlsx-gateway/domain/flash-fill'
+} from '@onedesk/xlsx-gateway/domain/flash-fill'
 
 describe('inferFlashFillTemplate', () => {
   it('learns a join with literal glue from one example', () => {

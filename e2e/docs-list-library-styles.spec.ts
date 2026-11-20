@@ -93,7 +93,7 @@ const markers = (page: Page) =>
 
 test('Customize changes the picked library card, the ribbon gallery follows, and Reset restores the built-in card', async () => {
   test.setTimeout(240_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-list-library-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-list-library-')))
   const docPath = join(dir, 'plain.docx')
   writeFileSync(docPath, await docxWith(BODY))
   const first = await openDocs(docPath)
@@ -174,7 +174,7 @@ test('Customize changes the picked library card, the ribbon gallery follows, and
 
 test('List Styles: Add makes a named list style that is saved and listed on reopen, Delete takes it out and its paragraphs turn plain', async () => {
   test.setTimeout(300_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-list-style-add-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-list-style-add-')))
   const docPath = join(dir, 'plain.docx')
   writeFileSync(docPath, await docxWith(BODY))
   const options = (dialog: ReturnType<Page['locator']>) =>

@@ -2,9 +2,9 @@ import { describe, it, expect } from 'vitest'
 import { readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { dirname, join } from 'node:path'
-import { openPptx } from '@genoffice/pptx-engine'
+import { openPptx } from '@onedesk/pptx-engine'
 import { buildRenderSlide, type ShapeRenderNode } from '../src/index'
-import type { TextElement } from '@genoffice/pptx-engine'
+import type { TextElement } from '@onedesk/pptx-engine'
 
 const here = dirname(fileURLToPath(import.meta.url))
 const enginePptx = (name: string) =>
@@ -1020,10 +1020,10 @@ describe('metafile pictures get an opaque white backdrop (PlanS academy banner)'
         elements: [
           mk('data:image/x-emf;base64,AAAA'),
           mk('data:image/png;base64,AAAA'),
-          mk('genoffice-slide-media://archive/emf?mime=image%2Fx-emf'),
-          mk('genoffice-slide-media://archive/png?mime=image%2Fpng'),
+          mk('onedesk-slide-media://archive/emf?mime=image%2Fx-emf'),
+          mk('onedesk-slide-media://archive/png?mime=image%2Fpng'),
           mk('data:image/x-wmf;base64,AAAA'),
-          mk('genoffice-slide-media://archive/wmf?mime=image%2Fx-wmf'),
+          mk('onedesk-slide-media://archive/wmf?mime=image%2Fx-wmf'),
         ],
         decorations: [],
       },
@@ -1094,7 +1094,7 @@ describe('durable ids on render nodes', () => {
 describe('durable ids on chart nodes', () => {
   it('charts (and their placeholder chips) carry durable ids too', async () => {
     const opened = await openPptx(enginePptx('01_standard_business.pptx'))
-    const { addChart } = await import('@genoffice/pptx-engine')
+    const { addChart } = await import('@onedesk/pptx-engine')
     const r = addChart(opened, 0, {
       kind: 'bar',
       categories: ['Q1', 'Q2'],

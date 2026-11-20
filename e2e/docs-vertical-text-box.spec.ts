@@ -12,7 +12,7 @@ import { docxWith, para, saveFromMenu } from './docs-objects-fixture'
 
 test('a vertical text box is drawn from the menu, typed into, saved and read back', async () => {
   test.setTimeout(180_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-vertical-box-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-vertical-box-')))
   const docPath = join(dir, 'vertical.docx')
   writeFileSync(docPath, await docxWith(para('First') + para('Last')))
   let launched = await launchShell({

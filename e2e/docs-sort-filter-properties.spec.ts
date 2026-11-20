@@ -43,7 +43,7 @@ const table = (rows: string[]) =>
 
 test('Sort orders a table by two columns under its header row and paragraphs by two fields, and refuses merged cells', async () => {
   test.setTimeout(180_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-sort-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-sort-')))
   const docPath = join(dir, 'lists.docx')
   const people = [
     ['Name', 'City', 'Age'],
@@ -159,7 +159,7 @@ test('Sort orders a table by two columns under its header row and paragraphs by 
 
 test('Filter Recipients joins conditions with And and Or and Sort Records orders them, in the preview and in the merged document', async () => {
   test.setTimeout(180_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-filter-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-filter-')))
   const docPath = join(dir, 'letter.docx')
   writeFileSync(docPath, await docxWith(para('Dear') + para('Regards')))
   const listPath = join(dir, 'people.csv')
@@ -312,7 +312,7 @@ async function docxWithProperties(body: string): Promise<Buffer> {
 
 test('Properties shows the file, its statistics and its headings, and keeps custom properties in docProps/custom.xml', async () => {
   test.setTimeout(240_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-properties-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-properties-')))
   const docPath = join(dir, 'report.docx')
   writeFileSync(
     docPath,

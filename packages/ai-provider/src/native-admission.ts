@@ -1,9 +1,9 @@
 /**
  * Optional signed edge admission (native-tok-v1) for Genspark LLM proxy requests whose final
- * credential is a gsk key. On by default in Node host processes; GENOFFICE_NATIVE_WAF=0 turns it off.
+ * credential is a gsk key. On by default in Node host processes; ONEDESK_NATIVE_WAF=0 turns it off.
  * Browsers and Electron renderers never take part.
  *
- * Eligible: HTTPS to an admitted host (default proxy host, GSK_BASE_URL, GENOFFICE_NATIVE_WAF_HOSTS), path /api/llm_proxy/ or /api/anthropic (family
+ * Eligible: HTTPS to an admitted host (default proxy host, GSK_BASE_URL, ONEDESK_NATIVE_WAF_HOSTS), path /api/llm_proxy/ or /api/anthropic (family
  * "llm"), and exactly one credential header carrying a gsk key — `Authorization: Bearer gsk-…`
  * (OpenAI-compatible) or `x-api-key: gsk-…` (Anthropic). BYOK keys, custom endpoints and every
  * other host are never sent to the issuer. Issuer failure leaves the request unchanged.
@@ -22,7 +22,7 @@ export function nativeAdmissionHosts(env: NodeJS.ProcessEnv = process.env): Set<
   } catch {
     // Malformed configuration only narrows the allowlist to the default host.
   }
-  for (const host of (env.GENOFFICE_NATIVE_WAF_HOSTS ?? '').split(',')) {
+  for (const host of (env.ONEDESK_NATIVE_WAF_HOSTS ?? '').split(',')) {
     const trimmed = host.trim().toLowerCase()
     if (trimmed) hosts.add(trimmed)
   }
@@ -41,7 +41,7 @@ type Pending = { controller: AbortController; promise: Promise<string>; waiters:
 export function nativeAdmissionEnabled(): boolean {
   if (typeof process === 'undefined' || typeof process.versions?.node !== 'string') return false
   if ((process as { type?: string }).type === 'renderer') return false
-  return process.env?.GENOFFICE_NATIVE_WAF !== '0'
+  return process.env?.ONEDESK_NATIVE_WAF !== '0'
 }
 
 function subjectOf(raw: string, headers: Headers): Subject | undefined {

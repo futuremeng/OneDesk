@@ -1,5 +1,5 @@
 import { useState, type ReactNode } from 'react'
-import type { FieldTableLeader, StyleUpsert } from '@genoffice/docx-engine'
+import type { FieldTableLeader, StyleUpsert } from '@onedesk/docx-engine'
 import { CITATION_CATEGORIES } from '../editor/citations'
 import {
   authoritiesOptionsOf,

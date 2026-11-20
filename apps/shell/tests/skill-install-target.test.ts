@@ -35,11 +35,11 @@ vi.mock('electron', () => ({
   },
 }))
 
-vi.mock('@genoffice/cli/agent-skills', () => {
+vi.mock('@onedesk/cli/agent-skills', () => {
   const skillsDir = '/home/me/.claude/skills'
   return {
     LEDGER_KEY: 'agentSkillInstalls',
-    bundledSkillFrom: () => ({ name: 'genoffice', version: '1.0.0', text: 'x' }),
+    bundledSkillFrom: () => ({ name: 'onedesk', version: '1.0.0', text: 'x' }),
     buildSkillZip: async () => Buffer.alloc(0),
     detectAgents: () => [{ id: 'claude-code', label: 'Claude Code', skillsDir }],
     agentTarget: (id: string) =>
@@ -49,14 +49,14 @@ vi.mock('@genoffice/cli/agent-skills', () => {
     },
     uninstallSkill: () => false,
     ledgerFromSettings: () => ({ version: '1.0.0', installs: {} }),
-    readInstallState: (dir: string) => ({ status: 'missing', path: `${dir}/genoffice/SKILL.md` }),
+    readInstallState: (dir: string) => ({ status: 'missing', path: `${dir}/onedesk/SKILL.md` }),
     findLegacySkillCopies: () => [],
     sweepLegacySkillCopies: () => ({ removed: [], kept: [] }),
     currentSkillInstalled: () => false,
   }
 })
 
-vi.mock('@genoffice/cli/install', () => ({ inspectCliLink: () => ({ linked: false }) }))
+vi.mock('@onedesk/cli/install', () => ({ inspectCliLink: () => ({ linked: false }) }))
 
 import { registerIntegrationsIpc } from '../src/main/integrations-ipc'
 import { INTEGRATIONS_CHANNELS } from '../src/shared/integrations-api'
@@ -81,12 +81,12 @@ beforeEach(() => {
   h.handlers.clear()
   h.installed.length = 0
   h.dialogResult = { canceled: true, filePaths: [] }
-  dir = mkdtempSync(join(tmpdir(), 'genoffice-integrations-'))
-  userData = mkdtempSync(join(tmpdir(), 'genoffice-userdata-'))
-  fakeHome = mkdtempSync(join(tmpdir(), 'genoffice-fakehome-'))
+  dir = mkdtempSync(join(tmpdir(), 'onedesk-integrations-'))
+  userData = mkdtempSync(join(tmpdir(), 'onedesk-userdata-'))
+  fakeHome = mkdtempSync(join(tmpdir(), 'onedesk-fakehome-'))
   realHome = process.env.HOME
   process.env.HOME = fakeHome
-  writeFileSync(join(dir, 'SKILL.md'), '---\nname: genoffice\n---\n')
+  writeFileSync(join(dir, 'SKILL.md'), '---\nname: onedesk\n---\n')
   writeFileSync(join(dir, 'package.json'), JSON.stringify({ version: '0.0.0' }))
   registerIntegrationsIpc({
     settingsPath: () => join(dir, 'app-settings.json'),

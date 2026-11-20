@@ -4,7 +4,7 @@
  * narrow one on that side; the page lays out the widths the section was given.
  */
 import { describe, expect, it } from 'vitest'
-import type { SectionInfo, SectionSettings } from '@genoffice/docx-engine'
+import type { SectionInfo, SectionSettings } from '@onedesk/docx-engine'
 import {
   MAX_COLUMNS,
   clampColumns,

@@ -13,7 +13,7 @@
  *   intact   — the field appears as one contiguous string inside a single
  *              table cell or paragraph (what a user can re-edit directly)
  *   split    — the field's text is present but fragmented across cells —
- *              the genoffice#2669 symptom (tax ID → "9" | "1310000MA1FL0000X")
+ *              the onedesk#2669 symptom (tax ID → "9" | "1310000MA1FL0000X")
  *   missing  — not found at all
  *
  * plus the detail-band column count for the invoice samples, the number a
@@ -67,7 +67,7 @@ interface Sample {
   headerField?: string
 }
 
-/** An English stand-in for the genoffice#2669 e-invoice: same banded geometry — outer
+/** An English stand-in for the onedesk#2669 e-invoice: same banded geometry — outer
  *  frame, full-width band rules, buyer/seller band with interior verticals,
  *  borderless detail band, remarks band. */
 async function buildBandedInvoice(): Promise<Uint8Array> {
@@ -247,7 +247,7 @@ function scoreField(field: string, rows: string[][], paras: string[]): Verdict {
     for (const cell of row) if (cell.includes(want)) return { status: 'intact', where: 'cell' }
   for (const para of paras) if (para.includes(want)) return { status: 'intact', where: 'paragraph' }
   // present but fragmented: the field's text spans cell/paragraph boundaries —
-  // the genoffice#2669 symptom (tax ID → "9" | "1310000MA1FL0000X")
+  // the onedesk#2669 symptom (tax ID → "9" | "1310000MA1FL0000X")
   const whole = norm([...rows.flat(), ...paras].join('\u0001'))
   if (want.split(' ').every((w) => whole.includes(w)))
     return { status: 'split', where: 'fragmented' }
@@ -263,7 +263,7 @@ interface EngineResult {
 }
 
 async function scoreEngine(
-  engine: 'genoffice' | 'soffice',
+  engine: 'onedesk' | 'soffice',
   sample: Sample,
   pdfium: PdfiumModule,
   workDir: string,
@@ -271,7 +271,7 @@ async function scoreEngine(
   let docx: Uint8Array
   const pdfPath = join(workDir, `${sample.name}.pdf`)
   writeFileSync(pdfPath, sample.pdf)
-  if (engine === 'genoffice') {
+  if (engine === 'onedesk') {
     const r = await convertPdfToDocx(sample.pdf, { pdfium })
     docx = r.docx
   } else {
@@ -316,7 +316,7 @@ async function scoreEngine(
 // ── the bench ───────────────────────────────────────────────────────────
 
 describe.skipIf(!RUN)('pdf → editable accuracy bench (invoice/report class)', () => {
-  it('scores genoffice vs soffice across the corpus', async () => {
+  it('scores onedesk vs soffice across the corpus', async () => {
     const pdfium = await loadPdfium()
     const samples: Sample[] = [
       {
@@ -395,13 +395,13 @@ describe.skipIf(!RUN)('pdf → editable accuracy bench (invoice/report class)', 
       '',
       'Field = a ground-truth string that must survive as ONE contiguous cell/paragraph',
       '(what a user can re-edit directly). split = present but fragmented across cells',
-      '(the genoffice#2669 symptom). Columns = cells in the detail/header row vs expected.',
+      '(the onedesk#2669 symptom). Columns = cells in the detail/header row vs expected.',
       '',
       '| sample | engine | intact | split | missing | detail columns (expected) |',
       '|---|---|---|---|---|---|',
     ]
     for (const sample of samples) {
-      for (const engine of ['genoffice', 'soffice'] as const) {
+      for (const engine of ['onedesk', 'soffice'] as const) {
         const r = await scoreEngine(engine, sample, pdfium, workDir)
         scorecard.push(
           `| ${sample.name} | ${engine} | ${r.intact}/${sample.fields.length} | ${r.split} | ${r.missing} | ${r.detailColumns ?? '-'}${sample.expectedColumns !== undefined ? ` (${sample.expectedColumns})` : ''} |`,
@@ -420,6 +420,6 @@ describe.skipIf(!RUN)('pdf → editable accuracy bench (invoice/report class)', 
 
     // the smoke assertion: the pipeline produces tables for the invoice class
     // (the numbers themselves are the narrative, never a gate)
-    expect(md).toContain('genoffice')
+    expect(md).toContain('onedesk')
   })
 })

@@ -87,7 +87,7 @@ const pageText = (page: Page) =>
 
 test('Style: restyles the citations and the bibliography of a document from Word, and the file names the style', async () => {
   test.setTimeout(240_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-citations-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-citations-')))
   const docPath = join(dir, 'paper.docx')
   writeFileSync(docPath, await withSources(await docxWith(WORD_CITED_BODY)))
   let launched = await launchShell({ onboardingSeen: true, videoDir: VIDEO_DIR, openFile: docPath })
@@ -193,7 +193,7 @@ test('Style: restyles the citations and the bibliography of a document from Word
 
 test('Mark Index Entry takes a subentry, a cross-reference, bold pages and Mark All; Mark Citation takes a short citation', async () => {
   test.setTimeout(240_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-mark-entry-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-mark-entry-')))
   const docPath = join(dir, 'brief.docx')
   writeFileSync(
     docPath,
@@ -317,7 +317,7 @@ test('Mark Index Entry takes a subentry, a cross-reference, bold pages and Mark 
 
 test('the Rules menu writes Merge Record #, Merge Sequence #, Skip Record If, Fill-in and Set Bookmark, and Finish & Merge works them out', async () => {
   test.setTimeout(300_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-merge-rules-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-merge-rules-')))
   const docPath = join(dir, 'letter.docx')
   writeFileSync(docPath, await docxWith(para('Dear') + para('Regards')))
   const listPath = join(dir, 'people.csv')

@@ -8,7 +8,7 @@ import {
   generateCaptionXml,
   type Block,
   type SeqNumberFormat,
-} from '@genoffice/docx-engine'
+} from '@onedesk/docx-engine'
 import { captionLabels, collectCaptions } from '../commands/reference-commands'
 import { renumberAfterInsert, unreliableSeqLabelsOf } from '../editor/field-results'
 import {

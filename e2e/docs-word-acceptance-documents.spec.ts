@@ -46,7 +46,7 @@ test('File > New Document starts a blank document whose typed paragraph is saved
 
 test('File > Save As writes a .docx that opens again with its text', async () => {
   test.setTimeout(180_000)
-  const out = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-acceptance-copy-')))
+  const out = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-acceptance-copy-')))
   const copy = join(out, 'copy.docx')
   try {
     const s = await open(VIDEO_DIR, para('kept text'), 'source.docx')

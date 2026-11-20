@@ -110,7 +110,7 @@ async function openCustomizeKeyboard(app: ElectronApplication, page: Page) {
 
 test('a chord assigned in Customize Keyboard runs its command, shows in the menu, and survives a restart', async () => {
   test.setTimeout(300_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-customize-keyboard-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-customize-keyboard-')))
   const docPath = join(dir, 'keys.docx')
   writeFileSync(
     docPath,

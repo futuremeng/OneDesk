@@ -1,7 +1,7 @@
 import JSZip from 'jszip'
-import { parseAddress } from '@genoffice/xlsx-gateway/domain/cell-address'
-import { offsetFormulaRefs } from '@genoffice/xlsx-gateway/domain/formula-shift'
-import { assertZipInflatesWithinLimits, assertZipWithinLimits } from '@genoffice/docx-engine'
+import { parseAddress } from '@onedesk/xlsx-gateway/domain/cell-address'
+import { offsetFormulaRefs } from '@onedesk/xlsx-gateway/domain/formula-shift'
+import { assertZipInflatesWithinLimits, assertZipWithinLimits } from '@onedesk/docx-engine'
 import { resolveTarget } from './opc'
 import { XMLParser } from 'fast-xml-parser'
 import {
@@ -10,7 +10,7 @@ import {
   formatSerial,
   type DateFormatParts,
 } from './xlsx-dates'
-import { decodeXlsxEscapes } from '@genoffice/xlsx-gateway/gateway/xlsx-escapes'
+import { decodeXlsxEscapes } from '@onedesk/xlsx-gateway/gateway/xlsx-escapes'
 
 function stripNamespacePrefix(name: string): string {
   const separator = name.indexOf(':')
@@ -291,7 +291,7 @@ function joinRowCells(cells: readonly string[]): string {
 
 export interface XlsxTextOptions {
   /// Sheet XML past this many extracted characters is not even parsed: the DOM
-  /// of a 100k-row sheet costs ~1 GB of heap for text nobody keeps (genoffice#2011).
+  /// of a 100k-row sheet costs ~1 GB of heap for text nobody keeps (onedesk#2011).
   maxChars?: number
 }
 

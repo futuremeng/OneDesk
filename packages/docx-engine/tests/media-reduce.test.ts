@@ -266,7 +266,7 @@ describe('planMediaReduction', () => {
     })
     const [target] = (await planMediaReduction(bytes, 96)).targets
     expect(target.data).toBeUndefined()
-    expect(target.lazyUrl).toBe(`genoffice-docx-media://${hash}/word/media/a.png`)
+    expect(target.lazyUrl).toBe(`onedesk-docx-media://${hash}/word/media/a.png`)
   })
 })
 

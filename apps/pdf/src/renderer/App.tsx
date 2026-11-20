@@ -192,7 +192,7 @@ import {
   spliceCharColors,
 } from './color-runs'
 import type { CharStyle } from './color-runs'
-import { platformShortcuts } from '@genoffice/i18n'
+import { platformShortcuts } from '@onedesk/i18n'
 import {
   Dropdown,
   aiPanelInitiallyOpen,
@@ -200,7 +200,7 @@ import {
   useDismissablePopover,
   useRibbonCollapse,
   useAiSidebarEnabled,
-} from '@genoffice/ui'
+} from '@onedesk/ui'
 import { useI18n } from './i18n/locale'
 import type { StringKey } from './i18n/locale'
 import { useAutosave } from './useAutosave'
@@ -424,7 +424,7 @@ const MAX_WRITTEN_STEPS = 10
 
 export default function App() {
   const { lang, t } = useI18n()
-  const collapse = useRibbonCollapse('genoffice-pdf-ribbon-collapsed', {
+  const collapse = useRibbonCollapse('onedesk-pdf-ribbon-collapsed', {
     collapse: t('ribbonCollapse'),
     expand: t('ribbonExpand'),
     // ⌥⌘K / Ctrl+Alt+K: the icon-only middle density (docs parity, see #362)
@@ -519,15 +519,13 @@ export default function App() {
     window.addEventListener('pointerup', onUp)
   }
   // Persisted so a closed AI panel stays closed on next launch (docs/slides parity)
-  const [aiCollapsed, setAiCollapsed] = useState(
-    () => !aiPanelInitiallyOpen('genoffice-pdf-show-ai'),
-  )
+  const [aiCollapsed, setAiCollapsed] = useState(() => !aiPanelInitiallyOpen('onedesk-pdf-show-ai'))
   /** the panel setter in the "true = visible" sense the sidebar hook expects */
   const setAiOpen = useCallback((open: boolean) => setAiCollapsed(!open), [])
   // the sidebar switch is a soft hide; it closes the panel when it turns off
   const aiSidebarEnabled = useAiSidebarEnabled(setAiOpen)
   useEffect(() => {
-    rememberAiPanelOpen('genoffice-pdf-show-ai', !aiCollapsed)
+    rememberAiPanelOpen('onedesk-pdf-show-ai', !aiCollapsed)
   }, [aiCollapsed])
   /** One-shot prompt pushed by the ribbon AI buttons; the panel auto-runs it (docs preset pattern) */
   const [aiPreset, setAiPreset] = useState<{ text: string; nonce: number } | null>(null)
@@ -1392,7 +1390,7 @@ export default function App() {
         }
         // A page that cannot be probed no longer destroys the document: the
         // tile renders as an error placeholder and the rest of the book opens
-        // (genoffice#2366 — one broken page deep in a large file used to blank
+        // (onedesk#2366 — one broken page deep in a large file used to blank
         // the whole viewer with the reason only in the console)
         if (probe.failures.length > 0) {
           setFailedPages(new Set(probe.failures.map((f) => f.page)))
@@ -2023,9 +2021,9 @@ export default function App() {
     el.scrollTop = rowTop(rowOfVis(target - 1)) - PAGE_GAP / 2
   }
 
-  // genoffice CLI (`open --page`, `selection`): the shell evaluates this hook
+  // onedesk CLI (`open --page`, `selection`): the shell evaluates this hook
   useEffect(() => {
-    ;(window as unknown as Record<string, unknown>).__genofficeControl = (req: ControlRequest) =>
+    ;(window as unknown as Record<string, unknown>).__onedeskControl = (req: ControlRequest) =>
       handlePdfControl(req, {
         loaded: doc !== null,
         pageCount,

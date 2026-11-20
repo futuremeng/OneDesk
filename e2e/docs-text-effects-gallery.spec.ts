@@ -105,7 +105,7 @@ const GREEN = 'rgb(112, 173, 71)'
 
 test('Home > Text Effects: a look from the gallery is drawn and saved as a text fill; the last entry opens the dialog', async () => {
   test.setTimeout(240_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-fx-gallery-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-fx-gallery-')))
   const docPath = join(dir, 'gallery.docx')
   writeFileSync(
     docPath,
@@ -196,7 +196,7 @@ test('Home > Text Effects: a look from the gallery is drawn and saved as a text 
 
 test('a text fill that came with a file is drawn, shown in the dialog and kept by a save', async () => {
   test.setTimeout(180_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-fx-fill-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-fx-fill-')))
   const docPath = join(dir, 'fill.docx')
   // the fill alone, without the w:color Word writes beside it
   const filled = run('filled', solidFill('C00000'))

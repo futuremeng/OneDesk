@@ -251,7 +251,7 @@ describe('WMF DIB blts (ole-icon.wmf)', () => {
 describe('WMF TA_UPDATECP text (MathType OLE previews)', () => {
   // MathType writes every run as MOVETO + a zero-coord ExtTextOut while
   // TA_UPDATECP is set: GDI draws at the current position instead of the
-  // record's (0, 0). genoffice#2316 — the equation preview rendered as its
+  // record's (0, 0). onedesk#2316 — the equation preview rendered as its
   // fraction line only, every glyph stacked at the origin.
   const rec = (type: number, params: number[]) => {
     const bytes = new Uint8Array(6 + params.length * 2)
@@ -352,7 +352,7 @@ describe('WMF TA_UPDATECP text (MathType OLE previews)', () => {
 
   it('places each glyph by the Dx advances so interleaved runs keep their gaps', async () => {
     // "Ax = b": MathType writes "Axb" as one run whose Dx leaves room for the
-    // "=" drawn by a later Symbol-font run (genoffice#2489 — the preview read "Axb=")
+    // "=" drawn by a later Symbol-font run (onedesk#2489 — the preview read "Axb=")
     reset()
     const result = await convertWmfToDataUrl(loadFixture('mathtype-axb.wmf'), { dpiScale: 1 })
     expect(result).toMatch(/^data:image\/png;base64,/)
@@ -1495,7 +1495,7 @@ describe('GDI TA_TOP text uses the Windows ascent of known faces', () => {
   })
 })
 
-// ---------- genoffice#2601: interleaved dual-mode EMF+ state machine ----------
+// ---------- onedesk#2601: interleaved dual-mode EMF+ state machine ----------
 // A Prism-style chart metafile interleaves GDI records (axis labels drawn through an
 // HDC) with EMF+ records (bars, axes, legends) across dozens of EMR_COMMENT runs.
 // Two state-machine defects turned that shape into "most content disappears":
@@ -1685,7 +1685,7 @@ describe('EMF+ page transform (SetPageTransform)', () => {
 
 describe('Prism-style census interleave (dual mode)', () => {
   it('paints bars, axes, GetDC-window GDI labels and DriverString across many comment runs', async () => {
-    // The record census from genoffice#2601: EmfPlusGetDC windows with EMR_EXTTEXTOUTW
+    // The record census from onedesk#2601: EmfPlusGetDC windows with EMR_EXTTEXTOUTW
     // text between EMF+ FillRects bars, DrawLines axes and DrawDriverString legends.
     reset()
     await convertEmfToDataUrl(
@@ -1723,7 +1723,7 @@ describe('Prism-style census interleave (dual mode)', () => {
   })
 })
 
-// ---------- EMF+ curves, regions and containers (genoffice#2601 follow-up) ----------
+// ---------- EMF+ curves, regions and containers (onedesk#2601 follow-up) ----------
 // Record types the vendored 2.0.2 silently skipped: FillRegion, FillClosedCurve,
 // DrawClosedCurve, DrawCurve, DrawBeziers and the rect form of BeginContainer.
 // Splines become the cubic Bezier segments GDI+ converts them to (tangent at i =

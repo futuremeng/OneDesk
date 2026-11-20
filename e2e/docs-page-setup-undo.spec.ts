@@ -103,7 +103,7 @@ async function layoutPick(page: Page, control: string, item: string | RegExp) {
 
 test('Layout tab page setup undoes and redoes in order with typing', async () => {
   test.setTimeout(240_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-page-setup-undo-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-page-setup-undo-')))
   const docPath = join(dir, 'layout.docx')
   writeFileSync(docPath, await docxWith(['apple', 'banana', 'cherry'].map(para).join('') + SECT_PR))
   const { launched, app, page, paragraph } = await openDoc(docPath)
@@ -193,7 +193,7 @@ test('Layout tab page setup undoes and redoes in order with typing', async () =>
 
 test('one OK in the Document dialog is one undo step', async () => {
   test.setTimeout(240_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-page-setup-undo-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-page-setup-undo-')))
   const docPath = join(dir, 'document.docx')
   writeFileSync(docPath, await docxWith(['apple', 'banana'].map(para).join('') + SECT_PR))
   const { launched, app, page, paragraph } = await openDoc(docPath)
@@ -319,7 +319,7 @@ test('one OK in the Document dialog is one undo step', async () => {
 
 test('page setup of one section and of the whole document undoes where it was made', async () => {
   test.setTimeout(240_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-page-setup-undo-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-page-setup-undo-')))
   const docPath = join(dir, 'sections.docx')
   const first = SECT_PR.replace('</w:sectPr>', '<w:type w:val="nextPage"/></w:sectPr>')
   writeFileSync(

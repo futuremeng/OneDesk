@@ -26,13 +26,13 @@ import {
   type WebSearchResult,
 } from './shared'
 import {
-  genofficeApiKey,
-  genofficeAuthPath,
+  onedeskApiKey,
+  onedeskAuthPath,
   recoverFromRejectedGskKey,
-  reloadGenofficeAuth,
+  reloadOneDeskAuth,
   type GskRecoveryOutcome,
-} from './genoffice-auth'
-// deep import: the package root re-exports Electron-bound modules, and this file also runs in the genoffice CLI
+} from './onedesk-auth'
+// deep import: the package root re-exports Electron-bound modules, and this file also runs in the onedesk CLI
 
 const SEARCH_TIMEOUT_MS = 60_000
 const GENERATE_TIMEOUT_MS = 600_000
@@ -74,7 +74,7 @@ function electronCompatArgs(): string[] {
   if (!process.versions.electron) return []
   if (compatPath === undefined) {
     try {
-      const dir = join(homedir(), '.genoffice', 'bin')
+      const dir = join(homedir(), '.onedesk', 'bin')
       mkdirSync(dir, { recursive: true })
       compatPath = join(dir, 'electron-compat.js')
       writeFileSync(compatPath, 'delete process.versions.electron;\n')
@@ -87,23 +87,23 @@ function electronCompatArgs(): string[] {
 
 /**
  * API key for Genspark LLM proxy / tool_cli auth; '' when not logged in.
- * Priority: explicit GSK_API_KEY env → GenOffice's own login.
+ * Priority: explicit GSK_API_KEY env → OneDesk's own login.
  * Never borrow the shared CLI login: it can belong to another app or account,
- * and must not silently undo GenOffice sign-out.
+ * and must not silently undo OneDesk sign-out.
  */
 export function gskApiKey(): string {
   const env = process.env.GSK_API_KEY
   if (env && !rejectedKeys.has(env)) return env
-  const own = genofficeApiKey()
+  const own = onedeskApiKey()
   return own && !rejectedKeys.has(own) ? own : ''
 }
 
 // ── Rejected keys (401) ─────────────────────────────────────────────
 
 /**
- * Keys the server answered 401 for (expired / revoked). GenOffice's own key
+ * Keys the server answered 401 for (expired / revoked). OneDesk's own key
  * is also deleted from disk; env keys are only skipped for the rest of this
- * process because GenOffice does not own their source.
+ * process because OneDesk does not own their source.
  */
 const rejectedKeys = new Set<string>()
 
@@ -174,7 +174,7 @@ export function resetGskRejectedKeys(): void {
 }
 
 /**
- * Fires when the effective gsk key changes on disk — another GenOffice-family
+ * Fires when the effective gsk key changes on disk — another OneDesk-family
  * app re-logging in mints a new key and revokes the one this process holds.
  * Polls by path (watchFile): auth.json is replaced whole, and fs.watch misses
  * events for a moment after it is armed.
@@ -182,13 +182,13 @@ export function resetGskRejectedKeys(): void {
 export function watchGskApiKey(onChange: (key: string) => void, intervalMs = 2000): () => void {
   let last = gskApiKey()
   const check = (): void => {
-    reloadGenofficeAuth()
+    reloadOneDeskAuth()
     const key = gskApiKey()
     if (key === last) return
     last = key
     onChange(key)
   }
-  const files = [genofficeAuthPath()]
+  const files = [onedeskAuthPath()]
   for (const f of files) watchFile(f, { persistent: false, interval: intervalMs }, check)
   return () => {
     for (const f of files) unwatchFile(f, check)
@@ -378,7 +378,7 @@ function runGskOnce(
   signal?: AbortSignal,
 ): Promise<unknown> {
   // With no injected key the CLI would independently load its shared login.
-  if (!key) return Promise.reject(new GskAuthError('Sign in to GenOffice to use Genspark'))
+  if (!key) return Promise.reject(new GskAuthError('Sign in to OneDesk to use Genspark'))
   // inject the resolved key so the CLI bills the same identity as our direct HTTP calls
   return new Promise((resolve, reject) => {
     execFile(

@@ -101,7 +101,7 @@ const checked = async (page: Page) => {
 
 test('Text Direction turns the section in body text, the cell in a table and a selected text box', async () => {
   test.setTimeout(300_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-text-direction-body-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-text-direction-body-')))
   const docPath = join(dir, 'body.docx')
   writeFileSync(docPath, await docxWith(para(LONG.repeat(3)) + TABLE + para('banana') + SECT_PR))
   const launched = await launchShell({

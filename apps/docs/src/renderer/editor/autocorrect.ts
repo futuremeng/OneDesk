@@ -25,7 +25,7 @@ import {
 import { keymap } from '@tiptap/pm/keymap'
 import { closeHistory } from '@tiptap/pm/history'
 import { Decoration, DecorationSet, type EditorView } from '@tiptap/pm/view'
-import type { StyleInfo } from '@genoffice/docx-engine'
+import type { StyleInfo } from '@onedesk/docx-engine'
 import { t } from '../i18n/locale'
 import { headingStyleId } from '../style-gallery'
 import type { AutoTextEntry } from './auto-text'

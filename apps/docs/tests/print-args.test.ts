@@ -50,7 +50,7 @@ describe('print arg validators', () => {
 
   // Chromium prints on Letter unless the job states the document's own paper,
   // and a sheet taller than the paper is split in two — the printed page loses
-  // its bottom and the page order goes with it (genoffice#2563)
+  // its bottom and the page order goes with it (onedesk#2563)
   it('states the document paper to Electron in microns', () => {
     // A4: 11906 x 16838 twips = 210mm x 297mm
     expect(printPaperOption({ widthTwips: 11_906, heightTwips: 16_838 })).toEqual({

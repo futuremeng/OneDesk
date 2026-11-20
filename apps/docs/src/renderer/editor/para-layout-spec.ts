@@ -54,7 +54,7 @@ import type {
   ParaFrameBox,
   Run,
   TextFlowDirection,
-} from '@genoffice/docx-engine'
+} from '@onedesk/docx-engine'
 import { inferredBidi } from './direction'
 import { t } from '../i18n/locale'
 import { textAlignDecl } from './text-effects'

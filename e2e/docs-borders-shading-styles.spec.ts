@@ -63,7 +63,7 @@ async function openDialog(app: ElectronApplication, page: Page, text: string) {
 
 test('a styled, coloured, wider box and a patterned shading show, save and come back', async () => {
   test.setTimeout(240_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-borders-shading-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-borders-shading-')))
   const docPath = join(dir, 'letter.docx')
   writeFileSync(docPath, await docxWith(['apple', 'banana', 'cherry'].map(para).join('') + SECT_PR))
   const original = await documentXml(docPath)
@@ -168,7 +168,7 @@ test('a styled, coloured, wider box and a patterned shading show, save and come 
 
 test('Shadow, 3-D and a hatch pattern show on the page, save and come back', async () => {
   test.setTimeout(240_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-borders-fx-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-borders-fx-')))
   const docPath = join(dir, 'letter.docx')
   writeFileSync(docPath, await docxWith(['apple', 'banana', 'cherry'].map(para).join('') + SECT_PR))
   let launched = await launchShell({
@@ -306,7 +306,7 @@ test('Shadow, 3-D and a hatch pattern show on the page, save and come back', asy
 
 test("a new colour keeps a file border's style and width, and Apply to Text boxes and fills the selection", async () => {
   test.setTimeout(240_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-borders-shading-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-borders-shading-')))
   const docPath = join(dir, 'letter.docx')
   const dashed = (color: string) =>
     ['top', 'left', 'bottom', 'right']

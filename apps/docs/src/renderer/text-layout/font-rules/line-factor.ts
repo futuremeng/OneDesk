@@ -3,7 +3,7 @@
  * arbitrated against the probed table (line-factors.json), embedded boxes, the
  * East Asian and Korean routes (INVENTORY-fonts L1-L22).
  */
-import type { ResolvedFace } from '@genoffice/font-metrics/resolve'
+import type { ResolvedFace } from '@onedesk/font-metrics/resolve'
 import {
   CJK_LETTERED_RE as CJK_NAMED_RE,
   isEastAsianFaceName as isCjkFontName,

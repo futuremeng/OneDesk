@@ -1,4 +1,4 @@
-import { DEFAULT_MATH_BREAKS, type MathPr } from '@genoffice/docx-engine'
+import { DEFAULT_MATH_BREAKS, type MathPr } from '@onedesk/docx-engine'
 
 /**
  * Chromium never breaks a formula, so a display equation wider than its column

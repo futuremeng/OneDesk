@@ -1,6 +1,6 @@
 import JSZip from 'jszip'
 import { XMLParser } from 'fast-xml-parser'
-import { assertZipInflatesWithinLimits, assertZipWithinLimits } from '@genoffice/docx-engine'
+import { assertZipInflatesWithinLimits, assertZipWithinLimits } from '@onedesk/docx-engine'
 import { resolveTarget } from './opc'
 
 export interface DocxTextOptions {

@@ -19,7 +19,7 @@ import type { CliRunner } from '../cli-runner'
  * Docx MCP tool surface.
  *
  * Headless generation/reading (create_docx, read_docx) delegates to the
- * bundled `genoffice` CLI — the same engines the app ships — instead of
+ * bundled `onedesk` CLI — the same engines the app ships — instead of
  * reimplementing conversion here (see ../headless-cli.ts, ../cli-runner.ts).
  * The visible document session is the part the CLI cannot do: driving the
  * editor tab the user has open. Dependencies are injected so this module stays
@@ -33,13 +33,13 @@ export interface DocToolDeps {
   /** expose the headless create_docx tool (generation without opening the UI);
    *  default true — the shell passes the user's "background generation" setting */
   background?: boolean
-  /** open a file in the GenOffice UI; wired in M4 (optional in tests) */
+  /** open a file in the OneDesk UI; wired in M4 (optional in tests) */
   openInTab?: (filePath: string) => Promise<void> | void
   /** visible-editor control for the MCP-driven document session (optional in tests) */
   docs?: DocsControl
   /** extra formats other tool families can generate (reported by get_app_info) */
   extraFormats?: string[]
-  /** the bundled genoffice CLI, used by the headless tools */
+  /** the bundled onedesk CLI, used by the headless tools */
   cli?: CliRunner
   /**
    * Resolve a caller-supplied document reference (tab id or path) to the
@@ -156,7 +156,7 @@ function createHeadlessDocxTool(deps: DocToolDeps): McpToolDefinition {
       'Create a Word .docx file from content and save it to disk without opening the app UI. ' +
       'Content is Markdown (headings, lists, bold/italic, links, code blocks, tables) or a ' +
       'restricted-HTML fragment (format:"html"), converted by the same docx engine the app and ' +
-      'the genoffice CLI use. Returns the absolute path of the written file.',
+      'the onedesk CLI use. Returns the absolute path of the written file.',
     inputSchema: {
       title: z.string().describe('document title, used as the file name'),
       content: z.string().describe('Markdown source (default) or a restricted-HTML fragment'),
@@ -269,7 +269,7 @@ function createConvertDocumentTool(deps: DocToolDeps): McpToolDefinition {
   return {
     name: 'convert_document',
     description:
-      'Convert a document to another format with the GenOffice engines and write the result to ' +
+      'Convert a document to another format with the OneDesk engines and write the result to ' +
       'disk without opening the app: pdf → docx/pptx/xlsx/md, legacy .doc/.ppt → modern Open ' +
       'XML, odt/ods/ots → xlsx/docx, hwp/hwpx → docx, md → docx/html, docx → md, xlsx → csv. ' +
       'An unsupported pair is refused with the list of targets the source format supports. ' +
@@ -409,8 +409,8 @@ export function createDocumentTools(deps: DocToolDeps, host: SessionHost): McpTo
       },
     },
     {
-      name: 'open_in_genoffice',
-      description: 'Open an existing file in the running GenOffice app, focusing its tab.',
+      name: 'open_in_onedesk',
+      description: 'Open an existing file in the running OneDesk app, focusing its tab.',
       inputSchema: {
         path: z.string().describe('absolute path to the file to open'),
       },
@@ -426,11 +426,11 @@ export function createDocumentTools(deps: DocToolDeps, host: SessionHost): McpTo
     {
       name: 'get_app_info',
       description:
-        'Report GenOffice version, the default save folder, the document formats this server can ' +
+        'Report OneDesk version, the default save folder, the document formats this server can ' +
         "generate, and the editor's full open/save/export format matrix per family.",
       inputSchema: {},
       handler: () => ({
-        name: 'GenOffice',
+        name: 'OneDesk',
         version: deps.version,
         defaultSaveDir: deps.defaultSaveDir(),
         // Every format listed here is written by a headless create/read tool, and

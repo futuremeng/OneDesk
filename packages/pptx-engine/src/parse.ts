@@ -318,7 +318,7 @@ const MATH_AC_RE =
 /**
  * An a14:m equation a producer wrote bare, without the mc:AlternateContent
  * wrapper PowerPoint uses — WPS/Aspose exports do this, including inside table
- * cells (genoffice#2644). Matched after MATH_AC_RE, so the inner block of a
+ * cells (onedesk#2644). Matched after MATH_AC_RE, so the inner block of a
  * wrapped equation is never touched.
  */
 const BARE_MATH_RE = /<a14:m\b[^>]*(?:\/>|>[\s\S]*?<\/a14:m>)/g

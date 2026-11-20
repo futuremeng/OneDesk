@@ -5,7 +5,7 @@ import {
   type SectionSettings,
   type ThemeColors,
   type ThemeFonts,
-} from '@genoffice/docx-engine'
+} from '@onedesk/docx-engine'
 import { useI18n, type StringKey } from '../i18n/locale'
 import type { ActionCommandId } from '../../shared/commands'
 import { NONE, type ThemePayload } from '../commands/menu-commands'

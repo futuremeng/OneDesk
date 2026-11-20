@@ -53,7 +53,7 @@ const select = (page: Page, from: number, to: number) =>
 
 test('Text Effects: a preset and a reflection are set from the dialog, drawn, saved and read back', async () => {
   test.setTimeout(180_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-gaps-fx-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-gaps-fx-')))
   const docPath = join(dir, 'effects.docx')
   writeFileSync(docPath, await docxWith(para('Plain fancy words') + para('Last')))
   /** the mirrored piece of the first paragraph, as the page draws it */
@@ -188,7 +188,7 @@ test('Text Effects: a preset and a reflection are set from the dialog, drawn, sa
 
 test('Shape Format > Text Direction turns the text of an existing text box, and the file says so', async () => {
   test.setTimeout(240_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-gaps-box-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-gaps-box-')))
   const docPath = join(dir, 'box.docx')
   writeFileSync(docPath, await docxWith(para('First') + para('Last')))
   /** how the box draws its text: the classes that say its direction, and what CSS makes of them */
@@ -323,7 +323,7 @@ test('Shape Format > Text Direction turns the text of an existing text box, and 
 test('Font Substitution: the stand-in for a missing font is picked, and Convert Permanently rewrites the document', async () => {
   test.setTimeout(240_000)
   const MISSING = 'Zzyzx Gone Sans'
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-gaps-font-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-gaps-font-')))
   const docPath = join(dir, 'fonts.docx')
   const fonts = `<w:rPr><w:rFonts w:ascii="${MISSING}" w:hAnsi="${MISSING}"/></w:rPr>`
   const source = await JSZip.loadAsync(
@@ -417,7 +417,7 @@ test('Font Substitution: the stand-in for a missing font is picked, and Convert 
     await page.screenshot({ path: test.info().outputPath('font-substitution-picked.png') })
     // the pick is kept for this computer
     expect(
-      await page.evaluate(() => localStorage.getItem('genoffice.docs.fontSubstitutes')),
+      await page.evaluate(() => localStorage.getItem('onedesk.docs.fontSubstitutes')),
     ).toContain(`"substitute":"${standIn}"`)
     // nothing is written to the document by a pick alone
     await dialog.locator('button.primary').click()

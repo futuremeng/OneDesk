@@ -11,7 +11,7 @@ import {
   setRubyReadingStyleXml,
   setRubyReadingXml,
   type RubyAlign,
-} from '@genoffice/docx-engine'
+} from '@onedesk/docx-engine'
 
 /** what a phonetic guide would be put on: a run of selected text, or a guide already there */
 export interface RubyTarget {

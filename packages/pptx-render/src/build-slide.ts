@@ -13,12 +13,12 @@ import type {
   ChartElement,
   PassthroughElement,
   ArrowEnd,
-} from '@genoffice/pptx-engine'
+} from '@onedesk/pptx-engine'
 // Subpath import: the renderer bundles this package, so pulling the engine's index
 // (Node-only imports like node:crypto) would break the browser build
-import { tableRowGridCols } from '@genoffice/pptx-engine/table-grid'
-import { elementDurableId, groupChildDurableId } from '@genoffice/pptx-engine/identity'
-import { isBackgroundLikeElement } from '@genoffice/pptx-engine/background-promote'
+import { tableRowGridCols } from '@onedesk/pptx-engine/table-grid'
+import { elementDurableId, groupChildDurableId } from '@onedesk/pptx-engine/identity'
+import { isBackgroundLikeElement } from '@onedesk/pptx-engine/background-promote'
 import { buildChartNode } from './build-chart'
 import type {
   RenderSlide,
@@ -610,7 +610,7 @@ function buildPicture(
   const isMetafile =
     typeof dataUrl === 'string' &&
     (/^data:image\/(x-)?(emf|emz)[;,]/.test(dataUrl) ||
-      /^genoffice-slide-media:.*[?&]mime=image%2F(?:x-)?emf(?:&|$)/i.test(dataUrl))
+      /^onedesk-slide-media:.*[?&]mime=image%2F(?:x-)?emf(?:&|$)/i.test(dataUrl))
   const node: PictureRenderNode = {
     id: `r_${el.id}`,
     type: 'picture',

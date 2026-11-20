@@ -12,7 +12,7 @@ import React, {
   type ReactNode,
 } from 'react'
 import type { AnimEffectKind, GradientFillSpec, TransitionKind } from '../../shared/ipc'
-import type { ChartStyleInfo } from '@genoffice/pptx-render'
+import type { ChartStyleInfo } from '@onedesk/pptx-render'
 import {
   useDismissablePopover,
   useRibbonCollapse,
@@ -20,7 +20,7 @@ import {
   THEME_COLORS,
   THEME_COLOR_SHADES,
   STANDARD_COLORS,
-} from '@genoffice/ui'
+} from '@onedesk/ui'
 import {
   createRecentColorSession,
   getRecentColors,
@@ -136,7 +136,7 @@ import {
   presetSize,
   saveDefaultNewSlideSize,
 } from '../slide-size'
-import { NO_ROTATION } from '@genoffice/pptx-engine/model3d'
+import { NO_ROTATION } from '@onedesk/pptx-engine/model3d'
 
 const IS_MAC = navigator.platform.toLowerCase().includes('mac')
 /** shell tab mode: the tab strip above owns traffic lights / caption buttons */

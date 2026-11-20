@@ -36,7 +36,7 @@ const visibleWindows = (app: ElectronApplication) =>
 
 test('a header or footer command in Draft and Web Layout opens the strip in Print Layout', async () => {
   test.setTimeout(240_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-draft-hf-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-draft-hf-')))
   const docPath = join(dir, 'report.docx')
   writeFileSync(docPath, await draftDocx())
   const launched = await launchShell({
@@ -100,7 +100,7 @@ test('a header or footer command in Draft and Web Layout opens the strip in Prin
 
 test('Merge All Windows brings the arranged windows back as tabs with their unsaved edits', async () => {
   test.setTimeout(240_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-gather-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-gather-')))
   const docPath = join(dir, 'report.docx')
   writeFileSync(docPath, await draftDocx())
   const launched = await launchShell({

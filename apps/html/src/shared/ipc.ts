@@ -1,12 +1,12 @@
-import type { AiPanelPrefs } from '@genoffice/ui'
-import type { HeadlessExportTarget } from '@genoffice/electron-utils/headless-export'
-import type { Lang } from '@genoffice/i18n'
+import type { AiPanelPrefs } from '@onedesk/ui'
+import type { HeadlessExportTarget } from '@onedesk/electron-utils/headless-export'
+import type { Lang } from '@onedesk/i18n'
 import type {
   AiSettings,
   AiStreamChunk,
   AiStreamRequest,
   GenSparkAccountStatus,
-} from '@genoffice/ai-provider'
+} from '@onedesk/ai-provider'
 
 export const HTML_CHANNELS = {
   consumePending: 'html:consume-pending',
@@ -312,7 +312,7 @@ export interface HtmlApi {
   openAiModelSettings(): Promise<void>
   /** shell only: switch to Home and open Settings › Integrations (the skills list) */
   openSkillsSettings(): Promise<void>
-  /** the skills the user installed into GenOffice (userData/skills) */
+  /** the skills the user installed into OneDesk (userData/skills) */
   skillsList(): Promise<UserSkillEntry[]>
   /** the body of one installed skill, by name — the main process resolves the path */
   skillText(name: string): Promise<string>

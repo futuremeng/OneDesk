@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import type { NoteProps } from '@genoffice/docx-engine'
+import type { NoteProps } from '@onedesk/docx-engine'
 import { fontSymbolDisplay } from '../editor/font-symbol'
 import { useI18n } from '../i18n/locale'
 import type { NoteKind } from '../note-format'

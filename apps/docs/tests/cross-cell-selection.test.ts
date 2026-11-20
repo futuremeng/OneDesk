@@ -1,13 +1,13 @@
 /**
  * Word-style continuous text selection across table cells
- * (genspark-ai/genoffice#2329): the boundary classification, the per-cell
+ * (genspark-ai/onedesk#2329): the boundary classification, the per-cell
  * deletion spans, and the delete/type paths that clear the covered text while
  * every cell the selection crossed survives.
  */
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { Editor } from '@tiptap/core'
 import { TextSelection } from '@tiptap/pm/state'
-import { parseDocx } from '@genoffice/docx-engine'
+import { parseDocx } from '@onedesk/docx-engine'
 import { buildDocx } from '../../../packages/docx-engine/tests/helpers/build-docx'
 import { blocksToPmDoc } from '../src/renderer/editor/convert'
 import { editorExtensions } from '../src/renderer/editor/extensions'

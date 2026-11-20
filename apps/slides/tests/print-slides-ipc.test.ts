@@ -2,7 +2,7 @@
  * The print handler must read its silent-job options from `PrintSlidesOp.job`:
  * the dialog nests the printer choice there, so `printJobOptions(op)` saw no
  * `deviceName`, reported "system dialog" for every job and the picker, copies,
- * duplex and driver options never took effect (genoffice#2378 review).
+ * duplex and driver options never took effect (onedesk#2378 review).
  */
 import { tmpdir } from 'node:os'
 import { beforeAll, beforeEach, describe, expect, it, vi } from 'vitest'
@@ -90,7 +90,7 @@ vi.mock('../src/main/shaped-metrics', () => ({
 vi.mock('../src/main/print-window', () => ({ printSlidesHtml: mocks.printSlidesHtml }))
 // macOS silent jobs spool through lp; the handler-level test only asserts the
 // route and the resolved job options, never touches CUPS.
-vi.mock('@genoffice/electron-utils/print-cups', () => ({
+vi.mock('@onedesk/electron-utils/print-cups', () => ({
   printPdfViaCups: mocks.printPdfViaCups,
   printToPdfOptionsFor: (request: Record<string, unknown>) => request,
 }))

@@ -1,5 +1,5 @@
 import type { Editor } from '@tiptap/core'
-import { TEXTBOX_VERTS, type TextboxDisplay, type TextboxVert } from '@genoffice/docx-engine'
+import { TEXTBOX_VERTS, type TextboxDisplay, type TextboxVert } from '@onedesk/docx-engine'
 import { selectedBoxIndex } from './selected-box'
 
 /** the directions Shape Format > Text Direction offers, in Word's order; null is horizontal */

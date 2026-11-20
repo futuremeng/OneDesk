@@ -1,5 +1,5 @@
 import type { Editor } from '@tiptap/core'
-import type { SectionSettings } from '@genoffice/docx-engine'
+import type { SectionSettings } from '@onedesk/docx-engine'
 import { getActiveSubEditor } from '../editor/active-editor'
 import { enterSelectedTable } from '../editor/table-ops'
 import { HORIZONTAL, selectedBoxDirection } from '../editor/textbox-direction'

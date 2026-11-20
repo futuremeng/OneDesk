@@ -321,7 +321,7 @@ export function getFontIndex(): FontIndex {
  * the canonical (en-US) one first. A document that declares a CJK font by its
  * localized name (\u65b9\u6b63\u4eff\u5b8b_GBK) gets the English spelling the browser
  * resolves (FZFangSong-Z02), and the other way round; a face with a single
- * spelling yields nothing (genoffice#2449).
+ * spelling yields nothing (onedesk#2449).
  *
  * Only the spellings of the same family slot count as aliases: a face writes
  * its family under two name ids, and the legacy one (1) carries the weight
@@ -352,7 +352,7 @@ export function familyAliases(name: string, index: FontIndex = getFontIndex()): 
     // spelling under a Macintosh record (platform 1, name id 1) next to its
     // Windows weight-attached records (platform 3, name id 1, "… W0"…) —
     // matching on the name id alone would let the family-wide slot pull every
-    // weight face's Windows name back in (genoffice#2469 round 4).
+    // weight face's Windows name back in (onedesk#2469 round 4).
     const matchedSlots = new Set<string>()
     for (const record of records) {
       if (norm(record.name) === key) matchedSlots.add(`${record.platform}:${record.nameId}`)

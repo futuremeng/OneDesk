@@ -155,7 +155,7 @@ const TERMS = ['Apple', 'Banana', 'Cherry', 'Damson', 'Elder', 'Fig', 'Grape', '
 
 test('an index with columns sits in a continuous section of its own with that many columns', async () => {
   test.setTimeout(300_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-index-columns-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-index-columns-')))
   const docPath = join(dir, 'index.docx')
   writeFileSync(
     docPath,
@@ -296,7 +296,7 @@ test('an index with columns sits in a continuous section of its own with that ma
 
 test('an index that shares its section is rebuilt in place when it gets columns', async () => {
   test.setTimeout(300_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-index-columns-rewrap-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-index-columns-rewrap-')))
   const docPath = join(dir, 'one-index.docx')
   writeFileSync(
     docPath,
@@ -348,7 +348,7 @@ test('an index that shares its section is rebuilt in place when it gets columns'
 
 test('a second index gets the section, not the index already in the document', async () => {
   test.setTimeout(300_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-index-columns-second-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-index-columns-second-')))
   const docPath = join(dir, 'two-indexes.docx')
   writeFileSync(
     docPath,
@@ -416,7 +416,7 @@ test('a second index gets the section, not the index already in the document', a
 
 test('a new document that was never saved gets the index section too', async () => {
   test.setTimeout(300_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-index-columns-new-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-index-columns-new-')))
   const out = join(dir, 'new-index.docx')
   const seed = join(dir, 'seed.docx')
   writeFileSync(seed, await docx(para('Seed document')))
@@ -479,7 +479,7 @@ test('a new document that was never saved gets the index section too', async () 
 
 test('a cross-reference to a footnote is a NOTEREF field on a bookmark around the note mark', async () => {
   test.setTimeout(300_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-noteref-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-noteref-')))
   const docPath = join(dir, 'notes.docx')
   writeFileSync(
     docPath,

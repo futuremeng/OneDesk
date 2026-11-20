@@ -109,7 +109,7 @@ const ready = (page: Page) =>
 
 test('a picture is cropped to its content, described, sized and turned from its right-click menu', async () => {
   test.setTimeout(180_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-picture-items-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-picture-items-')))
   const docPath = join(dir, 'picture.docx')
   writeFileSync(docPath, await fixture())
   let launched = await launchShell({
@@ -220,7 +220,7 @@ test('a picture is cropped to its content, described, sized and turned from its 
 
 test("the table's Borders and Shading, Toggle Drawing and Set as Default run", async () => {
   test.setTimeout(180_000)
-  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'genoffice-e2e-picture-items-')))
+  const dir = realpathSync(mkdtempSync(join(tmpdir(), 'onedesk-e2e-picture-items-')))
   const docPath = join(dir, 'table.docx')
   writeFileSync(docPath, await fixture())
   // one profile for both launches: the default look is kept per user

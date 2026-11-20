@@ -4,14 +4,14 @@ import type {
   LegacySkillCopy,
   SkillInstallState,
   SkillInstallStatus,
-} from '@genoffice/cli/agent-skills'
-import type { InstallOutcome } from '@genoffice/cli/install'
+} from '@onedesk/cli/agent-skills'
+import type { InstallOutcome } from '@onedesk/cli/install'
 import type { FoundSkill, RecommendedSkill } from './found-skill'
 
 export type { AgentId, AgentTarget, LegacySkillCopy, SkillInstallState, SkillInstallStatus }
 
 export interface CliStatus extends InstallOutcome {
-  /** directory holding the genoffice launcher (what `~/.genoffice/launcher` points at) */
+  /** directory holding the onedesk launcher (what `~/.onedesk/launcher` points at) */
   launcherDir: string
   /** app runs from a dmg / AppImage mount: the launcher path will not survive a restart */
   ephemeral: boolean
@@ -21,7 +21,7 @@ export interface CliStatus extends InstallOutcome {
 
 export interface IntegrationsStatus {
   cli: CliStatus
-  /** version of the bundled skill (skills/genoffice/SKILL.md front matter) */
+  /** version of the bundled skill (skills/onedesk/SKILL.md front matter) */
   skillVersion: string
   /** lowest CLI version that skill describes */
   skillNeedsCli: string
@@ -51,11 +51,11 @@ export interface IntegrationsApi {
   sweepLegacySkillCopies(): Promise<LegacySweepResult>
   /** folder picker for "install elsewhere"; null when cancelled */
   pickSkillDir(title: string): Promise<string | null>
-  /** save dialog + write of genoffice-skill-<version>.zip; the saved path, null when cancelled */
+  /** save dialog + write of onedesk-skill-<version>.zip; the saved path, null when cancelled */
   saveSkillZip(title: string): Promise<string | null>
   /** put text on the clipboard (paths, the manual PATH command) */
   copyText(text: string): Promise<void>
-  /** the skills in GenOffice's own folder; nothing else is scanned */
+  /** the skills in OneDesk's own folder; nothing else is scanned */
   listSkills(): Promise<FoundSkill[]>
   /** the body of one listed SKILL.md, frontmatter stripped */
   skillBody(path: string): Promise<string>
@@ -63,7 +63,7 @@ export interface IntegrationsApi {
   importSkillFolder(title: string): Promise<FoundSkill | null>
   /** open-dialog for a skill zip or a single SKILL.md, then bring it in; null when cancelled */
   importSkillZip(title: string): Promise<FoundSkill | null>
-  /** the skills GenOffice ships as suggestions, with each one's install state */
+  /** the skills OneDesk ships as suggestions, with each one's install state */
   listRecommendedSkills(): Promise<RecommendedSkill[]>
   /** copy (or, when outdated, replace) one recommended skill into our folder */
   installRecommendedSkill(name: string): Promise<FoundSkill>

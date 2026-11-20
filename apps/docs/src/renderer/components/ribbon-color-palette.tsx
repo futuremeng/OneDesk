@@ -1,4 +1,4 @@
-import { ColorPicker } from '@genoffice/ui'
+import { ColorPicker } from '@onedesk/ui'
 import { useI18n, type StringKey } from '../i18n/locale'
 
 export const THEME_COLORS: Array<{ nameKey: StringKey; hex: string }> = [
