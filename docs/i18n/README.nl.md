@@ -1,22 +1,22 @@
 <p align="center">
-  <a href="https://genoffice.ai/">
+  <a href="https://onedesk.jiulu.ltd/">
     <picture>
       <source srcset="../assets/readme/hero-dark.webp" media="(prefers-color-scheme: dark)">
-      <img src="../assets/readme/hero.webp" alt="GenOffice — het open-source AI-kantoorpakket: Docs, Sheets, Slides, PDF, Markdown en HTML met een ingebouwd AI-paneel" width="100%">
+      <img src="../assets/readme/hero.webp" alt="OneDesk — het open-source AI-kantoorpakket: Docs, Sheets, Slides, PDF, Markdown en HTML met een ingebouwd AI-paneel" width="100%">
     </picture>
   </a>
 </p>
 
-<h1 align="center">GenOffice</h1>
+<h1 align="center">OneDesk</h1>
 
 <p align="center"><b>De eerste volwaardige open-source AI-officesuite ter wereld.</b><br>
 Word-, Excel-, PowerPoint- en PDF-bestanden, bewerkt door jou en je AI, opgeslagen in de echte formaten.</p>
 
 <p align="center">
   <a href="../../LICENSE"><img src="https://img.shields.io/github/license/genspark-ai/genoffice" alt="Licentie: Apache-2.0"></a>
-  <a href="https://github.com/genspark-ai/genoffice/releases/latest"><img src="https://img.shields.io/github/v/release/genspark-ai/genoffice" alt="Nieuwste release"></a>
-  <a href="https://github.com/genspark-ai/genoffice/releases"><img src="https://img.shields.io/github/downloads/genspark-ai/genoffice/total" alt="Downloads"></a>
-  <a href="https://github.com/genspark-ai/genoffice/stargazers"><img src="https://img.shields.io/github/stars/genspark-ai/genoffice?style=flat" alt="GitHub-sterren"></a>
+  <a href="https://onedesk.jiulu.ltd/releases/latest"><img src="https://img.shields.io/github/v/release/genspark-ai/genoffice" alt="Nieuwste release"></a>
+  <a href="https://onedesk.jiulu.ltd/releases"><img src="https://img.shields.io/github/downloads/genspark-ai/genoffice/total" alt="Downloads"></a>
+  <a href="https://onedesk.jiulu.ltd/stargazers"><img src="https://img.shields.io/github/stars/genspark-ai/genoffice?style=flat" alt="GitHub-sterren"></a>
   <a href="https://x.com/merrickbuilds"><img src="https://img.shields.io/badge/follow-%40merrickbuilds-000000?logo=x&logoColor=white" alt="Volg @merrickbuilds op X"></a>
 </p>
 
@@ -27,13 +27,13 @@ Word-, Excel-, PowerPoint- en PDF-bestanden, bewerkt door jou en je AI, opgeslag
   <a href="#skills"><b>Skills</b></a> ·
   <a href="#command-line-and-agent-skill"><b>CLI</b></a> ·
   <a href="#mcp-server"><b>MCP</b></a> ·
-  <a href="https://genoffice.ai/"><b>Website</b></a> ·
-  <a href="https://genoffice.ai/join"><b>Community</b></a> ·
+  <a href="https://onedesk.jiulu.ltd/"><b>Website</b></a> ·
+  <a href="https://onedesk.jiulu.ltd/join"><b>Community</b></a> ·
   <a href="https://x.com/merrickbuilds"><b>X</b></a> ·
   <a href="../../PRIVACY.md"><b>Privacy</b></a>
 </p>
 
-GenOffice is een gratis, open-source alternatief voor Microsoft Office voor
+OneDesk is een gratis, open-source alternatief voor Microsoft Office voor
 macOS, Windows en Linux. Het opent en bewaart native `.docx`-, `.xlsx`- en
 `.pptx`-bestanden, bewerkt PDF, Markdown en HTML, en zet bij elk document een
 AI-agent — geen los chatvenstertje erbij geplakt, maar een editor die het
@@ -76,14 +76,14 @@ bronformaat.
   Opper, Cheaper Inference, Atlas Cloud, of elk OpenAI-compatibel endpoint,
   inclusief lokale servers.
 - **Scriptbaar en klaar voor agents.** De app levert een
-  `genoffice`-opdrachtregel en een skill voor Claude Code, Codex, Cursor,
+  `onedesk`-opdrachtregel en een skill voor Claude Code, Codex, Cursor,
   Gemini CLI, GitHub Copilot, OpenCode en Windsurf mee, zodat een coding
   agent echte Office-bestanden op je eigen machine kan maken, converteren,
   lezen en bewerken zonder een venster te openen.
 
-**Haal het hier:** [macOS](https://github.com/genspark-ai/genoffice/releases/latest) (Apple Silicon en Intel) ·
-[Windows](https://github.com/genspark-ai/genoffice/releases/latest) (x64 en Arm) ·
-[Linux](https://github.com/genspark-ai/genoffice/releases/latest) (deb, rpm, AppImage) —
+**Haal het hier:** [macOS](https://onedesk.jiulu.ltd/releases/latest) (Apple Silicon en Intel) ·
+[Windows](https://onedesk.jiulu.ltd/releases/latest) (x64 en Arm) ·
+[Linux](https://onedesk.jiulu.ltd/releases/latest) (deb, rpm, AppImage) —
 details en vereisten in [Download](#download).
 
 ## Demo
@@ -98,8 +98,8 @@ prompt die je in het paneel kunt lezen.
 
 <table>
 <tr>
-<td width="50%"><img src="../assets/readme/docs-report.webp" alt="GenOffice Docs toont een pagina van een jaarverslag in twee kolommen met een cover-afbeelding over de volledige breedte, een KPI-tabel met arcering, koptekst en voettekst, op 80% zoom met het AI-paneel ingeklapt"></td>
-<td width="50%"><img src="../assets/readme/docs-ai.webp" alt="GenOffice Docs: een bedrijfsoverzicht met een bannerafbeelding; de AI heeft de Overview compacter gemaakt en een nieuwe sectie met opsommingstekens toegevoegd, en het paneel biedt een terugdraaifunctie met één klik"></td>
+<td width="50%"><img src="../assets/readme/docs-report.webp" alt="OneDesk Docs toont een pagina van een jaarverslag in twee kolommen met een cover-afbeelding over de volledige breedte, een KPI-tabel met arcering, koptekst en voettekst, op 80% zoom met het AI-paneel ingeklapt"></td>
+<td width="50%"><img src="../assets/readme/docs-ai.webp" alt="OneDesk Docs: een bedrijfsoverzicht met een bannerafbeelding; de AI heeft de Overview compacter gemaakt en een nieuwe sectie met opsommingstekens toegevoegd, en het paneel biedt een terugdraaifunctie met één klik"></td>
 </tr>
 <tr>
 <td><b>Opent het bestand precies zoals Word het opmaakt</b> — secties in twee kolommen, beeldvullende afbeeldingen, tabellen met arcering, koppen en voetteksten, paginering op basis van Words regelmetriek. Stijlen, opmerkingen, tracked changes, vergelijkingen, inkt en content controls komen ongewijzigd terug. Het tabblad <b>Mailings</b> maakt van het document een samenvoegsjabloon: kies een ontvangerslijst als <code>.xlsx</code> of <code>.csv</code>, voeg echte <code>MERGEFIELD</code>s in, bekijk per record een voorbeeld en voeg samen tot één document of één <code>.docx</code> per record.</td>
@@ -111,8 +111,8 @@ prompt die je in het paneel kunt lezen.
 
 <table>
 <tr>
-<td width="50%"><img src="../assets/readme/sheets-ai.webp" alt="GenOffice Sheets: de AI heeft een Summary-blad toegevoegd met omzet per regio en categorie via SUMIF-formules, plus een kolomdiagram, en meldt 43 toegepaste wijzigingen met een knop om ongedaan te maken"></td>
-<td width="50%"><img src="../assets/readme/sheets-qa.webp" alt="GenOffice Sheets: gevraagd welke regio de omzet in Q2 aanvoerde, antwoordt de AI Europa met de uitsplitsing per categorie en verwijst als links naar de cellen die het heeft gebruikt, naast het Orders-blad"></td>
+<td width="50%"><img src="../assets/readme/sheets-ai.webp" alt="OneDesk Sheets: de AI heeft een Summary-blad toegevoegd met omzet per regio en categorie via SUMIF-formules, plus een kolomdiagram, en meldt 43 toegepaste wijzigingen met een knop om ongedaan te maken"></td>
+<td width="50%"><img src="../assets/readme/sheets-qa.webp" alt="OneDesk Sheets: gevraagd welke regio de omzet in Q2 aanvoerde, antwoordt de AI Europa met de uitsplitsing per categorie en verwijst als links naar de cellen die het heeft gebruikt, naast het Orders-blad"></td>
 </tr>
 <tr>
 <td><b>Bouw het</b> — met één zin voegt de agent een Summary-blad toe met echte <code>SUMIF</code>-formules per regio en categorie, voegt een kolomdiagram in, en past de 43 wijzigingen toe als één batch die je in één keer ongedaan kunt maken.</td>
@@ -122,15 +122,15 @@ prompt die je in het paneel kunt lezen.
 
 ### 3 · Slides — van een prompt naar een `.pptx`-deck
 
-<img src="../assets/readme/slides-generate.webp" alt="Timelapse van GenOffice Slides dat de Aurora Home investeerdersdeck genereert: de AI plant het verhaal in het paneel, dia's verschijnen één voor één op het canvas, en de voltooide deck eindigt met de afsluitende vraag" width="100%">
+<img src="../assets/readme/slides-generate.webp" alt="Timelapse van OneDesk Slides dat de Aurora Home investeerdersdeck genereert: de AI plant het verhaal in het paneel, dia's verschijnen één voor één op het canvas, en de voltooide deck eindigt met de afsluitende vraag" width="100%">
 
 <table>
 <tr>
-<td width="50%"><img src="../assets/readme/slides-cover.webp" alt="GenOffice Slides: de openingsslide van een door AI gegenereerd investeerdersdeck voor Aurora Home op het canvas, met de oorspronkelijke prompt van één regel en de samenvatting van de AI over wat het heeft gebouwd, in het paneel"></td>
-<td width="50%"><img src="../assets/readme/slides-ai.webp" alt="GenOffice Slides: de vormgegeven slotslide van hetzelfde deck van 11 slides, met de miniaturenstrook links en het AI-paneel dat de verhaallijn samenvat"></td>
+<td width="50%"><img src="../assets/readme/slides-cover.webp" alt="OneDesk Slides: de openingsslide van een door AI gegenereerd investeerdersdeck voor Aurora Home op het canvas, met de oorspronkelijke prompt van één regel en de samenvatting van de AI over wat het heeft gebouwd, in het paneel"></td>
+<td width="50%"><img src="../assets/readme/slides-ai.webp" alt="OneDesk Slides: de vormgegeven slotslide van hetzelfde deck van 11 slides, met de miniaturenstrook links en het AI-paneel dat de verhaallijn samenvat"></td>
 </tr>
 <tr>
-<td><b>Eén regel als input</b> — "Create a 10-slide investor pitch deck for Aurora Home…". GenOffice bepaalt de verhaallijn, zoekt de cijfers uit en zet elke slide als een echte <code>.pptx</code> op het canvas.</td>
+<td><b>Eén regel als input</b> — "Create a 10-slide investor pitch deck for Aurora Home…". OneDesk bepaalt de verhaallijn, zoekt de cijfers uit en zet elke slide als een echte <code>.pptx</code> op het canvas.</td>
 <td><b>Een afgewerkt deck als resultaat</b> — elf vormgegeven slides met consistente typografie, beeldmateriaal en een afsluitende call-to-action; blijf bewerken met masters, layouts, slimme hulplijnen en niet-destructief bijsnijden, of laat het paneel de stijl, tekst en volgorde aanpassen. Voeg een <code>.glb</code> in en het is een echt 3D-model: draai het rond door te slepen in de editor, opgeslagen zoals PowerPoint 3D opslaat, nog steeds 3D in PowerPoint.</td>
 </tr>
 </table>
@@ -144,8 +144,8 @@ manier af.
 
 <table>
 <tr>
-<td width="50%"><img src="../assets/readme/pdf-edit.webp" alt="GenOffice PDF: Edit text mode omkadert elk tekstblok op de pagina voor bewerking op de plek zelf, terwijl het AI-paneel een vraag over het rapport beantwoordt met paginaverwijzingen"></td>
-<td width="50%"><img src="../assets/readme/pdf-convert.webp" alt="GenOffice Docs toont een Word-document dat lokaal is geconverteerd vanuit de kwartaalrapportage-PDF van Helios, geopend in een tweede tab naast de originele PDF"></td>
+<td width="50%"><img src="../assets/readme/pdf-edit.webp" alt="OneDesk PDF: Edit text mode omkadert elk tekstblok op de pagina voor bewerking op de plek zelf, terwijl het AI-paneel een vraag over het rapport beantwoordt met paginaverwijzingen"></td>
+<td width="50%"><img src="../assets/readme/pdf-convert.webp" alt="OneDesk Docs toont een Word-document dat lokaal is geconverteerd vanuit de kwartaalrapportage-PDF van Helios, geopend in een tweede tab naast de originele PDF"></td>
 </tr>
 <tr>
 <td><b>Bewerk binnen de pagina</b> — Edit text mode omkadert elk tekstblok voor herschrijven op de plek zelf; de content stream wordt via PDFium herschreven met de originele fonts, geen overplaknotitie. Stel de AI een vraag over een lang rapport en krijg antwoorden met paginaverwijzingen.</td>
@@ -159,11 +159,11 @@ Vertel waarvoor de pagina dient en voor wie hij bedoeld is. De AI stelt eerst
 een **design brief** voor — hook, kleurenpalet, typografie en stijlrichtingen
 — en bouwt daarna op basis van die tokens één zelfstandig `.html`-bestand.
 
-<img src="../assets/readme/html-restyle-motion.webp" alt="Timelapse van GenOffice HTML dat de Lumen landingspagina van stijl verandert: één Restyle-verzoek in het paneel verandert de donkere Midnight Studio-pagina in de warme Solar Daybreak-versie, terwijl elke sectie en alle inhoud op hun plek blijven" width="100%">
+<img src="../assets/readme/html-restyle-motion.webp" alt="Timelapse van OneDesk HTML dat de Lumen landingspagina van stijl verandert: één Restyle-verzoek in het paneel verandert de donkere Midnight Studio-pagina in de warme Solar Daybreak-versie, terwijl elke sectie en alle inhoud op hun plek blijven" width="100%">
 
 <table>
 <tr>
-<td width="50%"><img src="../assets/readme/html-ai.webp" alt="GenOffice HTML: een gegenereerde landingspagina voor een zonne-energie bureaulamp in de donkere stijlrichting Midnight Studio, getoond in de live preview met het AI-paneel dat de net gebouwde pagina samenvat"></td>
+<td width="50%"><img src="../assets/readme/html-ai.webp" alt="OneDesk HTML: een gegenereerde landingspagina voor een zonne-energie bureaulamp in de donkere stijlrichting Midnight Studio, getoond in de live preview met het AI-paneel dat de net gebouwde pagina samenvat"></td>
 <td width="50%"><img src="../assets/readme/html-restyle.webp" alt="Dezelfde Lumen-landingspagina, door de AI omgezet naar de warme stijlrichting Solar Daybreak: papieren achtergrond, serif-koppen en een oranje accent, met behoud van elke sectie en alle tekst"></td>
 </tr>
 <tr>
@@ -173,8 +173,8 @@ een **design brief** voor — hook, kleurenpalet, typografie en stijlrichtingen
 </table>
 <table>
 <tr>
-<td width="50%"><img src="../assets/readme/html-dashboard.webp" alt="GenOffice HTML: een gegenereerde persoonlijke dashboard-UI voor een freelance designer in een warme linnen stijl, met een navigatiebalk links, een begroeting in serif en vier metriekkaarten"></td>
-<td width="50%"><img src="../assets/readme/html-report.webp" alt="GenOffice HTML: een gegenereerd datarapport over de EV-markt in broadsheet-stijl, met een kopregel in serif, een hoofdcijfer van 17,3 miljoen en een rij met kerncijfers"></td>
+<td width="50%"><img src="../assets/readme/html-dashboard.webp" alt="OneDesk HTML: een gegenereerde persoonlijke dashboard-UI voor een freelance designer in een warme linnen stijl, met een navigatiebalk links, een begroeting in serif en vier metriekkaarten"></td>
+<td width="50%"><img src="../assets/readme/html-report.webp" alt="OneDesk HTML: een gegenereerd datarapport over de EV-markt in broadsheet-stijl, met een kopregel in serif, een hoofdcijfer van 17,3 miljoen en een rij met kerncijfers"></td>
 </tr>
 <tr>
 <td><b>UI-mockups</b> — de starter "personal dashboard" zet een persona om in een werkende layout: navigatiebalk links, begroeting, sparkline voor factureerbare uren, facturen- en bezettingskaarten, allemaal echte HTML die je zo aan een developer kunt overdragen.</td>
@@ -186,8 +186,8 @@ een **design brief** voor — hook, kleurenpalet, typografie en stijlrichtingen
 
 <table>
 <tr>
-<td width="50%"><img src="../assets/readme/markdown-ai.webp" alt="GenOffice Markdown: bij een geselecteerde alinea verschijnt een Ask AI-popover met een getypte instructie en suggestiechips zoals Polish, Make more concise, Expand en Fix grammar, plus de knoppen Send now en Add to queue"></td>
-<td width="50%"><img src="../assets/readme/markdown-render.webp" alt="GenOffice Markdown toont een document met lanceringsnotities met een tabel, een Mermaid-stroomdiagram en een taaklijst, met de startprompts van het AI-paneel aan de linkerkant"></td>
+<td width="50%"><img src="../assets/readme/markdown-ai.webp" alt="OneDesk Markdown: bij een geselecteerde alinea verschijnt een Ask AI-popover met een getypte instructie en suggestiechips zoals Polish, Make more concise, Expand en Fix grammar, plus de knoppen Send now en Add to queue"></td>
+<td width="50%"><img src="../assets/readme/markdown-render.webp" alt="OneDesk Markdown toont een document met lanceringsnotities met een tabel, een Mermaid-stroomdiagram en een taaklijst, met de startprompts van het AI-paneel aan de linkerkant"></td>
 </tr>
 <tr>
 <td><b>Ask AI over een selectie</b> — selecteer een willekeurige passage en er verschijnt een <b>Ask AI</b>-chip: typ een instructie of kies een suggestie, verstuur die direct, of verzamel meerdere aan tekst verankerde wijzigingen en voer ze in één keer uit. Dezelfde toegang bestaat in elke app.</td>
@@ -214,12 +214,12 @@ relevantiescore teruggeeft in plaats van tekst te genereren. De lijst wordt
 op die score opnieuw geordend; als de aanroep mislukt of een time-out krijgt,
 blijft de lokale volgorde staan.
 
-<img src="../assets/readme/search-jev-motion.webp" alt="Schermopname van het GenOffice-startscherm: het typen van laptop refresh policy toont eerst een beleid voor de browsercache, een brand-refreshplan en een schema voor dashboardvernieuwing, terwijl het document met de apparatuurstandaarden onderaan staat; de pagina Instellingen toont Jev search reranking ingeschakeld onder AI Media & Search met het TypeSafe-endpoint; dezelfde zoekopdracht toont daarna het document met de apparatuurstandaarden bovenaan, met een Jev-badge naast het aantal resultaten" width="100%">
+<img src="../assets/readme/search-jev-motion.webp" alt="Schermopname van het OneDesk-startscherm: het typen van laptop refresh policy toont eerst een beleid voor de browsercache, een brand-refreshplan en een schema voor dashboardvernieuwing, terwijl het document met de apparatuurstandaarden onderaan staat; de pagina Instellingen toont Jev search reranking ingeschakeld onder AI Media & Search met het TypeSafe-endpoint; dezelfde zoekopdracht toont daarna het document met de apparatuurstandaarden bovenaan, met een Jev-badge naast het aantal resultaten" width="100%">
 
 <table>
 <tr>
 <td width="50%"><img src="../assets/readme/search-jev-before-after.webp" alt="Twee resultatenlijsten voor de zoekopdracht laptop refresh policy naast elkaar: zonder Jev staan het schema voor dashboardvernieuwing, het brand-refreshplan en het beleid voor het vernieuwen van de browsercache bovenaan en staat het document met de apparatuurstandaarden van het bedrijf op de vijfde plaats; met Jev staat het document met de apparatuurstandaarden, dat de driejarige vervangingscyclus voor laptops vermeldt, bovenaan"></td>
-<td width="50%"><img src="../assets/readme/search-jev-settings.webp" alt="GenOffice-instellingen, pagina AI Media & Search: het blok Local file search met de schakelaar Jev search reranking, de endpointkeuze tussen OpenRouter en TypeSafe, en het veld voor de API-key"></td>
+<td width="50%"><img src="../assets/readme/search-jev-settings.webp" alt="OneDesk-instellingen, pagina AI Media & Search: het blok Local file search met de schakelaar Jev search reranking, de endpointkeuze tussen OpenRouter en TypeSafe, en het veld voor de API-key"></td>
 </tr>
 <tr>
 <td><b>Dezelfde woorden, andere antwoorden</b> — "laptop refresh policy" komt woord voor woord overeen met een beleid voor het vernieuwen van de browsercache, een brand-refreshplan en een schema voor dashboardvernieuwing, dus zet de fulltextrangschikking die bovenaan. Jev leest de fragmenten en zet het document met de apparatuurstandaarden, het document dat de driejarige vervangingscyclus vermeldt, op de eerste plaats. De <b>Jev</b>-badge naast het aantal resultaten laat zien wanneer de volgorde van het model komt.</td>
@@ -239,52 +239,52 @@ invoer naar het model — en elke vraag wordt bewaard als een eigen gesprek:
 wissel ertussen, begin een nieuw gesprek, verwijder er een; de lijst
 overleeft een herstart.
 
-<img src="../assets/readme/home-ask-ai-motion.webp" alt="Schermopname van GenOffice Ask AI: de vraag quick summary, what drove our Q3 growth and how did Asia-Pacific perform wordt op het startscherm getypt; de agent leest twee bestanden met een ster en antwoordt met de lancering van de Aurora X1 en de uitbreiding in Azië-Pacific, waarbij elke bewering wordt gevolgd door een verwijzingschip die het kwartaalrapport of de werkmap met regionale verkopen noemt; een klik op de chip van de werkmap opent die in Sheets met de rij Azië-Pacific gemarkeerd" width="100%">
+<img src="../assets/readme/home-ask-ai-motion.webp" alt="Schermopname van OneDesk Ask AI: de vraag quick summary, what drove our Q3 growth and how did Asia-Pacific perform wordt op het startscherm getypt; de agent leest twee bestanden met een ster en antwoordt met de lancering van de Aurora X1 en de uitbreiding in Azië-Pacific, waarbij elke bewering wordt gevolgd door een verwijzingschip die het kwartaalrapport of de werkmap met regionale verkopen noemt; een klik op de chip van de werkmap opent die in Sheets met de rij Azië-Pacific gemarkeerd" width="100%">
 
 Ask AI doorzoekt dezelfde on-device fulltextindex als
 [Zoeken](#7--search--find-the-file-that-answers-the-question-with-typesafe-jev)
 en leest bestanden per pagina, zodat het model alleen de treffers en de
 passages ziet waar het om heeft gevraagd, via de provider die jij hebt
-gekozen. Het kan ook de ingebouwde `genoffice`-CLI aanroepen om bestanden
+gekozen. Het kan ook de ingebouwde `onedesk`-CLI aanroepen om bestanden
 direct te bouwen; elk bestand verschijnt als een artefactkaart onder het
 antwoord, en een klik opent het.
 
-### 9 · CLI — je coding agent stuurt GenOffice aan, op je eigen machine
+### 9 · CLI — je coding agent stuurt OneDesk aan, op je eigen machine
 
-GenOffice levert een `genoffice`-opdrachtregel en een agent-skill mee.
+OneDesk levert een `onedesk`-opdrachtregel en een agent-skill mee.
 Installeer de skill en Claude Code, Codex, Cursor, Gemini CLI, GitHub
 Copilot, OpenCode of Windsurf kunnen echte Office-bestanden maken,
 converteren, lezen en bewerken via dezelfde engines als de apps, zonder een
 venster te openen.
 
-<img src="../assets/readme/cli-deck-in-app.webp" alt="GenOffice Slides toont een deck van acht slides over het zonnestelsel dat een coding agent via de genoffice-opdrachtregel heeft gebouwd: de openingsslide op het canvas, acht miniaturen links en het AI-paneel geopend" width="100%">
+<img src="../assets/readme/cli-deck-in-app.webp" alt="OneDesk Slides toont een deck van acht slides over het zonnestelsel dat een coding agent via de onedesk-opdrachtregel heeft gebouwd: de openingsslide op het canvas, acht miniaturen links en het AI-paneel geopend" width="100%">
 
 <table>
 <tr>
 <td width="50%"><img src="../assets/readme/cli-slides-grid.webp" alt="De acht gerenderde slides van het zonnestelsel-deck naast elkaar: cover, tijdlijn van de ruimteverkenning, vier kerncijfers, staafdiagram van planeetdiameters, rotsplaneten tegenover reuzen, het hoofdcijfer van 99,8% voor de zon, het raster van de vier reuzen en de conclusies"></td>
-<td width="50%"><img src="../assets/readme/cli-integrations.webp" alt="GenOffice-instellingen, pagina Integraties: de genoffice-skill geïnstalleerd in Claude Code, met Installeren-knoppen naast Codex en Cursor"></td>
+<td width="50%"><img src="../assets/readme/cli-integrations.webp" alt="OneDesk-instellingen, pagina Integraties: de onedesk-skill geïnstalleerd in Claude Code, met Installeren-knoppen naast Codex en Cursor"></td>
 </tr>
 <tr>
-<td><b>Eén prompt aan je agent</b> — "Bouw een deck van acht slides over het zonnestelsel." De agent leest de skill, schrijft een stylesheet, een outline en één paginaspecificatie per slide, genereert de twee foto's met <code>genoffice image</code> en laat <code>genoffice slides check</code> alles afwijzen wat overloopt of overlapt, voordat <code>genoffice create</code> de <code>.pptx</code> samenstelt en <code>slides render</code> per slide een PNG teruggeeft om te bekijken.</td>
-<td><b>Eén keer installeren, via Instellingen → Integraties</b> — GenOffice toont de coding agents die het op deze computer vindt en schrijft de skill naar elke agent die je kiest. Of download de skill als zip, of voer <code>npx skills add genspark-ai/genoffice</code> uit. Commando's en de volledige workflow staan in <a href="#command-line-and-agent-skill">Opdrachtregel en agent-skill</a>.</td>
+<td><b>Eén prompt aan je agent</b> — "Bouw een deck van acht slides over het zonnestelsel." De agent leest de skill, schrijft een stylesheet, een outline en één paginaspecificatie per slide, genereert de twee foto's met <code>onedesk image</code> en laat <code>onedesk slides check</code> alles afwijzen wat overloopt of overlapt, voordat <code>onedesk create</code> de <code>.pptx</code> samenstelt en <code>slides render</code> per slide een PNG teruggeeft om te bekijken.</td>
+<td><b>Eén keer installeren, via Instellingen → Integraties</b> — OneDesk toont de coding agents die het op deze computer vindt en schrijft de skill naar elke agent die je kiest. Of download de skill als zip, of voer <code>npx skills add genspark-ai/onedesk</code> uit. Commando's en de volledige workflow staan in <a href="#command-line-and-agent-skill">Opdrachtregel en agent-skill</a>.</td>
 </tr>
 </table>
 
 ### 10 · MCP — dezelfde tools via het Model Context Protocol
 
-Elk `genoffice`-commando is ook een MCP-tool. Claude Code, Claude Desktop,
-Cursor en elke andere MCP-client kunnen zelf `genoffice mcp` starten,
+Elk `onedesk`-commando is ook een MCP-tool. Claude Code, Claude Desktop,
+Cursor en elke andere MCP-client kunnen zelf `onedesk mcp` starten,
 zonder skill om te installeren en zonder venster te openen, en krijgen 29
 tools plus de op-referenties als resources. Een tweede, HTTP-server in de
 app laat een agent een Word-document opbouwen in een zichtbaar
 editortabblad terwijl je toekijkt.
 
-<img src="../assets/readme/mcp-deck-motion.webp" alt="Time-lapse van Claude Code dat via de genoffice MCP-server een investeerderspresentatie van acht slides over hernieuwbare energie bouwt: zoekt naar figuren en foto's, controleert elke kandidaat-afbeelding met media, deck_start schrijft de stylesheet en de outline, deck_page voegt telkens één gecontroleerde pagina toe, deck_build stelt de .pptx samen en slides_render geeft een afbeelding van elke slide terug; het afgeronde deck opent daarna in GenOffice Slides" width="100%">
+<img src="../assets/readme/mcp-deck-motion.webp" alt="Time-lapse van Claude Code dat via de onedesk MCP-server een investeerderspresentatie van acht slides over hernieuwbare energie bouwt: zoekt naar figuren en foto's, controleert elke kandidaat-afbeelding met media, deck_start schrijft de stylesheet en de outline, deck_page voegt telkens één gecontroleerde pagina toe, deck_build stelt de .pptx samen en slides_render geeft een afbeelding van elke slide terug; het afgeronde deck opent daarna in OneDesk Slides" width="100%">
 
 <table>
 <tr>
-<td width="50%"><img src="../assets/readme/mcp-deck-in-app.webp" alt="GenOffice Slides toont het deck Renewable Energy 2026 van acht slides dat Claude Code via de genoffice MCP-server heeft gebouwd: de openingsslide met een foto van een windmolenpark op het canvas en acht miniaturen links"></td>
-<td width="50%"><img src="../assets/readme/mcp-integrations.webp" alt="GenOffice-instellingen, pagina Integraties, MCP-onderdeel: het eenregelige commando claude mcp add voor Claude Code, het JSON-blok voor Cursor, Claude Desktop en andere MCP-clients, en de optie voor de lokale HTTP-server daaronder"></td>
+<td width="50%"><img src="../assets/readme/mcp-deck-in-app.webp" alt="OneDesk Slides toont het deck Renewable Energy 2026 van acht slides dat Claude Code via de onedesk MCP-server heeft gebouwd: de openingsslide met een foto van een windmolenpark op het canvas en acht miniaturen links"></td>
+<td width="50%"><img src="../assets/readme/mcp-integrations.webp" alt="OneDesk-instellingen, pagina Integraties, MCP-onderdeel: het eenregelige commando claude mcp add voor Claude Code, het JSON-blok voor Cursor, Claude Desktop en andere MCP-clients, en de optie voor de lokale HTTP-server daaronder"></td>
 </tr>
 <tr>
 <td><b>Eén prompt, 38 tool-aanroepen, geen terminal</b> — "Bouw een investeerderspresentatie van acht slides over hernieuwbare energie in 2026, met een echte foto op de omslag en overal waar een foto helpt." De agent haalt de figuren en de foto's op met <code>search</code>, vraagt <code>media</code> of elke kandidaat-afbeelding een echte foto is, roept <code>deck_start</code> aan met een stylesheet en een outline, daarna <code>deck_page</code> één keer per slide; elke pagina wordt tegen de outline en het kleurenpalet gecontroleerd voordat ze wordt bewaard, <code>deck_build</code> stelt de <code>.pptx</code> samen, <code>slides_audit</code> zoekt naar overloop, <code>slides_render</code> geeft per slide een PNG terug als beeldinhoud die het model kan bekijken, en <code>deck_replace</code> verbetert de drie pagina's die niet bevielen.</td>
@@ -296,9 +296,9 @@ editortabblad terwijl je toekijkt.
 
 Een Word 97–2003-bestand `.doc`, een Excel-bestand `.xls` of een PowerPoint-bestand `.ppt` opent als geconverteerde `.docx`-, `.xlsx`- of `.pptx`-kopie die op je eigen computer wordt gemaakt; het originele bestand wordt nooit gewijzigd. Afbeeldingen, tabellen, formules, getalnotaties, opvullingen en opmaak blijven behouden. Wat elk formaat behoudt en laat vallen, staat in [Oude formaten en ODF-bestanden openen als geconverteerde kopieën](#legacy-and-odf-files-open-as-converted-copies).
 
-<img src="../assets/readme/legacy-formats-motion.webp" alt="Timelapse van GenOffice dat de .ppt-, .doc- en .xls-bestanden van een fictief jaarverslag 2004 opent, daarna één dia in PowerPoint naast de geconverteerde presentatie in GenOffice" width="100%">
+<img src="../assets/readme/legacy-formats-motion.webp" alt="Timelapse van OneDesk dat de .ppt-, .doc- en .xls-bestanden van een fictief jaarverslag 2004 opent, daarna één dia in PowerPoint naast de geconverteerde presentatie in OneDesk" width="100%">
 
-## Waarom GenOffice
+## Waarom OneDesk
 
 - **Open source**, Apache-2.0, in het openbaar ontwikkeld op GitHub.
 - **Van jou om te draaien.** Native apps voor macOS, Windows en Linux;
@@ -324,7 +324,7 @@ Een Word 97–2003-bestand `.doc`, een Excel-bestand `.xls` of een PowerPoint-be
   en stel vragen in gewone taal; elk antwoord verwijst naar het bestand waar
   het vandaan komt, één klik verderop.
 - **Skills.** Kant-en-klare skills of je eigen `SKILL.md`, toegevoegd via het **+**-menu van elk AI-paneel.
-- **Scriptbaar.** Een `genoffice`-opdrachtregel, een agent-skill en een
+- **Scriptbaar.** Een `onedesk`-opdrachtregel, een agent-skill en een
   MCP-server stellen elke engine ter beschikking van Claude Code, Claude
   Desktop, Codex, Cursor en andere agents, nog altijd on-device.
 - **Gratis**, voor individuen en teams.
@@ -368,7 +368,7 @@ opgeslagen bestanden behouden altijd de eigen kleuren van het document.
 ## <a id="skills"></a>Skills
 
 Een skill is een `SKILL.md` die de AI vertelt hoe één taak goed te doen: een weekrapport, een NDA, een lesplan.
-GenOffice levert een set mee en accepteert je eigen skills, in hetzelfde formaat dat coding-agents gebruiken.
+OneDesk levert een set mee en accepteert je eigen skills, in hetzelfde formaat dat coding-agents gebruiken.
 
 - **Instellingen → Skills.** **Installeer** een aanbevolen skill, of **Importeer** een map, een zip of één `SKILL.md`. Bij importeren wordt niets uitgevoerd. Het tabblad **Alles** toont de hele aanbevolen catalogus op één plek, met beschrijvingen in de taal van de app.
 - **In een chat.** Open het **+**-menu naast het invoerveld van een AI-paneel, kies **Skills**, vink er een aan en verstuur. De skill gaat alleen met dat bericht mee.
@@ -377,10 +377,10 @@ GenOffice levert een set mee en accepteert je eigen skills, in hetzelfde formaat
 
 ## <a id="command-line-and-agent-skill"></a>Opdrachtregel en agent-skill
 
-Alles wat de apps met een bestand kunnen, kan de `genoffice`-opdrachtregel
+Alles wat de apps met een bestand kunnen, kan de `onedesk`-opdrachtregel
 vanuit een terminal: Word, Excel, PowerPoint, PDF, Markdown en HTML
 inspecteren, converteren, maken, lezen en bewerken op dezelfde engines,
-headless. Hij wordt samen met GenOffice geïnstalleerd, heeft geen eigen
+headless. Hij wordt samen met OneDesk geïnstalleerd, heeft geen eigen
 runtime nodig en stuurt nooit een document ergens naartoe. In combinatie met
 de meegeleverde **agent-skill** maakt hij van een coding agent een
 documentenwerker die echte Office-bestanden oplevert in plaats van
@@ -393,33 +393,33 @@ MCP-client.
 
 ### De skill installeren
 
-| Hoe                                       | Wat er gebeurt                                                                                                                                                                                                            |
-| ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Instellingen → Integraties** in de app  | Toont de agents die op deze computer zijn gevonden; met één klik wordt de skill naar elke agent geschreven die je kiest. Er verschijnt een knop **Bijwerken** wanneer een GenOffice-release een nieuwere skill meebrengt. |
-| **Downloaden als zip** op dezelfde pagina | De indeling die claude.ai, de Claude-desktop-apps en andere assistenten accepteren als geüploade skill.                                                                                                                   |
-| `npx skills add genspark-ai/genoffice`    | Installeert vanuit deze repository in elke agent die skills ondersteunt.                                                                                                                                                  |
+| Hoe                                       | Wat er gebeurt                                                                                                                                                                                                          |
+| ----------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Instellingen → Integraties** in de app  | Toont de agents die op deze computer zijn gevonden; met één klik wordt de skill naar elke agent geschreven die je kiest. Er verschijnt een knop **Bijwerken** wanneer een OneDesk-release een nieuwere skill meebrengt. |
+| **Downloaden als zip** op dezelfde pagina | De indeling die claude.ai, de Claude-desktop-apps en andere assistenten accepteren als geüploade skill.                                                                                                                 |
+| `npx skills add genspark-ai/onedesk`      | Installeert vanuit deze repository in elke agent die skills ondersteunt.                                                                                                                                                |
 
 Start daarna een nieuwe chat en vraag om een document. De skill leert de
-agent wanneer hij naar `genoffice` moet grijpen, hoe hij een bestand leest
+agent wanneer hij naar `onedesk` moet grijpen, hoe hij een bestand leest
 voordat hij het bewerkt en hoe hij zijn eigen werk controleert.
 
 ### Snelstart vanuit de terminal
 
 ```bash
-genoffice --version
-genoffice info report.docx --json                  # headings and blocks; or sheets, slides, pages
-genoffice convert report.md --to pdf               # md/html/docx/xlsx/pptx → pdf, pdf → docx/xlsx/pptx/md/html, odt/ods/odp → docx/xlsx/pptx, doc/dot → docx, ppt → pptx, …
-genoffice create --type docx --from notes.md --out notes.docx
-genoffice create --type xlsx --from table.json --out sales.xlsx   # "=SUM(B2:B9)" cells stay live formulas
-genoffice docs read report.docx --range 0-9 --json # then `docs apply --ops edits.json` edits in place
-genoffice docs compare original.docx revised.docx --out redline.docx   # the differences as tracked Word revisions
-genoffice render report.docx --out shots/          # one PNG per page, to look at what you made
-genoffice open sales.xlsx                          # hand the result to the editor
+onedesk --version
+onedesk info report.docx --json                  # headings and blocks; or sheets, slides, pages
+onedesk convert report.md --to pdf               # md/html/docx/xlsx/pptx → pdf, pdf → docx/xlsx/pptx/md/html, odt/ods/odp → docx/xlsx/pptx, doc/dot → docx, ppt → pptx, …
+onedesk create --type docx --from notes.md --out notes.docx
+onedesk create --type xlsx --from table.json --out sales.xlsx   # "=SUM(B2:B9)" cells stay live formulas
+onedesk docs read report.docx --range 0-9 --json # then `docs apply --ops edits.json` edits in place
+onedesk docs compare original.docx revised.docx --out redline.docx   # the differences as tracked Word revisions
+onedesk render report.docx --out shots/          # one PNG per page, to look at what you made
+onedesk open sales.xlsx                          # hand the result to the editor
 ```
 
 Elk commando print een samenvatting van één regel, of één JSON-object met
 `--json`. Bewerkingen zijn atomair: een afgewezen op laat het bestand
-onaangeroerd en komt terug met een begeleide foutmelding. `genoffice help`
+onaangeroerd en komt terug met een begeleide foutmelding. `onedesk help`
 toont de huidige set commando's; de volledige referentie staat in
 [packages/cli/README.md](../../packages/cli/README.md).
 
@@ -430,22 +430,22 @@ Daarachter volgde de agent de gefaseerde workflow van de skill en
 controleerde de CLI elke fase voordat de volgende begon:
 
 ```bash
-genoffice capabilities --json                        # which cloud tools GenOffice has configured
-genoffice guide slides design                        # the deck workflow and layout library
-genoffice image "the eight planets in a row …" --aspect 16:9 --out deck/assets/cover.jpg
-genoffice slides check deck/outline.json --json      # 8 pages, no findings
-genoffice slides check deck/pages/01.json --json     # builds one slide, audits overflow and overlap
+onedesk capabilities --json                        # which cloud tools OneDesk has configured
+onedesk guide slides design                        # the deck workflow and layout library
+onedesk image "the eight planets in a row …" --aspect 16:9 --out deck/assets/cover.jpg
+onedesk slides check deck/outline.json --json      # 8 pages, no findings
+onedesk slides check deck/pages/01.json --json     # builds one slide, audits overflow and overlap
 …                                                    # one page file per slide, fixed until each check is clean
-genoffice create --type pptx --spec deck/pages --outline deck/outline.json --out deck/solar-system.pptx --json
-genoffice slides render deck/solar-system.pptx --out deck/shots --json
-genoffice slides audit deck/solar-system.pptx --json    # 8 slides, no layout issues
-genoffice slides replace deck/solar-system.pptx --slide 4 --spec deck/pages/05.json --json
-genoffice open deck/solar-system.pptx
+onedesk create --type pptx --spec deck/pages --outline deck/outline.json --out deck/solar-system.pptx --json
+onedesk slides render deck/solar-system.pptx --out deck/shots --json
+onedesk slides audit deck/solar-system.pptx --json    # 8 slides, no layout issues
+onedesk slides replace deck/solar-system.pptx --slide 4 --spec deck/pages/05.json --json
+onedesk open deck/solar-system.pptx
 ```
 
-Binnen `genoffice` vindt geen enkele modelaanroep plaats: de agent doet het
+Binnen `onedesk` vindt geen enkele modelaanroep plaats: de agent doet het
 denkwerk, de CLI het bouwen en controleren, en het resultaat opent in
-GenOffice of PowerPoint als een gewone `.pptx`.
+OneDesk of PowerPoint als een gewone `.pptx`.
 
 ### <a id="mcp-server"></a>MCP-server
 
@@ -455,28 +455,28 @@ assistenten die geen terminal kunnen draaien of waaraan je liever geen
 terminal geeft. Er zijn twee manieren om te verbinden, allebei getoond met
 kant-en-klare snippets in **Instellingen → Integraties → MCP**:
 
-| Manier                               | Wat het is                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| ------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **A · `genoffice mcp`** (aanbevolen) | Een stdio-server die de assistent zelf start; GenOffice hoeft niet open te staan. Eén tool per commando (`info`, `convert`, `create_docx`, `create_xlsx`, `create_pptx`, `create_pdf`, `docs_read` / `docs_apply` / `docs_check`, `sheet_*`, `slides_*`, `render`, `guide`, `search`, `image`, `media`, `open`) plus de gefaseerde deck-flow `deck_start` → `deck_page` → `deck_build` → `deck_replace`. Ops, specs en Markdown worden inline doorgegeven, dus werkt ook een client zonder bestandssysteem. |
-| **B · Lokale HTTP-server**           | Draait binnen de GenOffice-app op `http://127.0.0.1:3093/mcp` (Streamable HTTP, met legacy SSE). De tools ervan sturen een zichtbaar Word-editortabblad aan: `create_session`, `insert_content`, `replace_blocks`, `apply_ops`, `read_document`, `save_session`, en je ziet het document vorm aannemen. Standaard uit; zet hem aan in hetzelfde instellingenscherm.                                                                                                                                         |
-| **C · `genoffice mcp --http`**       | De stdio-toolset als Streamable HTTP-server voor clients op andere machines: een container, een sandbox, een gedeelde machine in je netwerk. Bestanden reizen mee met de aanroepen: `PUT /files/<name>` uploadt er een en geeft een URL terug, elke `file`-parameter accepteert een http(s)-URL, en een tool die een bestand schrijft, geeft het terug als download-URL plus, als het klein is, de bytes als MCP-resource. `--host 0.0.0.0` stelt hem open voor het netwerk, `--token` beveiligt hem.       |
+| Manier                             | Wat het is                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **A · `onedesk mcp`** (aanbevolen) | Een stdio-server die de assistent zelf start; OneDesk hoeft niet open te staan. Eén tool per commando (`info`, `convert`, `create_docx`, `create_xlsx`, `create_pptx`, `create_pdf`, `docs_read` / `docs_apply` / `docs_check`, `sheet_*`, `slides_*`, `render`, `guide`, `search`, `image`, `media`, `open`) plus de gefaseerde deck-flow `deck_start` → `deck_page` → `deck_build` → `deck_replace`. Ops, specs en Markdown worden inline doorgegeven, dus werkt ook een client zonder bestandssysteem. |
+| **B · Lokale HTTP-server**         | Draait binnen de OneDesk-app op `http://127.0.0.1:3093/mcp` (Streamable HTTP, met legacy SSE). De tools ervan sturen een zichtbaar Word-editortabblad aan: `create_session`, `insert_content`, `replace_blocks`, `apply_ops`, `read_document`, `save_session`, en je ziet het document vorm aannemen. Standaard uit; zet hem aan in hetzelfde instellingenscherm.                                                                                                                                         |
+| **C · `onedesk mcp --http`**       | De stdio-toolset als Streamable HTTP-server voor clients op andere machines: een container, een sandbox, een gedeelde machine in je netwerk. Bestanden reizen mee met de aanroepen: `PUT /files/<name>` uploadt er een en geeft een URL terug, elke `file`-parameter accepteert een http(s)-URL, en een tool die een bestand schrijft, geeft het terug als download-URL plus, als het klein is, de bytes als MCP-resource. `--host 0.0.0.0` stelt hem open voor het netwerk, `--token` beveiligt hem.     |
 
 ```bash
 # Claude Code
-claude mcp add --transport stdio genoffice -- genoffice mcp
+claude mcp add --transport stdio onedesk -- onedesk mcp
 ```
 
 ```jsonc
 // Cursor, Claude Desktop or any other MCP client
-{ "mcpServers": { "genoffice": { "command": "genoffice", "args": ["mcp"] } } }
+{ "mcpServers": { "onedesk": { "command": "onedesk", "args": ["mcp"] } } }
 ```
 
 ```bash
-# On the machine that has GenOffice (private network; add --token for a shared box)
-genoffice mcp --http 3093 --host 0.0.0.0 --token "$GENOFFICE_MCP_TOKEN"
+# On the machine that has OneDesk (private network; add --token for a shared box)
+onedesk mcp --http 3093 --host 0.0.0.0 --token "$ONEDESK_MCP_TOKEN"
 
 # From the client: upload, then use the URL wherever a tool takes a file
-curl -T report.docx -H "Authorization: Bearer $GENOFFICE_MCP_TOKEN" http://server:3093/files/
+curl -T report.docx -H "Authorization: Bearer $ONEDESK_MCP_TOKEN" http://server:3093/files/
 #   → { "url": "http://server:3093/files/<id>/report.docx", ... }
 #   docs_read({ "file": "http://server:3093/files/<id>/report.docx" })
 #   docs_apply(...) → output_url, downloadable with curl -o
@@ -484,25 +484,25 @@ curl -T report.docx -H "Authorization: Bearer $GENOFFICE_MCP_TOKEN" http://serve
 
 Via HTTP krijgt elke sessie een eigen scratchmap, relatieve paden en
 deck-mappen worden daarbinnen opgelost, `open` wordt niet aangeboden, en
-zolang `GENOFFICE_ALLOWED_ROOTS` niet is ingesteld, kunnen de tools de eigen
+zolang `ONEDESK_ALLOWED_ROOTS` niet is ingesteld, kunnen de tools de eigen
 bestandsopslag van de server niet verlaten. `render`, `convert` naar PDF en
-`create_pdf` starten nog steeds een verborgen GenOffice-proces, dus een
+`create_pdf` starten nog steeds een verborgen OneDesk-proces, dus een
 headless host heeft de geïnstalleerde app en een virtueel display
 (`xvfb-run`) nodig.
 
-`genoffice` is hier de CLI die met de app wordt meegeleverd (op macOS
-`/Applications/GenOffice.app/Contents/Resources/cli/genoffice`; het
+`onedesk` is hier de CLI die met de app wordt meegeleverd (op macOS
+`/Applications/OneDesk.app/Contents/Resources/cli/onedesk`; het
 instellingenscherm toont het exacte pad voor jouw installatie). De server
 draagt zijn eigen workflow-instructies mee en stelt de op-referenties
-beschikbaar als `genoffice://guide/*`-resources, dus is er geen skill
+beschikbaar als `onedesk://guide/*`-resources, dus is er geen skill
 nodig; de skill en de MCP-server kunnen naast elkaar bestaan en de
 assistent kiest er één. Cloudfuncties (`search`, `image`, `media`) lopen
-nog steeds via de provider die in GenOffice is ingesteld; al het andere
-draait lokaal, en `GENOFFICE_ALLOWED_ROOTS` beperkt elke tool tot de
+nog steeds via de provider die in OneDesk is ingesteld; al het andere
+draait lokaal, en `ONEDESK_ALLOWED_ROOTS` beperkt elke tool tot de
 mappen die je opgeeft.
 
 Het deck over hernieuwbare energie uit de [demo](#demo) laat zien hoe één
-prompt in Claude Code met alleen de `genoffice` MCP-server aangesloten er
+prompt in Claude Code met alleen de `onedesk` MCP-server aangesloten er
 aan de protocolkant uitziet:
 
 ```text
@@ -524,43 +524,43 @@ Achtendertig aanroepen, ongeveer dertien minuten, en de assistent heeft
 nooit een terminal aangeraakt: de figuren, de foto's, de gidsen, de
 controles en de renders reisden allemaal als MCP-tool-resultaten. Alleen
 `search` en `media` verlieten de machine, naar de provider die in
-GenOffice is geconfigureerd.
+OneDesk is geconfigureerd.
 
 ## <a id="download"></a>Download
 
-| Platform                             | Vereisten                                               | Download                                                                                    |
-| ------------------------------------ | ------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
-| **macOS** — Apple Silicon (arm64)    | macOS 11+                                               | [Nieuwste `.dmg` (arm64)](https://github.com/genspark-ai/genoffice/releases/latest)         |
-| **macOS** — Intel (x64)              | macOS 11+                                               | [Nieuwste `.dmg` (x64)](https://github.com/genspark-ai/genoffice/releases/latest)           |
-| **Windows** (x64, de meeste pc's)    | Windows 10+, Intel/AMD                                  | [Nieuwste `-x64.exe`-installer](https://github.com/genspark-ai/genoffice/releases/latest)   |
-| **Windows** op Arm (ARM64)           | Windows 11 op Arm (Snapdragon X en vergelijkbare chips) | [Nieuwste `-arm64.exe`-installer](https://github.com/genspark-ai/genoffice/releases/latest) |
-| **Linux** — Debian / Ubuntu          | x86_64, glibc 2.34+ (Ubuntu 22.04 of nieuwer)           | [Nieuwste `.deb`](https://github.com/genspark-ai/genoffice/releases/latest)                 |
-| **Linux** — Fedora / RHEL / openSUSE | x86_64, glibc 2.34+ (Fedora 35+, RHEL 9+, Leap 15.6+)   | [Nieuwste `.rpm`](https://github.com/genspark-ai/genoffice/releases/latest)                 |
-| **Linux** — overige distributies     | x86_64, glibc 2.34+, FUSE 2                             | [Nieuwste `.AppImage`](https://github.com/genspark-ai/genoffice/releases/latest)            |
+| Platform                             | Vereisten                                               | Download                                                                     |
+| ------------------------------------ | ------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| **macOS** — Apple Silicon (arm64)    | macOS 11+                                               | [Nieuwste `.dmg` (arm64)](https://onedesk.jiulu.ltd/releases/latest)         |
+| **macOS** — Intel (x64)              | macOS 11+                                               | [Nieuwste `.dmg` (x64)](https://onedesk.jiulu.ltd/releases/latest)           |
+| **Windows** (x64, de meeste pc's)    | Windows 10+, Intel/AMD                                  | [Nieuwste `-x64.exe`-installer](https://onedesk.jiulu.ltd/releases/latest)   |
+| **Windows** op Arm (ARM64)           | Windows 11 op Arm (Snapdragon X en vergelijkbare chips) | [Nieuwste `-arm64.exe`-installer](https://onedesk.jiulu.ltd/releases/latest) |
+| **Linux** — Debian / Ubuntu          | x86_64, glibc 2.34+ (Ubuntu 22.04 of nieuwer)           | [Nieuwste `.deb`](https://onedesk.jiulu.ltd/releases/latest)                 |
+| **Linux** — Fedora / RHEL / openSUSE | x86_64, glibc 2.34+ (Fedora 35+, RHEL 9+, Leap 15.6+)   | [Nieuwste `.rpm`](https://onedesk.jiulu.ltd/releases/latest)                 |
+| **Linux** — overige distributies     | x86_64, glibc 2.34+, FUSE 2                             | [Nieuwste `.AppImage`](https://onedesk.jiulu.ltd/releases/latest)            |
 
 Alle builds komen van `main`; de macOS- en Windows-installers zijn gesigneerd.
-Oudere versies staan op de pagina [Releases](https://github.com/genspark-ai/genoffice/releases).
+Oudere versies staan op de pagina [Releases](https://onedesk.jiulu.ltd/releases).
 
 <details>
 <summary><b>Installeren op Linux</b></summary>
 
 De deb installeer je met apt — dat haalt de afhankelijkheden op en voegt
-GenOffice toe aan het toepassingenmenu:
+OneDesk toe aan het toepassingenmenu:
 
 ```bash
-sudo apt install ./genoffice_<version>_amd64.deb
+sudo apt install ./onedesk_<version>_amd64.deb
 ```
 
 Op Fedora, de RHEL-familie of openSUSE installeer je in plaats daarvan de rpm:
 
 ```bash
-sudo dnf install ./genoffice-<version>.x86_64.rpm     # Fedora / RHEL family
-sudo zypper install ./genoffice-<version>.x86_64.rpm  # openSUSE
+sudo dnf install ./onedesk-<version>.x86_64.rpm     # Fedora / RHEL family
+sudo zypper install ./onedesk-<version>.x86_64.rpm  # openSUSE
 ```
 
 De deb en rpm voegen ook lege sjablonen toe voor Dolphin van KDE Plasma:
-rechtsklik in een map → **Nieuw aanmaken** toont _GenOffice Document_,
-_GenOffice Spreadsheet_ en _GenOffice Presentation_. Ze staan in
+rechtsklik in een map → **Nieuw aanmaken** toont _OneDesk Document_,
+_OneDesk Spreadsheet_ en _OneDesk Presentation_. Ze staan in
 `/usr/share/templates` en worden samen met het pakket verwijderd.
 
 De AppImage draait direct: installeer de FUSE 2-runtime
@@ -568,8 +568,8 @@ De AppImage draait direct: installeer de FUSE 2-runtime
 maak het bestand uitvoerbaar en start het:
 
 ```bash
-chmod +x GenOffice-<version>.AppImage
-./GenOffice-<version>.AppImage
+chmod +x OneDesk-<version>.AppImage
+./OneDesk-<version>.AppImage
 ```
 
 Op een Chromebook draaien dezelfde pakketten in de Linux-omgeving (Crostini) — de details staan in [docs/platforms/chromeos.md](../platforms/chromeos.md).
@@ -599,7 +599,7 @@ De pakket-voor-pakket-rondleiding (docx/pptx-engines, `pdf2docx`,
 
 ### <a id="legacy-and-odf-files-open-as-converted-copies"></a>Oude formaten en ODF-bestanden openen als geconverteerde kopieën
 
-Formaten die GenOffice niet kan terugschrijven — oude Word-bestanden
+Formaten die OneDesk niet kan terugschrijven — oude Word-bestanden
 `.doc`/`.dot`, Hancom `.hwp`/`.hwpx`, Excel 97 `.xls`, `.tsv`, oude
 PowerPoint-bestanden `.ppt` en de OpenDocument-familie (`.odt`, `.ott`,
 `.ods`, `.ots`, `.odp`, `.otp`) — zijn imports, geen native bestanden.
@@ -638,39 +638,39 @@ npm run dist:linux   # package Linux AppImage + deb + rpm
 ```
 
 De sheets-app heeft daarnaast een Rust-toolchain nodig voor de xlsx-sidecar
-(`cargo` op je PATH); `npm run build -w @genoffice/sheets` compileert die
+(`cargo` op je PATH); `npm run build -w @onedesk/sheets` compileert die
 automatisch. Zie [CONTRIBUTING.md](../../CONTRIBUTING.md) voor de checks die
 elke wijziging moet doorstaan en hoe pull requests worden gemerged.
 
 ## Community
 
-GenOffice wordt actief doorontwikkeld en jouw feedback bepaalt mee de
+OneDesk wordt actief doorontwikkeld en jouw feedback bepaalt mee de
 richting.
 
 - **Meld een bug of vraag een functie aan** via
-  [GitHub Issues](https://github.com/genspark-ai/genoffice/issues).
-- **Doe mee aan de GenOffice-groepschat** op
-  [GenTeam](https://genoffice.ai/join) om met het team en andere gebruikers te
+  [GitHub Issues](https://onedesk.jiulu.ltd/issues).
+- **Doe mee aan de OneDesk-groepschat** op
+  [GenTeam](https://onedesk.jiulu.ltd/join) om met het team en andere gebruikers te
   praten.
 - **Volg [@merrickbuilds](https://x.com/merrickbuilds) op X** voor release
   notes, demo's en wat er hierna wordt gebouwd.
-- **Geef de repo een ster** als je iets aan GenOffice hebt — dat is de beste
+- **Geef de repo een ster** als je iets aan OneDesk hebt — dat is de beste
   manier om het project te steunen.
 
 ## Veelgestelde vragen
 
 <details>
-<summary><b>Is GenOffice gratis?</b></summary>
+<summary><b>Is OneDesk gratis?</b></summary>
 
-Ja. GenOffice is gratis en open source onder de Apache-2.0-licentie — geen
+Ja. OneDesk is gratis en open source onder de Apache-2.0-licentie — geen
 proefperiode, geen betaalde laag voor de apps zelf.
 
 </details>
 
 <details>
-<summary><b>Kan GenOffice bestanden van Microsoft Word, Excel en PowerPoint openen?</b></summary>
+<summary><b>Kan OneDesk bestanden van Microsoft Word, Excel en PowerPoint openen?</b></summary>
 
-Ja. GenOffice opent en bewaart native `.docx`-, `.xlsx`- en `.pptx`-bestanden.
+Ja. OneDesk opent en bewaart native `.docx`-, `.xlsx`- en `.pptx`-bestanden.
 Opslaan is byte-behoudend: delen van het bestand die je niet hebt aangeraakt,
 worden byte-voor-byte terugweggeschreven, zodat documenten gewoon blijven
 werken in Microsoft Office.
@@ -682,7 +682,7 @@ kopieën](#legacy-and-odf-files-open-as-converted-copies).
 </details>
 
 <details>
-<summary><b>Werkt GenOffice offline?</b></summary>
+<summary><b>Werkt OneDesk offline?</b></summary>
 
 Documenten bewerken is volledig lokaal — bestanden verlaten je machine nooit
 om te worden geopend, bewerkt, opgeslagen of geconverteerd. De AI-functies
@@ -692,7 +692,7 @@ een Genspark-login of je eigen model-API-key.
 </details>
 
 <details>
-<summary><b>Kan GenOffice PDF-bestanden bewerken?</b></summary>
+<summary><b>Kan OneDesk PDF-bestanden bewerken?</b></summary>
 
 Ja — echte bewerking van PDF-tekst en -afbeeldingen, waarbij de content
 stream van de pagina wordt herschreven met behoud van de originele fonts,
@@ -701,7 +701,7 @@ niet met overplaknotities.
 </details>
 
 <details>
-<summary><b>Kan GenOffice PDF converteren naar Word, Excel of PowerPoint?</b></summary>
+<summary><b>Kan OneDesk PDF converteren naar Word, Excel of PowerPoint?</b></summary>
 
 Ja — volledig on-device: tekenniveau-extractie met PDFium plus
 geometrie-gebaseerde layout-analyse, geen cloudservice, geen upload. Gescande
@@ -714,7 +714,7 @@ pagina-afbeelding.
 <details>
 <summary><b>Kan ik mijn eigen AI-model of API-key gebruiken?</b></summary>
 
-Ja. Naast de keyless Genspark-login ondersteunt GenOffice je eigen key voor
+Ja. Naast de keyless Genspark-login ondersteunt OneDesk je eigen key voor
 Claude, OpenAI, Gemini, DeepSeek, Kimi, GLM, Qwen, Doubao, MiniMax, Grok,
 Mistral, OpenRouter, Requesty, Opper, Cheaper Inference, Atlas Cloud en OpenCode Zen/Go, plus elk OpenAI-compatibel endpoint —
 inclusief lokale modelservers. Search, beeldgeneratie en analyse van beeld en
@@ -734,7 +734,7 @@ is hij weer verborgen.
 </details>
 
 <details>
-<summary><b>Kan GenOffice HTML converteren naar Word?</b></summary>
+<summary><b>Kan OneDesk HTML converteren naar Word?</b></summary>
 
 Ja — Export as Word in de HTML-app levert volledig on-device een native,
 bewerkbare `.docx` op. De pagina wordt gerenderd in de ingebouwde Chromium en
@@ -746,9 +746,9 @@ afbeelding ingevoegd.
 </details>
 
 <details>
-<summary><b>Kan ik GenOffice aansturen vanuit Claude Code, Codex, Cursor of een script?</b></summary>
+<summary><b>Kan ik OneDesk aansturen vanuit Claude Code, Codex, Cursor of een script?</b></summary>
 
-Ja. GenOffice installeert een `genoffice`-opdrachtregel die dezelfde engines
+Ja. OneDesk installeert een `onedesk`-opdrachtregel die dezelfde engines
 headless draait: documenten inspecteren, converteren, maken, lezen en
 bewerken vanuit een terminal of een script, met `--json`-uitvoer voor
 programma's. De meegeleverde agent-skill leert Claude Code, Codex, Cursor,
@@ -759,13 +759,13 @@ via **Instellingen → Integraties**. Zie
 </details>
 
 <details>
-<summary><b>Verzamelt GenOffice gegevens?</b></summary>
+<summary><b>Verzamelt OneDesk gegevens?</b></summary>
 
 De officiële, kant-en-klare builds versturen standaard beperkte
 gebruiksanalyse, en je kunt rapportage op elk moment uitschakelen onder
 Settings → General. Analytics verstuurt nooit documentinhoud, bestandsnamen,
 bestandspaden, accountidentiteit of e-mailadressen. Zie
-[GenOffice Privacy](../../PRIVACY.md) voor de volledige lijst van events en
+[OneDesk Privacy](../../PRIVACY.md) voor de volledige lijst van events en
 gegevens die worden gedeeld.
 
 </details>
@@ -778,7 +778,7 @@ dreigingsmodellen voor door AI gegenereerde content.
 
 ## Met dank aan
 
-GenOffice zou niet mogelijk zijn zonder deze open-source projecten:
+OneDesk zou niet mogelijk zijn zonder deze open-source projecten:
 
 - [Electron](https://www.electronjs.org/) — de desktop-runtime voor elke app.
 - [Univer](https://github.com/dream-num/univer) (Apache-2.0) — de
@@ -807,7 +807,7 @@ GenOffice zou niet mogelijk zijn zonder deze open-source projecten:
   `.hwp`-documenten in als HWPX voor de Hancom-import; de WebAssembly-build
   bevat de Rust-crates en de Volexity-port van hwp-extract die in de
   kennisgevingen van derden staan. "한글", "한컴", "HWP" en "HWPX" zijn
-  geregistreerde handelsmerken van Hancom Inc.; GenOffice is niet gelieerd
+  geregistreerde handelsmerken van Hancom Inc.; OneDesk is niet gelieerd
   aan Hancom.
 - [React](https://react.dev/) (MIT) — de UI-laag van elke app.
 - [Mermaid](https://mermaid.js.org/) (MIT) en [KaTeX](https://katex.org/)
@@ -830,11 +830,11 @@ MIT/Apache-2.0/BSD-3-Clause/OFL.
 
 ## Licentie
 
-GenOffice wordt uitgebracht onder de [Apache License 2.0](../../LICENSE), met
+OneDesk wordt uitgebracht onder de [Apache License 2.0](../../LICENSE), met
 één uitzondering: de map `ee/` is gereserveerd voor toekomstige
 enterprise-modules en valt onder de
-[GenOffice Enterprise License](../../ee/LICENSE).
+[OneDesk Enterprise License](../../ee/LICENSE).
 
-De namen en logo's van GenOffice en Genspark zijn handelsmerken van Mainfunc,
+De namen en logo's van OneDesk en Genspark zijn handelsmerken van Mainfunc,
 Inc. De Apache-2.0-licentie geeft geen toestemming om deze te gebruiken (zie
 sectie 6); forks moeten hun eigen branding gebruiken.

