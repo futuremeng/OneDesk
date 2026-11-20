@@ -21,7 +21,7 @@ interface Face {
 function facesOf(weight: string, style: string): Face[] {
   return [...css.matchAll(/@font-face\s*\{[^}]*\}/g)]
     .map((m) => m[0])
-    .filter((f) => f.includes("font-family: 'Century Gothic GO'"))
+    .filter((f) => f.includes("font-family: 'Century Gothic OD'"))
     .filter((f) => f.includes(`font-weight: ${weight}`) && f.includes(`font-style: ${style}`))
     .map((f) => {
       const range = /unicode-range:\s*([^;]+);/.exec(f)?.[1]
@@ -67,7 +67,7 @@ const PANGRAM = 'The quick brown fox jumps over the lazy dog 0123456789'
 const BODY =
   'On the Insert tab, the galleries include items that are designed to coordinate with the overall look of your document.'
 
-describe('Century Gothic GO reproduces Century Gothic advances', () => {
+describe('Century Gothic OD reproduces Century Gothic advances', () => {
   const cuts = [
     ['normal', 'normal'],
     ['bold', 'normal'],
@@ -82,7 +82,7 @@ describe('Century Gothic GO reproduces Century Gothic advances', () => {
       const derived = faces.filter((f) => f.ranges)
       expect(derived).toHaveLength(1)
       expect(derived[0].adjust).toBe(1)
-      expect(derived[0].file).toMatch(/^CenturyGothicGO-/)
+      expect(derived[0].file).toMatch(/^CenturyGothicOD-/)
       const covered = (cp: number) => derived[0].ranges!.some(([a, b]) => cp >= a && cp <= b)
       for (const cp of [0x20, 0x30, 0x43, 0x74, 0xa0, 0xe9, 0x2013, 0x20ac])
         expect(covered(cp)).toBe(true)

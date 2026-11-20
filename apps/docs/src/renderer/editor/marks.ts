@@ -513,11 +513,11 @@ export function fontAttrsFromFamilyChain(chain: string | undefined): Record<stri
         !/^(serif|sans-serif|monospace|cursive|fantasy|system-ui)$/i.test(x) &&
         !CSS_ONLY_FAMILY.test(x) &&
         // internal fonts.css aliases are not user picks: 'OneDesk *' (and the
-        // legacy 'GenOffice *' name in older documents), the '* GO'
-        // renamed/range-limited faces (Carlito GO, KR Theme Latin GO,
-        // Noto Sans/Serif CJK GO...) and the size-adjusted Noto Arabic aliases
+        // legacy 'GenOffice *' name in older documents), the '* OD'
+        // renamed/range-limited faces (Carlito OD, KR Theme Latin OD,
+        // Noto Sans/Serif CJK OD...) and the size-adjusted Noto Arabic aliases
         !/^(onedesk|genoffice) /i.test(x) &&
-        !/ go$/i.test(x) &&
+        !/ (?:od|go)$/i.test(x) &&
         !/^noto (naskh|sans) arabic (w|ta|tnr)$/i.test(x),
     )
   const { ea, latin } = eastAsianAndLatinOf(families)

@@ -36,14 +36,14 @@ type Generic = 'serif' | 'sans-serif' | 'monospace'
  * tail the manifests do not express.
  */
 const HAND_STAND_IN_CHAINS: Record<string, [string[], Generic]> = {
-  calibri: [['Carlito GO', 'Calibri Arabic GO', CJK_SANS], 'sans-serif'],
+  calibri: [['Carlito OD', 'Calibri Arabic OD', CJK_SANS], 'sans-serif'],
   'calibri light': [
-    ['Calibri Light GO', 'Carlito GO', 'Calibri Arabic GO', CJK_SANS],
+    ['Calibri Light OD', 'Carlito OD', 'Calibri Arabic OD', CJK_SANS],
     'sans-serif',
   ],
-  cambria: [['Caladea', 'Cambria Cyrillic GO', BOX, CJK_SERIF], 'serif'],
+  cambria: [['Caladea', 'Cambria Cyrillic OD', BOX, CJK_SERIF], 'serif'],
   'times new roman': [['Liberation Serif', BOX, CJK_SERIF], 'serif'],
-  'segoe ui': [['Segoe UI GO', 'Noto Sans CJK GO', 'GenOffice PUA Blank'], 'sans-serif'],
+  'segoe ui': [['Segoe UI OD', 'Noto Sans CJK OD', 'OneDesk PUA Blank'], 'sans-serif'],
   // M365 cloud faces Word downloads; macOS ships the same Linotype design as
   // Avenir Next (Regular, Medium, Demi Bold, Bold), so the text keeps its look
   // and weights instead of falling to the generic sans
@@ -55,19 +55,16 @@ const HAND_STAND_IN_CHAINS: Record<string, [string[], Generic]> = {
   batang: [KO_SERIF, 'serif'],
   gulim: [KO_SANS, 'sans-serif'],
   dotum: [KO_SANS, 'sans-serif'],
-  nanumgothic: [['GenOffice Gothic KR', ...KO_SANS], 'sans-serif'],
-  'nanum gothic': [['GenOffice Gothic KR', ...KO_SANS], 'sans-serif'],
-  'nanumgothic extrabold': [['GenOffice Gothic KR', ...KO_SANS], 'sans-serif'],
+  nanumgothic: [['OneDesk Gothic KR', ...KO_SANS], 'sans-serif'],
+  'nanum gothic': [['OneDesk Gothic KR', ...KO_SANS], 'sans-serif'],
+  'nanumgothic extrabold': [['OneDesk Gothic KR', ...KO_SANS], 'sans-serif'],
   nanummyeongjo: [KO_SERIF, 'serif'],
   'nanum myeongjo': [KO_SERIF, 'serif'],
   nanummyeongjoextrabold: [KO_SERIF, 'serif'],
-  simsun: [
-    ['GenOffice SimSun Latin', 'GenOffice Songti SC', 'STSong', 'SimSun', CJK_SERIF],
-    'serif',
-  ],
+  simsun: [['OneDesk SimSun Latin', 'OneDesk Songti SC', 'STSong', 'SimSun', CJK_SERIF], 'serif'],
   simhei: [['Heiti SC', 'STHeiti', 'SimHei', 'PingFang SC', CJK_SANS], 'sans-serif'],
   'microsoft yahei': [['Microsoft YaHei', 'PingFang SC', CJK_SANS], 'sans-serif'],
-  dengxian: [['DengXian GO', 'DengXian', 'PingFang SC', 'Microsoft YaHei', CJK_SANS], 'sans-serif'],
+  dengxian: [['DengXian OD', 'DengXian', 'PingFang SC', 'Microsoft YaHei', CJK_SANS], 'sans-serif'],
   kaiti: [['STKaiti', 'Kaiti SC', 'KaiTi', CJK_SERIF], 'serif'],
   fangsong: [['STFangsong', 'FangSong', CJK_SERIF], 'serif'],
 }
@@ -132,9 +129,9 @@ const HAN_REGIONAL_NAME_RE =
  */
 function latinSlotHead(sub: string): string[] {
   const k = sub.normalize('NFKC').toLowerCase()
-  if (k === 'calibri') return ['Carlito GO']
-  if (k === 'cambria') return ['KR Theme Latin GO']
-  if (k === 'simsun' || k === '\u5b8b\u4f53') return ['GenOffice SimSun Latin']
+  if (k === 'calibri') return ['Carlito OD']
+  if (k === 'cambria') return ['KR Theme Latin OD']
+  if (k === 'simsun' || k === '\u5b8b\u4f53') return ['OneDesk SimSun Latin']
   return latinChainHead(sub)
 }
 
@@ -188,7 +185,7 @@ function substituteFontFamily(font: string): string | null {
   // SimSun chain carries none, so the 1em hangul faces close it
   const hangulTail =
     /^(simsun|\u5b8b\u4f53)$/i.test(face.family.normalize('NFKC')) && !/[\uac00-\ud7a3]/.test(nfkc)
-      ? `,'GenOffice Batang','GenOffice Serif KR'`
+      ? `,'OneDesk Batang','OneDesk Serif KR'`
       : ''
   const generic = target.lastIndexOf(',')
   const chain = `${target.slice(0, generic)}${hangulTail}${target.slice(generic)}`
@@ -221,8 +218,8 @@ export function cssFontFamily(font: string): string {
   // (tools/build-thai-font.py) lead. On Windows the declared name resolves first.
   if (THAI_FONT_RE.test(font.normalize('NFKC').toLowerCase())) {
     const face = /^th sarabunpsk$/i.test(font.normalize('NFKC'))
-      ? 'GenOffice Sarabun'
-      : 'GenOffice Cordia'
+      ? 'OneDesk Sarabun'
+      : 'OneDesk Cordia'
     return `${cssChain(font, face, 'Thonburi')},sans-serif`
   }
   const byFace = standInFontFamily(font) ?? substituteFontFamily(font)
@@ -249,14 +246,14 @@ export function cssFontFamily(font: string): string {
   const latinNamed = !CJK_NAMED_RE.test(nfkc)
   const tail = serifLike
     ? latinNamed
-      ? 'Noto Serif CJK GO'
+      ? 'Noto Serif CJK OD'
       : CJK_SERIF
     : latinNamed
-      ? 'Noto Sans CJK GO'
+      ? 'Noto Sans CJK OD'
       : CJK_SANS
-  // the GO aliases exclude PUA, so the blank face keeps those codepoints
+  // the OD aliases exclude PUA, so the blank face keeps those codepoints
   // invisible (the full subsets' blank .notdef used to catch them)
-  const pua = latinNamed ? ['GenOffice PUA Blank'] : []
+  const pua = latinNamed ? ['OneDesk PUA Blank'] : []
   return `${chain(font, tail, ...pua)},${serifLike ? 'serif' : 'sans-serif'}`
 }
 
@@ -275,14 +272,14 @@ function latinChainHead(ascii: string): string[] {
   const jp = fams.findIndex((fam) => /^'Noto (?:Sans|Serif) JP'$/.test(fam))
   const latin = fams.filter(
     (fam, i) =>
-      !(jp >= 0 && i > jp && /^'GenOffice (?:Sans KR|Serif KR|Batang)'$/.test(fam)) &&
+      !(jp >= 0 && i > jp && /^'OneDesk (?:Sans KR|Serif KR|Batang)'$/.test(fam)) &&
       !/noto (sans|serif) cjk/i.test(fam) &&
-      !/ JA GO'$/.test(fam) &&
+      !/ JA OD'$/.test(fam) &&
       !/^(serif|sans-serif|monospace)$/.test(fam),
   )
   // mono chains already carry the bundled Liberation Mono
   if (generic !== 'monospace') {
-    latin.push(generic === 'serif' ? "'Latin Serif GO'" : "'Latin Sans GO'")
+    latin.push(generic === 'serif' ? "'Latin Serif OD'" : "'Latin Sans OD'")
   }
   return latin
 }
@@ -295,7 +292,7 @@ export function docLatinChainCss(ascii: string): string {
 
 /** class-matched Latin-range backstop alias for a face's chain */
 function latinBackstopFor(font: string): string {
-  return cssFontFamily(font).endsWith('sans-serif') ? "'Latin Sans GO'" : "'Latin Serif GO'"
+  return cssFontFamily(font).endsWith('sans-serif') ? "'Latin Sans OD'" : "'Latin Serif OD'"
 }
 
 /**
@@ -323,7 +320,7 @@ export function cssDualFontFamily(ascii: string, eastAsia: string): string {
  */
 export function cssEaOnlyFontFamily(ea: string): string {
   const eaChain = cssFontFamily(ea)
-  const backstop = eaChain.endsWith('sans-serif') ? "'Latin Sans GO'" : "'Latin Serif GO'"
+  const backstop = eaChain.endsWith('sans-serif') ? "'Latin Sans OD'" : "'Latin Serif OD'"
   return `var(--doc-latin-chain,${backstop}),${eaChain}`
 }
 
@@ -334,7 +331,7 @@ export function cssEaOnlyFontFamily(ea: string): string {
  * size and the baseline-aligned union inflates the line (Word keeps the pitch).
  */
 export function cutAdjustedAlias(cssFamily: string): boolean {
-  return cssFamily.includes("'Merriweather GO'")
+  return cssFamily.includes("'Merriweather OD'")
 }
 
 export function cssRunFontFamily(
@@ -375,19 +372,21 @@ export function cssCsFontFamily(cs: string, ascii?: string, eastAsia?: string): 
   // shaping is unaffected. Full Times entries must sit after the ascii chain
   // (Latin letters belong to the ascii slot per Word; Times only backstops a
   // missing ascii font), but ASCII punctuation/digits belong to the
-  // substituted cs font — the unicode-range 'Times Punct GO' alias claims
+  // substituted cs font — the unicode-range 'Times Punct OD' alias claims
   // just those ahead of the subset's sunken forms.
   const notoIdx = head.findIndex((f) =>
-    /noto (naskh|sans) arabic|sakkal majalla go\b|dubai go\b|arial arabic go\b/i.test(f),
+    /noto (naskh|sans) arabic|sakkal majalla (?:od|go)\b|dubai (?:od|go)\b|arial arabic (?:od|go)\b/i.test(
+      f,
+    ),
   )
   const latinSub = /times new roman|liberation serif/i
   const pre = head.slice(0, notoIdx + 1)
   const timesSub = pre.some((f) => latinSub.test(f))
   // the system Times draws the substituted Arabic; the scaled alias serves hosts without it
   const preKept = pre.filter((f) => !latinSub.test(f) && !(timesSub && f === head[notoIdx]))
-  if (timesSub) preKept.push("'Times Punct GO'")
-  // the ascii slot's Arabic companions (Calibri/Arial Arabic GO) must not claim the cs glyphs
-  const companion = /arabic go\b/i
+  if (timesSub) preKept.push("'Times Punct OD'")
+  // the ascii slot's Arabic companions (Calibri/Arial Arabic OD) must not claim the cs glyphs
+  const companion = /arabic (?:od|go)\b/i
   const merged =
     notoIdx >= 0
       ? [

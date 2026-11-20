@@ -28,8 +28,8 @@ function faces(family: string) {
 const find = (rules: ReturnType<typeof faces>, range: string, bold = false) =>
   rules.find((r) => r.range === range && r.bold === bold)
 
-describe('Yu Mincho Serif GO (Liberation Serif tier)', () => {
-  const rules = faces('Yu Mincho Serif GO')
+describe('Yu Mincho Serif OD (Liberation Serif tier)', () => {
+  const rules = faces('Yu Mincho Serif OD')
   // Liberation Serif carries the Times advances: space 0.25 em, digits 0.5 em
 
   it('space and digits land on the Word yumin.ttf advances (0.2598 / 0.542 em)', () => {
@@ -47,15 +47,15 @@ describe('Yu Mincho Serif GO (Liberation Serif tier)', () => {
 })
 
 describe('Apple tiers', () => {
-  it('Yu Mincho GO leads with the Apple Medium cut, space at 0.78x of its 1/3 em', () => {
-    const rules = faces('Yu Mincho GO')
+  it('Yu Mincho OD leads with the Apple Medium cut, space at 0.78x of its 1/3 em', () => {
+    const rules = faces('Yu Mincho OD')
     expect(find(rules, 'U+0020')?.src).toContain("local('YuMin-Medium')")
     expect(find(rules, 'U+0020')?.adjust).toBeCloseTo(0.78, 2)
     expect(find(rules, 'U+0020-007E, U+00A0-00FF', true)?.src).toContain("local('YuMin-Demibold')")
   })
 
-  it('Yu Gothic GO takes the Apple Medium/Bold cuts unscaled (advances equal Word yugoth)', () => {
-    const rules = faces('Yu Gothic GO')
+  it('Yu Gothic OD takes the Apple Medium/Bold cuts unscaled (advances equal Word yugoth)', () => {
+    const rules = faces('Yu Gothic OD')
     expect(rules).toHaveLength(2)
     for (const r of rules) expect(r.adjust).toBe(1)
     expect(find(rules, 'U+0020-007E, U+00A0-00FF')?.src).toContain("local('YuGo-Medium')")

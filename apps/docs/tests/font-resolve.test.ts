@@ -85,7 +85,7 @@ describe('Latin cutover', () => {
   })
 
   it('leads David with the advance-matched stand-in', () => {
-    expect(cssFontFamily('David')).toMatch(/^'David','David GO',/)
+    expect(cssFontFamily('David')).toMatch(/^'David','David OD',/)
     expect(lineHeightFactor('David')).toBe(0.9839)
   })
 

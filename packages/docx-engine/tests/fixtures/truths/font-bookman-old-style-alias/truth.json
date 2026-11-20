@@ -9,7 +9,7 @@
     {
       "kind": "cssFamilyIncludes",
       "font": "Bookman Old Style",
-      "expect": "Bookman Old Style GO"
+      "expect": "Bookman Old Style OD"
     },
     {
       "kind": "latinLineFactor",
@@ -31,7 +31,7 @@
     },
     {
       "kind": "aliasWidthEm",
-      "family": "Bookman Old Style GO",
+      "family": "Bookman Old Style OD",
       "text": "The quick brown fox jumps over the lazy dog 0123456789",
       "expect": 28.58,
       "tol": 0.3,
@@ -39,7 +39,7 @@
     },
     {
       "kind": "aliasWidthEm",
-      "family": "Bookman Old Style GO",
+      "family": "Bookman Old Style OD",
       "weight": "bold",
       "text": "The quick brown fox jumps over the lazy dog 0123456789",
       "expect": 30.57,
@@ -47,7 +47,7 @@
     },
     {
       "kind": "aliasWidthEm",
-      "family": "Bookman Old Style GO",
+      "family": "Bookman Old Style OD",
       "style": "italic",
       "text": "The quick brown fox jumps over the lazy dog 0123456789",
       "expect": 28.06,
@@ -55,7 +55,7 @@
     },
     {
       "kind": "aliasWidthEm",
-      "family": "Bookman Old Style GO",
+      "family": "Bookman Old Style OD",
       "weight": "bold",
       "style": "italic",
       "text": "The quick brown fox jumps over the lazy dog 0123456789",

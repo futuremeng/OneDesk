@@ -58,7 +58,8 @@ function standInOf(chain: string): string | null {
   for (const raw of chain.split(',')) {
     const fam = raw.trim().replace(/^['"]|['"]$/g, '')
     if (!fam || /^(serif|sans-serif|monospace)$/.test(fam)) return null
-    if (/ GO$/.test(fam) || /^GenOffice /.test(fam) || isBundledFont(fam)) return fam
+    if (/ (?:OD|GO)$/.test(fam) || /^(?:OneDesk|GenOffice) /.test(fam) || isBundledFont(fam))
+      return fam
   }
   return null
 }

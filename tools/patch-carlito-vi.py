@@ -4,7 +4,7 @@ defect: some precomposed dot-below+above-mark glyphs (e.g. U+1EAC) reuse the
 dot-below-only composition, dropping the circumflex/breve. Rebuilds them as
 <above-mark glyph components> + <dot-below component>. Advance widths untouched.
 
-Also renames the family to "Carlito GO" (OFL Reserved Font Name rule, since the
+Also renames the family to "Carlito OD" (OFL Reserved Font Name rule, since the
 glyph data is modified). Idempotent: files are rewritten only when changed.
 
 Usage:
@@ -107,13 +107,13 @@ def rename(font):
     changed = False
     for rec in font["name"].names:
         s = rec.toUnicode()
-        if "Carlito" not in s or "Carlito GO" in s or "CarlitoGO" in s:
+        if "Carlito" not in s or "Carlito OD" in s or "CarlitoOD" in s:
             continue
         if rec.nameID == 6:  # PostScript name: no spaces
-            rec.string = s.replace("Carlito", "CarlitoGO")
+            rec.string = s.replace("Carlito", "CarlitoOD")
             changed = True
         elif rec.nameID in (1, 3, 4, 16, 17):
-            rec.string = s.replace("Carlito", "Carlito GO")
+            rec.string = s.replace("Carlito", "Carlito OD")
             changed = True
     return changed
 

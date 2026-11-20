@@ -152,7 +152,7 @@ function stubMetricsCanvas(ascent: number, descent: number) {
 function mountBlankFace() {
   const style = document.createElement('style')
   style.textContent =
-    "@font-face { font-family: 'GenOffice PUA Blank'; src: url('./GenOfficePUABlank.woff2') format('woff2'); }"
+    "@font-face { font-family: 'OneDesk PUA Blank'; src: url('./OneDeskPUABlank.woff2') format('woff2'); }"
   document.head.appendChild(style)
 }
 
@@ -163,15 +163,15 @@ describe('docStyleCss grid strut face', () => {
     stubMetricsCanvas(1143, 286)
     mountBlankFace()
     const css = docStyleCss(parsedWith(GRID_SECT, 'ＭＳ 明朝'))
-    expect(css).toContain("@font-face { font-family:'GenOffice Grid Strut'")
+    expect(css).toContain("@font-face { font-family:'OneDesk Grid Strut'")
     expect(css).toContain('ascent-override:100.94%')
     expect(css).toContain('descent-override:29.06%')
-    expect(css).toContain('GenOfficePUABlank.woff2')
+    expect(css).toContain('OneDeskPUABlank.woff2')
     // the Office-private MS Mincho renders through a stand-in, so the
     // inheriting .doc-ea-strut paragraphs share the strut too
     expect(css).toContain(
       // !important: all-declared CJK paragraphs carry their chain inline and get the class too
-      ".doc-page :is(.doc-grid-strut,.doc-ea-strut) { font-family:var(--doc-strut-face,'GenOffice Grid Strut'),var(--doc-grid-strut-tail,serif) !important }",
+      ".doc-page :is(.doc-grid-strut,.doc-ea-strut) { font-family:var(--doc-strut-face,'OneDesk Grid Strut'),var(--doc-grid-strut-tail,serif) !important }",
     )
     expect(css).toContain('--doc-grid-strut-tail:')
   })
@@ -183,10 +183,10 @@ describe('docStyleCss grid strut face', () => {
       docStyleCss(parsedWith(GRID_SECT)),
       docStyleCss(parsedWith(null, 'Century')),
     ]) {
-      expect(css).not.toContain("@font-face { font-family:'GenOffice Grid Strut'")
+      expect(css).not.toContain("@font-face { font-family:'OneDesk Grid Strut'")
       expect(css).not.toContain('.doc-ea-strut')
       expect(css).toContain(
-        ".doc-page :is(.doc-grid-strut) { font-family:var(--doc-strut-face,'GenOffice Grid Strut'),var(--doc-grid-strut-tail,serif) !important }",
+        ".doc-page :is(.doc-grid-strut) { font-family:var(--doc-strut-face,'OneDesk Grid Strut'),var(--doc-grid-strut-tail,serif) !important }",
       )
       expect(css).toContain('--doc-grid-strut-tail:')
     }
@@ -198,18 +198,18 @@ describe('docStyleCss grid strut face', () => {
     stubMetricsCanvas(880, 120)
     mountBlankFace()
     const css = docStyleCss(parsedWith(null, '\u6e38\u660e\u671d'))
-    expect(css).toContain("@font-face { font-family:'GenOffice Grid Strut'")
+    expect(css).toContain("@font-face { font-family:'OneDesk Grid Strut'")
     expect(css).toContain('ascent-override:104.52%')
     expect(css).toContain('.doc-page :is(.doc-grid-strut,.doc-ea-strut) {')
     // the CJK spans lead with the strut face too: their loaded range alias is
     // not the face the strut measured, and offset boxes union past the grid
     expect(css).toContain(
-      ".doc-page :is(.doc-grid-strut,.doc-ea-strut) .doc-east-asian-font { font-family:var(--doc-strut-face,'GenOffice Grid Strut'),",
+      ".doc-page :is(.doc-grid-strut,.doc-ea-strut) .doc-east-asian-font { font-family:var(--doc-strut-face,'OneDesk Grid Strut'),",
     )
     // balanced spaces too: their 0.8/0.2 one-glyph face unions a Gulim 12pt line
     // under a Malgun strut to 17.1pt for Word's 15.6
     expect(css).toContain(
-      ".doc-page :is(.doc-grid-strut,.doc-ea-strut) .doc-balanced-space { font-family:var(--doc-strut-face,'GenOffice Grid Strut'),'GenOffice Balanced Space' !important }",
+      ".doc-page :is(.doc-grid-strut,.doc-ea-strut) .doc-balanced-space { font-family:var(--doc-strut-face,'OneDesk Grid Strut'),'OneDesk Balanced Space' !important }",
     )
     expect(docStyleCss(parsedWith(null, '\uff2d\uff33 \u660e\u671d'))).toContain('.doc-ea-strut')
   })
@@ -220,14 +220,14 @@ describe('docStyleCss grid strut face', () => {
     const resolved = parsedWith(GRID_SECT, 'PMingLiU', { eaSlotEmpty: true, eaFromLang: true })
     expect(docStyleCss(resolved)).toContain('ascent-override:95.08%')
     const unresolved = parsedWith(GRID_SECT, 'Yu Gothic', { eaSlotEmpty: true })
-    expect(docStyleCss(unresolved)).not.toContain("@font-face { font-family:'GenOffice Grid Strut'")
+    expect(docStyleCss(unresolved)).not.toContain("@font-face { font-family:'OneDesk Grid Strut'")
   })
 
   it('Office-private faces under a metric alias get the strut without a grid', () => {
     stubMetricsCanvas(969, 391)
     mountBlankFace()
     const css = docStyleCss(parsedWith(null, 'DengXian'))
-    expect(css).toContain("@font-face { font-family:'GenOffice Grid Strut'")
+    expect(css).toContain("@font-face { font-family:'OneDesk Grid Strut'")
     expect(css).toContain('ascent-override:96.64%')
     expect(css).toContain('descent-override:38.82%')
     expect(css).toContain('.doc-page :is(.doc-grid-strut,.doc-ea-strut) {')
@@ -249,7 +249,7 @@ describe('docStyleCss grid strut face', () => {
         },
       ),
     )
-    expect(css).toContain("@font-face { font-family:'GenOffice Grid Strut'")
+    expect(css).toContain("@font-face { font-family:'OneDesk Grid Strut'")
     expect(css).toContain('.doc-ea-strut')
   })
 
@@ -301,17 +301,17 @@ describe('per-paragraph strut face (strut-face.ts)', () => {
     const added = stubFontFaces()
     // MS Gothic and MS Mincho share Word's hhea (0.8594 / 0.1406) and line factor: one face
     const gothic = declaredStrutFace('ＭＳ ゴシック')
-    expect(gothic).toBe('GenOffice Grid Strut 1')
+    expect(gothic).toBe('OneDesk Grid Strut 1')
     expect(declaredStrutFace('MS Mincho')).toBe(gothic)
     expect(added).toHaveLength(1)
-    expect(added[0].src).toContain('GenOfficePUABlank.woff2')
+    expect(added[0].src).toContain('OneDeskPUABlank.woff2')
     expect(added[0].descriptors).toEqual({
       ascentOverride: '100.94%',
       descentOverride: '29.06%',
       lineGapOverride: '0%',
     })
-    expect(declaredStrutFace('Yu Mincho')).toBe('GenOffice Grid Strut 2')
-    expect(declaredStrutFace('Calibri')).toBe('GenOffice Grid Strut 3')
+    expect(declaredStrutFace('Yu Mincho')).toBe('OneDesk Grid Strut 2')
+    expect(declaredStrutFace('Calibri')).toBe('OneDesk Grid Strut 3')
     expect(document.fonts.add).toHaveBeenCalledTimes(3)
 
     // a Cambria + MS Gothic paragraph under a Latin-only document: the runs'
@@ -323,7 +323,7 @@ describe('per-paragraph strut face (strut-face.ts)', () => {
     })
     const p = pOf(editor)
     expect(p.classList.contains('doc-grid-strut')).toBe(true)
-    expect(p.style.getPropertyValue('--doc-strut-face')).toBe("'GenOffice Grid Strut 1'")
+    expect(p.style.getPropertyValue('--doc-strut-face')).toBe("'OneDesk Grid Strut 1'")
     editor.destroy()
   })
 

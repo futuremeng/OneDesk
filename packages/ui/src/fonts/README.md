@@ -6,9 +6,9 @@ and one place for the build-time patch to write to.
 
 | Font       | Files           | License | Used by              |
 | ---------- | --------------- | ------- | -------------------- |
-| Carlito GO | `Carlito-*.ttf` | OFL 1.1 | docs, sheets, slides |
+| Carlito OD | `Carlito-*.ttf` | OFL 1.1 | docs, sheets, slides |
 
-"Carlito GO" is Carlito 1.103 (LibreOffice's metric-compatible Calibri
+"Carlito OD" is Carlito 1.103 (LibreOffice's metric-compatible Calibri
 substitute) with Vietnamese stacked diacritics rebuilt by
 `tools/patch-carlito-vi.py`, renamed per OFL 1.1 §2 ("Carlito" is a Reserved
 Font Name). The full OFL text lives in `apps/docs/src/renderer/fonts/LICENSE-OFL.txt`

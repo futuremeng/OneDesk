@@ -25,8 +25,8 @@ function faces(family: string) {
 const find = (rules: ReturnType<typeof faces>, range: string, bold = false) =>
   rules.find((r) => r.range === range && r.bold === bold)
 
-describe('Sakkal Majalla GO', () => {
-  const rules = faces('Sakkal Majalla GO')
+describe('Sakkal Majalla OD', () => {
+  const rules = faces('Sakkal Majalla OD')
 
   it('Arabic letters ride the Noto Naskh subset at 0.8055, weight-normal only', () => {
     const arabic = rules.filter((r) => r.range?.startsWith('U+0600-065F'))
@@ -54,7 +54,7 @@ describe('Sakkal Majalla GO', () => {
 
   it('every face is weight-normal (one weight group per family in Blink) and pins the Word hhea box', () => {
     expect(rules.length).toBeGreaterThan(0)
-    for (const r of [...rules, ...faces('Sakkal Majalla Latin GO')]) {
+    for (const r of [...rules, ...faces('Sakkal Majalla Latin OD')]) {
       expect(r.bold).toBe(false)
       expect(r.ascent).toBe('88.38')
       expect(r.descent).toBe('51.27')
@@ -62,7 +62,7 @@ describe('Sakkal Majalla GO', () => {
   })
 
   it('Latin letters live in their own family, scaled 0.67', () => {
-    const latin = faces('Sakkal Majalla Latin GO')
+    const latin = faces('Sakkal Majalla Latin OD')
     expect(find(latin, 'U+0041-005A, U+0061-007A')?.adjust).toBeCloseTo(0.67, 3)
     expect(rules.some((r) => r.range?.includes('U+0041'))).toBe(false)
   })

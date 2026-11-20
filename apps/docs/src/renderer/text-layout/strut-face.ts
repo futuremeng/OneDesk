@@ -14,7 +14,7 @@
 import { PUA_BLANK_FAMILY } from './font-rules/face-classes'
 import { gridStrutMetricsPct } from '../line-metrics'
 
-export const GRID_STRUT_FAMILY = 'GenOffice Grid Strut'
+export const GRID_STRUT_FAMILY = 'OneDesk Grid Strut'
 
 /**
  * src of the bundled blank PUA face (fonts.css, build-hashed URL), read from the
@@ -49,7 +49,7 @@ export function blankFontFaceSrc(): string | null {
     // jsdom drops @font-face rules from the CSSOM: scan raw <style> text
     try {
       for (const el of Array.from(document.querySelectorAll('style'))) {
-        const m = /@font-face\s*{[^}]*GenOffice PUA Blank[^}]*?src:\s*([^;}]+)/.exec(
+        const m = /@font-face\s*{[^}]*OneDesk PUA Blank[^}]*?src:\s*([^;}]+)/.exec(
           el.textContent ?? '',
         )
         if (m) blankSrcCache = m[1].trim()

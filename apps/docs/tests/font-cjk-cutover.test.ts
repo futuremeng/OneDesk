@@ -100,8 +100,8 @@ describe('East Asian line factors follow hhea (ascent + descent) x 1.3', () => {
 describe('CSS chains keyed by the target face', () => {
   it('a directly laid-out face takes its target chain; substitutions stay on the name branches', () => {
     expect(standInFontFamily('Calibri')).toBe(cssFontFamily('Calibri'))
-    expect(standInFontFamily('\uff2d\uff33 \u660e\u671d')).toContain("'MS Mincho GO'")
-    expect(standInFontFamily('Yu Gothic Light')).toContain("'Yu Gothic Light GO'")
+    expect(standInFontFamily('\uff2d\uff33 \u660e\u671d')).toContain("'MS Mincho OD'")
+    expect(standInFontFamily('Yu Gothic Light')).toContain("'Yu Gothic Light OD'")
     expect(standInFontFamily('Calibri Bold')).toBeNull()
     expect(standInFontFamily('Noto Sans CJK SC')).toBeNull()
   })

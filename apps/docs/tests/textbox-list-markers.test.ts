@@ -151,7 +151,7 @@ describe('list markers rendered inside a textbox', () => {
     )
     expect(plainNumber.style.getPropertyValue('--li-marker-lh')).toBe('')
     // a substitute glyph draws in the size-adjusted alias at the declared size
-    expect(bullet.style.getPropertyValue('--li-marker-font')).toBe("'Symbol Bullet GO'")
+    expect(bullet.style.getPropertyValue('--li-marker-font')).toBe("'Symbol Bullet OD'")
     // level w:ind right/end reaches the item like left does; an absent left is 0
     expect(bidi.style.getPropertyValue('margin-inline-end')).toBe('18pt')
     expect(bidi.style.getPropertyValue('margin-inline-start')).toBe('0pt')

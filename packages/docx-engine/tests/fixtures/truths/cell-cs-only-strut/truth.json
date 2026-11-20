@@ -13,7 +13,7 @@
       "expect": {
         "styles": [
           "--doc-line-factor:1.1499",
-          "font-family:'Arial','Arial Arabic GO','Calibri','Carlito GO','Noto Sans CJK SC','Liberation Sans','Calibri Arabic GO',sans-serif",
+          "font-family:'Arial','Arial Arabic OD','Calibri','Carlito OD','Noto Sans CJK SC','Liberation Sans','Calibri Arabic OD',sans-serif",
           "--doc-strut:12pt"
         ]
       },
@@ -26,7 +26,7 @@
       "expect": {
         "styles": [
           "--doc-line-factor:1.3965",
-          "font-family:'Sakkal Majalla','Sakkal Majalla GO','Calibri','Carlito GO','Noto Sans CJK SC','Sakkal Majalla Latin GO','Geeza Pro','Al Bayan','Calibri Arabic GO',sans-serif",
+          "font-family:'Sakkal Majalla','Sakkal Majalla OD','Calibri','Carlito OD','Noto Sans CJK SC','Sakkal Majalla Latin OD','Geeza Pro','Al Bayan','Calibri Arabic OD',sans-serif",
           "--doc-strut:14pt"
         ]
       }
@@ -38,7 +38,7 @@
       "expect": {
         "styles": [
           "--doc-line-factor:1.2207",
-          "font-family:'Calibri','Carlito GO','Calibri Arabic GO','Noto Sans CJK SC',sans-serif"
+          "font-family:'Calibri','Carlito OD','Calibri Arabic OD','Noto Sans CJK SC',sans-serif"
         ]
       },
       "note": "Latin control keeps the ascii chain"

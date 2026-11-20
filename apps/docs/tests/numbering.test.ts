@@ -426,8 +426,8 @@ describe('computeListMarkers', () => {
   })
 
   it('routes only solid round substitute glyphs through the size-adjusted aliases', () => {
-    expect(substituteBullet('•')).toEqual({ glyph: '\u25cf', face: 'Symbol Bullet GO' })
-    expect(substituteBullet('●')).toEqual({ glyph: '\u25cf', face: 'Wingdings Bullet GO' })
+    expect(substituteBullet('•')).toEqual({ glyph: '\u25cf', face: 'Symbol Bullet OD' })
+    expect(substituteBullet('●')).toEqual({ glyph: '\u25cf', face: 'Wingdings Bullet OD' })
     expect(substituteBullet('▪')).toBeNull()
     expect(substituteBullet('1.')).toBeNull()
   })
@@ -458,7 +458,7 @@ describe('computeListMarkers', () => {
     // no canvas in the test DOM → coverage probe fails → substitution path
     expect(el.getAttribute('data-marker')).toBe('\u25cf')
     const style = el.getAttribute('style') ?? ''
-    expect(style).toContain("--li-marker-font: 'Symbol Bullet GO'")
+    expect(style).toContain("--li-marker-font: 'Symbol Bullet OD'")
     expect(style).not.toContain('--li-marker-scale')
     // Symbol's ascent tops the 12pt Calibri text: the bullet box carries Word's
     // max-ascent + max-descent line (1.0054 + 0.2686 em) and sits on the bottom;
@@ -529,7 +529,7 @@ describe('computeListMarkers', () => {
     const items = [...editor.view.dom.querySelectorAll('.doc-li')]
     const [tri, dot, seg] = items.map((el) => el.getAttribute('style') ?? '')
     expect(items[0].getAttribute('data-marker')).toBe('▸')
-    expect(tri).toContain("--li-marker-font: 'Segoe UI Symbol GO',")
+    expect(tri).toContain("--li-marker-font: 'Segoe UI Symbol OD',")
     expect(tri).toContain('--li-marker-size: 11pt')
     expect(tri).toContain(
       '--li-marker-lh: calc(14.825pt + (var(--doc-line-mult,1) - 1) * var(--doc-line-factor,1.2) * 11pt)',
@@ -569,7 +569,7 @@ describe('computeListMarkers', () => {
     editor.commands.setContent(blocksToPmDoc(parsed.blocks) as never)
     const style = editor.view.dom.querySelector('.doc-li')!.getAttribute('style') ?? ''
     // Symbol 10pt ascent + Times descent (12.65pt) stays under the 13.8pt text line
-    expect(style).toContain("--li-marker-font: 'Symbol Bullet GO'")
+    expect(style).toContain("--li-marker-font: 'Symbol Bullet OD'")
     expect(style).toContain('--li-marker-lh: 0')
     expect(style).not.toContain('--li-marker-va')
     editor.destroy()

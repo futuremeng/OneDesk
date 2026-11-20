@@ -38,26 +38,26 @@ describe('loadBundledStandIns', () => {
     await loadBundledStandIns(['Calibri', 'Calibri Light', 'Cambria'])
     const specs = load.mock.calls.map(([spec]) => spec)
     expect(specs).toEqual([
-      '16px "Carlito GO"',
-      'bold 16px "Carlito GO"',
-      'italic 16px "Carlito GO"',
-      'bold italic 16px "Carlito GO"',
+      '16px "Carlito OD"',
+      'bold 16px "Carlito OD"',
+      'italic 16px "Carlito OD"',
+      'bold italic 16px "Carlito OD"',
       '16px "Caladea"',
       'bold 16px "Caladea"',
       'italic 16px "Caladea"',
       'bold italic 16px "Caladea"',
     ])
-    expect(loaded.has('bold 16px "Carlito GO"')).toBe(true)
+    expect(loaded.has('bold 16px "Carlito OD"')).toBe(true)
   })
 
   it('skips cuts already in; a CSS generic keyword declared as a family takes the Cambria stand-in', async () => {
-    const loaded = new Set(['16px "Carlito GO"', 'bold 16px "Carlito GO"'])
+    const loaded = new Set(['16px "Carlito OD"', 'bold 16px "Carlito OD"'])
     const load = stubFonts(loaded)
     stubCanvas()
     await loadBundledStandIns(['Calibri', 'sans-serif'])
     expect(load.mock.calls.map(([spec]) => spec)).toEqual([
-      'italic 16px "Carlito GO"',
-      'bold italic 16px "Carlito GO"',
+      'italic 16px "Carlito OD"',
+      'bold italic 16px "Carlito OD"',
       '16px "Caladea"',
       'bold 16px "Caladea"',
       'italic 16px "Caladea"',

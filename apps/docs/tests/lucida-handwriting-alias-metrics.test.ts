@@ -20,7 +20,7 @@ interface Face {
 
 const faces: Face[] = [...css.matchAll(/@font-face\s*\{[^}]*\}/g)]
   .map((m) => m[0])
-  .filter((f) => f.includes("font-family: 'Lucida Handwriting GO'"))
+  .filter((f) => f.includes("font-family: 'Lucida Handwriting OD'"))
   .map((f) => {
     const range = /unicode-range:\s*([^;]+);/.exec(f)?.[1]
     return {
@@ -66,7 +66,7 @@ const BODY =
   'there is no more lovely, charming and fulfilling relationship, and no more powerful testimony, than a godly marriage'
 const PROGRAM = '7:30 Worship and Devotional: 12:30 Lunch 2016'
 
-describe('Lucida Handwriting GO reproduces Lucida Handwriting advances', () => {
+describe('Lucida Handwriting OD reproduces Lucida Handwriting advances', () => {
   it('declares general, lowercase, capital and digit italic faces at normal weight only', () => {
     expect(faces.map((f) => f.ranges?.[0]?.[0] ?? null)).toEqual([null, 0x61, 0x41, 0x30])
     expect(faces.every((f) => f.file === 'Italic')).toBe(true)

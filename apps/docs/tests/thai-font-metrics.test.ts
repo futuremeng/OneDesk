@@ -15,12 +15,12 @@ import { resolveDeclaredFace } from '../src/renderer/font-resolve'
 import { advanceEm, glyphBoundsEm, readWoff2 } from './helpers/woff2-metrics'
 
 const FONTS = join(__dirname, '../src/renderer/fonts')
-const cordia = readWoff2(join(FONTS, 'GenOfficeCordia-Regular.woff2'))
-const cordiaBold = readWoff2(join(FONTS, 'GenOfficeCordia-Bold.woff2'))
-const sarabun = readWoff2(join(FONTS, 'GenOfficeSarabun-Regular.woff2'))
-const sarabunBold = readWoff2(join(FONTS, 'GenOfficeSarabun-Bold.woff2'))
+const cordia = readWoff2(join(FONTS, 'OneDeskCordia-Regular.woff2'))
+const cordiaBold = readWoff2(join(FONTS, 'OneDeskCordia-Bold.woff2'))
+const sarabun = readWoff2(join(FONTS, 'OneDeskSarabun-Regular.woff2'))
+const sarabunBold = readWoff2(join(FONTS, 'OneDeskSarabun-Bold.woff2'))
 
-describe('GenOffice Cordia / Sarabun (Word Thai metrics)', () => {
+describe('OneDesk Cordia / Sarabun (Word Thai metrics)', () => {
   it('Thai letters and marks match Cordia New', () => {
     const expected: Record<number, number> = {
       0x0e01: 0.4, // ko kai
@@ -64,11 +64,11 @@ describe('GenOffice Cordia / Sarabun (Word Thai metrics)', () => {
 
   it('missing Thai families chain to the Cordia face, TH SarabunPSK to its own', () => {
     expect(cssFontFamily('TH SarabunIT\u0e59')).toMatch(
-      /^['"]TH SarabunIT\u0e59['"],'GenOffice Cordia'/,
+      /^['"]TH SarabunIT\u0e59['"],'OneDesk Cordia'/,
     )
-    expect(cssFontFamily('Angsana New')).toContain("'GenOffice Cordia'")
-    expect(cssFontFamily('TH SarabunPSK')).toContain("'GenOffice Sarabun'")
-    expect(cssFontFamily('Tahoma')).not.toContain('GenOffice Cordia')
+    expect(cssFontFamily('Angsana New')).toContain("'OneDesk Cordia'")
+    expect(cssFontFamily('TH SarabunPSK')).toContain("'OneDesk Sarabun'")
+    expect(cssFontFamily('Tahoma')).not.toContain('OneDesk Cordia')
   })
 
   it('line factors follow the Word faces (Cordia hhea 1.147, Sarabun 1.31; shipped faces real)', () => {

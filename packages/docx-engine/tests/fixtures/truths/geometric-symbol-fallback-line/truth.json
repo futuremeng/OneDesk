@@ -10,7 +10,7 @@
       "kind": "bodyRunDom",
       "block": 5,
       "expect": {
-        "stylesStartWith": ["--doc-line-factor: 1.3301", "font-family: \"Segoe UI Symbol GO\""]
+        "stylesStartWith": ["--doc-line-factor: 1.3301", "font-family: \"Segoe UI Symbol OD\""]
       },
       "note": "Calibri 11 + U+25C6: Word 14.64-14.88 in SegoeUISymbol (text 13.44)"
     },

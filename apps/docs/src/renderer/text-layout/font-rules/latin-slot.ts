@@ -25,7 +25,7 @@ const latinGapCache = new Map<string, number>()
  * 0.200, Garamond 0.194 em) whatever the EA face or size; the CJK -> Latin
  * gap and CJK-capable ascii faces (Batang, Malgun, Yu Gothic) stay 1/4 em.
  * A Latin name Word lacks lays out in Cambria, as does the Latin of a missing
- * KR superfamily name (the 'KR Theme Latin GO' alias).
+ * KR superfamily name (the 'KR Theme Latin OD' alias).
  */
 export function latinAutospaceGapEm(font: string | null | undefined): number {
   if (!font) return 0.25

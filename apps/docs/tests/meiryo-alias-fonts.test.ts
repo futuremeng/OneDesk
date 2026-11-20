@@ -1,7 +1,7 @@
 /**
  * Meiryo / Meiryo UI metric aliases (fonts.generated.css): Word renders the real faces
  * (probe 2026-09-03, advances read from Word's meiryo.ttc). Kana and JP
- * punctuation ride the bundled GenOffice UI Kana JP faces (Noto Sans JP
+ * punctuation ride the bundled OneDesk UI Kana JP faces (Noto Sans JP
  * outlines condensed to Meiryo UI's exact per-glyph advances at full height;
  * tools/build-meiryo-ui-kana-font.py) and Latin rides a Verdana size-adjust,
  * so text advances like Meiryo instead of 1em / Helvetica widths.
@@ -27,16 +27,14 @@ function faces(family: string) {
     }))
 }
 
-describe('Meiryo UI GO', () => {
-  const rules = faces('Meiryo UI GO')
+describe('Meiryo UI OD', () => {
+  const rules = faces('Meiryo UI OD')
   const find = (range: string, bold = false) =>
     rules.find((r) => r.range === range && r.bold === bold)
 
   it('serves kana and JP punctuation from the bundled faces without size-adjust', () => {
-    expect(find(KANA_RANGE)?.src).toBe("url('./GenOfficeUIKanaJP-Regular.woff2') format('woff2')")
-    expect(find(KANA_RANGE, true)?.src).toBe(
-      "url('./GenOfficeUIKanaJP-Bold.woff2') format('woff2')",
-    )
+    expect(find(KANA_RANGE)?.src).toBe("url('./OneDeskUIKanaJP-Regular.woff2') format('woff2')")
+    expect(find(KANA_RANGE, true)?.src).toBe("url('./OneDeskUIKanaJP-Bold.woff2') format('woff2')")
     expect(find(KANA_RANGE)?.adjust).toBeUndefined()
     expect(find(KANA_RANGE, true)?.adjust).toBeUndefined()
     expect(rules.filter((r) => /Hiragino/.test(r.src) && !/Verdana/.test(r.src))).toHaveLength(0)
@@ -57,9 +55,9 @@ describe('Meiryo UI GO', () => {
   })
 })
 
-describe('GenOffice UI Kana JP (Meiryo UI advances, full height)', () => {
-  const regular = readWoff2(join(FONTS, 'GenOfficeUIKanaJP-Regular.woff2'))
-  const bold = readWoff2(join(FONTS, 'GenOfficeUIKanaJP-Bold.woff2'))
+describe('OneDesk UI Kana JP (Meiryo UI advances, full height)', () => {
+  const regular = readWoff2(join(FONTS, 'OneDeskUIKanaJP-Regular.woff2'))
+  const bold = readWoff2(join(FONTS, 'OneDeskUIKanaJP-Bold.woff2'))
   const near = (font: typeof regular, cp: number, em: number) =>
     expect(advanceEm(font, cp)).toBeCloseTo(em, 3)
 
@@ -100,9 +98,9 @@ describe('GenOffice UI Kana JP (Meiryo UI advances, full height)', () => {
   })
 })
 
-describe('Meiryo GO', () => {
+describe('Meiryo OD', () => {
   it('only rescales Latin (Meiryo kana/kanji/punctuation are 1em like Hiragino)', () => {
-    const rules = faces('Meiryo GO')
+    const rules = faces('Meiryo OD')
     expect(rules).toHaveLength(2)
     expect(rules.every((r) => r.range === 'U+0020-007E, U+00A0-024F')).toBe(true)
     expect(rules.map((r) => r.adjust).sort()).toEqual(['94.8', '97.05'])

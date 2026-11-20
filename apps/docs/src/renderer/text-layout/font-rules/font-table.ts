@@ -181,7 +181,7 @@ export function krNameLineFactor(font: string): number | null {
  */
 export function wordMetricAliasFace(font: string): string | null {
   const f = font.toLowerCase().normalize('NFKC')
-  if (f.includes('dengxian') || f.includes('\u7b49\u7ebf')) return 'DengXian GO'
-  if (/p?mingliu|\u7d30\u660e\u9ad4/.test(f)) return 'PMingLiU GO'
+  if (f.includes('dengxian') || f.includes('\u7b49\u7ebf')) return 'DengXian OD'
+  if (/p?mingliu|\u7d30\u660e\u9ad4/.test(f)) return 'PMingLiU OD'
   return null
 }

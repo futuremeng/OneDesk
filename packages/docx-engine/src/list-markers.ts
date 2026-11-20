@@ -335,8 +335,8 @@ export interface ListMarkerInfo {
 /** Word symbol bullets with no glyph on this platform: Liberation Sans' U+25CF through a
  *  size-adjusted alias (fonts.css) carrying the Word face's ink size and line metrics */
 const SUBSTITUTE_BULLETS: Record<string, BulletSubstitute> = {
-  '\u2022': { glyph: '\u25cf', face: 'Symbol Bullet GO' },
-  '\u25cf': { glyph: '\u25cf', face: 'Wingdings Bullet GO' },
+  '\u2022': { glyph: '\u25cf', face: 'Symbol Bullet OD' },
+  '\u25cf': { glyph: '\u25cf', face: 'Wingdings Bullet OD' },
 }
 
 export interface BulletSubstitute {

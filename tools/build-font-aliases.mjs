@@ -352,7 +352,7 @@ const CUT_NAMES = {
 
 /** Word font files per family cut, located by their name-table full name */
 function wordFontsFor(family, dirs) {
-  const base = family.replace(/ GO$/, '')
+  const base = family.replace(/ OD$/, '')
   const files = dirs.flatMap((d) => {
     try {
       return readdirSync(d)

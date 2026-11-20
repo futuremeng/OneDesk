@@ -18,55 +18,50 @@ import {
 
 export const CJK_SERIF = 'Noto Serif CJK SC'
 export const CJK_SANS = 'Noto Sans CJK SC'
-export const BOX = 'GenOffice Box Drawing'
+export const BOX = 'OneDesk Box Drawing'
 // KR tail: hangul a Japanese face cannot draw is Word's per-glyph fallback, Malgun
 // Gothic or Batang at 1em (probes 2026-09-30, 2026-11-03); without it Chromium's
 // system fallback packs the syllables at 0.865em
 export const JA_SANS = [
   'Yu Gothic',
-  'GenOffice Hiragino Sans',
+  'OneDesk Hiragino Sans',
   'Meiryo',
   'Noto Sans JP',
-  'GenOffice Sans KR',
+  'OneDesk Sans KR',
 ]
 export const JA_SERIF = [
   'Yu Mincho',
-  'GenOffice Hiragino Mincho',
-  'GenOffice MS Mincho',
+  'OneDesk Hiragino Mincho',
+  'OneDesk MS Mincho',
   'Noto Serif JP',
-  'GenOffice Batang',
-  'GenOffice Serif KR',
+  'OneDesk Batang',
+  'OneDesk Serif KR',
 ]
 // Han after the hangul face: Word draws a Korean face's Hanja at 1em (Gulim, Malgun),
 // Apple SD Gothic Neo at 0.865em packs a Hanja-heavy line tighter than Word
 export const KO_SANS = [
   'Malgun Gothic',
-  'GenOffice Sans KR',
-  'Noto Sans CJK GO',
+  'OneDesk Sans KR',
+  'Noto Sans CJK OD',
   'PingFang TC',
   'Apple SD Gothic Neo',
   'Noto Sans KR',
 ]
-export const KO_SERIF = [
-  'GenOffice Batang',
-  'GenOffice Serif KR',
-  'GenOffice Myungjo',
-  'Noto Serif KR',
-]
+export const KO_SERIF = ['OneDesk Batang', 'OneDesk Serif KR', 'OneDesk Myungjo', 'Noto Serif KR']
 // 'OneDesk *' entries are CJK-only local() aliases (fonts.css): the underlying
 // system faces draw Cyrillic/Greek fullwidth, so those scripts must pass through
-const TC_SANS = ['Microsoft JhengHei', 'PingFang TC', 'GenOffice Heiti TC', 'Noto Sans TC']
-// 'GenOffice Fullwidth TC' (fonts.css): fullwidth U+FF0D/FF0F/FF3C/FF3F/FF5E whose Songti TC glyphs look half-width
-// 'GenOffice Songti TC' (fonts.css): weight-normal alias so bold synthesizes like Word's faux-bold PMingLiU
+const TC_SANS = ['Microsoft JhengHei', 'PingFang TC', 'OneDesk Heiti TC', 'Noto Sans TC']
+// 'OneDesk Fullwidth TC' (fonts.css): fullwidth U+FF0D/FF0F/FF3C/FF3F/FF5E whose Songti TC glyphs look half-width
+// 'OneDesk Songti TC' (fonts.css): weight-normal alias so bold synthesizes like Word's faux-bold PMingLiU
 const TC_SERIF = [
-  'GenOffice MingLiU',
-  'GenOffice Fullwidth TC',
-  'GenOffice Songti TC',
+  'OneDesk MingLiU',
+  'OneDesk Fullwidth TC',
+  'OneDesk Songti TC',
   'Songti TC',
   'Noto Serif TC',
 ]
 const SC_SANS = ['PingFang SC', 'Microsoft YaHei', CJK_SANS]
-const SC_SERIF = ['GenOffice Songti SC', 'STSong', 'SimSun', CJK_SERIF]
+const SC_SERIF = ['OneDesk Songti SC', 'STSong', 'SimSun', CJK_SERIF]
 
 const ARABIC_CAPABLE_ALT_RE =
   /arial|calibri|tahoma|segoe ui|times new roman|courier new|microsoft sans serif|arabic|sakkal|dubai/i
@@ -105,15 +100,15 @@ const TC_NAME_RE =
 
 /** rules in priority order; the first whose `when` holds decides the chain */
 export const FACE_CHAIN_RULES: ChainRule[] = [
-  // 'Calibri Arabic GO' (fonts.css): Calibri's own Arabic; Carlito has none
+  // 'Calibri Arabic OD' (fonts.css): Calibri's own Arabic; Carlito has none
   {
     id: 'calibri',
     when: (f) => f.includes('calibri'),
-    chain: () => [['Carlito GO', 'Calibri Arabic GO', CJK_SANS], 'sans-serif'],
+    chain: () => [['Carlito OD', 'Calibri Arabic OD', CJK_SANS], 'sans-serif'],
   },
   // Aptos (M365 cloud face, never installed locally): line metrics equal Calibri's
   // (Word probe 2026-08-22) but its advances do not, so the size-adjusted Carlito
-  // aliases in fonts.css stand in (probe 2026-09-03); 'GenOffice PUA Blank' keeps
+  // aliases in fonts.css stand in (probe 2026-09-03); 'OneDesk PUA Blank' keeps
   // AI-residue PUA tokens invisible like Word. Body, Display and Narrow cuts have
   // fitted aliases; Mono/Serif are unprobed
   {
@@ -121,13 +116,13 @@ export const FACE_CHAIN_RULES: ChainRule[] = [
     when: (f) => f.includes('aptos'),
     chain: (f) => {
       const alias = /mono|serif/.test(f)
-        ? 'Carlito GO'
+        ? 'Carlito OD'
         : f.includes('display')
-          ? 'Aptos Display GO'
+          ? 'Aptos Display OD'
           : f.includes('narrow')
-            ? 'Aptos Narrow GO'
-            : 'Aptos GO'
-      return [[alias, 'GenOffice PUA Blank', CJK_SANS], 'sans-serif']
+            ? 'Aptos Narrow OD'
+            : 'Aptos OD'
+      return [[alias, 'OneDesk PUA Blank', CJK_SANS], 'sans-serif']
     },
   },
   // Cambria Math text runs lay out with Cambria's advances in Word (fonts.css alias); only the symbols need a math face
@@ -135,7 +130,7 @@ export const FACE_CHAIN_RULES: ChainRule[] = [
     id: 'cambria-math',
     when: (f) => f.includes('cambria') && f.includes('math'),
     chain: () => [
-      ['Cambria Math GO', 'STIX Two Math', 'Caladea', 'Liberation Serif', BOX, CJK_SERIF],
+      ['Cambria Math OD', 'STIX Two Math', 'Caladea', 'Liberation Serif', BOX, CJK_SERIF],
       'serif',
     ],
   },
@@ -149,7 +144,7 @@ export const FACE_CHAIN_RULES: ChainRule[] = [
   {
     id: 'cambria',
     when: (f) => f.includes('cambria'),
-    chain: () => [['Caladea', 'Cambria Cyrillic GO', BOX, CJK_SERIF], 'serif'],
+    chain: () => [['Caladea', 'Cambria Cyrillic OD', BOX, CJK_SERIF], 'serif'],
   },
   {
     id: 'times',
@@ -160,13 +155,13 @@ export const FACE_CHAIN_RULES: ChainRule[] = [
   {
     id: 'reference-sans',
     when: (f) => f.includes('reference sans'),
-    chain: () => [['MS Reference Sans Serif GO', 'Verdana', CJK_SANS], 'sans-serif'],
+    chain: () => [['MS Reference Sans Serif OD', 'Verdana', CJK_SANS], 'sans-serif'],
   },
   // Merriweather is an M365 cloud face Word renders real; the size-adjusted Georgia alias carries its advances (sample lines 1.12x Georgia, sd 0.6%)
   {
     id: 'merriweather',
     when: (f) => f.includes('merriweather') && !f.includes('sans'),
-    chain: () => [['Merriweather GO', 'Georgia', BOX, CJK_SERIF], 'serif'],
+    chain: () => [['Merriweather OD', 'Georgia', BOX, CJK_SERIF], 'serif'],
   },
   // Palatino Linotype/Book Antiqua ship with Office and Word renders them real (probe 2026-08-23); macOS Palatino matches their Latin widths within 0.2%
   {
@@ -174,17 +169,17 @@ export const FACE_CHAIN_RULES: ChainRule[] = [
     when: (f) => f.includes('palatino') || f.includes('book antiqua'),
     chain: () => [['Palatino Linotype', 'Palatino', 'Book Antiqua', BOX, CJK_SERIF], 'serif'],
   },
-  // 'Arial Arabic GO' (fonts.css): Arial's Arabic advances where the local Arial (Liberation Sans) has none
+  // 'Arial Arabic OD' (fonts.css): Arial's Arabic advances where the local Arial (Liberation Sans) has none
   {
     id: 'arial',
     when: (f) => f === 'arial' || f.startsWith('arial '),
-    chain: () => [['Arial Arabic GO', 'Liberation Sans', CJK_SANS], 'sans-serif'],
+    chain: () => [['Arial Arabic OD', 'Liberation Sans', CJK_SANS], 'sans-serif'],
   },
   // Segoe UI is an M365 cloud font Word renders real; the size-adjusted Helvetica alias carries its narrower advances
   {
     id: 'segoe-ui',
     when: (f) => SEGOE_UI_TEXT_RE.test(f),
-    chain: () => [['Segoe UI GO', 'Noto Sans CJK GO', 'GenOffice PUA Blank'], 'sans-serif'],
+    chain: () => [['Segoe UI OD', 'Noto Sans CJK OD', 'OneDesk PUA Blank'], 'sans-serif'],
   },
   {
     id: 'mono',
@@ -195,26 +190,26 @@ export const FACE_CHAIN_RULES: ChainRule[] = [
   {
     id: 'nunito',
     when: (f) => f.includes('nunito'),
-    chain: () => [['Nunito Sans GO', CJK_SANS], 'sans-serif'],
+    chain: () => [['Nunito Sans OD', CJK_SANS], 'sans-serif'],
   },
   // Poppins is an M365 cloud font Word renders real; the bundled Latin subset carries its true advances (probe 2026-09-01)
   {
     id: 'poppins',
     when: (f) => f.includes('poppins'),
-    chain: () => [['GenOffice Poppins', CJK_SANS], 'sans-serif'],
+    chain: () => [['OneDesk Poppins', CJK_SANS], 'sans-serif'],
   },
   // DM Sans renders real in Word when installed; the bundled Latin subset carries its true advances (corpus 2026-09-30)
   {
     id: 'dm-sans',
     when: (f) => f.includes('dm sans'),
-    chain: () => [['GenOffice DM Sans', CJK_SANS], 'sans-serif'],
+    chain: () => [['OneDesk DM Sans', CJK_SANS], 'sans-serif'],
   },
   // Montserrat is an M365 cloud font Word renders real, ignoring its fontTable altName; only the
   // cloud family names qualify: a PostScript-style "Montserrat-Bold" is unknown to Word and keeps the altName
   {
     id: 'montserrat',
     when: (f) => MONTSERRAT_FAMILY_RE.test(f),
-    chain: () => [['Montserrat GO', CJK_SANS], 'sans-serif'],
+    chain: () => [['Montserrat OD', CJK_SANS], 'sans-serif'],
   },
   // Microsoft New Tai Lue ships with Office; its Latin is Segoe-flavored with Arial-class widths (probe 2026-08-23)
   {
@@ -228,14 +223,14 @@ export const FACE_CHAIN_RULES: ChainRule[] = [
     when: (f) => f.includes('\u4e2d\u5b8b') || f.includes('zhongsong'),
     chain: () => [['STZhongsong', 'Songti SC', 'STSong', 'SimSun', CJK_SERIF], 'serif'],
   },
-  // 'GenOffice Songti SC' (fonts.css local() alias of Songti SC): macOS Chromium refuses synthetic
+  // 'OneDesk Songti SC' (fonts.css local() alias of Songti SC): macOS Chromium refuses synthetic
   // bold for 'Songti SC' by name; the alias lets Blink synthesize. SimSun's ASCII is half-width
   // fixed pitch (0.5em); the Songti stand-in is proportional, so the Latin alias leads
   {
     id: 'simsun',
     when: (f) => /simsun|\u5b8b\u4f53|nsimsun/.test(f),
     chain: () => [
-      ['GenOffice SimSun Latin', 'GenOffice Songti SC', 'STSong', 'SimSun', CJK_SERIF],
+      ['OneDesk SimSun Latin', 'OneDesk Songti SC', 'STSong', 'SimSun', CJK_SERIF],
       'serif',
     ],
   },
@@ -257,7 +252,7 @@ export const FACE_CHAIN_RULES: ChainRule[] = [
     id: 'dengxian',
     when: (f) => f.includes('\u7b49\u7ebf') || f.includes('dengxian'),
     chain: () => [
-      ['DengXian GO', 'DengXian', 'PingFang SC', 'Microsoft YaHei', CJK_SANS],
+      ['DengXian OD', 'DengXian', 'PingFang SC', 'Microsoft YaHei', CJK_SANS],
       'sans-serif',
     ],
   },
@@ -292,7 +287,7 @@ export const FACE_CHAIN_RULES: ChainRule[] = [
         const generic = css.lastIndexOf(',')
         const tail = cssChain(
           'Times New Roman',
-          'Naskh Digits GO',
+          'Naskh Digits OD',
           'Noto Naskh Arabic TNR',
           'Geeza Pro',
           'Al Bayan',
@@ -301,7 +296,7 @@ export const FACE_CHAIN_RULES: ChainRule[] = [
       }
       // Dubai is a cloud face Word renders real; the size-adjusted alias carries its advances and hhea box where it is missing
       if (/\bdubai\b/i.test(nfkc) && !n.bundled && !n.available)
-        return [['Dubai GO', 'Arial', 'Liberation Sans', CJK_SANS], 'sans-serif']
+        return [['Dubai OD', 'Arial', 'Liberation Sans', CJK_SANS], 'sans-serif']
       // an installed kufi/sans face renders as such; a missing one substitutes to Times New Roman
       // in Word like every other missing Arabic name (probe 2026-09-11). The bundled Noto Sans
       // Arabic subset answers the canvas probe but is not an installed face.
@@ -324,14 +319,14 @@ export const FACE_CHAIN_RULES: ChainRule[] = [
             ...latinHead,
             // missing serif names: 90% TNR alias (subset shapes 1.125x/1.074x wider than Word's Times, M3 probe); Arabic-Indic digits unscaled
             ...(missingSerif
-              ? ['Naskh Digits GO', 'Noto Naskh Arabic TNR']
+              ? ['Naskh Digits OD', 'Noto Naskh Arabic TNR']
               : sakkal
-                ? ['Sakkal Majalla GO', 'Sakkal Majalla Latin GO']
+                ? ['Sakkal Majalla OD', 'Sakkal Majalla Latin OD']
                 : compact
                   ? [
                       compact === 'traditional' ? 'Noto Naskh Arabic TA' : 'Noto Naskh Arabic SA',
                       // the subsets carry no ASCII brackets and neither does Geeza Pro, so they fell to Al Bayan (30% wider, 1.5 em box); both cloud faces draw them at Times widths
-                      'Times Punct GO',
+                      'Times Punct OD',
                     ]
                   : [scaled ? 'Noto Naskh Arabic W' : 'Noto Naskh Arabic']),
             'Geeza Pro',
@@ -378,8 +373,8 @@ export const FACE_CHAIN_RULES: ChainRule[] = [
       // Meiryo (UI): Word renders the real faces; the range-limited aliases rescale the Hiragino/Verdana fallbacks to Meiryo advances
       if (/meiryo|\u30e1\u30a4\u30ea\u30aa/i.test(nfkc)) {
         const alias = /(meiryo|\u30e1\u30a4\u30ea\u30aa) ?ui/i.test(nfkc)
-          ? 'Meiryo UI GO'
-          : 'Meiryo GO'
+          ? 'Meiryo UI OD'
+          : 'Meiryo OD'
         return [[alias, ...JA_SANS], 'sans-serif']
       }
       // MS Gothic family renders real in Word (half-width mono Latin / proportional kana); the
@@ -388,14 +383,14 @@ export const FACE_CHAIN_RULES: ChainRule[] = [
       const msGothic = /^ms (ui )?(p)?(gothic|\u30b4\u30b7\u30c3\u30af)$/i.exec(nfkc.trim())
       const msMincho = /^ms (mincho|\u660e\u671d)$/i.test(nfkc.trim())
       const msAlias = msMincho
-        ? ['MS Mincho GO']
+        ? ['MS Mincho OD']
         : !msGothic
           ? []
           : msGothic[1]
-            ? ['MS UI Gothic GO', 'MS UI Gothic JA GO']
+            ? ['MS UI Gothic OD', 'MS UI Gothic JA OD']
             : msGothic[2]
-              ? ['MS PGothic GO', 'MS PGothic JA GO']
-              : ['MS Gothic GO']
+              ? ['MS PGothic OD', 'MS PGothic JA OD']
+              : ['MS Gothic OD']
       // Yu Mincho/Gothic are Office-private on macOS (Word lays out with its own yumin/YuGoth faces);
       // a missing declare takes the Latin advance aliases so EN/ID lines wrap where Word's do. Yu Gothic UI stays out.
       const yu =
@@ -406,8 +401,8 @@ export const FACE_CHAIN_RULES: ChainRule[] = [
       const yuAlias =
         yu && !n.available
           ? serif
-            ? [yuLight ? 'Yu Mincho Light GO' : 'Yu Mincho GO', 'Yu Mincho Serif GO']
-            : [yuLight ? 'Yu Gothic Light GO' : 'Yu Gothic GO', 'Yu Gothic Sans GO']
+            ? [yuLight ? 'Yu Mincho Light OD' : 'Yu Mincho OD', 'Yu Mincho Serif OD']
+            : [yuLight ? 'Yu Gothic Light OD' : 'Yu Gothic OD', 'Yu Gothic Sans OD']
           : []
       return [
         [...msAlias, ...yuAlias, ...(serif ? JA_SERIF : JA_SANS)],
@@ -426,7 +421,7 @@ export const FACE_CHAIN_RULES: ChainRule[] = [
         const cheSerif = cheGungsuh || /batang|바탕/i.test(nfkc)
         return [
           [
-            'GenOffice Che Latin KR',
+            'OneDesk Che Latin KR',
             ...(cheGungsuh ? ['GungSeo'] : []),
             ...(cheSerif ? KO_SERIF : KO_SANS),
           ],
@@ -448,7 +443,7 @@ export const FACE_CHAIN_RULES: ChainRule[] = [
     id: 'dfkai',
     when: (f) => /\u6a19\u6977|dfkai/.test(f),
     chain: () => [
-      ['Microsoft YaHei', 'GenOffice YaHei Latin', 'PingFang SC', CJK_SANS],
+      ['Microsoft YaHei', 'OneDesk YaHei Latin', 'PingFang SC', CJK_SANS],
       'sans-serif',
     ],
   },
@@ -469,19 +464,19 @@ export const FACE_CHAIN_RULES: ChainRule[] = [
   {
     id: 'ethiopic',
     when: (_f, _h, nfkc) => /nyala|ebrima|abyssinica|ethiopic/i.test(nfkc),
-    chain: () => [['GenOffice Ethiopic'], 'sans-serif'],
+    chain: () => [['OneDesk Ethiopic'], 'sans-serif'],
   },
   // Bengali: Nirmala UI is an M365 cloud face Word renders real; macOS has no twin and Chromium's Kohinoor Bangla shapes ~8% narrower, so the bundled Nirmala-metric face leads
   {
     id: 'nirmala',
     when: (_f, _h, nfkc) => /nirmala/i.test(nfkc),
-    chain: () => [['GenOffice Bengali', 'Kohinoor Bangla', 'Bangla Sangam MN'], 'sans-serif'],
+    chain: () => [['OneDesk Bengali', 'Kohinoor Bangla', 'Bangla Sangam MN'], 'sans-serif'],
   },
   // Tamil: Latha renders through the bundled Latha-metric face; Vijaya and missing Tamil names lay out as Vijaya on Word for Mac (probe 2026-09-30), whose advances InaiMathi matches within 1 %
   {
     id: 'latha',
     when: (_f, _h, nfkc) => /latha/i.test(nfkc),
-    chain: () => [['GenOffice Tamil', 'InaiMathi', 'Tamil MN', 'Tamil Sangam MN'], 'sans-serif'],
+    chain: () => [['OneDesk Tamil', 'InaiMathi', 'Tamil MN', 'Tamil Sangam MN'], 'sans-serif'],
   },
   {
     id: 'tamil',

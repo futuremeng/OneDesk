@@ -26,13 +26,13 @@ export const isTimesClassFace = (face: string): boolean =>
   /^times(\s|$)|times new roman|liberation serif/i.test(face)
 
 /** the bundled Segoe UI Symbol stand-in, as a CSS family */
-export const SEGOE_SYMBOL_CSS = "'Segoe UI Symbol GO'"
+export const SEGOE_SYMBOL_CSS = "'Segoe UI Symbol OD'"
 
 /** the face whose only glyph is the balanced-width space, as a CSS family */
-export const BALANCED_SPACE_CSS = "'GenOffice Balanced Space'"
+export const BALANCED_SPACE_CSS = "'OneDesk Balanced Space'"
 
 /** family name of the blank PUA face in fonts.css */
-export const PUA_BLANK_FAMILY = 'GenOffice PUA Blank'
+export const PUA_BLANK_FAMILY = 'OneDesk PUA Blank'
 
 /** metrics of the face a declared name resolves to */
 export const declaredFaceMetrics = (font: string) => resolveDeclaredFace(font)?.metrics

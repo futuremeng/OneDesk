@@ -5,9 +5,9 @@ import { fontAttrsFromFamilyChain } from '../src/renderer/editor/marks'
 describe('Cambria Math font chain', () => {
   it('leads with the Cambria-metric text alias before the math face', () => {
     expect(cssFontFamily('Cambria Math')).toMatch(
-      /^'Cambria Math','Cambria Math GO','STIX Two Math','Caladea',/,
+      /^'Cambria Math','Cambria Math OD','STIX Two Math','Caladea',/,
     )
-    expect(isBundledFont('Cambria Math GO')).toBe(true)
+    expect(isBundledFont('Cambria Math OD')).toBe(true)
   })
 
   it('keeps real math faces on STIX Two Math first', () => {

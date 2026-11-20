@@ -38,7 +38,7 @@ describe('resolveFace', () => {
     expect(d.substituted).toBe(false)
     expect(d.lineFactor).toBe(lineHeightFactor('Calibri'))
     expect(d.chain).toBe(cssFontFamily('Calibri'))
-    expect(d.standIn).toBe('Carlito GO')
+    expect(d.standIn).toBe('Carlito OD')
     expect(d.kr).toBeNull()
     expect(d.missingLatin).toBeNull()
   })
@@ -97,7 +97,7 @@ describe('resolveFace', () => {
     expect(sig.face).toBe('Arial')
     expect(sig.path).toEqual(['zebra kufi', 'arial'])
     expect(arabicCodePageFace('Zebra Kufi')).toBe('Arial')
-    expect(sig.chain.startsWith("'Arial','Arial Arabic GO'")).toBe(true)
+    expect(sig.chain.startsWith("'Arial','Arial Arabic OD'")).toBe(true)
     expect(arabicCodePageFace('Zebra Kufi Alt')).toBeNull()
     expect(arabicAltNameFace('Zebra Kufi Alt')).toBe('Verdana')
     expect(resolveFace('Zebra Kufi Alt').source).toBe('altName')
@@ -168,7 +168,7 @@ describe('STAND_IN_CHAINS', () => {
     const english = resolveFace('MS Gothic')
     const twin = resolveFace('\uff2d\uff33 \u30b4\u30b7\u30c3\u30af')
     expect(twin.face).toBe('\uff2d\uff33 \u30b4\u30b7\u30c3\u30af')
-    expect(twin.standIn).toBe('MS Gothic GO')
+    expect(twin.standIn).toBe('MS Gothic OD')
     expect(twin.chain.replace(/^'[^']+',/, '')).toBe(english.chain.replace(/^'[^']+',/, ''))
     // the KO chain leads with Malgun Gothic itself, so the English head is deduplicated away
     expect(resolveFace('\ub9d1\uc740 \uace0\ub515').chain).toBe(

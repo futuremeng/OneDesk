@@ -1,5 +1,5 @@
 /**
- * Coverage contract of the 'KR Theme Latin GO' alias (fonts.css): a missing
+ * Coverage contract of the 'KR Theme Latin OD' alias (fonts.css): a missing
  * KR face (Noto Sans CJK KR etc.) keeps hangul on Batang while Word draws
  * every non-hangul character with the substituted Latin face. Truth = Word for
  * Mac PDF of prod corpus 20261020 sample 023 (pymupdf rawdict origins): space
@@ -15,7 +15,7 @@ const FONT_DIR = join(__dirname, '../src/renderer/fonts')
 const css = readFileSync(join(FONT_DIR, 'fonts.css'), 'utf8')
 const face = [...css.matchAll(/@font-face\s*\{[^}]*\}/g)]
   .map((m) => m[0])
-  .find((f) => f.includes("font-family: 'KR Theme Latin GO'"))!
+  .find((f) => f.includes("font-family: 'KR Theme Latin OD'"))!
 const ranges = /unicode-range:\s*([^;]+);/
   .exec(face)![1]
   .split(',')
@@ -31,7 +31,7 @@ const buf = readFileSync(join(FONT_DIR, 'Caladea-Regular.ttf'))
 const caladea = opentype.parse(buf.buffer.slice(buf.byteOffset, buf.byteOffset + buf.byteLength))
 const advEm = (ch: string) => caladea.charToGlyph(ch).advanceWidth! / caladea.unitsPerEm
 
-describe('KR Theme Latin GO alias', () => {
+describe('KR Theme Latin OD alias', () => {
   it('claims the space and Latin punctuation Word draws in Cambria', () => {
     for (const ch of [' ', '0', 'a', '|', '·', '×', '“', '”', '•', '–', '…']) {
       expect(covers(ch), `U+${ch.codePointAt(0)!.toString(16)}`).toBe(true)

@@ -1,7 +1,7 @@
 {
   "source": "packages/docx-engine/tests/fixtures/truths/autospace-gap-xavg/probe.docx",
   "paragraphs": 2,
-  "hashes": ["b65ac253ffc70cbe", "dc4f541fd5708912"],
+  "hashes": ["5fcf0ec191789802", "e766d9927fd15c0f"],
   "cellParagraphs": 0,
   "cellHashes": [],
   "boxParagraphs": 0,

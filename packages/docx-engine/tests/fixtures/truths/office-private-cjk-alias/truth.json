@@ -8,22 +8,22 @@
     {
       "kind": "aliasFace",
       "font": "\u7b49\u7ebf",
-      "expect": "DengXian GO"
+      "expect": "DengXian OD"
     },
     {
       "kind": "aliasFace",
       "font": "DengXian",
-      "expect": "DengXian GO"
+      "expect": "DengXian OD"
     },
     {
       "kind": "aliasFace",
       "font": "\u65b0\u7d30\u660e\u9ad4",
-      "expect": "PMingLiU GO"
+      "expect": "PMingLiU OD"
     },
     {
       "kind": "aliasFace",
       "font": "PMingLiU",
-      "expect": "PMingLiU GO"
+      "expect": "PMingLiU OD"
     },
     {
       "kind": "aliasFace",

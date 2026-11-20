@@ -73,9 +73,9 @@ const PANGRAM = 'The quick brown fox jumps over the lazy dog 0123456789'
 const BODY =
   'I confirm that I am the beneficial owner (UBO) of the entity, and the Committee shall review all relevant documentation prior to approval.'
 
-describe('Aptos GO reproduces Word Aptos advances', () => {
-  const regular = facesOf('Aptos GO', 'normal')
-  const bold = facesOf('Aptos GO', 'bold')
+describe('Aptos OD reproduces Word Aptos advances', () => {
+  const regular = facesOf('Aptos OD', 'normal')
+  const bold = facesOf('Aptos OD', 'bold')
 
   it('declares one general Carlito face plus one advance-matched derivative covering Latin', () => {
     for (const faces of [regular, bold]) {
@@ -83,7 +83,7 @@ describe('Aptos GO reproduces Word Aptos advances', () => {
       const derived = faces.filter((f) => f.ranges)
       expect(derived).toHaveLength(1)
       expect(derived[0].adjust).toBe(1)
-      expect(derived[0].file).toMatch(/^AptosGO-/)
+      expect(derived[0].file).toMatch(/^AptosOD-/)
       const covered = (cp: number) => derived[0].ranges!.some(([a, b]) => cp >= a && cp <= b)
       for (const cp of [0x20, 0x30, 0x43, 0x74, 0xa0, 0xe9, 0x2013, 0x20ac])
         expect(covered(cp)).toBe(true)
@@ -102,14 +102,14 @@ describe('Aptos GO reproduces Word Aptos advances', () => {
   // derived faces map U+00A0 onto the space glyph (Carlito has none); the
   // bucket-based Display alias keeps both in the same size-adjust bucket
   it('no-break space shares the space advance in every Aptos face', () => {
-    for (const family of ['Aptos GO', 'Aptos Narrow GO']) {
+    for (const family of ['Aptos OD', 'Aptos Narrow OD']) {
       for (const weight of ['normal', 'bold'] as const) {
         const faces = facesOf(family, weight)
         expect(widthEm('\u00a0', faces)).toBeCloseTo(widthEm(' ', faces), 3)
       }
     }
     for (const weight of ['normal', 'bold'] as const) {
-      const faces = facesOf('Aptos Display GO', weight)
+      const faces = facesOf('Aptos Display OD', weight)
       const pick = (cp: number) =>
         [...faces].reverse().find((f) => f.ranges?.some(([a, b]) => cp >= a && cp <= b))
       expect(pick(0xa0)).toBeDefined()
@@ -145,8 +145,8 @@ describe('Aptos GO reproduces Word Aptos advances', () => {
   })
 })
 
-describe('Aptos Display GO reproduces Word Aptos Display advances', () => {
-  const regular = facesOf('Aptos Display GO', 'normal')
+describe('Aptos Display OD reproduces Word Aptos Display advances', () => {
+  const regular = facesOf('Aptos Display OD', 'normal')
   it('pangram within 2% of Word (22.9488em)', () => {
     expect(Math.abs(widthEm(PANGRAM, regular) / 22.9488 - 1)).toBeLessThan(0.02)
   })
@@ -159,10 +159,10 @@ describe('Aptos Display GO reproduces Word Aptos Display advances', () => {
 
 // Word DFonts Aptos Narrow: letters ~Carlito but the space 0.2033em, so plain
 // Carlito ran the pangram 5% wide (probe 2026-10-20: 17.271em at 12pt)
-describe('Aptos Narrow GO reproduces Word Aptos Narrow advances', () => {
+describe('Aptos Narrow OD reproduces Word Aptos Narrow advances', () => {
   it('pangram within 0.7% of Word (unkerned), unscaled Carlito 5% over', () => {
     const pangram = 'The quick brown fox jumps over the lazy dog'
-    const faces = facesOf('Aptos Narrow GO', 'normal')
+    const faces = facesOf('Aptos Narrow OD', 'normal')
     expect(Math.abs(widthEm(pangram, faces) / 17.271 - 1)).toBeLessThan(0.007)
     expect(widthEm(pangram, [{ adjust: 1, ranges: null, file: CARLITO }]) / 17.271).toBeGreaterThan(
       1.04,
@@ -173,9 +173,9 @@ describe('Aptos Narrow GO reproduces Word Aptos Narrow advances', () => {
 // Word DFonts Aptos hmtx: _ and the en dash 0.46em in every weight (a 91-underscore
 // rule at 11.04pt spans 460.4pt in Word), ! / \\ 0.29-0.39em, | 0.27em; Carlito's
 // are wider, so the letter scale put a 45-char rule one line over
-describe('Aptos GO punctuation classes', () => {
-  const regular = facesOf('Aptos GO', 'normal')
-  const bold = facesOf('Aptos GO', 'bold')
+describe('Aptos OD punctuation classes', () => {
+  const regular = facesOf('Aptos OD', 'normal')
+  const bold = facesOf('Aptos OD', 'bold')
   const within = (text: string, faces: Face[], em: number, tol = 0.02) =>
     expect(Math.abs(widthEm(text, faces) / em - 1)).toBeLessThan(tol)
 
@@ -202,10 +202,10 @@ describe('Aptos GO punctuation classes', () => {
 // 1.0054/0.2197 win metrics; the alias scales Liberation Sans' U+25CF (0.4302em),
 // keeps the 1.2251em total and puts the baseline 0.36em above the box bottom
 // (Chromium's Calibri/Carlito text baseline); overrides apply after size-adjust
-describe('Symbol Bullet GO alias', () => {
+describe('Symbol Bullet OD alias', () => {
   const face = [...css.matchAll(/@font-face\s*\{[^}]*\}/g)]
     .map((m) => m[0])
-    .find((f) => f.includes("font-family: 'Symbol Bullet GO'"))!
+    .find((f) => f.includes("font-family: 'Symbol Bullet OD'"))!
   const adjust = Number(/size-adjust:\s*([\d.]+)%/.exec(face)![1]) / 100
 
   it('scales the U+25CF ink to the Symbol bullet', () => {

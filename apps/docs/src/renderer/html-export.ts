@@ -100,7 +100,7 @@ const CHROME_PSEUDO_CONTENT = /attr\(\s*data-(?:ppr-change-label|sdt-alias)\s*\)
 
 // Internal chain aliases: '* GO' faces, 'OneDesk *' and the legacy
 // 'GenOffice *' name still present in documents authored before the rename.
-const INTERNAL_FONTS = /,\s*"(?:[A-Za-z ]+ GO|(?:OneDesk|GenOffice) [A-Za-z ]+)"/g
+const INTERNAL_FONTS = /,\s*"(?:[A-Za-z ]+ (?:OD|GO)|(?:OneDesk|GenOffice) [A-Za-z ]+)"/g
 
 /** tab leaders are an absolutely positioned glyph run clipped to the tab
  *  advance on screen; inline styles cannot clip a pseudo, so export a border */

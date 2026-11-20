@@ -83,27 +83,27 @@ describe('fontAttrsFromFamilyChain', () => {
 
   it('skips internal OneDesk aliases even at the chain head', () => {
     expect(
-      fontAttrsFromFamilyChain("'GenOffice Songti SC','STSong','SimSun','Noto Serif CJK SC',serif"),
+      fontAttrsFromFamilyChain("'OneDesk Songti SC','STSong','SimSun','Noto Serif CJK SC',serif"),
     ).toEqual({ font: 'STSong' })
   })
 
-  it('never mistakes the range-limited GO aliases for a user East Asian font', () => {
+  it('never mistakes the range-limited OD aliases for a user East Asian font', () => {
     expect(fontAttrsFromFamilyChain(cssFontFamily('SomeCustomFont'))).toEqual({
       font: 'SomeCustomFont',
       fontAscii: 'SomeCustomFont',
     })
     expect(
-      fontAttrsFromFamilyChain("'PT Serif Custom','Noto Serif CJK GO','GenOffice PUA Blank',serif"),
+      fontAttrsFromFamilyChain("'PT Serif Custom','Noto Serif CJK OD','OneDesk PUA Blank',serif"),
     ).toEqual({ font: 'PT Serif Custom', fontAscii: 'PT Serif Custom' })
   })
 
-  it('skips the other internal chain aliases (KR Theme Latin GO, Arabic size-adjusted)', () => {
+  it('skips the other internal chain aliases (KR Theme Latin OD, Arabic size-adjusted)', () => {
     expect(fontAttrsFromFamilyChain(cssFontFamily('Noto Sans CJK KR'))).toEqual({
       font: 'Noto Sans CJK KR',
     })
     expect(
       fontAttrsFromFamilyChain(
-        "'Naskh Digits GO','Noto Naskh Arabic TNR','Geeza Pro','Al Bayan',serif",
+        "'Naskh Digits OD','Noto Naskh Arabic TNR','Geeza Pro','Al Bayan',serif",
       ),
     ).toEqual({ font: 'Geeza Pro', fontAscii: 'Geeza Pro' })
   })
@@ -175,7 +175,7 @@ describe('complex-script (w:cs) render chain', () => {
       csFont: 'Arabic Typesetting',
     })
     expect(html).toContain(
-      'font-family: &quot;Arabic Typesetting&quot;, &quot;Naskh Digits GO&quot;, &quot;Times Punct GO&quot;, &quot;Calibri&quot;, &quot;Carlito GO&quot;, &quot;Noto Sans CJK SC&quot;, &quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;Noto Naskh Arabic TNR&quot;, &quot;Geeza Pro&quot;, &quot;Al Bayan&quot;, &quot;Calibri Arabic GO&quot;, sans-serif',
+      'font-family: &quot;Arabic Typesetting&quot;, &quot;Naskh Digits OD&quot;, &quot;Times Punct OD&quot;, &quot;Calibri&quot;, &quot;Carlito OD&quot;, &quot;Noto Sans CJK SC&quot;, &quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;Noto Naskh Arabic TNR&quot;, &quot;Geeza Pro&quot;, &quot;Al Bayan&quot;, &quot;Calibri Arabic OD&quot;, sans-serif',
     )
   })
 

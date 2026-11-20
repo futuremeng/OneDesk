@@ -38,8 +38,8 @@ function advanceEmTtf(file: string, ch: string): number {
   return font.charToGlyph(ch).advanceWidth! / font.unitsPerEm
 }
 
-describe('MS Gothic GO', () => {
-  const all = faces('MS Gothic GO')
+describe('MS Gothic OD', () => {
+  const all = faces('MS Gothic OD')
   const latin = all.find((f) => claims(f.ranges, 0x61))!
 
   it('serves Latin from the bundled mono scaled to a 0.5em advance', () => {
@@ -64,9 +64,9 @@ describe('MS Gothic GO', () => {
   })
 })
 
-describe.each(['MS PGothic', 'MS UI Gothic'])('%s GO + JA GO', (family) => {
-  const latinFaces = faces(`${family} GO`)
-  const jaFaces = faces(`${family} JA GO`)
+describe.each(['MS PGothic', 'MS UI Gothic'])('%s OD + JA OD', (family) => {
+  const latinFaces = faces(`${family} OD`)
+  const jaFaces = faces(`${family} JA OD`)
   const all = [...latinFaces, ...jaFaces]
   const at = (cp: number) => all.filter((f) => claims(f.ranges, cp))
 
@@ -122,7 +122,7 @@ describe.each(['MS PGothic', 'MS UI Gothic'])('%s GO + JA GO', (family) => {
 
 it('MS UI Gothic kana run narrower than MS PGothic kana', () => {
   const kana = (family: string) => faces(family).find((f) => claims(f.ranges, 0x3042))!.sizeAdjust
-  expect(kana('MS UI Gothic JA GO')).toBeLessThan(kana('MS PGothic JA GO'))
+  expect(kana('MS UI Gothic JA OD')).toBeLessThan(kana('MS PGothic JA OD'))
 })
 
 /** advance the face yields for a codepoint served from a bundled file */
