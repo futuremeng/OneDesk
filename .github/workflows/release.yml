@@ -1,0 +1,267 @@
+# OneDesk release pipeline.
+#
+# Push a tag `vX.Y.Z` (matching apps/shell/package.json "version" — the app
+# version source of truth; the workspace's 0.x versions are unrelated) and the
+# three build jobs produce installers for macOS (arm64 + x64 in one pass via
+# ONEDESK_MAC_X64=1), Windows x64, and Linux x64, all UNSIGNED by default.
+# The release job then attaches every artifact to a GitHub Release on this
+# repository.
+#
+# Code signing stays entirely opt-in through the electron-builder env contract
+# (apps/shell/electron-builder.cjs), so fork builds never need credentials:
+#   macOS   APPLE_ID / APPLE_TEAM_ID / APPLE_APP_SPECIFIC_PASSWORD secrets
+#           enable notarization; without them the dmg ships unsigned
+#           (build/notarize-dmg.js skips, electron-builder skips signing).
+#   Windows ONEDESK_WIN_SIGN_MODE ("test" | "production") plus the
+#           scripts/win-sign.cjs env contract enables in-package signing;
+#           unset keeps everything unsigned.
+#   Feed    ONEDESK_UPDATE_URL points the packaged app's electron-updater at a
+#           generic CDN feed. Until jiulu.ltd serves its own /releases/
+#           directory this stays unset: builds carry no auto-update feed and
+#           the updater falls back to the download page. The generated
+#           latest*.yml files ride along on each release so a future static
+#           feed (or a sync job to onedesk.jiulu.ltd) can consume them verbatim.
+#
+# Linux arm64 and Windows arm64 have config support only (ONEDESK_LINUX_ARM64
+# / ONEDESK_WIN_ARM64 in electron-builder.cjs) and are deliberately not in the
+# matrix yet, mirroring the comment there: no second packaging pass is wired.
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Existing tag to release, e.g. v0.13.0'
+        required: true
+        type: string
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+# Only the release job writes; the build jobs never need a token at all.
+permissions: {}
+
+jobs:
+  version:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      tag: ${{ steps.resolve.outputs.tag }}
+      version: ${{ steps.resolve.outputs.version }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Resolve and validate the release tag
+        id: resolve
+        env:
+          INPUT_TAG: ${{ inputs.tag }}
+        run: |
+          tag="${INPUT_TAG:-${GITHUB_REF_NAME}}"
+          case "$tag" in
+            v*) ;;
+            *) echo "::error::release tag must look like vX.Y.Z, got '$tag'"; exit 1 ;;
+          esac
+          version="${tag#v}"
+          pkg_version="$(node -p "require('./apps/shell/package.json').version")"
+          if [ "$version" != "$pkg_version" ]; then
+            echo "::error::tag $tag disagrees with apps/shell/package.json version $pkg_version — bump the app version first, then cut the tag"
+            exit 1
+          fi
+          echo "tag=$tag" >> "$GITHUB_OUTPUT"
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+          echo "Releasing OneDesk $version ($tag)"
+
+  build-mac:
+    needs: version
+    runs-on: macos-latest
+    timeout-minutes: 90
+    env:
+      ONEDESK_MAC_X64: '1'
+      # APPLE_ID: ${{ secrets.APPLE_ID }}
+      # APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
+      # APPLE_APP_SPECIFIC_PASSWORD: ${{ secrets.APPLE_APP_SPECIFIC_PASSWORD }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ needs.version.outputs.tag }}
+
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: package-lock.json
+
+      - uses: dtolnay/rust-toolchain@4cda84d5c5c54efe2404f9d843567869ab1699d4 # stable branch, 2026-07
+        with:
+          toolchain: stable
+          targets: aarch64-apple-darwin,x86_64-apple-darwin
+
+      - uses: Swatinem/rust-cache@c19371144df3bb44fab255c43d04cbc2ab54d1c4 # v2.9.1
+        with:
+          workspaces: apps/sheets/native/xlsx-engine
+
+      # electron's postinstall downloads its binary from GitHub Releases on every
+      # fresh install; a cache hit skips the download (and its 5xx flakes)
+      - uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: ~/.cache/electron
+          key: electron-bin-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+          restore-keys: electron-bin-${{ runner.os }}-
+
+      - run: npm ci
+
+      # Root dist:mac = notices + build:all + universal sidecar + packaging.
+      # The --publish passthrough lands on the final electron-builder call.
+      - name: Package macOS installers (arm64 + x64)
+        run: npm run dist:mac -- --publish never
+
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: onedesk-mac
+          path: |
+            apps/shell/release/*.dmg
+            apps/shell/release/*.zip
+          if-no-files-found: error
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: onedesk-mac-feed
+          path: apps/shell/release/latest*.yml
+          if-no-files-found: warn
+
+  build-windows:
+    needs: version
+    runs-on: windows-latest
+    timeout-minutes: 90
+    env:
+      # ONEDESK_WIN_SIGN_MODE: production  # plus the scripts/win-sign.cjs env contract
+      # ONEDESK_UPDATE_URL: ${{ secrets.ONEDESK_UPDATE_URL }}
+      {}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ needs.version.outputs.tag }}
+
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: package-lock.json
+
+      # native:build (inside build:all) compiles the xlsx sidecar + clipboard
+      # stub host-native; win-ocr.exe itself compiles with the in-box .NET
+      # csc, no rust needed for that one.
+      - uses: dtolnay/rust-toolchain@4cda84d5c5c54efe2404f9d843567869ab1699d4 # stable branch, 2026-07
+        with:
+          toolchain: stable
+
+      - uses: Swatinem/rust-cache@c19371144df3bb44fab255c43d04cbc2ab54d1c4 # v2.9.1
+        with:
+          workspaces: apps/sheets/native/xlsx-engine
+
+      - uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: ~/.cache/electron
+          key: electron-bin-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+          restore-keys: electron-bin-${{ runner.os }}-
+
+      - run: npm ci
+
+      - name: Package Windows x64 installer
+        run: npm run dist:win -- --publish never
+
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: onedesk-windows
+          path: apps/shell/release/*.exe
+          if-no-files-found: error
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: onedesk-windows-feed
+          path: apps/shell/release/latest.yml
+          if-no-files-found: warn
+      # electron-builder namespaces the Linux update metadata latest-linux.yml,
+      # so it never collides with the Windows latest.yml when both land on one
+      # release.
+
+  build-linux:
+    needs: version
+    # Older glibc than ubuntu-latest so the deb/rpm/AppImage stay broadly
+    # compatible (the packaging job in ci.yml runs on this image for the same
+    # reason).
+    runs-on: ubuntu-22.04
+    timeout-minutes: 90
+    env:
+      # ONEDESK_UPDATE_URL: ${{ secrets.ONEDESK_UPDATE_URL }}
+      {}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ needs.version.outputs.tag }}
+
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: package-lock.json
+
+      - uses: dtolnay/rust-toolchain@4cda84d5c5c54efe2404f9d843567869ab1699d4 # stable branch, 2026-07
+        with:
+          toolchain: stable
+
+      - uses: Swatinem/rust-cache@c19371144df3bb44fab255c43d04cbc2ab54d1c4 # v2.9.1
+        with:
+          workspaces: apps/sheets/native/xlsx-engine
+
+      - uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: ~/.cache/electron
+          key: electron-bin-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+          restore-keys: electron-bin-${{ runner.os }}-
+
+      - run: npm ci
+
+      - name: Package Linux x64 installers (AppImage + deb + rpm)
+        run: npm run dist:linux -- --publish never
+
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: onedesk-linux
+          path: |
+            apps/shell/release/*.AppImage
+            apps/shell/release/*.deb
+            apps/shell/release/*.rpm
+          if-no-files-found: error
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: onedesk-linux-feed
+          path: apps/shell/release/latest-linux.yml
+          if-no-files-found: warn
+
+  release:
+    needs: [version, build-mac, build-windows, build-linux]
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+    steps:
+      - name: Collect artifacts
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p artifacts
+          gh run download "$GITHUB_RUN_ID" --pattern 'onedesk-*' --dir artifacts
+          ls -l artifacts
+
+      - name: Publish GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ needs.version.outputs.tag }}
+        run: |
+          args=(release create "$TAG" --verify-tag --generate-notes)
+          case "$TAG" in
+            *-*) args+=(--prerelease) ;;
+          esac
+          gh "${args[@]}" artifacts/*
