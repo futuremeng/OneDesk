@@ -107,20 +107,23 @@ export const pt = {
   aiRevisionRejectAll: 'Rejeitar tudo',
   aiRevisionAcceptAll: 'Aceitar tudo',
   aiProofreadProgress: 'Corrigindo · parágrafo {done} de {total}',
-  aiProofreadTrackToast: 'Track Changes is on for this pass — accepted suggestions land as tracked revisions',
+  aiProofreadTrackToast:
+    'Track Changes is on for this pass — accepted suggestions land as tracked revisions',
   aiProofreadStopped: 'Proofread stopped · {count} issue(s) found so far',
   aiProofreadResume: 'Retomar',
   aiProofreadResults: 'Ver resultados',
-  aiProofreadDone: 'Proofread complete: {accepted} accepted · {rejected} rejected. Accepted suggestions are in the document as tracked revisions.',
+  aiProofreadDone:
+    'Proofread complete: {accepted} accepted · {rejected} rejected. Accepted suggestions are in the document as tracked revisions.',
   aiProofreadFound: 'Proofread done: {count} issue(s) found',
   aiProofreadClean: 'Proofread done, no issues found',
-  aiProofreadPending: '{count} proofread suggestion(s)',
   aiProofreadStale: 'The text changed; this suggestion could not be located and was not applied',
-  aiProofreadNeedsSettings: 'Nenhum serviço de modelo configurado; a correção precisa de um endpoint compatível com OpenAI',
+  aiProofreadNeedsSettings:
+    'Nenhum serviço de modelo configurado; a correção precisa de um endpoint compatível com OpenAI',
   aiProofreadOpenSettings: 'Abrir configurações',
   aiProofreadNothing: 'Não há texto para corrigir',
   aiProofreadError: 'O serviço de modelo não retornou uma resposta útil',
-  aiProofreadSystem: 'Você é um revisor cuidadoso. Corrija apenas erros de digitação, pontuação e gramática no texto do usuário. Mantenha o idioma, o significado e a estrutura dos parágrafos sem alterações, preserve exatamente os espaços iniciais e finais e responda apenas com o texto corrigido, sem explicações.',
+  aiProofreadSystem:
+    'Você é um revisor cuidadoso. Corrija apenas erros de digitação, pontuação e gramática no texto do usuário. Mantenha o idioma, o significado e a estrutura dos parágrafos sem alterações, preserve exatamente os espaços iniciais e finais e responda apenas com o texto corrigido, sem explicações.',
   aiRevisionPara: 'Parágrafo {n}',
   aiRevTypeSpelling: 'Ortografia',
   aiRevTypeGrammar: 'Gramática',

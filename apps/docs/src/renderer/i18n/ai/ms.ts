@@ -106,20 +106,23 @@ export const ms = {
   aiRevisionRejectAll: 'Tolak semua',
   aiRevisionAcceptAll: 'Terima semua',
   aiProofreadProgress: 'Membetulkan · perenggan {done} daripada {total}',
-  aiProofreadTrackToast: 'Track Changes is on for this pass — accepted suggestions land as tracked revisions',
+  aiProofreadTrackToast:
+    'Track Changes is on for this pass — accepted suggestions land as tracked revisions',
   aiProofreadStopped: 'Proofread stopped · {count} issue(s) found so far',
   aiProofreadResume: 'Sambung semula',
   aiProofreadResults: 'Lihat hasil',
-  aiProofreadDone: 'Proofread complete: {accepted} accepted · {rejected} rejected. Accepted suggestions are in the document as tracked revisions.',
+  aiProofreadDone:
+    'Proofread complete: {accepted} accepted · {rejected} rejected. Accepted suggestions are in the document as tracked revisions.',
   aiProofreadFound: 'Proofread done: {count} issue(s) found',
   aiProofreadClean: 'Proofread done, no issues found',
-  aiProofreadPending: '{count} proofread suggestion(s)',
   aiProofreadStale: 'The text changed; this suggestion could not be located and was not applied',
-  aiProofreadNeedsSettings: 'Perkhidmatan model belum dikonfigurasi — pembetulan memerlukan hujung titik serasi OpenAI',
+  aiProofreadNeedsSettings:
+    'Perkhidmatan model belum dikonfigurasi — pembetulan memerlukan hujung titik serasi OpenAI',
   aiProofreadOpenSettings: 'Buka tetapan',
   aiProofreadNothing: 'Tiada teks untuk dibetulkan',
   aiProofreadError: 'Perkhidmatan model tidak mengembalikan balasan berguna',
-  aiProofreadSystem: 'You are a careful proofreader. Fix only typos, punctuation and grammar in the user\'s text. Keep the language, the meaning and the paragraph structure unchanged, preserve leading and trailing whitespace exactly, and reply with only the corrected text and no explanation.',
+  aiProofreadSystem:
+    "You are a careful proofreader. Fix only typos, punctuation and grammar in the user's text. Keep the language, the meaning and the paragraph structure unchanged, preserve leading and trailing whitespace exactly, and reply with only the corrected text and no explanation.",
   aiRevisionPara: 'Perenggan {n}',
   aiRevTypeSpelling: 'Ejaan',
   aiRevTypeGrammar: 'Tatabahasa',

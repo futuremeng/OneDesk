@@ -106,20 +106,23 @@ export const tr = {
   aiRevisionRejectAll: 'Tümünü reddet',
   aiRevisionAcceptAll: 'Tümünü kabul et',
   aiProofreadProgress: 'Yazım denetimi · {total} paragraftan {done}',
-  aiProofreadTrackToast: 'Track Changes is on for this pass — accepted suggestions land as tracked revisions',
+  aiProofreadTrackToast:
+    'Track Changes is on for this pass — accepted suggestions land as tracked revisions',
   aiProofreadStopped: 'Proofread stopped · {count} issue(s) found so far',
   aiProofreadResume: 'Kaldığı yerden sürdür',
   aiProofreadResults: 'Sonuçları gör',
-  aiProofreadDone: 'Proofread complete: {accepted} accepted · {rejected} rejected. Accepted suggestions are in the document as tracked revisions.',
+  aiProofreadDone:
+    'Proofread complete: {accepted} accepted · {rejected} rejected. Accepted suggestions are in the document as tracked revisions.',
   aiProofreadFound: 'Proofread done: {count} issue(s) found',
   aiProofreadClean: 'Proofread done, no issues found',
-  aiProofreadPending: '{count} proofread suggestion(s)',
   aiProofreadStale: 'The text changed; this suggestion could not be located and was not applied',
-  aiProofreadNeedsSettings: 'Model hizmeti yapılandırılmamış — denetim için OpenAI uyumlu bir uç nokta gerekir',
+  aiProofreadNeedsSettings:
+    'Model hizmeti yapılandırılmamış — denetim için OpenAI uyumlu bir uç nokta gerekir',
   aiProofreadOpenSettings: 'Ayarları aç',
   aiProofreadNothing: 'Denecek metin yok',
   aiProofreadError: 'Model hizmeti kullanılabilir bir yanıt döndürmedi',
-  aiProofreadSystem: 'You are a careful proofreader. Fix only typos, punctuation and grammar in the user\'s text. Keep the language, the meaning and the paragraph structure unchanged, preserve leading and trailing whitespace exactly, and reply with only the corrected text and no explanation.',
+  aiProofreadSystem:
+    "You are a careful proofreader. Fix only typos, punctuation and grammar in the user's text. Keep the language, the meaning and the paragraph structure unchanged, preserve leading and trailing whitespace exactly, and reply with only the corrected text and no explanation.",
   aiRevisionPara: 'Paragraf {n}',
   aiRevTypeSpelling: 'Yazım',
   aiRevTypeGrammar: 'Dilbilgisi',

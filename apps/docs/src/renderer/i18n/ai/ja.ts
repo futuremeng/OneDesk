@@ -105,20 +105,23 @@ export const ja = {
   aiRevisionRejectAll: 'すべて元に戻す',
   aiRevisionAcceptAll: 'すべて承諾',
   aiProofreadProgress: '校正中 · {total} 段落中 {done} 番目',
-  aiProofreadTrackToast: 'この校正では変更履歴が自動的にオンになります。承認した提案は変更履歴として本文に挿入されます',
+  aiProofreadTrackToast:
+    'この校正では変更履歴が自動的にオンになります。承認した提案は変更履歴として本文に挿入されます',
   aiProofreadStopped: '校正を停止しました · {count} 件の問題を発見',
   aiProofreadResume: '中断した場所から再開',
   aiProofreadResults: '結果を見る',
-  aiProofreadDone: '校正完了：承認 {accepted} · 拒否 {rejected}。承認した提案は変更履歴として本文にあります',
+  aiProofreadDone:
+    '校正完了：承認 {accepted} · 拒否 {rejected}。承認した提案は変更履歴として本文にあります',
   aiProofreadFound: '校正完了：{count} 件の問題を発見',
   aiProofreadClean: '校正完了：問題はありませんでした',
-  aiProofreadPending: '校正提案 {count} 件',
   aiProofreadStale: '本文が変更されたため、この提案は位置を特定できず適用されませんでした',
-  aiProofreadNeedsSettings: 'モデルサービスが設定されていません。校正にはモデルエンドポイントが必要です',
+  aiProofreadNeedsSettings:
+    'モデルサービスが設定されていません。校正にはモデルエンドポイントが必要です',
   aiProofreadOpenSettings: '設定を開く',
   aiProofreadNothing: '校正するテキストがありません',
   aiProofreadError: 'モデルサービスから有効な応答がありませんでした',
-  aiProofreadSystem: 'あなたは慎重な校正者です。ユーザーのテキストから誤字、句読点、文法のみを修正してください。言語・意味・段落構成は変えず、冒頭と末尾の空白をそのまま保ち、修正後のテキストのみを出力し、説明は加えないでください。',
+  aiProofreadSystem:
+    'あなたは慎重な校正者です。ユーザーのテキストから誤字、句読点、文法のみを修正してください。言語・意味・段落構成は変えず、冒頭と末尾の空白をそのまま保ち、修正後のテキストのみを出力し、説明は加えないでください。',
   aiRevisionPara: '段落 {n}',
   aiRevTypeSpelling: '綴り',
   aiRevTypeGrammar: '文法',

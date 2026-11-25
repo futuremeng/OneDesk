@@ -110,20 +110,23 @@ export const hu = {
   aiRevisionRejectAll: 'Összes elutasítása',
   aiRevisionAcceptAll: 'Összes elfogadása',
   aiProofreadProgress: 'Lektorálás · {total} bekezdés közül {done}',
-  aiProofreadTrackToast: 'Track Changes is on for this pass — accepted suggestions land as tracked revisions',
+  aiProofreadTrackToast:
+    'Track Changes is on for this pass — accepted suggestions land as tracked revisions',
   aiProofreadStopped: 'Proofread stopped · {count} issue(s) found so far',
   aiProofreadResume: 'Folytatás',
   aiProofreadResults: 'Eredmények megtekintése',
-  aiProofreadDone: 'Proofread complete: {accepted} accepted · {rejected} rejected. Accepted suggestions are in the document as tracked revisions.',
+  aiProofreadDone:
+    'Proofread complete: {accepted} accepted · {rejected} rejected. Accepted suggestions are in the document as tracked revisions.',
   aiProofreadFound: 'Proofread done: {count} issue(s) found',
   aiProofreadClean: 'Proofread done, no issues found',
-  aiProofreadPending: '{count} proofread suggestion(s)',
   aiProofreadStale: 'The text changed; this suggestion could not be located and was not applied',
-  aiProofreadNeedsSettings: 'Nincs beállítva modellszolgáltatás — a lektoráláshoz OpenAI-kompatibilis végpont kell',
+  aiProofreadNeedsSettings:
+    'Nincs beállítva modellszolgáltatás — a lektoráláshoz OpenAI-kompatibilis végpont kell',
   aiProofreadOpenSettings: 'Beállítások megnyitása',
   aiProofreadNothing: 'Nincs lektorálandó szöveg',
   aiProofreadError: 'A modellszolgáltatás nem adott használható választ',
-  aiProofreadSystem: 'You are a careful proofreader. Fix only typos, punctuation and grammar in the user\'s text. Keep the language, the meaning and the paragraph structure unchanged, preserve leading and trailing whitespace exactly, and reply with only the corrected text and no explanation.',
+  aiProofreadSystem:
+    "You are a careful proofreader. Fix only typos, punctuation and grammar in the user's text. Keep the language, the meaning and the paragraph structure unchanged, preserve leading and trailing whitespace exactly, and reply with only the corrected text and no explanation.",
   aiRevisionPara: '{n}. bekezdés',
   aiRevTypeSpelling: 'Helyesírás',
   aiRevTypeGrammar: 'Nyeltan',

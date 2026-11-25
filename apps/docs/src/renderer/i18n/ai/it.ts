@@ -108,20 +108,23 @@ export const it = {
   aiRevisionRejectAll: 'Rifiuta tutto',
   aiRevisionAcceptAll: 'Accetta tutto',
   aiProofreadProgress: 'Correzione in corso · paragrafo {done} di {total}',
-  aiProofreadTrackToast: 'Track Changes is on for this pass — accepted suggestions land as tracked revisions',
+  aiProofreadTrackToast:
+    'Track Changes is on for this pass — accepted suggestions land as tracked revisions',
   aiProofreadStopped: 'Proofread stopped · {count} issue(s) found so far',
   aiProofreadResume: 'Riprendi',
   aiProofreadResults: 'Vedi risultati',
-  aiProofreadDone: 'Proofread complete: {accepted} accepted · {rejected} rejected. Accepted suggestions are in the document as tracked revisions.',
+  aiProofreadDone:
+    'Proofread complete: {accepted} accepted · {rejected} rejected. Accepted suggestions are in the document as tracked revisions.',
   aiProofreadFound: 'Proofread done: {count} issue(s) found',
   aiProofreadClean: 'Proofread done, no issues found',
-  aiProofreadPending: '{count} proofread suggestion(s)',
   aiProofreadStale: 'The text changed; this suggestion could not be located and was not applied',
-  aiProofreadNeedsSettings: 'Nessun servizio modello configurato; la correzione richiede un endpoint compatibile con OpenAI',
+  aiProofreadNeedsSettings:
+    'Nessun servizio modello configurato; la correzione richiede un endpoint compatibile con OpenAI',
   aiProofreadOpenSettings: 'Apri impostazioni',
   aiProofreadNothing: 'Nessun testo da correggere',
   aiProofreadError: 'Il servizio modello non ha restituito una risposta utilizzabile',
-  aiProofreadSystem: 'Sei un correttore accurato. Correggi solo refusi, punteggiatura e grammatica nel testo dell\'utente. Mantieni invariati lingua, significato e struttura dei paragrafi, conserva esattamente gli spazi iniziali e finali e rispondi solo con il testo corretto, senza spiegazioni.',
+  aiProofreadSystem:
+    "Sei un correttore accurato. Correggi solo refusi, punteggiatura e grammatica nel testo dell'utente. Mantieni invariati lingua, significato e struttura dei paragrafi, conserva esattamente gli spazi iniziali e finali e rispondi solo con il testo corretto, senza spiegazioni.",
   aiRevisionPara: 'Paragrafo {n}',
   aiRevTypeSpelling: 'Ortografia',
   aiRevTypeGrammar: 'Grammatica',

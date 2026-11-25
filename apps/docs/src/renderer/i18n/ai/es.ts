@@ -107,20 +107,23 @@ export const es = {
   aiRevisionRejectAll: 'Rechazar todo',
   aiRevisionAcceptAll: 'Aceptar todo',
   aiProofreadProgress: 'Corrigiendo · párrafo {done} de {total}',
-  aiProofreadTrackToast: 'El control de cambios está activado para este repaso; las sugerencias aceptadas se registran como cambios controlados',
+  aiProofreadTrackToast:
+    'El control de cambios está activado para este repaso; las sugerencias aceptadas se registran como cambios controlados',
   aiProofreadStopped: 'Corrección detenida · {count} problemas encontrados hasta ahora',
   aiProofreadResume: 'Reanudar',
   aiProofreadResults: 'Ver resultados',
-  aiProofreadDone: 'Corrección completada: {accepted} aceptadas · {rejected} rechazadas. Las sugerencias aceptadas quedaron en el documento como cambios controlados',
+  aiProofreadDone:
+    'Corrección completada: {accepted} aceptadas · {rejected} rechazadas. Las sugerencias aceptadas quedaron en el documento como cambios controlados',
   aiProofreadFound: 'Corrección completada: {count} problemas encontrados',
   aiProofreadClean: 'Corrección completada, sin problemas',
-  aiProofreadPending: '{count} sugerencia(s) de corrección',
   aiProofreadStale: 'El texto cambió; esta sugerencia no se pudo localizar y no se aplicó',
-  aiProofreadNeedsSettings: 'No hay servicio de modelo configurado; la corrección necesita un endpoint compatible con OpenAI',
+  aiProofreadNeedsSettings:
+    'No hay servicio de modelo configurado; la corrección necesita un endpoint compatible con OpenAI',
   aiProofreadOpenSettings: 'Abrir configuración',
   aiProofreadNothing: 'No hay texto que corregir',
   aiProofreadError: 'El servicio de modelo no devolvió una respuesta útil',
-  aiProofreadSystem: 'Eres un corrector minucioso. Corrige solo erratas, puntuación y gramática en el texto del usuario. Mantén el idioma, el significado y la estructura de párrafos sin cambios, conserva exactamente los espacios iniciales y finales y responde solo con el texto corregido, sin explicaciones.',
+  aiProofreadSystem:
+    'Eres un corrector minucioso. Corrige solo erratas, puntuación y gramática en el texto del usuario. Mantén el idioma, el significado y la estructura de párrafos sin cambios, conserva exactamente los espacios iniciales y finales y responde solo con el texto corregido, sin explicaciones.',
   aiRevisionPara: 'Párrafo {n}',
   aiRevTypeSpelling: 'Ortografía',
   aiRevTypeGrammar: 'Gramática',

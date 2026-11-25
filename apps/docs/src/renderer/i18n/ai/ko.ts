@@ -104,20 +104,23 @@ export const ko = {
   aiRevisionRejectAll: '모두 거부',
   aiRevisionAcceptAll: '모두 적용',
   aiProofreadProgress: '교정 중 · 문단 {done}/{total}',
-  aiProofreadTrackToast: '이번 교정에서 추적 변경이 자동 켜졌습니다. 승인한 제안은 추적 변경으로 문서에 들어갑니다',
+  aiProofreadTrackToast:
+    '이번 교정에서 추적 변경이 자동 켜졌습니다. 승인한 제안은 추적 변경으로 문서에 들어갑니다',
   aiProofreadStopped: '교정 중지됨 · 문제 {count}개 발견',
   aiProofreadResume: '중단 지점에서 재시도',
   aiProofreadResults: '결과 보기',
-  aiProofreadDone: '교정 완료: 승인 {accepted} · 거부 {rejected}. 승인한 제안은 추적 변경으로 문서에 있습니다',
+  aiProofreadDone:
+    '교정 완료: 승인 {accepted} · 거부 {rejected}. 승인한 제안은 추적 변경으로 문서에 있습니다',
   aiProofreadFound: '교정 완료: 문제 {count}개 발견',
   aiProofreadClean: '교정 완료: 문제를 찾지 못했습니다',
-  aiProofreadPending: '교정 제안 {count}개',
   aiProofreadStale: '본문이 변경되어 이 제안은 위치를 찾지 못해 적용되지 않았습니다',
-  aiProofreadNeedsSettings: '모델 서비스가 구성되지 않았습니다. 교정에는 모델 엔드포인트가 필요합니다',
+  aiProofreadNeedsSettings:
+    '모델 서비스가 구성되지 않았습니다. 교정에는 모델 엔드포인트가 필요합니다',
   aiProofreadOpenSettings: '설정 열기',
   aiProofreadNothing: '교정할 텍스트가 없습니다',
   aiProofreadError: '모델 서비스가 유효한 응답을 반환하지 않았습니다',
-  aiProofreadSystem: 'You are a careful proofreader. Fix only typos, punctuation and grammar in the user\'s text. Keep the language, the meaning and the paragraph structure unchanged, preserve leading and trailing whitespace exactly, and reply with only the corrected text and no explanation.',
+  aiProofreadSystem:
+    "You are a careful proofreader. Fix only typos, punctuation and grammar in the user's text. Keep the language, the meaning and the paragraph structure unchanged, preserve leading and trailing whitespace exactly, and reply with only the corrected text and no explanation.",
   aiRevisionPara: '{n}번째 단락',
   aiRevTypeSpelling: '맞춤법',
   aiRevTypeGrammar: '문법',

@@ -106,20 +106,23 @@ export const pl = {
   aiRevisionRejectAll: 'Odrzuć wszystkie',
   aiRevisionAcceptAll: 'Zaakceptuj wszystkie',
   aiProofreadProgress: 'Korekta · akapit {done} z {total}',
-  aiProofreadTrackToast: 'Track Changes is on for this pass — accepted suggestions land as tracked revisions',
+  aiProofreadTrackToast:
+    'Track Changes is on for this pass — accepted suggestions land as tracked revisions',
   aiProofreadStopped: 'Proofread stopped · {count} issue(s) found so far',
   aiProofreadResume: 'Wznów',
   aiProofreadResults: 'Zobacz wyniki',
-  aiProofreadDone: 'Proofread complete: {accepted} accepted · {rejected} rejected. Accepted suggestions are in the document as tracked revisions.',
+  aiProofreadDone:
+    'Proofread complete: {accepted} accepted · {rejected} rejected. Accepted suggestions are in the document as tracked revisions.',
   aiProofreadFound: 'Proofread done: {count} issue(s) found',
   aiProofreadClean: 'Proofread done, no issues found',
-  aiProofreadPending: '{count} proofread suggestion(s)',
   aiProofreadStale: 'The text changed; this suggestion could not be located and was not applied',
-  aiProofreadNeedsSettings: 'Nie skonfigurowano serwisu modelu — korekta wymaga punktu końcowego zgodnego z OpenAI',
+  aiProofreadNeedsSettings:
+    'Nie skonfigurowano serwisu modelu — korekta wymaga punktu końcowego zgodnego z OpenAI',
   aiProofreadOpenSettings: 'Otwórz ustawienia',
   aiProofreadNothing: 'Brak tekstu do korekty',
   aiProofreadError: 'Serwis modelu nie zwrócił użytecznej odpowiedzi',
-  aiProofreadSystem: 'Jesteś dokładnym korektorem. Poprawiaj w tekście użytkownika tylko literówki, interpunkcję i gramatykę. Nie zmieniaj języka, znaczenia ani struktury akapitów, zachowaj dokładnie białe znaki na początku i na końcu i odpowiadaj wyłącznie poprawionym tekstem bez wyjaśnień.',
+  aiProofreadSystem:
+    'Jesteś dokładnym korektorem. Poprawiaj w tekście użytkownika tylko literówki, interpunkcję i gramatykę. Nie zmieniaj języka, znaczenia ani struktury akapitów, zachowaj dokładnie białe znaki na początku i na końcu i odpowiadaj wyłącznie poprawionym tekstem bez wyjaśnień.',
   aiRevisionPara: 'Akapit {n}',
   aiRevTypeSpelling: 'Pisownia',
   aiRevTypeGrammar: 'Gramatyka',

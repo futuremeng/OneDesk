@@ -105,20 +105,23 @@ export const en = {
   aiRevisionRejectAll: 'Reject all',
   aiRevisionAcceptAll: 'Accept all',
   aiProofreadProgress: 'Proofreading · paragraph {done} of {total}',
-  aiProofreadTrackToast: 'Track Changes is on for this pass — accepted suggestions land as tracked revisions',
+  aiProofreadTrackToast:
+    'Track Changes is on for this pass — accepted suggestions land as tracked revisions',
   aiProofreadStopped: 'Proofread stopped · {count} issue(s) found so far',
   aiProofreadResume: 'Resume',
   aiProofreadResults: 'See results',
-  aiProofreadDone: 'Proofread complete: {accepted} accepted · {rejected} rejected. Accepted suggestions are in the document as tracked revisions.',
+  aiProofreadDone:
+    'Proofread complete: {accepted} accepted · {rejected} rejected. Accepted suggestions are in the document as tracked revisions.',
   aiProofreadFound: 'Proofread done: {count} issue(s) found',
   aiProofreadClean: 'Proofread done, no issues found',
-  aiProofreadPending: '{count} proofread suggestion(s)',
   aiProofreadStale: 'The text changed; this suggestion could not be located and was not applied',
-  aiProofreadNeedsSettings: 'No model service configured. Proofread needs an OpenAI-compatible endpoint or a sign-in.',
+  aiProofreadNeedsSettings:
+    'No model service configured. Proofread needs an OpenAI-compatible endpoint or a sign-in.',
   aiProofreadOpenSettings: 'Open settings',
   aiProofreadNothing: 'There is no text to proofread',
   aiProofreadError: 'The model service returned no usable reply',
-  aiProofreadSystem: 'You are a careful proofreader. Fix only typos, punctuation and grammar in the user\'s text. Keep the language, the meaning and the paragraph structure unchanged, preserve leading and trailing whitespace exactly, and reply with only the corrected text and no explanation.',
+  aiProofreadSystem:
+    "You are a careful proofreader. Fix only typos, punctuation and grammar in the user's text. Keep the language, the meaning and the paragraph structure unchanged, preserve leading and trailing whitespace exactly, and reply with only the corrected text and no explanation.",
   aiRevisionPara: 'Paragraph {n}',
   aiRevTypeSpelling: 'Spelling',
   aiRevTypeGrammar: 'Grammar',

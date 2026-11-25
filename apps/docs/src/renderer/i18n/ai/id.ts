@@ -106,20 +106,23 @@ export const id = {
   aiRevisionRejectAll: 'Tolak semua',
   aiRevisionAcceptAll: 'Terima semua',
   aiProofreadProgress: 'Mengoreksi · paragraf {done} dari {total}',
-  aiProofreadTrackToast: 'Track Changes is on for this pass — accepted suggestions land as tracked revisions',
+  aiProofreadTrackToast:
+    'Track Changes is on for this pass — accepted suggestions land as tracked revisions',
   aiProofreadStopped: 'Proofread stopped · {count} issue(s) found so far',
   aiProofreadResume: 'Lanjutkan',
   aiProofreadResults: 'Lihat hasil',
-  aiProofreadDone: 'Proofread complete: {accepted} accepted · {rejected} rejected. Accepted suggestions are in the document as tracked revisions.',
+  aiProofreadDone:
+    'Proofread complete: {accepted} accepted · {rejected} rejected. Accepted suggestions are in the document as tracked revisions.',
   aiProofreadFound: 'Proofread done: {count} issue(s) found',
   aiProofreadClean: 'Proofread done, no issues found',
-  aiProofreadPending: '{count} proofread suggestion(s)',
   aiProofreadStale: 'The text changed; this suggestion could not be located and was not applied',
-  aiProofreadNeedsSettings: 'Layanan model belum dikonfigurasi — koreksi membutuhkan endpoint yang kompatibel dengan OpenAI',
+  aiProofreadNeedsSettings:
+    'Layanan model belum dikonfigurasi — koreksi membutuhkan endpoint yang kompatibel dengan OpenAI',
   aiProofreadOpenSettings: 'Buka pengaturan',
   aiProofreadNothing: 'Tidak ada teks untuk dikoreksi',
   aiProofreadError: 'Layanan model tidak mengembalikan jawaban yang berguna',
-  aiProofreadSystem: 'You are a careful proofreader. Fix only typos, punctuation and grammar in the user\'s text. Keep the language, the meaning and the paragraph structure unchanged, preserve leading and trailing whitespace exactly, and reply with only the corrected text and no explanation.',
+  aiProofreadSystem:
+    "You are a careful proofreader. Fix only typos, punctuation and grammar in the user's text. Keep the language, the meaning and the paragraph structure unchanged, preserve leading and trailing whitespace exactly, and reply with only the corrected text and no explanation.",
   aiRevisionPara: 'Paragraf {n}',
   aiRevTypeSpelling: 'Ejaan',
   aiRevTypeGrammar: 'Tata bahasa',

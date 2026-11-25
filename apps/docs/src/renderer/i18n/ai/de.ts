@@ -108,20 +108,24 @@ export const de = {
   aiRevisionRejectAll: 'Alle ablehnen',
   aiRevisionAcceptAll: 'Alle annehmen',
   aiProofreadProgress: 'Korrektur läuft · Absatz {done} von {total}',
-  aiProofreadTrackToast: 'Die Änderungsverfolgung ist für diesen Durchlauf aktiv – angenommene Vorschläge werden als nachverfolgte Änderungen eingefügt',
+  aiProofreadTrackToast:
+    'Die Änderungsverfolgung ist für diesen Durchlauf aktiv – angenommene Vorschläge werden als nachverfolgte Änderungen eingefügt',
   aiProofreadStopped: 'Korrektur gestoppt · {count} Problem(e) bisher gefunden',
   aiProofreadResume: 'Fortsetzen',
   aiProofreadResults: 'Ergebnisse anzeigen',
-  aiProofreadDone: 'Korrektur fertig: {accepted} angenommen · {rejected} verworfen. Angenommene Vorschläge liegen als nachverfolgte Änderungen im Dokument',
+  aiProofreadDone:
+    'Korrektur fertig: {accepted} angenommen · {rejected} verworfen. Angenommene Vorschläge liegen als nachverfolgte Änderungen im Dokument',
   aiProofreadFound: 'Korrektur fertig: {count} Problem(e) gefunden',
   aiProofreadClean: 'Korrektur fertig, keine Probleme gefunden',
-  aiProofreadPending: '{count} Korrekturvorschlag(e)',
-  aiProofreadStale: 'Der Text hat sich geändert; dieser Vorschlag konnte nicht gefunden und nicht eingefügt werden',
-  aiProofreadNeedsSettings: 'Kein Modelldienst konfiguriert – die Korrektur benötigt einen OpenAI-kompatiblen Endpunkt',
+  aiProofreadStale:
+    'Der Text hat sich geändert; dieser Vorschlag konnte nicht gefunden und nicht eingefügt werden',
+  aiProofreadNeedsSettings:
+    'Kein Modelldienst konfiguriert – die Korrektur benötigt einen OpenAI-kompatiblen Endpunkt',
   aiProofreadOpenSettings: 'Einstellungen öffnen',
   aiProofreadNothing: 'Kein Text zur Korrektur vorhanden',
   aiProofreadError: 'Der Modelldienst hat keine verwertbare Antwort geliefert',
-  aiProofreadSystem: 'Du bist ein sorgfältiger Korrekturleser. Korrigiere in dem Text nur Tippfehler, Zeichensetzung und Grammatik. Sprache, Bedeutung und Absatzstruktur bleiben unverändert; führende und abschließende Leerzeichen bleiben exakt erhalten. Gib nur den korrigierten Text zurück, ohne Erklärung.',
+  aiProofreadSystem:
+    'Du bist ein sorgfältiger Korrekturleser. Korrigiere in dem Text nur Tippfehler, Zeichensetzung und Grammatik. Sprache, Bedeutung und Absatzstruktur bleiben unverändert; führende und abschließende Leerzeichen bleiben exakt erhalten. Gib nur den korrigierten Text zurück, ohne Erklärung.',
   aiRevisionPara: 'Absatz {n}',
   aiRevTypeSpelling: 'Rechtschreibung',
   aiRevTypeGrammar: 'Grammatik',

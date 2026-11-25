@@ -108,20 +108,24 @@ export const fr = {
   aiRevisionRejectAll: 'Tout refuser',
   aiRevisionAcceptAll: 'Tout accepter',
   aiProofreadProgress: 'Correction en cours · paragraphe {done} sur {total}',
-  aiProofreadTrackToast: 'Le suivi des modifications est activé pour cette passe ; les suggestions acceptées sont insérées comme modifications suivies',
+  aiProofreadTrackToast:
+    'Le suivi des modifications est activé pour cette passe ; les suggestions acceptées sont insérées comme modifications suivies',
   aiProofreadStopped: 'Correction interrompue · {count} problème(s) trouvé(s) jusqu’ici',
   aiProofreadResume: 'Reprendre',
   aiProofreadResults: 'Voir les résultats',
-  aiProofreadDone: 'Correction terminée : {accepted} acceptées · {rejected} refusées. Les suggestions acceptées sont dans le document sous forme de modifications suivies',
+  aiProofreadDone:
+    'Correction terminée : {accepted} acceptées · {rejected} refusées. Les suggestions acceptées sont dans le document sous forme de modifications suivies',
   aiProofreadFound: 'Correction terminée : {count} problème(s) trouvé(s)',
   aiProofreadClean: 'Correction terminée, aucun problème trouvé',
-  aiProofreadPending: '{count} suggestion(s) de correction',
-  aiProofreadStale: 'Le texte a changé ; cette suggestion n’a pas pu être localisée et n’a pas été appliquée',
-  aiProofreadNeedsSettings: 'Aucun service de modèle configuré — la correction nécessite un point de sortie compatible OpenAI',
+  aiProofreadStale:
+    'Le texte a changé ; cette suggestion n’a pas pu être localisée et n’a pas été appliquée',
+  aiProofreadNeedsSettings:
+    'Aucun service de modèle configuré — la correction nécessite un point de sortie compatible OpenAI',
   aiProofreadOpenSettings: 'Ouvrir les paramètres',
   aiProofreadNothing: 'Aucun texte à corriger',
-  aiProofreadError: 'Le service de modèle n\'a renvoyé aucune réponse exploitable',
-  aiProofreadSystem: 'Tu es un correcteur méticuleux. Corrige uniquement les fautes de frappe, la ponctuation et la grammaire dans le texte de l\'utilisateur. Garde la langue, le sens et la structure des paragraphes intacts, conserve exactement les espaces de début et de fin, et renvoie uniquement le texte corrigé, sans explication.',
+  aiProofreadError: "Le service de modèle n'a renvoyé aucune réponse exploitable",
+  aiProofreadSystem:
+    "Tu es un correcteur méticuleux. Corrige uniquement les fautes de frappe, la ponctuation et la grammaire dans le texte de l'utilisateur. Garde la langue, le sens et la structure des paragraphes intacts, conserve exactement les espaces de début et de fin, et renvoie uniquement le texte corrigé, sans explication.",
   aiRevisionPara: 'Paragraphe {n}',
   aiRevTypeSpelling: 'Orthographe',
   aiRevTypeGrammar: 'Grammaire',

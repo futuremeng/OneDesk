@@ -442,8 +442,7 @@ export function AiPanel({
   const [historicChat, setHistoricChat] = useState<ChatEntry[]>([])
   const [copiedIdx, setCopiedIdx] = useState<number | null>(null)
   const [revisionListOpen, setRevisionListOpen] = useState(false)
-  // the pass streams from App; while it runs the composer waits, and entering
-  // the review phase opens the change list so each row is visible (flow P03)
+  // the pass streams from App; while it runs the composer waits
   const proofreadPhase = proofread?.phase ?? 'idle'
   const proofreadPhaseRef = useRef(proofreadPhase)
   proofreadPhaseRef.current = proofreadPhase
@@ -482,14 +481,14 @@ export function AiPanel({
   }, [proofreadSuggestions, reviewEntries])
   // the bulk buttons act on whichever layer the merged list currently carries:
   // while any suggestion awaits a decision they LAND them into the document
-  // (each landing arrives in this same list as a 修订 row); the next click then
+  // (each row then shows its landing as its decided state); the next click
   // accepts/rejects the resulting revisions — Word's two-stage accept-all
   const proofreadAllOrRevisions = (action: 'accept' | 'reject'): void => {
     if (proofreadPending) onProofreadSuggestAll?.(action)
     else onRevisions?.(action)
   }
-  // one pending tracked-revision row of the merged list (same markup the
-  // standalone revision list used, keyed per entry)
+  // one pending tracked-revision row of the merged list (the markup the
+  // standalone revision list showed before the merge, keyed per entry)
   const renderMergedRevisionRow = (e: ReviewEntry, i: number) => {
     const kind = e.rev.kind
     const paired = !!e.pair

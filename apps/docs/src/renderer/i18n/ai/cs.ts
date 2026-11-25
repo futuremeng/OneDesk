@@ -106,20 +106,23 @@ export const cs = {
   aiRevisionRejectAll: 'Odmítnout vše',
   aiRevisionAcceptAll: 'Přijmout vše',
   aiProofreadProgress: 'Kontrola · odstavec {done} z {total}',
-  aiProofreadTrackToast: 'Track Changes is on for this pass — accepted suggestions land as tracked revisions',
+  aiProofreadTrackToast:
+    'Track Changes is on for this pass — accepted suggestions land as tracked revisions',
   aiProofreadStopped: 'Proofread stopped · {count} issue(s) found so far',
   aiProofreadResume: 'Pokračovat',
   aiProofreadResults: 'Zobrazit výsledky',
-  aiProofreadDone: 'Proofread complete: {accepted} accepted · {rejected} rejected. Accepted suggestions are in the document as tracked revisions.',
+  aiProofreadDone:
+    'Proofread complete: {accepted} accepted · {rejected} rejected. Accepted suggestions are in the document as tracked revisions.',
   aiProofreadFound: 'Proofread done: {count} issue(s) found',
   aiProofreadClean: 'Proofread done, no issues found',
-  aiProofreadPending: '{count} proofread suggestion(s)',
   aiProofreadStale: 'The text changed; this suggestion could not be located and was not applied',
-  aiProofreadNeedsSettings: 'Není nastavena modelová služba — kontrola potřebuje OpenAI kompatibilní koncový bod',
+  aiProofreadNeedsSettings:
+    'Není nastavena modelová služba — kontrola potřebuje OpenAI kompatibilní koncový bod',
   aiProofreadOpenSettings: 'Otevřít nastavení',
   aiProofreadNothing: 'Žádný text ke kontrole',
   aiProofreadError: 'Modelová služba nevrátila použitelnou odpověď',
-  aiProofreadSystem: 'Jsi pečlivý korektor. V uživatelském textu opravuj pouze překlepy, interpunkci a gramatiku. Zachovej jazyk, význam i strukturu odstavců, přesně uchovej mezery na začátku a na konci a odpovídej pouze opraveným textem bez vysvětlení.',
+  aiProofreadSystem:
+    'Jsi pečlivý korektor. V uživatelském textu opravuj pouze překlepy, interpunkci a gramatiku. Zachovej jazyk, význam i strukturu odstavců, přesně uchovej mezery na začátku a na konci a odpovídej pouze opraveným textem bez vysvětlení.',
   aiRevisionPara: 'Odstavec {n}',
   aiRevTypeSpelling: 'Pravopis',
   aiRevTypeGrammar: 'Gramatika',

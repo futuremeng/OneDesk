@@ -107,20 +107,23 @@ export const nl = {
   aiRevisionRejectAll: 'Alles weigeren',
   aiRevisionAcceptAll: 'Alles accepteren',
   aiProofreadProgress: 'Nacontrole · alinea {done} van {total}',
-  aiProofreadTrackToast: 'Track Changes is on for this pass — accepted suggestions land as tracked revisions',
+  aiProofreadTrackToast:
+    'Track Changes is on for this pass — accepted suggestions land as tracked revisions',
   aiProofreadStopped: 'Proofread stopped · {count} issue(s) found so far',
   aiProofreadResume: 'Hervatten',
   aiProofreadResults: 'Resultaten bekijken',
-  aiProofreadDone: 'Proofread complete: {accepted} accepted · {rejected} rejected. Accepted suggestions are in the document as tracked revisions.',
+  aiProofreadDone:
+    'Proofread complete: {accepted} accepted · {rejected} rejected. Accepted suggestions are in the document as tracked revisions.',
   aiProofreadFound: 'Proofread done: {count} issue(s) found',
   aiProofreadClean: 'Proofread done, no issues found',
-  aiProofreadPending: '{count} proofread suggestion(s)',
   aiProofreadStale: 'The text changed; this suggestion could not be located and was not applied',
-  aiProofreadNeedsSettings: 'Geen modelserver geconfigureerd; controle heeft een OpenAI-compatibel endpoint nodig',
+  aiProofreadNeedsSettings:
+    'Geen modelserver geconfigureerd; controle heeft een OpenAI-compatibel endpoint nodig',
   aiProofreadOpenSettings: 'Instellingen openen',
   aiProofreadNothing: 'Geen tekst om te controleren',
   aiProofreadError: 'De modelserver gaf geen bruikbaar antwoord terug',
-  aiProofreadSystem: 'Je bent een zorgvuldige corrector. Corrigeer alleen typ- en tekenfouten en grammatica in de tekst van de gebruiker. Houd taal, betekenis en alinea-indeling onveranderd, behoud voor- en achterliggende spaties exact en antwoord alleen met de gecorrigeerde tekst zonder uitleg.',
+  aiProofreadSystem:
+    'Je bent een zorgvuldige corrector. Corrigeer alleen typ- en tekenfouten en grammatica in de tekst van de gebruiker. Houd taal, betekenis en alinea-indeling onveranderd, behoud voor- en achterliggende spaties exact en antwoord alleen met de gecorrigeerde tekst zonder uitleg.',
   aiRevisionPara: 'Alinea {n}',
   aiRevTypeSpelling: 'Spelling',
   aiRevTypeGrammar: 'Grammatica',
