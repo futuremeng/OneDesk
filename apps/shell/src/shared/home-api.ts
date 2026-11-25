@@ -419,7 +419,7 @@ export interface HomeApi {
   onUpdateStateChanged(handler: (state: UpdateUiState) => void): () => void
   /** whether the first-run onboarding has been completed or skipped (persisted in userData/app-settings.json) */
   onboardingSeen(): Promise<boolean>
-  /** mark onboarding done; analytics remains enabled unless separately opted out */
+  /** mark onboarding done */
   setOnboardingSeen(): Promise<boolean>
   /** current UI theme preference (persisted in userData/app-settings.json) */
   getTheme(): Promise<UiTheme>
@@ -458,10 +458,6 @@ export interface HomeApi {
   clearMcpLogs(): Promise<void>
   /** reveal the MCP log file in the file manager (created empty when missing) */
   openMcpLogFile(): Promise<void>
-  /** whether anonymous usage statistics are enabled (default true in official builds) */
-  getAnalyticsEnabled(): Promise<boolean>
-  /** persist an explicit analytics opt-in or opt-out */
-  setAnalyticsEnabled(enabled: boolean): Promise<boolean>
   /** name on comments and tracked changes; `value` is the stored override ('' = use `fallback`, the OS account) */
   getAuthorName(): Promise<AuthorNameSetting>
   getLegacyImportPrompt(): Promise<boolean>
@@ -487,19 +483,12 @@ export interface HomeApi {
   onThemeChanged(handler: (theme: UiTheme) => void): () => void
   /** document page theme switched anywhere (broadcast from the main process) */
   onDocumentThemeChanged(handler: (theme: DocTheme) => void): () => void
-  /** open the GenTeam community page in the default browser */
-  openGenTeam(): Promise<void>
   /** open the OneDesk credit-usage page in the default browser */
   openCreditUsage(): Promise<void>
   /** open the public GitHub repository in the default browser */
   openGitHubRepo(): Promise<void>
   /** current stargazer count of the public repo (null while offline / rate-limited) */
   githubStars(): Promise<number | null>
-  /** whether the one-time "star us" prompt should show now (show:true also counts as shown);
-   * docOpens personalizes the card copy ("you've opened N documents") */
-  starPromptShouldShow(): Promise<StarPromptShow>
-  /** user reacted to the star prompt; 'starred' resolves it permanently */
-  starPromptAction(action: StarPromptAction): Promise<void>
   /** locally stored full cloud project list (instant; null when no store or logged out) */
   cloudProjectsCached(): Promise<CloudProjectsSnapshot | null>
   /** sync the full list from OneDesk and return it (1 request when nothing changed); null when the sync failed */
@@ -545,16 +534,6 @@ export interface AiCatalogEntry extends AiProviderMeta {
   defaultBaseUrl: string
 }
 
-/** 'starred' = went to GitHub or said "already starred" (never prompt again);
- * 'later' = dismissed this time (already counted as shown by the query) */
-export type StarPromptAction = 'starred' | 'later'
-
-/** answer to starPromptShouldShow */
-export interface StarPromptShow {
-  show: boolean
-  /** lifetime documents opened — drives the personalized card title */
-  docOpens: number
-}
 
 export type CloudProjectKind = 'docs' | 'sheets' | 'slides'
 
@@ -737,8 +716,6 @@ export const HOME_CHANNELS = {
   getMcpLogs: 'home:get-mcp-logs',
   clearMcpLogs: 'home:clear-mcp-logs',
   openMcpLogFile: 'home:open-mcp-log-file',
-  getAnalyticsEnabled: 'home:get-analytics-enabled',
-  setAnalyticsEnabled: 'home:set-analytics-enabled',
   getAuthorName: 'home:get-author-name',
   getLegacyImportPrompt: 'home:get-legacy-import-prompt',
   setLegacyImportPrompt: 'home:set-legacy-import-prompt',
@@ -751,12 +728,9 @@ export const HOME_CHANNELS = {
   getDefaultAppStatus: 'home:get-default-app-status',
   setDefaultApp: 'home:set-default-app',
   pickDefaultSaveDir: 'home:pick-default-save-dir',
-  openGenTeam: 'home:open-genteam',
   openCreditUsage: 'home:open-credit-usage',
   openGitHubRepo: 'home:open-github-repo',
   githubStars: 'home:github-stars',
-  starPromptShouldShow: 'home:star-prompt-should-show',
-  starPromptAction: 'home:star-prompt-action',
   cloudProjects: 'home:cloud-projects',
   cloudProjectsCached: 'home:cloud-projects-cached',
   openCloudProject: 'home:open-cloud-project',

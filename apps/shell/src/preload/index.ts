@@ -528,15 +528,6 @@ const homeApi: HomeApi = {
   async openMcpLogFile() {
     await ipcRenderer.invoke(HOME_CHANNELS.openMcpLogFile)
   },
-  async getAnalyticsEnabled() {
-    const result: unknown = await ipcRenderer.invoke(HOME_CHANNELS.getAnalyticsEnabled)
-    return result !== false
-  },
-  async setAnalyticsEnabled(enabled) {
-    if (typeof enabled !== 'boolean') throw new Error('Invalid analytics consent.')
-    const result: unknown = await ipcRenderer.invoke(HOME_CHANNELS.setAnalyticsEnabled, enabled)
-    return result === true
-  },
   async getLegacyImportPrompt() {
     return (await ipcRenderer.invoke(HOME_CHANNELS.getLegacyImportPrompt)) !== false
   },
@@ -585,9 +576,6 @@ const homeApi: HomeApi = {
     ipcRenderer.on('app:document-theme-changed', listener)
     return () => ipcRenderer.removeListener('app:document-theme-changed', listener)
   },
-  async openGenTeam() {
-    await ipcRenderer.invoke(HOME_CHANNELS.openGenTeam)
-  },
   async openCreditUsage() {
     await ipcRenderer.invoke(HOME_CHANNELS.openCreditUsage)
   },
@@ -597,19 +585,6 @@ const homeApi: HomeApi = {
   async githubStars() {
     const result: unknown = await ipcRenderer.invoke(HOME_CHANNELS.githubStars)
     return typeof result === 'number' && Number.isFinite(result) ? result : null
-  },
-  async starPromptShouldShow() {
-    const result: unknown = await ipcRenderer.invoke(HOME_CHANNELS.starPromptShouldShow)
-    const raw = (result ?? {}) as { show?: unknown; docOpens?: unknown }
-    return {
-      show: raw.show === true,
-      docOpens:
-        typeof raw.docOpens === 'number' && Number.isFinite(raw.docOpens) ? raw.docOpens : 0,
-    }
-  },
-  async starPromptAction(action) {
-    if (action !== 'starred' && action !== 'later') throw new Error('Invalid star prompt action.')
-    await ipcRenderer.invoke(HOME_CHANNELS.starPromptAction, action)
   },
   async cloudProjectsCached() {
     const result: unknown = await ipcRenderer.invoke(HOME_CHANNELS.cloudProjectsCached)

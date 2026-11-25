@@ -19,7 +19,6 @@ Világos / sötét / rendszer szerinti. A „rendszer szerinti” az operációs
 
 ## Általános
 
-- **Névtelen használati statisztikák küldése** — alapból bekapcsolva. Google Analytics 4-et használ, és elküldi a nyilvános IP-címedet és az átviteli metaadatokat; a dokumentumok tartalmát és a fájlneveket soha nem gyűjti, és minden esemény csak egy típust tartalmaz, például: „.docx megnyitása”. Itt bármikor kikapcsolhatod.
 - **AI-oldalsáv pozíciója** (bal vagy jobb), **AI-panel szövegmérete** és **Helyesírás-ellenőrzés az AI-csevegésben**.
 - **AI-panel megnyitása új dokumentumokban** — kikapcsolva az új dokumentum összecsukott panellel indul, és egy kattintással előhívható.
 - Az **Összes dokumentum automatikus mentése** minden szerkesztőben alapértelmezetten bekapcsolja az automatikus mentést; egy-egy ablakban továbbra is kikapcsolhatod.

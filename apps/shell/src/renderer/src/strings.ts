@@ -219,9 +219,6 @@ export const strings = {
     tabSleeping: '已休眠',
     setAutoSave: '所有文档自动保存',
     setAutoSaveDesc: '在每个编辑器中默认开启自动保存，仍可在单个窗口中关闭。',
-    setAnalytics: '发送匿名使用统计',
-    setAnalyticsDesc:
-      '该功能默认开启，可随时在“设置 → 常规”中关闭。使用 Google Analytics 4；Google 会接收您的公网 IP 地址和传输元数据，但绝不收集文档内容或文件名。',
     setSearchRerank: 'Jev 搜索重排',
     setSearchRerankDesc:
       '把本机搜索的前 20 条命中片段发给 TypeSafe 的 Jev 模型，按相关性重新排序。默认关闭；开启后命中片段会离开本机。',
@@ -446,13 +443,6 @@ export const strings = {
       '服务商选择 OneDesk 时，网页搜索、生图与媒体解析经 OneDesk 云端并消耗积分；关闭后搜索改用免费来源，OneDesk 生图工具不可用。',
     setGithub: '开源项目',
     starOnGitHub: '去 GitHub 点 Star',
-    starPromptTitle: '喜欢 OneDesk 吗？',
-    starPromptTitleN: '你已经用 OneDesk 打开了 {n} 个文档',
-    starPromptBody: 'OneDesk 是免费开源软件。到 GitHub 给我们一个 Star，是对团队最好的支持。',
-    starPromptGo: '去点 Star',
-    starPromptDone: '已经点过了',
-    starPromptLater: '以后再说',
-    onbStarHint: '如果你喜欢 OneDesk，欢迎到 GitHub 给我们一个 Star。',
     setEmail: '邮箱',
     setNotLoggedIn: '未登录',
     setViewUsage: '查看用量',
@@ -470,18 +460,7 @@ export const strings = {
     onbTitle1: '欢迎使用 OneDesk',
     onbSubtitle1: '第一个开源的 AI 原生 Office 套件',
     onbBody1: '创建文档、制作表格、生成演示、审阅 PDF。AI 深度融入每个环节。',
-    onbTitle2: '这只是一个开始',
-    onbBody2: 'OneDesk 目前处于 alpha 阶段。欢迎加入 GenTeam 群聊，分享反馈，一起塑造它的未来。',
-    onbCredits: '活跃贡献者可获得 **1,000+ OneDesk 积分**',
-    onbJoinGenTeam: '加入 GenTeam',
-    onbSkip: '跳过',
-    onbNext: '下一步',
     onbStart: '开始使用',
-    onbStepAria: '第 {n} 页，共 {total} 页',
-    onbTitle3: '人人免费',
-    onbBody3: '无授权费用，无广告，无水印。',
-    onbNote3: 'AI 功能可能消耗 OneDesk 积分。',
-    onbBack: '上一步',
     intgSkillsDesc:
       'OneDesk 只使用自己技能文件夹里的技能。从文件夹或 zip 导入会把整个技能复制进来；导入不会自动运行任何东西。',
     intgSkillsEmpty: '还没有安装技能。',
@@ -771,9 +750,6 @@ export const strings = {
     setAutoSave: 'Auto-save all documents',
     setAutoSaveDesc:
       'Turn on AutoSave by default in every editor. You can still switch it off for a single window.',
-    setAnalytics: 'Send anonymous usage statistics',
-    setAnalyticsDesc:
-      'Enabled by default and can be turned off anytime in Settings → General. Uses Google Analytics 4; Google receives your public IP address and transport metadata, but document contents and file names are never collected.',
     setSearchRerank: 'Jev search reranking',
     setSearchRerankDesc:
       "Sends the top 20 local hits' excerpts to TypeSafe's Jev model and reorders them by relevance. Off by default; when on, excerpts leave this device.",
@@ -1008,14 +984,6 @@ export const strings = {
       'Web search, image generation and media analysis run through OneDesk and use credits while their provider is set to OneDesk; when off, search uses free sources and the OneDesk image tools are unavailable.',
     setGithub: 'Open Source',
     starOnGitHub: 'Star on GitHub',
-    starPromptTitle: 'Enjoying OneDesk?',
-    starPromptTitleN: "You've opened {n} documents with OneDesk",
-    starPromptBody:
-      'OneDesk is free and open source. A star on GitHub is the best way to support the team.',
-    starPromptGo: 'Star on GitHub',
-    starPromptDone: 'Already starred',
-    starPromptLater: 'Maybe later',
-    onbStarHint: 'If you like OneDesk, give us a star on GitHub.',
     setEmail: 'Email',
     setNotLoggedIn: 'Not signed in',
     setViewUsage: 'View usage',
@@ -1032,19 +1000,7 @@ export const strings = {
     onbSubtitle1: 'The first open-source, AI-native office suite',
     onbBody1:
       'Create docs, build sheets, make slides, and review PDFs. AI is built into every step.',
-    onbTitle2: 'This is just the beginning',
-    onbBody2:
-      'OneDesk is still in alpha. Join the group chat on GenTeam to share feedback and help shape what comes next.',
-    onbCredits: 'Active contributors get **1,000+ OneDesk credits**',
-    onbJoinGenTeam: 'Join GenTeam',
-    onbSkip: 'Skip',
-    onbNext: 'Next',
     onbStart: 'Get started',
-    onbStepAria: 'Page {n} of {total}',
-    onbTitle3: 'Free for everyone',
-    onbBody3: 'No license fees. No ads. No watermarks.',
-    onbNote3: 'AI features may consume OneDesk credits.',
-    onbBack: 'Back',
     intgSkillsDesc:
       'OneDesk only uses skills in its own skills folder. Importing a folder or a zip copies the whole skill in; nothing runs on import.',
     intgSkillsEmpty: 'No skills installed yet.',
@@ -1337,9 +1293,6 @@ export const strings = {
     setAutoSave: 'Tự động lưu tất cả tài liệu',
     setAutoSaveDesc:
       'Bật Tự động lưu theo mặc định trong mọi trình soạn thảo. Bạn vẫn có thể tắt tính năng này cho từng cửa sổ riêng lẻ.',
-    setAnalytics: 'Gửi số liệu thống kê sử dụng ẩn danh',
-    setAnalyticsDesc:
-      'Được bật theo mặc định và có thể tắt bất cứ lúc nào trong Cài đặt → Chung. Sử dụng Google Analytics 4; Google nhận địa chỉ IP công khai và siêu dữ liệu truyền tải của bạn, nhưng nội dung tài liệu và tên tệp không bao giờ bị thu thập.',
     setSearchRerank: 'Sắp xếp lại kết quả tìm kiếm Jev',
     setSearchRerankDesc:
       'Gửi đoạn trích của 20 kết quả hàng đầu cục bộ tới mô hình Jev của TypeSafe và sắp xếp lại theo mức độ liên quan. Tắt theo mặc định; khi bật, các đoạn trích sẽ được gửi ra ngoài thiết bị này.',
@@ -1577,14 +1530,6 @@ export const strings = {
       'Tìm kiếm web, tạo hình ảnh và phân tích phương tiện được xử lý qua OneDesk và tiêu tốn credit khi nhà cung cấp được đặt là OneDesk; khi tắt, tìm kiếm sẽ dùng các nguồn miễn phí và công cụ hình ảnh OneDesk sẽ không khả dụng.',
     setGithub: 'Mã nguồn mở',
     starOnGitHub: 'Gắn sao trên GitHub',
-    starPromptTitle: 'Bạn thích OneDesk chứ?',
-    starPromptTitleN: 'Bạn đã mở {n} tài liệu với OneDesk',
-    starPromptBody:
-      'OneDesk là phần mềm nguồn mở và miễn phí. Tặng một sao trên GitHub là cách tuyệt vời nhất để ủng hộ đội ngũ phát triển.',
-    starPromptGo: 'Gắn sao trên GitHub',
-    starPromptDone: 'Đã gắn sao',
-    starPromptLater: 'Để sau',
-    onbStarHint: 'Nếu bạn yêu thích OneDesk, hãy tặng chúng tôi một sao trên GitHub.',
     setEmail: 'Email',
     setNotLoggedIn: 'Chưa đăng nhập',
     setViewUsage: 'Xem mức sử dụng',
@@ -1601,19 +1546,7 @@ export const strings = {
     onbSubtitle1: 'Bộ ứng dụng văn phòng AI nguồn mở đầu tiên',
     onbBody1:
       'Tạo tài liệu, xây dựng bảng tính, tạo bản trình bày và xem lại PDF. AI được tích hợp trong từng bước.',
-    onbTitle2: 'Đây mới chỉ là khởi đầu',
-    onbBody2:
-      'OneDesk vẫn đang trong giai đoạn alpha. Hãy tham gia nhóm trò chuyện trên GenTeam để chia sẻ phản hồi và định hình những bước phát triển tiếp theo.',
-    onbCredits: 'Thành viên đóng góp tích cực nhận được **1.000+ credit OneDesk**',
-    onbJoinGenTeam: 'Tham gia GenTeam',
-    onbSkip: 'Bỏ qua',
-    onbNext: 'Tiếp theo',
     onbStart: 'Bắt đầu',
-    onbStepAria: 'Trang {n} / {total}',
-    onbTitle3: 'Miễn phí cho mọi người',
-    onbBody3: 'Không phí bản quyền. Không quảng cáo. Không hình mờ.',
-    onbNote3: 'Các tính năng AI có thể tiêu tốn credit OneDesk.',
-    onbBack: 'Quay lại',
     intgSkillsDesc:
       'OneDesk chỉ dùng kỹ năng trong thư mục kỹ năng của chính nó. Nhập từ thư mục hoặc zip sẽ sao chép toàn bộ kỹ năng vào; không có gì chạy khi nhập.',
     intgSkillsEmpty: 'Chưa cài kỹ năng nào.',
@@ -1907,9 +1840,6 @@ export const strings = {
     setAutoSave: 'Tüm belgeleri otomatik kaydet',
     setAutoSaveDesc:
       'Her düzenleyicide Otomatik Kaydet’i varsayılan olarak açar. Tek bir pencere için yine de kapatabilirsiniz.',
-    setAnalytics: 'Anonim kullanım istatistiklerini gönder',
-    setAnalyticsDesc:
-      'Varsayılan olarak açıktır ve Ayarlar → Genel’den istediğiniz zaman kapatılabilir. Google Analytics 4 kullanır; Google genel IP adresinizi ve aktarım meta verilerini alır, ancak belge içerikleri ve dosya adları hiçbir zaman toplanmaz.',
     setSearchRerank: 'Jev arama yeniden sıralaması',
     setSearchRerankDesc:
       'En iyi 20 yerel sonucun alıntılarını TypeSafe’in Jev modeline gönderir ve ilgililiğe göre yeniden sıralar. Varsayılan olarak kapalıdır; açıkken alıntılar bu cihazdan dışarı çıkar.',
@@ -2150,14 +2080,6 @@ export const strings = {
       'Sağlayıcıları OneDesk olarak ayarlıyken web araması, görüntü oluşturma ve medya analizi OneDesk üzerinden çalışır ve kredi kullanır; kapalıyken arama ücretsiz kaynakları kullanır ve OneDesk görüntü araçları kullanılamaz.',
     setGithub: 'Açık Kaynak',
     starOnGitHub: 'GitHub’da yıldızla',
-    starPromptTitle: 'OneDesk’i beğeniyor musunuz?',
-    starPromptTitleN: 'OneDesk ile {n} belge açtınız',
-    starPromptBody:
-      'OneDesk ücretsiz ve açık kaynaklıdır. GitHub’da bir yıldız, ekibi desteklemenin en iyi yoludur.',
-    starPromptGo: 'GitHub’da yıldızla',
-    starPromptDone: 'Zaten yıldızladım',
-    starPromptLater: 'Belki daha sonra',
-    onbStarHint: 'OneDesk’i beğendiyseniz GitHub’da bize bir yıldız verin.',
     setEmail: 'E-posta',
     setNotLoggedIn: 'Giriş yapılmadı',
     setViewUsage: 'Kullanımı görüntüle',
@@ -2174,19 +2096,7 @@ export const strings = {
     onbSubtitle1: 'İlk açık kaynaklı, AI yerlisi ofis paketi',
     onbBody1:
       'Belgeler oluşturun, tablolar hazırlayın, sunular yapın ve PDF’leri inceleyin. AI her adıma yerleşiktir.',
-    onbTitle2: 'Bu daha başlangıç',
-    onbBody2:
-      'OneDesk hâlâ alfa aşamasında. Geri bildirim paylaşmak ve sıradakileri şekillendirmeye yardım etmek için GenTeam’deki grup sohbetine katılın.',
-    onbCredits: 'Etkin katkıda bulunanlar **1.000+ OneDesk kredisi** kazanır',
-    onbJoinGenTeam: 'GenTeam’e katıl',
-    onbSkip: 'Atla',
-    onbNext: 'İleri',
     onbStart: 'Başlayın',
-    onbStepAria: 'Sayfa {n} / {total}',
-    onbTitle3: 'Herkes için ücretsiz',
-    onbBody3: 'Lisans ücreti yok. Reklam yok. Filigran yok.',
-    onbNote3: 'AI özellikleri OneDesk kredisi tüketebilir.',
-    onbBack: 'Geri',
     intgSkillsDesc:
       'OneDesk yalnızca kendi beceri klasöründeki becerileri kullanır. Bir klasör veya zip içe aktarıldığında becerinin tamamı kopyalanır; içe aktarma sırasında hiçbir şey çalıştırılmaz.',
     intgSkillsEmpty: 'Henüz beceri yüklenmedi.',
@@ -2485,9 +2395,6 @@ export const strings = {
     setAutoSave: 'Összes dokumentum automatikus mentése',
     setAutoSaveDesc:
       'Az automatikus mentés alapértelmezés szerint be van kapcsolva minden szerkesztőben. Egyetlen ablakra továbbra is kikapcsolhatod.',
-    setAnalytics: 'Névtelen használati statisztikák küldése',
-    setAnalyticsDesc:
-      'Alapértelmezés szerint be van kapcsolva, és a Beállítások → Általános oldalon bármikor kikapcsolható. Google Analytics 4-et használ; a Google megkapja a nyilvános IP-címedet és az átviteli metaadatokat, de a dokumentumok tartalmát és a fájlneveket soha nem gyűjti.',
     setSearchRerank: 'Keresés újrarangsorolása Jevvel',
     setSearchRerankDesc:
       'A 20 legjobb helyi találat részleteit elküldi a TypeSafe Jev modelljének, és relevancia szerint rendezi őket újra. Alapértelmezés szerint ki van kapcsolva; ha bekapcsolod, a részletek elhagyják ezt az eszközt.',
@@ -2730,14 +2637,6 @@ export const strings = {
       'A webes keresés, a képgenerálás és a médiaelemzés a OneDeskon keresztül fut, és krediteket fogyaszt, amíg a szolgáltatójuk OneDesk; kikapcsoláskor a keresés ingyenes forrásokat használ, és a OneDesk képeszközei nem érhetők el.',
     setGithub: 'Nyílt forráskód',
     starOnGitHub: 'Csillag a GitHubon',
-    starPromptTitle: 'Tetszik a OneDesk?',
-    starPromptTitleN: 'Már {n} dokumentumot nyitottál meg a OneDesk-szal',
-    starPromptBody:
-      'A OneDesk ingyenes és nyílt forráskódú. Egy csillag a GitHubon a legjobb módja a csapat támogatásának.',
-    starPromptGo: 'Csillag a GitHubon',
-    starPromptDone: 'Már csillagozva',
-    starPromptLater: 'Talán később',
-    onbStarHint: 'Ha tetszik a OneDesk, csillagozz minket a GitHubon.',
     setEmail: 'E-mail',
     setNotLoggedIn: 'Nem vagy bejelentkezve',
     setViewUsage: 'Használat megtekintése',
@@ -2754,19 +2653,7 @@ export const strings = {
     onbSubtitle1: 'Az első nyílt forráskódú, AI-natív irodai csomag',
     onbBody1:
       'Készíts dokumentumokat, táblázatokat, bemutatókat, és nézd át a PDF-eket. Az AI minden lépésbe be van építve.',
-    onbTitle2: 'Ez csak a kezdet',
-    onbBody2:
-      'A OneDesk még alfa állapotban van. Csatlakozz a GenTeam csoportcsevegőjéhez, oszd meg a visszajelzésedet, és segíts alakítani a jövőbeli fejlesztéseket.',
-    onbCredits: 'Az aktív közreműködők **1000+ OneDesk-kreditet** kapnak',
-    onbJoinGenTeam: 'Csatlakozás a GenTeamhez',
-    onbSkip: 'Kihagyás',
-    onbNext: 'Tovább',
     onbStart: 'Első lépések',
-    onbStepAria: 'Oldal: {n}/{total}',
-    onbTitle3: 'Mindenki számára ingyenes',
-    onbBody3: 'Nincs licencdíj. Nincs reklám. Nincs vízjel.',
-    onbNote3: 'Az AI-funkciók OneDesk-krediteket használhatnak fel.',
-    onbBack: 'Vissza',
     intgSkillsDesc:
       'A OneDesk csak a saját képességmappájában lévő képességeket használja. Mappa vagy zip importálásakor a teljes képesség bemásolódik; importáláskor semmi nem fut le.',
     intgSkillsEmpty: 'Még nincs telepített képesség.',
@@ -3071,9 +2958,6 @@ export const strings = {
     setAutoSave: 'すべてのドキュメントを自動保存',
     setAutoSaveDesc:
       'すべてのエディターで自動保存をデフォルトでオンにします。個々のウィンドウでオフにすることもできます。',
-    setAnalytics: '匿名の使用状況統計を送信',
-    setAnalyticsDesc:
-      '既定で有効です。設定 → 一般でいつでも無効にできます。Google Analytics 4 を使用し、Google は公開 IP アドレスと通信メタデータを受け取りますが、文書の内容やファイル名は収集されません。',
     setSearchRerank: 'Jev 検索リランク',
     setSearchRerankDesc:
       'ローカル検索の上位 20 件の抜粋を TypeSafe の Jev モデルに送り、関連度で並べ替えます。既定ではオフ。オンにすると抜粋が端末外に送信されます。',
@@ -3310,14 +3194,6 @@ export const strings = {
       'プロバイダーが OneDesk のとき、Web 検索・画像生成・メディア解析は OneDesk 経由でクレジットを消費します。オフにすると検索は無料ソースを使い、OneDesk の画像ツールは利用できません。',
     setGithub: 'オープンソース',
     starOnGitHub: 'GitHub でスターを付ける',
-    starPromptTitle: 'OneDesk はいかがですか？',
-    starPromptTitleN: 'OneDesk で {n} 件のドキュメントを開きました',
-    starPromptBody:
-      'OneDesk は無料のオープンソースソフトウェアです。GitHub のスターがチームへの何よりの応援になります。',
-    starPromptGo: 'スターを付ける',
-    starPromptDone: 'スター済み',
-    starPromptLater: 'あとで',
-    onbStarHint: 'OneDesk が気に入ったら、GitHub でスターをお願いします。',
     setEmail: 'メール',
     setNotLoggedIn: '未ログイン',
     setViewUsage: '使用状況を見る',
@@ -3336,19 +3212,7 @@ export const strings = {
     onbSubtitle1: '初のオープンソース AI ネイティブ Office スイート',
     onbBody1:
       '文書の作成、表計算、プレゼン作成、PDF のレビュー。あらゆるステップに AI が組み込まれています。',
-    onbTitle2: 'これはまだ始まりにすぎません',
-    onbBody2:
-      'OneDesk はまだアルファ版です。GenTeam のグループチャットに参加して、フィードバックを共有し、今後の開発を一緒に形作りましょう。',
-    onbCredits: 'アクティブな貢献者への特典 **1,000+ OneDesk クレジット**',
-    onbJoinGenTeam: 'GenTeam に参加',
-    onbSkip: 'スキップ',
-    onbNext: '次へ',
     onbStart: 'はじめる',
-    onbStepAria: '{total} ページ中 {n} ページ目',
-    onbTitle3: 'すべての人に無料',
-    onbBody3: 'ライセンス料なし、広告なし、透かしなし。',
-    onbNote3: 'AI 機能は OneDesk クレジットを消費する場合があります。',
-    onbBack: '戻る',
     intgSkillsDesc:
       'OneDesk は自身のスキルフォルダ内のスキルのみ使用します。フォルダまたは zip からの読み込みはスキル全体をコピーします。読み込み時に何も実行されません。',
     intgSkillsEmpty: 'スキルはまだインストールされていません。',
@@ -3645,9 +3509,6 @@ export const strings = {
     tabSleeping: '절전 중',
     setAutoSave: '모든 문서 자동 저장',
     setAutoSaveDesc: '모든 편집기에서 자동 저장을 기본으로 켭니다. 개별 창에서는 끌 수 있습니다.',
-    setAnalytics: '익명 사용 통계 보내기',
-    setAnalyticsDesc:
-      '기본적으로 켜져 있으며 설정 → 일반에서 언제든 끌 수 있습니다. Google Analytics 4를 사용하며 Google은 공인 IP 주소와 전송 메타데이터를 수신하지만 문서 내용이나 파일 이름은 수집하지 않습니다.',
     setSearchRerank: 'Jev 검색 재정렬',
     setSearchRerankDesc:
       '로컬 검색 상위 20개 결과의 발췌문을 TypeSafe의 Jev 모델로 보내 관련도 순으로 재정렬합니다. 기본은 꺼짐이며, 켜면 발췌문이 기기 밖으로 전송됩니다.',
@@ -3880,14 +3741,6 @@ export const strings = {
       '제공자가 OneDesk일 때 웹 검색, 이미지 생성, 미디어 분석은 OneDesk를 거쳐 크레딧을 사용합니다. 끄면 검색은 무료 소스를 사용하고 OneDesk 이미지 도구는 사용할 수 없습니다.',
     setGithub: '오픈 소스',
     starOnGitHub: 'GitHub에서 스타 누르기',
-    starPromptTitle: 'OneDesk가 마음에 드시나요?',
-    starPromptTitleN: 'OneDesk로 문서를 {n}개 열어보셨네요',
-    starPromptBody:
-      'OneDesk는 무료 오픈 소스 소프트웨어입니다. GitHub 스타 하나가 팀에게 가장 큰 응원이 됩니다.',
-    starPromptGo: '스타 누르기',
-    starPromptDone: '이미 눌렀어요',
-    starPromptLater: '나중에',
-    onbStarHint: 'OneDesk가 마음에 들면 GitHub에서 스타를 눌러 주세요.',
     setEmail: '이메일',
     setNotLoggedIn: '로그인되지 않음',
     setViewUsage: '사용량 보기',
@@ -3906,19 +3759,7 @@ export const strings = {
     onbSubtitle1: '최초의 오픈소스 AI 네이티브 오피스 제품군',
     onbBody1:
       '문서 작성, 스프레드시트 제작, 프레젠테이션 생성, PDF 검토. 모든 단계에 AI가 녹아 있습니다.',
-    onbTitle2: '이제 시작일 뿐입니다',
-    onbBody2:
-      'OneDesk는 아직 알파 단계입니다. GenTeam 그룹 채팅에 참여해 피드백을 공유하고 앞으로의 방향을 함께 만들어 가세요.',
-    onbCredits: '활발한 기여자를 위한 혜택 **1,000+ OneDesk 크레딧**',
-    onbJoinGenTeam: 'GenTeam 참여하기',
-    onbSkip: '건너뛰기',
-    onbNext: '다음',
     onbStart: '시작하기',
-    onbStepAria: '총 {total}페이지 중 {n}페이지',
-    onbTitle3: '모두에게 무료',
-    onbBody3: '라이선스 비용 없음, 광고 없음, 워터마크 없음.',
-    onbNote3: 'AI 기능은 OneDesk 크레딧을 소모할 수 있습니다.',
-    onbBack: '이전',
     intgSkillsDesc:
       'OneDesk는 자체 스킬 폴더의 스킬만 사용합니다. 폴더나 zip에서 가져오면 스킬 전체가 복사되며, 가져오기 시 아무것도 실행되지 않습니다.',
     intgSkillsEmpty: '설치된 스킬이 없습니다.',
@@ -4223,9 +4064,6 @@ export const strings = {
     setAutoSave: 'Enregistrer automatiquement tous les documents',
     setAutoSaveDesc:
       "Active l'enregistrement automatique par défaut dans chaque éditeur. Vous pouvez toujours le désactiver pour une fenêtre.",
-    setAnalytics: "Envoyer des statistiques d'utilisation anonymes",
-    setAnalyticsDesc:
-      'Activé par défaut et désactivable dans Paramètres → Général. Utilise Google Analytics 4 ; Google reçoit votre adresse IP publique et les métadonnées de transport, mais jamais le contenu des documents ni les noms de fichiers.',
     setSearchRerank: 'Reclassement Jev',
     setSearchRerankDesc:
       'Envoie les extraits des 20 premiers résultats locaux au modèle Jev de TypeSafe et les réordonne par pertinence. Désactivé par défaut ; une fois activé, les extraits quittent cet appareil.',
@@ -4470,14 +4308,6 @@ export const strings = {
       "Lorsque leur fournisseur est OneDesk, la recherche web, la génération d'images et l'analyse de médias passent par OneDesk et consomment des crédits ; désactivé, la recherche utilise des sources gratuites et les outils d'image OneDesk sont indisponibles.",
     setGithub: 'Open source',
     starOnGitHub: 'Mettre une étoile sur GitHub',
-    starPromptTitle: 'OneDesk vous plaît ?',
-    starPromptTitleN: 'Vous avez ouvert {n} documents avec OneDesk',
-    starPromptBody:
-      'OneDesk est gratuit et open source. Une étoile sur GitHub est le meilleur moyen de soutenir l’équipe.',
-    starPromptGo: 'Mettre une étoile',
-    starPromptDone: 'Déjà fait',
-    starPromptLater: 'Plus tard',
-    onbStarHint: 'Si OneDesk vous plaît, mettez-nous une étoile sur GitHub.',
     setEmail: 'E-mail',
     setNotLoggedIn: 'Non connecté',
     setViewUsage: "Voir l'utilisation",
@@ -4496,19 +4326,7 @@ export const strings = {
     onbSubtitle1: 'La première suite bureautique open source et native IA',
     onbBody1:
       'Créez des documents, des feuilles de calcul et des présentations, et relisez des PDF. L’IA est intégrée à chaque étape.',
-    onbTitle2: 'Ce n’est qu’un début',
-    onbBody2:
-      'OneDesk est encore en alpha. Rejoignez la discussion de groupe sur GenTeam pour partager vos retours et façonner la suite.',
-    onbCredits: 'Les contributeurs actifs reçoivent **1 000+ crédits OneDesk**',
-    onbJoinGenTeam: 'Rejoindre GenTeam',
-    onbSkip: 'Passer',
-    onbNext: 'Suivant',
     onbStart: 'Commencer',
-    onbStepAria: 'Page {n} sur {total}',
-    onbTitle3: 'Gratuit pour tous',
-    onbBody3: 'Pas de licence. Pas de publicité. Pas de filigrane.',
-    onbNote3: 'Les fonctions IA peuvent consommer des crédits OneDesk.',
-    onbBack: 'Retour',
     intgSkillsDesc:
       'OneDesk n’utilise que les compétences de son propre dossier. Importer un dossier ou un zip copie toute la compétence ; rien ne s’exécute à l’import.',
     intgSkillsEmpty: 'Aucune compétence installée.',
@@ -4819,9 +4637,6 @@ export const strings = {
     setAutoSave: 'Alle Dokumente automatisch speichern',
     setAutoSaveDesc:
       'Aktiviert AutoSave standardmäßig in jedem Editor. Für ein einzelnes Fenster kann es weiterhin ausgeschaltet werden.',
-    setAnalytics: 'Anonyme Nutzungsstatistiken senden',
-    setAnalyticsDesc:
-      'Standardmäßig aktiviert und unter Einstellungen → Allgemein deaktivierbar. Verwendet Google Analytics 4; Google erhält Ihre öffentliche IP-Adresse und Transportmetadaten, aber keine Dokumentinhalte oder Dateinamen.',
     setSearchRerank: 'Jev-Neusortierung',
     setSearchRerankDesc:
       'Sendet die Auszüge der 20 besten lokalen Treffer an das Jev-Modell von TypeSafe und sortiert sie nach Relevanz. Standardmäßig aus; wenn aktiv, verlassen Auszüge dieses Gerät.',
@@ -5059,14 +4874,6 @@ export const strings = {
       'Steht ihr Anbieter auf OneDesk, laufen Websuche, Bildgenerierung und Medienanalyse über OneDesk und verbrauchen Credits; ausgeschaltet nutzt die Suche kostenlose Quellen und die OneDesk-Bildwerkzeuge sind nicht verfügbar.',
     setGithub: 'Open Source',
     starOnGitHub: 'Auf GitHub Stern geben',
-    starPromptTitle: 'Gefällt Ihnen OneDesk?',
-    starPromptTitleN: 'Sie haben {n} Dokumente mit OneDesk geöffnet',
-    starPromptBody:
-      'OneDesk ist kostenlos und Open Source. Ein Stern auf GitHub ist die beste Unterstützung für das Team.',
-    starPromptGo: 'Stern geben',
-    starPromptDone: 'Schon erledigt',
-    starPromptLater: 'Später',
-    onbStarHint: 'Wenn Ihnen OneDesk gefällt, geben Sie uns einen Stern auf GitHub.',
     setEmail: 'E-Mail',
     setNotLoggedIn: 'Nicht angemeldet',
     setViewUsage: 'Verbrauch anzeigen',
@@ -5085,19 +4892,7 @@ export const strings = {
     onbSubtitle1: 'Die erste quelloffene, KI-native Office-Suite',
     onbBody1:
       'Dokumente erstellen, Tabellen bauen, Präsentationen gestalten und PDFs prüfen. KI ist in jedem Schritt integriert.',
-    onbTitle2: 'Das ist erst der Anfang',
-    onbBody2:
-      'OneDesk ist noch in der Alpha-Phase. Treten Sie dem Gruppenchat auf GenTeam bei, um Feedback zu teilen und die Zukunft mitzugestalten.',
-    onbCredits: 'Aktive Mitwirkende erhalten **1.000+ OneDesk-Guthaben**',
-    onbJoinGenTeam: 'GenTeam beitreten',
-    onbSkip: 'Überspringen',
-    onbNext: 'Weiter',
     onbStart: 'Loslegen',
-    onbStepAria: 'Seite {n} von {total}',
-    onbTitle3: 'Kostenlos für alle',
-    onbBody3: 'Keine Lizenzgebühren. Keine Werbung. Keine Wasserzeichen.',
-    onbNote3: 'KI-Funktionen können OneDesk-Credits verbrauchen.',
-    onbBack: 'Zurück',
     intgSkillsDesc:
       'OneDesk verwendet nur Skills aus seinem eigenen Skills-Ordner. Der Import eines Ordners oder einer ZIP kopiert den ganzen Skill; beim Import wird nichts ausgeführt.',
     intgSkillsEmpty: 'Noch keine Skills installiert.',
@@ -5404,9 +5199,6 @@ export const strings = {
     setAutoSave: 'Guardar automáticamente todos los documentos',
     setAutoSaveDesc:
       'Activa el autoguardado de forma predeterminada en todos los editores. Aún puedes desactivarlo en una ventana concreta.',
-    setAnalytics: 'Enviar estadísticas de uso anónimas',
-    setAnalyticsDesc:
-      'Activado de forma predeterminada y desactivable en Configuración → General. Usa Google Analytics 4; Google recibe tu IP pública y metadatos de transporte, pero nunca el contenido de documentos ni los nombres de archivo.',
     setSearchRerank: 'Reordenación con Jev',
     setSearchRerankDesc:
       'Envía los extractos de los 20 mejores resultados locales al modelo Jev de TypeSafe y los reordena por relevancia. Desactivado por defecto; al activarlo, los extractos salen de este dispositivo.',
@@ -5646,14 +5438,6 @@ export const strings = {
       'Cuando su proveedor es OneDesk, la búsqueda web, la generación de imágenes y el análisis de medios pasan por OneDesk y consumen créditos; desactivado, la búsqueda usa fuentes gratuitas y las herramientas de imagen de OneDesk no están disponibles.',
     setGithub: 'Código abierto',
     starOnGitHub: 'Dar una estrella en GitHub',
-    starPromptTitle: '¿Te gusta OneDesk?',
-    starPromptTitleN: 'Has abierto {n} documentos con OneDesk',
-    starPromptBody:
-      'OneDesk es gratuito y de código abierto. Una estrella en GitHub es la mejor forma de apoyar al equipo.',
-    starPromptGo: 'Dar una estrella',
-    starPromptDone: 'Ya la di',
-    starPromptLater: 'Más tarde',
-    onbStarHint: 'Si te gusta OneDesk, danos una estrella en GitHub.',
     setEmail: 'Correo electrónico',
     setNotLoggedIn: 'Sesión no iniciada',
     setViewUsage: 'Ver uso',
@@ -5672,19 +5456,7 @@ export const strings = {
     onbSubtitle1: 'La primera suite ofimática de código abierto y nativa de IA',
     onbBody1:
       'Crea documentos, hojas de cálculo y presentaciones, y revisa PDF. La IA está integrada en cada paso.',
-    onbTitle2: 'Esto es solo el comienzo',
-    onbBody2:
-      'OneDesk aún está en alfa. Únete al chat grupal en GenTeam para compartir comentarios y ayudar a dar forma a lo que viene.',
-    onbCredits: 'Los colaboradores activos reciben **1.000+ créditos de OneDesk**',
-    onbJoinGenTeam: 'Unirse a GenTeam',
-    onbSkip: 'Omitir',
-    onbNext: 'Siguiente',
     onbStart: 'Empezar',
-    onbStepAria: 'Página {n} de {total}',
-    onbTitle3: 'Gratis para todos',
-    onbBody3: 'Sin licencias. Sin anuncios. Sin marcas de agua.',
-    onbNote3: 'Las funciones de IA pueden consumir créditos de OneDesk.',
-    onbBack: 'Atrás',
     intgSkillsDesc:
       'OneDesk solo usa habilidades de su propia carpeta. Importar una carpeta o un zip copia la habilidad completa; nada se ejecuta al importar.',
     intgSkillsEmpty: 'Aún no hay habilidades instaladas.',
@@ -5983,9 +5755,6 @@ export const strings = {
     tabSleeping: 'พักอยู่',
     setAutoSave: 'บันทึกอัตโนมัติทุกเอกสาร',
     setAutoSaveDesc: 'เปิดบันทึกอัตโนมัติเป็นค่าเริ่มต้นในทุกตัวแก้ไข คุณยังปิดได้ในแต่ละหน้าต่าง',
-    setAnalytics: 'ส่งสถิติการใช้งานแบบไม่ระบุตัวตน',
-    setAnalyticsDesc:
-      'เปิดใช้งานเป็นค่าเริ่มต้นและปิดได้ทุกเมื่อใน การตั้งค่า → ทั่วไป ใช้ Google Analytics 4 โดย Google จะได้รับ IP สาธารณะและข้อมูลเมตาการรับส่งข้อมูล แต่จะไม่เก็บเนื้อหาเอกสารหรือชื่อไฟล์',
     setSearchRerank: 'จัดอันดับใหม่ด้วย Jev',
     setSearchRerankDesc:
       'ส่งข้อความตัดตอนของผลลัพธ์ 20 อันดับแรกไปยังโมเดล Jev ของ TypeSafe เพื่อจัดอันดับใหม่ตามความเกี่ยวข้อง ปิดเป็นค่าเริ่มต้น เมื่อเปิด ข้อความตัดตอนจะถูกส่งออกจากอุปกรณ์นี้',
@@ -6216,13 +5985,6 @@ export const strings = {
       'เมื่อผู้ให้บริการตั้งเป็น OneDesk การค้นหาเว็บ การสร้างภาพ และการวิเคราะห์สื่อจะผ่าน OneDesk และใช้เครดิต เมื่อปิด การค้นหาจะใช้แหล่งข้อมูลฟรีและเครื่องมือภาพของ OneDesk จะใช้ไม่ได้',
     setGithub: 'โอเพนซอร์ส',
     starOnGitHub: 'กดดาวบน GitHub',
-    starPromptTitle: 'ชอบ OneDesk ไหม?',
-    starPromptTitleN: 'คุณเปิดเอกสารด้วย OneDesk ไปแล้ว {n} ไฟล์',
-    starPromptBody: 'OneDesk ฟรีและเป็นโอเพนซอร์ส การกดดาวบน GitHub คือกำลังใจที่ดีที่สุดสำหรับทีม',
-    starPromptGo: 'กดดาวเลย',
-    starPromptDone: 'กดแล้ว',
-    starPromptLater: 'ไว้ทีหลัง',
-    onbStarHint: 'ถ้าชอบ OneDesk ฝากกดดาวให้เราบน GitHub ด้วยนะ',
     setEmail: 'อีเมล',
     setNotLoggedIn: 'ยังไม่ได้เข้าสู่ระบบ',
     setViewUsage: 'ดูการใช้งาน',
@@ -6240,19 +6002,7 @@ export const strings = {
     onbTitle1: 'ยินดีต้อนรับสู่ OneDesk',
     onbSubtitle1: 'ชุดโปรแกรมออฟฟิศ AI-native โอเพนซอร์สตัวแรก',
     onbBody1: 'สร้างเอกสาร ทำสเปรดชีต สร้างงานนำเสนอ และตรวจทาน PDF ทุกขั้นตอนมี AI ในตัว',
-    onbTitle2: 'นี่เป็นเพียงจุดเริ่มต้น',
-    onbBody2:
-      'OneDesk ยังอยู่ในช่วงอัลฟ่า เข้าร่วมแชทกลุ่มบน GenTeam เพื่อแบ่งปันความคิดเห็นและร่วมกำหนดทิศทางต่อไป',
-    onbCredits: 'ผู้มีส่วนร่วมอย่างต่อเนื่องจะได้รับ **เครดิต OneDesk กว่า 1,000**',
-    onbJoinGenTeam: 'เข้าร่วม GenTeam',
-    onbSkip: 'ข้าม',
-    onbNext: 'ถัดไป',
     onbStart: 'เริ่มใช้งาน',
-    onbStepAria: 'หน้า {n} จาก {total}',
-    onbTitle3: 'ฟรีสำหรับทุกคน',
-    onbBody3: 'ไม่มีค่าลิขสิทธิ์ ไม่มีโฆษณา ไม่มีลายน้ำ',
-    onbNote3: 'ฟีเจอร์ AI อาจใช้เครดิต OneDesk',
-    onbBack: 'ย้อนกลับ',
     intgSkillsDesc:
       'OneDesk ใช้เฉพาะทักษะในโฟลเดอร์ทักษะของตัวเอง การนำเข้าจากโฟลเดอร์หรือ zip จะคัดลอกทักษะทั้งชุด และไม่มีสิ่งใดทำงานเมื่อนำเข้า',
     intgSkillsEmpty: 'ยังไม่ได้ติดตั้งทักษะ',
@@ -6554,9 +6304,6 @@ export const strings = {
     setAutoSave: 'Simpan otomatis semua dokumen',
     setAutoSaveDesc:
       'Aktifkan Simpan Otomatis secara default di setiap editor. Anda masih dapat menonaktifkannya untuk satu jendela.',
-    setAnalytics: 'Kirim statistik penggunaan anonim',
-    setAnalyticsDesc:
-      'Aktif secara default dan dapat dimatikan di Pengaturan → Umum. Menggunakan Google Analytics 4; Google menerima IP publik dan metadata transport Anda, tetapi tidak pernah mengumpulkan isi dokumen atau nama file.',
     setSearchRerank: 'Peringkat ulang Jev',
     setSearchRerankDesc:
       'Mengirim kutipan 20 hasil lokal teratas ke model Jev dari TypeSafe dan mengurutkannya ulang berdasarkan relevansi. Nonaktif secara bawaan; saat aktif, kutipan keluar dari perangkat ini.',
@@ -6792,14 +6539,6 @@ export const strings = {
       'Saat penyedianya disetel ke OneDesk, pencarian web, pembuatan gambar, dan analisis media berjalan lewat OneDesk dan memakai kredit; jika dimatikan, pencarian memakai sumber gratis dan alat gambar OneDesk tidak tersedia.',
     setGithub: 'Sumber Terbuka',
     starOnGitHub: 'Beri Bintang di GitHub',
-    starPromptTitle: 'Suka OneDesk?',
-    starPromptTitleN: 'Anda telah membuka {n} dokumen dengan OneDesk',
-    starPromptBody:
-      'OneDesk gratis dan open source. Bintang di GitHub adalah dukungan terbaik untuk tim kami.',
-    starPromptGo: 'Beri Bintang',
-    starPromptDone: 'Sudah',
-    starPromptLater: 'Nanti saja',
-    onbStarHint: 'Jika Anda menyukai OneDesk, beri kami bintang di GitHub.',
     setEmail: 'Email',
     setNotLoggedIn: 'Belum masuk',
     setViewUsage: 'Lihat penggunaan',
@@ -6818,19 +6557,7 @@ export const strings = {
     onbSubtitle1: 'Suite office open source AI-native pertama',
     onbBody1:
       'Buat dokumen, susun spreadsheet, rancang presentasi, dan tinjau PDF. AI hadir di setiap langkah.',
-    onbTitle2: 'Ini baru permulaan',
-    onbBody2:
-      'OneDesk masih dalam tahap alpha. Gabung obrolan grup di GenTeam untuk berbagi masukan dan ikut menentukan arah ke depan.',
-    onbCredits: 'Kontributor aktif mendapat **1.000+ kredit OneDesk**',
-    onbJoinGenTeam: 'Gabung GenTeam',
-    onbSkip: 'Lewati',
-    onbNext: 'Berikutnya',
     onbStart: 'Mulai',
-    onbStepAria: 'Halaman {n} dari {total}',
-    onbTitle3: 'Gratis untuk semua',
-    onbBody3: 'Tanpa biaya lisensi. Tanpa iklan. Tanpa watermark.',
-    onbNote3: 'Fitur AI dapat menggunakan kredit OneDesk.',
-    onbBack: 'Kembali',
     intgSkillsDesc:
       'OneDesk hanya memakai keterampilan di folder keterampilannya sendiri. Mengimpor folder atau zip menyalin seluruh keterampilan; tidak ada yang dijalankan saat impor.',
     intgSkillsEmpty: 'Belum ada keterampilan terpasang.',
@@ -7132,9 +6859,6 @@ export const strings = {
     setAutoSave: 'Автосохранение всех документов',
     setAutoSaveDesc:
       'Включает автосохранение по умолчанию во всех редакторах. Его по-прежнему можно выключить для отдельного окна.',
-    setAnalytics: 'Отправлять анонимную статистику использования',
-    setAnalyticsDesc:
-      'Включено по умолчанию и отключается в Настройки → Общие. Используется Google Analytics 4; Google получает публичный IP и транспортные метаданные, но не содержимое документов и не имена файлов.',
     setSearchRerank: 'Переранжирование Jev',
     setSearchRerankDesc:
       'Отправляет фрагменты 20 лучших локальных результатов модели Jev от TypeSafe и переупорядочивает их по релевантности. По умолчанию выключено; при включении фрагменты покидают это устройство.',
@@ -7372,14 +7096,6 @@ export const strings = {
       'Когда провайдером выбран OneDesk, веб-поиск, генерация изображений и анализ медиа идут через OneDesk и расходуют кредиты; при выключении поиск использует бесплатные источники, а инструменты изображений OneDesk недоступны.',
     setGithub: 'Открытый код',
     starOnGitHub: 'Поставить звезду на GitHub',
-    starPromptTitle: 'Нравится OneDesk?',
-    starPromptTitleN: 'Вы уже открыли {n} документов в OneDesk',
-    starPromptBody:
-      'OneDesk — бесплатное ПО с открытым кодом. Звезда на GitHub — лучшая поддержка для команды.',
-    starPromptGo: 'Поставить звезду',
-    starPromptDone: 'Уже поставлена',
-    starPromptLater: 'Позже',
-    onbStarHint: 'Если вам нравится OneDesk, поставьте нам звезду на GitHub.',
     setEmail: 'Эл. почта',
     setNotLoggedIn: 'Вы не вошли',
     setViewUsage: 'Посмотреть расход',
@@ -7398,19 +7114,7 @@ export const strings = {
     onbSubtitle1: 'Первый открытый ИИ-нативный офисный пакет',
     onbBody1:
       'Создавайте документы, таблицы и презентации, работайте с PDF. ИИ встроен в каждый шаг.',
-    onbTitle2: 'Это только начало',
-    onbBody2:
-      'OneDesk пока в альфа-версии. Присоединяйтесь к групповому чату в GenTeam, чтобы делиться отзывами и влиять на дальнейшее развитие.',
-    onbCredits: 'Активные участники получают **1000+ кредитов OneDesk**',
-    onbJoinGenTeam: 'Присоединиться к GenTeam',
-    onbSkip: 'Пропустить',
-    onbNext: 'Далее',
     onbStart: 'Начать',
-    onbStepAria: 'Страница {n} из {total}',
-    onbTitle3: 'Бесплатно для всех',
-    onbBody3: 'Без лицензий. Без рекламы. Без водяных знаков.',
-    onbNote3: 'Функции ИИ могут расходовать кредиты OneDesk.',
-    onbBack: 'Назад',
     intgSkillsDesc:
       'OneDesk использует только навыки из своей папки навыков. Импорт папки или zip копирует навык целиком; при импорте ничего не запускается.',
     intgSkillsEmpty: 'Навыки ещё не установлены.',
@@ -7711,9 +7415,6 @@ export const strings = {
     setAutoSave: 'حفظ جميع المستندات تلقائيًا',
     setAutoSaveDesc:
       'تشغيل الحفظ التلقائي افتراضيًا في كل محرر. لا يزال بإمكانك إيقافه لنافذة واحدة.',
-    setAnalytics: 'إرسال إحصاءات استخدام مجهولة الهوية',
-    setAnalyticsDesc:
-      'مفعّل افتراضيًا ويمكن إيقافه في الإعدادات ← عام. يستخدم Google Analytics 4؛ تتلقى Google عنوان IP العام وبيانات النقل، ولكن لا يتم جمع محتوى المستندات أو أسماء الملفات.',
     setSearchRerank: 'إعادة ترتيب Jev',
     setSearchRerankDesc:
       'يرسل مقتطفات أفضل 20 نتيجة محلية إلى نموذج Jev من TypeSafe ويعيد ترتيبها حسب الصلة. معطّل افتراضيًا؛ عند التفعيل تخرج المقتطفات من هذا الجهاز.',
@@ -7946,13 +7647,6 @@ export const strings = {
       'عندما يكون المزوّد OneDesk، يمر البحث في الويب وتوليد الصور وتحليل الوسائط عبر OneDesk ويستهلك الرصيد؛ عند الإيقاف يستخدم البحث مصادر مجانية وتصبح أدوات صور OneDesk غير متاحة.',
     setGithub: 'مفتوح المصدر',
     starOnGitHub: 'ضع نجمة على GitHub',
-    starPromptTitle: 'هل أعجبك OneDesk؟',
-    starPromptTitleN: 'لقد فتحت {n} من المستندات في OneDesk',
-    starPromptBody: 'OneDesk مجاني ومفتوح المصدر. نجمة على GitHub هي أفضل دعم للفريق.',
-    starPromptGo: 'ضع نجمة',
-    starPromptDone: 'وضعتها بالفعل',
-    starPromptLater: 'لاحقًا',
-    onbStarHint: 'إذا أعجبك OneDesk، ضع لنا نجمة على GitHub.',
     setEmail: 'البريد الإلكتروني',
     setNotLoggedIn: 'لم يتم تسجيل الدخول',
     setViewUsage: 'عرض الاستخدام',
@@ -7971,19 +7665,7 @@ export const strings = {
     onbSubtitle1: 'أول حزمة مكتبية مفتوحة المصدر وأصيلة في الذكاء الاصطناعي',
     onbBody1:
       'أنشئ المستندات وجداول البيانات والعروض التقديمية وراجع ملفات PDF. الذكاء الاصطناعي مدمج في كل خطوة.',
-    onbTitle2: 'هذه مجرد البداية',
-    onbBody2:
-      'لا يزال OneDesk في مرحلة ألفا. انضم إلى الدردشة الجماعية على GenTeam لمشاركة ملاحظاتك والمساهمة في تشكيل المستقبل.',
-    onbCredits: 'يحصل المساهمون النشطون على **+1,000 من أرصدة OneDesk**',
-    onbJoinGenTeam: 'الانضمام إلى GenTeam',
-    onbSkip: 'تخطي',
-    onbNext: 'التالي',
     onbStart: 'ابدأ الآن',
-    onbStepAria: 'الصفحة {n} من {total}',
-    onbTitle3: 'مجاني للجميع',
-    onbBody3: 'بلا رسوم ترخيص، بلا إعلانات، بلا علامات مائية.',
-    onbNote3: 'قد تستهلك ميزات الذكاء الاصطناعي أرصدة OneDesk.',
-    onbBack: 'رجوع',
     intgSkillsDesc:
       'يستخدم OneDesk المهارات الموجودة في مجلد مهاراته فقط. استيراد مجلد أو ملف zip ينسخ المهارة كاملة؛ ولا يُشغَّل شيء عند الاستيراد.',
     intgSkillsEmpty: 'لم تُثبَّت أي مهارات بعد.',
@@ -8280,9 +7962,6 @@ export const strings = {
     setAutoSave: 'Salvar automaticamente todos os documentos',
     setAutoSaveDesc:
       'Ativa o salvamento automático por padrão em todos os editores. Você ainda pode desativá-lo em uma janela específica.',
-    setAnalytics: 'Enviar estatísticas de uso anônimas',
-    setAnalyticsDesc:
-      'Ativado por padrão e pode ser desativado em Configurações → Geral. Usa o Google Analytics 4; o Google recebe seu IP público e metadados de transporte, mas nunca o conteúdo dos documentos ou nomes de arquivos.',
     setSearchRerank: 'Reordenação com Jev',
     setSearchRerankDesc:
       'Envia os trechos dos 20 melhores resultados locais ao modelo Jev da TypeSafe e os reordena por relevância. Desativado por padrão; quando ativo, os trechos saem deste dispositivo.',
@@ -8522,14 +8201,6 @@ export const strings = {
       'Quando o provedor é o OneDesk, a busca na web, a geração de imagens e a análise de mídia passam pelo OneDesk e consomem créditos; desativado, a busca usa fontes gratuitas e as ferramentas de imagem do OneDesk ficam indisponíveis.',
     setGithub: 'Código aberto',
     starOnGitHub: 'Dar uma estrela no GitHub',
-    starPromptTitle: 'Gostando do OneDesk?',
-    starPromptTitleN: 'Você já abriu {n} documentos com o OneDesk',
-    starPromptBody:
-      'O OneDesk é gratuito e de código aberto. Uma estrela no GitHub é a melhor forma de apoiar a equipe.',
-    starPromptGo: 'Dar uma estrela',
-    starPromptDone: 'Já dei',
-    starPromptLater: 'Mais tarde',
-    onbStarHint: 'Se você gosta do OneDesk, deixe uma estrela no GitHub.',
     setEmail: 'E-mail',
     setNotLoggedIn: 'Não conectado',
     setViewUsage: 'Ver uso',
@@ -8546,19 +8217,7 @@ export const strings = {
     onbSubtitle1: 'A primeira suíte de escritório open source e nativa de IA',
     onbBody1:
       'Crie documentos, planilhas e apresentações e revise PDFs. A IA está integrada em cada etapa.',
-    onbTitle2: 'Isto é só o começo',
-    onbBody2:
-      'O OneDesk ainda está em alfa. Entre no chat em grupo no GenTeam para compartilhar feedback e ajudar a moldar o que vem a seguir.',
-    onbCredits: 'Contribuidores ativos recebem **1.000+ créditos OneDesk**',
-    onbJoinGenTeam: 'Entrar no GenTeam',
-    onbSkip: 'Pular',
-    onbNext: 'Avançar',
     onbStart: 'Começar',
-    onbStepAria: 'Página {n} de {total}',
-    onbTitle3: 'Gratuito para todos',
-    onbBody3: "Sem licenças. Sem anúncios. Sem marcas d'água.",
-    onbNote3: 'Os recursos de IA podem consumir créditos OneDesk.',
-    onbBack: 'Voltar',
     intgSkillsDesc:
       'O OneDesk só usa habilidades da sua própria pasta. Importar uma pasta ou um zip copia a habilidade inteira; nada é executado na importação.',
     intgSkillsEmpty: 'Nenhuma habilidade instalada.',
@@ -8857,9 +8516,6 @@ export const strings = {
     setAutoSave: 'Salva automaticamente tutti i documenti',
     setAutoSaveDesc:
       'Attiva il salvataggio automatico per impostazione predefinita in ogni editor. Puoi comunque disattivarlo per una singola finestra.',
-    setAnalytics: 'Invia statistiche di utilizzo anonime',
-    setAnalyticsDesc:
-      "Attivo per impostazione predefinita e disattivabile in Impostazioni → Generali. Utilizza Google Analytics 4; Google riceve l'IP pubblico e i metadati di trasporto, ma mai contenuti o nomi dei file.",
     setSearchRerank: 'Riordino con Jev',
     setSearchRerankDesc:
       'Invia gli estratti dei 20 migliori risultati locali al modello Jev di TypeSafe e li riordina per pertinenza. Disattivato per impostazione predefinita; se attivo, gli estratti lasciano questo dispositivo.',
@@ -9099,14 +8755,6 @@ export const strings = {
       "Quando il provider è OneDesk, la ricerca web, la generazione di immagini e l'analisi dei media passano da OneDesk e consumano crediti; se disattivato, la ricerca usa fonti gratuite e gli strumenti immagine di OneDesk non sono disponibili.",
     setGithub: 'Open source',
     starOnGitHub: 'Metti una stella su GitHub',
-    starPromptTitle: 'Ti piace OneDesk?',
-    starPromptTitleN: 'Hai aperto {n} documenti con OneDesk',
-    starPromptBody:
-      'OneDesk è gratuito e open source. Una stella su GitHub è il modo migliore per sostenere il team.',
-    starPromptGo: 'Metti una stella',
-    starPromptDone: 'Già fatto',
-    starPromptLater: 'Più tardi',
-    onbStarHint: 'Se ti piace OneDesk, lasciaci una stella su GitHub.',
     setEmail: 'Email',
     setNotLoggedIn: 'Non connesso',
     setViewUsage: 'Vedi utilizzo',
@@ -9123,19 +8771,7 @@ export const strings = {
     onbSubtitle1: 'La prima suite per ufficio open source e nativa per l’IA',
     onbBody1:
       'Crea documenti, fogli di calcolo e presentazioni e rivedi i PDF. L’IA è integrata in ogni passaggio.',
-    onbTitle2: 'Questo è solo l’inizio',
-    onbBody2:
-      'OneDesk è ancora in alpha. Unisciti alla chat di gruppo su GenTeam per condividere feedback e contribuire a plasmare il futuro.',
-    onbCredits: 'I collaboratori attivi ricevono **1.000+ crediti OneDesk**',
-    onbJoinGenTeam: 'Unisciti a GenTeam',
-    onbSkip: 'Salta',
-    onbNext: 'Avanti',
     onbStart: 'Inizia',
-    onbStepAria: 'Pagina {n} di {total}',
-    onbTitle3: 'Gratuito per tutti',
-    onbBody3: 'Nessuna licenza. Nessuna pubblicità. Nessuna filigrana.',
-    onbNote3: 'Le funzioni IA possono consumare crediti OneDesk.',
-    onbBack: 'Indietro',
     intgSkillsDesc:
       'OneDesk usa solo le competenze nella propria cartella. Importare una cartella o uno zip copia l’intera competenza; nulla viene eseguito all’importazione.',
     intgSkillsEmpty: 'Nessuna competenza installata.',
@@ -9433,9 +9069,6 @@ export const strings = {
     setAutoSave: 'Automatycznie zapisuj wszystkie dokumenty',
     setAutoSaveDesc:
       'Włącza autozapis domyślnie w każdym edytorze. Nadal możesz go wyłączyć dla pojedynczego okna.',
-    setAnalytics: 'Wysyłaj anonimowe statystyki użytkowania',
-    setAnalyticsDesc:
-      'Domyślnie włączone; można wyłączyć w Ustawienia → Ogólne. Korzysta z Google Analytics 4; Google otrzymuje publiczny adres IP i metadane transportowe, ale nigdy treść dokumentów ani nazwy plików.',
     setSearchRerank: 'Ponowne sortowanie Jev',
     setSearchRerankDesc:
       'Wysyła fragmenty 20 najlepszych lokalnych wyników do modelu Jev firmy TypeSafe i sortuje je według trafności. Domyślnie wyłączone; po włączeniu fragmenty opuszczają to urządzenie.',
@@ -9673,14 +9306,6 @@ export const strings = {
       'Gdy dostawcą jest OneDesk, wyszukiwanie w sieci, generowanie obrazów i analiza mediów przechodzą przez OneDesk i zużywają kredyty; po wyłączeniu wyszukiwanie używa darmowych źródeł, a narzędzia obrazów OneDesk są niedostępne.',
     setGithub: 'Open source',
     starOnGitHub: 'Gwiazdka na GitHubie',
-    starPromptTitle: 'Podoba Ci się OneDesk?',
-    starPromptTitleN: 'Otwarto już {n} dokumentów w OneDesk',
-    starPromptBody:
-      'OneDesk jest darmowy i open source. Gwiazdka na GitHubie to najlepsze wsparcie dla zespołu.',
-    starPromptGo: 'Daj gwiazdkę',
-    starPromptDone: 'Już zrobione',
-    starPromptLater: 'Później',
-    onbStarHint: 'Jeśli podoba Ci się OneDesk, zostaw nam gwiazdkę na GitHubie.',
     setEmail: 'E-mail',
     setNotLoggedIn: 'Nie zalogowano',
     setViewUsage: 'Zobacz zużycie',
@@ -9697,19 +9322,7 @@ export const strings = {
     onbSubtitle1: 'Pierwszy otwartoźródłowy, natywnie oparty na AI pakiet biurowy',
     onbBody1:
       'Twórz dokumenty, arkusze i prezentacje oraz przeglądaj pliki PDF. AI jest wbudowana w każdy etap.',
-    onbTitle2: 'To dopiero początek',
-    onbBody2:
-      'OneDesk jest wciąż w fazie alfa. Dołącz do czatu grupowego na GenTeam, aby dzielić się opiniami i współtworzyć jego przyszłość.',
-    onbCredits: 'Aktywni współtwórcy otrzymują **1000+ kredytów OneDesk**',
-    onbJoinGenTeam: 'Dołącz do GenTeam',
-    onbSkip: 'Pomiń',
-    onbNext: 'Dalej',
     onbStart: 'Rozpocznij',
-    onbStepAria: 'Strona {n} z {total}',
-    onbTitle3: 'Za darmo dla każdego',
-    onbBody3: 'Bez opłat licencyjnych. Bez reklam. Bez znaków wodnych.',
-    onbNote3: 'Funkcje AI mogą zużywać kredyty OneDesk.',
-    onbBack: 'Wstecz',
     intgSkillsDesc:
       'OneDesk używa tylko umiejętności z własnego folderu. Import folderu lub pliku zip kopiuje całą umiejętność; podczas importu nic nie jest uruchamiane.',
     intgSkillsEmpty: 'Brak zainstalowanych umiejętności.',
@@ -9994,9 +9607,6 @@ export const strings = {
     documentTheme: 'Motiv stránky dokumentu',
     docThemeFollowApp: 'Podle motivu aplikace',
     saveLocation: 'Umístění pro ukládání',
-    setAnalytics: 'Odesílat anonymní statistiky používání',
-    setAnalyticsDesc:
-      'Ve výchozím nastavení zapnuto, kdykoli lze vypnout v Nastavení → Obecné. Používá Google Analytics 4; Google obdrží vaši veřejnou IP adresu a přenosová metadata, obsah dokumentů ani názvy souborů se však nikdy neshromažďují.',
     settings: 'Nastavení',
     setSecAccount: 'Účet',
     setSecGeneral: 'Obecné',
@@ -10186,14 +9796,6 @@ export const strings = {
       'Webové vyhledávání, generování obrázků a analýza médií běží přes OneDesk a čerpají kredity, pokud je jejich poskytovatel nastaven na OneDesk; při vypnutí vyhledávání používá bezplatné zdroje a obrázkové nástroje OneDesk nejsou dostupné.',
     setGithub: 'Open source',
     starOnGitHub: 'Dát hvězdičku na GitHubu',
-    starPromptTitle: 'Líbí se vám OneDesk?',
-    starPromptTitleN: 'V OneDesk jste otevřeli už {n} dokumentů',
-    starPromptBody:
-      'OneDesk je zdarma a open source. Hvězdička na GitHubu je nejlepší způsob, jak tým podpořit.',
-    starPromptGo: 'Dát hvězdičku na GitHubu',
-    starPromptDone: 'Hvězdička už udělena',
-    starPromptLater: 'Možná později',
-    onbStarHint: 'Pokud se vám OneDesk líbí, dejte nám hvězdičku na GitHubu.',
     setEmail: 'E-mail',
     setNotLoggedIn: 'Nepřihlášeno',
     setViewUsage: 'Zobrazit využití',
@@ -10210,19 +9812,7 @@ export const strings = {
     onbSubtitle1: 'První open-source kancelářský balík s nativní AI',
     onbBody1:
       'Vytvářejte dokumenty, tabulky a prezentace a kontrolujte PDF. AI je součástí každého kroku.',
-    onbTitle2: 'Toto je jen začátek',
-    onbBody2:
-      'OneDesk je stále ve fázi alfa. Připojte se ke skupinovému chatu na GenTeam, sdílejte zpětnou vazbu a pomozte utvářet, co přijde dál.',
-    onbCredits: 'Aktivní přispěvatelé získají **1 000+ kreditů OneDesk**',
-    onbJoinGenTeam: 'Připojit se ke GenTeam',
-    onbSkip: 'Přeskočit',
-    onbNext: 'Další',
     onbStart: 'Začít',
-    onbStepAria: 'Stránka {n} z {total}',
-    onbTitle3: 'Zdarma pro všechny',
-    onbBody3: 'Žádné licenční poplatky. Žádné reklamy. Žádné vodoznaky.',
-    onbNote3: 'Funkce AI mohou čerpat kredity OneDesk.',
-    onbBack: 'Zpět',
     setRestoreSession: 'Znovu otevřít dokumenty z minula',
     setRestoreSessionDesc:
       'Dokumenty otevřené při zavření OneDesk se při příštím spuštění automaticky znovu otevřou.',
@@ -10573,9 +10163,6 @@ export const strings = {
     setAutoSave: 'Alle documenten automatisch opslaan',
     setAutoSaveDesc:
       'Zet automatisch opslaan standaard aan in elke editor. Je kunt het nog steeds uitschakelen voor één venster.',
-    setAnalytics: 'Anonieme gebruiksstatistieken verzenden',
-    setAnalyticsDesc:
-      'Standaard ingeschakeld en uit te schakelen via Instellingen → Algemeen. Gebruikt Google Analytics 4; Google ontvangt uw openbare IP en transportmetadata, maar nooit documentinhoud of bestandsnamen.',
     setSearchRerank: 'Jev-herordening',
     setSearchRerankDesc:
       'Stuurt de fragmenten van de 20 beste lokale resultaten naar het Jev-model van TypeSafe en sorteert ze op relevantie. Standaard uit; indien aan verlaten fragmenten dit apparaat.',
@@ -10813,14 +10400,6 @@ export const strings = {
       'Staat de provider op OneDesk, dan lopen zoeken op het web, afbeeldingen genereren en media-analyse via OneDesk en kosten ze credits; uitgeschakeld gebruikt zoeken gratis bronnen en zijn de OneDesk-afbeeldingstools niet beschikbaar.',
     setGithub: 'Open source',
     starOnGitHub: 'Geef een ster op GitHub',
-    starPromptTitle: 'Bevalt OneDesk?',
-    starPromptTitleN: 'Je hebt al {n} documenten geopend met OneDesk',
-    starPromptBody:
-      'OneDesk is gratis en open source. Een ster op GitHub is de beste steun voor het team.',
-    starPromptGo: 'Geef een ster',
-    starPromptDone: 'Al gedaan',
-    starPromptLater: 'Later',
-    onbStarHint: 'Als OneDesk je bevalt, geef ons dan een ster op GitHub.',
     setEmail: 'E-mail',
     setNotLoggedIn: 'Niet ingelogd',
     setViewUsage: 'Verbruik bekijken',
@@ -10837,19 +10416,7 @@ export const strings = {
     onbSubtitle1: 'De eerste open source, AI-native officesuite',
     onbBody1:
       'Maak documenten, bouw spreadsheets, maak presentaties en beoordeel PDF-bestanden. AI zit in elke stap ingebouwd.',
-    onbTitle2: 'Dit is nog maar het begin',
-    onbBody2:
-      'OneDesk is nog in alfa. Doe mee aan de groepschat op GenTeam om feedback te delen en mee te bepalen wat er komt.',
-    onbCredits: 'Actieve bijdragers krijgen **1.000+ OneDesk-credits**',
-    onbJoinGenTeam: 'Word lid van GenTeam',
-    onbSkip: 'Overslaan',
-    onbNext: 'Volgende',
     onbStart: 'Aan de slag',
-    onbStepAria: 'Pagina {n} van {total}',
-    onbTitle3: 'Gratis voor iedereen',
-    onbBody3: 'Geen licentiekosten. Geen advertenties. Geen watermerken.',
-    onbNote3: 'AI-functies kunnen OneDesk-credits verbruiken.',
-    onbBack: 'Terug',
     intgSkillsDesc:
       'OneDesk gebruikt alleen vaardigheden uit zijn eigen map. Een map of zip importeren kopieert de hele vaardigheid; bij het importeren wordt niets uitgevoerd.',
     intgSkillsEmpty: 'Nog geen vaardigheden geïnstalleerd.',
@@ -11146,9 +10713,6 @@ export const strings = {
     setAutoSave: 'Simpan automatik semua dokumen',
     setAutoSaveDesc:
       'Hidupkan Simpan Automatik secara lalai dalam setiap editor. Anda masih boleh mematikannya untuk satu tetingkap.',
-    setAnalytics: 'Hantar statistik penggunaan tanpa nama',
-    setAnalyticsDesc:
-      'Diaktifkan secara lalai dan boleh dimatikan di Tetapan → Umum. Menggunakan Google Analytics 4; Google menerima IP awam dan metadata pengangkutan, tetapi tidak pernah kandungan dokumen atau nama fail.',
     setSearchRerank: 'Susunan semula Jev',
     setSearchRerankDesc:
       'Menghantar petikan 20 hasil tempatan teratas ke model Jev TypeSafe dan menyusunnya semula mengikut kaitan. Dimatikan secara lalai; apabila dihidupkan, petikan keluar dari peranti ini.',
@@ -11389,14 +10953,6 @@ export const strings = {
       'Apabila pembekalnya ditetapkan kepada OneDesk, carian web, penjanaan imej dan analisis media melalui OneDesk dan menggunakan kredit; apabila dimatikan, carian menggunakan sumber percuma dan alat imej OneDesk tidak tersedia.',
     setGithub: 'Sumber Terbuka',
     starOnGitHub: 'Beri Bintang di GitHub',
-    starPromptTitle: 'Suka OneDesk?',
-    starPromptTitleN: 'Anda telah membuka {n} dokumen dengan OneDesk',
-    starPromptBody:
-      'OneDesk percuma dan sumber terbuka. Bintang di GitHub ialah sokongan terbaik untuk pasukan kami.',
-    starPromptGo: 'Beri Bintang',
-    starPromptDone: 'Sudah',
-    starPromptLater: 'Kemudian',
-    onbStarHint: 'Jika anda suka OneDesk, beri kami bintang di GitHub.',
     setEmail: 'E-mel',
     setNotLoggedIn: 'Belum log masuk',
     setViewUsage: 'Lihat penggunaan',
@@ -11413,19 +10969,7 @@ export const strings = {
     onbSubtitle1: 'Suite pejabat sumber terbuka natif AI yang pertama',
     onbBody1:
       'Cipta dokumen, bina hamparan, hasilkan persembahan dan semak PDF. AI tersedia pada setiap langkah.',
-    onbTitle2: 'Ini baru permulaan',
-    onbBody2:
-      'OneDesk masih dalam peringkat alfa. Sertai sembang kumpulan di GenTeam untuk berkongsi maklum balas dan membentuk masa depannya.',
-    onbCredits: 'Penyumbang aktif menerima **1,000+ kredit OneDesk**',
-    onbJoinGenTeam: 'Sertai GenTeam',
-    onbSkip: 'Langkau',
-    onbNext: 'Seterusnya',
     onbStart: 'Mula',
-    onbStepAria: 'Halaman {n} daripada {total}',
-    onbTitle3: 'Percuma untuk semua',
-    onbBody3: 'Tiada yuran lesen. Tiada iklan. Tiada tera air.',
-    onbNote3: 'Ciri AI mungkin menggunakan kredit OneDesk.',
-    onbBack: 'Kembali',
     intgSkillsDesc:
       'OneDesk hanya menggunakan kemahiran dalam folder kemahirannya sendiri. Mengimport folder atau zip menyalin keseluruhan kemahiran; tiada apa yang dijalankan semasa import.',
     intgSkillsEmpty: 'Belum ada kemahiran dipasang.',
@@ -11715,9 +11259,6 @@ export const strings = {
     tabSleeping: 'מושהית',
     setAutoSave: 'שמירה אוטומטית של כל המסמכים',
     setAutoSaveDesc: 'מפעיל שמירה אוטומטית כברירת מחדל בכל עורך. עדיין אפשר לכבות אותה בחלון בודד.',
-    setAnalytics: 'שליחת נתוני שימוש אנונימיים',
-    setAnalyticsDesc:
-      'מופעל כברירת מחדל וניתן לכיבוי בהגדרות ← כללי. משתמש ב-Google Analytics 4; Google מקבלת IP ציבורי ומטא-נתוני תעבורה, אך לא תוכן מסמכים או שמות קבצים.',
     setSearchRerank: 'סידור מחדש עם Jev',
     setSearchRerankDesc:
       'שולח את הקטעים של 20 התוצאות המקומיות המובילות למודל Jev של TypeSafe ומסדר אותן מחדש לפי רלוונטיות. כבוי כברירת מחדל; כשמופעל, הקטעים יוצאים מהמכשיר הזה.',
@@ -11948,13 +11489,6 @@ export const strings = {
       'כשהספק מוגדר ל-OneDesk, חיפוש באינטרנט, יצירת תמונות וניתוח מדיה עוברים דרך OneDesk וצורכים קרדיטים; כשהוא כבוי החיפוש משתמש במקורות חינמיים וכלי התמונות של OneDesk אינם זמינים.',
     setGithub: 'קוד פתוח',
     starOnGitHub: 'תנו כוכב ב-GitHub',
-    starPromptTitle: 'נהנים מ-OneDesk?',
-    starPromptTitleN: 'פתחת {n} מסמכים עם OneDesk',
-    starPromptBody: 'OneDesk חינמי ובקוד פתוח. כוכב ב-GitHub הוא התמיכה הטובה ביותר בצוות.',
-    starPromptGo: 'לתת כוכב',
-    starPromptDone: 'כבר נתתי',
-    starPromptLater: 'אחר כך',
-    onbStarHint: 'אם OneDesk מוצא חן בעיניכם, תנו לנו כוכב ב-GitHub.',
     setEmail: 'אימייל',
     setNotLoggedIn: 'לא מחובר',
     setViewUsage: 'הצגת שימוש',
@@ -11970,19 +11504,7 @@ export const strings = {
     onbTitle1: 'ברוכים הבאים ל-OneDesk',
     onbSubtitle1: 'חבילת המשרד הראשונה בקוד פתוח שהיא AI-נייטיב',
     onbBody1: 'צרו מסמכים, בנו גיליונות, הכינו מצגות ובדקו קובצי PDF. ה-AI מובנה בכל שלב.',
-    onbTitle2: 'זו רק ההתחלה',
-    onbBody2:
-      'OneDesk עדיין בגרסת אלפא. הצטרפו לצ׳אט הקבוצתי ב-GenTeam כדי לשתף משוב ולעזור לעצב את ההמשך.',
-    onbCredits: 'תורמים פעילים מקבלים **1,000+ נקודות OneDesk**',
-    onbJoinGenTeam: 'הצטרפו ל-GenTeam',
-    onbSkip: 'דילוג',
-    onbNext: 'הבא',
     onbStart: 'להתחיל',
-    onbStepAria: 'עמוד {n} מתוך {total}',
-    onbTitle3: 'חינם לכולם',
-    onbBody3: 'ללא דמי רישיון, ללא פרסומות, ללא סימני מים.',
-    onbNote3: 'תכונות AI עשויות לצרוך קרדיטים של OneDesk.',
-    onbBack: 'חזרה',
     intgSkillsDesc:
       'OneDesk משתמש רק במיומנויות שבתיקיית המיומנויות שלו. ייבוא תיקייה או zip מעתיק את המיומנות כולה; שום דבר לא מופעל בייבוא.',
     intgSkillsEmpty: 'עדיין לא הותקנו מיומנויות.',
@@ -12277,9 +11799,6 @@ export const strings = {
     setAutoSave: 'सभी दस्तावेज़ स्वतः सहेजें',
     setAutoSaveDesc:
       'हर संपादक में स्वतः सहेजना डिफ़ॉल्ट रूप से चालू करता है। आप इसे किसी एक विंडो के लिए अब भी बंद कर सकते हैं।',
-    setAnalytics: 'गुमनाम उपयोग आँकड़े भेजें',
-    setAnalyticsDesc:
-      'डिफ़ॉल्ट रूप से चालू; सेटिंग्स → सामान्य में बंद किया जा सकता है। Google Analytics 4 का उपयोग होता है; Google को सार्वजनिक IP और ट्रांसपोर्ट मेटाडेटा मिलता है, लेकिन दस्तावेज़ सामग्री या फ़ाइल नाम नहीं।',
     setSearchRerank: 'Jev खोज पुनर्क्रमण',
     setSearchRerankDesc:
       'स्थानीय खोज के शीर्ष 20 परिणामों के अंश TypeSafe के Jev मॉडल को भेजता है और उन्हें प्रासंगिकता के अनुसार पुनः क्रमित करता है। डिफ़ॉल्ट रूप से बंद; चालू होने पर अंश इस डिवाइस से बाहर जाते हैं।',
@@ -12514,14 +12033,6 @@ export const strings = {
       'जब प्रदाता OneDesk हो, वेब खोज, इमेज जनरेशन और मीडिया विश्लेषण OneDesk से होकर चलते हैं और क्रेडिट खर्च करते हैं; बंद होने पर खोज मुफ़्त स्रोत उपयोग करती है और OneDesk इमेज टूल उपलब्ध नहीं रहते।',
     setGithub: 'ओपन सोर्स',
     starOnGitHub: 'GitHub पर स्टार दें',
-    starPromptTitle: 'OneDesk पसंद आ रहा है?',
-    starPromptTitleN: 'आपने OneDesk में {n} दस्तावेज़ खोले हैं',
-    starPromptBody:
-      'OneDesk मुफ़्त और ओपन सोर्स है। GitHub पर एक स्टार टीम का सबसे अच्छा समर्थन है।',
-    starPromptGo: 'स्टार दें',
-    starPromptDone: 'पहले ही दे दिया',
-    starPromptLater: 'बाद में',
-    onbStarHint: 'अगर आपको OneDesk पसंद है, तो हमें GitHub पर स्टार दें।',
     setEmail: 'ईमेल',
     setNotLoggedIn: 'साइन इन नहीं किया गया',
     setViewUsage: 'उपयोग देखें',
@@ -12538,19 +12049,7 @@ export const strings = {
     onbSubtitle1: 'पहला ओपन-सोर्स, AI-नेटिव ऑफ़िस सुइट',
     onbBody1:
       'दस्तावेज़ बनाएँ, स्प्रेडशीट तैयार करें, प्रस्तुतियाँ बनाएँ और PDF की समीक्षा करें। AI हर चरण में शामिल है।',
-    onbTitle2: 'यह तो बस शुरुआत है',
-    onbBody2:
-      'OneDesk अभी अल्फ़ा में है। GenTeam पर ग्रुप चैट से जुड़ें, फ़ीडबैक साझा करें और आगे की दिशा तय करने में मदद करें।',
-    onbCredits: 'सक्रिय योगदानकर्ताओं के लिए **1,000+ OneDesk क्रेडिट**',
-    onbJoinGenTeam: 'GenTeam से जुड़ें',
-    onbSkip: 'छोड़ें',
-    onbNext: 'आगे',
     onbStart: 'शुरू करें',
-    onbStepAria: 'कुल {total} में से पृष्ठ {n}',
-    onbTitle3: 'सभी के लिए मुफ़्त',
-    onbBody3: 'कोई लाइसेंस शुल्क नहीं। कोई विज्ञापन नहीं। कोई वॉटरमार्क नहीं।',
-    onbNote3: 'AI सुविधाएँ OneDesk क्रेडिट खर्च कर सकती हैं।',
-    onbBack: 'वापस',
     intgSkillsDesc:
       'OneDesk केवल अपने कौशल फ़ोल्डर के कौशल उपयोग करता है। फ़ोल्डर या zip से आयात पूरा कौशल कॉपी करता है; आयात पर कुछ नहीं चलता।',
     intgSkillsEmpty: 'अभी कोई कौशल इंस्टॉल नहीं है।',
@@ -12836,9 +12335,6 @@ export const strings = {
     tabSleeping: '已休眠',
     setAutoSave: '所有文件自動儲存',
     setAutoSaveDesc: '在每個編輯器中預設開啟自動儲存，仍可在單一視窗中關閉。',
-    setAnalytics: '傳送匿名使用統計',
-    setAnalyticsDesc:
-      '此功能預設開啟，可隨時在「設定 → 一般」中關閉。使用 Google Analytics 4；Google 會接收您的公開 IP 位址和傳輸中繼資料，但絕不收集文件內容或檔案名稱。',
     setSearchRerank: 'Jev 搜尋重排',
     setSearchRerankDesc:
       '將本機搜尋前 20 筆命中片段傳給 TypeSafe 的 Jev 模型，依相關性重新排序。預設關閉；開啟後命中片段會離開本機。',
@@ -13063,13 +12559,6 @@ export const strings = {
       '服務商選擇 OneDesk 時，網頁搜尋、生圖與媒體解析經 OneDesk 雲端並消耗點數；關閉後搜尋改用免費來源，OneDesk 生圖工具不可用。',
     setGithub: '開源專案',
     starOnGitHub: '到 GitHub 給我們一顆星',
-    starPromptTitle: '喜歡 OneDesk 嗎？',
-    starPromptTitleN: '你已經用 OneDesk 開啟了 {n} 個文件',
-    starPromptBody: 'OneDesk 是免費的開源軟體。到 GitHub 給我們一顆星，是對團隊最好的支持。',
-    starPromptGo: '去給星星',
-    starPromptDone: '已經給過了',
-    starPromptLater: '以後再說',
-    onbStarHint: '如果你喜歡 OneDesk，歡迎到 GitHub 給我們一顆星。',
     setEmail: '電子郵件',
     setNotLoggedIn: '未登入',
     setViewUsage: '查看用量',
@@ -13085,18 +12574,7 @@ export const strings = {
     onbTitle1: '歡迎使用 OneDesk',
     onbSubtitle1: '第一個開源的 AI 原生 Office 套件',
     onbBody1: '建立文件、製作試算表、產生簡報、審閱 PDF。AI 深度融入每個環節。',
-    onbTitle2: '這只是一個開始',
-    onbBody2: 'OneDesk 目前仍在 alpha 階段。歡迎加入 GenTeam 群聊，分享回饋，一起打造它的未來。',
-    onbCredits: '活躍貢獻者可獲得 **1,000+ OneDesk 點數**',
-    onbJoinGenTeam: '加入 GenTeam',
-    onbSkip: '略過',
-    onbNext: '下一步',
     onbStart: '開始使用',
-    onbStepAria: '第 {n} 頁，共 {total} 頁',
-    onbTitle3: '人人免費',
-    onbBody3: '無授權費用，無廣告，無浮水印。',
-    onbNote3: 'AI 功能可能消耗 OneDesk 點數。',
-    onbBack: '上一步',
     intgSkillsDesc:
       'OneDesk 只使用自己技能資料夾裡的技能。從資料夾或 zip 匯入會把整個技能複製進來；匯入不會自動執行任何東西。',
     intgSkillsEmpty: '尚未安裝技能。',
