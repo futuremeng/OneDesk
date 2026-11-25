@@ -800,6 +800,7 @@ import {
   collectProofreadParagraphs,
   errorTypeLabelKey,
   landProofreadSuggestion,
+  locateProofreadLanding,
   matchFeedbackEdit,
   proofreadConfigured,
   runProofreadDetectPass,
@@ -913,6 +914,14 @@ const sortDialogScope = (state: EditorState) => {
 // state updates reuse the last result instead of re-walking the whole document
 const wordCountOfDoc = cachedByDoc((d) => countWords(documentTextForWordCount(d)))
 const revisionsOfDoc = cachedByDoc((d) => collectRevisions(d))
+
+/** the still-pending tracked revisions a landed suggestion authored in the
+ given span; undoing a 接受 decision rejects exactly these */
+function proofreadLandedRevisions(ed: Editor, from: number, to: number): RevisionRange[] {
+  return collectRevisions(ed.state.doc).filter(
+    (r) => r.author === PROOFREAD_AUTHOR && r.from < to && r.to > from,
+  )
+}
 
 /**
  * Document position of a measured line-start DOM anchor. posAtDOM works from the DOM
@@ -4345,56 +4354,141 @@ export function App() {
     },
     [],
   )
-  // flow P05: once the scan ended and its results list is empty, toast the
-  // tally and hand the Track Changes toggle back to the user
+  // flow P05: once the scan ended and no undecided row is left in the list,
+  // toast the tally and hand the Track Changes toggle back to the user.
+  // Decided rows stay listed, so only a pending row blocks the settle.
   const settleProofreadIfEmpty = useCallback(() => {
     const session = proofreadSessionRef.current
     if (!session || session.settled || !session.finished) return
-    if (proofreadSuggestionsRef.current.length > 0) return
+    if (proofreadSuggestionsRef.current.some((s) => !s.decision)) return
     session.settled = true
     if (session.autoTrack) setTrackChanges(session.prevTrack)
     showToast(t('aiProofreadDone', { accepted: session.accepted, rejected: session.rejected }))
     // t is deliberately not a dep (not referentially stable per project rule)
   }, [setTrackChanges])
-  // the results list's decision (flow P04): accepting lands the tracked
+  // the merged list's decision (flow P04): accepting lands the tracked
   // revision at that moment and reports the suggestion to the service;
-  // rejecting only drops and reports it. What the user later accepts in the
-  // 修订 list is the plain tracked-change machinery below — into body text,
-  // with no proofread logic and no second feedback.
+  // rejecting only reports it. A decided row stays in the list with the
+  // chosen side muted and the other side live, so the decision can still be
+  // flipped: 接受→拒绝 undoes the landed revisions and 拒绝→接受 lands them;
+  // the service only ever hears a row's first decision. While an accepted
+  // row persists its landing is shown BY that row, so the AiPanel hides the
+  // landing's own 修订 entry there and never lists the change twice (the
+  // Reviewing Pane always shows it). What the user later accepts in the 修订
+  // list is the plain tracked-change machinery below — into body text, with
+  // no proofread logic and no second feedback.
   const resolveProofreadSuggestion = useCallback(
     (s: ProofreadSuggestion, action: 'accept' | 'reject'): boolean => {
       const session = proofreadSessionRef.current
       const ed = reviewCtxRef.current.editor
-      if (!ed) return false
+      const decided: 'accepted' | 'rejected' = action === 'accept' ? 'accepted' : 'rejected'
+      if (!ed || s.decision === decided) return false
+      let landed: ProofreadSuggestion['landed']
       if (action === 'accept') {
-        if (!landProofreadSuggestion(ed, s)) {
+        const span = landProofreadSuggestion(ed, s)
+        if (!span) {
           // the quoted span cannot be found anymore: keep the row, say why
           showToast(t('aiProofreadStale'))
           return false
         }
-        if (session) session.accepted += 1
-      } else if (session) session.rejected += 1
-      if (session?.feedback?.baseUrl)
+        landed = {
+          ...span,
+          text: ed.state.doc.textBetween(span.from, span.to, '\u2029'),
+          revisions: proofreadLandedRevisions(ed, span.from, span.to).length,
+        }
+      } else if (s.decision === 'accepted' && s.landed) {
+        // flipping back: the landing must still sit exactly there — text
+        // intact and its revisions still pending. Someone who accepted them
+        // in the 修订 list turned them into body text no row button can undo
+        const live = proofreadLandedRevisions(ed, s.landed.from, s.landed.to)
+        if (
+          ed.state.doc.textBetween(s.landed.from, s.landed.to, '\u2029') !== s.landed.text ||
+          (live.length === 0 && s.landed.revisions > 0)
+        ) {
+          showToast(t('aiProofreadStale'))
+          return false
+        }
+        // rightmost first: undoing on the right never shifts a left revision
+        for (const r of [...live].sort((a, b) => b.from - a.from || b.to - a.to))
+          handleRevisionRangeImpl(reviewCtxRef.current, 'reject', r)
+      }
+      if (session) {
+        if (s.decision === 'accepted') session.accepted -= 1
+        else if (s.decision === 'rejected') session.rejected -= 1
+        if (action === 'accept') session.accepted += 1
+        else session.rejected += 1
+      }
+      if (s.decision === undefined && session?.feedback?.baseUrl)
         sendProofreadFeedback(
           session.feedback,
           s.feedback,
           action === 'accept' ? 'adopt' : 'reject',
         )
-      applyProofreadSuggestions(proofreadSuggestionsRef.current.filter((x) => x.id !== s.id))
-      if (proofreadSuggestionsRef.current.length === 0) settleProofreadIfEmpty()
+      // the row keeps its place in the list; only its decision changes
+      applyProofreadSuggestions(
+        proofreadSuggestionsRef.current.map((x) =>
+          x.id === s.id
+            ? {
+                ...x,
+                decision: decided,
+                landed,
+              }
+            : x,
+        ),
+      )
+      settleProofreadIfEmpty()
       return true
     },
     [sendProofreadFeedback, applyProofreadSuggestions, settleProofreadIfEmpty],
   )
   const resolveAllProofreadSuggestions = useCallback(
     (action: 'accept' | 'reject') => {
-      // document order, so one landing never shifts a later suggestion's text
-      const list = [...proofreadSuggestionsRef.current].sort(
-        (a, b) => a.paraFrom - b.paraFrom || a.start - b.start,
-      )
+      // document order, so one landing never shifts a later suggestion's
+      // text; already-decided rows are not re-flipped by the all-buttons
+      const list = [...proofreadSuggestionsRef.current]
+        .filter((x) => !x.decision)
+        .sort((a, b) => a.paraFrom - b.paraFrom || a.start - b.start)
       for (const s of list) resolveProofreadSuggestion(s, action)
     },
     [resolveProofreadSuggestion],
+  )
+  // clicking a suggestion row activates the document and puts a selection on
+  // the quoted original at its live position (same locator as landing), so
+  // the row reads against the text it talks about. A pure insertion has no
+  // text to quote, so its whole paragraph is selected instead; an
+  // unlocatable row gets the same stale toast accepting gives.
+  const showProofreadSuggestion = useCallback(
+    (s: ProofreadSuggestion) => {
+      if (!editor) return
+      const span = s.landed ?? locateProofreadLanding(editor.state.doc, s)
+      if (!span) {
+        showToast(t('aiProofreadStale'))
+        return
+      }
+      const { doc, tr } = editor.state
+      const size = doc.content.size
+      let from = Math.min(span.from, size)
+      let to = Math.min(span.to, size)
+      if (to === from) {
+        const range = doc.resolve(from).blockRange()
+        if (range) {
+          from = range.$from.pos
+          to = range.$to.pos
+        }
+      }
+      tr.setSelection(TextSelection.between(doc.resolve(from), doc.resolve(to)))
+      tr.setMeta(TRACK_IGNORE, true)
+      editor.view.dispatch(tr)
+      editor.view.focus()
+      // this layout scrolls by DOM element (same as jumpToAnchor): PM's
+      // scrollIntoView anchors on the browser selection, which is not in the
+      // view yet while the panel holds focus, so it scrolls nothing here
+      const { node } = editor.view.domAtPos(from)
+      const el = node.nodeType === Node.TEXT_NODE ? node.parentElement : (node as Element)
+      el?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+    },
+    // t is deliberately not a dep (not referentially stable per project rule)
+    [editor],
   )
   // 修订 acceptance is the plain machinery for every author, the proofread
   // landings included: the feedback went out through the results list's own
@@ -7508,7 +7602,7 @@ export function App() {
         feedback: {
           baseUrl,
           token,
-          edits: startIndex === 0 ? [] : prevSession?.feedback?.edits ?? [],
+          edits: startIndex === 0 ? [] : (prevSession?.feedback?.edits ?? []),
         },
       }
       proofreadSessionRef.current = session
@@ -7566,7 +7660,7 @@ export function App() {
         })
       session.finished = true
       if (res.status === 'done') {
-        if (proofreadSuggestionsRef.current.length > 0)
+        if (proofreadSuggestionsRef.current.some((s) => !s.decision))
           showToast(t('aiProofreadFound', { count: res.found }))
         else if (res.found === 0 && session.accepted + session.rejected === 0) {
           // a clean pass has nothing to decide: hand the toggle back at once
@@ -7574,10 +7668,7 @@ export function App() {
           if (session.autoTrack) setTrackChanges(session.prevTrack)
           showToast(t('aiProofreadClean'))
         } else settleProofreadIfEmpty()
-      } else if (
-        proofreadSuggestionsRef.current.length === 0 &&
-        session.accepted + session.rejected > 0
-      )
+      } else if (session.accepted + session.rejected > 0)
         // stopped after the list was already worked through: settle now
         settleProofreadIfEmpty()
     },
@@ -10602,6 +10693,7 @@ export function App() {
               proofreadSuggestions={proofreadSuggestions}
               onProofreadSuggest={(action, s) => resolveProofreadSuggestion(s, action)}
               onProofreadSuggestAll={resolveAllProofreadSuggestions}
+              onProofreadFocus={showProofreadSuggestion}
               open={showAi}
               hideRail={!aiSidebarEnabled}
               onExpand={() => setShowAi(true)}

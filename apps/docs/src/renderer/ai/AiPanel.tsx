@@ -44,6 +44,7 @@ import {
 } from '@onedesk/ui'
 import type { PmNode } from '../editor/convert'
 import type { ProofreadSuggestion, ProofreadUiState } from '../editor/proofread'
+import { PROOFREAD_AUTHOR } from '../editor/proofread'
 import { TABLE_TRAILING_SKIP } from '../editor/extensions'
 import { countWords, findNumId, type NumIds } from './protocol'
 import { DOC_NAV_SCHEME, navigateToBlock, parseDocNavHref } from './doc-nav'
@@ -297,6 +298,8 @@ interface AiPanelProps {
   /** accept lands one suggestion as a tracked revision (+ feedback), reject only sends feedback */
   onProofreadSuggest?: (action: 'accept' | 'reject', s: ProofreadSuggestion) => void
   onProofreadSuggestAll?: (action: 'accept' | 'reject') => void
+  /** click a row: focus the document and select the quoted original */
+  onProofreadFocus?: (s: ProofreadSuggestion) => void
 }
 
 const EMPTY_REVIEW: ReviewEntry[] = []
@@ -336,6 +339,14 @@ const REVISION_TONE: Partial<Record<RevisionRange['kind'], 'ins' | 'del' | 'fmt'
   blockDel: 'del',
   paraMarkDel: 'del',
 }
+
+/** a row of the merged list: a proofread suggestion (an enhanced revision row:
+    text diff + error-type badge) or one pending tracked-revision entry. While
+    an accepted suggestion's row persists it shows its landing itself, so the
+    landing's 修订 entry is filtered out of this list (see mergedRows) */
+type MergedRow =
+  | { kind: 's'; pos: number; s: ProofreadSuggestion }
+  | { kind: 'r'; pos: number; e: ReviewEntry; i: number }
 
 const MODEL_BRIDGE: AiModelPickerBridge = {
   getSettings: () => window.desktop.getAiSettings(),
@@ -385,6 +396,7 @@ export function AiPanel({
   proofreadSuggestions,
   onProofreadSuggest,
   onProofreadSuggestAll,
+  onProofreadFocus,
 }: AiPanelProps) {
   const { t, lang } = useI18n()
   // Panel chrome follows the UI language; message text follows its own content (dir=auto below)
@@ -435,14 +447,118 @@ export function AiPanel({
   const proofreadPhase = proofread?.phase ?? 'idle'
   const proofreadPhaseRef = useRef(proofreadPhase)
   proofreadPhaseRef.current = proofreadPhase
+  const proofreadPending = (proofreadSuggestions ?? []).some((s) => !s.decision)
+  // suggestions share the one merged list below with the pending revisions, so
+  // entering the review phase, or anything still awaiting a decision, opens it
+  // (flow P03)
   useEffect(() => {
-    if (proofreadPhase === 'review') setRevisionListOpen(true)
-  }, [proofreadPhase])
+    if (proofreadPhase === 'review' || proofreadPending) setRevisionListOpen(true)
+  }, [proofreadPhase, proofreadPending])
   const revisionParas = useMemo(
     () =>
       revisionListOpen && editor ? paragraphNumbers(editor.state.doc, reviewEntries) : EMPTY_NUMS,
     [revisionListOpen, editor, reviewEntries],
   )
+  // one document-order list of the quasi-revisions a pass leaves behind: the
+  // suggestions still awaiting (or holding) a decision, interleaved with the
+  // pending revision entries. An accepted suggestion shows its landing on its
+  // own decided row while that row persists, so the landing's 修订 entry
+  // stays hidden here and no change is ever listed twice
+  const mergedRows = useMemo<MergedRow[]>(() => {
+    const suggestions = proofreadSuggestions ?? []
+    const landedAiShown = suggestions.some((s) => s.decision === 'accepted')
+    const rows: MergedRow[] = []
+    for (const s of suggestions) rows.push({ kind: 's', pos: s.paraFrom + s.start, s })
+    reviewEntries.forEach((e, i) => {
+      if (landedAiShown && !e.rev.story && e.rev.author === PROOFREAD_AUTHOR) return
+      rows.push({
+        kind: 'r',
+        pos: e.rev.story ? Number.MAX_SAFE_INTEGER : e.rev.from,
+        e,
+        i,
+      })
+    })
+    return rows.sort((a, b) => a.pos - b.pos)
+  }, [proofreadSuggestions, reviewEntries])
+  // the bulk buttons act on whichever layer the merged list currently carries:
+  // while any suggestion awaits a decision they LAND them into the document
+  // (each landing arrives in this same list as a 修订 row); the next click then
+  // accepts/rejects the resulting revisions — Word's two-stage accept-all
+  const proofreadAllOrRevisions = (action: 'accept' | 'reject'): void => {
+    if (proofreadPending) onProofreadSuggestAll?.(action)
+    else onRevisions?.(action)
+  }
+  // one pending tracked-revision row of the merged list (same markup the
+  // standalone revision list used, keyed per entry)
+  const renderMergedRevisionRow = (e: ReviewEntry, i: number) => {
+    const kind = e.rev.kind
+    const paired = !!e.pair
+    const tone = paired ? 'fmt' : (REVISION_TONE[kind] ?? 'fmt')
+    const para = revisionParas[i] ?? 0
+    const typeKey = revisionTypeKeys?.[i]
+    return (
+      <div
+        key={e.rev.story?.id ?? `${e.rev.from}-${kind}-${e.rev.author}`}
+        className={`ai-revision-row${e.index === activeReviewIndex ? ' active' : ''}`}
+        onClick={() =>
+          onRevisionSelect?.(
+            e.pair
+              ? {
+                  ...e.rev,
+                  from: Math.min(e.rev.from, e.pair.from),
+                  to: Math.max(e.rev.to, e.pair.to),
+                }
+              : e.rev,
+          )
+        }
+      >
+        <div className="ai-revision-row-head">
+          <span className={`ai-revision-dot ${tone}`} aria-hidden />
+          <b>{t(paired ? 'appRevKindReplace' : KIND_LABEL[kind])}</b>
+          {e.rev.story ? (
+            <span> · {t(STORY_LABEL[e.rev.story.kind])}</span>
+          ) : (
+            para > 0 && <span> · {t('aiRevisionPara', { n: para })}</span>
+          )}
+          {typeKey && <span> · {t(typeKey)}</span>}
+        </div>
+        {paired ? (
+          <>
+            <div className="ai-revision-row-text del">{e.pairFrom}</div>
+            <div className="ai-revision-row-text ins">{e.pairTo}</div>
+          </>
+        ) : (
+          e.excerpt && (
+            <div className={`ai-revision-row-text${tone === 'del' ? ' del' : ''}`}>{e.excerpt}</div>
+          )
+        )}
+        <div className="ai-revision-row-actions">
+          <button
+            type="button"
+            className="ai-revision-reject"
+            disabled={trackChangesLocked}
+            onClick={(ev) => {
+              ev.stopPropagation()
+              onRevisionRange?.('reject', e.rev, e.pair)
+            }}
+          >
+            {t('appRevReject')}
+          </button>
+          <button
+            type="button"
+            className="ai-revision-accept"
+            disabled={trackChangesLocked}
+            onClick={(ev) => {
+              ev.stopPropagation()
+              onRevisionRange?.('accept', e.rev, e.pair)
+            }}
+          >
+            {t('appRevAccept')}
+          </button>
+        </div>
+      </div>
+    )
+  }
   const [attachments, setAttachments] = useState<AttachmentMeta[]>([])
   const [attachedSkills, setAttachedSkills] = useState<string[]>([])
   const [attachNotice, setAttachNotice] = useState<string | null>(null)
@@ -1788,75 +1904,7 @@ export function AiPanel({
             </div>
           </div>
         )}
-        {(proofreadSuggestions?.length ?? 0) > 0 && (
-          <div
-            className="ai-revision-bar"
-            role="group"
-            aria-label={t('aiProofreadPending', { count: proofreadSuggestions?.length ?? 0 })}
-          >
-            <span className="ai-proofread-progress">
-              {t('aiProofreadPending', { count: proofreadSuggestions?.length ?? 0 })}
-            </span>
-            <button
-              type="button"
-              className="ai-queue-discard"
-              disabled={trackChangesLocked}
-              onClick={() => onProofreadSuggestAll?.('reject')}
-            >
-              {t('aiRevisionRejectAll')}
-            </button>
-            <button
-              type="button"
-              className="ai-queue-send"
-              disabled={trackChangesLocked}
-              onClick={() => onProofreadSuggestAll?.('accept')}
-            >
-              {t('aiRevisionAcceptAll')}
-            </button>
-            <div className="ai-revision-list">
-              {(proofreadSuggestions ?? []).map((s) => (
-                <div key={s.id} className="ai-revision-row">
-                  <div className="ai-revision-row-head">
-                    <span className={`ai-revision-dot ${s.original ? 'fmt' : 'ins'}`} aria-hidden />
-                    <b>{t(s.original ? 'appRevKindReplace' : 'appRevKindIns')}</b>
-                    <span> · {t('aiRevisionPara', { n: s.paraIndex })}</span>
-                    <span> · {t(s.typeKey)}</span>
-                  </div>
-                  {s.original ? (
-                    <ProofreadDiffRows oldText={s.original} newText={s.correction} />
-                  ) : (
-                    <div className="ai-revision-row-text ins">{s.correction}</div>
-                  )}
-                  <div className="ai-revision-row-actions">
-                    <button
-                      type="button"
-                      className="ai-revision-reject"
-                      disabled={trackChangesLocked}
-                      onClick={(ev) => {
-                        ev.stopPropagation()
-                        onProofreadSuggest?.('reject', s)
-                      }}
-                    >
-                      {t('appRevReject')}
-                    </button>
-                    <button
-                      type="button"
-                      className="ai-revision-accept"
-                      disabled={trackChangesLocked}
-                      onClick={(ev) => {
-                        ev.stopPropagation()
-                        onProofreadSuggest?.('accept', s)
-                      }}
-                    >
-                      {t('appRevAccept')}
-                    </button>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
-        {revisionCount > 0 && (
+        {(mergedRows.length > 0 || revisionCount > 0) && (
           <div
             className="ai-revision-bar"
             role="group"
@@ -1879,83 +1927,62 @@ export function AiPanel({
             <button
               type="button"
               className={`ai-revision-count${revisionListOpen ? ' open' : ''}`}
-              disabled={reviewEntries.length === 0}
-              aria-expanded={revisionListOpen && reviewEntries.length > 0}
+              disabled={mergedRows.length === 0}
+              aria-expanded={revisionListOpen && mergedRows.length > 0}
               onClick={() => setRevisionListOpen((v) => !v)}
             >
-              {t('aiRevisionCount', { count: revisionCount })}
-              {reviewEntries.length > 0 && <span className="ai-revision-chevron" aria-hidden />}
+              {t('aiRevisionCount', {
+                count: (proofreadSuggestions?.length ?? 0) > 0 ? mergedRows.length : revisionCount,
+              })}
+              {mergedRows.length > 0 && <span className="ai-revision-chevron" aria-hidden />}
             </button>
             <button
               type="button"
               className="ai-queue-discard"
-              disabled={trackChangesLocked}
-              onClick={() => onRevisions?.('reject')}
+              disabled={trackChangesLocked || (!proofreadPending && revisionCount === 0)}
+              onClick={() => proofreadAllOrRevisions('reject')}
             >
               {t('aiRevisionRejectAll')}
             </button>
             <button
               type="button"
               className="ai-queue-send"
-              disabled={trackChangesLocked}
-              onClick={() => onRevisions?.('accept')}
+              disabled={trackChangesLocked || (!proofreadPending && revisionCount === 0)}
+              onClick={() => proofreadAllOrRevisions('accept')}
             >
               {t('aiRevisionAcceptAll')}
             </button>
-            {revisionListOpen && reviewEntries.length > 0 && (
+            {revisionListOpen && mergedRows.length > 0 && (
               <div className="ai-revision-list">
-                {reviewEntries.map((e, i) => {
-                  const kind = e.rev.kind
-                  const paired = !!e.pair
-                  const tone = paired ? 'fmt' : (REVISION_TONE[kind] ?? 'fmt')
-                  const para = revisionParas[i] ?? 0
-                  const typeKey = revisionTypeKeys?.[i]
-                  return (
+                {mergedRows.map((row) =>
+                  row.kind === 's' ? (
                     <div
-                      key={e.rev.story?.id ?? `${e.rev.from}-${kind}-${e.rev.author}`}
-                      className={`ai-revision-row${e.index === activeReviewIndex ? ' active' : ''}`}
-                      onClick={() =>
-                        onRevisionSelect?.(
-                          e.pair
-                            ? {
-                                ...e.rev,
-                                from: Math.min(e.rev.from, e.pair.from),
-                                to: Math.max(e.rev.to, e.pair.to),
-                              }
-                            : e.rev,
-                        )
-                      }
+                      key={`s-${row.s.id}`}
+                      className={`ai-revision-row${row.s.decision ? ` ai-revision-row-${row.s.decision}` : ''}`}
+                      onClick={() => onProofreadFocus?.(row.s)}
                     >
                       <div className="ai-revision-row-head">
-                        <span className={`ai-revision-dot ${tone}`} aria-hidden />
-                        <b>{t(paired ? 'appRevKindReplace' : KIND_LABEL[kind])}</b>
-                        {e.rev.story ? (
-                          <span> · {t(STORY_LABEL[e.rev.story.kind])}</span>
-                        ) : (
-                          para > 0 && <span> · {t('aiRevisionPara', { n: para })}</span>
-                        )}
-                        {typeKey && <span> · {t(typeKey)}</span>}
+                        <span
+                          className={`ai-revision-dot ${row.s.original ? 'fmt' : 'ins'}`}
+                          aria-hidden
+                        />
+                        <b>{t(row.s.original ? 'appRevKindReplace' : 'appRevKindIns')}</b>
+                        <span> · {t('aiRevisionPara', { n: row.s.paraIndex })}</span>
+                        <span> · {t(row.s.typeKey)}</span>
                       </div>
-                      {paired ? (
-                        <>
-                          <div className="ai-revision-row-text del">{e.pairFrom}</div>
-                          <div className="ai-revision-row-text ins">{e.pairTo}</div>
-                        </>
+                      {row.s.original ? (
+                        <ProofreadDiffRows oldText={row.s.original} newText={row.s.correction} />
                       ) : (
-                        e.excerpt && (
-                          <div className={`ai-revision-row-text${tone === 'del' ? ' del' : ''}`}>
-                            {e.excerpt}
-                          </div>
-                        )
+                        <div className="ai-revision-row-text ins">{row.s.correction}</div>
                       )}
                       <div className="ai-revision-row-actions">
                         <button
                           type="button"
                           className="ai-revision-reject"
-                          disabled={trackChangesLocked}
+                          disabled={trackChangesLocked || row.s.decision === 'rejected'}
                           onClick={(ev) => {
                             ev.stopPropagation()
-                            onRevisionRange?.('reject', e.rev, e.pair)
+                            onProofreadSuggest?.('reject', row.s)
                           }}
                         >
                           {t('appRevReject')}
@@ -1963,18 +1990,20 @@ export function AiPanel({
                         <button
                           type="button"
                           className="ai-revision-accept"
-                          disabled={trackChangesLocked}
+                          disabled={trackChangesLocked || row.s.decision === 'accepted'}
                           onClick={(ev) => {
                             ev.stopPropagation()
-                            onRevisionRange?.('accept', e.rev, e.pair)
+                            onProofreadSuggest?.('accept', row.s)
                           }}
                         >
                           {t('appRevAccept')}
                         </button>
                       </div>
                     </div>
-                  )
-                })}
+                  ) : (
+                    renderMergedRevisionRow(row.e, row.i)
+                  ),
+                )}
               </div>
             )}
           </div>

@@ -11558,6 +11558,20 @@ body.docs-crop-active
   cursor: pointer;
 }
 
+.ai-revision-reject:disabled,
+.ai-revision-accept:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+/* a decided 校对结果 row stays listed: the chosen side dims and the other
+   one asks to flip the decision */
+.ai-revision-row-accepted .ai-revision-reject:not(:disabled),
+.ai-revision-row-rejected .ai-revision-accept:not(:disabled) {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
 .ai-revision-accept {
   border-color: var(--border);
   color: var(--text);

@@ -97,7 +97,8 @@ export interface ProofreadFeedbackEdit {
 /** CJK chars stand alone; Latin/digit runs, whitespace and punctuation stay in one token */
 function tokenize(s: string): { t: string; s: number; e: number }[] {
   const out: { t: string; s: number; e: number }[] = []
-  const re = /[\u2E80-\u9FFF\u3040-\u30FF\uAC00-\uD7AF]|[A-Za-z0-9]+(?:['’\-_.][A-Za-z0-9]+)*|\s+|[^\sA-Za-z0-9\u2E80-\u9FFF\u3040-\u30FF\uAC00-\uD7AF]+/g
+  const re =
+    /[\u2E80-\u9FFF\u3040-\u30FF\uAC00-\uD7AF]|[A-Za-z0-9]+(?:['’\-_.][A-Za-z0-9]+)*|\s+|[^\sA-Za-z0-9\u2E80-\u9FFF\u3040-\u30FF\uAC00-\uD7AF]+/g
   let m: RegExpExecArray | null
   while ((m = re.exec(s)) !== null) out.push({ t: m[0], s: m.index, e: m.index + m[0].length })
   return out
@@ -158,7 +159,8 @@ export function minimalEdits(a: string, b: string): ProofreadEdit[] {
     const bStart = p + bt[tb].s
     // the a-side check alone drops pure insertions: the old side stays put
     // while the new side advances, so either side moving is an edit
-    if (aStart > ai || bStart > bi) edits.push({ start: ai, end: aStart, text: b.slice(bi, bStart) })
+    if (aStart > ai || bStart > bi)
+      edits.push({ start: ai, end: aStart, text: b.slice(bi, bStart) })
     ai = p + at[ta].e
     bi = p + bt[tb].e
   }
@@ -222,7 +224,10 @@ export interface ProofreadPassOptions {
  * insertion at the paragraph start and a blank row to the folded 修改 list.
  */
 export const extractText = (raw: string): { text: string } => ({
-  text: raw.replace(/^(?:\r?\n)+/, '').replace(/^```[a-zA-Z]*\r?\n?/, '').replace(/\r?\n?```\s*$/, ''),
+  text: raw
+    .replace(/^(?:\r?\n)+/, '')
+    .replace(/^```[a-zA-Z]*\r?\n?/, '')
+    .replace(/\r?\n?```\s*$/, ''),
 })
 
 /**
@@ -232,9 +237,7 @@ export const extractText = (raw: string): { text: string } => ({
  * through everything dispatched before it. An abort keeps every revision that
  * already landed (flow X02); a model that answers nothing is skipped.
  */
-export async function runProofreadPass(
-  opts: ProofreadPassOptions,
-): Promise<ProofreadPassResult> {
+export async function runProofreadPass(opts: ProofreadPassOptions): Promise<ProofreadPassResult> {
   const { editor, paragraphs, signal } = opts
   const mapping = new Mapping()
   if (opts.baseMapping) mapping.appendMapping(opts.baseMapping)
@@ -307,7 +310,7 @@ function byteSpanToUtf16(text: string, start: number, end: number): [number, num
   let byte = 0
   let s = -1
   let e = -1
-  for (let i = 0; i < text.length; ) {
+  for (let i = 0; i < text.length;) {
     if (byte >= start && s < 0) s = i
     if (byte >= end) {
       e = i
@@ -385,6 +388,14 @@ export interface ProofreadSuggestion {
   typeKey: ProofreadErrorTypeKey
   /** the feedback record for /gec/feedback; `reported` flips once sent */
   feedback: ProofreadFeedbackEdit
+  /** the user's decision once the row was worked through; the row stays in
+   the list either way, and the other side's button stays live to flip it */
+  decision?: 'accepted' | 'rejected'
+  /** where an accepted landing sits in current positions: the text there at
+   landing time and how many revisions it authored, so 拒绝 can undo exactly
+   those or report the row stale, and the merged list can hide the landing's
+   own 修订 entry while this row shows it */
+  landed?: { from: number; to: number; text: string; revisions: number }
 }
 
 export interface ProofreadDetectPassOptions {
@@ -460,8 +471,7 @@ export async function runProofreadDetectPass(
         original?: unknown
         correction?: unknown
       }
-      const original =
-        typeof raw.original === 'string' ? raw.original : text.slice(e.start, e.end)
+      const original = typeof raw.original === 'string' ? raw.original : text.slice(e.start, e.end)
       const correction = typeof raw.correction === 'string' ? raw.correction : e.text
       found++
       opts.onSuggestion?.({
