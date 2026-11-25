@@ -8,7 +8,7 @@
   "exports": {
     ".": "./src/index.ts",
     "./atomic-write": "./src/atomic-write.ts",
-    "./copy-file": "./src/copy-file.ts",
+    "./copy-file": "./src/copy-file.ts", "./dev-identity": "./src/dev-identity.ts", 
     "./disk-watch": "./src/disk-watch.ts",
     "./drop-open": "./src/drop-open.ts",
     "./font-catalog": "./src/font-catalog.ts",

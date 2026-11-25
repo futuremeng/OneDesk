@@ -1,3 +1,4 @@
+import '@onedesk/electron-utils/dev-identity'
 import { execSync } from 'node:child_process'
 import {
   cpSync,
@@ -426,6 +427,11 @@ for (const stream of [process.stdout, process.stderr]) {
 // ONEDESK_USER_DATA: test drivers point this at a scratch dir so an
 // automated instance can run alongside the dev instance (separate lock).
 if (!app.isPackaged) {
+  // in dev the internal name would read "@onedesk/shell" from this package.json;
+  // menu labels and appLabel must match the packaged product name. The OS-level
+  // badge (Dock tooltip, app menu) is the bundle name, renamed by
+  // tools/fix-electron-dev-name.mjs in the predev hook.
+  app.setName('OneDesk')
   if (process.env.ONEDESK_USER_DATA) {
     app.setPath('userData', process.env.ONEDESK_USER_DATA)
   } else {

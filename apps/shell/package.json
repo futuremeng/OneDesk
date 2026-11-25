@@ -9,6 +9,7 @@
   "main": "out/main/index.js",
   "desktopName": "onedesk.desktop",
   "scripts": {
+    "predev": "node ../../tools/fix-electron-dev-name.mjs",
     "dev": "electron-vite dev --watch",
     "build": "electron-vite build",
     "notices": "node ../../tools/gen-third-party-notices.mjs",
