@@ -760,6 +760,7 @@ export const nl = {
   appEditReply: 'Antwoord bewerken',
   appRevKindIns: 'Ingevoegd',
   appRevKindDel: 'Verwijderd',
+  appRevKindReplace: 'Vervanging',
   appRevKindFormat: 'Opgemaakt',
   appRevKindParaFormat: 'Alinea opgemaakt',
   appRevKindMoveFrom: 'Verplaatst van',

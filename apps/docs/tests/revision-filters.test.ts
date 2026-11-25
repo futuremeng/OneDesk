@@ -153,6 +153,24 @@ describe('buildReviewEntries', () => {
     expect(revisionExcerpt(editor.state.doc, { from: 0, to: 0 })).toBe('')
     editor.destroy()
   })
+
+  it('folds a rewrite into one replacement row: touching ins+del, same reviewer', () => {
+    const editor = createEditor([
+      para(text('召开'), text('会议', [mark('ins', 'Ann')]), text('会意', [mark('del', 'Ann')])),
+      // same author but a different pass (no contact) and other-author runs
+      para(text('x'), text('y', [mark('del', 'Bob')])),
+      para(text('z', [mark('ins', 'Ann')]), text('!', [mark('del', 'Bob')])),
+    ])
+    const entries = buildReviewEntries(editor.state.doc, collectRevisions(editor.state.doc))
+    expect(entries.map((e) => [e.excerpt, !!e.pair])).toEqual([
+      ['会意 → 会议', true],
+      ['y', false],
+      ['z', false],
+      ['!', false],
+    ])
+    expect(entries[0].pair!.kind).toBe('del')
+    editor.destroy()
+  })
 })
 
 describe('handleRevision scopes', () => {

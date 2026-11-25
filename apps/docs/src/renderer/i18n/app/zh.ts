@@ -756,6 +756,7 @@ export const zh = {
   appEditReply: '编辑回复',
   appRevKindIns: '插入',
   appRevKindDel: '删除',
+  appRevKindReplace: '修改',
   appRevKindFormat: '格式',
   appRevKindParaFormat: '段落格式',
   appRevKindMoveFrom: '移出',

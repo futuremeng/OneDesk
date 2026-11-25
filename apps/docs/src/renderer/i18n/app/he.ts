@@ -736,6 +736,7 @@ export const he = {
   appEditReply: 'ערוך תשובה',
   appRevKindIns: 'הוסף',
   appRevKindDel: 'נמחק',
+  appRevKindReplace: 'החלפה',
   appRevKindFormat: 'עוצב',
   appRevKindParaFormat: 'פסקה עוצבה',
   appRevKindMoveFrom: 'הועבר מ',

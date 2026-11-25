@@ -752,6 +752,7 @@ export const ms = {
   appEditReply: 'Edit balasan',
   appRevKindIns: 'Disisipkan',
   appRevKindDel: 'Dipadam',
+  appRevKindReplace: 'Penggantian',
   appRevKindFormat: 'Diformat',
   appRevKindParaFormat: 'Perenggan diformat',
   appRevKindMoveFrom: 'Dialihkan dari',

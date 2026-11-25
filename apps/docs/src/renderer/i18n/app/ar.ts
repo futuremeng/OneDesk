@@ -740,6 +740,7 @@ export const ar = {
   appEditReply: 'تحرير الرد',
   appRevKindIns: 'مُدرج',
   appRevKindDel: 'محذوف',
+  appRevKindReplace: 'استبدال',
   appRevKindFormat: 'منسّق',
   appRevKindParaFormat: 'فقرة منسّقة',
   appRevKindMoveFrom: 'منقول من',

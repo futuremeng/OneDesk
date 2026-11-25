@@ -756,6 +756,7 @@ export const es = {
   appEditReply: 'Editar respuesta',
   appRevKindIns: 'Insertado',
   appRevKindDel: 'Eliminado',
+  appRevKindReplace: 'Reemplazo',
   appRevKindFormat: 'Con formato',
   appRevKindParaFormat: 'Párrafo con formato',
   appRevKindMoveFrom: 'Movido desde',

@@ -285,7 +285,7 @@ interface AiPanelProps {
   revisionTypeKeys?: (ProofreadErrorTypeKey | undefined)[]
   activeReviewIndex?: number
   onRevisionSelect?: (rev: RevisionRange) => void
-  onRevisionRange?: (action: 'accept' | 'reject', rev: RevisionRange) => void
+  onRevisionRange?: (action: 'accept' | 'reject', rev: RevisionRange, pair?: RevisionRange) => void
   /** the AI proofread pass (Review ▸ AI 审校): progress, stop/resume, settings hint */
   proofread?: ProofreadUiState
   onProofreadStop?: () => void
@@ -1722,7 +1722,10 @@ export function AiPanel({
         {proofreadPhase === 'running' && (
           <div className="ai-proofread-bar" role="status">
             <span className="ai-proofread-progress">
-              {t('aiProofreadProgress', { done: proofread?.done ?? 0, total: proofread?.total ?? 0 })}
+              {t('aiProofreadProgress', {
+                done: proofread?.done ?? 0,
+                total: proofread?.total ?? 0,
+              })}
             </span>
             <button type="button" className="ai-queue-discard" onClick={onProofreadStop}>
               {t('aiStop')}
@@ -1826,18 +1829,29 @@ export function AiPanel({
               <div className="ai-revision-list">
                 {reviewEntries.map((e, i) => {
                   const kind = e.rev.kind
-                  const tone = REVISION_TONE[kind] ?? 'fmt'
+                  const paired = !!e.pair
+                  const tone = paired ? 'fmt' : (REVISION_TONE[kind] ?? 'fmt')
                   const para = revisionParas[i] ?? 0
                   const typeKey = revisionTypeKeys?.[i]
                   return (
                     <div
                       key={e.rev.story?.id ?? `${e.rev.from}-${kind}-${e.rev.author}`}
                       className={`ai-revision-row${e.index === activeReviewIndex ? ' active' : ''}`}
-                      onClick={() => onRevisionSelect?.(e.rev)}
+                      onClick={() =>
+                        onRevisionSelect?.(
+                          e.pair
+                            ? {
+                                ...e.rev,
+                                from: Math.min(e.rev.from, e.pair.from),
+                                to: Math.max(e.rev.to, e.pair.to),
+                              }
+                            : e.rev,
+                        )
+                      }
                     >
                       <div className="ai-revision-row-head">
                         <span className={`ai-revision-dot ${tone}`} aria-hidden />
-                        <b>{t(KIND_LABEL[kind])}</b>
+                        <b>{t(paired ? 'appRevKindReplace' : KIND_LABEL[kind])}</b>
                         {e.rev.story ? (
                           <span> · {t(STORY_LABEL[e.rev.story.kind])}</span>
                         ) : (
@@ -1846,7 +1860,9 @@ export function AiPanel({
                         {typeKey && <span> · {t(typeKey)}</span>}
                       </div>
                       {e.excerpt && (
-                        <div className={`ai-revision-row-text${tone === 'del' ? ' del' : ''}`}>
+                        <div
+                          className={`ai-revision-row-text${tone === 'del' && !paired ? ' del' : ''}`}
+                        >
                           {e.excerpt}
                         </div>
                       )}
@@ -1857,7 +1873,7 @@ export function AiPanel({
                           disabled={trackChangesLocked}
                           onClick={(ev) => {
                             ev.stopPropagation()
-                            onRevisionRange?.('reject', e.rev)
+                            onRevisionRange?.('reject', e.rev, e.pair)
                           }}
                         >
                           {t('appRevReject')}
@@ -1868,7 +1884,7 @@ export function AiPanel({
                           disabled={trackChangesLocked}
                           onClick={(ev) => {
                             ev.stopPropagation()
-                            onRevisionRange?.('accept', e.rev)
+                            onRevisionRange?.('accept', e.rev, e.pair)
                           }}
                         >
                           {t('appRevAccept')}

@@ -742,6 +742,7 @@ export const en = {
   appEditReply: 'Edit reply',
   appRevKindIns: 'Inserted',
   appRevKindDel: 'Deleted',
+  appRevKindReplace: 'Replacement',
   appRevKindFormat: 'Formatted',
   appRevKindParaFormat: 'Paragraph formatted',
   appRevKindMoveFrom: 'Moved from',

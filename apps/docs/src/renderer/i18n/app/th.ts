@@ -743,6 +743,7 @@ export const th = {
   appEditReply: 'แก้ไขการตอบกลับ',
   appRevKindIns: 'แทรก',
   appRevKindDel: 'ลบ',
+  appRevKindReplace: 'การแทนที่',
   appRevKindFormat: 'จัดรูปแบบ',
   appRevKindParaFormat: 'จัดรูปแบบย่อหน้า',
   appRevKindMoveFrom: 'ย้ายจาก',

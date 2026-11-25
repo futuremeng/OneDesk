@@ -744,6 +744,7 @@ export const hu = {
   appEditReply: 'Válasz szerkesztése',
   appRevKindIns: 'Beszúrva',
   appRevKindDel: 'Törölve',
+  appRevKindReplace: 'Csere',
   appRevKindFormat: 'Formázva',
   appRevKindParaFormat: 'Bekezdés formázva',
   appRevKindMoveFrom: 'Áthelyezés innen',

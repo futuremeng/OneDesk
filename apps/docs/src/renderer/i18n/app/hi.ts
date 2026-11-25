@@ -748,6 +748,7 @@ export const hi = {
   appEditReply: 'उत्तर संपादित करें',
   appRevKindIns: 'सम्मिलित',
   appRevKindDel: 'हटाया गया',
+  appRevKindReplace: 'प्रतिस्थापन',
   appRevKindFormat: 'स्वरूपित',
   appRevKindParaFormat: 'अनुच्छेद स्वरूपित',
   appRevKindMoveFrom: 'यहाँ से ले जाया गया',

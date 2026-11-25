@@ -765,6 +765,7 @@ export const de = {
   appEditReply: 'Antwort bearbeiten',
   appRevKindIns: 'Eingefügt',
   appRevKindDel: 'Gelöscht',
+  appRevKindReplace: 'Ersetzung',
   appRevKindFormat: 'Formatiert',
   appRevKindParaFormat: 'Absatz formatiert',
   appRevKindMoveFrom: 'Verschoben von',

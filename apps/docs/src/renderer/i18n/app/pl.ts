@@ -753,6 +753,7 @@ export const pl = {
   appEditReply: 'Edytuj odpowiedź',
   appRevKindIns: 'Wstawiono',
   appRevKindDel: 'Usunięto',
+  appRevKindReplace: 'Zamiana',
   appRevKindFormat: 'Sformatowano',
   appRevKindParaFormat: 'Sformatowano akapit',
   appRevKindMoveFrom: 'Przeniesiono z',

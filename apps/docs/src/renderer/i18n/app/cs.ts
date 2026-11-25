@@ -748,6 +748,7 @@ export const cs = {
   appEditReply: 'Upravit odpověď',
   appRevKindIns: 'Vloženo',
   appRevKindDel: 'Odstraněno',
+  appRevKindReplace: 'Nahrazení',
   appRevKindFormat: 'Formátováno',
   appRevKindParaFormat: 'Odstavec formátován',
   appRevKindMoveFrom: 'Přesunuto z',

@@ -124,6 +124,12 @@ export function revisionAuthorCss(
 
 export interface ReviewEntry {
   rev: RevisionRange
+  /**
+   * When set, this row's change and `pair` are the two halves of one
+   * replacement: a tracked delete next to a tracked insert by the same
+   * reviewer in the same pass. One row, one Accept/Reject for both.
+   */
+  pair?: RevisionRange
   index: number
   /** first characters of the changed text; empty for row/cell/paragraph-only changes */
   excerpt: string
@@ -144,12 +150,47 @@ export function buildReviewEntries(
   ranges: RevisionRange[],
   authors = revisionAuthors(ranges),
 ): ReviewEntry[] {
-  return ranges.map((rev, index) => ({
-    rev,
-    index,
-    excerpt: rev.story ? rev.story.text.slice(0, EXCERPT_CHARS) : revisionExcerpt(doc, rev),
-    inkIndex: authorInkIndex(authors, rev.author),
-  }))
+  const out: ReviewEntry[] = []
+  for (let i = 0; i < ranges.length; i++) {
+    const rev = ranges[i]
+    const next = ranges[i + 1]
+    // a rewrite landed by track-changes shows up as an insert run touching a
+    // delete run; one author, one pass and nothing between them means it was
+    // written as a single replacement, so the list shows it as one row
+    const replaces =
+      !!next &&
+      !rev.story &&
+      !next.story &&
+      rev.author === next.author &&
+      rev.date === next.date &&
+      ((rev.kind === 'ins' && next.kind === 'del') ||
+        (rev.kind === 'del' && next.kind === 'ins')) &&
+      (rev.to === next.from || next.to === rev.from)
+    if (replaces) {
+      const del = rev.kind === 'del' ? rev : next
+      const ins = rev.kind === 'del' ? next : rev
+      out.push({
+        rev,
+        pair: next,
+        index: out.length,
+        excerpt: capExcerpt(`${revisionExcerpt(doc, del)} → ${revisionExcerpt(doc, ins)}`),
+        inkIndex: authorInkIndex(authors, rev.author),
+      })
+      i++
+    } else {
+      out.push({
+        rev,
+        index: out.length,
+        excerpt: rev.story ? rev.story.text.slice(0, EXCERPT_CHARS) : revisionExcerpt(doc, rev),
+        inkIndex: authorInkIndex(authors, rev.author),
+      })
+    }
+  }
+  return out
+}
+
+function capExcerpt(text: string): string {
+  return text.length > EXCERPT_CHARS ? `${text.slice(0, EXCERPT_CHARS - 1)}…` : text
 }
 
 /** per-kind tally; a move whose source is listed counts once, under moveFrom */

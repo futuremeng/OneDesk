@@ -744,6 +744,7 @@ export const vi = {
   appEditReply: 'Sửa trả lời',
   appRevKindIns: 'Đã chèn',
   appRevKindDel: 'Đã xóa',
+  appRevKindReplace: 'Thay thế',
   appRevKindFormat: 'Đã định dạng',
   appRevKindParaFormat: 'Đã định dạng đoạn',
   appRevKindMoveFrom: 'Đã di chuyển từ',

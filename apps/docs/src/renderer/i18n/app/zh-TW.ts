@@ -730,6 +730,7 @@ export const zhTW = {
   appEditReply: '編輯回覆',
   appRevKindIns: '插入',
   appRevKindDel: '刪除',
+  appRevKindReplace: '修改',
   appRevKindFormat: '格式',
   appRevKindParaFormat: '段落格式',
   appRevKindMoveFrom: '移出',

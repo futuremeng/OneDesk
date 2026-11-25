@@ -750,6 +750,7 @@ export const id = {
   appEditReply: 'Edit balasan',
   appRevKindIns: 'Disisipkan',
   appRevKindDel: 'Dihapus',
+  appRevKindReplace: 'Penggantian',
   appRevKindFormat: 'Diformat',
   appRevKindParaFormat: 'Paragraf diformat',
   appRevKindMoveFrom: 'Dipindahkan dari',

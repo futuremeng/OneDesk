@@ -4357,37 +4357,48 @@ export function App() {
     [sendProofreadFeedback],
   )
   const handleRevisionRange = useCallback(
-    (action: 'accept' | 'reject', target: RevisionRange) => {
+    (action: 'accept' | 'reject', target: RevisionRange, pair?: RevisionRange) => {
       if (proofreadSessionRef.current) proofreadSessionRef.current.lastAction = action
-      const fb = proofreadSessionRef.current?.feedback
-      const ed = reviewCtxRef.current.editor
-      if (
-        fb?.baseUrl &&
-        ed &&
-        target.author === PROOFREAD_AUTHOR &&
-        !target.story &&
-        (target.kind === 'ins' || target.kind === 'del')
-      ) {
-        // resolve against the live document first (the pane's row may be one
-        // throttled frame old), exactly like handleRevisionRangeImpl does
-        const live = collectRevisions(ed.state.doc).find(
-          (r) =>
-            r.kind === target.kind &&
-            r.author === target.author &&
-            r.from < target.to &&
-            r.to > target.from,
-        )
-        if (live) {
-          const best = matchFeedbackEdit(
-            fb.edits,
-            ed.state.doc.textBetween(live.from, live.to, '\u2029'),
-            live.from,
-            live.to,
+      const runOne = (target: RevisionRange) => {
+        const fb = proofreadSessionRef.current?.feedback
+        const ed = reviewCtxRef.current.editor
+        if (
+          fb?.baseUrl &&
+          ed &&
+          target.author === PROOFREAD_AUTHOR &&
+          !target.story &&
+          (target.kind === 'ins' || target.kind === 'del')
+        ) {
+          // resolve against the live document first (the pane's row may be one
+          // throttled frame old), exactly like handleRevisionRangeImpl does
+          const live = collectRevisions(ed.state.doc).find(
+            (r) =>
+              r.kind === target.kind &&
+              r.author === target.author &&
+              r.from < target.to &&
+              r.to > target.from,
           )
-          if (best) sendProofreadFeedback(fb, best, action === 'accept' ? 'adopt' : 'reject')
+          if (live) {
+            const best = matchFeedbackEdit(
+              fb.edits,
+              ed.state.doc.textBetween(live.from, live.to, '\u2029'),
+              live.from,
+              live.to,
+            )
+            if (best) sendProofreadFeedback(fb, best, action === 'accept' ? 'adopt' : 'reject')
+          }
         }
+        return handleRevisionRangeImpl(reviewCtxRef.current, action, target)
       }
-      return handleRevisionRangeImpl(reviewCtxRef.current, action, target)
+      if (pair) {
+        // one replacement row: rightmost half first — removing text on the
+        // right never shifts the left half, which handleRevisionRangeImpl
+        // re-resolves by position (and the feedback edit dedups itself)
+        const [first, second] = target.from >= pair.from ? [target, pair] : [pair, target]
+        runOne(first)
+        return runOne(second)
+      }
+      return runOne(target)
     },
     [sendProofreadFeedback],
   )
@@ -7297,7 +7308,9 @@ export function App() {
   const isActiveEntry = (e: ReviewEntry) =>
     e.rev.story
       ? e.rev.story.id === activeStoryId
-      : activeStoryId === null && selectionHead >= e.rev.from && selectionHead <= e.rev.to
+      : activeStoryId === null &&
+        ((selectionHead >= e.rev.from && selectionHead <= e.rev.to) ||
+          (!!e.pair && selectionHead >= e.pair.from && selectionHead <= e.pair.to))
   const activeReviewIndex = useMemo(
     () => reviewEntries.findIndex(isActiveEntry),
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -10588,8 +10601,8 @@ export function App() {
               revisionTypeKeys={aiRevisionTypeKeys}
               activeReviewIndex={activeAllReviewIndex}
               onRevisionSelect={showRevision}
-              onRevisionRange={(action, rev) => {
-                if (!isProtected && !trackChangesForced) handleRevisionRange(action, rev)
+              onRevisionRange={(action, rev, pair) => {
+                if (!isProtected && !trackChangesForced) handleRevisionRange(action, rev, pair)
               }}
             />
           </div>
@@ -10991,8 +11004,8 @@ export function App() {
                 activeIndex={activeReviewIndex}
                 canEdit={!isProtected && !trackChangesForced}
                 onSelect={showRevision}
-                onAccept={(rev) => handleRevisionRange('accept', rev)}
-                onReject={(rev) => handleRevisionRange('reject', rev)}
+                onAccept={(rev, pair) => handleRevisionRange('accept', rev, pair)}
+                onReject={(rev, pair) => handleRevisionRange('reject', rev, pair)}
                 onClose={() => setShowReviewPane(false)}
               />
             )}

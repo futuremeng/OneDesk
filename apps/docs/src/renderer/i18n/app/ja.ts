@@ -774,6 +774,7 @@ export const ja = {
   appEditReply: '返信を編集',
   appRevKindIns: '挿入',
   appRevKindDel: '削除',
+  appRevKindReplace: '置換',
   appRevKindFormat: '書式',
   appRevKindParaFormat: '段落書式',
   appRevKindMoveFrom: '移動元',

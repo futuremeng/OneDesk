@@ -64,8 +64,8 @@ export function ReviewRow({
   active: boolean
   canEdit: boolean
   onSelect: (rev: RevisionRange) => void
-  onAccept: (rev: RevisionRange) => void
-  onReject: (rev: RevisionRange) => void
+  onAccept: (rev: RevisionRange, pair?: RevisionRange) => void
+  onReject: (rev: RevisionRange, pair?: RevisionRange) => void
 }) {
   const { t } = useI18n()
   const tone = DELETED_KINDS.has(e.rev.kind)
@@ -86,12 +86,22 @@ export function ReviewRow({
       data-rev-index={e.index}
       role="button"
       tabIndex={0}
-      onClick={() => onSelect(e.rev)}
+      onClick={() =>
+        onSelect(
+          e.pair
+            ? {
+                ...e.rev,
+                from: Math.min(e.rev.from, e.pair.from),
+                to: Math.max(e.rev.to, e.pair.to),
+              }
+            : e.rev,
+        )
+      }
       onKeyDown={onKey}
     >
       <div className="review-row-head">
         <span className="review-row-kind" style={{ color: inkVar(e.inkIndex) }}>
-          {t(KIND_LABEL[e.rev.kind])}
+          {t(e.pair ? 'appRevKindReplace' : KIND_LABEL[e.rev.kind])}
           {e.rev.story && ` · ${t(STORY_LABEL[e.rev.story.kind])}`}
         </span>
         <span className="review-row-author">{e.rev.author || t('editorUnknownAuthor')}</span>
@@ -109,7 +119,7 @@ export function ReviewRow({
           disabled={!canEdit}
           onClick={(ev) => {
             ev.stopPropagation()
-            onAccept(e.rev)
+            onAccept(e.rev, e.pair)
           }}
         >
           ✓ {t('appRevAccept')}
@@ -120,7 +130,7 @@ export function ReviewRow({
           disabled={!canEdit}
           onClick={(ev) => {
             ev.stopPropagation()
-            onReject(e.rev)
+            onReject(e.rev, e.pair)
           }}
         >
           ✕ {t('appRevReject')}
@@ -157,8 +167,8 @@ export function ReviewingPane({
   activeIndex: number
   canEdit: boolean
   onSelect: (rev: RevisionRange) => void
-  onAccept: (rev: RevisionRange) => void
-  onReject: (rev: RevisionRange) => void
+  onAccept: (rev: RevisionRange, pair?: RevisionRange) => void
+  onReject: (rev: RevisionRange, pair?: RevisionRange) => void
   onClose: () => void
 }) {
   const { t } = useI18n()

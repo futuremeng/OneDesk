@@ -772,6 +772,7 @@ export const ko = {
   appEditReply: '답글 편집',
   appRevKindIns: '삽입됨',
   appRevKindDel: '삭제됨',
+  appRevKindReplace: '교체',
   appRevKindFormat: '서식 변경',
   appRevKindParaFormat: '단락 서식 변경',
   appRevKindMoveFrom: '이동 출발',

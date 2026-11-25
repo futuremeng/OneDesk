@@ -754,6 +754,7 @@ export const ru = {
   appEditReply: 'Изменить ответ',
   appRevKindIns: 'Вставлено',
   appRevKindDel: 'Удалено',
+  appRevKindReplace: 'Замена',
   appRevKindFormat: 'Форматировано',
   appRevKindParaFormat: 'Абзац форматирован',
   appRevKindMoveFrom: 'Перемещено из',

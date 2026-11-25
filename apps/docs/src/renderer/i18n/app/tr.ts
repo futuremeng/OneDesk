@@ -749,6 +749,7 @@ export const tr = {
   appEditReply: 'Yanıtı düzenle',
   appRevKindIns: 'Eklendi',
   appRevKindDel: 'Silindi',
+  appRevKindReplace: 'Değiştirme',
   appRevKindFormat: 'Biçimlendirildi',
   appRevKindParaFormat: 'Paragraf biçimlendirildi',
   appRevKindMoveFrom: 'Taşındığı yer',
