@@ -43,10 +43,11 @@ import {
   truncateCardName,
 } from '@onedesk/ui'
 import type { PmNode } from '../editor/convert'
-import type { ProofreadUiState } from '../editor/proofread'
+import type { ProofreadSuggestion, ProofreadUiState } from '../editor/proofread'
 import { TABLE_TRAILING_SKIP } from '../editor/extensions'
 import { countWords, findNumId, type NumIds } from './protocol'
 import { DOC_NAV_SCHEME, navigateToBlock, parseDocNavHref } from './doc-nav'
+import { ProofreadDiffRows } from './proofread-diff-rows'
 import {
   markDocSeen,
   type AiCommentsAccess,
@@ -291,6 +292,11 @@ interface AiPanelProps {
   onProofreadStop?: () => void
   onProofreadRetry?: () => void
   onProofreadSeeResults?: () => void
+  /** proofread suggestions found by the detect pass; nothing is in the document until accepted */
+  proofreadSuggestions?: ProofreadSuggestion[]
+  /** accept lands one suggestion as a tracked revision (+ feedback), reject only sends feedback */
+  onProofreadSuggest?: (action: 'accept' | 'reject', s: ProofreadSuggestion) => void
+  onProofreadSuggestAll?: (action: 'accept' | 'reject') => void
 }
 
 const EMPTY_REVIEW: ReviewEntry[] = []
@@ -376,6 +382,9 @@ export function AiPanel({
   onProofreadStop,
   onProofreadRetry,
   onProofreadSeeResults,
+  proofreadSuggestions,
+  onProofreadSuggest,
+  onProofreadSuggestAll,
 }: AiPanelProps) {
   const { t, lang } = useI18n()
   // Panel chrome follows the UI language; message text follows its own content (dir=auto below)
@@ -1735,7 +1744,7 @@ export function AiPanel({
         {proofreadPhase === 'stopped' && (
           <div className="ai-proofread-bar">
             <span className="ai-proofread-progress">
-              {t('aiProofreadStopped', { count: revisionCount })}
+              {t('aiProofreadStopped', { count: proofreadSuggestions?.length ?? 0 })}
             </span>
             <button type="button" className="ai-queue-send" onClick={onProofreadRetry}>
               {t('aiProofreadResume')}
@@ -1776,6 +1785,74 @@ export function AiPanel({
               <button type="button" className="ai-queue-send" onClick={() => decidePartial(true)}>
                 {t('aiPartialAdopt')}
               </button>
+            </div>
+          </div>
+        )}
+        {(proofreadSuggestions?.length ?? 0) > 0 && (
+          <div
+            className="ai-revision-bar"
+            role="group"
+            aria-label={t('aiProofreadPending', { count: proofreadSuggestions?.length ?? 0 })}
+          >
+            <span className="ai-proofread-progress">
+              {t('aiProofreadPending', { count: proofreadSuggestions?.length ?? 0 })}
+            </span>
+            <button
+              type="button"
+              className="ai-queue-discard"
+              disabled={trackChangesLocked}
+              onClick={() => onProofreadSuggestAll?.('reject')}
+            >
+              {t('aiRevisionRejectAll')}
+            </button>
+            <button
+              type="button"
+              className="ai-queue-send"
+              disabled={trackChangesLocked}
+              onClick={() => onProofreadSuggestAll?.('accept')}
+            >
+              {t('aiRevisionAcceptAll')}
+            </button>
+            <div className="ai-revision-list">
+              {(proofreadSuggestions ?? []).map((s) => (
+                <div key={s.id} className="ai-revision-row">
+                  <div className="ai-revision-row-head">
+                    <span className={`ai-revision-dot ${s.original ? 'fmt' : 'ins'}`} aria-hidden />
+                    <b>{t(s.original ? 'appRevKindReplace' : 'appRevKindIns')}</b>
+                    <span> · {t('aiRevisionPara', { n: s.paraIndex })}</span>
+                    <span> · {t(s.typeKey)}</span>
+                  </div>
+                  {s.original ? (
+                    <ProofreadDiffRows oldText={s.original} newText={s.correction} />
+                  ) : (
+                    <div className="ai-revision-row-text ins">{s.correction}</div>
+                  )}
+                  <div className="ai-revision-row-actions">
+                    <button
+                      type="button"
+                      className="ai-revision-reject"
+                      disabled={trackChangesLocked}
+                      onClick={(ev) => {
+                        ev.stopPropagation()
+                        onProofreadSuggest?.('reject', s)
+                      }}
+                    >
+                      {t('appRevReject')}
+                    </button>
+                    <button
+                      type="button"
+                      className="ai-revision-accept"
+                      disabled={trackChangesLocked}
+                      onClick={(ev) => {
+                        ev.stopPropagation()
+                        onProofreadSuggest?.('accept', s)
+                      }}
+                    >
+                      {t('appRevAccept')}
+                    </button>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         )}

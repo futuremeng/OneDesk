@@ -11518,6 +11518,23 @@ body.docs-crop-active
   color: var(--color-text-secondary);
 }
 
+/* proofread suggestion diff rows: both rows render the same segment stream so
+ * matching characters and the ellipsis point align; only the differing runs
+ * are decorated, the counterpart run stays invisible to hold its width */
+.ai-revision-row-text .diff-del {
+  color: var(--danger);
+  text-decoration: line-through;
+}
+
+.ai-revision-row-text .diff-ins {
+  color: var(--success);
+  text-decoration: underline;
+}
+
+.ai-revision-row-text .diff-ghost {
+  visibility: hidden;
+}
+
 /* the second line of a folded 修改 row */
 .ai-revision-row-text.ins {
   text-decoration: underline;
