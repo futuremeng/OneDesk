@@ -7148,6 +7148,13 @@ async function runHeadlessExportEntry(
 }
 
 app.whenReady().then(async () => {
+  if (process.platform === 'darwin' && !app.isPackaged) {
+    // Dev builds run the stock Electron binary, whose bundle icon is Electron's
+    // own; point the Dock at the regenerated program icon instead. Packaged
+    // apps take the bundle's .icns and must not override it here.
+    const dockIcon = join(app.getAppPath(), 'build/icon-mac.png')
+    if (existsSync(dockIcon)) app.dock?.setIcon(nativeImage.createFromPath(dockIcon))
+  }
   // the editors take the ceiling before anything can be opened: the headless
   // export opens documents too
   setDelimitedImportLimit(currentCsvImportLimitMb() * 1024 * 1024)
