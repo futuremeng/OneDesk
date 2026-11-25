@@ -204,9 +204,18 @@ export interface ProofreadPassOptions {
   onProgress(done: number, total: number): void
 }
 
-/** the reply is the corrected text; a code fence around it is tolerated */
-const extractText = (raw: string): { text: string } => ({
-  text: raw.replace(/^```[a-zA-Z]*\r?\n?/, '').replace(/\r?\n?```\s*$/, ''),
+/**
+ * The reply is the corrected text; a code fence around it is tolerated.
+ *
+ * Leading blank lines are stripped because the inference chain's reasoning
+ * split leaks its `\n\n` separator into the head of every reply (measured
+ * 2026-11-25 on the gateway-backed model: `Reply with exactly: up` answers
+ * with `'\n\nup'`). A paragraph's text never starts with a newline, so a
+ * leading newline is never the correction — landing one would add a phantom
+ * insertion at the paragraph start and a blank row to the folded 修改 list.
+ */
+export const extractText = (raw: string): { text: string } => ({
+  text: raw.replace(/^(?:\r?\n)+/, '').replace(/^```[a-zA-Z]*\r?\n?/, '').replace(/\r?\n?```\s*$/, ''),
 })
 
 /**
