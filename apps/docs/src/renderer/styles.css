@@ -1285,6 +1285,23 @@ html.onedesk-popover-open .ribbon-tabs {
   justify-self: start;
 }
 
+/* When a captioned stack sits next to a big button in one group (Review's
+ * Proofing, Insert's Links), the two shapes must share one geometry: the
+ * stack's icon row is a 26px glyph plus its 4px top and bottom margins,
+ * 34px in all, while a bare big button's icon row is 28px. Without this the
+ * big button's caption starts 6px above the stack's captions — the AI
+ * Proofread row read as two text lines. And in this layout the big caption
+ * must not wrap: the stack keeps its buttons on one line, so a two-line
+ * "AI 审校" drops its second word under every caption next to it even when
+ * the first lines sit level. */
+.ribbon-group-items:has(.rb-col-wide) > .rb-big .rb-big-icon {
+  min-height: 34px;
+}
+
+.ribbon-group-items:has(.rb-col-wide) > .rb-big > span:not(.rb-big-icon) {
+  white-space: nowrap;
+}
+
 .rb-small-glyph {
   width: 14px;
   font-size: 11px;
