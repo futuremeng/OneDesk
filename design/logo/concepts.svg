@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1600" height="1034" viewBox="0 0 1600 1034"><defs><filter id="grey"><feColorMatrix type="saturate" values="0"/></filter></defs><rect width="1600" height="1034" fill="#f7f7f4"/><text x="60" y="78" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="40" font-weight="700" fill="#161616">Logo concepts</text><text x="60" y="116" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="20" fill="#6b6b6b">Concepts for review — pick a direction (or tell me what you like in each).</text><rect x="60" y="150" width="474.667" height="824" rx="18" fill="#fff" stroke="#e4e4e0" stroke-width="1"/><g filter="url(#grey)"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" x="90" y="190" width="414.667" height="300" preserveAspectRatio="xMidYMid meet">
+  <!-- Concept A "1·O" — the name is One: digit 1 + ring O -->
+  <path fill="#000" d="M44 56h28v148H44z"/>
+  <path fill="#000" d="M44 56v28H28z"/>
+  <path fill="#000" fill-rule="evenodd" d="M162 58a72 72 0 1 0 0 144 72 72 0 1 0 0-144zm0 24a48 48 0 1 0 0 96 48 48 0 1 0 0-96z"/>
+</svg>
+</g><g filter="url(#grey)"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 256" x="90" y="514" width="414.667" height="170" preserveAspectRatio="xMidYMid meet">
+  <!-- Lockup A: horizontal. Wordmark is a <text> placeholder; the production
+       kit replaces it with a custom path letterform. -->
+  <svg x="12" y="28" width="200" height="200" viewBox="0 0 256 256">
+    <path fill="#000" d="M44 56h28v148H44z"/>
+    <path fill="#000" d="M44 56v28H28z"/>
+    <path fill="#000" fill-rule="evenodd" d="M162 58a72 72 0 1 0 0 144 72 72 0 1 0 0-144zm0 24a48 48 0 1 0 0 96 48 48 0 1 0 0-96z"/>
+  </svg>
+  <text x="236" y="156" font-family="Inter, Helvetica, Arial, sans-serif" font-size="76" font-weight="600" letter-spacing="-2" fill="#000">OneDesk</text>
+</svg>
+</g><g filter="url(#grey)"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" x="90" y="710" width="64" height="64" preserveAspectRatio="xMidYMid meet">
+  <!-- Concept A "1·O" — the name is One: digit 1 + ring O -->
+  <path fill="#000" d="M44 56h28v148H44z"/>
+  <path fill="#000" d="M44 56v28H28z"/>
+  <path fill="#000" fill-rule="evenodd" d="M162 58a72 72 0 1 0 0 144 72 72 0 1 0 0-144zm0 24a48 48 0 1 0 0 96 48 48 0 1 0 0-96z"/>
+</svg>
+</g><text x="122" y="794" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" fill="#8a8a8a" text-anchor="middle">64px</text><g filter="url(#grey)"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" x="180" y="742" width="32" height="32" preserveAspectRatio="xMidYMid meet">
+  <!-- Concept A "1·O" — the name is One: digit 1 + ring O -->
+  <path fill="#000" d="M44 56h28v148H44z"/>
+  <path fill="#000" d="M44 56v28H28z"/>
+  <path fill="#000" fill-rule="evenodd" d="M162 58a72 72 0 1 0 0 144 72 72 0 1 0 0-144zm0 24a48 48 0 1 0 0 96 48 48 0 1 0 0-96z"/>
+</svg>
+</g><text x="196" y="794" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" fill="#8a8a8a" text-anchor="middle">32px</text><g filter="url(#grey)"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" x="238" y="758" width="16" height="16" preserveAspectRatio="xMidYMid meet">
+  <!-- Concept A "1·O" — the name is One: digit 1 + ring O -->
+  <path fill="#000" d="M44 56h28v148H44z"/>
+  <path fill="#000" d="M44 56v28H28z"/>
+  <path fill="#000" fill-rule="evenodd" d="M162 58a72 72 0 1 0 0 144 72 72 0 1 0 0-144zm0 24a48 48 0 1 0 0 96 48 48 0 1 0 0-96z"/>
+</svg>
+</g><text x="246" y="794" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" fill="#8a8a8a" text-anchor="middle">16px</text><text x="90.0" y="830" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="26" font-weight="700" fill="#161616">A · 1·O</text><text x="90.0" y="864" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="19" fill="#555">名字即 One:数字 1 与圆环 O 的字标组合,底部对齐带 overshoot</text><rect x="562.667" y="150" width="474.667" height="824" rx="18" fill="#fff" stroke="#161616" stroke-width="2"/><g filter="url(#grey)"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" x="592.667" y="190" width="414.667" height="300" preserveAspectRatio="xMidYMid meet">
+  <!-- Concept B "one desk, many apps" — one large tile + three small tiles -->
+  <rect x="20" y="20" width="132" height="132" rx="28" fill="#000"/>
+  <rect x="168" y="20" width="72" height="72" rx="20" fill="#000"/>
+  <rect x="20" y="168" width="72" height="72" rx="20" fill="#000"/>
+  <rect x="168" y="168" width="72" height="72" rx="20" fill="#000"/>
+</svg>
+</g><g filter="url(#grey)"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 256" x="592.667" y="514" width="414.667" height="170" preserveAspectRatio="xMidYMid meet">
+  <!-- Lockup B: horizontal. Wordmark is a <text> placeholder; the production
+       kit replaces it with a custom path letterform. -->
+  <svg x="12" y="28" width="200" height="200" viewBox="0 0 256 256">
+    <rect x="20" y="20" width="132" height="132" rx="28" fill="#000"/>
+    <rect x="168" y="20" width="72" height="72" rx="20" fill="#000"/>
+    <rect x="20" y="168" width="72" height="72" rx="20" fill="#000"/>
+    <rect x="168" y="168" width="72" height="72" rx="20" fill="#000"/>
+  </svg>
+  <text x="236" y="156" font-family="Inter, Helvetica, Arial, sans-serif" font-size="76" font-weight="600" letter-spacing="-2" fill="#000">OneDesk</text>
+</svg>
+</g><g filter="url(#grey)"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" x="592.667" y="710" width="64" height="64" preserveAspectRatio="xMidYMid meet">
+  <!-- Concept B "one desk, many apps" — one large tile + three small tiles -->
+  <rect x="20" y="20" width="132" height="132" rx="28" fill="#000"/>
+  <rect x="168" y="20" width="72" height="72" rx="20" fill="#000"/>
+  <rect x="20" y="168" width="72" height="72" rx="20" fill="#000"/>
+  <rect x="168" y="168" width="72" height="72" rx="20" fill="#000"/>
+</svg>
+</g><text x="624.667" y="794" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" fill="#8a8a8a" text-anchor="middle">64px</text><g filter="url(#grey)"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" x="682.667" y="742" width="32" height="32" preserveAspectRatio="xMidYMid meet">
+  <!-- Concept B "one desk, many apps" — one large tile + three small tiles -->
+  <rect x="20" y="20" width="132" height="132" rx="28" fill="#000"/>
+  <rect x="168" y="20" width="72" height="72" rx="20" fill="#000"/>
+  <rect x="20" y="168" width="72" height="72" rx="20" fill="#000"/>
+  <rect x="168" y="168" width="72" height="72" rx="20" fill="#000"/>
+</svg>
+</g><text x="698.667" y="794" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" fill="#8a8a8a" text-anchor="middle">32px</text><g filter="url(#grey)"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" x="740.667" y="758" width="16" height="16" preserveAspectRatio="xMidYMid meet">
+  <!-- Concept B "one desk, many apps" — one large tile + three small tiles -->
+  <rect x="20" y="20" width="132" height="132" rx="28" fill="#000"/>
+  <rect x="168" y="20" width="72" height="72" rx="20" fill="#000"/>
+  <rect x="20" y="168" width="72" height="72" rx="20" fill="#000"/>
+  <rect x="168" y="168" width="72" height="72" rx="20" fill="#000"/>
+</svg>
+</g><text x="748.667" y="794" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" fill="#8a8a8a" text-anchor="middle">16px</text><text x="592.6666666666667" y="830" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="26" font-weight="700" fill="#161616">B · One desk, many apps</text><text x="592.6666666666667" y="858" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="15" font-weight="700" fill="#161616" letter-spacing="1.5">RECOMMENDED</text><text x="592.6666666666667" y="892" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="19" fill="#555">一个大 tile + 三个小 tile 拼成桌面,反 Office</text><text x="592.6666666666667" y="918" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="19" fill="#555">四象限的层级叙事;可按 app accent 上色</text><rect x="1065.33" y="150" width="474.667" height="824" rx="18" fill="#fff" stroke="#e4e4e0" stroke-width="1"/><g filter="url(#grey)"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" x="1095.33" y="190" width="414.667" height="300" preserveAspectRatio="xMidYMid meet">
+  <!-- Concept C "the D on the desk" — letter D with a desk slab -->
+  <g transform="translate(0,-12)">
+    <path fill="#000" fill-rule="evenodd" d="M40 44h88a84 84 0 0 1 0 168H40zm44 44h44a40 40 0 0 1 0 80H84z"/>
+    <rect x="16" y="210" width="224" height="30" rx="12" fill="#000"/>
+  </g>
+</svg>
+</g><g filter="url(#grey)"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 256" x="1095.33" y="514" width="414.667" height="170" preserveAspectRatio="xMidYMid meet">
+  <!-- Lockup C: horizontal. Wordmark is a <text> placeholder; the production
+       kit replaces it with a custom path letterform. -->
+  <svg x="12" y="28" width="200" height="200" viewBox="0 0 256 256">
+    <g transform="translate(0,-12)">
+      <path fill="#000" fill-rule="evenodd" d="M40 44h88a84 84 0 0 1 0 168H40zm44 44h44a40 40 0 0 1 0 80H84z"/>
+      <rect x="16" y="210" width="224" height="30" rx="12" fill="#000"/>
+    </g>
+  </svg>
+  <text x="236" y="156" font-family="Inter, Helvetica, Arial, sans-serif" font-size="76" font-weight="600" letter-spacing="-2" fill="#000">OneDesk</text>
+</svg>
+</g><g filter="url(#grey)"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" x="1095.33" y="710" width="64" height="64" preserveAspectRatio="xMidYMid meet">
+  <!-- Concept C "the D on the desk" — letter D with a desk slab -->
+  <g transform="translate(0,-12)">
+    <path fill="#000" fill-rule="evenodd" d="M40 44h88a84 84 0 0 1 0 168H40zm44 44h44a40 40 0 0 1 0 80H84z"/>
+    <rect x="16" y="210" width="224" height="30" rx="12" fill="#000"/>
+  </g>
+</svg>
+</g><text x="1127.33" y="794" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" fill="#8a8a8a" text-anchor="middle">64px</text><g filter="url(#grey)"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" x="1185.33" y="742" width="32" height="32" preserveAspectRatio="xMidYMid meet">
+  <!-- Concept C "the D on the desk" — letter D with a desk slab -->
+  <g transform="translate(0,-12)">
+    <path fill="#000" fill-rule="evenodd" d="M40 44h88a84 84 0 0 1 0 168H40zm44 44h44a40 40 0 0 1 0 80H84z"/>
+    <rect x="16" y="210" width="224" height="30" rx="12" fill="#000"/>
+  </g>
+</svg>
+</g><text x="1201.33" y="794" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" fill="#8a8a8a" text-anchor="middle">32px</text><g filter="url(#grey)"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" x="1243.33" y="758" width="16" height="16" preserveAspectRatio="xMidYMid meet">
+  <!-- Concept C "the D on the desk" — letter D with a desk slab -->
+  <g transform="translate(0,-12)">
+    <path fill="#000" fill-rule="evenodd" d="M40 44h88a84 84 0 0 1 0 168H40zm44 44h44a40 40 0 0 1 0 80H84z"/>
+    <rect x="16" y="210" width="224" height="30" rx="12" fill="#000"/>
+  </g>
+</svg>
+</g><text x="1251.33" y="794" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" fill="#8a8a8a" text-anchor="middle">16px</text><text x="1095.3333333333335" y="830" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="26" font-weight="700" fill="#161616">C · The D on the desk</text><text x="1095.3333333333335" y="864" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="19" fill="#555">名字首字母 D 立于桌面横板上,D 用负空间成孔,轮廓更像桌面剪影</text></svg>

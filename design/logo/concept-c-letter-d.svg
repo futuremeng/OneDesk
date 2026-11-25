@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <!-- Concept C "the D on the desk" — letter D with a desk slab -->
+  <g transform="translate(0,-12)">
+    <path fill="#000" fill-rule="evenodd" d="M40 44h88a84 84 0 0 1 0 168H40zm44 44h44a40 40 0 0 1 0 80H84z"/>
+    <rect x="16" y="210" width="224" height="30" rx="12" fill="#000"/>
+  </g>
+</svg>

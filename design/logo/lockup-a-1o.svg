@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 256">
+  <!-- Lockup A: horizontal. Wordmark is a <text> placeholder; the production
+       kit replaces it with a custom path letterform. -->
+  <svg x="12" y="28" width="200" height="200" viewBox="0 0 256 256">
+    <path fill="#000" d="M44 56h28v148H44z"/>
+    <path fill="#000" d="M44 56v28H28z"/>
+    <path fill="#000" fill-rule="evenodd" d="M162 58a72 72 0 1 0 0 144 72 72 0 1 0 0-144zm0 24a48 48 0 1 0 0 96 48 48 0 1 0 0-96z"/>
+  </svg>
+  <text x="236" y="156" font-family="Inter, Helvetica, Arial, sans-serif" font-size="76" font-weight="600" letter-spacing="-2" fill="#000">OneDesk</text>
+</svg>

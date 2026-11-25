@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <!-- Concept A "1·O" — the name is One: digit 1 + ring O -->
+  <path fill="#000" d="M44 56h28v148H44z"/>
+  <path fill="#000" d="M44 56v28H28z"/>
+  <path fill="#000" fill-rule="evenodd" d="M162 58a72 72 0 1 0 0 144 72 72 0 1 0 0-144zm0 24a48 48 0 1 0 0 96 48 48 0 1 0 0-96z"/>
+</svg>

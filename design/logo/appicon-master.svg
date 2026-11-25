@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+  <title>OneDesk app icon</title>
+  <!-- Icon mode: white mark knockout on the brand squircle (keeps the
+       familiar black container on the desktop shelf). Grown from the 256
+       production grid: container full-bleed rx 230, content box 154..870. -->
+  <rect x="0" y="0" width="1024" height="1024" rx="230" fill="#000"/>
+  <rect x="204" y="204" width="369" height="369" rx="73" fill="#FFF"/>
+  <rect x="618" y="204" width="201" height="201" rx="56" fill="#FFF"/>
+  <rect x="204" y="618" width="201" height="201" rx="56" fill="#FFF"/>
+  <rect x="618" y="618" width="201" height="201" rx="56" fill="#FFF"/>
+</svg>

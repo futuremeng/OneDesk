@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <title>OneDesk</title>
+  <rect x="18" y="18" width="132" height="132" rx="26" fill="#FFF"/>
+  <rect x="166" y="18" width="72" height="72" rx="20" fill="#FFF"/>
+  <rect x="18" y="166" width="72" height="72" rx="20" fill="#FFF"/>
+  <rect x="166" y="166" width="72" height="72" rx="20" fill="#FFF"/>
+</svg>
