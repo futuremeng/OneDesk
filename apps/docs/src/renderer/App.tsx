@@ -794,6 +794,18 @@ import {
 import { FollowUpChain } from './pagination-loop'
 import { tabLayoutDiag } from './editor/decoration-extensions'
 import { layoutHealth } from './editor/layout-health'
+import {
+  AI_PROOFREAD_ACK_KEY,
+  PROOFREAD_AUTHOR,
+  collectProofreadParagraphs,
+  errorTypeLabelKey,
+  matchFeedbackEdit,
+  proofreadConfigured,
+  runProofreadDetectPass,
+  type ProofreadFeedbackEdit,
+  type ProofreadUiState,
+} from './editor/proofread'
+import type { Mapping } from 'prosemirror-transform'
 
 /** min gap between whole-document pagination passes while a phased open streams its tail */
 const STREAMING_PASS_GAP_MS = 1500
@@ -4281,15 +4293,103 @@ export function App() {
     [],
   )
   const deleteComment = useCallback((id: string) => deleteCommentImpl(reviewCtxRef.current, id), [])
-  const handleRevision = useCallback(
-    (action: 'accept' | 'reject', scope: RevisionScope) =>
-      handleRevisionImpl(reviewCtxRef.current, action, scope),
+  // flow P05: the pass in flight remembers what to restore and how many of its
+  // landed 'AI' revisions were accepted / rejected so far
+  const proofreadSessionRef = useRef<{
+    autoTrack: boolean
+    prevTrack: boolean
+    accepted: number
+    rejected: number
+    pendingAtLast: number
+    lastAction: 'accept' | 'reject' | null
+    /** service coordinates + the landed detect revisions for the feedback loop */
+    feedback: { baseUrl: string; token: string; edits: ProofreadFeedbackEdit[] } | null
+  } | null>(null)
+  // the accept/reject feedback loop: report one landed detect revision to the
+  // proofread service (fire-and-forget; the main process swallows transport
+  // errors, and a 403 from a service that does not accept feedback is simply
+  // the server's policy). Matching: revision text first (drift-proof), the
+  // recorded span only as a fallback / tie-breaker — a wrong attribution costs
+  // the server more than a missing one, so anything unclear is skipped.
+  const sendProofreadFeedback = useCallback(
+    (
+      fb: { baseUrl: string; token: string; edits: ProofreadFeedbackEdit[] },
+      edit: ProofreadFeedbackEdit,
+      action: 'adopt' | 'reject',
+    ) => {
+      if (!fb.baseUrl) return
+      edit.reported = true
+      void window.desktop
+        .proofreadFeedback({
+          baseUrl: fb.baseUrl,
+          token: fb.token,
+          lang: edit.lang,
+          error: edit.error,
+          action,
+          srcText: edit.paraText,
+        })
+        .catch(() => {})
+    },
     [],
   )
+  const handleRevision = useCallback(
+    (action: 'accept' | 'reject', scope: RevisionScope) => {
+      if (proofreadSessionRef.current) proofreadSessionRef.current.lastAction = action
+      const fb = proofreadSessionRef.current?.feedback
+      const ed = reviewCtxRef.current.editor
+      if (fb?.baseUrl) {
+        // scope-level resolution: report every session error not yet reported.
+        // 'all' and Accept/Reject All by the AI author resolve them all; a
+        // selection scope only the ones overlapping it. 'shown'/'next' resolve
+        // filtered subsets no position here can identify → skipped.
+        const pending = fb.edits.filter((e) => !e.reported)
+        let hits: ProofreadFeedbackEdit[] = []
+        if (scope === 'all' || (typeof scope === 'object' && scope.author === PROOFREAD_AUTHOR))
+          hits = pending
+        else if (scope === 'selection' && ed) {
+          const sel = ed.state.selection
+          hits = pending.filter((e) => e.from < sel.to && e.to > sel.from)
+        }
+        for (const e of hits) sendProofreadFeedback(fb, e, action === 'accept' ? 'adopt' : 'reject')
+      }
+      return handleRevisionImpl(reviewCtxRef.current, action, scope)
+    },
+    [sendProofreadFeedback],
+  )
   const handleRevisionRange = useCallback(
-    (action: 'accept' | 'reject', target: RevisionRange) =>
-      handleRevisionRangeImpl(reviewCtxRef.current, action, target),
-    [],
+    (action: 'accept' | 'reject', target: RevisionRange) => {
+      if (proofreadSessionRef.current) proofreadSessionRef.current.lastAction = action
+      const fb = proofreadSessionRef.current?.feedback
+      const ed = reviewCtxRef.current.editor
+      if (
+        fb?.baseUrl &&
+        ed &&
+        target.author === PROOFREAD_AUTHOR &&
+        !target.story &&
+        (target.kind === 'ins' || target.kind === 'del')
+      ) {
+        // resolve against the live document first (the pane's row may be one
+        // throttled frame old), exactly like handleRevisionRangeImpl does
+        const live = collectRevisions(ed.state.doc).find(
+          (r) =>
+            r.kind === target.kind &&
+            r.author === target.author &&
+            r.from < target.to &&
+            r.to > target.from,
+        )
+        if (live) {
+          const best = matchFeedbackEdit(
+            fb.edits,
+            ed.state.doc.textBetween(live.from, live.to, '\u2029'),
+            live.from,
+            live.to,
+          )
+          if (best) sendProofreadFeedback(fb, best, action === 'accept' ? 'adopt' : 'reject')
+        }
+      }
+      return handleRevisionRangeImpl(reviewCtxRef.current, action, target)
+    },
+    [sendProofreadFeedback],
   )
   // Word: navigating onto a change hidden by the current view shows All
   // Markup; the view switch must commit before the scroll can find the text
@@ -7213,6 +7313,28 @@ export function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [allReviewEntries, selectionHead, activeStoryId],
   )
+  // error-type badges for the AI panel's revision list: one key per row, or
+  // undefined where the row is not a proofread landing (manual / other author
+  // / paragraph-mark / story change, or the session's error map was lost to a
+  // restart). Matching is by text with the recorded span as tie-breaker, so
+  // accept/reject position drift does not mislabel rows.
+  const aiRevisionTypeKeys = useMemo(() => {
+    const edits = proofreadSessionRef.current?.feedback?.edits
+    if (!edits || edits.length === 0 || !editor) return undefined
+    return allReviewEntries.map((e) => {
+      const rev = e.rev
+      if (rev.story || rev.author !== PROOFREAD_AUTHOR) return undefined
+      if (rev.kind !== 'ins' && rev.kind !== 'del') return undefined
+      const hit = matchFeedbackEdit(
+        edits,
+        editor.state.doc.textBetween(rev.from, rev.to, '\u2029'),
+        rev.from,
+        rev.to,
+        true,
+      )
+      return hit ? errorTypeLabelKey(hit.error) : undefined
+    })
+  }, [allReviewEntries, editor])
   useEffect(() => {
     if (!editor) return
     const refreshSelection = () => {
@@ -7286,18 +7408,200 @@ export function App() {
     setStats({ body, notes: { ...notes, pages: 0, lines: notes.paragraphs } })
   }, [documentStats, footnotes, endnotes])
 
-  // Review > Editor, the Tools menu and Word's F7 all run the same AI proofread
-  // behind the one-time whole-document-rewrite acknowledgement
+  // Review > Editor, the Tools menu and Word's F7: with the proofread service
+  // configured (the default) the deterministic detect pass lands tracked 'AI'
+  // revisions directly into the document; with the service address cleared in
+  // settings the command keeps streaming through the AI panel behind the
+  // one-time whole-document-rewrite acknowledgement (flow S01/X01).
+  const proofreadRunRef = useRef<{ requestId: string; controller: AbortController } | null>(null)
+  const proofreadResumeRef = useRef<{ next: number; mapping: Mapping } | null>(null)
+  const [proofreadUi, setProofreadUi] = useState<ProofreadUiState>({
+    phase: 'idle',
+    done: 0,
+    total: 0,
+    toast: null,
+  })
+
+  const stopProofreadPass = useCallback(() => proofreadRunRef.current?.controller.abort(), [])
+
+  const runProofreadPassFrom = useCallback(
+    async (startIndex = 0, baseMapping?: Mapping) => {
+      if (!editor) return
+      // flow X03: a document that cannot take tracked edits is refused by reason
+      if (readMode || isProtected) {
+        showToast(t('ribbonAiProofreadProtectedTip'))
+        return
+      }
+      if (trackChangesForced) {
+        showToast(t('ribbonAiProofreadForcedTip'))
+        return
+      }
+      // flow note: with a selection only the selected text is proofread
+      const sel = editor.state.selection
+      const paras = collectProofreadParagraphs(
+        editor.state.doc,
+        sel.empty ? null : { from: sel.from, to: sel.to },
+      )
+      if (paras.length === 0) {
+        showToast(t('aiProofreadNothing'))
+        return
+      }
+      // flow P02: the pass turns Track Changes on by itself, and P05 hands the
+      // user's own toggle back once every landed revision is processed
+      const autoTrack = !trackChanges
+      if (autoTrack) setTrackChanges(true)
+      const requestId = 'proofread-' + Date.now()
+      const controller = new AbortController()
+      controller.signal.addEventListener('abort', () => {
+        void window.desktop.proofreadDetectCancel(requestId)
+      })
+      proofreadRunRef.current = { requestId, controller }
+      const baseUrl = settings.proofread?.baseUrl?.trim() ?? ''
+      const token = settings.proofread?.token ?? ''
+      // deep scan (level-2) and the unconditional AI recheck are on by default;
+      // only an explicit false in the settings file turns them off
+      const deepScan = settings.proofread?.deepScan !== false
+      const aiRecheck = settings.proofread?.aiRecheck !== false
+      setShowAi(true)
+      setProofreadUi({
+        phase: 'running',
+        done: startIndex,
+        total: paras.length,
+        toast: autoTrack ? t('aiProofreadTrackToast') : null,
+      })
+      let sawFatal = false
+      const res = await runProofreadDetectPass({
+        editor,
+        paragraphs: paras,
+        startIndex,
+        baseMapping,
+        signal: controller.signal,
+        detect: (lang, text) =>
+          window.desktop.proofreadDetect({
+            requestId,
+            baseUrl,
+            token,
+            lang,
+            text,
+            level: deepScan ? 2 : undefined,
+            forceLlm: aiRecheck,
+          }),
+        onProgress: (done, total) => setProofreadUi((p) => ({ ...p, done, total })),
+        onFatal: (error, status) => {
+          sawFatal = true
+          setProofreadUi((p) => ({
+            ...p,
+            phase: 'stopped',
+            toast: status ? 'HTTP ' + status + ' · ' + error : error,
+          }))
+        },
+      })
+      proofreadRunRef.current = null
+      // flow X02: only a fatal interruption offers the resume; a stop is P03
+      proofreadResumeRef.current = sawFatal ? { next: res.next, mapping: res.mapping } : null
+      if (!sawFatal)
+        setProofreadUi({
+          phase: 'review',
+          done: paras.length,
+          total: paras.length,
+          toast: null,
+        })
+      // a resume (flow X02) keeps the toggle state and the accept/reject tally
+      // of the pass it continues
+      const prevSession = proofreadSessionRef.current
+      proofreadSessionRef.current = {
+        autoTrack: autoTrack || (prevSession?.autoTrack ?? false),
+        prevTrack: autoTrack ? false : prevSession?.autoTrack ? prevSession.prevTrack : !autoTrack,
+        accepted: prevSession?.accepted ?? 0,
+        rejected: prevSession?.rejected ?? 0,
+        pendingAtLast: -1,
+        lastAction: null,
+        // the landed detect revisions for the accept/reject feedback loop; a
+        // resume (flow X02) keeps reporting the pass it continues
+        feedback: {
+          baseUrl,
+          token,
+          edits: [...(prevSession?.feedback?.edits ?? []), ...(res.feedback ?? [])],
+        },
+      }
+      if (res.status === 'done') showToast(t('aiProofreadApplied', { count: res.applied }))
+    },
+    // t and showToast are deliberately not deps (t is not referentially
+    // stable per project rule; showToast is a module-level bus import)
+    [editor, settings, readMode, isProtected, trackChangesForced, trackChanges],
+  )
+
   const runAiProofread = useCallback(() => {
-    if (
-      localStorage.getItem(AI_REWRITE_ACK_KEY) !== '1' &&
-      !window.confirm(t('ribbonAiRewriteConfirm'))
-    )
+    // flow P01: the whole-document pass asks once up front; with a selection
+    // there is nothing to confirm and the pass runs directly
+    if (settings.proofread?.baseUrl?.trim()) {
+      if (editor?.state.selection.empty) {
+        if (
+          localStorage.getItem(AI_PROOFREAD_ACK_KEY) !== '1' &&
+          !window.confirm(t('ribbonAiRewriteConfirm'))
+        )
+          return
+        localStorage.setItem(AI_PROOFREAD_ACK_KEY, '1')
+      }
+      void runProofreadPassFrom(0)
       return
-    localStorage.setItem(AI_REWRITE_ACK_KEY, '1')
-    setShowAi(true)
-    setAiPreset({ text: t('ribbonEditorPrompt'), nonce: Date.now(), autoRun: true })
-  }, [])
+    }
+    void (async () => {
+      const acct = await window.desktop.aiOneDeskStatus(false)
+      if (!proofreadConfigured(settings, acct.loggedIn)) {
+        // flow X01: the precheck runs before anything touches the text
+        setShowAi(true)
+        setProofreadUi({ phase: 'unavailable', done: 0, total: 0, toast: null })
+        return
+      }
+      if (
+        localStorage.getItem(AI_REWRITE_ACK_KEY) !== '1' &&
+        !window.confirm(t('ribbonAiRewriteConfirm'))
+      )
+        return
+      localStorage.setItem(AI_REWRITE_ACK_KEY, '1')
+      setShowAi(true)
+      setAiPreset({ text: t('ribbonEditorPrompt'), nonce: Date.now(), autoRun: true })
+    })()
+  }, [editor, settings, runProofreadPassFrom])
+
+  // flow P05: once the last landed 'AI' revision is accepted or rejected the
+  // pass is over — toast the tally and hand the Track Changes toggle back
+  useEffect(() => {
+    const session = proofreadSessionRef.current
+    if (!session) return
+    let pending = 0
+    for (const rev of allRevisions) if (rev.author === PROOFREAD_AUTHOR) pending += 1
+    if (session.pendingAtLast < 0) {
+      session.pendingAtLast = pending
+      return
+    }
+    if (pending === session.pendingAtLast) return
+    const resolved = session.pendingAtLast - pending
+    if (resolved > 0) {
+      if (session.lastAction === 'accept') session.accepted += resolved
+      else session.rejected += resolved
+    }
+    session.pendingAtLast = pending
+    if (session.lastAction !== null && pending === 0) {
+      session.lastAction = null
+      if (session.autoTrack) setTrackChanges(session.prevTrack)
+      showToast(t('aiProofreadDone', { accepted: session.accepted, rejected: session.rejected }))
+    }
+  }, [allRevisions])
+
+  // flow note: Esc while running stops the pass exactly like the stop button
+  useEffect(() => {
+    if (proofreadUi.phase !== 'running') return
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key !== 'Escape') return
+      e.preventDefault()
+      e.stopPropagation()
+      stopProofreadPass()
+    }
+    window.addEventListener('keydown', onKey, true)
+    return () => window.removeEventListener('keydown', onKey, true)
+  }, [proofreadUi.phase, stopProofreadPass])
 
   // "has unsaved changes" check shared by the close guard and autosave; refreshed on every
   // render (all edit paths forceRender), so the guard's query reads the latest value
@@ -10171,6 +10475,7 @@ export function App() {
         documentListPresets={documentLists}
         recentListPresets={recentLists}
         showAi={showAi}
+        aiProofBusy={proofreadUi.phase === 'running'}
         section={sections[activeSection]?.settings ?? section}
         tableGridlines={tableGridlines}
         activeSection={sections.length > 1 ? activeSection : null}
@@ -10249,6 +10554,13 @@ export function App() {
                 doc.isBlank ? { bullet: BLANK_BULLET_NUM_ID, ordered: BLANK_ORDERED_NUM_ID } : null
               }
               preset={aiPreset}
+              proofread={proofreadUi}
+              onProofreadStop={stopProofreadPass}
+              onProofreadRetry={() => {
+                const r = proofreadResumeRef.current
+                void runProofreadPassFrom(r?.next ?? 0, r?.mapping)
+              }}
+              onProofreadSeeResults={() => setProofreadUi((p) => ({ ...p, phase: 'review' }))}
               open={showAi}
               hideRail={!aiSidebarEnabled}
               onExpand={() => setShowAi(true)}
@@ -10273,6 +10585,7 @@ export function App() {
                 if (!isProtected && !trackChangesForced) handleRevision(action, 'all')
               }}
               reviewEntries={allReviewEntries}
+              revisionTypeKeys={aiRevisionTypeKeys}
               activeReviewIndex={activeAllReviewIndex}
               onRevisionSelect={showRevision}
               onRevisionRange={(action, rev) => {

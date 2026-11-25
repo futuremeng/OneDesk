@@ -815,6 +815,8 @@ interface ReviewTabProps extends TabProps {
   trackChangesForced: boolean
   /** any protection is configured (highlights the Protect Document button) */
   protectActive: boolean
+  /** the AI proofread pass is streaming revisions into the document */
+  aiProofBusy?: boolean
 }
 
 export function ReviewTab({
@@ -839,6 +841,7 @@ export function ReviewTab({
   commentsAllowed,
   trackChangesForced,
   protectActive,
+  aiProofBusy,
 }: ReviewTabProps) {
   const { t } = useI18n()
   const unknownAuthor = t('editorUnknownAuthor')
@@ -887,7 +890,7 @@ export function ReviewTab({
     )
   }
   // One-time acknowledgement before whole-document AI rewrites:
-  // Editor / Translate send the full document to the agent, consume credits and
+  // Translate sends the full document to the agent, consumes credits and
   // may rewrite everything — say so once before the first run.
   const confirmAiRewrite = () => {
     if (localStorage.getItem(AI_REWRITE_ACK_KEY) === '1') return true
@@ -899,25 +902,25 @@ export function ReviewTab({
   const hasRangeSelection = () => !editor.state.selection.empty
   return (
     <>
-      {/* Word: Proofing (Editor) sits leftmost */}
+      {/* Word: Proofing sits leftmost — AI proofread as a tracked-revision pass */}
       <div className="ribbon-group">
         <div className="ribbon-group-items">
-          <button
-            className="rb-big"
-            disabled={!hasDoc}
-            data-tip={`${t('ribbonEditorTip')} — ${t('ribbonAiCreditNote')}`}
-            onClick={() => {
-              if (hasRangeSelection()) onAiPreset(t('ribbonEditorSelectionPrompt'))
-              else if (confirmAiRewrite()) onAiPreset(t('ribbonEditorPrompt'))
-            }}
+          <RbCommand
+            cmd="ai-proofread"
+            look="big"
+            busy={aiProofBusy}
+            blocked={
+              isProtected
+                ? t('ribbonAiProofreadProtectedTip')
+                : trackChangesForced
+                  ? t('ribbonAiProofreadForcedTip')
+                  : undefined
+            }
           >
-            <span className="rb-big-icon">
-              <span className="ai-feature-icon" aria-hidden="true">
-                <img src={iconEditor} width={22} height={22} alt="" />
-              </span>
+            <span className="ai-feature-icon" aria-hidden="true">
+              <img src={iconEditor} width={22} height={22} alt="" />
             </span>
-            <span>{t('ribbonEditorBtn')}</span>
-          </button>
+          </RbCommand>
           <div className="rb-col" data-wide="1" data-collapse="2">
             <button
               className={`rb-small ${spellcheck ? 'active' : ''}`}

@@ -28,7 +28,7 @@ export const pl = {
   ribbonLangHungarian: 'węgierski',
   ribbonAiCreditNote: 'Używa AI i zużywa kredyty',
   ribbonAiRewriteConfirm:
-    'Ta akcja wywołuje AI: zużywa kredyty i może przepisać całą treść. Kontynuować? (Nie zapytamy ponownie.)',
+    'This sends the whole document to the AI for one proofreading pass and uses AI credits. Every change lands as a tracked revision - the text stays untouched until you accept it. If text is selected, only the selection is proofread. Start proofreading? (You won\'t be asked again.)',
   ribbonTabHome: 'Narzędzia główne',
   ribbonTabDraw: 'Rysowanie',
   ribbonTabLayout: 'Układ',
@@ -841,6 +841,11 @@ export const pl = {
   ribbonSourcePublisher: 'Wydawca',
   ribbonEditorBtn: 'Edytor',
   ribbonEditorTip: 'AI sprawdzi pisownię, gramatykę i interpunkcję',
+  ribbonAiProofreadBtn: 'Korekta AI',
+  ribbonAiProofreadTip: 'AI sprawdzi pisownię, gramatykę i interpunkcję — Używa AI i zużywa kredyty',
+  ribbonAiProofreadConfirm: 'Korekta AI przeczyta cały dokument i zapisze każdą sugestię jako śledzoną zmianę; tekst nigdy nie jest zmieniany bezpośrednio. Kontynuować? (Pytanie nie pojawi się ponownie.)',
+  ribbonAiProofreadForcedTip: 'Korekta AI nie może działać przy wymuszonym śledzeniu zmian',
+  ribbonAiProofreadProtectedTip: 'The document is protected, so tracked revisions cannot be written. Turn it off via Review > Protect > Unprotect, or open a copy in editable mode.',
   ribbonEditorPrompt:
     'Zrób korektę całego dokumentu: popraw literówki, interpunkcję i błędy gramatyczne, zachowując pierwotny sens i strukturę akapitów.',
   ribbonGroupProofing: 'Sprawdzanie',

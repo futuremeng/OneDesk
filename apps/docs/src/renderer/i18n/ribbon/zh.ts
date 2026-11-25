@@ -27,7 +27,7 @@ export const zh = {
   ribbonLangHungarian: '匈牙利文',
   ribbonAiCreditNote: '将调用 AI 并消耗额度',
   ribbonAiRewriteConfirm:
-    '此操作将调用 AI：会消耗额度，并可能改写整篇内容。是否继续？（确认后不再提示）',
+    '会把整篇文档交给 AI 审校一次，并消耗 AI 额度。修改结果全部以修订方式插入，接受前正文不会被动。有选区时只审所选部分。是否开始审校？（确认后不再提示）',
   // Tabs
   ribbonTabHome: '开始',
   ribbonTabDraw: '绘图',
@@ -850,6 +850,11 @@ export const zh = {
   // Review
   ribbonEditorBtn: '编辑器',
   ribbonEditorTip: 'AI 检查拼写、语法和标点',
+  ribbonAiProofreadBtn: 'AI 审校',
+  ribbonAiProofreadTip: 'AI 检查拼写、语法和标点 — 将调用 AI 并消耗额度',
+  ribbonAiProofreadConfirm: 'AI 审校将通读整篇文档，每条建议都会以修订形式记录，不会直接修改正文。是否继续？（确认后不再提示）',
+  ribbonAiProofreadForcedTip: '跟踪修订被强制开启时无法运行 AI 审校',
+  ribbonAiProofreadProtectedTip: '文档已受保护，无法写入修订。解除方式：审阅 › 保护文档 › 停止保护，或以可编辑方式打开副本。',
   ribbonEditorPrompt: '校对全文:修正错别字、标点和语法错误,保持原意和段落结构不变。',
   ribbonGroupProofing: '校对',
   ribbonSpellcheckBtn: '拼写检查',

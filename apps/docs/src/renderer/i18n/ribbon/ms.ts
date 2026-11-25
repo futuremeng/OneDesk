@@ -28,7 +28,7 @@ export const ms = {
   ribbonLangHungarian: 'Hungary',
   ribbonAiCreditNote: 'Menggunakan AI dan menggunakan kredit',
   ribbonAiRewriteConfirm:
-    'Tindakan ini memanggil AI: menggunakan kredit dan mungkin menulis semula keseluruhan kandungan. Teruskan? (Tidak akan ditanya lagi.)',
+    'This sends the whole document to the AI for one proofreading pass and uses AI credits. Every change lands as a tracked revision - the text stays untouched until you accept it. If text is selected, only the selection is proofread. Start proofreading? (You won\'t be asked again.)',
   ribbonTabHome: 'Laman Utama',
   ribbonTabDraw: 'Lukis',
   ribbonTabLayout: 'Tataletak',
@@ -842,6 +842,11 @@ export const ms = {
   ribbonSourcePublisher: 'Penerbit',
   ribbonEditorBtn: 'Editor',
   ribbonEditorTip: 'AI menyemak ejaan, tatabahasa dan tanda baca',
+  ribbonAiProofreadBtn: 'Pembacaan Pruf AI',
+  ribbonAiProofreadTip: 'AI menyemak ejaan, tatabahasa dan tanda baca — Menggunakan AI dan menggunakan kredit',
+  ribbonAiProofreadConfirm: 'Pembetulan AI membaca keseluruhan dokumen dan mencatat setiap cadangan sebagai perubahan tersusur; teks tidak diubah secara langsung. Teruskan? (Tidak ditanya lagi.)',
+  ribbonAiProofreadForcedTip: 'Pembetulan AI tidak boleh dijalankan semasa Susur Perubahan dipaksa',
+  ribbonAiProofreadProtectedTip: 'The document is protected, so tracked revisions cannot be written. Turn it off via Review > Protect > Unprotect, or open a copy in editable mode.',
   ribbonEditorPrompt:
     'Semak keseluruhan dokumen: betulkan kesalahan taip, tanda baca dan tatabahasa tanpa mengubah maksud asal dan struktur perenggan.',
   ribbonGroupProofing: 'Pembacaan Pruf',

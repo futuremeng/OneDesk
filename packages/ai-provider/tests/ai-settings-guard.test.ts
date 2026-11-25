@@ -51,6 +51,30 @@ describe('sanitizeAiSettings', () => {
     expect(sanitized!.maxOutputTokens).toBe(4096)
   })
 
+  it('keeps a deliberately cleared proofread URL as an empty block', () => {
+    const out = sanitizeAiSettings({
+      ...baseSettings(),
+      proofread: { baseUrl: '   ', token: 'lf_secret' },
+    })
+    // a deliberately cleared address must survive: dropping the block would
+    // let the resolver re-inject the default service
+    expect(out!.proofread).toEqual({ baseUrl: '', token: '' })
+  })
+it('keeps a well-formed proofread block and drops an unusable URL', () => {
+    const kept = sanitizeAiSettings({
+      ...baseSettings(),
+      proofread: { baseUrl: 'https://proof.example.com/', token: '  lf_0123456789abcdef  ' },
+    })
+    // normalizeBaseUrl keeps the trailing slash; the token is trimmed
+    expect(kept!.proofread).toEqual({ baseUrl: 'https://proof.example.com/', token: 'lf_0123456789abcdef' })
+    const dropped = sanitizeAiSettings({
+      ...baseSettings(),
+      proofread: { baseUrl: 'javascript:alert(1)', token: 'lf-x' },
+    })
+    expect(dropped!.proofread).toBeUndefined()
+    expect(dropped!.provider).toBe('openai')
+  })
+
   it('rejects payloads that are not the right shape at all', () => {
     for (const bad of [
       null,

@@ -103,6 +103,7 @@ const RIBBON_CONTROLS = {
   'styles-pane': { tip: 'ribbonStylesPaneTip', caption: 'ribbonStylesPane' },
   find: { tip: 'ribbonFindTip', caption: 'ribbonFind' },
   replace: { tip: 'ribbonReplaceTip', caption: 'ribbonReplace' },
+  'ai-proofread': { tip: 'ribbonAiProofreadTip', caption: 'ribbonAiProofreadBtn' },
 } satisfies Partial<Record<CommandId, RibbonControl>>
 
 export type RibbonCommandId = keyof typeof RIBBON_CONTROLS

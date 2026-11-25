@@ -111,6 +111,7 @@ import {
   resolveAiSettings,
   maxOutputTokensOf,
   sanitizeAiSettings,
+  sanitizeBaseUrl,
   sanitizeCliPath,
   setAiUserAgent,
   setRescueFetch,
@@ -158,6 +159,10 @@ import type {
   OpenDocxResult,
   OrganizerFileResult,
   PickDocxResult,
+  ProofreadDetectRequest,
+  ProofreadDetectResult,
+  ProofreadFeedbackRequest,
+  ProofreadFeedbackResult,
   SpellLanguages,
   TemplateEntry,
   TemplatePreviewRect,
@@ -7856,6 +7861,9 @@ const SETTINGS_PATH = () => userDataPath('ai-settings.json')
 
 const activeAiStreams = new Map<string, AbortController>()
 
+// in-flight 审校 detect calls, keyed by renderer requestId (one per paragraph)
+const activeProofreadDetects = new Map<string, AbortController>()
+
 /** every renderer (tabs, home) re-reads ai-settings.json — the composer chip and
  *  the settings page edit the same file from different windows */
 function broadcastAiSettingsChanged(): void {
@@ -8058,6 +8066,124 @@ export function registerAiIpc(): void {
   ipcMain.handle('ai:stream-cancel', (_event, requestId: string) => {
     activeAiStreams.get(requestId)?.abort()
   })
+
+  // The 审校 pass posts to an external proofread service (gec/detect-compatible,
+  // e.g. self-hosted LangFixer). The renderer cannot fetch it directly (CORS/
+  // CSP), so every call runs here, URL-sanitized like every other baseUrl; the
+  // access token only ever lives in this request's Authorization header.
+  ipcMain.handle(
+    'ai:proofread-detect',
+    async (_event, request: ProofreadDetectRequest): Promise<ProofreadDetectResult> => {
+      const baseUrl = sanitizeBaseUrl(request?.baseUrl)
+      if (!baseUrl) return { ok: false, status: 0, error: 'invalid proofread service URL' }
+      const requestId = String(request?.requestId ?? '')
+      const token = String(request?.token ?? '').trim().slice(0, 512)
+      const controller = new AbortController()
+      activeProofreadDetects.set(requestId, controller)
+      // level-2/3 analyses on long paragraphs routinely exceed a minute;
+      // LangFixer's own web client allows 180s before giving up.
+      const timer = setTimeout(() => controller.abort(), 180_000)
+      // normalizeBaseUrl keeps a trailing '/'; the join must not double it
+      const root = baseUrl.replace(/\/+$/, '')
+      try {
+        const res = await net.fetch(`${root}/gec/detect`, {
+          method: 'POST',
+          headers: {
+            'content-type': 'application/json',
+            ...(token ? { authorization: `Bearer ${token}` } : {}),
+          },
+          body: JSON.stringify({
+            lang: String(request?.lang ?? 'zh').slice(0, 16),
+            text: String(request?.text ?? ''),
+            // the service's JSON key is snake_case force_llm (no rename)
+            ...(typeof request?.level === 'number'
+              ? { level: Math.min(3, Math.max(1, Math.round(request.level))) }
+              : {}),
+            ...(request?.forceLlm === true ? { force_llm: true } : {}),
+          }),
+          signal: controller.signal,
+        })
+        if (!res.ok) {
+          // the gateway's quota/auth failures carry a one-line `{error}` body;
+          // pass it through verbatim (429 quota text is in Chinese by design)
+          let message = `HTTP ${res.status}`
+          try {
+            const body = (await res.json()) as { error?: unknown }
+            if (typeof body.error === 'string' && body.error) message = body.error
+          } catch {
+            /* non-JSON error body: keep the status line */
+          }
+          return { ok: false, status: res.status, error: message }
+        }
+        const body = (await res.json()) as { errors?: unknown }
+        return { ok: true, status: res.status, errors: Array.isArray(body.errors) ? body.errors : [] }
+      } catch (e) {
+        if (controller.signal.aborted) return { ok: false, status: 0, error: 'stopped' }
+        return { ok: false, status: 0, error: e instanceof Error ? e.message : String(e) }
+      } finally {
+        clearTimeout(timer)
+        activeProofreadDetects.delete(requestId)
+      }
+    }
+  )
+
+  ipcMain.handle('ai:proofread-detect-cancel', (_event, requestId: string) => {
+    activeProofreadDetects.get(String(requestId))?.abort()
+  })
+
+  // Accept/reject feedback for a landed proofread revision, posted to the same
+  // proofread service ({baseUrl}/gec/feedback) with the detect token. The
+  // renderer fires these and ignores the result (adopt/reject counters feed
+  // the service's rule/LLM learning loop), so failures never surface here.
+  ipcMain.handle(
+    'ai:proofread-feedback',
+    async (_event, request: ProofreadFeedbackRequest): Promise<ProofreadFeedbackResult> => {
+      const baseUrl = sanitizeBaseUrl(request?.baseUrl)
+      if (!baseUrl) return { ok: false, status: 0, error: 'invalid proofread service URL' }
+      const token = String(request?.token ?? '').trim().slice(0, 512)
+      const controller = new AbortController()
+      // a reject runs the service's reflection (LLM) server-side; give it room,
+      // but the renderer never waits on this call
+      const timer = setTimeout(() => controller.abort(), 120_000)
+      const root = baseUrl.replace(/\/+$/, '')
+      try {
+        const res = await net.fetch(`${root}/gec/feedback`, {
+          method: 'POST',
+          headers: {
+            'content-type': 'application/json',
+            ...(token ? { authorization: `Bearer ${token}` } : {}),
+          },
+          body: JSON.stringify({
+            lang: String(request?.lang ?? 'zh').slice(0, 16),
+            // the service deserializes this into its own Error type; send the
+            // detect response's element verbatim (round-trip by construction)
+            error: request?.error ?? null,
+            action: request?.action === 'adopt' ? 'adopt' : 'reject',
+            ...(typeof request?.srcText === 'string' && request.srcText
+              ? { src_text: request.srcText }
+              : {}),
+          }),
+          signal: controller.signal,
+        })
+        if (!res.ok) {
+          let message = `HTTP ${res.status}`
+          try {
+            const body = (await res.json()) as { error?: unknown }
+            if (typeof body.error === 'string' && body.error) message = body.error
+          } catch {
+            /* non-JSON error body: keep the status line */
+          }
+          return { ok: false, status: res.status, error: message }
+        }
+        return { ok: true, status: res.status }
+      } catch (e) {
+        if (controller.signal.aborted) return { ok: false, status: 0, error: 'stopped' }
+        return { ok: false, status: 0, error: e instanceof Error ? e.message : String(e) }
+      } finally {
+        clearTimeout(timer)
+      }
+    }
+  )
 
   // shared search tools (content + images): Serper with DuckDuckGo fallback (same source as slides/sheets)
   ipcMain.handle('ai:web-search', async (_event, query: string, maxResults?: number) => {

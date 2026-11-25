@@ -74,7 +74,7 @@ export function validCliPath(raw: unknown): raw is string {
 }
 
 /** http(s) URL with no embedded credentials, normalized like request time. */
-function sanitizeBaseUrl(raw: unknown): string | undefined {
+export function sanitizeBaseUrl(raw: unknown): string | undefined {
   try {
     return normalizeBaseUrl(typeof raw === 'string' ? raw : '', '')
   } catch {
@@ -244,6 +244,27 @@ export function sanitizeAiSettings(input: unknown): AiSettings | null {
   }
   if (typeof raw.search === 'object' && raw.search !== null && !Array.isArray(raw.search)) {
     settings.search = raw.search as AiSettings['search']
+  }
+  // the proofread service's baseUrl receives its access token: same URL gate
+  // as every other baseUrl; an invalid URL drops the whole block
+  if (typeof raw.proofread === 'object' && raw.proofread !== null && !Array.isArray(raw.proofread)) {
+    const rawProofread = raw.proofread as Record<string, unknown>
+    const baseUrl = sanitizeBaseUrl(rawProofread.baseUrl)
+    if (baseUrl !== undefined) {
+      settings.proofread = {
+        baseUrl,
+        token: String(rawProofread.token ?? '').trim().slice(0, 512),
+        // absent means enabled (deep scan / AI recheck default on), so only
+        // an explicit boolean in the file is preserved
+        ...(typeof rawProofread.deepScan === 'boolean' ? { deepScan: rawProofread.deepScan } : {}),
+        ...(typeof rawProofread.aiRecheck === 'boolean' ? { aiRecheck: rawProofread.aiRecheck } : {}),
+      }
+    } else if (typeof rawProofread.baseUrl === 'string' && rawProofread.baseUrl.trim() === '') {
+      // a deliberately cleared URL stays an explicit empty block: dropping it
+      // here would re-inject the default service and make the chat-panel
+      // fallback unreachable from the settings UI
+      settings.proofread = { baseUrl: '', token: '' }
+    }
   }
   return settings
 }

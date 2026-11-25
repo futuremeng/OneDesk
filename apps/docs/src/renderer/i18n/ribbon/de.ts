@@ -28,7 +28,7 @@ export const de = {
   ribbonLangHungarian: 'Ungarisch',
   ribbonAiCreditNote: 'Ruft KI auf und verbraucht Guthaben',
   ribbonAiRewriteConfirm:
-    'Diese Aktion ruft die KI auf: Sie verbraucht Guthaben und kann den gesamten Inhalt umschreiben. Fortfahren? (Sie werden nicht erneut gefragt.)',
+    'This sends the whole document to the AI for one proofreading pass and uses AI credits. Every change lands as a tracked revision - the text stays untouched until you accept it. If text is selected, only the selection is proofread. Start proofreading? (You won\'t be asked again.)',
   ribbonTabHome: 'Start',
   ribbonTabDraw: 'Zeichnen',
   ribbonTabLayout: 'Layout',
@@ -846,6 +846,11 @@ export const de = {
   ribbonSourcePublisher: 'Verlag',
   ribbonEditorBtn: 'Editor',
   ribbonEditorTip: 'KI prüft Rechtschreibung, Grammatik und Zeichensetzung',
+  ribbonAiProofreadBtn: 'KI-Korrektur',
+  ribbonAiProofreadTip: 'KI prüft Rechtschreibung, Grammatik und Zeichensetzung — Ruft KI auf und verbraucht Guthaben',
+  ribbonAiProofreadConfirm: 'Die KI-Korrektur liest das gesamte Dokument und zeichnet jeden Vorschlag als nachverfolgte Änderung auf; der Text wird nie direkt geändert. Fortfahren? (Du wirst nicht erneut gefragt.)',
+  ribbonAiProofreadForcedTip: 'KI-Korrektur ist nicht möglich, solange die Änderungsverfolgung erzwungen ist',
+  ribbonAiProofreadProtectedTip: 'The document is protected, so tracked revisions cannot be written. Turn it off via Review > Protect > Unprotect, or open a copy in editable mode.',
   ribbonEditorPrompt:
     'Korrigiere das gesamte Dokument: Behebe Tippfehler, Zeichensetzungs- und Grammatikfehler, ohne Sinn und Absatzstruktur zu verändern.',
   ribbonGroupProofing: 'Dokumentprüfung',

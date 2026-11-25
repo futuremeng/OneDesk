@@ -588,6 +588,10 @@ export function defaultAiSettings(
     onedeskToolsEnabled: true,
     media: defaultAiMediaSettings(),
     search: defaultAiSearchSettings(),
+    // flow S01: the deterministic proofread backend defaults to the official
+    // LangFixer-compatible service. Settings can repoint it at a self-hosted
+    // instance; an explicitly cleared 服务地址 falls back to the chat panel.
+    proofread: { baseUrl: 'https://langfixer.jiulu.ltd', token: '' },
   }
 }
 
@@ -762,6 +766,9 @@ export function resolveAiSettings(stored: unknown, defaults: AiSettings): AiSett
     onedeskToolsEnabled: settings.onedeskToolsEnabled ?? defaults.onedeskToolsEnabled ?? true,
     media: resolveAiMediaSettings(settings.media ?? defaults.media),
     search: resolveAiSearchSettings(settings.search ?? defaults.search),
+    // carried verbatim so the 审校 pass sees it; the detect handler re-sanitizes
+    // the URL and token before any fetch, so a hand-edited file cannot smuggle one
+    proofread: settings.proofread ?? defaults.proofread,
     // clamped on read: a hand-edited settings file with an absurd cap must not be
     // forwarded to the endpoint verbatim
     ...(settings.maxOutputTokens !== undefined || defaults.maxOutputTokens !== undefined

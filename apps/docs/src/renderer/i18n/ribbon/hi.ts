@@ -28,7 +28,7 @@ export const hi = {
   ribbonLangHungarian: 'हंगेरियन',
   ribbonAiCreditNote: 'AI का उपयोग करता है और क्रेडिट खर्च होते हैं',
   ribbonAiRewriteConfirm:
-    'यह क्रिया AI को कॉल करती है: इसमें क्रेडिट खर्च होते हैं और पूरी सामग्री फिर से लिखी जा सकती है। जारी रखें? (दोबारा नहीं पूछा जाएगा।)',
+    'This sends the whole document to the AI for one proofreading pass and uses AI credits. Every change lands as a tracked revision - the text stays untouched until you accept it. If text is selected, only the selection is proofread. Start proofreading? (You won\'t be asked again.)',
   ribbonTabHome: 'होम',
   ribbonTabDraw: 'आरेखण',
   ribbonTabLayout: 'लेआउट',
@@ -841,6 +841,11 @@ export const hi = {
   ribbonSourcePublisher: 'प्रकाशक',
   ribbonEditorBtn: 'संपादक',
   ribbonEditorTip: 'AI वर्तनी, व्याकरण और विराम चिह्न जाँचता है',
+  ribbonAiProofreadBtn: 'AI प्रूफ़रीड',
+  ribbonAiProofreadTip: 'AI वर्तनी, व्याकरण और विराम चिह्न जाँचता है — AI का उपयोग करता है और क्रेडिट खर्च होते हैं',
+  ribbonAiProofreadConfirm: 'AI शुद्धि पूरा दस्तावेज़ पढ़ेगी और हर सुझाव को ट्रैक किए गए संशोधन के रूप में दर्ज करेगी; पाठ सीधे नहीं बदलता। जारी रखें? (आगे नहीं पूछा जाएगा।)',
+  ribbonAiProofreadForcedTip: 'जब ट्रैक परिवर्तन अनिवार्य हों, AI शुद्धि नहीं चल सकती',
+  ribbonAiProofreadProtectedTip: 'The document is protected, so tracked revisions cannot be written. Turn it off via Review > Protect > Unprotect, or open a copy in editable mode.',
   ribbonEditorPrompt:
     'पूरे दस्तावेज़ को प्रूफ़रीड करें: वर्तनी, विराम चिह्न और व्याकरण की गलतियाँ सुधारें, मूल अर्थ और अनुच्छेद संरचना को अपरिवर्तित रखें।',
   ribbonGroupProofing: 'प्रूफ़िंग',

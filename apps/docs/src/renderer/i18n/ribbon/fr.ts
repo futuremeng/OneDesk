@@ -28,7 +28,7 @@ export const fr = {
   ribbonLangHungarian: 'hongrois',
   ribbonAiCreditNote: "Fait appel à l'IA et consomme des crédits",
   ribbonAiRewriteConfirm:
-    "Cette action fait appel à l'IA : elle consomme des crédits et peut réécrire tout le contenu. Continuer ? (Vous ne serez plus averti.)",
+    "Cette relecture envoie tout le document à l'IA pour une passe complète et consomme des crédits IA. Toutes les modifications sont insérées comme suivis de modifications : le texte reste intact tant que vous ne les acceptez pas. Si une sélection existe, seule la sélection est relue. Démarrer la relecture ? (Il ne vous sera plus demandé après confirmation.)",
   ribbonTabHome: 'Accueil',
   ribbonTabDraw: 'Dessin',
   ribbonTabLayout: 'Mise en page',
@@ -848,6 +848,11 @@ export const fr = {
   ribbonSourcePublisher: 'Éditeur',
   ribbonEditorBtn: 'Éditeur',
   ribbonEditorTip: "L'IA vérifie l'orthographe, la grammaire et la ponctuation",
+  ribbonAiProofreadBtn: "Relecture IA",
+  ribbonAiProofreadTip: "L'IA vérifie l'orthographe, la grammaire et la ponctuation — fait appel à l'IA et consomme des crédits",
+  ribbonAiProofreadConfirm: "La relecture IA lit tout le document une fois. Chaque suggestion est insérée comme suivi de modifications ; votre texte n'est jamais modifié directement. Continuer ? (Il ne vous sera plus demandé après confirmation.)",
+  ribbonAiProofreadForcedTip: "Impossible d'exécuter la relecture IA quand le suivi des modifications est forcé",
+  ribbonAiProofreadProtectedTip: "Le document est protégé, les suivis de modifications ne peuvent pas être écrits. Désactivez la protection via Révision > Protéger > Retirer la protection, ou ouvrez une copie modifiable.",
   ribbonEditorPrompt:
     "Relisez tout le document : corrigez les fautes de frappe, la ponctuation et la grammaire en conservant le sens d'origine et la structure des paragraphes.",
   ribbonGroupProofing: 'Vérification',

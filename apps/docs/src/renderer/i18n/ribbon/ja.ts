@@ -28,7 +28,7 @@ export const ja = {
   ribbonLangHungarian: 'ハンガリー語',
   ribbonAiCreditNote: 'AI を呼び出し、クレジットを消費します',
   ribbonAiRewriteConfirm:
-    'この操作は AI を呼び出します。クレジットを消費し、内容全体が書き換えられる可能性があります。続行しますか？（確認後は再表示されません）',
+    'ドキュメント全体を一度AIで校正し、AIクレジットを消費します。変更はすべて変更履歴として挿入され、承認するまで本文は変更されません。選択がある場合は選択範囲のみ校正します。校正を開始しますか？（確認後は表示されません）',
   // Tabs
   ribbonTabHome: 'ホーム',
   ribbonTabDraw: '描画',
@@ -857,6 +857,11 @@ export const ja = {
   // Review
   ribbonEditorBtn: 'エディター',
   ribbonEditorTip: 'AI がスペル、文法、句読点をチェック',
+  ribbonAiProofreadBtn: 'AI 校正',
+  ribbonAiProofreadTip: 'AI がスペル、文法、句読点をチェック — AI を呼び出し、クレジットを消費します',
+  ribbonAiProofreadConfirm: 'AI 校正はドキュメント全体を読み、すべての提案を変更履歴として記録します。本文が直接変更されることはありません。続行しますか？（確認後は再表示されません）',
+  ribbonAiProofreadForcedTip: '変更履歴が強制オンの間、AI 校正は実行できません',
+  ribbonAiProofreadProtectedTip: 'ドキュメントが保護されているため、変更履歴を書き込めません。［校閲］›［ドキュメントの保護］›［保護の解除］で解除するか、編集可能なコピーを開いてください。',
   ribbonEditorPrompt:
     '文書全体を校正してください：誤字、句読点、文法の誤りを修正し、元の意味と段落構成は変えないでください。',
   ribbonGroupProofing: '文章校正',

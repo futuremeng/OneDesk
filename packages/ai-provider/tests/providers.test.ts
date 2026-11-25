@@ -518,3 +518,26 @@ describe('onedeskToolsEnabled', () => {
     expect(cloudToolsEnabled(off)).toBe(false)
   })
 })
+
+describe('proofread service', () => {
+  it('follows the stored file, defaults to the official service, clears to empty', () => {
+    const resolved = resolveAiSettings(
+      {
+        providers: {} as never,
+        proofread: { baseUrl: 'https://proof.example.com/', token: 'lf-x' },
+      },
+      defaultAiSettings(),
+    )
+    expect(resolved.proofread).toEqual({ baseUrl: 'https://proof.example.com/', token: 'lf-x' })
+    // a settings file from before this feature inherits the official default
+    const legacy = resolveAiSettings({ providers: {} as never }, defaultAiSettings())
+    expect(legacy.proofread).toEqual({ baseUrl: 'https://langfixer.jiulu.ltd', token: '' })
+    // an explicitly cleared address stays an empty block: the docs renderer
+    // then falls back to the chat-model panel instead of re-inheriting it
+    const cleared = resolveAiSettings(
+      { providers: {} as never, proofread: { baseUrl: '', token: '' } },
+      defaultAiSettings(),
+    )
+    expect(cleared.proofread).toEqual({ baseUrl: '', token: '' })
+  })
+})

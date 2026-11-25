@@ -28,7 +28,7 @@ export const ar = {
   ribbonLangHungarian: 'المجرية',
   ribbonAiCreditNote: 'يستدعي الذكاء الاصطناعي ويستهلك الرصيد',
   ribbonAiRewriteConfirm:
-    'هذا الإجراء يستدعي الذكاء الاصطناعي: يستهلك الرصيد وقد يعيد كتابة المحتوى بالكامل. هل تريد المتابعة؟ (لن يتم السؤال مرة أخرى.)',
+    'This sends the whole document to the AI for one proofreading pass and uses AI credits. Every change lands as a tracked revision - the text stays untouched until you accept it. If text is selected, only the selection is proofread. Start proofreading? (You won\'t be asked again.)',
   ribbonTabHome: 'الشريط الرئيسي',
   ribbonTabDraw: 'رسم',
   ribbonTabLayout: 'تخطيط',
@@ -837,6 +837,11 @@ export const ar = {
   ribbonSourcePublisher: 'الناشر',
   ribbonEditorBtn: 'المحرر',
   ribbonEditorTip: 'يتحقق الذكاء الاصطناعي من الإملاء والقواعد وعلامات الترقيم',
+  ribbonAiProofreadBtn: 'تدقيق بالذكاء الاصطناعي',
+  ribbonAiProofreadTip: 'يتحقق الذكاء الاصطناعي من الإملاء والقواعد وعلامات الترقيم — يستدعي الذكاء الاصطناعي ويستهلك الرصيد',
+  ribbonAiProofreadConfirm: 'سيدقق الذكاء الاصطناعي في المستند بأكمله ويسجل كل اقتراح كتغيير متتبع؛ لا يتغير النص مباشرة أبدًا. متابعة؟ (لن يُسأل مرة أخرى.)',
+  ribbonAiProofreadForcedTip: 'لا يمكن تشغيل التدقيق بالذكاء الاصطناعي عندما يكون تتبع التغييرات مفروضًا',
+  ribbonAiProofreadProtectedTip: 'The document is protected, so tracked revisions cannot be written. Turn it off via Review > Protect > Unprotect, or open a copy in editable mode.',
   ribbonEditorPrompt:
     'دقّق المستند بالكامل: صحّح الأخطاء الإملائية وعلامات الترقيم والأخطاء النحوية مع الحفاظ على المعنى الأصلي وبنية الفقرات.',
   ribbonGroupProofing: 'تدقيق',

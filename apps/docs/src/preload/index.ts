@@ -9,6 +9,8 @@ import type {
   AiSettings,
   AiStreamChunk,
   AiStreamRequest,
+  ProofreadDetectRequest,
+  ProofreadFeedbackRequest,
   DesktopApi,
   MenuCommand,
   AutoSaveDefault,
@@ -241,6 +243,12 @@ const api: DesktopApi = {
   skillText: (name: string) => ipcRenderer.invoke('ai:skill-text', name),
   runCli: (args: string[]) => ipcRenderer.invoke('ai:run-cli', args),
   aiStreamCancel: (requestId: string) => ipcRenderer.invoke('ai:stream-cancel', requestId),
+  proofreadDetect: (request: ProofreadDetectRequest) =>
+    ipcRenderer.invoke('ai:proofread-detect', request),
+  proofreadDetectCancel: (requestId: string) =>
+    ipcRenderer.invoke('ai:proofread-detect-cancel', requestId),
+  proofreadFeedback: (request: ProofreadFeedbackRequest) =>
+    ipcRenderer.invoke('ai:proofread-feedback', request),
   aiOneDeskStatus: (withEmail?: boolean) => ipcRenderer.invoke('ai:onedesk-status', withEmail),
   aiOneDeskLogin: () => ipcRenderer.invoke('ai:onedesk-login'),
   onOneDeskLoginLanded: (handler) => {

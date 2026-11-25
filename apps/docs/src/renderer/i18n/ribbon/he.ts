@@ -28,7 +28,7 @@ export const he = {
   ribbonLangHungarian: 'הונגרית',
   ribbonAiCreditNote: 'משתמש ב-AI וצורך קרדיטים',
   ribbonAiRewriteConfirm:
-    'פעולה זו מפעילה AI: היא צורכת קרדיטים ועשויה לשכתב את כל התוכן. להמשיך? (לא תישאל שוב.)',
+    'This sends the whole document to the AI for one proofreading pass and uses AI credits. Every change lands as a tracked revision - the text stays untouched until you accept it. If text is selected, only the selection is proofread. Start proofreading? (You won\'t be asked again.)',
   ribbonTabHome: 'בית',
   ribbonTabDraw: 'ציור',
   ribbonTabLayout: 'פריסה',
@@ -834,6 +834,11 @@ export const he = {
   ribbonSourcePublisher: 'מוציא לאור',
   ribbonEditorBtn: 'עורך',
   ribbonEditorTip: 'ה-AI בודק איות, דקדוק ופיסוק',
+  ribbonAiProofreadBtn: 'הגהה עם AI',
+  ribbonAiProofreadTip: 'ה-AI בודק איות, דקדוק ופיסוק — משתמש ב-AI וצורך קרדיטים',
+  ribbonAiProofreadConfirm: 'הגיה מבוססת AI תקרא את כל המסמך ותרשום כל הצעה כשינוי מנוהל; הטקסט לעולם אינו משתנה ישירות. להמשיך? (לא תישאל שוב.)',
+  ribbonAiProofreadForcedTip: 'לא ניתן להריץ הגיית AI כשמעקב שינויים כפוי',
+  ribbonAiProofreadProtectedTip: 'The document is protected, so tracked revisions cannot be written. Turn it off via Review > Protect > Unprotect, or open a copy in editable mode.',
   ribbonEditorPrompt:
     'הגה את המסמך כולו: תקן שגיאות הקלדה, פיסוק ודקדוק תוך שמירה על המשמעות המקורית ומבנה הפסקאות.',
   ribbonGroupProofing: 'הגהה',

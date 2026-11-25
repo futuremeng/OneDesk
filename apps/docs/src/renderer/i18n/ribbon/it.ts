@@ -28,7 +28,7 @@ export const it = {
   ribbonLangHungarian: 'ungherese',
   ribbonAiCreditNote: "Usa l'IA e consuma crediti",
   ribbonAiRewriteConfirm:
-    "Questa azione richiama l'IA: consuma crediti e può riscrivere l'intero contenuto. Continuare? (Non verrà più chiesto.)",
+    "Questa revisione invia l'intero documento all'AI per una passata completa e consuma crediti AI. Ogni modifica viene inserita come modifica tracciata: il testo resta invariato finché non la accetti. Se c'è una selezione, viene riletta solo la selezione. Iniziare la revisione? (Dopo la conferma non verrà più chiesto.)",
   ribbonTabHome: 'Home',
   ribbonTabDraw: 'Disegno',
   ribbonTabLayout: 'Layout',
@@ -847,6 +847,11 @@ export const it = {
   ribbonSourcePublisher: 'Editore',
   ribbonEditorBtn: 'Editor',
   ribbonEditorTip: "L'IA controlla ortografia, grammatica e punteggiatura",
+  ribbonAiProofreadBtn: "Revisione IA",
+  ribbonAiProofreadTip: "L'AI controlla ortografia, grammatica e punteggiatura — usa l'AI e consuma crediti",
+  ribbonAiProofreadConfirm: "La revisione IA legge l'intero documento una volta. Ogni suggerimento viene inserito come modifica tracciata; il testo non viene mai modificato direttamente. Continuare? (Dopo la conferma non verrà più chiesto.)",
+  ribbonAiProofreadForcedTip: "Impossibile eseguire la revisione IA quando il tracciamento delle modifiche è forzato",
+  ribbonAiProofreadProtectedTip: "Il documento è protetto, le modifiche tracciate non possono essere scritte. Disattala da Revisione > Proteggi > Rimuovi protezione oppure apri una copia modificabile.",
   ribbonEditorPrompt:
     "Correggi l'intero documento: sistema refusi, punteggiatura ed errori grammaticali mantenendo il significato originale e la struttura dei paragrafi.",
   ribbonGroupProofing: 'Strumenti di correzione',

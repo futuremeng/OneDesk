@@ -284,6 +284,15 @@ export interface AiSettings {
   /** web/image search backend; absent means OneDesk (onedesk when signed in, then the free chain) */
   search?: AiSearchSettings | undefined
   /**
+   * External proofread service (a gec/detect-compatible endpoint, e.g. a
+   * self-hosted LangFixer). When baseUrl is set the 审校 pass posts there
+   * instead of the generic LLM chat; absent or blank keeps the LLM path.
+   * deepScan (level-2 detection, LLM deep-check on unsure sentences) and
+   * aiRecheck (unconditional per-paragraph LLM pass) both default to true:
+   * absent means on, only an explicit false turns them off.
+   */
+  proofread?: { baseUrl: string; token: string; deepScan?: boolean; aiRecheck?: boolean } | undefined
+  /**
    * OneDesk cloud tools (web/image search via onedesk, image generation, media
    * analysis). Default true; false makes tools skip the onedesk backend entirely
    * (search falls back to free sources, onedesk-only tools are unavailable).

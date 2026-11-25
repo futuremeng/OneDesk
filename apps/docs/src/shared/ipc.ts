@@ -152,6 +152,55 @@ export type {
 } from '@onedesk/ai-provider'
 export { AI_PROVIDERS } from '@onedesk/ai-provider/browser'
 
+/** one proofread-service detect call: the renderer never touches the network
+ *  itself (CORS/CSP) — the main process posts to {baseUrl}/gec/detect. */
+export interface ProofreadDetectRequest {
+  requestId: string
+  baseUrl: string
+  token: string
+  /** BCP47-ish service lang code ('zh', 'en', 'ja') */
+  lang: string
+  text: string
+  /** detection level: 1 rules+decision, 2 adds the LLM deep-check (deep scan); omitted = server default */
+  level?: number
+  /** unconditional LLM recheck pass over the whole text (AI 复查) */
+  forceLlm?: boolean
+}
+
+export interface ProofreadDetectResult {
+  ok: boolean
+  /** HTTP status; 0 when the request never completed (abort or network error) */
+  status: number
+  /** raw service `errors` array on success — spans are BYTE offsets into `text` */
+  errors?: unknown[]
+  /** service `{error}` message or a short local description on failure */
+  error?: string
+}
+
+/** one accept/reject feedback report for a landed proofread revision: the
+ *  renderer never touches the network itself — the main process posts to
+ *  {baseUrl}/gec/feedback with the same access token as detect. */
+export interface ProofreadFeedbackRequest {
+  baseUrl: string
+  token: string
+  /** BCP47-ish service lang code ('zh', 'en', 'ja') */
+  lang: string
+  /** the detect response's raw error object for this revision, verbatim */
+  error: unknown
+  /** accept → 'adopt', reject → 'reject' */
+  action: 'adopt' | 'reject'
+  /** full paragraph text the error was detected in (service src_text) */
+  srcText?: string
+}
+
+export interface ProofreadFeedbackResult {
+  ok: boolean
+  /** HTTP status; 0 when the request never completed (abort or network error) */
+  status: number
+  /** service `{error}` message or a short local description on failure */
+  error?: string
+}
+
 // ---- agent protocol: canonical types live in @onedesk/agent-core ----
 
 export type {
@@ -640,6 +689,11 @@ export interface DesktopApi {
   /** start a streaming AI call; deltas arrive via onAiStream with the same requestId */
   aiStream(request: AiStreamRequest): Promise<void>
   aiStreamCancel(requestId: string): Promise<void>
+  /** one proofread-service detect call (POST {baseUrl}/gec/detect) from the main process */
+  proofreadDetect(request: ProofreadDetectRequest): Promise<ProofreadDetectResult>
+  proofreadDetectCancel(requestId: string): Promise<void>
+  /** one accept/reject feedback report for a landed proofread revision (POST {baseUrl}/gec/feedback); fire-and-forget from the renderer, errors are swallowed there */
+  proofreadFeedback(request: ProofreadFeedbackRequest): Promise<ProofreadFeedbackResult>
   /** OneDesk account status (onedesk login state); withEmail also returns the email (needs a network request, slower) */
   aiOneDeskStatus(withEmail?: boolean): Promise<OneDeskAccountStatus>
   /** Open the browser to log in to OneDesk (fire-and-forget; aiOneDeskStatus flips to logged-in when done) */

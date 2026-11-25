@@ -11363,6 +11363,37 @@ body.docs-crop-active
   background: var(--color-bg-subtle);
 }
 
+/* the AI proofread pass: progress / resume / settings rows above the composer */
+.ai-proofread-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  padding: 6px 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-12);
+  background: var(--color-bg-subtle);
+  font-size: var(--text-caption);
+}
+
+.ai-proofread-bar.warn {
+  color: var(--docs-ai-error);
+}
+
+.ai-proofread-bar .ai-proofread-progress {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ai-proofread-toast {
+  margin-bottom: 7px;
+  font-size: var(--text-caption);
+  color: var(--color-text-secondary);
+}
+
 .ai-revision-bar .ai-revision-count {
   flex: 1;
   min-width: 0;

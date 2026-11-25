@@ -28,7 +28,7 @@ export const ko = {
   ribbonLangHungarian: '헝가리어',
   ribbonAiCreditNote: 'AI를 호출하며 크레딧이 소모됩니다',
   ribbonAiRewriteConfirm:
-    '이 작업은 AI를 호출합니다. 크레딧이 소모되며 전체 내용이 다시 작성될 수 있습니다. 계속하시겠습니까? (확인 후 다시 묻지 않습니다)',
+    '문서 전체를 AI가 한 번 교정하며 AI 크레딧을 소모합니다. 모든 변경은 추적 변경으로 삽입되며 승인 전에는 본문이 바뀌지 않습니다. 선택 영역이 있으면 선택 부분만 교정합니다. 교정을 시작할까요? (확인 후 다시 묻지 않음)',
   // Tabs
   ribbonTabHome: '홈',
   ribbonTabDraw: '그리기',
@@ -854,6 +854,11 @@ export const ko = {
   // Review
   ribbonEditorBtn: '편집기',
   ribbonEditorTip: 'AI가 맞춤법, 문법 및 문장 부호 검사',
+  ribbonAiProofreadBtn: 'AI 교정',
+  ribbonAiProofreadTip: 'AI가 맞춤법, 문법 및 문장 부호 검사 — AI를 호출하며 크레딧이 소모됩니다',
+  ribbonAiProofreadConfirm: 'AI 교정은 문서 전체를 읽으며 모든 제안을 추적 변경으로 기록합니다. 본문이 직접 수정되지는 않습니다. 계속할까요? (확인하면 다시 묻지 않습니다)',
+  ribbonAiProofreadForcedTip: '추적 변경이 강제된 상태에서는 AI 교정을 실행할 수 없습니다',
+  ribbonAiProofreadProtectedTip: '문서가 보호되어 변경 이력을 쓸 수 없습니다. 검토 › 문서 보호 › 보호 해제로 해제하거나 편집 가능한 사본을 여세요.',
   ribbonEditorPrompt:
     '문서 전체를 교정해 주세요: 오탈자, 문장 부호, 문법 오류를 수정하되 원래 의미와 단락 구조는 유지해 주세요.',
   ribbonGroupProofing: '언어 교정',

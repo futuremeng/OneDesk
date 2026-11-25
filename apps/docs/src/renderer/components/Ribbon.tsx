@@ -352,6 +352,8 @@ interface RibbonProps {
   trackChangesForced: boolean
   /** any protection is configured (highlights the Protect Document button) */
   protectActive: boolean
+  /** the AI proofread pass is streaming: the Review button shows it busy (flow P02) */
+  aiProofBusy?: boolean
   /** Mailings: the data source the user picked, null when there is none yet */
   mergeSource: MergeDataSource | null
   /** Mailings: the record the preview shows */
@@ -733,6 +735,7 @@ function RibbonInner({
   commentsAllowed,
   trackChangesForced,
   protectActive,
+  aiProofBusy,
   viewMode,
   readMode,
   onReadMode,
@@ -4263,6 +4266,7 @@ function RibbonInner({
             commentsAllowed={commentsAllowed}
             trackChangesForced={trackChangesForced}
             protectActive={protectActive}
+            aiProofBusy={aiProofBusy}
           />
         ) : (
           <ViewTab

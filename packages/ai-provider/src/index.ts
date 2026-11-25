@@ -103,7 +103,7 @@ export type {
   ProviderCapabilities,
   ResolvedEndpoint,
 } from './registry'
-export { sanitizeAiSettings, sanitizeCliPath, validCliPath } from './ai-settings-guard'
+export { sanitizeAiSettings, sanitizeBaseUrl, sanitizeCliPath, validCliPath } from './ai-settings-guard'
 export {
   isThinkingEffort,
   resolveThinkingEffort,

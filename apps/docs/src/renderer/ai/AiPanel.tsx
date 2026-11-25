@@ -43,6 +43,7 @@ import {
   truncateCardName,
 } from '@onedesk/ui'
 import type { PmNode } from '../editor/convert'
+import type { ProofreadUiState } from '../editor/proofread'
 import { TABLE_TRAILING_SKIP } from '../editor/extensions'
 import { countWords, findNumId, type NumIds } from './protocol'
 import { DOC_NAV_SCHEME, navigateToBlock, parseDocNavHref } from './doc-nav'
@@ -77,6 +78,7 @@ import { setInactiveSelectionShown } from '../editor/inactive-selection'
 import type { Node as ProseNode } from '@tiptap/pm/model'
 import type { RevisionRange } from '../editor/revisions'
 import type { ReviewEntry } from '../editor/revision-filters'
+import type { ProofreadErrorTypeKey } from '../editor/proofread'
 import { KIND_LABEL } from '../components/ReviewingPane'
 import { STORY_LABEL } from '../editor/story-revisions'
 import { DOCS_CONTINUE_INSTRUCTION } from './continuation'
@@ -279,9 +281,16 @@ interface AiPanelProps {
   onRevisions?: (action: 'accept' | 'reject') => void
   /** the pending revisions one by one (Reviewing Pane data) for the expandable list under the bar */
   reviewEntries?: ReviewEntry[]
+  /** one coarse error-type i18n key per reviewEntries row (AI proofread landings only) */
+  revisionTypeKeys?: (ProofreadErrorTypeKey | undefined)[]
   activeReviewIndex?: number
   onRevisionSelect?: (rev: RevisionRange) => void
   onRevisionRange?: (action: 'accept' | 'reject', rev: RevisionRange) => void
+  /** the AI proofread pass (Review ▸ AI 审校): progress, stop/resume, settings hint */
+  proofread?: ProofreadUiState
+  onProofreadStop?: () => void
+  onProofreadRetry?: () => void
+  onProofreadSeeResults?: () => void
 }
 
 const EMPTY_REVIEW: ReviewEntry[] = []
@@ -359,9 +368,14 @@ export function AiPanel({
   revisionCount = 0,
   onRevisions,
   reviewEntries = EMPTY_REVIEW,
+  revisionTypeKeys,
   activeReviewIndex = -1,
   onRevisionSelect,
   onRevisionRange,
+  proofread,
+  onProofreadStop,
+  onProofreadRetry,
+  onProofreadSeeResults,
 }: AiPanelProps) {
   const { t, lang } = useI18n()
   // Panel chrome follows the UI language; message text follows its own content (dir=auto below)
@@ -407,6 +421,14 @@ export function AiPanel({
   const [historicChat, setHistoricChat] = useState<ChatEntry[]>([])
   const [copiedIdx, setCopiedIdx] = useState<number | null>(null)
   const [revisionListOpen, setRevisionListOpen] = useState(false)
+  // the pass streams from App; while it runs the composer waits, and entering
+  // the review phase opens the change list so each row is visible (flow P03)
+  const proofreadPhase = proofread?.phase ?? 'idle'
+  const proofreadPhaseRef = useRef(proofreadPhase)
+  proofreadPhaseRef.current = proofreadPhase
+  useEffect(() => {
+    if (proofreadPhase === 'review') setRevisionListOpen(true)
+  }, [proofreadPhase])
   const revisionParas = useMemo(
     () =>
       revisionListOpen && editor ? paragraphNumbers(editor.state.doc, reviewEntries) : EMPTY_NUMS,
@@ -1120,6 +1142,8 @@ export function AiPanel({
     attachSkills = false,
   ) => {
     const loop = loopRef.current
+    // the composer waits while the proofread pass is streaming into the document
+    if (proofreadPhaseRef.current === 'running') return
     if (!instruction || !loop || loop.busy || pendingSendRef.current) return
     setInput('')
     // The message consumes the composer attachments: they ride along (echoed on the
@@ -1694,6 +1718,42 @@ export function AiPanel({
 
       <div className="ai-composer">
         {attachNotice && <div className="ai-attach-notice">{attachNotice}</div>}
+        {proofread?.toast && <div className="ai-proofread-toast">{proofread.toast}</div>}
+        {proofreadPhase === 'running' && (
+          <div className="ai-proofread-bar" role="status">
+            <span className="ai-proofread-progress">
+              {t('aiProofreadProgress', { done: proofread?.done ?? 0, total: proofread?.total ?? 0 })}
+            </span>
+            <button type="button" className="ai-queue-discard" onClick={onProofreadStop}>
+              {t('aiStop')}
+            </button>
+          </div>
+        )}
+        {proofreadPhase === 'stopped' && (
+          <div className="ai-proofread-bar">
+            <span className="ai-proofread-progress">
+              {t('aiProofreadStopped', { count: revisionCount })}
+            </span>
+            <button type="button" className="ai-queue-send" onClick={onProofreadRetry}>
+              {t('aiProofreadResume')}
+            </button>
+            <button type="button" className="ai-queue-discard" onClick={onProofreadSeeResults}>
+              {t('aiProofreadResults')}
+            </button>
+          </div>
+        )}
+        {proofreadPhase === 'unavailable' && (
+          <div className="ai-proofread-bar warn">
+            <span className="ai-proofread-progress">{t('aiProofreadNeedsSettings')}</span>
+            <button
+              type="button"
+              className="ai-queue-send"
+              onClick={() => MODEL_BRIDGE.openModelSettings?.()}
+            >
+              {t('aiProofreadOpenSettings')}
+            </button>
+          </div>
+        )}
         {activePartial && (
           <div className="ai-queue ai-partial-card" role="group" aria-label={t('aiPartialTitle')}>
             <div className="ai-queue-head">
@@ -1717,7 +1777,25 @@ export function AiPanel({
           </div>
         )}
         {revisionCount > 0 && (
-          <div className="ai-revision-bar" role="group" aria-label={t('aiRevisionBarTitle')}>
+          <div
+            className="ai-revision-bar"
+            role="group"
+            aria-label={t('aiRevisionBarTitle')}
+            onKeyDown={(ev) => {
+              // one-by-one review: the arrow keys move through the rows (flow P04)
+              if (ev.key !== 'ArrowDown' && ev.key !== 'ArrowUp') return
+              if (reviewEntries.length === 0) return
+              ev.preventDefault()
+              const next =
+                activeReviewIndex < 0
+                  ? 0
+                  : ev.key === 'ArrowDown'
+                    ? Math.min(activeReviewIndex + 1, reviewEntries.length - 1)
+                    : Math.max(activeReviewIndex - 1, 0)
+              const entry = reviewEntries[next]
+              if (entry) onRevisionSelect?.(entry.rev)
+            }}
+          >
             <button
               type="button"
               className={`ai-revision-count${revisionListOpen ? ' open' : ''}`}
@@ -1750,6 +1828,7 @@ export function AiPanel({
                   const kind = e.rev.kind
                   const tone = REVISION_TONE[kind] ?? 'fmt'
                   const para = revisionParas[i] ?? 0
+                  const typeKey = revisionTypeKeys?.[i]
                   return (
                     <div
                       key={e.rev.story?.id ?? `${e.rev.from}-${kind}-${e.rev.author}`}
@@ -1764,6 +1843,7 @@ export function AiPanel({
                         ) : (
                           para > 0 && <span> · {t('aiRevisionPara', { n: para })}</span>
                         )}
+                        {typeKey && <span> · {t(typeKey)}</span>}
                       </div>
                       {e.excerpt && (
                         <div className={`ai-revision-row-text${tone === 'del' ? ' del' : ''}`}>

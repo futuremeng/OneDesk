@@ -96,23 +96,32 @@ export function useRunCommand(): RibbonCommandSource['run'] {
 export function RbCommand({
   cmd,
   look = 'icon',
+  busy = false,
+  blocked,
   children,
 }: {
   cmd: RibbonCommandId
   look?: 'icon' | 'small' | 'big'
+  /** the command is running: the button stays dead and the caption gains an ellipsis */
+  busy?: boolean
+  /** why the command cannot run right now; shown as the tip in place of the normal one */
+  blocked?: string
   children: ReactNode
 }) {
   const { t } = useI18n()
   const command = useRibbonCommand(cmd)
-  const tip = t(command.control.tip)
-  const caption = command.control.caption ? t(command.control.caption) : ''
+  const tip = blocked ?? t(command.control.tip)
+  const caption = (command.control.caption ? t(command.control.caption) : '') + (busy ? '…' : '')
+  const disabled = command.disabled || busy || blocked !== undefined
+  const run = busy || blocked !== undefined ? () => undefined : command.run
   if (look === 'big') {
     return (
       <button
         className={`rb-big${command.pressed ? ' active' : ''}`}
-        disabled={command.disabled}
+        disabled={disabled}
         data-tip={tip}
-        onClick={command.run}
+        // command-exempt: RbCommand dispatches its own command (source.run → runCommand)
+        onClick={run}
       >
         <span className="rb-big-icon">{children}</span>
         <span>{caption}</span>
@@ -123,9 +132,10 @@ export function RbCommand({
     return (
       <button
         className={`rb-small${command.pressed ? ' active' : ''}`}
-        disabled={command.disabled}
+        disabled={disabled}
         data-tip={tip}
-        onClick={command.run}
+        // command-exempt: RbCommand dispatches its own command (source.run → runCommand)
+        onClick={run}
       >
         {children}
         <span className="rb-small-label">{caption}</span>
@@ -135,10 +145,11 @@ export function RbCommand({
   return (
     <button
       className={`rb-icon ${command.pressed ? 'active' : ''}`}
-      disabled={command.disabled}
+      disabled={disabled}
       data-tip={tip}
       aria-label={tip}
-      onClick={command.run}
+      // command-exempt: RbCommand dispatches its own command (source.run → runCommand)
+      onClick={run}
     >
       {children}
     </button>
