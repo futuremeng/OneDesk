@@ -99,6 +99,7 @@ import {
   applySectionStartType,
   applyTitlePg,
   readSections,
+  parseDocx,
   verifyProtectionPassword,
   type Block,
   type CommentInfo,
@@ -780,6 +781,8 @@ import {
   type FileActionContext,
   type PendingPdfExport,
 } from './file-actions'
+import { fetchDocBytes } from './doc-bytes'
+import { ALL_COMPARE_SETTINGS } from './compare-request'
 import { reduceFileSize } from './reduce-file-size'
 import { selectedPictureSources } from './reduce-pictures'
 import { BlockIndex } from './pagination-index'
@@ -796,6 +799,7 @@ import { tabLayoutDiag } from './editor/decoration-extensions'
 import { layoutHealth } from './editor/layout-health'
 import {
   AI_PROOFREAD_ACK_KEY,
+  AI_PROOFREAD_PRO_KEY,
   PROOFREAD_AUTHOR,
   collectProofreadParagraphs,
   errorTypeLabelKey,
@@ -3061,12 +3065,63 @@ export function App() {
       .then(async ([pending, , aiContent]) => {
         if (bootHandledRef.current) return
         bootHandledRef.current = true
-        // A failed open (corrupt file etc.) falls back to a blank document —
-        // otherwise the tab shows "Opening…" forever with only a status-bar
-        // line explaining why (onedesk.jiulu.ltd issue #102).
-        // 'password': the prompt is up; its cancel path lands on blank instead.
-        const outcome = pending ? await loadFile(pending) : 'canceled'
-        if (outcome === 'canceled') await resetFile()
+        // a pro-mode pass handed this tab its copy payload (flow P06)
+        const copyOpen =
+          pending && !('needsPassword' in pending) && pending.proofread
+            ? { file: pending, payload: pending.proofread }
+            : null
+        if (copyOpen) {
+          // the handoff URL can only be taken once: the snapshot comes through
+          // here, is re-served to loadFile from a blob, and stays held for 对校
+          const snapshot = await fetchDocBytes(copyOpen.file.dataUrl)
+          proofreadCopyRef.current = {
+            originalName: copyOpen.payload.originalName,
+            bytes: snapshot,
+          }
+          const url = URL.createObjectURL(new Blob([snapshot as BlobPart]))
+          try {
+            const outcome = await loadFile({ ...copyOpen.file, dataUrl: url })
+            if (outcome === 'canceled') await resetFile()
+            else {
+              // the copy adopts the pass: the rows wait for decisions exactly
+              // as in the original tab, and every landing is a tracked revision
+              const rows = copyOpen.payload.suggestions as ProofreadSuggestion[]
+              proofreadSuggestionsRef.current = rows
+              setProofreadSuggestions(rows)
+              proofreadSessionRef.current = {
+                autoTrack: true,
+                prevTrack: false,
+                accepted: 0,
+                rejected: 0,
+                finished: true,
+                settled: false,
+                feedback: {
+                  baseUrl: copyOpen.payload.baseUrl,
+                  token: copyOpen.payload.token,
+                  edits: copyOpen.payload.edits as ProofreadFeedbackEdit[],
+                },
+              }
+              setCollateReady(true)
+              setShowAi(true)
+              setTrackChanges(true)
+              setProofreadUi({
+                phase: 'review',
+                done: rows.length,
+                total: rows.length,
+                toast: null,
+              })
+            }
+          } finally {
+            URL.revokeObjectURL(url)
+          }
+        } else {
+          // A failed open (corrupt file etc.) falls back to a blank document —
+          // otherwise the tab shows "Opening…" forever with only a status-bar
+          // line explaining why (onedesk.jiulu.ltd issue #102).
+          // 'password': the prompt is up; its cancel path lands on blank instead.
+          const outcome = pending ? await loadFile(pending) : 'canceled'
+          if (outcome === 'canceled') await resetFile()
+        }
         if (aiContent && !pending) {
           // fileCtxRef refreshes per render: wait until resetFile's setDoc landed
           for (let i = 0; i < 100 && !fileCtxRef.current.doc; i++) {
@@ -7546,6 +7601,41 @@ export function App() {
 
   const stopProofreadPass = useCallback(() => proofreadRunRef.current?.controller.abort(), [])
 
+  // flow P06: 专业 mode parks a finished pass on a copy tab: the original
+  // document stays untouched and the copy carries the rows plus the snapshot
+  const [proofreadPro, setProofreadPro] = useState(
+    () => localStorage.getItem(AI_PROOFREAD_PRO_KEY) === '1',
+  )
+  const [collateReady, setCollateReady] = useState(false)
+  /** the original snapshot and file name a copy tab kept for 对校 */
+  const proofreadCopyRef = useRef<{ originalName: string; bytes: Uint8Array } | null>(null)
+  const proofreadCollate = useCallback(async () => {
+    const copy = proofreadCopyRef.current
+    const ctx = reviewCtxRef.current
+    if (!copy || !ctx.editor) return
+    try {
+      // the snapshot may be collated repeatedly: parse a copy of its bytes
+      await runCompare(ctx, {
+        mode: 'compare',
+        original: {
+          kind: 'file',
+          name: copy.originalName,
+          parsed: await parseDocx(copy.bytes.slice()),
+          author: authorName(),
+        },
+        revised: { kind: 'current' },
+        author: authorName(),
+        settings: ALL_COMPARE_SETTINGS,
+        granularity: 'word',
+        target: 'new',
+      })
+    } catch (err) {
+      // parseDocx runs outside runCompare's own catch: mirror its wording
+      ctx.setStatus(t('appCompareFailed', { error: String(err) }))
+    }
+    // t is deliberately not a dep (not referentially stable per project rule)
+  }, [])
+
   const runProofreadPassFrom = useCallback(
     async (startIndex = 0) => {
       if (!editor) return
@@ -7651,6 +7741,36 @@ export function App() {
       proofreadRunRef.current = null
       // flow X02: only a fatal interruption offers the resume; a stop is P03
       proofreadResumeRef.current = sawFatal ? { next: res.next } : null
+      session.finished = true
+      // flow P06: in 专业 mode the open rows leave for a copy tab: this
+      // document stays untouched, its rows cleared and the toggle handed back
+      if (
+        !sawFatal &&
+        res.status === 'done' &&
+        proofreadPro &&
+        !proofreadCopyRef.current &&
+        proofreadSuggestionsRef.current.some((s) => !s.decision)
+      ) {
+        const bytes = await buildDocBytesImpl(fileCtxRef.current)
+        if (bytes) {
+          const stem = doc?.fileName ? doc.fileName.replace(/\.docx$/i, '') : t('appUntitledDocx')
+          const copyName = t('aiProofreadCopyName', { name: stem })
+          await window.desktop.openResultTab(bytes, {
+            name: copyName,
+            originalName: doc?.fileName || copyName,
+            baseUrl: session.feedback?.baseUrl ?? '',
+            token: session.feedback?.token ?? '',
+            suggestions: proofreadSuggestionsRef.current,
+            edits: session.feedback?.edits ?? [],
+          })
+          session.settled = true
+          if (session.autoTrack) setTrackChanges(session.prevTrack)
+          applyProofreadSuggestions([])
+          setProofreadUi({ phase: 'idle', done: paras.length, total: paras.length, toast: null })
+          showToast(t('aiProofreadCopyOpened', { name: copyName }))
+          return
+        }
+      }
       if (!sawFatal)
         setProofreadUi({
           phase: 'review',
@@ -7658,7 +7778,6 @@ export function App() {
           total: paras.length,
           toast: null,
         })
-      session.finished = true
       if (res.status === 'done') {
         if (proofreadSuggestionsRef.current.some((s) => !s.decision))
           showToast(t('aiProofreadFound', { count: res.found }))
@@ -7679,8 +7798,10 @@ export function App() {
       settings,
       readMode,
       isProtected,
-      trackChangesForced,
       trackChanges,
+      trackChangesForced,
+      proofreadPro,
+      doc,
       applyProofreadSuggestions,
       settleProofreadIfEmpty,
     ],
@@ -8560,6 +8681,12 @@ export function App() {
       compare: () => setCompareDialog('compare'),
       combine: () => setCompareDialog('combine'),
       protect: () => ribbonActions.onProtectDoc(),
+      toggleProofreadPro: () =>
+        setProofreadPro((on) => {
+          localStorage.setItem(AI_PROOFREAD_PRO_KEY, on ? '0' : '1')
+          return !on
+        }),
+      collate: () => void proofreadCollate(),
     },
     design: {
       setThemeFonts: (fonts) => ribbonActions.onThemeFonts(fonts),
@@ -10606,6 +10733,8 @@ export function App() {
         recentListPresets={recentLists}
         showAi={showAi}
         aiProofBusy={proofreadUi.phase === 'running'}
+        proofreadPro={proofreadPro}
+        collateReady={collateReady}
         section={sections[activeSection]?.settings ?? section}
         tableGridlines={tableGridlines}
         activeSection={sections.length > 1 ? activeSection : null}

@@ -116,6 +116,8 @@ export const nl = {
     'Proofread complete: {accepted} accepted · {rejected} rejected. Accepted suggestions are in the document as tracked revisions.',
   aiProofreadFound: 'Proofread done: {count} issue(s) found',
   aiProofreadClean: 'Proofread done, no issues found',
+  aiProofreadCopyName: '{name} · AI-proefleesexemplaar',
+  aiProofreadCopyOpened: 'Proefleesexemplaar {name} geopend; het origineel is ongewijzigd',
   aiProofreadStale: 'The text changed; this suggestion could not be located and was not applied',
   aiProofreadNeedsSettings:
     'Geen modelserver geconfigureerd; controle heeft een OpenAI-compatibel endpoint nodig',

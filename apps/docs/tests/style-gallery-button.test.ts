@@ -120,6 +120,8 @@ function ribbonProps(editor: Editor) {
     commentsAllowed: false,
     trackChangesForced: false,
     protectActive: false,
+    proofreadPro: false,
+    collateReady: false,
     onProtectDoc: noop,
     onCompare: noop,
     mergeSource: null,

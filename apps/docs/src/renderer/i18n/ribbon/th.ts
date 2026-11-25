@@ -28,7 +28,7 @@ export const th = {
   ribbonLangHungarian: 'ภาษาฮังการี',
   ribbonAiCreditNote: 'เรียกใช้ AI และใช้เครดิต',
   ribbonAiRewriteConfirm:
-    'This sends the whole document to the AI for one proofreading pass and uses AI credits. Every change lands as a tracked revision - the text stays untouched until you accept it. If text is selected, only the selection is proofread. Start proofreading? (You won\'t be asked again.)',
+    "This sends the whole document to the AI for one proofreading pass and uses AI credits. Every change lands as a tracked revision - the text stays untouched until you accept it. If text is selected, only the selection is proofread. Start proofreading? (You won't be asked again.)",
   ribbonTabHome: 'หน้าแรก',
   ribbonTabDraw: 'วาด',
   ribbonTabLayout: 'เค้าโครง',
@@ -836,10 +836,13 @@ export const th = {
   ribbonEditorBtn: 'ตัวตรวจแก้',
   ribbonEditorTip: 'AI ตรวจสอบการสะกด ไวยากรณ์ และเครื่องหมายวรรคตอน',
   ribbonAiProofreadBtn: 'พิสูจน์อักษรด้วย AI',
-  ribbonAiProofreadTip: 'AI ตรวจสอบการสะกด ไวยากรณ์ และเครื่องหมายวรรคตอน — เรียกใช้ AI และใช้เครดิต',
-  ribbonAiProofreadConfirm: 'AI ตรวจแก้จะอ่านเอกสารทั้งฉบับและบันทึกทุกข้อเสนอเป็นการเปลี่ยนแปลงที่ติดตาม ข้อความจะไม่ถูกแก้โดยตรง ดำเนินการต่อ? (จะไม่ถามอีก)',
+  ribbonAiProofreadTip:
+    'AI ตรวจสอบการสะกด ไวยากรณ์ และเครื่องหมายวรรคตอน — เรียกใช้ AI และใช้เครดิต',
+  ribbonAiProofreadConfirm:
+    'AI ตรวจแก้จะอ่านเอกสารทั้งฉบับและบันทึกทุกข้อเสนอเป็นการเปลี่ยนแปลงที่ติดตาม ข้อความจะไม่ถูกแก้โดยตรง ดำเนินการต่อ? (จะไม่ถามอีก)',
   ribbonAiProofreadForcedTip: 'ใช้ AI ตรวจแก้ไม่ได้ขณะบังคับติดตามการเปลี่ยนแปลง',
-  ribbonAiProofreadProtectedTip: 'The document is protected, so tracked revisions cannot be written. Turn it off via Review > Protect > Unprotect, or open a copy in editable mode.',
+  ribbonAiProofreadProtectedTip:
+    'The document is protected, so tracked revisions cannot be written. Turn it off via Review > Protect > Unprotect, or open a copy in editable mode.',
   ribbonEditorPrompt:
     'พิสูจน์อักษรทั้งเอกสาร: แก้ไขคำผิด เครื่องหมายวรรคตอน และไวยากรณ์ โดยคงความหมายเดิมและโครงสร้างย่อหน้าไว้',
   ribbonGroupProofing: 'การพิสูจน์อักษร',
@@ -961,6 +964,10 @@ export const th = {
   ribbonCompareDocuments: 'เปรียบเทียบเอกสาร…',
   ribbonCombineDocuments: 'รวมเอกสาร…',
   ribbonCompareTip: 'เปรียบเทียบหรือรวมเอกสารสองฉบับ: ความแตกต่างจะกลายเป็นการเปลี่ยนแปลงที่ติดตาม',
+  ribbonProofreadPro: 'โหมดโปร',
+  ribbonProofreadProTip: 'เมื่อเปิด การพิสูจน์อักษรด้วย AI จะเขียนลงสำเนาใหม่ ต้นฉบับไม่ถูกแก้ไข',
+  ribbonCollate: 'ตรวจทาน',
+  ribbonCollateTip: 'เปรียบเทียบสำเนานี้กับต้นฉบับและเปิดดูความแตกต่าง',
   ribbonCmpDlgOriginal: 'เอกสารต้นฉบับ',
   ribbonCmpDlgRevised: 'เอกสารที่แก้ไข',
   ribbonCmpDlgCurrent: '{name} (เปิดอยู่ที่นี่)',

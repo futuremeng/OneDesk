@@ -115,6 +115,8 @@ export const tr = {
     'Proofread complete: {accepted} accepted · {rejected} rejected. Accepted suggestions are in the document as tracked revisions.',
   aiProofreadFound: 'Proofread done: {count} issue(s) found',
   aiProofreadClean: 'Proofread done, no issues found',
+  aiProofreadCopyName: '{name} · YZ düzeltme kopyası',
+  aiProofreadCopyOpened: 'Düzeltme kopyası {name} açıldı; özgün belge değişmedi',
   aiProofreadStale: 'The text changed; this suggestion could not be located and was not applied',
   aiProofreadNeedsSettings:
     'Model hizmeti yapılandırılmamış — denetim için OpenAI uyumlu bir uç nokta gerekir',

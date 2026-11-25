@@ -847,11 +847,15 @@ export const it = {
   ribbonSourcePublisher: 'Editore',
   ribbonEditorBtn: 'Editor',
   ribbonEditorTip: "L'IA controlla ortografia, grammatica e punteggiatura",
-  ribbonAiProofreadBtn: "Revisione IA",
-  ribbonAiProofreadTip: "L'AI controlla ortografia, grammatica e punteggiatura — usa l'AI e consuma crediti",
-  ribbonAiProofreadConfirm: "La revisione IA legge l'intero documento una volta. Ogni suggerimento viene inserito come modifica tracciata; il testo non viene mai modificato direttamente. Continuare? (Dopo la conferma non verrà più chiesto.)",
-  ribbonAiProofreadForcedTip: "Impossibile eseguire la revisione IA quando il tracciamento delle modifiche è forzato",
-  ribbonAiProofreadProtectedTip: "Il documento è protetto, le modifiche tracciate non possono essere scritte. Disattala da Revisione > Proteggi > Rimuovi protezione oppure apri una copia modificabile.",
+  ribbonAiProofreadBtn: 'Revisione IA',
+  ribbonAiProofreadTip:
+    "L'AI controlla ortografia, grammatica e punteggiatura — usa l'AI e consuma crediti",
+  ribbonAiProofreadConfirm:
+    "La revisione IA legge l'intero documento una volta. Ogni suggerimento viene inserito come modifica tracciata; il testo non viene mai modificato direttamente. Continuare? (Dopo la conferma non verrà più chiesto.)",
+  ribbonAiProofreadForcedTip:
+    'Impossibile eseguire la revisione IA quando il tracciamento delle modifiche è forzato',
+  ribbonAiProofreadProtectedTip:
+    'Il documento è protetto, le modifiche tracciate non possono essere scritte. Disattala da Revisione > Proteggi > Rimuovi protezione oppure apri una copia modificabile.',
   ribbonEditorPrompt:
     "Correggi l'intero documento: sistema refusi, punteggiatura ed errori grammaticali mantenendo il significato originale e la struttura dei paragrafi.",
   ribbonGroupProofing: 'Strumenti di correzione',
@@ -977,6 +981,11 @@ export const it = {
   ribbonCompareDocuments: 'Confronta documenti…',
   ribbonCombineDocuments: 'Combina documenti…',
   ribbonCompareTip: 'Confronta o combina due documenti: le differenze diventano revisioni',
+  ribbonProofreadPro: 'Modalità Pro',
+  ribbonProofreadProTip:
+    'Se attiva, la revisione IA viene applicata su una copia nuova; il documento originale resta invariato',
+  ribbonCollate: 'Collazione',
+  ribbonCollateTip: 'Confronta questa copia con il documento originale e apre le differenze',
   ribbonCmpDlgOriginal: 'Documento originale',
   ribbonCmpDlgRevised: 'Documento revisionato',
   ribbonCmpDlgCurrent: '{name} (aperto qui)',

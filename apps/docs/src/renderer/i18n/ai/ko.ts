@@ -113,6 +113,8 @@ export const ko = {
     '교정 완료: 승인 {accepted} · 거부 {rejected}. 승인한 제안은 추적 변경으로 문서에 있습니다',
   aiProofreadFound: '교정 완료: 문제 {count}개 발견',
   aiProofreadClean: '교정 완료: 문제를 찾지 못했습니다',
+  aiProofreadCopyName: '{name} · AI 교정 사본',
+  aiProofreadCopyOpened: '교정 사본 {name}을(를) 열었습니다. 원문서는 변경되지 않았습니다',
   aiProofreadStale: '본문이 변경되어 이 제안은 위치를 찾지 못해 적용되지 않았습니다',
   aiProofreadNeedsSettings:
     '모델 서비스가 구성되지 않았습니다. 교정에는 모델 엔드포인트가 필요합니다',

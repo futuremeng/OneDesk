@@ -115,6 +115,8 @@ export const ms = {
     'Proofread complete: {accepted} accepted · {rejected} rejected. Accepted suggestions are in the document as tracked revisions.',
   aiProofreadFound: 'Proofread done: {count} issue(s) found',
   aiProofreadClean: 'Proofread done, no issues found',
+  aiProofreadCopyName: '{name} · Salinan semakan AI',
+  aiProofreadCopyOpened: 'Salinan semakan {name} dibuka; dokumen asal tidak berubah',
   aiProofreadStale: 'The text changed; this suggestion could not be located and was not applied',
   aiProofreadNeedsSettings:
     'Perkhidmatan model belum dikonfigurasi — pembetulan memerlukan hujung titik serasi OpenAI',

@@ -110,6 +110,8 @@ export const zhTW = {
   aiProofreadDone: '校對完成：接受 {accepted} · 拒絕 {rejected}。接受的修改已寫為修訂',
   aiProofreadFound: '校對完成，發現 {count} 處問題',
   aiProofreadClean: '校對完成，未發現問題',
+  aiProofreadCopyName: '{name} · AI 審校副本',
+  aiProofreadCopyOpened: '審校副本「{name}」已開啟，原始文件未改動',
   aiProofreadStale: '原文已變化，這條建議未能定位，未落地',
   aiProofreadNeedsSettings: '尚未設定模型服務，校對需要可存取的模型介面',
   aiProofreadOpenSettings: '開啟設定',

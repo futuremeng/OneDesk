@@ -28,7 +28,7 @@ export const ru = {
   ribbonLangHungarian: 'венгерский',
   ribbonAiCreditNote: 'Использует ИИ и расходует кредиты',
   ribbonAiRewriteConfirm:
-    'This sends the whole document to the AI for one proofreading pass and uses AI credits. Every change lands as a tracked revision - the text stays untouched until you accept it. If text is selected, only the selection is proofread. Start proofreading? (You won\'t be asked again.)',
+    "This sends the whole document to the AI for one proofreading pass and uses AI credits. Every change lands as a tracked revision - the text stays untouched until you accept it. If text is selected, only the selection is proofread. Start proofreading? (You won't be asked again.)",
   ribbonTabHome: 'Главная',
   ribbonTabDraw: 'Рисование',
   ribbonTabLayout: 'Макет',
@@ -841,10 +841,13 @@ export const ru = {
   ribbonEditorBtn: 'Корректор',
   ribbonEditorTip: 'ИИ проверит орфографию, грамматику и пунктуацию',
   ribbonAiProofreadBtn: 'ИИ-корректура',
-  ribbonAiProofreadTip: 'ИИ проверит орфографию, грамматику и пунктуацию — Использует ИИ и расходует кредиты',
-  ribbonAiProofreadConfirm: 'ИИ-вычитка прочитает весь документ и запишет каждое предложение как отслеживаемую правку; текст никогда не меняется напрямую. Продолжить? (Больше спрашиваться не будет.)',
+  ribbonAiProofreadTip:
+    'ИИ проверит орфографию, грамматику и пунктуацию — Использует ИИ и расходует кредиты',
+  ribbonAiProofreadConfirm:
+    'ИИ-вычитка прочитает весь документ и запишет каждое предложение как отслеживаемую правку; текст никогда не меняется напрямую. Продолжить? (Больше спрашиваться не будет.)',
   ribbonAiProofreadForcedTip: 'ИИ-вычитка недоступна при принудительной записи изменений',
-  ribbonAiProofreadProtectedTip: 'The document is protected, so tracked revisions cannot be written. Turn it off via Review > Protect > Unprotect, or open a copy in editable mode.',
+  ribbonAiProofreadProtectedTip:
+    'The document is protected, so tracked revisions cannot be written. Turn it off via Review > Protect > Unprotect, or open a copy in editable mode.',
   ribbonEditorPrompt:
     'Вычитайте весь документ: исправьте опечатки, пунктуацию и грамматические ошибки, сохранив исходный смысл и структуру абзацев.',
   ribbonGroupProofing: 'Правописание',
@@ -970,6 +973,11 @@ export const ru = {
   ribbonCompareDocuments: 'Сравнить документы…',
   ribbonCombineDocuments: 'Объединить документы…',
   ribbonCompareTip: 'Сравнить или объединить два документа: различия станут исправлениями',
+  ribbonProofreadPro: 'Про-режим',
+  ribbonProofreadProTip:
+    'Если включено, результаты ИИ-вычитки применяются в новой копии; оригинал остаётся без изменений',
+  ribbonCollate: 'Сверка',
+  ribbonCollateTip: 'Сравнивает эту копию с оригиналом и открывает отличия',
   ribbonCmpDlgOriginal: 'Исходный документ',
   ribbonCmpDlgRevised: 'Измененный документ',
   ribbonCmpDlgCurrent: '{name} (открыт здесь)',

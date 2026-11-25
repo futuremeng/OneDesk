@@ -858,10 +858,13 @@ export const ja = {
   ribbonEditorBtn: 'エディター',
   ribbonEditorTip: 'AI がスペル、文法、句読点をチェック',
   ribbonAiProofreadBtn: 'AI 校正',
-  ribbonAiProofreadTip: 'AI がスペル、文法、句読点をチェック — AI を呼び出し、クレジットを消費します',
-  ribbonAiProofreadConfirm: 'AI 校正はドキュメント全体を読み、すべての提案を変更履歴として記録します。本文が直接変更されることはありません。続行しますか？（確認後は再表示されません）',
+  ribbonAiProofreadTip:
+    'AI がスペル、文法、句読点をチェック — AI を呼び出し、クレジットを消費します',
+  ribbonAiProofreadConfirm:
+    'AI 校正はドキュメント全体を読み、すべての提案を変更履歴として記録します。本文が直接変更されることはありません。続行しますか？（確認後は再表示されません）',
   ribbonAiProofreadForcedTip: '変更履歴が強制オンの間、AI 校正は実行できません',
-  ribbonAiProofreadProtectedTip: 'ドキュメントが保護されているため、変更履歴を書き込めません。［校閲］›［ドキュメントの保護］›［保護の解除］で解除するか、編集可能なコピーを開いてください。',
+  ribbonAiProofreadProtectedTip:
+    'ドキュメントが保護されているため、変更履歴を書き込めません。［校閲］›［ドキュメントの保護］›［保護の解除］で解除するか、編集可能なコピーを開いてください。',
   ribbonEditorPrompt:
     '文書全体を校正してください：誤字、句読点、文法の誤りを修正し、元の意味と段落構成は変えないでください。',
   ribbonGroupProofing: '文章校正',
@@ -985,6 +988,11 @@ export const ja = {
   ribbonCompareDocuments: '文書の比較…',
   ribbonCombineDocuments: '文書の組み込み…',
   ribbonCompareTip: '2 つの文書を比較または組み込み、相違点を変更履歴として記録',
+  ribbonProofreadPro: 'プロモード',
+  ribbonProofreadProTip:
+    'オンにすると AI 校正の結果は新しいコピーに適用され、原文書は変更されません',
+  ribbonCollate: '照合',
+  ribbonCollateTip: 'このコピーを原文書と比較して、差異を開きます',
   ribbonCmpDlgOriginal: '元の文書',
   ribbonCmpDlgRevised: '変更された文書',
   ribbonCmpDlgCurrent: '{name} (開いている文書)',

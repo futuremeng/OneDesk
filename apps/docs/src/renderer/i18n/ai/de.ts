@@ -117,6 +117,8 @@ export const de = {
     'Korrektur fertig: {accepted} angenommen · {rejected} verworfen. Angenommene Vorschläge liegen als nachverfolgte Änderungen im Dokument',
   aiProofreadFound: 'Korrektur fertig: {count} Problem(e) gefunden',
   aiProofreadClean: 'Korrektur fertig, keine Probleme gefunden',
+  aiProofreadCopyName: '{name} · KI-Korrekturkopie',
+  aiProofreadCopyOpened: 'Korrekturkopie {name} geöffnet; das Original bleibt unverändert',
   aiProofreadStale:
     'Der Text hat sich geändert; dieser Vorschlag konnte nicht gefunden und nicht eingefügt werden',
   aiProofreadNeedsSettings:

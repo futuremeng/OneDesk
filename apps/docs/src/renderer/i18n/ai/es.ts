@@ -116,6 +116,8 @@ export const es = {
     'Corrección completada: {accepted} aceptadas · {rejected} rechazadas. Las sugerencias aceptadas quedaron en el documento como cambios controlados',
   aiProofreadFound: 'Corrección completada: {count} problemas encontrados',
   aiProofreadClean: 'Corrección completada, sin problemas',
+  aiProofreadCopyName: '{name} · Copia de revisión IA',
+  aiProofreadCopyOpened: 'Copia de revisión {name} abierta; el original permanece igual',
   aiProofreadStale: 'El texto cambió; esta sugerencia no se pudo localizar y no se aplicó',
   aiProofreadNeedsSettings:
     'No hay servicio de modelo configurado; la corrección necesita un endpoint compatible con OpenAI',

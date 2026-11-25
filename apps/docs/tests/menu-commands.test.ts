@@ -177,6 +177,8 @@ function makeHost(over: Partial<CommandHost> = {}): CommandHost {
       compare: vi.fn(),
       combine: vi.fn(),
       protect: vi.fn(),
+      toggleProofreadPro: vi.fn(),
+      collate: vi.fn(),
     },
     gridBasePt: 10.5,
     setSection: vi.fn(),

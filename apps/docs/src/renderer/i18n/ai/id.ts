@@ -115,6 +115,8 @@ export const id = {
     'Proofread complete: {accepted} accepted · {rejected} rejected. Accepted suggestions are in the document as tracked revisions.',
   aiProofreadFound: 'Proofread done: {count} issue(s) found',
   aiProofreadClean: 'Proofread done, no issues found',
+  aiProofreadCopyName: '{name} · Salinan koreksi AI',
+  aiProofreadCopyOpened: 'Salinan koreksi {name} dibuka; dokumen asli tidak berubah',
   aiProofreadStale: 'The text changed; this suggestion could not be located and was not applied',
   aiProofreadNeedsSettings:
     'Layanan model belum dikonfigurasi — koreksi membutuhkan endpoint yang kompatibel dengan OpenAI',

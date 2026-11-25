@@ -28,7 +28,7 @@ export const id = {
   ribbonLangHungarian: 'Hongaria',
   ribbonAiCreditNote: 'Menggunakan AI dan menghabiskan kredit',
   ribbonAiRewriteConfirm:
-    'This sends the whole document to the AI for one proofreading pass and uses AI credits. Every change lands as a tracked revision - the text stays untouched until you accept it. If text is selected, only the selection is proofread. Start proofreading? (You won\'t be asked again.)',
+    "This sends the whole document to the AI for one proofreading pass and uses AI credits. Every change lands as a tracked revision - the text stays untouched until you accept it. If text is selected, only the selection is proofread. Start proofreading? (You won't be asked again.)",
   ribbonTabHome: 'Beranda',
   ribbonTabDraw: 'Gambar',
   ribbonTabLayout: 'Tata Letak',
@@ -841,10 +841,13 @@ export const id = {
   ribbonEditorBtn: 'Editor',
   ribbonEditorTip: 'AI memeriksa ejaan, tata bahasa, dan tanda baca',
   ribbonAiProofreadBtn: 'Koreksi AI',
-  ribbonAiProofreadTip: 'AI memeriksa ejaan, tata bahasa, dan tanda baca — Menggunakan AI dan menghabiskan kredit',
-  ribbonAiProofreadConfirm: 'Koreksi AI membaca seluruh dokumen dan mencatat setiap saran sebagai perubahan terlacak; teks tidak pernah diubah langsung. Lanjutkan? (Tidak akan ditanya lagi.)',
+  ribbonAiProofreadTip:
+    'AI memeriksa ejaan, tata bahasa, dan tanda baca — Menggunakan AI dan menghabiskan kredit',
+  ribbonAiProofreadConfirm:
+    'Koreksi AI membaca seluruh dokumen dan mencatat setiap saran sebagai perubahan terlacak; teks tidak pernah diubah langsung. Lanjutkan? (Tidak akan ditanya lagi.)',
   ribbonAiProofreadForcedTip: 'Koreksi AI tidak bisa berjalan saat Pantau Perubahan dipaksa aktif',
-  ribbonAiProofreadProtectedTip: 'The document is protected, so tracked revisions cannot be written. Turn it off via Review > Protect > Unprotect, or open a copy in editable mode.',
+  ribbonAiProofreadProtectedTip:
+    'The document is protected, so tracked revisions cannot be written. Turn it off via Review > Protect > Unprotect, or open a copy in editable mode.',
   ribbonEditorPrompt:
     'Koreksi seluruh dokumen: perbaiki salah ketik, tanda baca, dan kesalahan tata bahasa tanpa mengubah makna asli dan struktur paragraf.',
   ribbonGroupProofing: 'Pemeriksaan',
@@ -971,6 +974,11 @@ export const id = {
   ribbonCombineDocuments: 'Gabungkan Dokumen…',
   ribbonCompareTip:
     'Bandingkan atau gabungkan dua dokumen: perbedaannya menjadi perubahan terlacak',
+  ribbonProofreadPro: 'Mode Pro',
+  ribbonProofreadProTip:
+    'Jika aktif, hasil koreksi AI diterapkan pada salinan baru; dokumen asli tetap tidak berubah',
+  ribbonCollate: 'Kolasi',
+  ribbonCollateTip: 'Membandingkan salinan ini dengan dokumen asli dan membuka perbedaannya',
   ribbonCmpDlgOriginal: 'Dokumen asli',
   ribbonCmpDlgRevised: 'Dokumen yang direvisi',
   ribbonCmpDlgCurrent: '{name} (terbuka di sini)',

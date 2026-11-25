@@ -410,6 +410,10 @@ export interface ReviewHost {
   /** the same dialog as Combine Documents */
   combine(): void
   protect(): void
+  /** turns AI review pro mode (results land on a copy tab) on or off */
+  toggleProofreadPro(): void
+  /** compare this proofread copy tab against its original snapshot */
+  collate(): void
 }
 
 export interface HeaderFooterHost {
@@ -1670,7 +1674,9 @@ export const MENU_COMMAND_HANDLERS: Record<ActionCommandId, Handler> = {
   'revision-previous': reviewing((review) => review.gotoRevision(-1)),
   'revision-next': reviewing((review) => review.gotoRevision(1)),
   'review-pane': reviewing((review) => review.toggleReviewPane()),
+  'proofread-pro-mode': reviewing((review) => review.toggleProofreadPro()),
   'compare-documents': reviewing((review) => review.compare()),
+  'tools-collate': reviewing((review) => review.collate()),
   'tools-combine-documents': reviewing((review) => review.combine()),
   'protect-document': reviewing((review) => review.protect()),
   'font-dialog': (host) => {

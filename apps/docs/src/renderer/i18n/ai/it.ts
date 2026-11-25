@@ -117,6 +117,8 @@ export const it = {
     'Proofread complete: {accepted} accepted · {rejected} rejected. Accepted suggestions are in the document as tracked revisions.',
   aiProofreadFound: 'Proofread done: {count} issue(s) found',
   aiProofreadClean: 'Proofread done, no issues found',
+  aiProofreadCopyName: '{name} · Copia di revisione IA',
+  aiProofreadCopyOpened: 'Copia di revisione {name} aperta; il documento originale resta invariato',
   aiProofreadStale: 'The text changed; this suggestion could not be located and was not applied',
   aiProofreadNeedsSettings:
     'Nessun servizio modello configurato; la correzione richiede un endpoint compatibile con OpenAI',

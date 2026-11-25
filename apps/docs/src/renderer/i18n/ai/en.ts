@@ -114,6 +114,8 @@ export const en = {
     'Proofread complete: {accepted} accepted · {rejected} rejected. Accepted suggestions are in the document as tracked revisions.',
   aiProofreadFound: 'Proofread done: {count} issue(s) found',
   aiProofreadClean: 'Proofread done, no issues found',
+  aiProofreadCopyName: '{name} · AI Proofread Copy',
+  aiProofreadCopyOpened: 'Proofread copy {name} opened; the original stays unchanged',
   aiProofreadStale: 'The text changed; this suggestion could not be located and was not applied',
   aiProofreadNeedsSettings:
     'No model service configured. Proofread needs an OpenAI-compatible endpoint or a sign-in.',

@@ -115,6 +115,8 @@ export const hi = {
     'Proofread complete: {accepted} accepted · {rejected} rejected. Accepted suggestions are in the document as tracked revisions.',
   aiProofreadFound: 'Proofread done: {count} issue(s) found',
   aiProofreadClean: 'Proofread done, no issues found',
+  aiProofreadCopyName: '{name} · AI प्रूफ़रीड प्रति',
+  aiProofreadCopyOpened: 'प्रूफ़रीड प्रति {name} खुली; मूल दस्तावेज़ अपरिवर्तित',
   aiProofreadStale: 'The text changed; this suggestion could not be located and was not applied',
   aiProofreadNeedsSettings:
     'मॉडल सेवा कॉन्फ़िगर नहीं है — शुद्धि के लिए OpenAI-संगत एंडपॉइंट चाहिए',

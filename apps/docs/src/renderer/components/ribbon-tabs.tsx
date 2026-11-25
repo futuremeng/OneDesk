@@ -67,6 +67,7 @@ import {
   IconReadMode,
   IconRuler,
   IconSpellcheck,
+  IconSparkle,
   IconSplit,
   IconSwitchWindows,
   IconRedo,
@@ -817,6 +818,10 @@ interface ReviewTabProps extends TabProps {
   protectActive: boolean
   /** the AI proofread pass is streaming revisions into the document */
   aiProofBusy?: boolean
+  /** AI review pro mode: an accepted pass lands on a copy tab, not this document */
+  proofreadPro: boolean
+  /** this tab is a proofread copy: 对校 can compare it with its original snapshot */
+  collateReady: boolean
 }
 
 export function ReviewTab({
@@ -842,6 +847,8 @@ export function ReviewTab({
   trackChangesForced,
   protectActive,
   aiProofBusy,
+  proofreadPro,
+  collateReady,
 }: ReviewTabProps) {
   const { t } = useI18n()
   const unknownAuthor = t('editorUnknownAuthor')
@@ -937,6 +944,15 @@ export function ReviewTab({
             <RbCommand cmd="word-count" look="small">
               <IconWordCount size={14} />
             </RbCommand>
+            <button
+              className={`rb-small ${proofreadPro ? 'active' : ''}`}
+              disabled={!hasDoc}
+              data-tip={t('ribbonProofreadProTip')}
+              onClick={() => runCommand('proofread-pro-mode')}
+            >
+              <IconSparkle size={14} />
+              <span className="rb-small-label">{t('ribbonProofreadPro')}</span>
+            </button>
           </div>
         </div>
         <div className="ribbon-group-label">{t('ribbonGroupProofing')}</div>
@@ -1347,6 +1363,17 @@ export function ReviewTab({
                 </button>
               </div>
             )}
+          </div>
+          <div className="rb-col">
+            <button
+              className="rb-small"
+              disabled={!hasDoc || !collateReady}
+              data-tip={t('ribbonCollateTip')}
+              onClick={() => runCommand('tools-collate')}
+            >
+              <IconCompare size={14} />
+              <span className="rb-small-label">{t('ribbonCollate')}</span>
+            </button>
           </div>
         </div>
         <div className="ribbon-group-label">{t('ribbonCompare')}</div>

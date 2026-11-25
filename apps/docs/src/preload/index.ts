@@ -16,6 +16,7 @@ import type {
   AutoSaveDefault,
   PrintJobOptions,
   PrintPaper,
+  ProofreadCopyPayload,
   ContextMenuRequest,
   DocTheme,
   UiTheme,
@@ -173,7 +174,8 @@ const api: DesktopApi = {
   organizerOpen: () => ipcRenderer.invoke('docs:organizer-open'),
   organizerSave: (path: string, data: ArrayBuffer) =>
     ipcRenderer.invoke('docs:organizer-save', path, data),
-  openResultTab: (data: Uint8Array) => ipcRenderer.invoke('docs:open-result-tab', data),
+  openResultTab: (data: Uint8Array, proofread?: ProofreadCopyPayload) =>
+    ipcRenderer.invoke('docs:open-result-tab', data, proofread),
   renameDoc: (name: string) => ipcRenderer.invoke('docs:rename-doc', name),
   moveDoc: () => ipcRenderer.invoke('docs:move-doc'),
   fileInfo: () => ipcRenderer.invoke('docs:file-info'),

@@ -354,6 +354,10 @@ interface RibbonProps {
   protectActive: boolean
   /** the AI proofread pass is streaming: the Review button shows it busy (flow P02) */
   aiProofBusy?: boolean
+  /** AI review pro mode switch, on the Review tab's Proofing group */
+  proofreadPro: boolean
+  /** the 对校 button: this tab is a proofread copy with a kept original snapshot */
+  collateReady: boolean
   /** Mailings: the data source the user picked, null when there is none yet */
   mergeSource: MergeDataSource | null
   /** Mailings: the record the preview shows */
@@ -736,6 +740,8 @@ function RibbonInner({
   trackChangesForced,
   protectActive,
   aiProofBusy,
+  proofreadPro,
+  collateReady,
   viewMode,
   readMode,
   onReadMode,
@@ -4267,6 +4273,8 @@ function RibbonInner({
             trackChangesForced={trackChangesForced}
             protectActive={protectActive}
             aiProofBusy={aiProofBusy}
+            proofreadPro={proofreadPro}
+            collateReady={collateReady}
           />
         ) : (
           <ViewTab

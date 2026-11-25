@@ -856,9 +856,11 @@ export const ko = {
   ribbonEditorTip: 'AI가 맞춤법, 문법 및 문장 부호 검사',
   ribbonAiProofreadBtn: 'AI 교정',
   ribbonAiProofreadTip: 'AI가 맞춤법, 문법 및 문장 부호 검사 — AI를 호출하며 크레딧이 소모됩니다',
-  ribbonAiProofreadConfirm: 'AI 교정은 문서 전체를 읽으며 모든 제안을 추적 변경으로 기록합니다. 본문이 직접 수정되지는 않습니다. 계속할까요? (확인하면 다시 묻지 않습니다)',
+  ribbonAiProofreadConfirm:
+    'AI 교정은 문서 전체를 읽으며 모든 제안을 추적 변경으로 기록합니다. 본문이 직접 수정되지는 않습니다. 계속할까요? (확인하면 다시 묻지 않습니다)',
   ribbonAiProofreadForcedTip: '추적 변경이 강제된 상태에서는 AI 교정을 실행할 수 없습니다',
-  ribbonAiProofreadProtectedTip: '문서가 보호되어 변경 이력을 쓸 수 없습니다. 검토 › 문서 보호 › 보호 해제로 해제하거나 편집 가능한 사본을 여세요.',
+  ribbonAiProofreadProtectedTip:
+    '문서가 보호되어 변경 이력을 쓸 수 없습니다. 검토 › 문서 보호 › 보호 해제로 해제하거나 편집 가능한 사본을 여세요.',
   ribbonEditorPrompt:
     '문서 전체를 교정해 주세요: 오탈자, 문장 부호, 문법 오류를 수정하되 원래 의미와 단락 구조는 유지해 주세요.',
   ribbonGroupProofing: '언어 교정',
@@ -983,6 +985,10 @@ export const ko = {
   ribbonCompareDocuments: '문서 비교…',
   ribbonCombineDocuments: '문서 병합…',
   ribbonCompareTip: '두 문서를 비교하거나 병합하여 차이점을 변경 내용으로 기록',
+  ribbonProofreadPro: '프로 모드',
+  ribbonProofreadProTip: '켜면 AI 교정 결과가 새 사본에 적용되고 원문서는 그대로 남습니다',
+  ribbonCollate: '대조',
+  ribbonCollateTip: '이 사본을 원문서와 비교하여 차이를 엽니다',
   ribbonCmpDlgOriginal: '원본 문서',
   ribbonCmpDlgRevised: '수정된 문서',
   ribbonCmpDlgCurrent: '{name}(여기서 열린 문서)',

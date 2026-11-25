@@ -114,6 +114,8 @@ export const ja = {
     '校正完了：承認 {accepted} · 拒否 {rejected}。承認した提案は変更履歴として本文にあります',
   aiProofreadFound: '校正完了：{count} 件の問題を発見',
   aiProofreadClean: '校正完了：問題はありませんでした',
+  aiProofreadCopyName: '{name} · AI校正コピー',
+  aiProofreadCopyOpened: '校正コピー「{name}」を開きました。原文書は変更されていません',
   aiProofreadStale: '本文が変更されたため、この提案は位置を特定できず適用されませんでした',
   aiProofreadNeedsSettings:
     'モデルサービスが設定されていません。校正にはモデルエンドポイントが必要です',

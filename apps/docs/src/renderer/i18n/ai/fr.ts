@@ -117,6 +117,8 @@ export const fr = {
     'Correction terminée : {accepted} acceptées · {rejected} refusées. Les suggestions acceptées sont dans le document sous forme de modifications suivies',
   aiProofreadFound: 'Correction terminée : {count} problème(s) trouvé(s)',
   aiProofreadClean: 'Correction terminée, aucun problème trouvé',
+  aiProofreadCopyName: '{name} · Copie de relecture IA',
+  aiProofreadCopyOpened: 'Copie de relecture {name} ouverte ; le document original reste inchangé',
   aiProofreadStale:
     'Le texte a changé ; cette suggestion n’a pas pu être localisée et n’a pas été appliquée',
   aiProofreadNeedsSettings:

@@ -848,11 +848,15 @@ export const fr = {
   ribbonSourcePublisher: 'Éditeur',
   ribbonEditorBtn: 'Éditeur',
   ribbonEditorTip: "L'IA vérifie l'orthographe, la grammaire et la ponctuation",
-  ribbonAiProofreadBtn: "Relecture IA",
-  ribbonAiProofreadTip: "L'IA vérifie l'orthographe, la grammaire et la ponctuation — fait appel à l'IA et consomme des crédits",
-  ribbonAiProofreadConfirm: "La relecture IA lit tout le document une fois. Chaque suggestion est insérée comme suivi de modifications ; votre texte n'est jamais modifié directement. Continuer ? (Il ne vous sera plus demandé après confirmation.)",
-  ribbonAiProofreadForcedTip: "Impossible d'exécuter la relecture IA quand le suivi des modifications est forcé",
-  ribbonAiProofreadProtectedTip: "Le document est protégé, les suivis de modifications ne peuvent pas être écrits. Désactivez la protection via Révision > Protéger > Retirer la protection, ou ouvrez une copie modifiable.",
+  ribbonAiProofreadBtn: 'Relecture IA',
+  ribbonAiProofreadTip:
+    "L'IA vérifie l'orthographe, la grammaire et la ponctuation — fait appel à l'IA et consomme des crédits",
+  ribbonAiProofreadConfirm:
+    "La relecture IA lit tout le document une fois. Chaque suggestion est insérée comme suivi de modifications ; votre texte n'est jamais modifié directement. Continuer ? (Il ne vous sera plus demandé après confirmation.)",
+  ribbonAiProofreadForcedTip:
+    "Impossible d'exécuter la relecture IA quand le suivi des modifications est forcé",
+  ribbonAiProofreadProtectedTip:
+    'Le document est protégé, les suivis de modifications ne peuvent pas être écrits. Désactivez la protection via Révision > Protéger > Retirer la protection, ou ouvrez une copie modifiable.',
   ribbonEditorPrompt:
     "Relisez tout le document : corrigez les fautes de frappe, la ponctuation et la grammaire en conservant le sens d'origine et la structure des paragraphes.",
   ribbonGroupProofing: 'Vérification',
@@ -979,6 +983,11 @@ export const fr = {
   ribbonCombineDocuments: 'Combiner des documents…',
   ribbonCompareTip:
     'Comparer ou combiner deux documents : les différences deviennent des marques de révision',
+  ribbonProofreadPro: 'Mode Pro',
+  ribbonProofreadProTip:
+    'Activé, la relecture IA se reporte dans une copie nouvelle ; le document original reste inchangé',
+  ribbonCollate: 'Collation',
+  ribbonCollateTip: 'Compare cette copie au document original et ouvre les différences',
   ribbonCmpDlgOriginal: 'Document original',
   ribbonCmpDlgRevised: 'Document révisé',
   ribbonCmpDlgCurrent: '{name} (ouvert ici)',

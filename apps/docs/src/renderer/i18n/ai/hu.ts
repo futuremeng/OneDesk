@@ -119,6 +119,8 @@ export const hu = {
     'Proofread complete: {accepted} accepted · {rejected} rejected. Accepted suggestions are in the document as tracked revisions.',
   aiProofreadFound: 'Proofread done: {count} issue(s) found',
   aiProofreadClean: 'Proofread done, no issues found',
+  aiProofreadCopyName: '{name} · AI-korrektúra példány',
+  aiProofreadCopyOpened: 'A(z) {name} korrektúra-példány megnyitva; az eredeti változatlan',
   aiProofreadStale: 'The text changed; this suggestion could not be located and was not applied',
   aiProofreadNeedsSettings:
     'Nincs beállítva modellszolgáltatás — a lektoráláshoz OpenAI-kompatibilis végpont kell',

@@ -16,6 +16,23 @@ export interface OpenFileResult {
   template?: boolean
   /** a document made in the app that no file holds yet: closing it asks to save */
   unsaved?: boolean
+  /** a proofread copy made by the AI review pro mode: the tab adopts these rows */
+  proofread?: ProofreadCopyPayload
+}
+
+/** what an AI-review pro-mode copy tab receives: the suggestion rows to adopt
+ *  and the feedback edits they were detected with. Rows and edits are
+ *  structured-clone-safe JSON of the renderer's own shapes. */
+export interface ProofreadCopyPayload {
+  /** display name for the copy tab */
+  name: string
+  /** the original document's file name, for the collate tooltip/status */
+  originalName: string
+  /** the proofread service coordinates the copy tab reports decisions to */
+  baseUrl: string
+  token: string
+  suggestions: unknown[]
+  edits: unknown[]
 }
 
 /** Password-protected (ECMA-376 encrypted) docx: the renderer prompts for the
@@ -596,8 +613,9 @@ export interface DesktopApi {
   pickDocx(): Promise<PickDocxResult>
   organizerOpen(): Promise<OrganizerFileResult>
   organizerSave(path: string, data: ArrayBuffer): Promise<{ ok: boolean; error?: string }>
-  /** show a document made here (a comparison result) in a new tab, untitled and unsaved */
-  openResultTab(data: Uint8Array): Promise<void>
+  /** show a document made here (a comparison result, or an AI-review pro-mode
+   *  copy) in a new tab, untitled and unsaved; `proofread` turns it into a copy */
+  openResultTab(data: Uint8Array, proofread?: ProofreadCopyPayload): Promise<void>
   /** File > Rename…: the open document's file takes this name in its own folder */
   renameDoc(name: string): Promise<DocMoveResult>
   /** File > Move…: asks for a folder and moves the open document's file there; null when canceled */

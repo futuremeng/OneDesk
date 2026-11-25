@@ -28,7 +28,7 @@ export const nl = {
   ribbonLangHungarian: 'Hongaars',
   ribbonAiCreditNote: 'Gebruikt AI en verbruikt tegoed',
   ribbonAiRewriteConfirm:
-    'This sends the whole document to the AI for one proofreading pass and uses AI credits. Every change lands as a tracked revision - the text stays untouched until you accept it. If text is selected, only the selection is proofread. Start proofreading? (You won\'t be asked again.)',
+    "This sends the whole document to the AI for one proofreading pass and uses AI credits. Every change lands as a tracked revision - the text stays untouched until you accept it. If text is selected, only the selection is proofread. Start proofreading? (You won't be asked again.)",
   ribbonTabHome: 'Start',
   ribbonTabDraw: 'Tekenen',
   ribbonTabLayout: 'Indeling',
@@ -845,10 +845,14 @@ export const nl = {
   ribbonEditorBtn: 'Editor',
   ribbonEditorTip: 'AI controleert spelling, grammatica en interpunctie',
   ribbonAiProofreadBtn: 'AI-proeflezen',
-  ribbonAiProofreadTip: 'AI controleert spelling, grammatica en interpunctie — Gebruikt AI en verbruikt tegoed',
-  ribbonAiProofreadConfirm: 'AI-controle leest het hele document en legt elke suggestie vast als bijgehouden wijziging; de tekst wordt nooit direct gewijzigd. Doorgaan? (Er wordt niet meer om gevraagd.)',
-  ribbonAiProofreadForcedTip: 'AI-controle kan niet worden uitgevoerd als bijhouden van wijzigingen is afgedwongen',
-  ribbonAiProofreadProtectedTip: 'The document is protected, so tracked revisions cannot be written. Turn it off via Review > Protect > Unprotect, or open a copy in editable mode.',
+  ribbonAiProofreadTip:
+    'AI controleert spelling, grammatica en interpunctie — Gebruikt AI en verbruikt tegoed',
+  ribbonAiProofreadConfirm:
+    'AI-controle leest het hele document en legt elke suggestie vast als bijgehouden wijziging; de tekst wordt nooit direct gewijzigd. Doorgaan? (Er wordt niet meer om gevraagd.)',
+  ribbonAiProofreadForcedTip:
+    'AI-controle kan niet worden uitgevoerd als bijhouden van wijzigingen is afgedwongen',
+  ribbonAiProofreadProtectedTip:
+    'The document is protected, so tracked revisions cannot be written. Turn it off via Review > Protect > Unprotect, or open a copy in editable mode.',
   ribbonEditorPrompt:
     'Corrigeer het hele document: herstel typefouten, interpunctie en grammaticale fouten zonder de oorspronkelijke betekenis en alineastructuur te wijzigen.',
   ribbonGroupProofing: 'Controle',
@@ -976,6 +980,11 @@ export const nl = {
   ribbonCombineDocuments: 'Documenten combineren…',
   ribbonCompareTip:
     'Twee documenten vergelijken of combineren: de verschillen worden bijgehouden wijzigingen',
+  ribbonProofreadPro: 'Pro-modus',
+  ribbonProofreadProTip:
+    'Als het aan staat, worden AI-proefleesresultaten in een nieuw exemplaar geplaatst; het origineel blijft ongewijzigd',
+  ribbonCollate: 'Collateren',
+  ribbonCollateTip: 'Vergelijkt dit exemplaar met het origineel en opent de verschillen',
   ribbonCmpDlgOriginal: 'Origineel document',
   ribbonCmpDlgRevised: 'Gereviseerd document',
   ribbonCmpDlgCurrent: '{name} (hier geopend)',

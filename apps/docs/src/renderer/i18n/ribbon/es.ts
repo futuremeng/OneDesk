@@ -28,7 +28,7 @@ export const es = {
   ribbonLangHungarian: 'húngaro',
   ribbonAiCreditNote: 'Usa IA y consume créditos',
   ribbonAiRewriteConfirm:
-    'This sends the whole document to the AI for one proofreading pass and uses AI credits. Every change lands as a tracked revision - the text stays untouched until you accept it. If text is selected, only the selection is proofread. Start proofreading? (You won\'t be asked again.)',
+    "This sends the whole document to the AI for one proofreading pass and uses AI credits. Every change lands as a tracked revision - the text stays untouched until you accept it. If text is selected, only the selection is proofread. Start proofreading? (You won't be asked again.)",
   ribbonTabHome: 'Inicio',
   ribbonTabDraw: 'Dibujar',
   ribbonTabLayout: 'Disposición',
@@ -846,10 +846,14 @@ export const es = {
   ribbonEditorBtn: 'Editor',
   ribbonEditorTip: 'La IA revisa ortografía, gramática y puntuación',
   ribbonAiProofreadBtn: 'Corrección con IA',
-  ribbonAiProofreadTip: 'La IA revisa ortografía, gramática y puntuación — Usa IA y consume créditos',
-  ribbonAiProofreadConfirm: 'La corrección con IA lee todo el documento y registra cada sugerencia como cambio controlado; el texto nunca se modifica directamente. ¿Continuar? (No se preguntará de nuevo.)',
-  ribbonAiProofreadForcedTip: 'La corrección con IA no puede ejecutarse con el control de cambios forzado',
-  ribbonAiProofreadProtectedTip: 'The document is protected, so tracked revisions cannot be written. Turn it off via Review > Protect > Unprotect, or open a copy in editable mode.',
+  ribbonAiProofreadTip:
+    'La IA revisa ortografía, gramática y puntuación — Usa IA y consume créditos',
+  ribbonAiProofreadConfirm:
+    'La corrección con IA lee todo el documento y registra cada sugerencia como cambio controlado; el texto nunca se modifica directamente. ¿Continuar? (No se preguntará de nuevo.)',
+  ribbonAiProofreadForcedTip:
+    'La corrección con IA no puede ejecutarse con el control de cambios forzado',
+  ribbonAiProofreadProtectedTip:
+    'The document is protected, so tracked revisions cannot be written. Turn it off via Review > Protect > Unprotect, or open a copy in editable mode.',
   ribbonEditorPrompt:
     'Revisa todo el documento: corrige erratas, puntuación y errores gramaticales manteniendo el significado original y la estructura de los párrafos.',
   ribbonGroupProofing: 'Revisión',
@@ -976,6 +980,11 @@ export const es = {
   ribbonCombineDocuments: 'Combinar documentos…',
   ribbonCompareTip:
     'Comparar o combinar dos documentos: las diferencias pasan a ser cambios con seguimiento',
+  ribbonProofreadPro: 'Modo Pro',
+  ribbonProofreadProTip:
+    'Con esta opción, la revisión de IA se aplica en una copia nueva; el documento original no cambia',
+  ribbonCollate: 'Cotejo',
+  ribbonCollateTip: 'Compara esta copia con el documento original y abre las diferencias',
   ribbonCmpDlgOriginal: 'Documento original',
   ribbonCmpDlgRevised: 'Documento revisado',
   ribbonCmpDlgCurrent: '{name} (abierto aquí)',

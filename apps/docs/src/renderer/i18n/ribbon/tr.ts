@@ -28,7 +28,7 @@ export const tr = {
   ribbonLangHungarian: 'Macarca',
   ribbonAiCreditNote: 'Yapay zeka kullanır ve kredi harcar',
   ribbonAiRewriteConfirm:
-    'This sends the whole document to the AI for one proofreading pass and uses AI credits. Every change lands as a tracked revision - the text stays untouched until you accept it. If text is selected, only the selection is proofread. Start proofreading? (You won\'t be asked again.)',
+    "This sends the whole document to the AI for one proofreading pass and uses AI credits. Every change lands as a tracked revision - the text stays untouched until you accept it. If text is selected, only the selection is proofread. Start proofreading? (You won't be asked again.)",
   ribbonTabHome: 'Giriş',
   ribbonTabDraw: 'Çizim',
   ribbonTabLayout: 'Düzen',
@@ -844,10 +844,13 @@ export const tr = {
   ribbonEditorBtn: 'Düzenleyici',
   ribbonEditorTip: 'Yapay zeka yazımı, dil bilgisini ve noktalamayı denetler',
   ribbonAiProofreadBtn: 'AI Düzeltme Okuması',
-  ribbonAiProofreadTip: 'Yapay zeka yazımı, dil bilgisini ve noktalamayı denetler — Yapay zeka kullanır ve kredi harcar',
-  ribbonAiProofreadConfirm: 'AI denetimi tüm belgeyi okur ve her öneriyi izlenen değişiklik olarak kaydeder; metin hiçbir şekilde doğrudan değişmez. Devam edilsin mi? (Bir daha sorulmayacak.)',
+  ribbonAiProofreadTip:
+    'Yapay zeka yazımı, dil bilgisini ve noktalamayı denetler — Yapay zeka kullanır ve kredi harcar',
+  ribbonAiProofreadConfirm:
+    'AI denetimi tüm belgeyi okur ve her öneriyi izlenen değişiklik olarak kaydeder; metin hiçbir şekilde doğrudan değişmez. Devam edilsin mi? (Bir daha sorulmayacak.)',
   ribbonAiProofreadForcedTip: 'Değişiklik izlemeye zorlandığında AI denetimi çalıştırılamaz',
-  ribbonAiProofreadProtectedTip: 'The document is protected, so tracked revisions cannot be written. Turn it off via Review > Protect > Unprotect, or open a copy in editable mode.',
+  ribbonAiProofreadProtectedTip:
+    'The document is protected, so tracked revisions cannot be written. Turn it off via Review > Protect > Unprotect, or open a copy in editable mode.',
   ribbonEditorPrompt:
     'Belgenin tamamını düzelt: özgün anlamı ve paragraf yapısını değiştirmeden yazım, noktalama ve dil bilgisi hatalarını gider.',
   ribbonGroupProofing: 'Yazım Denetimi',
@@ -974,6 +977,11 @@ export const tr = {
   ribbonCombineDocuments: 'Belgeleri Birleştir…',
   ribbonCompareTip:
     'İki belgeyi karşılaştırın veya birleştirin: farklar izlenen değişikliklere dönüşür',
+  ribbonProofreadPro: 'Pro Mod',
+  ribbonProofreadProTip:
+    'Açıkken yapay zekâ düzeltme sonuçları yeni bir kopyaya işlenir; özgün belge değişmez',
+  ribbonCollate: 'Karsıt',
+  ribbonCollateTip: 'Bu kopyayı özgün belgeyle karşılaştırır ve farklılıkları açar',
   ribbonCmpDlgOriginal: 'Özgün belge',
   ribbonCmpDlgRevised: 'Düzeltilmiş belge',
   ribbonCmpDlgCurrent: '{name} (burada açık)',

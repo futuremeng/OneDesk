@@ -113,6 +113,8 @@ export const he = {
     'Proofread complete: {accepted} accepted · {rejected} rejected. Accepted suggestions are in the document as tracked revisions.',
   aiProofreadFound: 'Proofread done: {count} issue(s) found',
   aiProofreadClean: 'Proofread done, no issues found',
+  aiProofreadCopyName: '{name} · עותק הגהת AI',
+  aiProofreadCopyOpened: 'עותק ההגהה {name} נפתח; המקורי נשאר ללא שינוי',
   aiProofreadStale: 'The text changed; this suggestion could not be located and was not applied',
   aiProofreadNeedsSettings: 'שירות מודל לא מוגדר — ההגיה זקוקה לנקודת קצה תואמת OpenAI',
   aiProofreadOpenSettings: 'פתח הגדרות',

@@ -26,6 +26,9 @@ export const PROOFREAD_AUTHOR = 'AI'
 /** one-time acknowledgement that a whole-document pass reads the full text (flow P01) */
 export const AI_PROOFREAD_ACK_KEY = 'docs-ai-proofread-ack'
 
+/** Review tab's 专业 switch: an accepted pass lands on a copy tab, not here (flow P06) */
+export const AI_PROOFREAD_PRO_KEY = 'docs-ai-proofread-pro'
+
 /** idle → running → review (all suggestions landed); stopped = interrupted (X02) */
 export type ProofreadPhase = 'idle' | 'running' | 'stopped' | 'review' | 'unavailable'
 

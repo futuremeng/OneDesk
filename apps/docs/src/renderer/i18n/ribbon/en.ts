@@ -28,7 +28,7 @@ export const en = {
   ribbonLangHungarian: 'Hungarian',
   ribbonAiCreditNote: 'Uses AI and consumes credits',
   ribbonAiRewriteConfirm:
-    'This sends the whole document to the AI for one proofreading pass and uses AI credits. Every change lands as a tracked revision - the text stays untouched until you accept it. If text is selected, only the selection is proofread. Start proofreading? (You won\'t be asked again.)',
+    "This sends the whole document to the AI for one proofreading pass and uses AI credits. Every change lands as a tracked revision - the text stays untouched until you accept it. If text is selected, only the selection is proofread. Start proofreading? (You won't be asked again.)",
   ribbonTabHome: 'Home',
   ribbonTabDraw: 'Draw',
   ribbonTabLayout: 'Layout',
@@ -841,10 +841,13 @@ export const en = {
   ribbonEditorBtn: 'Editor',
   ribbonEditorTip: 'AI checks spelling, grammar and punctuation',
   ribbonAiProofreadBtn: 'AI Proofread',
-  ribbonAiProofreadTip: 'AI checks spelling, grammar and punctuation — Uses AI and consumes credits',
-  ribbonAiProofreadConfirm: 'AI proofread reads the entire document and records every suggestion as a tracked revision; your text is never changed directly. Continue? (You will not be asked again.)',
+  ribbonAiProofreadTip:
+    'AI checks spelling, grammar and punctuation — Uses AI and consumes credits',
+  ribbonAiProofreadConfirm:
+    'AI proofread reads the entire document and records every suggestion as a tracked revision; your text is never changed directly. Continue? (You will not be asked again.)',
   ribbonAiProofreadForcedTip: 'AI proofread cannot run while track changes are forced on',
-  ribbonAiProofreadProtectedTip: 'The document is protected, so tracked revisions cannot be written. Turn it off via Review > Protect > Unprotect, or open a copy in editable mode.',
+  ribbonAiProofreadProtectedTip:
+    'The document is protected, so tracked revisions cannot be written. Turn it off via Review > Protect > Unprotect, or open a copy in editable mode.',
   ribbonEditorPrompt:
     'Proofread the entire document: fix typos, punctuation and grammar errors while keeping the original meaning and paragraph structure unchanged.',
   ribbonGroupProofing: 'Proofing',
@@ -969,6 +972,11 @@ export const en = {
   ribbonCompareDocuments: 'Compare Documents…',
   ribbonCombineDocuments: 'Combine Documents…',
   ribbonCompareTip: 'Compare or combine two documents: the differences become tracked changes',
+  ribbonProofreadPro: 'Pro Mode',
+  ribbonProofreadProTip:
+    'With it on, an AI proofread pass lands on a new copy; the original document stays unchanged',
+  ribbonCollate: 'Collate',
+  ribbonCollateTip: 'Compare this copy with its original document and open the differences',
   ribbonCmpDlgOriginal: 'Original document',
   ribbonCmpDlgRevised: 'Revised document',
   ribbonCmpDlgCurrent: '{name} (open here)',

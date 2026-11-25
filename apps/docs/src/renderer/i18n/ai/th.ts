@@ -113,6 +113,8 @@ export const th = {
     'Proofread complete: {accepted} accepted · {rejected} rejected. Accepted suggestions are in the document as tracked revisions.',
   aiProofreadFound: 'Proofread done: {count} issue(s) found',
   aiProofreadClean: 'Proofread done, no issues found',
+  aiProofreadCopyName: '{name} · สำเนาพิสูจน์อักษร AI',
+  aiProofreadCopyOpened: 'เปิดสำเนาพิสูจน์อักษร {name} แล้ว ต้นฉบับไม่ถูกแก้ไข',
   aiProofreadStale: 'The text changed; this suggestion could not be located and was not applied',
   aiProofreadNeedsSettings:
     'ยังไม่ได้กำหนดค่าบริการโมเดล การตรวจแก้ต้องใช้จุดปลายทางที่รองรับ OpenAI',

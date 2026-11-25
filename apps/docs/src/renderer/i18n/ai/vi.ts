@@ -114,6 +114,8 @@ export const vi = {
     'Proofread complete: {accepted} accepted · {rejected} rejected. Accepted suggestions are in the document as tracked revisions.',
   aiProofreadFound: 'Proofread done: {count} issue(s) found',
   aiProofreadClean: 'Proofread done, no issues found',
+  aiProofreadCopyName: '{name} · Bản sao hiệu đính AI',
+  aiProofreadCopyOpened: 'Đã mở bản sao hiệu đính {name}; tài liệu gốc không thay đổi',
   aiProofreadStale: 'The text changed; this suggestion could not be located and was not applied',
   aiProofreadNeedsSettings:
     'Chưa cấu hình dịch vụ mô hình — hiệu đính cần điểm cuối tương thích OpenAI',

@@ -28,7 +28,7 @@ export const cs = {
   ribbonLangHungarian: 'maďarština',
   ribbonAiCreditNote: 'Používá AI a spotřebovává kredity',
   ribbonAiRewriteConfirm:
-    'This sends the whole document to the AI for one proofreading pass and uses AI credits. Every change lands as a tracked revision - the text stays untouched until you accept it. If text is selected, only the selection is proofread. Start proofreading? (You won\'t be asked again.)',
+    "This sends the whole document to the AI for one proofreading pass and uses AI credits. Every change lands as a tracked revision - the text stays untouched until you accept it. If text is selected, only the selection is proofread. Start proofreading? (You won't be asked again.)",
   ribbonTabHome: 'Domů',
   ribbonTabDraw: 'Kreslení',
   ribbonTabLayout: 'Rozložení',
@@ -838,10 +838,13 @@ export const cs = {
   ribbonEditorBtn: 'Editor',
   ribbonEditorTip: 'AI zkontroluje pravopis, gramatiku a interpunkci',
   ribbonAiProofreadBtn: 'Korektura AI',
-  ribbonAiProofreadTip: 'AI zkontroluje pravopis, gramatiku a interpunkci — Používá AI a spotřebovává kredity',
-  ribbonAiProofreadConfirm: 'AI kontrola přečte celý dokument a každý návrh zaznamená jako sledovanou změnu; text se nikdy nemění přímo. Pokračovat? (Příště se už ptát nebude.)',
+  ribbonAiProofreadTip:
+    'AI zkontroluje pravopis, gramatiku a interpunkci — Používá AI a spotřebovává kredity',
+  ribbonAiProofreadConfirm:
+    'AI kontrola přečte celý dokument a každý návrh zaznamená jako sledovanou změnu; text se nikdy nemění přímo. Pokračovat? (Příště se už ptát nebude.)',
   ribbonAiProofreadForcedTip: 'AI kontrolu nelze spustit při vynuceném sledování změn',
-  ribbonAiProofreadProtectedTip: 'The document is protected, so tracked revisions cannot be written. Turn it off via Review > Protect > Unprotect, or open a copy in editable mode.',
+  ribbonAiProofreadProtectedTip:
+    'The document is protected, so tracked revisions cannot be written. Turn it off via Review > Protect > Unprotect, or open a copy in editable mode.',
   ribbonEditorPrompt:
     'Zkorigujte celý dokument: opravte překlepy, interpunkci a gramatické chyby a zachovejte původní význam i strukturu odstavců.',
   ribbonGroupProofing: 'Kontrola pravopisu',
@@ -966,6 +969,11 @@ export const cs = {
   ribbonCompareDocuments: 'Porovnat dokumenty…',
   ribbonCombineDocuments: 'Sloučit dokumenty…',
   ribbonCompareTip: 'Porovnat nebo sloučit dva dokumenty: rozdíly se stanou sledovanými změnami',
+  ribbonProofreadPro: 'Režim Pro',
+  ribbonProofreadProTip:
+    'Po zapnutí se výsledky korektury AI aplikují do nové kopie; původní dokument zůstává nezměněn',
+  ribbonCollate: 'Kolace',
+  ribbonCollateTip: 'Porovná tuto kopii s původním dokumentem a zobrazí rozdíly',
   ribbonCmpDlgOriginal: 'Původní dokument',
   ribbonCmpDlgRevised: 'Revidovaný dokument',
   ribbonCmpDlgCurrent: '{name} (otevřený zde)',

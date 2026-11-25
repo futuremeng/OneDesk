@@ -28,7 +28,7 @@ export const vi = {
   ribbonLangHungarian: 'Tiếng Hungary',
   ribbonAiCreditNote: 'Sử dụng AI và tiêu tốn tín dụng',
   ribbonAiRewriteConfirm:
-    'This sends the whole document to the AI for one proofreading pass and uses AI credits. Every change lands as a tracked revision - the text stays untouched until you accept it. If text is selected, only the selection is proofread. Start proofreading? (You won\'t be asked again.)',
+    "This sends the whole document to the AI for one proofreading pass and uses AI credits. Every change lands as a tracked revision - the text stays untouched until you accept it. If text is selected, only the selection is proofread. Start proofreading? (You won't be asked again.)",
   ribbonTabHome: 'Trang đầu',
   ribbonTabDraw: 'Vẽ',
   ribbonTabLayout: 'Bố trí',
@@ -837,10 +837,13 @@ export const vi = {
   ribbonEditorBtn: 'Trình biên tập',
   ribbonEditorTip: 'AI kiểm tra chính tả, ngữ pháp và dấu câu',
   ribbonAiProofreadBtn: 'Hiệu đính bằng AI',
-  ribbonAiProofreadTip: 'AI kiểm tra chính tả, ngữ pháp và dấu câu — Sử dụng AI và tiêu tốn tín dụng',
-  ribbonAiProofreadConfirm: 'AI hiệu đính sẽ đọc toàn bộ tài liệu và ghi mỗi đề xuất dưới dạng thay đổi theo dõi; văn bản không bao giờ bị sửa trực tiếp. Tiếp tục? (Sẽ không hỏi lại.)',
+  ribbonAiProofreadTip:
+    'AI kiểm tra chính tả, ngữ pháp và dấu câu — Sử dụng AI và tiêu tốn tín dụng',
+  ribbonAiProofreadConfirm:
+    'AI hiệu đính sẽ đọc toàn bộ tài liệu và ghi mỗi đề xuất dưới dạng thay đổi theo dõi; văn bản không bao giờ bị sửa trực tiếp. Tiếp tục? (Sẽ không hỏi lại.)',
   ribbonAiProofreadForcedTip: 'Không chạy được AI hiệu đính khi Theo dõi thay đổi bị buộc bật',
-  ribbonAiProofreadProtectedTip: 'The document is protected, so tracked revisions cannot be written. Turn it off via Review > Protect > Unprotect, or open a copy in editable mode.',
+  ribbonAiProofreadProtectedTip:
+    'The document is protected, so tracked revisions cannot be written. Turn it off via Review > Protect > Unprotect, or open a copy in editable mode.',
   ribbonEditorPrompt:
     'Hiệu đính toàn bộ tài liệu: sửa lỗi chính tả, dấu câu và ngữ pháp trong khi vẫn giữ nguyên ý nghĩa ban đầu và cấu trúc đoạn văn.',
   ribbonGroupProofing: 'Soát lại',
@@ -967,6 +970,11 @@ export const vi = {
   ribbonCombineDocuments: 'Kết hợp Tài liệu…',
   ribbonCompareTip:
     'So sánh hoặc kết hợp hai tài liệu: các khác biệt trở thành thay đổi được theo dõi',
+  ribbonProofreadPro: 'Chế độ Pro',
+  ribbonProofreadProTip:
+    'Bật thì kết quả hiệu đính AI sẽ ghi vào bản sao mới; tài liệu gốc không thay đổi',
+  ribbonCollate: 'Đối chiếu',
+  ribbonCollateTip: 'So sánh bản sao này với tài liệu gốc và mở xem khác biệt',
   ribbonCmpDlgOriginal: 'Tài liệu gốc',
   ribbonCmpDlgRevised: 'Tài liệu đã sửa đổi',
   ribbonCmpDlgCurrent: '{name} (đang mở ở đây)',

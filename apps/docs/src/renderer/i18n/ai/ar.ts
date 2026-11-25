@@ -113,6 +113,8 @@ export const ar = {
     'Proofread complete: {accepted} accepted · {rejected} rejected. Accepted suggestions are in the document as tracked revisions.',
   aiProofreadFound: 'Proofread done: {count} issue(s) found',
   aiProofreadClean: 'Proofread done, no issues found',
+  aiProofreadCopyName: '{name} · نسخة التدقيق بالذكاء الاصطناعي',
+  aiProofreadCopyOpened: 'فُتحت نسخة التدقيق {name}؛ المستند الأصلي دون تغيير',
   aiProofreadStale: 'The text changed; this suggestion could not be located and was not applied',
   aiProofreadNeedsSettings: 'لم تُضبط خدمة النموذج — التدقيق يحتاج نقطة نهاية متوافقة مع OpenAI',
   aiProofreadOpenSettings: 'فتح الإعدادات',

@@ -28,7 +28,7 @@ export const hu = {
   ribbonLangHungarian: 'Magyar',
   ribbonAiCreditNote: 'AI-t használ, és kreditet fogyaszt',
   ribbonAiRewriteConfirm:
-    'This sends the whole document to the AI for one proofreading pass and uses AI credits. Every change lands as a tracked revision - the text stays untouched until you accept it. If text is selected, only the selection is proofread. Start proofreading? (You won\'t be asked again.)',
+    "This sends the whole document to the AI for one proofreading pass and uses AI credits. Every change lands as a tracked revision - the text stays untouched until you accept it. If text is selected, only the selection is proofread. Start proofreading? (You won't be asked again.)",
   ribbonTabHome: 'Kezdőlap',
   ribbonTabDraw: 'Rajzolás',
   ribbonTabLayout: 'Elrendezés',
@@ -752,10 +752,14 @@ export const hu = {
   ribbonEditorBtn: 'Szerkesztő',
   ribbonEditorTip: 'Az AI ellenőrzi a helyesírást, a nyelvtant és a központozást',
   ribbonAiProofreadBtn: 'AI nyelvi ellenőrzés',
-  ribbonAiProofreadTip: 'Az AI ellenőrzi a helyesírást, a nyelvtant és a központozást — AI-t használ, és kreditet fogyaszt',
-  ribbonAiProofreadConfirm: 'Az AI-lektorálás elolvassa az egész dokumentumot, és minden javaslatot követett módosításként rögzít; a szöveg sosem változik közvetlenül. Folytatod? (Többször nem kérdezünk rá.)',
-  ribbonAiProofreadForcedTip: 'Az AI-lektorálás nem futtatható, ha a módosítások követése kényszerítve van',
-  ribbonAiProofreadProtectedTip: 'The document is protected, so tracked revisions cannot be written. Turn it off via Review > Protect > Unprotect, or open a copy in editable mode.',
+  ribbonAiProofreadTip:
+    'Az AI ellenőrzi a helyesírást, a nyelvtant és a központozást — AI-t használ, és kreditet fogyaszt',
+  ribbonAiProofreadConfirm:
+    'Az AI-lektorálás elolvassa az egész dokumentumot, és minden javaslatot követett módosításként rögzít; a szöveg sosem változik közvetlenül. Folytatod? (Többször nem kérdezünk rá.)',
+  ribbonAiProofreadForcedTip:
+    'Az AI-lektorálás nem futtatható, ha a módosítások követése kényszerítve van',
+  ribbonAiProofreadProtectedTip:
+    'The document is protected, so tracked revisions cannot be written. Turn it off via Review > Protect > Unprotect, or open a copy in editable mode.',
   ribbonEditorPrompt:
     'Javítsd át a teljes dokumentumot: javítsd az elírásokat, a központozási és nyelvtani hibákat úgy, hogy az eredeti jelentés és a bekezdések szerkezete változatlan maradjon.',
   ribbonGroupProofing: 'Nyelvi ellenőrzés',
@@ -883,6 +887,11 @@ export const hu = {
   ribbonCombineDocuments: 'Dokumentumok egyesítése…',
   ribbonCompareTip:
     'Két dokumentum összehasonlítása vagy egyesítése: az eltérések korrektúrává válnak',
+  ribbonProofreadPro: 'Pro mód',
+  ribbonProofreadProTip:
+    'Bekapcsolva az AI-korrektúra eredményei új példányba kerülnek; az eredeti dokumentum változatlan',
+  ribbonCollate: 'Összevetés',
+  ribbonCollateTip: 'Összeveti ezt a példányt az eredetivel, és megnyitja a különbségeket',
   ribbonCmpDlgOriginal: 'Eredeti dokumentum',
   ribbonCmpDlgRevised: 'Módosított dokumentum',
   ribbonCmpDlgCurrent: '{name} (itt megnyitva)',

@@ -163,6 +163,7 @@ import type {
   ProofreadDetectResult,
   ProofreadFeedbackRequest,
   ProofreadFeedbackResult,
+  ProofreadCopyPayload,
   SpellLanguages,
   TemplateEntry,
   TemplatePreviewRect,
@@ -6927,7 +6928,7 @@ const tMain = createI18n({
 })
 type MainKey = Parameters<typeof tMain>[1]
 // a command's menuKey must be a real entry of the menu dictionary
-void (COMMANDS satisfies Record<string, { menuKey?: MainKey; planned?: true }>)
+void (COMMANDS satisfies Record<string, { menuKey?: MainKey; toggle?: true; planned?: true }>)
 const tm = (key: MainKey, params?: Parameters<typeof tMain>[2]) => tMain(getUiLang(), key, params)
 
 // ---- runtime configuration (paths differ when bundled into the shell) ----
@@ -6978,9 +6979,12 @@ export function queueDocsAiContent(wcId: number, content: AiDocContent): void {
   pendingAiDocContents.set(wcId, content)
 }
 
-/** a document made in another tab (a comparison result) waiting for the tab that shows it */
+/** a document made in another tab (a comparison result, or an AI-review pro-mode
+ *  copy) waiting for the tab that shows it */
 export interface ResultDoc {
   bytes: Buffer
+  /** set when the tab should adopt this as a proofread copy instead of a plain result */
+  proofread?: ProofreadCopyPayload
 }
 const pendingResultDocs = new Map<number, ResultDoc>()
 
@@ -8077,7 +8081,9 @@ export function registerAiIpc(): void {
       const baseUrl = sanitizeBaseUrl(request?.baseUrl)
       if (!baseUrl) return { ok: false, status: 0, error: 'invalid proofread service URL' }
       const requestId = String(request?.requestId ?? '')
-      const token = String(request?.token ?? '').trim().slice(0, 512)
+      const token = String(request?.token ?? '')
+        .trim()
+        .slice(0, 512)
       const controller = new AbortController()
       activeProofreadDetects.set(requestId, controller)
       // level-2/3 analyses on long paragraphs routinely exceed a minute;
@@ -8116,7 +8122,11 @@ export function registerAiIpc(): void {
           return { ok: false, status: res.status, error: message }
         }
         const body = (await res.json()) as { errors?: unknown }
-        return { ok: true, status: res.status, errors: Array.isArray(body.errors) ? body.errors : [] }
+        return {
+          ok: true,
+          status: res.status,
+          errors: Array.isArray(body.errors) ? body.errors : [],
+        }
       } catch (e) {
         if (controller.signal.aborted) return { ok: false, status: 0, error: 'stopped' }
         return { ok: false, status: 0, error: e instanceof Error ? e.message : String(e) }
@@ -8124,7 +8134,7 @@ export function registerAiIpc(): void {
         clearTimeout(timer)
         activeProofreadDetects.delete(requestId)
       }
-    }
+    },
   )
 
   ipcMain.handle('ai:proofread-detect-cancel', (_event, requestId: string) => {
@@ -8140,7 +8150,9 @@ export function registerAiIpc(): void {
     async (_event, request: ProofreadFeedbackRequest): Promise<ProofreadFeedbackResult> => {
       const baseUrl = sanitizeBaseUrl(request?.baseUrl)
       if (!baseUrl) return { ok: false, status: 0, error: 'invalid proofread service URL' }
-      const token = String(request?.token ?? '').trim().slice(0, 512)
+      const token = String(request?.token ?? '')
+        .trim()
+        .slice(0, 512)
       const controller = new AbortController()
       // a reject runs the service's reflection (LLM) server-side; give it room,
       // but the renderer never waits on this call
@@ -8182,7 +8194,7 @@ export function registerAiIpc(): void {
       } finally {
         clearTimeout(timer)
       }
-    }
+    },
   )
 
   // shared search tools (content + images): Serper with DuckDuckGo fallback (same source as slides/sheets)
@@ -8722,11 +8734,12 @@ export function registerDocsIpc(): void {
       pendingResultDocs.delete(event.sender.id)
       return {
         path: '',
-        name: '',
+        name: made.proofread?.name ?? '',
         dataUrl: handOffBytes(made.bytes),
         hash: '',
         template: true,
         unsaved: true,
+        proofread: made.proofread,
       }
     }
     // a tab spawned via New Tab loads the document queued for it specifically
@@ -9975,12 +9988,15 @@ export function registerDocsIpc(): void {
     }
   })
 
-  ipcMain.handle('docs:open-result-tab', (_event, data: Uint8Array) => {
-    if (!(data instanceof Uint8Array) || data.byteLength > MAX_OPEN_BYTES) return
-    const doc: ResultDoc = { bytes: Buffer.from(data) }
-    if (shellHooks?.openResultDocTab) shellHooks.openResultDocTab(doc)
-    else queueDocsResultDoc(createDocsWindow().webContents.id, doc)
-  })
+  ipcMain.handle(
+    'docs:open-result-tab',
+    (_event, data: Uint8Array, proofread?: ProofreadCopyPayload) => {
+      if (!(data instanceof Uint8Array) || data.byteLength > MAX_OPEN_BYTES) return
+      const doc: ResultDoc = { bytes: Buffer.from(data), proofread }
+      if (shellHooks?.openResultDocTab) shellHooks.openResultDocTab(doc)
+      else queueDocsResultDoc(createDocsWindow().webContents.id, doc)
+    },
+  )
 
   ipcMain.handle('win:list', (): DocsTabInfo[] => {
     if (shellHooks) return shellHooks.listTabs()

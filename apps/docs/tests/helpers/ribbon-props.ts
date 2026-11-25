@@ -120,6 +120,8 @@ export function ribbonProps(editor: Editor, formatState: RibbonFormatState) {
     commentsAllowed: false,
     trackChangesForced: false,
     protectActive: false,
+    proofreadPro: false,
+    collateReady: false,
     onProtectDoc: noop,
     onCompare: noop,
     mergeSource: null,

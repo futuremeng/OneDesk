@@ -151,7 +151,11 @@ export const COMMANDS = {
   'revision-previous': {},
   'revision-next': {},
   'review-pane': { menuKey: 'menuReviewing', toggle: true },
+  // AI review pro mode: an accepted proofread pass lands on a copy tab, not this document
+  'proofread-pro-mode': { toggle: true },
   'compare-documents': { menuKey: 'menuCompareDocuments' },
+  // collate a proofread copy against its original snapshot
+  'tools-collate': {},
   'protect-document': { menuKey: 'menuProtectDocument' },
   'tools-reset-ignored': { menuKey: 'menuResetIgnoredWords' },
   'tools-thesaurus': { menuKey: 'menuThesaurus' },
