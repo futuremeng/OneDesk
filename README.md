@@ -790,6 +790,14 @@ OneDesk would not be possible without these open-source projects:
 (`tools/gen-third-party-notices.mjs`); all runtime dependencies are
 MIT/Apache-2.0/BSD-3-Clause/OFL.
 
+## Related projects
+
+- [LangFixer](https://github.com/narrativeos/LangFixer) — a collaborating
+  open-source grammar checker that also explains *why* each mistake was made.
+  It serves the GEC endpoint behind the Docs AI proofreading pass, and the
+  accept / reject decisions on proofread rows flow back to it as adoption
+  feedback.
+
 ## License
 
 OneDesk is licensed under the [Apache License 2.0](LICENSE), with one
