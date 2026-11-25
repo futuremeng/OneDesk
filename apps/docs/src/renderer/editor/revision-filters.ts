@@ -130,6 +130,9 @@ export interface ReviewEntry {
    * reviewer in the same pass. One row, one Accept/Reject for both.
    */
   pair?: RevisionRange
+  /** the 修改 row's two contrasting lines: text removed and text that replaces it */
+  pairFrom?: string
+  pairTo?: string
   index: number
   /** first characters of the changed text; empty for row/cell/paragraph-only changes */
   excerpt: string
@@ -138,10 +141,18 @@ export interface ReviewEntry {
 
 export const EXCERPT_CHARS = 60
 
-export function revisionExcerpt(doc: PmNode, rev: Pick<RevisionRange, 'from' | 'to'>): string {
+export function revisionExcerpt(
+  doc: PmNode,
+  rev: Pick<RevisionRange, 'from' | 'to'>,
+  onlyMark?: 'ins' | 'del',
+): string {
   const from = Math.max(0, Math.min(rev.from, doc.content.size))
   const to = Math.max(from, Math.min(rev.to, doc.content.size))
-  const text = doc.textBetween(from, to, ' ', ' ').replace(/\s+/g, ' ').trim()
+  // 只留自己那一半：修改行的删除行不能把落在同一区段里的插入文本也念出来
+  const leafText = onlyMark
+    ? (node: PmNode) => (node.marks.some((m) => m.type.name === onlyMark) ? node.text || '' : '')
+    : ' '
+  const text = doc.textBetween(from, to, ' ', leafText).replace(/\s+/g, ' ').trim()
   return text.length > EXCERPT_CHARS ? `${text.slice(0, EXCERPT_CHARS - 1)}…` : text
 }
 
@@ -154,26 +165,34 @@ export function buildReviewEntries(
   for (let i = 0; i < ranges.length; i++) {
     const rev = ranges[i]
     const next = ranges[i + 1]
-    // a rewrite landed by track-changes shows up as an insert run touching a
-    // delete run; one author, one pass and nothing between them means it was
-    // written as a single replacement, so the list shows it as one row
+    // 改写在修订流里表现为一条 ins 挨着（或交叠在）一条 del。同一作者、
+    // 两段范围相接或重叠即视为一次替换，列成一行；两半的时间戳可以不同：
+    // 分别落事务或被下一轮审校再编辑时不会相等。
     const replaces =
       !!next &&
       !rev.story &&
       !next.story &&
       rev.author === next.author &&
-      rev.date === next.date &&
+      // 同一段文字同时挂着两个 mark（先插入后被删除）时两半是同一串文本，
+      // 折成对照行只会两行一模一样，不如保持各自一行
+      !rev.overlapped &&
+      !next.overlapped &&
       ((rev.kind === 'ins' && next.kind === 'del') ||
         (rev.kind === 'del' && next.kind === 'ins')) &&
-      (rev.to === next.from || next.to === rev.from)
+      rev.from <= next.to &&
+      next.from <= rev.to
     if (replaces) {
       const del = rev.kind === 'del' ? rev : next
       const ins = rev.kind === 'del' ? next : rev
+      const delText = revisionExcerpt(doc, del, 'del')
+      const insText = revisionExcerpt(doc, ins, 'ins')
       out.push({
         rev,
         pair: next,
+        pairFrom: delText,
+        pairTo: insText,
         index: out.length,
-        excerpt: capExcerpt(`${revisionExcerpt(doc, del)} → ${revisionExcerpt(doc, ins)}`),
+        excerpt: capExcerpt(`${delText} → ${insText}`),
         inkIndex: authorInkIndex(authors, rev.author),
       })
       i++

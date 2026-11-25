@@ -4761,6 +4761,16 @@ th[data-rev-fmt] {
   text-decoration: underline;
 }
 
+/* replacement row: the two contrasting lines of a folded 修改 */
+.review-row-text.del {
+  text-decoration: line-through;
+  color: var(--text-dim);
+}
+
+.review-row-text.ins {
+  text-decoration: underline;
+}
+
 /* Accept / Reject overlay the date on hover, focus and the active row */
 .review-row-actions {
   position: absolute;
@@ -11506,6 +11516,11 @@ body.docs-crop-active
 .ai-revision-row-text.del {
   text-decoration: line-through;
   color: var(--color-text-secondary);
+}
+
+/* the second line of a folded 修改 row */
+.ai-revision-row-text.ins {
+  text-decoration: underline;
 }
 
 .ai-revision-row-actions {

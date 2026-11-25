@@ -169,6 +169,38 @@ describe('buildReviewEntries', () => {
       ['!', false],
     ])
     expect(entries[0].pair!.kind).toBe('del')
+    expect([entries[0].pairFrom, entries[0].pairTo]).toEqual(['会意', '会议'])
+    editor.destroy()
+  })
+
+  it('folds a rewrite whose halves landed at different timestamps', () => {
+    const editor = createEditor([
+      para(
+        text('会议', [{ type: 'ins', attrs: { author: 'AI', date: '2026-07-01T10:00:00Z' } }]),
+        text('会意', [{ type: 'del', attrs: { author: 'AI', date: '2026-07-01T10:05:00Z' } }]),
+      ),
+    ])
+    const entries = buildReviewEntries(editor.state.doc, collectRevisions(editor.state.doc))
+    expect(entries).toHaveLength(1)
+    expect(entries[0].pair).toBeTruthy()
+    expect([entries[0].pairFrom, entries[0].pairTo]).toEqual(['会意', '会议'])
+    editor.destroy()
+  })
+
+  it('keeps one doubly-marked run as separate revisions instead of a replacement row', () => {
+    const editor = createEditor([
+      para(
+        text('会议', [
+          { type: 'del', attrs: { author: 'AI', date: '2026-07-01T10:05:00Z' } },
+          { type: 'ins', attrs: { author: 'AI', date: '2026-07-01T10:00:00Z' } },
+        ]),
+      ),
+    ])
+    const entries = buildReviewEntries(editor.state.doc, collectRevisions(editor.state.doc))
+    expect(entries.map((e) => [e.rev.kind, !!e.pair])).toEqual([
+      ['del', false],
+      ['ins', false],
+    ])
     editor.destroy()
   })
 })

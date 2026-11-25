@@ -1859,12 +1859,17 @@ export function AiPanel({
                         )}
                         {typeKey && <span> · {t(typeKey)}</span>}
                       </div>
-                      {e.excerpt && (
-                        <div
-                          className={`ai-revision-row-text${tone === 'del' && !paired ? ' del' : ''}`}
-                        >
-                          {e.excerpt}
-                        </div>
+                      {paired ? (
+                        <>
+                          <div className="ai-revision-row-text del">{e.pairFrom}</div>
+                          <div className="ai-revision-row-text ins">{e.pairTo}</div>
+                        </>
+                      ) : (
+                        e.excerpt && (
+                          <div className={`ai-revision-row-text${tone === 'del' ? ' del' : ''}`}>
+                            {e.excerpt}
+                          </div>
+                        )
                       )}
                       <div className="ai-revision-row-actions">
                         <button

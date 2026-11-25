@@ -111,7 +111,14 @@ export function ReviewRow({
           </span>
         )}
       </div>
-      {e.excerpt && <div className="review-row-text">{e.excerpt}</div>}
+      {e.pair ? (
+        <>
+          <div className="review-row-text del">{e.pairFrom}</div>
+          <div className="review-row-text ins">{e.pairTo}</div>
+        </>
+      ) : (
+        e.excerpt && <div className="review-row-text">{e.excerpt}</div>
+      )}
       <div className="review-row-actions">
         <button
           type="button"
