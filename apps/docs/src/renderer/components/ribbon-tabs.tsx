@@ -1374,7 +1374,7 @@ export function ReviewTab({
           </div>
           <div className="rb-col">
             <button
-              className="rb-small"
+              className={`rb-small ${collateView ? 'active' : ''}`}
               disabled={!hasDoc || !collateReady}
               data-tip={t('ribbonCollateTip')}
               onClick={() => runCommand('tools-collate')}

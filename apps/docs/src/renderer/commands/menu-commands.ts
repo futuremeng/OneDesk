@@ -412,7 +412,7 @@ export interface ReviewHost {
   protect(): void
   /** turns AI review pro mode (results land on a copy tab) on or off */
   toggleProofreadPro(): void
-  /** compare this proofread copy tab against its original snapshot */
+  /** toggle the 对校 sheets: this tab is a proofread copy with a kept original snapshot */
   collate(): void
 }
 

@@ -8738,7 +8738,12 @@ export function App() {
           localStorage.setItem(AI_PROOFREAD_PRO_KEY, on ? '0' : '1')
           return !on
         }),
-      collate: () => void proofreadCollate(),
+      collate: () => {
+        // the button stays pressed while 对校 is open; clicking it again drops
+        // back to the plain current document (same toggle as the menu item)
+        if (collateView) setCollateView(false)
+        else void proofreadCollate()
+      },
     },
     design: {
       setThemeFonts: (fonts) => ribbonActions.onThemeFonts(fonts),
