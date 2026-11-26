@@ -1,7 +1,10 @@
-// 对校 side-by-side collate view: the redline doc renders original-left /
-// revised-right with character-aligned rows, replacements (inline and whole
-// paragraph) pair into one row, and the live doc's marks only serve as the
-// fallback source when the tab kept no previous-version snapshot.
+// 对校 side-by-side collate view: the redline doc renders as two facing paper
+// sheets — the left shows the original as clean text (no revision marks at
+// all), the right keeps insertions underlined and hides deletions, with a
+// change bar in the right sheet's margin on every row that holds a change.
+// Replacements (inline and whole paragraph) pair into one row, and the live
+// doc's marks only serve as the fallback source when the tab kept no
+// previous-version snapshot.
 import { afterEach, beforeAll, describe, expect, it, vi } from 'vitest'
 import { act, createElement } from 'react'
 import { createRoot, type Root } from 'react-dom/client'
@@ -44,7 +47,7 @@ describe('CollateView', () => {
   const roots: Root[] = []
   const editors: Editor[] = []
 
-  function mount(content: unknown, redlineJson?: unknown) {
+  function mount(content: unknown, redlineJson?: unknown, onClose = noop) {
     const editor = new Editor({
       element: document.createElement('div'),
       extensions: editorExtensions,
@@ -62,7 +65,7 @@ describe('CollateView', () => {
           redline,
           zoomClass: '',
           zoomStyle: {},
-          onClose: noop,
+          onClose,
         }),
       )
     })
@@ -72,6 +75,18 @@ describe('CollateView', () => {
   afterEach(() => {
     while (roots.length) act(() => roots.pop()!.unmount())
     while (editors.length) editors.pop()!.destroy()
+  })
+
+  it('renders two facing sheets with no header bar: navigation rides in the bottom capsule', () => {
+    const { host } = mount(fixtureDoc())
+    expect(host.querySelectorAll('.collate-paper')).toHaveLength(2)
+    expect(host.querySelector('.collate-pane-bar')).toBeNull()
+    expect(host.querySelector('.collate-head-row')).toBeNull()
+    const jump = host.querySelector('.collate-jump')
+    expect(jump).not.toBeNull()
+    expect(jump!.querySelector('[data-testid="collate-prev"]')).not.toBeNull()
+    expect(jump!.querySelector('[data-testid="collate-next"]')).not.toBeNull()
+    expect(jump!.querySelector('[data-testid="collate-close"]')).not.toBeNull()
   })
 
   it('renders original left and revised right: deletions only left, insertions only right', () => {
@@ -91,9 +106,36 @@ describe('CollateView', () => {
     expect(cells(1)[1].textContent).not.toContain('old phrase')
 
     // the inserted paragraph: nothing but space on the left, content on the right
-    expect(cells(2)[0].querySelector('.collate-doc')).toBeNull()
+    expect(cells(2)[0].querySelector('.collate-frag')!.textContent).toBe('')
     expect(cells(2)[0].textContent).toBe('')
     expect(cells(2)[1].textContent).toContain('a brand new paragraph')
+  })
+
+  it('the left sheet is clean original text: no revision-marked runs at all', () => {
+    const { host } = mount(fixtureDoc())
+    const rows = host.querySelectorAll('.collate-row')
+    const orig = rows[1].querySelector('.collate-cell-orig')!
+    expect(orig.textContent).toContain('old phrase')
+    expect(orig.querySelector('.doc-del')).toBeNull()
+    expect(orig.querySelector('.doc-ins')).toBeNull()
+    // the right sheet keeps the insertion underlined and shows no deleted runs
+    const rev = rows[1].querySelector('.collate-cell-rev')!
+    expect(rev.querySelector('.doc-ins')?.textContent).toContain('new phrase')
+    expect(rev.querySelector('.doc-del')).toBeNull()
+  })
+
+  it('marks changed rows with a change bar in the right sheet margin only', () => {
+    const { host } = mount(fixtureDoc())
+    const rows = host.querySelectorAll('.collate-row')
+    // untouched row: no bar on either sheet
+    expect(rows[0].querySelector('.collate-chg-bar')).toBeNull()
+    // the inline replacement and the inserted paragraph: one bar, on the right
+    for (const i of [1, 2]) {
+      expect(rows[i].querySelector('.collate-cell-orig .collate-chg-bar')).toBeNull()
+      expect(rows[i].querySelector('.collate-cell-rev .collate-chg-bar')).not.toBeNull()
+    }
+    // the paragraph after the changes: back to no bar
+    expect(rows[3].querySelector('.collate-chg-bar')).toBeNull()
   })
 
   it('pairs the replacement into one entry and counts the inserted paragraph mark', () => {
@@ -104,8 +146,19 @@ describe('CollateView', () => {
     expect(host.querySelector('[data-testid="collate-next"]')!.hasAttribute('disabled')).toBe(false)
   })
 
+  it('the close button in the capsule closes the view', () => {
+    let closed = false
+    const { host } = mount(fixtureDoc(), undefined, () => {
+      closed = true
+    })
+    act(() => {
+      host.querySelector<HTMLButtonElement>('[data-testid="collate-close"]')!.click()
+    })
+    expect(closed).toBe(true)
+  })
+
   it('renders the in-memory redline doc instead of the live editor doc', () => {
-    // the 对校 columns come from the diff kept in memory; the editor underneath
+    // the 对校 sheets come from the diff kept in memory; the editor underneath
     // may show anything (here: the current version without any marks)
     const { host } = mount(
       { type: 'doc', content: [para([text('current version, no marks')])] },
@@ -129,21 +182,25 @@ describe('CollateView', () => {
         para([text('after the swap')]),
       ],
     })
-    // before | the replacement as ONE row | after: the columns never sit apart
+    // before | the replacement as ONE row | after: the sheets never sit apart
     const rows = host.querySelectorAll('.collate-row')
     expect(rows).toHaveLength(3)
     const mid = rows[1].querySelectorAll('.collate-cell')
     expect(mid[0].textContent).toContain('the old paragraph')
     expect(mid[0].textContent).not.toContain('the new paragraph')
+    // the left shows the deleted paragraph as plain original text
+    expect(mid[0].querySelector('.doc-del')).toBeNull()
     expect(mid[1].textContent).toContain('the new paragraph')
     expect(mid[1].textContent).not.toContain('the old paragraph')
-    // the text after the swap aligns on both sides at the same row
+    // one change bar for the whole swap, on the right sheet
+    expect(rows[1].querySelectorAll('.collate-chg-bar')).toHaveLength(1)
+    // the text after the swap aligns on both sheets at the same row
     const after = rows[2].querySelectorAll('.collate-cell')
     expect(after[0].textContent).toContain('after the swap')
     expect(after[1].textContent).toContain('after the swap')
   })
 
-  it('segments a mid-paragraph change so the text after it aligns on both sides', () => {
+  it('segments a mid-paragraph change so the text after it aligns on both sheets', () => {
     const { host } = mount({
       type: 'doc',
       content: [

@@ -14054,11 +14054,14 @@ body.docs-crop-active
 }
 
 /* 对校 side-by-side collate view: the redline doc's second rendering, shown
-   in place over the document area — original left, revised right. The redline
-   is an in-memory diff against the tab's kept previous-version snapshot (no
-   Compare result tab); the live editor stays mounted underneath for pagination
-   and editing, and this overlay is the doc area's second face, not a second
-   document. */
+   in place over the document area as two facing paper sheets on the canvas —
+   the previous version on the left as clean original text, the current one on
+   the right with the regular revision display and change bars in the margin.
+   The redline is an in-memory diff against the tab's kept previous-version
+   snapshot (no Compare result tab); the live editor stays mounted underneath
+   for pagination and editing, and this overlay is the doc area's second face,
+   not a second document. There is no header bar: change navigation lives in
+   the floating bottom capsule and the sheets alone carry the view. */
 .collate-pane {
   position: absolute;
   inset: 0;
@@ -14068,22 +14071,32 @@ body.docs-crop-active
   background: var(--canvas);
 }
 
-.collate-pane-bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  padding: 3px 12px;
-  font-size: 11.5px;
-  color: var(--text-dim);
-  background: var(--surface);
-  border-bottom: 1px solid var(--border);
-}
-
-.collate-pane-tools {
+/* change navigation: a small floating capsule bottom-center on the canvas */
+.collate-jump {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 18px;
+  z-index: 5;
   display: flex;
   align-items: center;
   gap: 6px;
+  padding: 4px 8px;
+  font-size: 11.5px;
+  color: var(--text-dim);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  box-shadow: var(--shadow-menu);
+}
+
+.collate-close {
+  border: none;
+  background: none;
+  font-size: 15px;
+  line-height: 1;
+  color: var(--text);
+  padding: 0 4px;
 }
 
 .collate-pane-count {
@@ -14114,8 +14127,8 @@ body.docs-crop-active
 .collate-pane-scroll {
   flex: 1;
   overflow: auto;
-  /* the two columns sit on one paper: a single sheet with a gutter rule */
-  padding: 26px 24px 140px;
+  /* the two sheets sit on the gray canvas like facing pages on a desk */
+  padding: 28px 24px 120px;
 }
 
 /* the grid columns must fill the pane, not the .doc-zoom fit-content width */
@@ -14124,59 +14137,174 @@ body.docs-crop-active
   max-width: 100%;
 }
 
-.collate-head-row,
+/* the spread: two facing paper sheets side by side; the rows ride on top in a
+   transparent grid, so the two columns stay line-for-line aligned while each
+   sheet keeps its own margins and corner crop marks (page geometry and the
+   paper are document data: the same tokens the editor page uses) */
+.collate-spread {
+  position: relative;
+  width: 100%;
+  max-width: calc(var(--page-w, 816px) * 2 + var(--cgutter));
+  min-height: var(--page-h, 1056px);
+  margin: 0 auto;
+  --cgutter: 40px;
+  --cpad-o: 64px;
+  --cpad-i: 48px;
+  --cpad-t: 88px;
+  --cpad-b: 96px;
+}
+
+.collate-paper {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: calc(50% - var(--cgutter) / 2);
+  background: var(--docs-paper);
+  box-shadow: var(--docs-page-shadow);
+}
+
+.collate-paper-left {
+  left: 0;
+}
+
+.collate-paper-right {
+  right: 0;
+}
+
+/* Word crop marks at the text boundaries of each sheet: an L at every corner,
+   arms running out into the margins (same pattern as the editor's page wraps) */
+.collate-paper::before,
+.collate-paper::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+  --cm: var(--docs-paper-crop-mark);
+  --cm-len: 16px;
+  background-repeat: no-repeat;
+  background-image:
+    linear-gradient(var(--cm), var(--cm)), linear-gradient(var(--cm), var(--cm)),
+    linear-gradient(var(--cm), var(--cm)), linear-gradient(var(--cm), var(--cm));
+  background-size:
+    var(--cm-len) 1px,
+    1px var(--cm-len),
+    var(--cm-len) 1px,
+    1px var(--cm-len);
+}
+
+.collate-paper::before {
+  top: calc(var(--cpad-t) - var(--cm-len));
+  height: var(--cm-len);
+}
+
+.collate-paper::after {
+  bottom: calc(var(--cpad-b) - var(--cm-len));
+  height: var(--cm-len);
+}
+
+/* the left sheet: outer margin on the page edge, inner margin toward the gutter;
+   top corners open up-and-out, bottom corners down-and-out */
+.collate-paper-left::before {
+  background-position:
+    calc(var(--cpad-o) - var(--cm-len)) 100%,
+    var(--cpad-o) 0,
+    calc(100% - var(--cpad-i) + var(--cm-len)) 100%,
+    calc(100% - var(--cpad-i)) 0;
+}
+
+.collate-paper-left::after {
+  background-position:
+    calc(var(--cpad-o) - var(--cm-len)) 0,
+    var(--cpad-o) 0,
+    calc(100% - var(--cpad-i) + var(--cm-len)) 0,
+    calc(100% - var(--cpad-i)) 0;
+}
+
+/* the right sheet mirrors it: inner margin faces the gutter on its left */
+.collate-paper-right::before {
+  background-position:
+    calc(var(--cpad-i) - var(--cm-len)) 100%,
+    var(--cpad-i) 0,
+    calc(100% - var(--cpad-o) + var(--cm-len)) 100%,
+    calc(100% - var(--cpad-o)) 0;
+}
+
+.collate-paper-right::after {
+  background-position:
+    calc(var(--cpad-i) - var(--cm-len)) 0,
+    var(--cpad-i) 0,
+    calc(100% - var(--cpad-o) + var(--cm-len)) 0,
+    calc(100% - var(--cpad-o)) 0;
+}
+
+.collate-rows {
+  position: relative;
+  padding: var(--cpad-t) 0 var(--cpad-b);
+}
+
 .collate-row {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-
-.collate-head-row {
-  position: sticky;
-  top: 0;
-  z-index: 2;
-  padding: 6px 12px;
-  background: var(--surface);
-  border-bottom: 1px solid var(--border);
-  border-radius: 6px 6px 0 0;
-}
-
-.collate-head {
-  font-weight: 600;
-  font-size: 11.5px;
-  color: var(--text-dim);
-}
-
-/* rows read as one continuous document: no card chrome between them, the
-   change-aligned segmentation carries the alignment itself */
-.collate-row {
-  background: var(--surface);
-}
-
-.collate-row.current {
-  outline: 2px solid var(--accent);
-  outline-offset: -2px;
+  grid-template-columns: calc(50% - var(--cgutter) / 2) var(--cgutter) calc(
+      50% - var(--cgutter) / 2
+    );
 }
 
 .collate-cell {
   min-width: 0;
-  padding: 0 12px;
+  position: relative;
 }
 
-.collate-cell + .collate-cell {
-  border-left: 1px solid var(--border);
+.collate-cell-orig {
+  padding: 0 var(--cpad-i) 0 var(--cpad-o);
 }
 
-/* the page wrapper inside a cell keeps the document typography but drops the
-   page chrome (paper, shadow, page geometry) */
-.collate-doc {
+.collate-cell-rev {
+  grid-column: 3;
+  padding: 0 var(--cpad-o) 0 var(--cpad-i);
+}
+
+/* the serialized rows keep the page typography classes but drop the page
+   geometry: the sheet behind the rows is the one with paper and shadow */
+.collate-frag {
   width: auto;
   min-height: 0;
   margin: 0;
-  padding: 6px 8px;
+  padding: 0;
   border: 0;
   background: none;
   box-shadow: none;
   isolation: auto;
+}
+
+/* the left sheet shows the original as plain text: whatever revision ink an
+   atom or block still carries renders as ordinary text there */
+.collate-cell-orig .doc-ins,
+.collate-cell-orig .doc-del,
+.collate-cell-orig .doc-del-marker,
+.collate-cell-orig .has-move-from,
+.collate-cell-orig .has-move-to {
+  color: inherit;
+  text-decoration: none;
+  font-weight: inherit;
+  font-style: inherit;
+  opacity: 1;
+}
+
+/* change bar in the right sheet's left margin, in the document's revision ink
+   (own class: never pick up the editor's .change-bar rev-display rules) */
+.collate-chg-bar {
+  position: absolute;
+  left: calc(var(--cpad-i) - 14px);
+  top: 1px;
+  bottom: 1px;
+  width: 2px;
+  background: var(--rev-bar-ink, var(--docs-paper-rev-ink));
+}
+
+/* the row under navigation: tint both sheets' columns, no frame across them */
+.collate-row.current .collate-cell {
+  background: var(--accent-soft);
 }
 
 .collate-empty {
@@ -14184,12 +14312,6 @@ body.docs-crop-active
   text-align: center;
   color: var(--text-dim);
   font-size: 12px;
-}
-
-.collate-note {
-  margin-top: 10px;
-  color: var(--text-dim);
-  font-size: 11px;
 }
 
 /* ---- Design → Watermark: diagonal ghost text across the page ---- */
