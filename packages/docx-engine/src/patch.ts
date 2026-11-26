@@ -3738,7 +3738,7 @@ function markParagraphRevision(paragraphXml: string, kind: 'ins' | 'del', attrs:
   if (rPrAt !== -1 && (pPrCloseAt === -1 || rPrAt < pPrCloseAt)) {
     // CT_ParaRPr order: w:ins/w:del come first
     const rPrOpenEnd = rest.indexOf('>', rPrAt) + 1
-    return rest.slice(0, rPrOpenEnd) + record + rest.slice(rPrOpenEnd)
+    return open + rest.slice(0, rPrOpenEnd) + record + rest.slice(rPrOpenEnd)
   }
   // no rPr yet: it goes before a pPrChange if one is there (CT_PPr order),
   // else right before the pPr closes

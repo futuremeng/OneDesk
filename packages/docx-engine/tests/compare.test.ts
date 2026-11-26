@@ -81,6 +81,28 @@ describe('document comparison (tracked changes)', () => {
     expect(summary.deletedParagraphs).toBe(1)
   })
 
+  it('keeps the w:p open tag when a replaced paragraph marks an existing pPr/w:rPr', async () => {
+    // the whole-paragraph replacement a compare of two real files writes: the
+    // deleted half carries a pPr that already holds a run-properties rPr, so the
+    // paragraph-mark record lands inside that existing w:rPr — the branch that
+    // once rebuilt the paragraph without its leading <w:p>
+    const gone =
+      '<w:p><w:pPr><w:ind w:firstLine="480"/><w:rPr><w:rFonts w:hint="eastAsia"/></w:rPr></w:pPr>' +
+      '<w:r><w:t>A paragraph the revised document replaced in full without keeping any wording.</w:t></w:r></w:p>'
+    const added =
+      '<w:p><w:r><w:t>Entirely new wording that shares no fragment with the paragraph it replaces.</w:t></w:r></w:p>'
+    const { xml, summary } = await compare(gone, added)
+    expect(summary.deletedParagraphs).toBe(1)
+    expect(summary.insertedParagraphs).toBe(1)
+    expect(summary.changedParagraphs).toBe(0)
+    // every closed paragraph owns an opening tag: no stray <w:pPr after a </w:p>
+    expect((xml.match(/<w:p(?:[\s>/])/g) ?? []).length).toBe((xml.match(/<\/w:p>/g) ?? []).length)
+    expect(xml).not.toMatch(/<\/w:p>\s*<w:pPr/)
+    // Word's shape: the record rides first in the existing w:rPr of the pPr
+    expect(xml).toMatch(/<w:rPr><w:del w:id="\d+"/)
+    expect(xml).toContain('<w:delText')
+  })
+
   it('a table whose shape changed keeps the block-level wrapper (the shape Word writes for tables)', async () => {
     const row = (text: string) =>
       `<w:tr><w:tc><w:tcPr/><w:p><w:r><w:t>${text}</w:t></w:r></w:p></w:tc></w:tr>`
