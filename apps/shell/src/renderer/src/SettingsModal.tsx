@@ -1135,13 +1135,21 @@ function AiModelPane({ t }: { t: TFunc }) {
           }}
         />
       </div>
-      <div className="set-field">
-        <div className="set-field-text">
+      {/* second card: the proofread pass gets its own settings block */}
+      <div className="set-config-block">
+        <div className="set-config-head">
           <div className="set-field-stack">
-            <label className="set-field-label" htmlFor="set-ai-proofread-url">
-              {t('setAiProofreadTitle')}
-            </label>
+            <div className="set-field-label">{t('setAiProofreadTitle')}</div>
             <div className="set-field-desc">{t('setAiProofreadDesc')}</div>
+          </div>
+        </div>
+        <div className="set-field">
+          <div className="set-field-text">
+            <div className="set-field-stack">
+              <label className="set-field-label" htmlFor="set-ai-proofread-url">
+                {t('setAiProofreadUrl')}
+              </label>
+            </div>
           </div>
           <input
             id="set-ai-proofread-url"
@@ -1164,13 +1172,13 @@ function AiModelPane({ t }: { t: TFunc }) {
             }}
           />
         </div>
-      </div>
-      <div className="set-field">
-        <div className="set-field-text">
-          <div className="set-field-stack">
-            <label className="set-field-label" htmlFor="set-ai-proofread-token">
-              {t('setAiProofreadToken')}
-            </label>
+        <div className="set-field">
+          <div className="set-field-text">
+            <div className="set-field-stack">
+              <label className="set-field-label" htmlFor="set-ai-proofread-token">
+                {t('setAiProofreadToken')}
+              </label>
+            </div>
           </div>
           <input
             id="set-ai-proofread-token"
@@ -1193,61 +1201,61 @@ function AiModelPane({ t }: { t: TFunc }) {
             }}
           />
         </div>
-      </div>
-      <div className="set-field">
-        <div className="set-field-text">
-          <div className="set-field-stack">
-            <div className="set-field-label">{t('setAiProofreadDeepScan')}</div>
-            <div className="set-field-desc">{t('setAiProofreadDeepScanDesc')}</div>
+        <div className="set-field">
+          <div className="set-field-text">
+            <div className="set-field-stack">
+              <div className="set-field-label">{t('setAiProofreadDeepScan')}</div>
+              <div className="set-field-desc">{t('setAiProofreadDeepScanDesc')}</div>
+            </div>
           </div>
+          {/* absent means on: only an explicit false in ai-settings.json turns this off */}
+          <button
+            className="set-switch"
+            role="switch"
+            aria-checked={settings.proofread?.deepScan !== false}
+            aria-label={t('setAiProofreadDeepScan')}
+            onClick={() => {
+              setSettings({
+                ...settings,
+                proofread: {
+                  ...settings.proofread,
+                  baseUrl: settings.proofread?.baseUrl ?? '',
+                  token: settings.proofread?.token ?? '',
+                  deepScan: settings.proofread?.deepScan === false,
+                },
+              })
+              touch()
+            }}
+          />
         </div>
-        {/* absent means on: only an explicit false in ai-settings.json turns this off */}
-        <button
-          className="set-switch"
-          role="switch"
-          aria-checked={settings.proofread?.deepScan !== false}
-          aria-label={t('setAiProofreadDeepScan')}
-          onClick={() => {
-            setSettings({
-              ...settings,
-              proofread: {
-                ...settings.proofread,
-                baseUrl: settings.proofread?.baseUrl ?? '',
-                token: settings.proofread?.token ?? '',
-                deepScan: settings.proofread?.deepScan === false,
-              },
-            })
-            touch()
-          }}
-        />
-      </div>
-      <div className="set-field">
-        <div className="set-field-text">
-          <div className="set-field-stack">
-            <div className="set-field-label">{t('setAiProofreadRecheck')}</div>
-            <div className="set-field-desc">{t('setAiProofreadRecheckDesc')}</div>
+        <div className="set-field">
+          <div className="set-field-text">
+            <div className="set-field-stack">
+              <div className="set-field-label">{t('setAiProofreadRecheck')}</div>
+              <div className="set-field-desc">{t('setAiProofreadRecheckDesc')}</div>
+            </div>
           </div>
+          <button
+            className="set-switch"
+            role="switch"
+            aria-checked={settings.proofread?.aiRecheck !== false}
+            aria-label={t('setAiProofreadRecheck')}
+            onClick={() => {
+              setSettings({
+                ...settings,
+                proofread: {
+                  ...settings.proofread,
+                  baseUrl: settings.proofread?.baseUrl ?? '',
+                  token: settings.proofread?.token ?? '',
+                  aiRecheck: settings.proofread?.aiRecheck === false,
+                },
+              })
+              touch()
+            }}
+          />
         </div>
-        <button
-          className="set-switch"
-          role="switch"
-          aria-checked={settings.proofread?.aiRecheck !== false}
-          aria-label={t('setAiProofreadRecheck')}
-          onClick={() => {
-            setSettings({
-              ...settings,
-              proofread: {
-                ...settings.proofread,
-                baseUrl: settings.proofread?.baseUrl ?? '',
-                token: settings.proofread?.token ?? '',
-                aiRecheck: settings.proofread?.aiRecheck === false,
-              },
-            })
-            touch()
-          }}
-        />
       </div>
-    </>
+  </>
   )
 }
 
