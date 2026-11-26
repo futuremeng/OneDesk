@@ -120,6 +120,33 @@ describe('CollateView', () => {
     )
   })
 
+  it('segments a mid-paragraph change so the text after it aligns on both sides', () => {
+    const { host } = mount({
+      type: 'doc',
+      content: [
+        para([text('before '), text('old word', 'del'), text('new word', 'ins'), text(' after')]),
+        para([text('next paragraph')]),
+      ],
+    })
+    // plain run | replacement | plain run | next paragraph
+    const rows = host.querySelectorAll('.collate-row')
+    expect(rows).toHaveLength(4)
+    // the unchanged runs pair with themselves: identical on both columns
+    for (const i of [0, 2]) {
+      const cells = rows[i].querySelectorAll('.collate-cell')
+      expect(cells[0].textContent).toBe(cells[1].textContent)
+      expect(cells[0].textContent!.trim().length).toBeGreaterThan(0)
+    }
+    // the replacement shares one row: the old run left, the new run right
+    const mid = rows[1].querySelectorAll('.collate-cell')
+    expect(mid[0].textContent).toContain('old word')
+    expect(mid[0].textContent).not.toContain('new word')
+    expect(mid[1].textContent).toContain('new word')
+    expect(mid[1].textContent).not.toContain('old word')
+    // the row after the change keeps both columns side by side: character-aligned
+    expect(rows[2].querySelector('.collate-cell')!.textContent).toContain('after')
+  })
+
   it('a doc without revisions shows the empty state, not the grid rows of marks', () => {
     const { host } = mount({ type: 'doc', content: [para([text('plain')])] })
     expect(host.querySelector('.collate-empty')).not.toBeNull()

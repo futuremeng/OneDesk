@@ -13605,6 +13605,7 @@ body.docs-crop-active
 
 /* editor column: document scroller on top, optional split pane below */
 .editor-area {
+  position: relative;
   flex: 1;
   min-width: 0;
   min-height: 0;
@@ -14052,16 +14053,16 @@ body.docs-crop-active
   pointer-events: none;
 }
 
-/* 对校 side-by-side collate pane: the redline doc's second rendering (original
-   left, revised right). Chrome follows the .split-pane precedent; the cells
-   stay interactive so Accept/Reject on the bar can act on the live doc. */
+/* 对校 side-by-side collate view: the redline doc's second rendering, shown
+   in place over the document area — original left, revised right. The live
+   editor stays mounted underneath (pagination and Accept/Reject keep running
+   on it); this overlay is the doc area's second face, not a second document. */
 .collate-pane {
-  height: 46%;
-  min-height: 220px;
-  flex: none;
+  position: absolute;
+  inset: 0;
+  z-index: 30;
   display: flex;
   flex-direction: column;
-  border-top: 3px solid var(--border-strong);
   background: var(--canvas);
 }
 
@@ -14110,8 +14111,15 @@ body.docs-crop-active
 
 .collate-pane-scroll {
   flex: 1;
-  overflow-y: auto;
-  padding: 14px 24px 48px;
+  overflow: auto;
+  /* the two columns sit on one paper: a single sheet with a gutter rule */
+  padding: 26px 24px 140px;
+}
+
+/* the grid columns must fill the pane, not the .doc-zoom fit-content width */
+.collate-zoom {
+  width: 100%;
+  max-width: 100%;
 }
 
 .collate-head-row,
@@ -14124,8 +14132,10 @@ body.docs-crop-active
   position: sticky;
   top: 0;
   z-index: 2;
-  padding: 2px 2px 6px;
-  background: var(--canvas);
+  padding: 6px 12px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  border-radius: 6px 6px 0 0;
 }
 
 .collate-head {
@@ -14134,22 +14144,20 @@ body.docs-crop-active
   color: var(--text-dim);
 }
 
+/* rows read as one continuous document: no card chrome between them, the
+   change-aligned segmentation carries the alignment itself */
 .collate-row {
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  margin-bottom: 8px;
   background: var(--surface);
-  padding: 2px;
 }
 
 .collate-row.current {
   outline: 2px solid var(--accent);
-  outline-offset: 1px;
+  outline-offset: -2px;
 }
 
 .collate-cell {
   min-width: 0;
-  padding: 2px 4px;
+  padding: 0 12px;
 }
 
 .collate-cell + .collate-cell {
