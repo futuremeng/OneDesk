@@ -132,6 +132,7 @@ export function CollateView({
         <span className="collate-pane-tools">
           <button
             className="collate-btn"
+            data-testid="collate-prev"
             disabled={empty || current <= 0}
             onClick={() => setCurrent((c) => Math.max(0, c - 1))}
           >
@@ -140,15 +141,26 @@ export function CollateView({
           <span className="collate-pane-count">{empty ? '0/0' : `${current + 1}/${n}`}</span>
           <button
             className="collate-btn"
+            data-testid="collate-next"
             disabled={empty || current >= n - 1}
             onClick={() => setCurrent((c) => Math.min(n - 1, c + 1))}
           >
             {t('appCollateNext')}
           </button>
-          <button className="collate-btn" disabled={empty} onClick={() => act('accept')}>
+          <button
+            className="collate-btn"
+            data-testid="collate-accept"
+            disabled={empty}
+            onClick={() => act('accept')}
+          >
             {t('appRevAccept')}
           </button>
-          <button className="collate-btn" disabled={empty} onClick={() => act('reject')}>
+          <button
+            className="collate-btn"
+            data-testid="collate-reject"
+            disabled={empty}
+            onClick={() => act('reject')}
+          >
             {t('appRevReject')}
           </button>
         </span>
