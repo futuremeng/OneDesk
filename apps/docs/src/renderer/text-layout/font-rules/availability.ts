@@ -30,6 +30,7 @@ export const BUNDLED_FONTS = new Set([
   'OneDesk Gothic KR',
   'OneDesk Poppins',
   'OneDesk DM Sans',
+  'OneDesk Barlow',
   'OneDesk Tamil',
   'OneDesk Cordia',
   'OneDesk Sarabun',

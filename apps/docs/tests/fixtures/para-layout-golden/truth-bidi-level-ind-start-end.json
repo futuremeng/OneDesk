@@ -1,7 +1,12 @@
 {
   "source": "packages/docx-engine/tests/fixtures/truths/bidi-level-ind-start-end/probe.docx",
   "paragraphs": 4,
-  "hashes": ["d62d07d9fe401171", "b3e8e4f37e1a1b0c", "5d599e2f1c5ce5de", "4171a0a596df148d"],
+  "hashes": [
+    "d62d07d9fe401171",
+    "b3e8e4f37e1a1b0c",
+    "5d599e2f1c5ce5de",
+    "4171a0a596df148d"
+  ],
   "cellParagraphs": 0,
   "cellHashes": [],
   "boxParagraphs": 0,

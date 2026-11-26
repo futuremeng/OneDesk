@@ -25,8 +25,9 @@ export default defineConfig({
   },
   preload: {
     // Sandboxed preload scripts cannot require arbitrary npm packages at
-    // runtime, so the drop-open bridge must be bundled, not externalized.
-    plugins: [externalizeDepsPlugin({ exclude: ['@onedesk/electron-utils'] })],
+    // runtime, so the drop-open bridge and the measurement-unit channels
+    // must be bundled, not externalized.
+    plugins: [externalizeDepsPlugin({ exclude: ['@onedesk/electron-utils', '@onedesk/ui'] })],
   },
   renderer: {
     plugins: [react()],

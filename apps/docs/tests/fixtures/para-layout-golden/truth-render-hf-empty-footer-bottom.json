@@ -1,13 +1,18 @@
 {
   "source": "packages/docx-engine/tests/fixtures/truths/render-hf-empty-footer-bottom/probe.docx",
   "paragraphs": 2,
-  "hashes": ["e2b62d77a9863754", "ad5bb5cbfd6de9b3"],
+  "hashes": [
+    "e2b62d77a9863754",
+    "ad5bb5cbfd6de9b3"
+  ],
   "cellParagraphs": 0,
   "cellHashes": [],
   "boxParagraphs": 0,
   "boxHashes": [],
   "hfParagraphs": 1,
-  "hfHashes": ["e9153764eb3eb43b"],
+  "hfHashes": [
+    "e9153764eb3eb43b"
+  ],
   "noteParagraphs": 0,
   "noteHashes": []
 }

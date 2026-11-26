@@ -40,7 +40,7 @@ onedesk convert report.docx --to html               # the Word editor's standalo
 onedesk convert page.html --to docx                 # html2docx, same as the HTML app's Export as Word
 onedesk convert report.docx --to md                 # GFM via the markdown editor's serializer
 onedesk convert letter.doc --to docx                # Word 97-2003 .doc/.dot through the in-process doc2docx importer
-onedesk convert book.xlsx --to csv [--sheet Data]   # one sheet, cell text as displayed, UTF-8 BOM, CRLF
+onedesk convert book.xlsx --to csv [--sheet Data] [--neutralize-formulas]   # one sheet, cell text as displayed, UTF-8 BOM, CRLF; --neutralize-formulas prefixes formula-like cells (=, @/+/- function calls, DDE) with an apostrophe — off by default so ordinary data keeps its bytes
 onedesk capabilities --json                        # which cloud features OneDesk has configured (no network call)
 onedesk search "electron headless export" [--images] [--max 6] --json
 onedesk image "isometric office, soft light" --aspect 16:9 --out hero.png

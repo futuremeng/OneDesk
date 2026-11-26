@@ -53,6 +53,7 @@ function useCommandOff(
       hasTableOfFigures: format.hasTableOfFigures,
       hasIndex: format.hasIndex,
       hasTableOfAuthorities: format.hasTableOfAuthorities,
+      hasLinks: format.hasLinks,
       hasMergeSource: view.hasMergeSource,
       windowsDetached: view.windowsDetached,
       ...over,
@@ -98,6 +99,7 @@ export function RbCommand({
   look = 'icon',
   busy = false,
   blocked,
+  iconAt,
   children,
 }: {
   cmd: RibbonCommandId
@@ -106,6 +108,8 @@ export function RbCommand({
   busy?: boolean
   /** why the command cannot run right now; shown as the tip in place of the normal one */
   blocked?: string
+  /** rank at which a big button gives up its caption (see ribbon-fit) */
+  iconAt?: number
   children: ReactNode
 }) {
   const { t } = useI18n()
@@ -118,6 +122,7 @@ export function RbCommand({
     return (
       <button
         className={`rb-big${command.pressed ? ' active' : ''}`}
+        data-icon={iconAt}
         disabled={disabled}
         data-tip={tip}
         // command-exempt: RbCommand dispatches its own command (source.run → runCommand)

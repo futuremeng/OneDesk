@@ -938,7 +938,7 @@ describe('cssFontFamily', () => {
       "'游ゴシック','Yu Gothic OD','Yu Gothic Sans OD','Yu Gothic','OneDesk Hiragino Sans','Meiryo','Noto Sans JP','OneDesk Sans KR',sans-serif",
     )
     expect(cssFontFamily('ＭＳ Ｐ明朝')).toBe(
-      "'\uff2d\uff33 \uff30\u660e\u671d','Yu Mincho','OneDesk Hiragino Mincho','OneDesk MS Mincho','Noto Serif JP','OneDesk Batang','OneDesk Serif KR',serif",
+      "'\uff2d\uff33 \uff30\u660e\u671d','MS PMincho OD','MS PMincho JA OD','Yu Mincho','OneDesk Hiragino Mincho','OneDesk MS Mincho','Noto Serif JP','OneDesk Batang','OneDesk Serif KR',serif",
     )
     expect(cssFontFamily('Meiryo')).toContain("'OneDesk Hiragino Sans'")
     expect(cssFontFamily('Meiryo')).not.toContain('CJK SC')
@@ -1057,11 +1057,14 @@ describe('cssFontFamily', () => {
     // Berlin Sans FB Demi rides its bold alias; the regular cut is unprobed
     expect(cssFontFamily('Berlin Sans FB Demi')).toContain("'Berlin Sans FB OD'")
     expect(cssFontFamily('Berlin Sans FB')).not.toContain("'Berlin Sans FB OD'")
-    // MS Mincho shares the fixed-pitch Latin alias; other JP names are untouched
+    // MS Mincho shares the fixed-pitch Latin alias; MS PMincho has its own proportional pair
     expect(cssFontFamily('ＭＳ ゴシック 太字')).not.toContain("'MS Gothic OD'")
     expect(cssFontFamily('MS Mincho')).toMatch(/^'MS Mincho','MS Mincho OD',/)
     expect(cssFontFamily('\uFF2D\uFF33 \u660E\u671D')).toContain("'MS Mincho OD'")
-    expect(cssFontFamily('MS PMincho')).not.toContain(' OD')
+    expect(cssFontFamily('MS PMincho')).toMatch(/^'MS PMincho','MS PMincho OD','MS PMincho JA OD',/)
+    expect(cssFontFamily('\uFF2D\uFF33 \uFF30\u660E\u671D')).toContain("'MS PMincho JA OD'")
+    expect(docLatinChainCss('MS PMincho')).not.toContain('JA OD')
+    expect(monospaceAdvanceEm("'MS PMincho','MS PMincho OD'")).toBeNull()
     expect(monospaceAdvanceEm("'ＭＳ ゴシック','MS Gothic OD'")).toBe(0.5)
     expect(monospaceAdvanceEm("'MS Mincho','MS Mincho OD'")).toBe(0.5)
     expect(monospaceAdvanceEm("'MS PGothic'")).toBeNull()
@@ -1884,6 +1887,21 @@ describe('Korean line metrics', () => {
     expect(cssFontFamily('DM Sans')).toBe(
       "'DM Sans','OneDesk DM Sans','Noto Sans CJK SC',sans-serif",
     )
+    // Barlow is a cloud face Word renders real (corpus 2026-11-19: 1.2 = hhea);
+    // Barlow Condensed keeps its own alias
+    expect(lineHeightFactor('Barlow')).toBe(1.2)
+    expect(cssFontFamily('Barlow')).toBe(
+      "'Barlow','OneDesk Barlow','Noto Sans CJK SC',sans-serif",
+    )
+    expect(cssFontFamily('Barlow Condensed')).toContain("'Barlow Condensed OD'")
+    // the MT tag is not a style word: Abadi MT with a roman entry is Cambria, not the cloud Abadi
+    setDocFontTable([{ name: 'Abadi MT', family: 'roman' }])
+    try {
+      expect(cssFontFamily('Abadi MT')).toContain("'Caladea'")
+      expect(lineHeightFactor('Abadi MT')).toBe(lineHeightFactor('Cambria'))
+    } finally {
+      setDocFontTable(null)
+    }
   })
 
   it('hangul wraps at word boundaries like Word, not per syllable', () => {

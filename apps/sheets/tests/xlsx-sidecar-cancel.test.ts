@@ -12,10 +12,12 @@ class FakeSidecarProcess extends EventEmitter {
 }
 
 function writtenRequests(fake: FakeSidecarProcess): Record<string, unknown>[] {
-  const raw = fake.stdin.read() as Buffer | null
+  // Node >= 26 returns one chunk per read(); drain the buffer on every version
+  let raw = ''
+  for (let chunk = fake.stdin.read(); chunk; chunk = fake.stdin.read())
+    raw += (chunk as Buffer).toString('utf8')
   if (!raw) return []
   return raw
-    .toString('utf8')
     .split('\n')
     .filter((line) => line.length > 0)
     .map((line) => JSON.parse(line) as Record<string, unknown>)

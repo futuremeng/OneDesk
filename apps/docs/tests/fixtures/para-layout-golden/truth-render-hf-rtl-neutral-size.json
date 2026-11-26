@@ -1,13 +1,19 @@
 {
   "source": "packages/docx-engine/tests/fixtures/truths/render-hf-rtl-neutral-size/probe.docx",
   "paragraphs": 2,
-  "hashes": ["480d2f5c1408188a", "2f2c28213413f71f"],
+  "hashes": [
+    "480d2f5c1408188a",
+    "2f2c28213413f71f"
+  ],
   "cellParagraphs": 0,
   "cellHashes": [],
   "boxParagraphs": 0,
   "boxHashes": [],
   "hfParagraphs": 2,
-  "hfHashes": ["481782431e43c744", "a2aad273460b19b2"],
+  "hfHashes": [
+    "481782431e43c744",
+    "a2aad273460b19b2"
+  ],
   "noteParagraphs": 0,
   "noteHashes": []
 }
