@@ -317,7 +317,11 @@ jobs:
   # re-run (workflow_dispatch, retried job) never duplicates an asset.
   atomgit-release:
     needs: [version, release]
-    if: ${{ needs.release.result == 'success' }}
+    # always() is mandatory here: release itself runs with always() because
+    # build-mac may be skipped, and a plain needs.<job>.result check would then
+    # be swallowed by skip propagation (v0.14.0 run: release succeeded yet this
+    # job skipped).
+    if: ${{ always() && needs.version.result == 'success' && needs.release.result == 'success' }}
     runs-on: ubuntu-latest
     timeout-minutes: 20
     env:
