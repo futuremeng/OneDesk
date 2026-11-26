@@ -281,6 +281,12 @@
   gap: 20px;
 }
 
+/* proofread card: its test row sits below the head as its own right-aligned
+   line; the pane-head flex:1 would stretch it vertically inside the column */
+.set-config-block > .set-pane-actions {
+  flex: 0 0 auto;
+}
+
 /* MCP pane: compact action group in a config/log head row */
 .set-btn-row {
   display: flex;

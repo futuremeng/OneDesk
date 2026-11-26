@@ -8363,6 +8363,54 @@ export function registerAiIpc(): void {
     activeProofreadDetects.get(String(requestId))?.abort()
   })
 
+  // Settings-card connection test: one /gec/detect round trip with a throwaway
+  // sentence at level 1 (rules and decision only), so the service answers in
+  // about a second without touching the LLM fallback — reachability, the
+  // access token and the service itself are verified by the same call the
+  // proofread pass makes, at its cheapest setting.
+  ipcMain.handle(
+    'ai:proofread-test',
+    async (_event, request: { baseUrl?: string; token?: string }): Promise<ProofreadDetectResult> => {
+      const baseUrl = sanitizeBaseUrl(request?.baseUrl)
+      if (!baseUrl) return { ok: false, status: 0, error: 'invalid proofread service URL' }
+      const token = String(request?.token ?? '')
+        .trim()
+        .slice(0, 512)
+      const controller = new AbortController()
+      // level-1 detects are rules-fast; 30s only ever trips on a dead host
+      const timer = setTimeout(() => controller.abort(), 30_000)
+      const root = baseUrl.replace(/\/+$/, '')
+      try {
+        const res = await net.fetch(`${root}/gec/detect`, {
+          method: 'POST',
+          headers: {
+            'content-type': 'application/json',
+            ...(token ? { authorization: `Bearer ${token}` } : {}),
+          },
+          body: JSON.stringify({ lang: 'zh', text: '这是一次连接测试。', level: 1 }),
+          signal: controller.signal,
+        })
+        if (!res.ok) {
+          // the service's auth/quota failures carry a one-line `{error}` body
+          let message = `HTTP ${res.status}`
+          try {
+            const body = (await res.json()) as { error?: unknown }
+            if (typeof body.error === 'string' && body.error) message = body.error
+          } catch {
+            /* non-JSON error body: keep the status line */
+          }
+          return { ok: false, status: res.status, error: message }
+        }
+        return { ok: true, status: res.status }
+      } catch (e) {
+        if (controller.signal.aborted) return { ok: false, status: 0, error: 'connection test timed out' }
+        return { ok: false, status: 0, error: e instanceof Error ? e.message : String(e) }
+      } finally {
+        clearTimeout(timer)
+      }
+    },
+  )
+
   // Accept/reject feedback for a landed proofread revision, posted to the same
   // proofread service ({baseUrl}/gec/feedback) with the detect token. The
   // renderer fires these and ignores the result (adopt/reject counters feed

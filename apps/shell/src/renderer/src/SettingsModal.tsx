@@ -361,6 +361,12 @@ function AiModelPane({ t }: { t: TFunc }) {
   const [saved, setSaved] = useState(false)
   const [testing, setTesting] = useState(false)
   const [testResult, setTestResult] = useState<{ ok: boolean; error?: string } | null>(null)
+  /** 审校服务的连接测试状态，独立于模型服务商的 testResult */
+  const [proofreadTesting, setProofreadTesting] = useState(false)
+  const [proofreadTestResult, setProofreadTestResult] = useState<{
+    ok: boolean
+    error?: string
+  } | null>(null)
   /** free-typed value of the output-cap field; committed (and clamped) on blur */
   const [maxTokensDraft, setMaxTokensDraft] = useState<string | null>(null)
 
@@ -385,6 +391,8 @@ function AiModelPane({ t }: { t: TFunc }) {
   dirtyRef.current = dirty
   /** bumped on every outside reload so a connection test that was still running reports nothing */
   const testSeqRef = useRef(0)
+  /** likewise for the proofread service test */
+  const proofreadTestSeqRef = useRef(0)
   useEffect(() => {
     let alive = true
     const load = () => {
@@ -393,6 +401,9 @@ function AiModelPane({ t }: { t: TFunc }) {
         testSeqRef.current += 1
         setTesting(false)
         setTestResult(null)
+        proofreadTestSeqRef.current += 1
+        setProofreadTesting(false)
+        setProofreadTestResult(null)
         setSaved(false)
         // The switch is disabled with onedesk, so never present it stranded
         // off. Display-only: s.provider may be the activeProvider fallback for
@@ -656,6 +667,30 @@ function AiModelPane({ t }: { t: TFunc }) {
       })
       .finally(() => {
         if (seq === testSeqRef.current) setTesting(false)
+      })
+  }
+  const testProofread = () => {
+    const seq = ++proofreadTestSeqRef.current
+    setProofreadTesting(true)
+    setProofreadTestResult(null)
+    window.aiOffice
+      .testProofreadSettings?.({
+        baseUrl: settings.proofread?.baseUrl?.trim() ?? '',
+        token: settings.proofread?.token ?? '',
+      })
+      .then((r) => {
+        if (seq !== proofreadTestSeqRef.current) return
+        setProofreadTestResult(r ?? { ok: false })
+      })
+      .catch((error) => {
+        if (seq !== proofreadTestSeqRef.current) return
+        setProofreadTestResult({
+          ok: false,
+          error: error instanceof Error ? error.message : String(error),
+        })
+      })
+      .finally(() => {
+        if (seq === proofreadTestSeqRef.current) setProofreadTesting(false)
       })
   }
 
@@ -1142,6 +1177,26 @@ function AiModelPane({ t }: { t: TFunc }) {
             <div className="set-field-label">{t('setAiProofreadTitle')}</div>
             <div className="set-field-desc">{t('setAiProofreadDesc')}</div>
           </div>
+        </div>
+        <div className="set-pane-actions">
+          <AiStatusPill
+            status={
+              proofreadTesting
+                ? { kind: 'testing', text: t('setAiTesting') }
+                : proofreadTestResult
+                  ? proofreadTestResult.ok
+                    ? { kind: 'ok', text: t('setAiTestOk') }
+                    : { kind: 'err', text: proofreadTestResult.error || t('setAiTestFail') }
+                  : null
+            }
+          />
+          <button
+            className="set-btn"
+            disabled={proofreadTesting || !(settings.proofread?.baseUrl ?? '').trim()}
+            onClick={testProofread}
+          >
+            {t('setAiTest')}
+          </button>
         </div>
         <div className="set-field">
           <div className="set-field-text">

@@ -684,6 +684,15 @@ const homeApi: HomeApi = {
       ? { ok: true }
       : { ok: false, error: typeof raw.error === 'string' ? raw.error : 'Connection failed' }
   },
+  async testProofreadSettings(args) {
+    const raw = ((await ipcRenderer.invoke('ai:proofread-test', {
+      baseUrl: String(args?.baseUrl ?? ''),
+      token: String(args?.token ?? ''),
+    })) ?? {}) as { ok?: unknown; error?: unknown }
+    return raw.ok === true
+      ? { ok: true }
+      : { ok: false, error: typeof raw.error === 'string' ? raw.error : 'Connection failed' }
+  },
   getAiMediaProviders() {
     return AI_MEDIA_PROVIDERS
   },

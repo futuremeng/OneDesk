@@ -527,6 +527,11 @@ export interface HomeApi {
   ): Promise<CodexModelCatalog>
   /** one-shot round trip against the given (possibly unsaved) settings — the settings-UI connection test */
   testAiSettings(settings: AiSettings): Promise<AiChatResponse>
+  /** one-shot rules-only probe of a (possibly unsaved) proofread service — the settings-UI connection test */
+  testProofreadSettings(args: {
+    baseUrl: string
+    token: string
+  }): Promise<{ ok: boolean; error?: string }>
   /** image generation / media analysis provider catalog */
   getAiMediaProviders(): AiMediaProviderMeta[]
   /** credential check for a (possibly unsaved) media provider; onedesk reports the onedesk login state */
