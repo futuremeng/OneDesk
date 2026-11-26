@@ -29,6 +29,10 @@ export const AI_PROOFREAD_ACK_KEY = 'docs-ai-proofread-ack'
 /** Review tab's 专业 switch: an accepted pass lands on a copy tab, not here (flow P06) */
 export const AI_PROOFREAD_PRO_KEY = 'docs-ai-proofread-pro'
 
+/** one-time acknowledgement that a 专业 run creates a copy file to proofread
+ *  (flow P06): asked once before the first copy lands on disk */
+export const AI_PROOFREAD_COPY_ACK_KEY = 'docs-ai-proofread-copy-ack'
+
 /** idle → running → review (all suggestions landed); stopped = interrupted (X02) */
 export type ProofreadPhase = 'idle' | 'running' | 'stopped' | 'review' | 'unavailable'
 

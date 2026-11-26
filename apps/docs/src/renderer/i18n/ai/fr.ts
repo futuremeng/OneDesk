@@ -119,6 +119,8 @@ export const fr = {
   aiProofreadClean: 'Correction terminée, aucun problème trouvé',
   aiProofreadCopyName: '{name} · Copie de relecture IA',
   aiProofreadCopyOpened: 'Copie de relecture {name} ouverte ; le document original reste inchangé',
+  aiProofreadCopyAck:
+    'Le mode Pro crée d’abord une copie à côté de l’original ({name} v2.docx…) et effectue la relecture dans cette copie ; l’original reste inchangé. Créer la copie ?',
   aiProofreadStale:
     'Le texte a changé ; cette suggestion n’a pas pu être localisée et n’a pas été appliquée',
   aiProofreadNeedsSettings:

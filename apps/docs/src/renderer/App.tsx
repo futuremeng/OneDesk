@@ -799,6 +799,7 @@ import { tabLayoutDiag } from './editor/decoration-extensions'
 import { layoutHealth } from './editor/layout-health'
 import {
   AI_PROOFREAD_ACK_KEY,
+  AI_PROOFREAD_COPY_ACK_KEY,
   AI_PROOFREAD_PRO_KEY,
   PROOFREAD_AUTHOR,
   collectProofreadParagraphs,
@@ -7773,19 +7774,24 @@ export function App() {
         localStorage.setItem(AI_PROOFREAD_ACK_KEY, '1')
         // 专业 mode: the original never runs the pass. snapshot the untouched
         // document, open it as a copy tab and let the copy run everything; a
-        // selection run still edits this tab in place even with 专业 on
-        if (proofreadPro && !proofreadCopyRef.current) {
+        // selection run still edits this tab in place even with 专业 on, and so
+        // does a never-saved document, which has no folder to land a copy in
+        if (proofreadPro && !proofreadCopyRef.current && doc?.filePath) {
+          const savedPath = doc.filePath
+          const stem = doc.fileName ? doc.fileName.replace(/\.docx$/i, '') : t('appUntitledDocx')
+          // the first 专业 start asks once more: this run creates a copy file
+          if (localStorage.getItem(AI_PROOFREAD_COPY_ACK_KEY) !== '1') {
+            if (!window.confirm(t('aiProofreadCopyAck', { name: stem }))) return
+            localStorage.setItem(AI_PROOFREAD_COPY_ACK_KEY, '1')
+          }
           void (async () => {
             const bytes = await buildDocBytesImpl(fileCtxRef.current)
             if (!bytes) return void runProofreadPassFrom(0)
-            const stem = doc?.fileName ? doc.fileName.replace(/\.docx$/i, '') : t('appUntitledDocx')
             const copyName = t('aiProofreadCopyName', { name: stem })
-            // the copy first lands on disk next to the original under a bumped
-            // version name and the pass runs in that file; a document never
-            // saved has no folder, so it falls back to the in-memory copy
-            const saved = doc?.filePath
-              ? await window.desktop.saveProofreadCopy(bytes, doc.filePath)
-              : null
+            // the copy lands on disk next to the original under a bumped
+            // version name and the pass runs in that file; a save that fails
+            // falls back to the in-memory copy so the original stays untouched
+            const saved = await window.desktop.saveProofreadCopy(bytes, savedPath)
             await window.desktop.openResultTab(
               bytes,
               saved

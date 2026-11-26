@@ -115,6 +115,8 @@ export const ar = {
   aiProofreadClean: 'Proofread done, no issues found',
   aiProofreadCopyName: '{name} · نسخة التدقيق بالذكاء الاصطناعي',
   aiProofreadCopyOpened: 'فُتحت نسخة التدقيق {name}؛ المستند الأصلي دون تغيير',
+  aiProofreadCopyAck:
+    'ينشئ الوضع الاحترافي أولاً نسخة من الملف بجوار الأصل ({name} v2.docx…) ويجري التدقيق فيها؛ ويبقى الأصل دون تغيير. إنشاء النسخة؟',
   aiProofreadStale: 'The text changed; this suggestion could not be located and was not applied',
   aiProofreadNeedsSettings: 'لم تُضبط خدمة النموذج — التدقيق يحتاج نقطة نهاية متوافقة مع OpenAI',
   aiProofreadOpenSettings: 'فتح الإعدادات',
