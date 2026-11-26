@@ -117,7 +117,7 @@ export const en = {
   aiProofreadCopyName: '{name} · AI Proofread Copy',
   aiProofreadCopyOpened: 'Proofread copy {name} opened; the original stays unchanged',
   aiProofreadCopyAck:
-    'Pro mode first creates a copy file next to the original ({name} v2.docx…) and runs the proofread there; the original stays untouched. Create the copy?',
+    'Pro mode first creates a copy file next to the original ({name}_v2.docx…) and runs the proofread there; the original stays untouched. Create the copy?',
   aiProofreadStale: 'The text changed; this suggestion could not be located and was not applied',
   aiProofreadNeedsSettings:
     'No model service configured. Proofread needs an OpenAI-compatible endpoint or a sign-in.',

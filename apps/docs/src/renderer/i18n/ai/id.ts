@@ -118,7 +118,7 @@ export const id = {
   aiProofreadCopyName: '{name} · Salinan koreksi AI',
   aiProofreadCopyOpened: 'Salinan koreksi {name} dibuka; dokumen asli tidak berubah',
   aiProofreadCopyAck:
-    'Mode Pro lebih dulu membuat salinan file di samping dokumen asli ({name} v2.docx…) dan menjalankan koreksi di sana; dokumen asli tetap utuh. Buat salinan?',
+    'Mode Pro lebih dulu membuat salinan file di samping dokumen asli ({name}_v2.docx…) dan menjalankan koreksi di sana; dokumen asli tetap utuh. Buat salinan?',
   aiProofreadStale: 'The text changed; this suggestion could not be located and was not applied',
   aiProofreadNeedsSettings:
     'Layanan model belum dikonfigurasi — koreksi membutuhkan endpoint yang kompatibel dengan OpenAI',

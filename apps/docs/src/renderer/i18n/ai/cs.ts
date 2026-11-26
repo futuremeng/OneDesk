@@ -118,7 +118,7 @@ export const cs = {
   aiProofreadCopyName: '{name} · kopie korektury AI',
   aiProofreadCopyOpened: 'Kopie korektury {name} otevřena; původní dokument zůstal nezměněn',
   aiProofreadCopyAck:
-    'Profesionální režim nejprve vedle originálu vytvoří kopii ({name} v2.docx…) a revizi provede v kopii; originál zůstane nedotčen. Vytvořit kopii?',
+    'Profesionální režim nejprve vedle originálu vytvoří kopii ({name}_v2.docx…) a revizi provede v kopii; originál zůstane nedotčen. Vytvořit kopii?',
   aiProofreadStale: 'The text changed; this suggestion could not be located and was not applied',
   aiProofreadNeedsSettings:
     'Není nastavena modelová služba — kontrola potřebuje OpenAI kompatibilní koncový bod',

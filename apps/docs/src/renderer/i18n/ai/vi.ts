@@ -117,7 +117,7 @@ export const vi = {
   aiProofreadCopyName: '{name} · Bản sao hiệu đính AI',
   aiProofreadCopyOpened: 'Đã mở bản sao hiệu đính {name}; tài liệu gốc không thay đổi',
   aiProofreadCopyAck:
-    'Chế độ Pro trước tiên tạo một bản sao bên cạnh tệp gốc ({name} v2.docx…) và hiệu đính trong bản sao; tệp gốc không thay đổi. Tạo bản sao?',
+    'Chế độ Pro trước tiên tạo một bản sao bên cạnh tệp gốc ({name}_v2.docx…) và hiệu đính trong bản sao; tệp gốc không thay đổi. Tạo bản sao?',
   aiProofreadStale: 'The text changed; this suggestion could not be located and was not applied',
   aiProofreadNeedsSettings:
     'Chưa cấu hình dịch vụ mô hình — hiệu đính cần điểm cuối tương thích OpenAI',

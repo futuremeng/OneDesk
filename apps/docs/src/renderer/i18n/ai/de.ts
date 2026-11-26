@@ -120,7 +120,7 @@ export const de = {
   aiProofreadCopyName: '{name} · KI-Korrekturkopie',
   aiProofreadCopyOpened: 'Korrekturkopie {name} geöffnet; das Original bleibt unverändert',
   aiProofreadCopyAck:
-    'Der Pro-Modus erstellt zuerst eine Kopie neben der Originaldatei ({name} v2.docx…) und prüft in dieser Kopie; das Original bleibt unverändert. Kopie erstellen?',
+    'Der Pro-Modus erstellt zuerst eine Kopie neben der Originaldatei ({name}_v2.docx…) und prüft in dieser Kopie; das Original bleibt unverändert. Kopie erstellen?',
   aiProofreadStale:
     'Der Text hat sich geändert; dieser Vorschlag konnte nicht gefunden und nicht eingefügt werden',
   aiProofreadNeedsSettings:

@@ -119,7 +119,7 @@ export const pt = {
   aiProofreadCopyName: '{name} · Cópia de revisão IA',
   aiProofreadCopyOpened: 'Cópia de revisão {name} aberta; o original permanece inalterado',
   aiProofreadCopyAck:
-    'O modo Pro cria primeiro uma cópia ao lado do original ({name} v2.docx…) e executa a revisão nela; o original permanece intacto. Criar a cópia?',
+    'O modo Pro cria primeiro uma cópia ao lado do original ({name}_v2.docx…) e executa a revisão nela; o original permanece intacto. Criar a cópia?',
   aiProofreadStale: 'The text changed; this suggestion could not be located and was not applied',
   aiProofreadNeedsSettings:
     'Nenhum serviço de modelo configurado; a correção precisa de um endpoint compatível com OpenAI',

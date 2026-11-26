@@ -113,7 +113,7 @@ export const zhTW = {
   aiProofreadCopyName: '{name} · AI 審校副本',
   aiProofreadCopyOpened: '審校副本「{name}」已開啟，原始文件未改動',
   aiProofreadCopyAck:
-    '專業模式會先在原文檔旁建立副本檔案（{name} v2.docx…）並在副本中校對，原文檔不受影響。確認建立副本？',
+    '專業模式會先在原文檔旁建立副本檔案（{name}_v2.docx…）並在副本中校對，原文檔不受影響。確認建立副本？',
   aiProofreadStale: '原文已變化，這條建議未能定位，未落地',
   aiProofreadNeedsSettings: '尚未設定模型服務，校對需要可存取的模型介面',
   aiProofreadOpenSettings: '開啟設定',

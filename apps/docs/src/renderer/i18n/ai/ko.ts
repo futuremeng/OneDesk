@@ -116,7 +116,7 @@ export const ko = {
   aiProofreadCopyName: '{name} · AI 교정 사본',
   aiProofreadCopyOpened: '교정 사본 {name}을(를) 열었습니다. 원문서는 변경되지 않았습니다',
   aiProofreadCopyAck:
-    '프로 모드는 먼저 원본 파일 옆에 복사본({name} v2.docx…)을 만들어 교정을 실행하며, 원본은 변경되지 않습니다. 복사본을 만들까요?',
+    '프로 모드는 먼저 원본 파일 옆에 복사본({name}_v2.docx…)을 만들어 교정을 실행하며, 원본은 변경되지 않습니다. 복사본을 만들까요?',
   aiProofreadStale: '본문이 변경되어 이 제안은 위치를 찾지 못해 적용되지 않았습니다',
   aiProofreadNeedsSettings:
     '모델 서비스가 구성되지 않았습니다. 교정에는 모델 엔드포인트가 필요합니다',

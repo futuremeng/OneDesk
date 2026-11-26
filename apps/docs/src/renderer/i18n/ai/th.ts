@@ -116,7 +116,7 @@ export const th = {
   aiProofreadCopyName: '{name} · สำเนาพิสูจน์อักษร AI',
   aiProofreadCopyOpened: 'เปิดสำเนาพิสูจน์อักษร {name} แล้ว ต้นฉบับไม่ถูกแก้ไข',
   aiProofreadCopyAck:
-    'โหมดโปรจะสร้างไฟล์สำเนาข้างไฟล์ต้นฉบับก่อน ({name} v2.docx…) และตรวจทานในสำเนานั้น โดยต้นฉบับไม่ถูกแก้ไข สร้างสำเนาหรือไม่?',
+    'โหมดโปรจะสร้างไฟล์สำเนาข้างไฟล์ต้นฉบับก่อน ({name}_v2.docx…) และตรวจทานในสำเนานั้น โดยต้นฉบับไม่ถูกแก้ไข สร้างสำเนาหรือไม่?',
   aiProofreadStale: 'The text changed; this suggestion could not be located and was not applied',
   aiProofreadNeedsSettings:
     'ยังไม่ได้กำหนดค่าบริการโมเดล การตรวจแก้ต้องใช้จุดปลายทางที่รองรับ OpenAI',

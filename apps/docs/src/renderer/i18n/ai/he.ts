@@ -116,7 +116,7 @@ export const he = {
   aiProofreadCopyName: '{name} · עותק הגהת AI',
   aiProofreadCopyOpened: 'עותק ההגהה {name} נפתח; המקורי נשאר ללא שינוי',
   aiProofreadCopyAck:
-    'מצב Pro יוצר תחילה עותק של הקובץ לצד המקור ({name} v2.docx…) וההגהה מתבצעת בו; המקור נשאר ללא שינוי. ליצור עותק?',
+    'מצב Pro יוצר תחילה עותק של הקובץ לצד המקור ({name}_v2.docx…) וההגהה מתבצעת בו; המקור נשאר ללא שינוי. ליצור עותק?',
   aiProofreadStale: 'The text changed; this suggestion could not be located and was not applied',
   aiProofreadNeedsSettings: 'שירות מודל לא מוגדר — ההגיה זקוקה לנקודת קצה תואמת OpenAI',
   aiProofreadOpenSettings: 'פתח הגדרות',

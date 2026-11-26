@@ -119,7 +119,7 @@ export const nl = {
   aiProofreadCopyName: '{name} · AI-proefleesexemplaar',
   aiProofreadCopyOpened: 'Proefleesexemplaar {name} geopend; het origineel is ongewijzigd',
   aiProofreadCopyAck:
-    'Pro-modus maakt eerst een kopie naast het originele bestand ({name} v2.docx…) en voert de correctie daarin uit; het origineel blijft ongewijzigd. Kopie aanmaken?',
+    'Pro-modus maakt eerst een kopie naast het originele bestand ({name}_v2.docx…) en voert de correctie daarin uit; het origineel blijft ongewijzigd. Kopie aanmaken?',
   aiProofreadStale: 'The text changed; this suggestion could not be located and was not applied',
   aiProofreadNeedsSettings:
     'Geen modelserver geconfigureerd; controle heeft een OpenAI-compatibel endpoint nodig',

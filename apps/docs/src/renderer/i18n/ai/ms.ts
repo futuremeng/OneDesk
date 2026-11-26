@@ -118,7 +118,7 @@ export const ms = {
   aiProofreadCopyName: '{name} · Salinan semakan AI',
   aiProofreadCopyOpened: 'Salinan semakan {name} dibuka; dokumen asal tidak berubah',
   aiProofreadCopyAck:
-    'Mod Pro pada mulanya mencipta fail salinan di sebelah dokumen asal ({name} v2.docx…) dan menjalankan semakan di situ; dokumen asal tidak berubah. Cipta salinan?',
+    'Mod Pro pada mulanya mencipta fail salinan di sebelah dokumen asal ({name}_v2.docx…) dan menjalankan semakan di situ; dokumen asal tidak berubah. Cipta salinan?',
   aiProofreadStale: 'The text changed; this suggestion could not be located and was not applied',
   aiProofreadNeedsSettings:
     'Perkhidmatan model belum dikonfigurasi — pembetulan memerlukan hujung titik serasi OpenAI',

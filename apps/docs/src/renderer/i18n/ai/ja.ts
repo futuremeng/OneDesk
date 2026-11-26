@@ -117,7 +117,7 @@ export const ja = {
   aiProofreadCopyName: '{name} · AI校正コピー',
   aiProofreadCopyOpened: '校正コピー「{name}」を開きました。原文書は変更されていません',
   aiProofreadCopyAck:
-    'プロモードはまず原ファイルのそばにコピー（{name} v2.docx…）を作成し、コピー内で校正を行います。原ファイルは変更されません。コピーを作成しますか？',
+    'プロモードはまず原ファイルのそばにコピー（{name}_v2.docx…）を作成し、コピー内で校正を行います。原ファイルは変更されません。コピーを作成しますか？',
   aiProofreadStale: '本文が変更されたため、この提案は位置を特定できず適用されませんでした',
   aiProofreadNeedsSettings:
     'モデルサービスが設定されていません。校正にはモデルエンドポイントが必要です',

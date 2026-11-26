@@ -118,7 +118,7 @@ export const hi = {
   aiProofreadCopyName: '{name} · AI प्रूफ़रीड प्रति',
   aiProofreadCopyOpened: 'प्रूफ़रीड प्रति {name} खुली; मूल दस्तावेज़ अपरिवर्तित',
   aiProofreadCopyAck:
-    'प्रो मोड पहले मूल फ़ाइल के बगल में एक कॉपी बनाता है ({name} v2.docx…) और संशोधन उसी में करता है; मूल फ़ाइल अपरिवर्तित रहती है। कॉपी बनाएँ?',
+    'प्रो मोड पहले मूल फ़ाइल के बगल में एक कॉपी बनाता है ({name}_v2.docx…) और संशोधन उसी में करता है; मूल फ़ाइल अपरिवर्तित रहती है। कॉपी बनाएँ?',
   aiProofreadStale: 'The text changed; this suggestion could not be located and was not applied',
   aiProofreadNeedsSettings:
     'मॉडल सेवा कॉन्फ़िगर नहीं है — शुद्धि के लिए OpenAI-संगत एंडपॉइंट चाहिए',

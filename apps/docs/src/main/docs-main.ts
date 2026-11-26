@@ -10003,7 +10003,7 @@ export function registerDocsIpc(): void {
   })
 
   // flow P06: 专业 审校 lands its copy on disk next to the untouched original
-  // under a bumped version name (`name v2.docx`, `v3.docx`, …); the copy tab
+  // under a bumped version name (`name_v2.docx`, `name_v3.docx`, …); the copy tab
   // then opens that file and runs the pass inside it.
   ipcMain.handle(
     'docs:save-proofread-copy',
@@ -10015,7 +10015,7 @@ export function registerDocsIpc(): void {
         const stem = basename(sourcePath).replace(/\.docx$/i, '')
         let copyPath = ''
         for (let v = 2; v < 1000; v++) {
-          const candidate = join(dir, `${stem} v${v}.docx`)
+          const candidate = join(dir, `${stem}_v${v}.docx`)
           if (!existsSync(candidate)) {
             copyPath = candidate
             break

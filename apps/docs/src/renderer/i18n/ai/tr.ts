@@ -118,7 +118,7 @@ export const tr = {
   aiProofreadCopyName: '{name} · YZ düzeltme kopyası',
   aiProofreadCopyOpened: 'Düzeltme kopyası {name} açıldı; özgün belge değişmedi',
   aiProofreadCopyAck:
-    'Pro mod önce orijinal dosyanın yanında bir kopya oluşturur ({name} v2.docx…) ve düzeltmeyi bu kopyada yapar; orijinal değişmez. Kopya oluşturulsun mu?',
+    'Pro mod önce orijinal dosyanın yanında bir kopya oluşturur ({name}_v2.docx…) ve düzeltmeyi bu kopyada yapar; orijinal değişmez. Kopya oluşturulsun mu?',
   aiProofreadStale: 'The text changed; this suggestion could not be located and was not applied',
   aiProofreadNeedsSettings:
     'Model hizmeti yapılandırılmamış — denetim için OpenAI uyumlu bir uç nokta gerekir',

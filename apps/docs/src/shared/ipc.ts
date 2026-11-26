@@ -623,7 +623,7 @@ export interface DesktopApi {
    *  copy) in a new tab, untitled and unsaved; `proofread` turns it into a copy */
   openResultTab(data: Uint8Array, proofread?: ProofreadCopyPayload): Promise<void>
   /** flow P06: land a pro-mode 审校 copy on disk next to sourcePath under a
-   *  bumped version name (`name v2.docx`, `v3.docx`, …); null when there is no
+   *  bumped version name (`name_v2.docx`, `name_v3.docx`, …); null when there is no
    *  original file or the copy could not be written */
   saveProofreadCopy(
     data: Uint8Array,

@@ -111,7 +111,7 @@ export const zh = {
   aiProofreadCopyName: '{name} · AI 审校副本',
   aiProofreadCopyOpened: '审校副本「{name}」已打开，原文档未改动',
   aiProofreadCopyAck:
-    '专业模式会先在原文档旁创建副本文件（{name} v2.docx…）并在副本中审校，原文档不受影响。确认创建副本？',
+    '专业模式会先在原文档旁创建副本文件（{name}_v2.docx…）并在副本中审校，原文档不受影响。确认创建副本？',
   aiProofreadStale: '原文已变化，这条建议未能定位，未落地',
   aiProofreadNeedsSettings: '尚未配置模型服务，审校需要可访问的模型接口',
   aiProofreadOpenSettings: '打开设置',

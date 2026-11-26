@@ -118,7 +118,7 @@ export const pl = {
   aiProofreadCopyName: '{name} · kopia korekty AI',
   aiProofreadCopyOpened: 'Otwarto kopię korekty {name}; oryginał pozostał bez zmian',
   aiProofreadCopyAck:
-    'Tryb Pro najpierw tworzy kopię obok oryginalu ({name} v2.docx…) i wykonuje korektę w kopii; oryginał pozostaje bez zmian. Utworzyć kopię?',
+    'Tryb Pro najpierw tworzy kopię obok oryginalu ({name}_v2.docx…) i wykonuje korektę w kopii; oryginał pozostaje bez zmian. Utworzyć kopię?',
   aiProofreadStale: 'The text changed; this suggestion could not be located and was not applied',
   aiProofreadNeedsSettings:
     'Nie skonfigurowano serwisu modelu — korekta wymaga punktu końcowego zgodnego z OpenAI',
