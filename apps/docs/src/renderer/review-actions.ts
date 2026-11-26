@@ -589,7 +589,7 @@ export async function runCompare(ctx: ReviewContext, request: CompareRequest): P
         ctx.setStatus(t('appCompareNoDifference') + left)
         return
       }
-      await window.desktop.openResultTab(bytes)
+      await window.desktop.openResultTab(bytes, undefined, request.collate)
       ctx.setStatus(
         t('appCompareOpened', {
           ins: summary.insertions,

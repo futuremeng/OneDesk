@@ -746,6 +746,7 @@ import {
   type CommentsMode,
 } from './components/comments-mode'
 import { StylesPane } from './components/StylesPane'
+import { CollateView } from './components/CollateView'
 import { useStoredFlag } from './stored-flag'
 import { Ruler, rulerDims } from './components/Ruler'
 import { RulerBar, rulerBarHeight } from './components/RulerBar'
@@ -1386,6 +1387,7 @@ export function App() {
   }
   const [showGrid, setShowGrid] = useState(false)
   const [splitView, setSplitView] = useState(false)
+  const [collateView, setCollateView] = useState(false)
   const [showPagePreview, setShowPagePreview] = useState(false)
   const [splitHtml, setSplitHtml] = useState('')
   const [showFind, setShowFind] = useState(false)
@@ -3116,6 +3118,10 @@ export function App() {
           // 'password': the prompt is up; its cancel path lands on blank instead.
           const outcome = pending ? await loadFile(pending) : 'canceled'
           if (outcome === 'canceled') await resetFile()
+          // a 对校 result tab opens straight into the side-by-side collate view
+          else if (pending && !('needsPassword' in pending) && pending.collate) {
+            setCollateView(true)
+          }
         }
         if (aiContent && !pending) {
           // fileCtxRef refreshes per render: wait until resetFile's setDoc landed
@@ -7618,6 +7624,7 @@ export function App() {
       // the snapshot may be collated repeatedly: parse a copy of its bytes
       await runCompare(ctx, {
         mode: 'compare',
+        collate: true,
         original: {
           kind: 'file',
           name: copy.originalName,
@@ -8735,6 +8742,7 @@ export function App() {
         setShowNav(true)
       },
       toggleSplit: () => setSplitView((v) => !v),
+      toggleCollateView: () => setCollateView((v) => !v),
       toggleRibbon: () => ribbonActionsRef.current.toggleRibbon?.(),
       toggleFocus: () => {
         if (!focusMode) setStatus(t('ribbonFocusHint'))
@@ -10808,6 +10816,7 @@ export function App() {
         readMode={readMode}
         showGrid={showGrid}
         splitView={splitView}
+        collateView={collateView}
         {...ribbonActions}
       />
 
@@ -11209,6 +11218,14 @@ export function App() {
                     </div>
                   </div>
                 </div>
+              )}
+              {doc && collateView && editor && (
+                <CollateView
+                  editor={editor}
+                  zoomClass={docZoomClass.replace(' multipage', '')}
+                  zoomStyle={docZoomStyle}
+                  onClose={() => setCollateView(false)}
+                />
               )}
             </div>
             {readMode && (

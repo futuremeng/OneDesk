@@ -1171,6 +1171,7 @@ export const he = {
   ribbonMarkupShow: 'הצג סימון',
   ribbonMarkupInsDel: 'הוספות ומחיקות',
   ribbonMarkupFormatting: 'עיצוב',
+  ribbonCollateView: 'השוואה זה לצד זה',
   ribbonMarkupPeople: 'אנשים ספציפיים',
   ribbonMarkupBalloons: 'בלונים',
   ribbonBalloonsRevisions: 'הצג תיקונים בבלונים',

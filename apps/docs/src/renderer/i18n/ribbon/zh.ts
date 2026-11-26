@@ -1182,6 +1182,7 @@ export const zh = {
   ribbonMarkupShow: '显示标记',
   ribbonMarkupInsDel: '插入和删除',
   ribbonMarkupFormatting: '格式设置',
+  ribbonCollateView: '对校对照视图',
   ribbonMarkupPeople: '特定人员',
   ribbonMarkupBalloons: '气球',
   ribbonBalloonsRevisions: '在批注框中显示修订',

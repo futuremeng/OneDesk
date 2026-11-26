@@ -1202,6 +1202,7 @@ export const it = {
   ribbonMarkupShow: 'Mostra commenti e revisioni',
   ribbonMarkupInsDel: 'Inserimenti ed eliminazioni',
   ribbonMarkupFormatting: 'Formattazione',
+  ribbonCollateView: 'Confronta affiancati',
   ribbonMarkupPeople: 'Persone specifiche',
   ribbonMarkupBalloons: 'Fumetti',
   ribbonBalloonsRevisions: 'Mostra revisioni nei fumetti',

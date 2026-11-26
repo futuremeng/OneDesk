@@ -174,8 +174,8 @@ const api: DesktopApi = {
   organizerOpen: () => ipcRenderer.invoke('docs:organizer-open'),
   organizerSave: (path: string, data: ArrayBuffer) =>
     ipcRenderer.invoke('docs:organizer-save', path, data),
-  openResultTab: (data: Uint8Array, proofread?: ProofreadCopyPayload) =>
-    ipcRenderer.invoke('docs:open-result-tab', data, proofread),
+  openResultTab: (data: Uint8Array, proofread?: ProofreadCopyPayload, collate?: boolean) =>
+    ipcRenderer.invoke('docs:open-result-tab', data, proofread, collate),
   saveProofreadCopy: (data: Uint8Array, sourcePath: string) =>
     ipcRenderer.invoke('docs:save-proofread-copy', data, sourcePath),
   renameDoc: (name: string) => ipcRenderer.invoke('docs:rename-doc', name),

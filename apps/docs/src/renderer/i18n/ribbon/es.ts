@@ -1200,6 +1200,7 @@ export const es = {
   ribbonMarkupShow: 'Mostrar marcas',
   ribbonMarkupInsDel: 'Inserciones y eliminaciones',
   ribbonMarkupFormatting: 'Formato',
+  ribbonCollateView: 'Comparar lado a lado',
   ribbonMarkupPeople: 'Personas específicas',
   ribbonMarkupBalloons: 'Globos',
   ribbonBalloonsRevisions: 'Mostrar revisiones en globos',

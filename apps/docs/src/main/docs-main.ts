@@ -6989,6 +6989,8 @@ export interface ResultDoc {
   path?: string
   /** sha256 of the bytes as written to path */
   hash?: string
+  /** a 对校 result: the fresh tab opens in the side-by-side view */
+  collate?: boolean
 }
 const pendingResultDocs = new Map<number, ResultDoc>()
 
@@ -8781,6 +8783,7 @@ export function registerDocsIpc(): void {
         template: made.path ? undefined : true,
         unsaved: made.path ? undefined : true,
         proofread: made.proofread,
+        collate: made.collate,
       }
     }
     // a tab spawned via New Tab loads the document queued for it specifically
@@ -10065,13 +10068,14 @@ export function registerDocsIpc(): void {
 
   ipcMain.handle(
     'docs:open-result-tab',
-    (_event, data: Uint8Array, proofread?: ProofreadCopyPayload) => {
+    (_event, data: Uint8Array, proofread?: ProofreadCopyPayload, collate?: boolean) => {
       if (!(data instanceof Uint8Array) || data.byteLength > MAX_OPEN_BYTES) return
       const doc: ResultDoc = {
         bytes: Buffer.from(data),
         proofread,
         path: proofread?.path,
         hash: proofread?.hash,
+        collate,
       }
       if (shellHooks?.openResultDocTab) shellHooks.openResultDocTab(doc)
       else queueDocsResultDoc(createDocsWindow().webContents.id, doc)

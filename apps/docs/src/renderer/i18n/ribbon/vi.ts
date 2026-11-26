@@ -1183,6 +1183,7 @@ export const vi = {
   ribbonMarkupShow: 'Hiện Đánh dấu',
   ribbonMarkupInsDel: 'Chèn và Xóa',
   ribbonMarkupFormatting: 'Định dạng',
+  ribbonCollateView: 'So sánh cạnh nhau',
   ribbonMarkupPeople: 'Người cụ thể',
   ribbonMarkupBalloons: 'Bong bóng',
   ribbonBalloonsRevisions: 'Hiện sửa đổi trong bong bóng',

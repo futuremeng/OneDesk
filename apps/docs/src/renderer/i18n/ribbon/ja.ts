@@ -1202,6 +1202,7 @@ export const ja = {
   ribbonMarkupShow: '変更内容の表示',
   ribbonMarkupInsDel: '挿入と削除',
   ribbonMarkupFormatting: '書式設定',
+  ribbonCollateView: '比較（左右並列）',
   ribbonMarkupPeople: '特定のユーザー',
   ribbonMarkupBalloons: '吹き出し',
   ribbonBalloonsRevisions: '変更履歴を吹き出しに表示',

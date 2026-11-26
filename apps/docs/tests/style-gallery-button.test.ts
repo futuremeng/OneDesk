@@ -137,6 +137,7 @@ function ribbonProps(editor: Editor) {
     showGrid: false,
     onShowGrid: noop,
     splitView: false,
+    collateView: false,
     onSplitView: noop,
     onPagePreview: noop,
   }

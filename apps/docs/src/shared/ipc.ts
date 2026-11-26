@@ -26,6 +26,8 @@ export interface OpenFileResult {
    *  compares against — v2 against v1 (the original `name.docx`), v3 against
    *  v2 (`name_v2.docx`) — handed off so the tab can offer 对校 at once */
   collateBaseline?: { name: string; dataUrl: string }
+  /** a 对校 result document: the tab opens straight into the side-by-side view */
+  collate?: boolean
 }
 
 /** Marker carried on the AI-review pro-mode copy tab's open result. The copy is
@@ -624,8 +626,9 @@ export interface DesktopApi {
   organizerOpen(): Promise<OrganizerFileResult>
   organizerSave(path: string, data: ArrayBuffer): Promise<{ ok: boolean; error?: string }>
   /** show a document made here (a comparison result, or an AI-review pro-mode
-   *  copy) in a new tab, untitled and unsaved; `proofread` turns it into a copy */
-  openResultTab(data: Uint8Array, proofread?: ProofreadCopyPayload): Promise<void>
+   *  copy) in a new tab, untitled and unsaved; `proofread` turns it into a copy;
+   *  `collate` opens a 对校 result straight into the side-by-side view */
+  openResultTab(data: Uint8Array, proofread?: ProofreadCopyPayload, collate?: boolean): Promise<void>
   /** flow P06: land a pro-mode 审校 copy on disk next to sourcePath under a
    *  bumped version name (`name_v2.docx`, `name_v3.docx`, …); null when there is no
    *  original file or the copy could not be written */

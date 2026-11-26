@@ -1199,6 +1199,7 @@ export const nl = {
   ribbonMarkupShow: 'Markeringen weergeven',
   ribbonMarkupInsDel: 'Invoegingen en verwijderingen',
   ribbonMarkupFormatting: 'Opmaak',
+  ribbonCollateView: 'Naast elkaar vergelijken',
   ribbonMarkupPeople: 'Specifieke personen',
   ribbonMarkupBalloons: 'Ballonnen',
   ribbonBalloonsRevisions: 'Revisies in ballonnen weergeven',

@@ -1190,6 +1190,7 @@ export const ru = {
   ribbonMarkupShow: 'Показать исправления',
   ribbonMarkupInsDel: 'Вставки и удаления',
   ribbonMarkupFormatting: 'Форматирование',
+  ribbonCollateView: 'Сравнить рядом',
   ribbonMarkupPeople: 'Конкретные пользователи',
   ribbonMarkupBalloons: 'Выноски',
   ribbonBalloonsRevisions: 'Показывать исправления в выносках',

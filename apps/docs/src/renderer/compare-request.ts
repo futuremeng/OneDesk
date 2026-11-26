@@ -33,6 +33,8 @@ export interface CompareRequest {
   settings: CompareDialogSettings
   granularity: CompareGranularity
   target: CompareTarget
+  /** the 对校 flow: its result tab opens in the side-by-side view from the start */
+  collate?: boolean
 }
 
 export const ALL_COMPARE_SETTINGS: CompareDialogSettings = {

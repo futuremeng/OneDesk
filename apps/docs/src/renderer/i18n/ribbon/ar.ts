@@ -1181,6 +1181,7 @@ export const ar = {
   ribbonMarkupShow: 'إظهار العلامات',
   ribbonMarkupInsDel: 'الإدراجات والحذف',
   ribbonMarkupFormatting: 'التنسيق',
+  ribbonCollateView: 'مقارنة جنبًا إلى جنب',
   ribbonMarkupPeople: 'أشخاص محددون',
   ribbonMarkupBalloons: 'البالونات',
   ribbonBalloonsRevisions: 'إظهار المراجعات في بالونات',

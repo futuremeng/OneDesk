@@ -1184,6 +1184,7 @@ export const en = {
   ribbonMarkupShow: 'Show Markup',
   ribbonMarkupInsDel: 'Insertions and Deletions',
   ribbonMarkupFormatting: 'Formatting',
+  ribbonCollateView: 'Compare Side by Side',
   ribbonMarkupPeople: 'Specific People',
   ribbonMarkupBalloons: 'Balloons',
   ribbonBalloonsRevisions: 'Show Revisions in Balloons',

@@ -300,6 +300,15 @@ export const ja = {
   appRecentDocs: '最近使った文書',
   // View
   appSplitPaneLabel: '分割ウィンドウ(読み取り専用プレビュー、独立してスクロール可能)',
+  appCollateTitle: '比較（左右並列）',
+  appCollateOriginal: '原本',
+  appCollateRevised: '改訂版',
+  appCollatePrev: '前の変更',
+  appCollateNext: '次の変更',
+  appCollateParaIns: '挿入された段落',
+  appCollateParaDel: '削除された段落',
+  appCollateNote:
+    '表とヘッダー/フッターの内容は両側にそのまま表示されます。ヘッダー/フッターの変更履歴はここでは個別に処理されません。',
   appRemoveSplit: '分割の解除',
   appExitReadMode: '閲覧モードを終了 (Esc)',
   appExpandAiPanel: 'AI 編集パネルを展開',

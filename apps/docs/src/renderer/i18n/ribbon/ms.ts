@@ -1192,6 +1192,7 @@ export const ms = {
   ribbonMarkupShow: 'Tunjukkan Penanda',
   ribbonMarkupInsDel: 'Sisipan dan Pemadaman',
   ribbonMarkupFormatting: 'Pemformatan',
+  ribbonCollateView: 'Banding bersebelahan',
   ribbonMarkupPeople: 'Orang Tertentu',
   ribbonMarkupBalloons: 'Belon',
   ribbonBalloonsRevisions: 'Tunjukkan Semakan dalam Belon',

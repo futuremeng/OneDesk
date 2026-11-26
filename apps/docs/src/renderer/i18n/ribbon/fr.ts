@@ -1203,6 +1203,7 @@ export const fr = {
   ribbonMarkupShow: 'Afficher les marques',
   ribbonMarkupInsDel: 'Insertions et suppressions',
   ribbonMarkupFormatting: 'Mise en forme',
+  ribbonCollateView: 'Comparer côte à côte',
   ribbonMarkupPeople: 'Personnes spécifiques',
   ribbonMarkupBalloons: 'Bulles',
   ribbonBalloonsRevisions: 'Afficher les révisions dans des bulles',

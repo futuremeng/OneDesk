@@ -822,6 +822,8 @@ interface ReviewTabProps extends TabProps {
   proofreadPro: boolean
   /** this tab is a proofread copy: 对校 can compare it with its original snapshot */
   collateReady: boolean
+  /** 对校 side-by-side collate view is open (Show Markup toggle) */
+  collateView: boolean
 }
 
 export function ReviewTab({
@@ -849,6 +851,7 @@ export function ReviewTab({
   aiProofBusy,
   proofreadPro,
   collateReady,
+  collateView,
 }: ReviewTabProps) {
   const { t } = useI18n()
   const unknownAuthor = t('editorUnknownAuthor')
@@ -1186,6 +1189,11 @@ export function ReviewTab({
                   <button onClick={() => runCommand('markup-filter', 'format')}>
                     {t('ribbonMarkupFormatting')}
                     {revisionFilter.format ? ' ✓' : ''}
+                  </button>
+                  <div className="rb-menu-sep" />
+                  <button onClick={() => runCommand('collate-view')}>
+                    {t('ribbonCollateView')}
+                    {collateView ? ' ✓' : ''}
                   </button>
                   <div className="layout-menu-head">{t('ribbonMarkupBalloons')}</div>
                   {(

@@ -299,6 +299,15 @@ export const ko = {
   appRecentDocs: '최근에 사용한 문서',
   // View
   appSplitPaneLabel: '분할 창(읽기 전용 미리 보기, 독립 스크롤 가능)',
+  appCollateTitle: '나란히 비교',
+  appCollateOriginal: '원본',
+  appCollateRevised: '개정된 버전',
+  appCollatePrev: '이전 변경',
+  appCollateNext: '다음 변경',
+  appCollateParaIns: '삽입된 문단',
+  appCollateParaDel: '삭제된 문단',
+  appCollateNote:
+    '표 및 머리글/바닥글 내용은 양쪽에 그대로 표시됩니다. 머리글/바닥글 변경은 여기서 개별 처리되지 않습니다.',
   appRemoveSplit: '분할 제거',
   appExitReadMode: '읽기 모드 끝내기 (Esc)',
   appExpandAiPanel: 'AI 편집 패널 펼치기',

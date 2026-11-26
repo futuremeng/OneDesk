@@ -1106,6 +1106,7 @@ export const hu = {
   ribbonMarkupShow: 'Jelölések megjelenítése',
   ribbonMarkupInsDel: 'Beszúrások és törlések',
   ribbonMarkupFormatting: 'Formázás',
+  ribbonCollateView: 'Összehasonlítás egymás mellett',
   ribbonMarkupPeople: 'Adott személyek',
   ribbonMarkupBalloons: 'Buborékok',
   ribbonBalloonsRevisions: 'Módosítások megjelenítése buborékokban',

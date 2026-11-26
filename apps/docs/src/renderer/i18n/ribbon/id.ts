@@ -1189,6 +1189,7 @@ export const id = {
   ribbonMarkupShow: 'Tampilkan Markup',
   ribbonMarkupInsDel: 'Penyisipan dan Penghapusan',
   ribbonMarkupFormatting: 'Pemformatan',
+  ribbonCollateView: 'Bandingkan berdampingan',
   ribbonMarkupPeople: 'Orang Tertentu',
   ribbonMarkupBalloons: 'Balon',
   ribbonBalloonsRevisions: 'Tampilkan Revisi di Balon',

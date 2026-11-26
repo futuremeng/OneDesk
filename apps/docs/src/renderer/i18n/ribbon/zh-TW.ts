@@ -1161,6 +1161,7 @@ export const zhTW = {
   ribbonMarkupShow: '顯示標記',
   ribbonMarkupInsDel: '插入和刪除',
   ribbonMarkupFormatting: '格式設定',
+  ribbonCollateView: '對校對照檢視',
   ribbonMarkupPeople: '特定人員',
   ribbonMarkupBalloons: '註解方塊',
   ribbonBalloonsRevisions: '在註解方塊中顯示修訂',

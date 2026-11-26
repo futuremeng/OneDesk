@@ -65,6 +65,8 @@ export const COMMANDS = {
   'toggle-grid': { menuKey: 'menuGridlines', toggle: true },
   'toggle-navigation': { menuKey: 'menuNavigation', toggle: true },
   'split-view': {},
+  /** side-by-side view of a redline document: original left, revised right */
+  'collate-view': {},
   'new-window': {},
   'toggle-ai': { menuKey: 'menuAiSidebar', toggle: true },
   'toggle-dark': { menuKey: 'menuDarkMode', toggle: true },

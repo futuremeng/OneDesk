@@ -142,6 +142,7 @@ function makeHost(over: Partial<CommandHost> = {}): CommandHost {
       toggleNavigation: vi.fn(),
       toggleThumbnails: vi.fn(),
       toggleSplit: vi.fn(),
+      toggleCollateView: vi.fn(),
       toggleRibbon: vi.fn(),
       toggleFocus: vi.fn(),
       newWindow: vi.fn(),

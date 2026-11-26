@@ -1174,6 +1174,7 @@ export const th = {
   ribbonMarkupShow: 'แสดงมาร์กอัป',
   ribbonMarkupInsDel: 'การแทรกและการลบ',
   ribbonMarkupFormatting: 'การจัดรูปแบบ',
+  ribbonCollateView: 'เปรียบเทียบเคียงข้าง',
   ribbonMarkupPeople: 'บุคคลที่ระบุ',
   ribbonMarkupBalloons: 'บอลลูน',
   ribbonBalloonsRevisions: 'แสดงการแก้ไขในบอลลูน',

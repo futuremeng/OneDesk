@@ -1182,6 +1182,7 @@ export const cs = {
   ribbonMarkupShow: 'Zobrazit revize',
   ribbonMarkupInsDel: 'Vložení a odstranění',
   ribbonMarkupFormatting: 'Formátování',
+  ribbonCollateView: 'Porovnat vedle sebe',
   ribbonMarkupPeople: 'Konkrétní osoby',
   ribbonMarkupBalloons: 'Bubliny',
   ribbonBalloonsRevisions: 'Zobrazit revize v bublinách',

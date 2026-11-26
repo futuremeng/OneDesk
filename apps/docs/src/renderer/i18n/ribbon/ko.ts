@@ -1198,6 +1198,7 @@ export const ko = {
   ribbonMarkupShow: '변경 내용 표시',
   ribbonMarkupInsDel: '삽입 및 삭제',
   ribbonMarkupFormatting: '서식',
+  ribbonCollateView: '나란히 비교',
   ribbonMarkupPeople: '특정 사용자',
   ribbonMarkupBalloons: '풍선',
   ribbonBalloonsRevisions: '풍선에 변경 내용 표시',

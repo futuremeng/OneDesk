@@ -1191,6 +1191,7 @@ export const pl = {
   ribbonMarkupShow: 'Pokaż adiustację',
   ribbonMarkupInsDel: 'Wstawienia i usunięcia',
   ribbonMarkupFormatting: 'Formatowanie',
+  ribbonCollateView: 'Porównaj obok siebie',
   ribbonMarkupPeople: 'Określone osoby',
   ribbonMarkupBalloons: 'Dymki',
   ribbonBalloonsRevisions: 'Pokaż poprawki w dymkach',

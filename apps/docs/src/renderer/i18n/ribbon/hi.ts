@@ -1189,6 +1189,7 @@ export const hi = {
   ribbonMarkupShow: 'मार्कअप दिखाएँ',
   ribbonMarkupInsDel: 'सम्मिलन और विलोपन',
   ribbonMarkupFormatting: 'स्वरूपण',
+  ribbonCollateView: 'साथ-साथ तुलना करें',
   ribbonMarkupPeople: 'विशिष्ट व्यक्ति',
   ribbonMarkupBalloons: 'बैलून',
   ribbonBalloonsRevisions: 'संशोधन बैलून में दिखाएँ',

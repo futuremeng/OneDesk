@@ -370,6 +370,7 @@ interface RibbonProps {
   onReadMode: (v: boolean) => void
   showGrid: boolean
   splitView: boolean
+  collateView: boolean
 }
 
 // Word for Mac has no File ribbon tab: file actions live in the native menu
@@ -747,6 +748,7 @@ function RibbonInner({
   onReadMode,
   showGrid,
   splitView,
+  collateView,
 }: RibbonProps) {
   const { t, lang } = useI18n()
   const collapse = useRibbonCollapse('aidocs.ribbonCollapsed', {
@@ -4275,6 +4277,7 @@ function RibbonInner({
             aiProofBusy={aiProofBusy}
             proofreadPro={proofreadPro}
             collateReady={collateReady}
+            collateView={collateView}
           />
         ) : (
           <ViewTab

@@ -445,6 +445,8 @@ export interface ViewHost {
   /** the navigation pane on its page thumbnails; closes the pane when it already shows them */
   toggleThumbnails(): void
   toggleSplit(): void
+  /** side-by-side view of the open document's tracked changes */
+  toggleCollateView(): void
   /** hides everything but the page, or brings the window's panes back */
   toggleFocus(): void
   /** collapses the ribbon to its tab row, or brings the band back */
@@ -1104,6 +1106,7 @@ export const MENU_COMMAND_HANDLERS: Record<ActionCommandId, Handler> = {
     if (host.hasDoc && host.editor) host.openDialog('revealFormatting')
   },
   'split-view': viewing((view) => view.toggleSplit()),
+  'collate-view': viewing((view) => view.toggleCollateView()),
   'view-ribbon': (host) => host.view.toggleRibbon(),
   'view-focus': viewing((view) => view.toggleFocus()),
   // Word moves to the notes; here a note's text opens in its own box

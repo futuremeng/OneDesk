@@ -1193,6 +1193,7 @@ export const pt = {
   ribbonMarkupShow: 'Mostrar Marcações',
   ribbonMarkupInsDel: 'Inserções e Exclusões',
   ribbonMarkupFormatting: 'Formatação',
+  ribbonCollateView: 'Comparar lado a lado',
   ribbonMarkupPeople: 'Pessoas Específicas',
   ribbonMarkupBalloons: 'Balões',
   ribbonBalloonsRevisions: 'Mostrar revisões em balões',

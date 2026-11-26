@@ -1194,6 +1194,7 @@ export const tr = {
   ribbonMarkupShow: 'İşaretlemeyi Göster',
   ribbonMarkupInsDel: 'Eklemeler ve Silmeler',
   ribbonMarkupFormatting: 'Biçimlendirme',
+  ribbonCollateView: 'Yan yana karşılaştır',
   ribbonMarkupPeople: 'Belirli Kişiler',
   ribbonMarkupBalloons: 'Balonlar',
   ribbonBalloonsRevisions: 'Düzeltmeleri Balonlarda Göster',

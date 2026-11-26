@@ -1201,6 +1201,7 @@ export const de = {
   ribbonMarkupShow: 'Markup anzeigen',
   ribbonMarkupInsDel: 'Einfügungen und Löschungen',
   ribbonMarkupFormatting: 'Formatierung',
+  ribbonCollateView: 'Nebeneinander vergleichen',
   ribbonMarkupPeople: 'Bestimmte Personen',
   ribbonMarkupBalloons: 'Sprechblasen',
   ribbonBalloonsRevisions: 'Überarbeitungen in Sprechblasen anzeigen',
