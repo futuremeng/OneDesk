@@ -16,23 +16,25 @@ export interface OpenFileResult {
   template?: boolean
   /** a document made in the app that no file holds yet: closing it asks to save */
   unsaved?: boolean
-  /** a proofread copy made by the AI review pro mode: the tab adopts these rows */
+  /** a proofread copy made by the AI review pro mode: the tab is built from the
+   *  untouched original and runs the proofread pass itself on boot */
   proofread?: ProofreadCopyPayload
+  /** renderer-internal: bytes the caller already holds (the pro-mode copy tab
+   *  reuses the handoff bytes instead of re-fetching its dataUrl) */
+  bytes?: Uint8Array
 }
 
-/** what an AI-review pro-mode copy tab receives: the suggestion rows to adopt
- *  and the feedback edits they were detected with. Rows and edits are
- *  structured-clone-safe JSON of the renderer's own shapes. */
+/** Marker carried on the AI-review pro-mode copy tab's open result. The copy is
+ *  created from the untouched original before the pass starts, so it carries no
+ *  rows: the copy tab itself runs the pass and its 对校 compares against these
+ *  very bytes. */
 export interface ProofreadCopyPayload {
   /** display name for the copy tab */
   name: string
   /** the original document's file name, for the collate tooltip/status */
   originalName: string
-  /** the proofread service coordinates the copy tab reports decisions to */
-  baseUrl: string
-  token: string
-  suggestions: unknown[]
-  edits: unknown[]
+  /** the copy auto-starts a full-document proofread pass on boot */
+  autoProofread: true
 }
 
 /** Password-protected (ECMA-376 encrypted) docx: the renderer prompts for the

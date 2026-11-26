@@ -3065,54 +3065,32 @@ export function App() {
       .then(async ([pending, , aiContent]) => {
         if (bootHandledRef.current) return
         bootHandledRef.current = true
-        // a pro-mode pass handed this tab its copy payload (flow P06)
+        // this tab is a pro-mode copy tab: its bytes came from the original (flow P06)
         const copyOpen =
           pending && !('needsPassword' in pending) && pending.proofread
             ? { file: pending, payload: pending.proofread }
             : null
         if (copyOpen) {
-          // the handoff URL can only be taken once: the snapshot comes through
-          // here, is re-served to loadFile from a blob, and stays held for 对校
+          // the copy tab is built from the untouched original before the pass
+          // starts: these bytes are both what the editor shows and the exact
+          // 对校 snapshot, and they go straight into loadFile (no second fetch —
+          // blob URLs do not resolve in the shell's dev view)
           const snapshot = await fetchDocBytes(copyOpen.file.dataUrl)
           proofreadCopyRef.current = {
             originalName: copyOpen.payload.originalName,
             bytes: snapshot,
           }
-          const url = URL.createObjectURL(new Blob([snapshot as BlobPart]))
-          try {
-            const outcome = await loadFile({ ...copyOpen.file, dataUrl: url })
-            if (outcome === 'canceled') await resetFile()
-            else {
-              // the copy adopts the pass: the rows wait for decisions exactly
-              // as in the original tab, and every landing is a tracked revision
-              const rows = copyOpen.payload.suggestions as ProofreadSuggestion[]
-              proofreadSuggestionsRef.current = rows
-              setProofreadSuggestions(rows)
-              proofreadSessionRef.current = {
-                autoTrack: true,
-                prevTrack: false,
-                accepted: 0,
-                rejected: 0,
-                finished: true,
-                settled: false,
-                feedback: {
-                  baseUrl: copyOpen.payload.baseUrl,
-                  token: copyOpen.payload.token,
-                  edits: copyOpen.payload.edits as ProofreadFeedbackEdit[],
-                },
-              }
-              setCollateReady(true)
-              setShowAi(true)
-              setTrackChanges(true)
-              setProofreadUi({
-                phase: 'review',
-                done: rows.length,
-                total: rows.length,
-                toast: null,
-              })
-            }
-          } finally {
-            URL.revokeObjectURL(url)
+          const outcome = await loadFile({ ...copyOpen.file, bytes: snapshot })
+          if (outcome === 'canceled') await resetFile()
+          else if (outcome === 'ok') {
+            // the copy has no file of its own: show the copy's name in its
+            // title instead of the fallback loadFile assigns
+            setDoc((prev) => (prev ? { ...prev, fileName: copyOpen.payload.name } : prev))
+            setCollateReady(true)
+            setShowAi(true)
+            // the copy itself runs the pass; boot cannot reference the callback
+            // directly (declared later) so it goes through a ref
+            if (copyOpen.payload.autoProofread) void startProofreadRef.current?.()
           }
         } else {
           // A failed open (corrupt file etc.) falls back to a blank document —
@@ -7601,14 +7579,18 @@ export function App() {
 
   const stopProofreadPass = useCallback(() => proofreadRunRef.current?.controller.abort(), [])
 
-  // flow P06: 专业 mode parks a finished pass on a copy tab: the original
-  // document stays untouched and the copy carries the rows plus the snapshot
+  // flow P06: 专业 mode runs the pass on a copy tab instead of here: the copy
+  // is built from the untouched original before the pass starts, and its 对校
+  // compares the copy against the snapshot taken at that moment
   const [proofreadPro, setProofreadPro] = useState(
     () => localStorage.getItem(AI_PROOFREAD_PRO_KEY) === '1',
   )
   const [collateReady, setCollateReady] = useState(false)
   /** the original snapshot and file name a copy tab kept for 对校 */
   const proofreadCopyRef = useRef<{ originalName: string; bytes: Uint8Array } | null>(null)
+  /** the copy tab's boot effect starts the auto-pass through this ref: boot
+   *  runs before runAiProofread exists in the render order */
+  const startProofreadRef = useRef<(() => void) | null>(null)
   const proofreadCollate = useCallback(async () => {
     const copy = proofreadCopyRef.current
     const ctx = reviewCtxRef.current
@@ -7741,36 +7723,6 @@ export function App() {
       proofreadRunRef.current = null
       // flow X02: only a fatal interruption offers the resume; a stop is P03
       proofreadResumeRef.current = sawFatal ? { next: res.next } : null
-      session.finished = true
-      // flow P06: in 专业 mode the open rows leave for a copy tab: this
-      // document stays untouched, its rows cleared and the toggle handed back
-      if (
-        !sawFatal &&
-        res.status === 'done' &&
-        proofreadPro &&
-        !proofreadCopyRef.current &&
-        proofreadSuggestionsRef.current.some((s) => !s.decision)
-      ) {
-        const bytes = await buildDocBytesImpl(fileCtxRef.current)
-        if (bytes) {
-          const stem = doc?.fileName ? doc.fileName.replace(/\.docx$/i, '') : t('appUntitledDocx')
-          const copyName = t('aiProofreadCopyName', { name: stem })
-          await window.desktop.openResultTab(bytes, {
-            name: copyName,
-            originalName: doc?.fileName || copyName,
-            baseUrl: session.feedback?.baseUrl ?? '',
-            token: session.feedback?.token ?? '',
-            suggestions: proofreadSuggestionsRef.current,
-            edits: session.feedback?.edits ?? [],
-          })
-          session.settled = true
-          if (session.autoTrack) setTrackChanges(session.prevTrack)
-          applyProofreadSuggestions([])
-          setProofreadUi({ phase: 'idle', done: paras.length, total: paras.length, toast: null })
-          showToast(t('aiProofreadCopyOpened', { name: copyName }))
-          return
-        }
-      }
       if (!sawFatal)
         setProofreadUi({
           phase: 'review',
@@ -7778,6 +7730,7 @@ export function App() {
           total: paras.length,
           toast: null,
         })
+      session.finished = true
       if (res.status === 'done') {
         if (proofreadSuggestionsRef.current.some((s) => !s.decision))
           showToast(t('aiProofreadFound', { count: res.found }))
@@ -7800,8 +7753,6 @@ export function App() {
       isProtected,
       trackChanges,
       trackChangesForced,
-      proofreadPro,
-      doc,
       applyProofreadSuggestions,
       settleProofreadIfEmpty,
     ],
@@ -7818,6 +7769,24 @@ export function App() {
         )
           return
         localStorage.setItem(AI_PROOFREAD_ACK_KEY, '1')
+        // 专业 mode: the original never runs the pass. snapshot the untouched
+        // document, open it as a copy tab and let the copy run everything; a
+        // selection run still edits this tab in place even with 专业 on
+        if (proofreadPro && !proofreadCopyRef.current) {
+          void (async () => {
+            const bytes = await buildDocBytesImpl(fileCtxRef.current)
+            if (!bytes) return void runProofreadPassFrom(0)
+            const stem = doc?.fileName ? doc.fileName.replace(/\.docx$/i, '') : t('appUntitledDocx')
+            const copyName = t('aiProofreadCopyName', { name: stem })
+            await window.desktop.openResultTab(bytes, {
+              name: copyName,
+              originalName: doc?.fileName || copyName,
+              autoProofread: true,
+            })
+            showToast(t('aiProofreadCopyOpened', { name: copyName }))
+          })()
+          return
+        }
       }
       void runProofreadPassFrom(0)
       return
@@ -7839,7 +7808,13 @@ export function App() {
       setShowAi(true)
       setAiPreset({ text: t('ribbonEditorPrompt'), nonce: Date.now(), autoRun: true })
     })()
-  }, [editor, settings, runProofreadPassFrom])
+  }, [editor, settings, runProofreadPassFrom, proofreadPro, doc])
+
+  // the copy tab's boot effect starts the auto-pass through this ref: boot
+  // fires before this callback exists in the render order
+  useEffect(() => {
+    startProofreadRef.current = runAiProofread
+  })
 
   // flow note: Esc while running stops the pass exactly like the stop button
   useEffect(() => {

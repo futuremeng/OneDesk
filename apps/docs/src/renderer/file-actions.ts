@@ -596,7 +596,9 @@ export async function loadFile(
   }
   const generation = ++openGeneration
   try {
-    const fetched = await fetchDocBytes(result.dataUrl)
+    // the pro-mode copy tab hands its already-fetched bytes straight in; every
+    // other open fetches the one-shot URL exactly once
+    const fetched = result.bytes ?? (await fetchDocBytes(result.dataUrl))
     // what is made from a template is a document: it saves as a .docx, declared as one
     const bytes = result.template ? await templateAsDocx(fetched) : fetched
     const macrosLeft = result.template === true && /\.dotm$/i.test(result.name)
