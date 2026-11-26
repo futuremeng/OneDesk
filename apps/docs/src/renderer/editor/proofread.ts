@@ -18,7 +18,7 @@ import { Mapping } from '@tiptap/pm/transform'
 import { streamText, type AgentTransport } from '@onedesk/agent-core'
 import type { AiSettings, ProofreadDetectResult } from '../../shared/ipc'
 import { AI_PROVIDERS } from '../../shared/ipc'
-import { TRACK_AUTHOR } from './revisions'
+import { TRACK_AUTHOR, collectRevisions } from './revisions'
 
 /** the revision author for suggestions that land in the document (flow P03) */
 export const PROOFREAD_AUTHOR = 'AI'
@@ -599,11 +599,40 @@ export function landProofreadSuggestion(
   }
   if (!tr.docChanged) return retargetProofreadFeedback(editor, s, landed)
   tr.setMeta(TRACK_AUTHOR, PROOFREAD_AUTHOR)
+  // the span must describe the FINAL document: the recorder re-inserts deleted
+  // text in an appendTransaction after tr, so tr-mapped coordinates fall short
+  // of the region the revisions occupy (zero-width or reversed for a replace,
+  // missing the tail of an insert) and flipping a landed row back with 拒绝
+  // finds no revisions to reject. The revisions overlapping the region this
+  // tr touched ARE the landing: the tr removed anything previously overlapping
+  // it and pushed later revisions past its end.
+  const lo = landed.from + Math.min(...islands.map((r) => r.start))
+  const hi = landed.from + Math.max(...islands.map((r) => r.end))
+  const inserted = islands.reduce((n, r) => n + r.text.length, 0)
   editor.view.dispatch(tr)
-  return retargetProofreadFeedback(editor, s, {
-    from: tr.mapping.map(landed.from + Math.min(...islands.map((r) => r.start)), 1),
-    to: tr.mapping.map(landed.from + Math.max(...islands.map((r) => r.end)), -1),
-  })
+  return retargetProofreadFeedback(
+    editor,
+    s,
+    revisionsInRegion(editor.state.doc, lo, hi + inserted) ?? {
+      // tracking off: the tr applied bare, no revisions to union
+      from: tr.mapping.map(lo, -1),
+      to: tr.mapping.map(lo, -1) + inserted,
+    },
+  )
+}
+
+/** the union of the revisions overlapping region [lo, hi] of the doc, or null */
+function revisionsInRegion(
+  doc: Node,
+  lo: number,
+  hi: number,
+): { from: number; to: number } | null {
+  const inRegion = collectRevisions(doc).filter((r) => r.from < hi && r.to > lo)
+  if (inRegion.length === 0) return null
+  return {
+    from: Math.min(...inRegion.map((r) => r.from)),
+    to: Math.max(...inRegion.map((r) => r.to)),
+  }
 }
 
 /** point the feedback record at the landed span in the current document */
