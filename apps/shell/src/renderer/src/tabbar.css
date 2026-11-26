@@ -269,8 +269,29 @@ body.overlay-title-bar .tab-bar-drag-spacer {
 
 .tab-title {
   flex: 1 1 auto;
+  min-width: 0;
   overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Long names render as head + tail: the head ellipsizes under pressure,
+ * the tail (version number, extension) never shrinks, so the end of the
+ * file name stays readable while the tab truncates. */
+.tab-title-split {
+  display: flex;
+}
+
+.tab-title-head {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tab-title-tail {
+  flex: 0 0 auto;
   white-space: nowrap;
 }
 

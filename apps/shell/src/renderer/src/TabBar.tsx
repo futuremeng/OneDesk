@@ -20,6 +20,38 @@ export function formatTabTooltip(tab: TabSummary): string {
   return tab.filePath ? `${tab.title}\n${tab.filePath}` : tab.title
 }
 
+/* Long names end in the version number and extension ("…最终版 v3.docx"),
+ * which a plain trailing ellipsis hides exactly when the tab is squeezed.
+ * Titles longer than MIN_SPLIT chars give up their last TAIL chars to a
+ * second span that never shrinks; shorter titles are rendered whole. */
+const TAB_TITLE_TAIL_CHARS = 8
+const TAB_TITLE_MIN_SPLIT_CHARS = 24
+
+/**
+ * Split a tab title into a shrinkable head (takes the CSS ellipsis) and a
+ * fixed tail that stays visible while the tab truncates. Returns the whole
+ * title as head with an empty tail when short enough to render normally.
+ */
+export function splitTabTitle(title: string): { head: string; tail: string } {
+  const chars = Array.from(title)
+  if (chars.length <= TAB_TITLE_MIN_SPLIT_CHARS) return { head: title, tail: '' }
+  return {
+    head: chars.slice(0, chars.length - TAB_TITLE_TAIL_CHARS).join(''),
+    tail: chars.slice(-TAB_TITLE_TAIL_CHARS).join(''),
+  }
+}
+
+function TabTitle({ text }: { text: string }) {
+  const { head, tail } = splitTabTitle(text)
+  if (!tail) return <span className="tab-title">{text}</span>
+  return (
+    <span className="tab-title tab-title-split">
+      <span className="tab-title-head">{head}</span>
+      <span className="tab-title-tail">{tail}</span>
+    </span>
+  )
+}
+
 function DocIcon() {
   return (
     <svg width="16" height="16" viewBox="0 0 240 240" fill="none" aria-hidden="true">
@@ -599,7 +631,7 @@ export function TabBar() {
                   onBlur={commitRename}
                 />
               ) : (
-                <span className="tab-title">{tab.title}</span>
+                <TabTitle text={tab.title} />
               )}
               {tab.closable && (
                 <button
