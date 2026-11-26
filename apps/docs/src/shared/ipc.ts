@@ -35,6 +35,10 @@ export interface ProofreadCopyPayload {
   originalName: string
   /** the copy auto-starts a full-document proofread pass on boot */
   autoProofread: true
+  /** when the copy landed on disk next to the original under a bumped version
+   *  name: its file path and sha256, so the tab opens it as a real file */
+  path?: string
+  hash?: string
 }
 
 /** Password-protected (ECMA-376 encrypted) docx: the renderer prompts for the
@@ -618,6 +622,13 @@ export interface DesktopApi {
   /** show a document made here (a comparison result, or an AI-review pro-mode
    *  copy) in a new tab, untitled and unsaved; `proofread` turns it into a copy */
   openResultTab(data: Uint8Array, proofread?: ProofreadCopyPayload): Promise<void>
+  /** flow P06: land a pro-mode 审校 copy on disk next to sourcePath under a
+   *  bumped version name (`name v2.docx`, `v3.docx`, …); null when there is no
+   *  original file or the copy could not be written */
+  saveProofreadCopy(
+    data: Uint8Array,
+    sourcePath: string,
+  ): Promise<{ path: string; name: string; hash: string } | null>
   /** File > Rename…: the open document's file takes this name in its own folder */
   renameDoc(name: string): Promise<DocMoveResult>
   /** File > Move…: asks for a folder and moves the open document's file there; null when canceled */

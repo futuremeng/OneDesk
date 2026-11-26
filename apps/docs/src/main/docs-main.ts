@@ -6985,6 +6985,10 @@ export interface ResultDoc {
   bytes: Buffer
   /** set when the tab should adopt this as a proofread copy instead of a plain result */
   proofread?: ProofreadCopyPayload
+  /** a copy that landed on disk: the tab opens this file rather than a scratch doc */
+  path?: string
+  /** sha256 of the bytes as written to path */
+  hash?: string
 }
 const pendingResultDocs = new Map<number, ResultDoc>()
 
@@ -8732,13 +8736,23 @@ export function registerDocsIpc(): void {
     const made = pendingResultDocs.get(event.sender.id)
     if (made) {
       pendingResultDocs.delete(event.sender.id)
+      // a 专业-mode copy that landed on disk is a real file tab: it gets the
+      // grants loadDocx would have given it (archive, recents, write path)
+      if (made.path) {
+        await archiveOriginal(made.path, made.hash ?? sha256Hex(made.bytes), made.bytes.length)
+        pushRecent(made.path)
+        allowDocWrite(event.sender.id, made.path)
+        rememberOpenDoc(event.sender.id, made.path)
+        if (fileOpenedHook) fileOpenedHook(event.sender.id, made.path)
+        await rememberDiskState(event.sender.id, made.path, made.hash ?? sha256Hex(made.bytes))
+      }
       return {
-        path: '',
-        name: made.proofread?.name ?? '',
+        path: made.path ?? '',
+        name: made.path ? basename(made.path) : (made.proofread?.name ?? ''),
         dataUrl: handOffBytes(made.bytes),
-        hash: '',
-        template: true,
-        unsaved: true,
+        hash: made.path ? (made.hash ?? '') : '',
+        template: made.path ? undefined : true,
+        unsaved: made.path ? undefined : true,
         proofread: made.proofread,
       }
     }
@@ -9988,11 +10002,50 @@ export function registerDocsIpc(): void {
     }
   })
 
+  // flow P06: 专业 审校 lands its copy on disk next to the untouched original
+  // under a bumped version name (`name v2.docx`, `v3.docx`, …); the copy tab
+  // then opens that file and runs the pass inside it.
+  ipcMain.handle(
+    'docs:save-proofread-copy',
+    async (event, data: Uint8Array, sourcePath: string) => {
+      try {
+        if (!(data instanceof Uint8Array) || data.byteLength > MAX_OPEN_BYTES) return null
+        if (typeof sourcePath !== 'string' || !sourcePath || !existsSync(sourcePath)) return null
+        const dir = dirname(sourcePath)
+        const stem = basename(sourcePath).replace(/\.docx$/i, '')
+        let copyPath = ''
+        for (let v = 2; v < 1000; v++) {
+          const candidate = join(dir, `${stem} v${v}.docx`)
+          if (!existsSync(candidate)) {
+            copyPath = candidate
+            break
+          }
+        }
+        if (!copyPath) return null
+        const bytes = Buffer.from(data)
+        await atomicWriteFile(copyPath, bytes)
+        // a tab closed during the write would leave an ownerless file behind
+        if (tornDownWcIds.has(event.sender.id)) {
+          await unlink(copyPath).catch(() => {})
+          return null
+        }
+        return { path: copyPath, name: basename(copyPath), hash: sha256Hex(bytes) }
+      } catch {
+        return null
+      }
+    },
+  )
+
   ipcMain.handle(
     'docs:open-result-tab',
     (_event, data: Uint8Array, proofread?: ProofreadCopyPayload) => {
       if (!(data instanceof Uint8Array) || data.byteLength > MAX_OPEN_BYTES) return
-      const doc: ResultDoc = { bytes: Buffer.from(data), proofread }
+      const doc: ResultDoc = {
+        bytes: Buffer.from(data),
+        proofread,
+        path: proofread?.path,
+        hash: proofread?.hash,
+      }
       if (shellHooks?.openResultDocTab) shellHooks.openResultDocTab(doc)
       else queueDocsResultDoc(createDocsWindow().webContents.id, doc)
     },

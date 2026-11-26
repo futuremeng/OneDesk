@@ -3083,9 +3083,11 @@ export function App() {
           const outcome = await loadFile({ ...copyOpen.file, bytes: snapshot })
           if (outcome === 'canceled') await resetFile()
           else if (outcome === 'ok') {
-            // the copy has no file of its own: show the copy's name in its
-            // title instead of the fallback loadFile assigns
-            setDoc((prev) => (prev ? { ...prev, fileName: copyOpen.payload.name } : prev))
+            // an in-memory copy has no file to name the tab; the on-disk copy
+            // already opens under the version name it was saved under
+            if (!copyOpen.payload.path) {
+              setDoc((prev) => (prev ? { ...prev, fileName: copyOpen.payload.name } : prev))
+            }
             setCollateReady(true)
             setShowAi(true)
             // the copy itself runs the pass; boot cannot reference the callback
@@ -7778,12 +7780,29 @@ export function App() {
             if (!bytes) return void runProofreadPassFrom(0)
             const stem = doc?.fileName ? doc.fileName.replace(/\.docx$/i, '') : t('appUntitledDocx')
             const copyName = t('aiProofreadCopyName', { name: stem })
-            await window.desktop.openResultTab(bytes, {
-              name: copyName,
-              originalName: doc?.fileName || copyName,
-              autoProofread: true,
-            })
-            showToast(t('aiProofreadCopyOpened', { name: copyName }))
+            // the copy first lands on disk next to the original under a bumped
+            // version name and the pass runs in that file; a document never
+            // saved has no folder, so it falls back to the in-memory copy
+            const saved = doc?.filePath
+              ? await window.desktop.saveProofreadCopy(bytes, doc.filePath)
+              : null
+            await window.desktop.openResultTab(
+              bytes,
+              saved
+                ? {
+                    name: saved.name,
+                    originalName: doc?.fileName || saved.name,
+                    autoProofread: true,
+                    path: saved.path,
+                    hash: saved.hash,
+                  }
+                : { name: copyName, originalName: doc?.fileName || copyName, autoProofread: true },
+            )
+            showToast(
+              t('aiProofreadCopyOpened', {
+                name: saved ? saved.name.replace(/\.docx$/i, '') : copyName,
+              }),
+            )
           })()
           return
         }
