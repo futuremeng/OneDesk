@@ -802,10 +802,21 @@ MIT/Apache-2.0/BSD-3-Clause/OFL.
 
 ## License
 
-OneDesk is licensed under the [Apache License 2.0](LICENSE), with one
-exception: the `ee/` directory is reserved for future enterprise modules and
-is covered by the [OneDesk Enterprise License](ee/LICENSE).
+OneDesk is an independent fork of
+[GenOffice](https://github.com/genspark-ai/genoffice), an open-source office
+suite by Mainfunc, Inc. The fork keeps the upstream licensing model unchanged:
 
-The OneDesk and OneDesk names and logos are trademarks of Mainfunc, Inc.
-The Apache-2.0 license does not grant permission to use them (see section 6);
-forks should use their own branding.
+- Everything inherited from upstream is licensed under the
+  [Apache License 2.0](LICENSE), exactly as upstream is; the upstream
+  copyright notices in [NOTICE](NOTICE) are preserved as the license requires.
+- The one exception is the `ee/` directory, which upstream reserves for
+  enterprise modules under the
+  [GenOffice Enterprise License](ee/LICENSE). That reservation is an
+  upstream requirement, not a OneDesk one: the fork keeps the original
+  license text verbatim (byte-for-byte identical to upstream) and does not
+  relicense `ee/` under Apache-2.0.
+
+The GenOffice and Genspark names and logos are trademarks of Mainfunc, Inc.
+The Apache-2.0 license does not grant permission to use them (see section 6).
+As upstream requires of forks, OneDesk uses its own branding and is not
+affiliated with Mainfunc, Inc.
