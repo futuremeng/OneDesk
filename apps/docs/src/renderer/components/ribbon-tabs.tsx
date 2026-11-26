@@ -1375,7 +1375,7 @@ export function ReviewTab({
               </div>
             )}
           </div>
-          <div className="rb-col">
+          <div className="rb-col" data-wide="1">
             <button
               className={`rb-small ${collateView ? 'active' : ''}`}
               disabled={!hasDoc || !collateReady}
