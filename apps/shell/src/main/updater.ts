@@ -22,11 +22,12 @@ import {
 } from './update-window'
 
 /**
- * Full-package auto-update over the generic provider (Azure CDN).
+ * Full-package auto-update over the generic provider (a static feed).
  *
  * The release pipeline publishes `latest.yml` + the versioned installer to
- * the update channel prefix (production builds only). The packaged app reads
- * that URL from resources/app-update.yml, which electron-builder bakes in
+ * GitHub Releases and mirrors them to AtomGit; the update channel prefix is
+ * only served once a feed is exposed (production builds only). The packaged
+ * app reads that URL from resources/app-update.yml, which electron-builder bakes in
  * from the `publish` config in apps/shell/electron-builder.cjs — the URL
  * itself is injected at build time via the ONEDESK_UPDATE_URL env var and
  * is intentionally not committed to the repo.
@@ -448,7 +449,12 @@ const MANUAL_FALLBACK_AFTER = 2
 // and signing track, so a stable/legacy-track user could land on the wrong
 // build. Preferred is the CDN installer derived from the user's own update
 // feed (see manualDownloadUrlFor), which matches channel, track, and arch.
-const DOWNLOAD_PAGE_URL = 'https://onedesk.jiulu.ltd/releases/latest'
+// GitHub Releases is the fork's primary distribution channel (every tag
+// publishes installers there, mirrored to AtomGit by scripts/publish-atomgit
+// .mjs — the About pane links both); until a feed URL is baked into builds
+// this is also what the updater guides users to. Kept literal so the updater
+// module stays free of workspace imports its tests do not mock.
+const DOWNLOAD_PAGE_URL = 'https://github.com/futuremeng/OneDesk/releases/latest'
 
 /// Trusted HTTPS base URL baked into resources/app-update.yml. Manual download
 /// links are always rebuilt from this base rather than trusting URLs supplied
