@@ -1,13 +1,15 @@
 // In dev the app IS node_modules/electron/dist/Electron.app, so macOS shows
 // every debug run as "Electron" in the Dock and app menu. Empirically the
 // name the OS shows follows the executable name / bundle identity, so patch
-// all of it in place: CFBundleName/CFBundleDisplayName -> OneDesk, a unique
-// CFBundleIdentifier (the stock com.github.Electron collides with unrelated
-// apps and makes the Dock resolve a stale tile), the MacOS binary renamed to
-// OneDesk (+ node_modules/electron/path.txt so the CLI still finds it), then
-// ad-hoc re-sign so it launches on Apple Silicon. Packaged builds already
-// carry the productName, and the idempotency check below makes later dev
-// starts no-ops.
+// all of it in place: the bundle DIRECTORY renamed to OneDesk.app (paths like
+// node_modules are outside Spotlight's index, so the Dock/Finder display name
+// falls back to the on-disk filename and ignores the plist), CFBundleName/
+// CFBundleDisplayName -> OneDesk, a unique CFBundleIdentifier (the stock
+// com.github.Electron collides with unrelated apps and makes the Dock resolve
+// a stale tile), the MacOS binary renamed to OneDesk (+ node_modules/electron/
+// path.txt so the CLI still finds it), then ad-hoc re-sign so it launches on
+// Apple Silicon. Packaged builds already carry the productName, and the
+// idempotency check below makes later dev starts no-ops.
 // CAVEAT: with the binary renamed, Electron 43 reports app.isPackaged=true for
 // these default-app dev runs. packages/electron-utils/src/dev-identity.ts
 // corrects that at the top of every main entry; without it dev silently takes
@@ -32,7 +34,10 @@ try {
 } catch {
   process.exit(0)
 }
-const appBundle = join(electronDir, 'dist', 'Electron.app')
+const distDir = join(electronDir, 'dist')
+const stockBundle = join(distDir, 'Electron.app')
+const renamedBundle = join(distDir, `${DESIRED}.app`)
+let appBundle = existsSync(renamedBundle) ? renamedBundle : stockBundle
 if (!existsSync(appBundle)) process.exit(0)
 
 const plist = join(appBundle, 'Contents', 'Info.plist')
@@ -40,7 +45,7 @@ const macDir = join(appBundle, 'Contents', 'MacOS')
 const renamedBin = join(macDir, DESIRED)
 const stockBin = join(macDir, STOCK_EXE)
 const pathTxt = join(electronDir, 'path.txt')
-const desiredPathTxt = join('Electron.app', 'Contents', 'MacOS', DESIRED)
+const desiredPathTxt = join(`${DESIRED}.app`, 'Contents', 'MacOS', DESIRED)
 const lsregister =
   '/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister'
 // the Dock reads the LaunchServices display name, which goes stale against the
@@ -66,7 +71,8 @@ const readPathTxt = () => {
     return null
   }
 }
-const exePatched = existsSync(renamedBin) && readPathTxt() === desiredPathTxt
+const exePatched =
+  existsSync(renamedBin) && readPathTxt() === desiredPathTxt && appBundle === renamedBundle
 if (
   read('CFBundleName') === DESIRED &&
   (read('CFBundleDisplayName') ?? DESIRED) === DESIRED &&
@@ -83,6 +89,7 @@ if (
 const backup = join(tmpdir(), 'onedesk-electron-dev-info.plist.bak')
 copyFileSync(plist, backup)
 const oldPathTxt = readPathTxt()
+const oldBundleWasStock = appBundle === stockBundle
 try {
   execFileSync('plutil', ['-replace', 'CFBundleName', '-string', DESIRED, plist])
   if (read('CFBundleDisplayName') !== null) {
@@ -96,6 +103,12 @@ try {
   // a stale MacOS/Electron entry (real binary or leftover symlink) would make
   // path.txt point at the wrong image name again
   if (existsSync(stockBin) && lstatSync(stockBin).isSymbolicLink()) rmSync(stockBin)
+  // the directory name is what the Dock falls back to for this path, so the
+  // bundle itself becomes OneDesk.app (path.txt below follows)
+  if (oldBundleWasStock) {
+    renameSync(stockBundle, renamedBundle)
+    appBundle = renamedBundle
+  }
   writeFileSync(pathTxt, desiredPathTxt)
   execFileSync('codesign', ['--force', '--sign', '-', appBundle], { stdio: 'pipe' })
   rmSync(backup)
@@ -107,6 +120,9 @@ try {
   copyFileSync(backup, plist)
   rmSync(backup)
   if (!existsSync(stockBin) && existsSync(renamedBin)) renameSync(renamedBin, stockBin)
+  if (oldBundleWasStock && !existsSync(stockBundle) && existsSync(renamedBundle)) {
+    renameSync(renamedBundle, stockBundle)
+  }
   if (oldPathTxt !== null) writeFileSync(pathTxt, oldPathTxt)
   console.warn(`[dev-name] could not rename the dev Electron bundle: ${err?.message ?? err}`)
 }
