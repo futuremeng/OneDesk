@@ -3079,7 +3079,10 @@ export function App() {
           const snapshot = await fetchDocBytes(copyOpen.file.dataUrl)
           proofreadCopyRef.current = {
             originalName: copyOpen.payload.originalName,
-            bytes: snapshot,
+            // loadFile parses these bytes with owned:true, which transfers the
+            // buffer to the parse worker and detaches it; the 对校 snapshot needs
+            // its own copy so a later slice() still reads real bytes
+            bytes: snapshot.slice(0),
           }
           const outcome = await loadFile({ ...copyOpen.file, bytes: snapshot })
           if (outcome === 'canceled') await resetFile()
