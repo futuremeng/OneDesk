@@ -44,3 +44,6 @@ _scratch-*
 
 # design-flow canvas artifacts (generated design boards, not source)
 .design-flow/
+
+# electron-vite compiled config temp files
+apps/shell/electron.vite.config.*.mjs
