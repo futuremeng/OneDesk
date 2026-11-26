@@ -912,9 +912,21 @@ export function ReviewTab({
   const hasRangeSelection = () => !editor.state.selection.empty
   return (
     <>
-      {/* Word: Proofing sits leftmost — AI proofread as a tracked-revision pass */}
+      {/* Word: Proofing sits leftmost — professional mode first, then the
+          AI proofread pass and the small tools stack */}
       <div className="ribbon-group">
         <div className="ribbon-group-items">
+          <div className="rb-col" data-wide="1">
+            <button
+              className={`rb-small ${proofreadPro ? 'active' : ''}`}
+              disabled={!hasDoc}
+              data-tip={t('ribbonProofreadProTip')}
+              onClick={() => runCommand('proofread-pro-mode')}
+            >
+              <IconSparkle size={14} />
+              <span className="rb-small-label">{t('ribbonProofreadPro')}</span>
+            </button>
+          </div>
           <RbCommand
             cmd="ai-proofread"
             look="big"
@@ -947,15 +959,6 @@ export function ReviewTab({
             <RbCommand cmd="word-count" look="small">
               <IconWordCount size={14} />
             </RbCommand>
-            <button
-              className={`rb-small ${proofreadPro ? 'active' : ''}`}
-              disabled={!hasDoc}
-              data-tip={t('ribbonProofreadProTip')}
-              onClick={() => runCommand('proofread-pro-mode')}
-            >
-              <IconSparkle size={14} />
-              <span className="rb-small-label">{t('ribbonProofreadPro')}</span>
-            </button>
           </div>
         </div>
         <div className="ribbon-group-label">{t('ribbonGroupProofing')}</div>

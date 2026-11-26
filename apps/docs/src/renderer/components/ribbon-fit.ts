@@ -57,26 +57,35 @@ export function fitRibbon(body: HTMLElement): void {
   if (fitted.get(body) === state) return
   fitted.set(body, state)
   const captions = (stack: HTMLElement) => stack.querySelectorAll<HTMLElement>('.rb-small-label')
-  for (const stack of stacks) {
-    stack.classList.remove(TIGHT)
-    stack.classList.toggle(WIDE, !compact && !!stack.dataset.wide)
-    if (compact) for (const caption of captions(stack)) caption.style.maxWidth = ''
-  }
-  for (const group of groups) group.classList.remove(GROUP_TIGHT)
-  if (compact) return
-  wrapBigCaptions(body, WIDE_CAPTION)
-  for (const { stack, to } of fitSteps(stacks)) {
-    if (body.scrollWidth <= body.clientWidth) return
-    if (to === 'icons') stack.classList.add(TIGHT)
-    else {
-      stack.classList.remove(WIDE)
-      for (const caption of captions(stack)) caption.style.maxWidth = ''
+  try {
+    for (const stack of stacks) {
+      stack.classList.remove(TIGHT)
+      stack.classList.toggle(WIDE, !compact && !!stack.dataset.wide)
+      if (compact) for (const caption of captions(stack)) caption.style.maxWidth = ''
     }
-  }
-  // still too wide with every stack down to icons: the big buttons go next, from the right
-  for (const group of groups.reverse()) {
-    if (body.scrollWidth <= body.clientWidth) return
-    group.classList.add(GROUP_TIGHT)
+    for (const group of groups) group.classList.remove(GROUP_TIGHT)
+    if (compact) return
+    wrapBigCaptions(body, WIDE_CAPTION)
+    for (const { stack, to } of fitSteps(stacks)) {
+      if (body.scrollWidth <= body.clientWidth) return
+      if (to === 'icons') stack.classList.add(TIGHT)
+      else {
+        stack.classList.remove(WIDE)
+        for (const caption of captions(stack)) caption.style.maxWidth = ''
+      }
+    }
+    // still too wide with every stack down to icons: the big buttons go next, from the right
+    for (const group of groups.reverse()) {
+      if (body.scrollWidth <= body.clientWidth) return
+      group.classList.add(GROUP_TIGHT)
+    }
+  } finally {
+    // the big captions wrap by the layout the steps just chose: a wide stack
+    // keeps its neighbour's caption on one line (nowrap in styles.css), and
+    // stepping down hands it back its two lines. A step only moves classes,
+    // never renders, so re-measure here — a resize alone would otherwise
+    // leave the width chosen for the previous layout clipping the caption.
+    wrapBigCaptions(body)
   }
 }
 

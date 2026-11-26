@@ -27,18 +27,27 @@ export function wrapBigCaptions(root: HTMLElement, captions = BIG_CAPTION): void
     let next = ''
     if (words.length >= 2) {
       if (!laidOut) continue
-      const font = getComputedStyle(caption).font
-      const key = `${font}|${words.join(' ')}`
-      let width = widths.get(key)
-      if (width === undefined) {
-        pen ??= document.createElement('canvas').getContext('2d')
-        if (!pen) return
-        pen.font = font
-        const measure = (text: string) => pen!.measureText(text).width
-        width = Math.ceil(twoLineWidth(words.map(measure), measure(' '))) + 1
-        widths.set(key, width)
+      const style = getComputedStyle(caption)
+      if (style.whiteSpace === 'nowrap') {
+        // this layout keeps the caption on one line by design — a wide stack
+        // beside the button (styles.css `:has(.rb-col-wide)`), or a compact
+        // caption taken out of sight. A two-line max-width would only narrow
+        // the box until the text spills under the neighbouring button, so
+        // drop any width a wider layout left behind instead.
+      } else {
+        const font = style.font
+        const key = `${font}|${words.join(' ')}`
+        let width = widths.get(key)
+        if (width === undefined) {
+          pen ??= document.createElement('canvas').getContext('2d')
+          if (!pen) return
+          pen.font = font
+          const measure = (text: string) => pen!.measureText(text).width
+          width = Math.ceil(twoLineWidth(words.map(measure), measure(' '))) + 1
+          widths.set(key, width)
+        }
+        next = `${width}px`
       }
-      next = `${width}px`
     }
     // this runs on every render: write only a change, so a settled ribbon is not laid out again
     if (caption.style.maxWidth !== next) caption.style.maxWidth = next
