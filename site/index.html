@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OneDesk —— 开源 AI 办公套件</title>
+<meta name="description" content="OneDesk 是全球首个全功能开源 AI 办公套件。Word、Excel、PowerPoint 与 PDF 文件,由你和你的 AI 共同编辑,保存回真实格式。macOS、Windows、Linux 免费下载。">
+<meta property="og:title" content="OneDesk —— 开源 AI 办公套件">
+<meta property="og:description" content="Word、Excel、PowerPoint 与 PDF 文件,由你和你的 AI 共同编辑,保存回真实格式。">
+<meta property="og:image" content="img/hero.webp">
+<meta property="og:type" content="website">
+<link rel="alternate" hreflang="zh-CN" href="https://onedesk.jiulu.ltd/">
+<link rel="alternate" hreflang="en" href="https://onedesk.jiulu.ltd/en.html">
+<link rel="icon" type="image/svg+xml" href="assets/appicon.svg">
+<style>
+:root{
+  --ink:#0b0d10;
+  --ink-2:#3d434c;
+  --ink-3:#6b7280;
+  --accent:#0F7FFF;
+  --accent-ink:#0b62c4;
+  --accent-soft:rgba(15,127,255,.10);
+  --bg:#ffffff;
+  --surface:#f4f7fc;
+  --hairline:#e4e9f2;
+  --radius:18px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"PingFang SC","Noto Sans",sans-serif;
+  color:var(--ink);
+  background:var(--bg);
+  -webkit-font-smoothing:antialiased;
+}
+a{color:var(--accent-ink);text-decoration:none}
+a:hover{text-decoration:underline}
+h1,h2,h3{letter-spacing:-.02em;line-height:1.15;margin:0}
+p{margin:0}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+
+/* nav */
+nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--hairline)}
+.nav-in{display:flex;align-items:center;gap:28px;height:64px}
+.logo img{height:30px;width:auto;display:block}
+.nav-links{display:flex;gap:24px;margin-left:auto;font-weight:550}
+.nav-links a{color:var(--ink-2)}
+.nav-links a:hover{color:var(--ink);text-decoration:none}
+.btn{display:inline-flex;align-items:center;gap:10px;border-radius:12px;font-weight:650;padding:10px 20px;border:1px solid transparent;cursor:pointer;font-size:15px}
+.btn-dark{background:var(--ink);color:#fff}
+.btn-dark:hover{background:#22262c;text-decoration:none;color:#fff}
+.btn-ghost{border-color:var(--hairline);color:var(--ink)}
+.btn-ghost:hover{border-color:var(--ink-3);text-decoration:none}
+.btn-sm{padding:7px 14px;font-size:14px;border-radius:10px}
+
+/* hero */
+.hero{padding:88px 0 0;text-align:center}
+.hero .mark{height:64px;width:64px}
+.kicker{margin-top:26px;font-weight:650;font-size:14px;color:var(--accent-ink)}
+.kicker .dot{color:var(--ink-3);margin:0 8px}
+h1{margin:14px auto 0;max-width:820px;font-size:clamp(34px,5.4vw,58px);font-weight:750}
+h1 em{font-style:normal;color:var(--accent)}
+.sub{margin:20px auto 0;max-width:680px;font-size:19px;color:var(--ink-2)}
+.cta{margin-top:34px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.cta .btn{padding:13px 26px;font-size:16px}
+.meta{margin-top:18px;color:var(--ink-3);font-size:14px}
+.hero-img{margin:56px auto 0;max-width:1180px;padding:0 24px}
+.hero-img img{width:100%;height:auto;border:1px solid var(--hairline);border-radius:14px;display:block}
+
+/* strip */
+.strip{border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline);margin-top:72px;background:var(--surface)}
+.strip-in{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;padding:18px 24px;color:var(--ink-3);font-size:14px;font-weight:550}
+.pill{border:1px solid var(--hairline);background:#fff;border-radius:999px;padding:4px 14px;font-weight:650;color:var(--ink);font-size:13px;letter-spacing:.02em}
+
+/* sections */
+section{padding:96px 0}
+.eyebrow{font-weight:700;font-size:14px;letter-spacing:.06em;color:var(--accent-ink)}
+h2{margin-top:12px;font-size:clamp(26px,3.6vw,40px);font-weight:750;max-width:760px}
+.lede{margin-top:14px;max-width:680px;color:var(--ink-2);font-size:18px}
+
+.grid{margin-top:48px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{border:1px solid var(--hairline);border-radius:var(--radius);padding:26px;background:#fff}
+.card .tile{width:34px;height:34px;margin-bottom:16px;display:block}
+.card h3{font-size:17px;font-weight:700}
+.card p{margin-top:8px;color:var(--ink-2);font-size:15px}
+
+/* gallery rows */
+.row{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;padding:44px 0}
+.row:nth-child(even) .row-img{order:2}
+.row-img img{width:100%;height:auto;border:1px solid var(--hairline);border-radius:14px;display:block}
+.row h3{font-size:24px;font-weight:750;margin-top:10px}
+.row p{margin-top:12px;color:var(--ink-2)}
+.row .tag{font-weight:700;font-size:13px;letter-spacing:.06em;color:var(--accent-ink)}
+
+/* dark band */
+.dark{background:var(--ink);color:#fff}
+.dark h2{color:#fff}
+.dark .eyebrow{color:#7ab8ff}
+.dark .lede{color:#b9c2cf}
+.dark .card{background:#14171c;border-color:#272c34}
+.dark .card h3{color:#fff}
+.dark .card p{color:#aeb7c4}
+.dark .row-img img{border-color:#272c34}
+code.chip{background:#1d2229;border:1px solid #2c323b;border-radius:8px;padding:2px 9px;font:13px/1.6 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#d7e6ff}
+
+/* download */
+.dl-grid{margin-top:48px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.dl{border:1px solid var(--hairline);border-radius:var(--radius);padding:28px;display:flex;flex-direction:column;gap:6px}
+.dl h3{font-size:19px}
+.dl .os{font-size:14px;color:var(--ink-3)}
+.dl ul{list-style:none;margin:12px 0 0;padding:0;display:flex;flex-direction:column;gap:8px}
+.dl a.dl-a{border:1px solid var(--hairline);border-radius:10px;padding:9px 14px;font-weight:650;color:var(--ink);font-size:14.5px;text-align:center}
+.dl a.dl-a:hover{border-color:var(--accent);color:var(--accent-ink);text-decoration:none;background:var(--accent-soft)}
+.ver{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--hairline);border-radius:999px;padding:5px 14px;font-size:14px;font-weight:650;color:var(--ink-2)}
+.ver b{color:var(--accent-ink);font-weight:750}
+.dl-note{margin-top:22px;color:var(--ink-3);font-size:14px}
+
+/* footer */
+footer{border-top:1px solid var(--hairline);padding:56px 0 64px;color:var(--ink-3);font-size:14px}
+.f-top{display:flex;gap:40px;justify-content:space-between;flex-wrap:wrap;align-items:flex-start}
+.f-top img{height:26px}
+.f-links{display:flex;gap:22px;flex-wrap:wrap;font-weight:550}
+.f-legal{margin-top:28px;max-width:860px}
+.f-legal p{margin-top:10px}
+
+@media (prefers-reduced-motion:no-preference){
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+  .reveal.on{opacity:1;transform:none}
+}
+@media (max-width:900px){
+  .grid,.dl-grid{grid-template-columns:1fr 1fr}
+  .row{grid-template-columns:1fr;gap:22px}
+  .row:nth-child(even) .row-img{order:0}
+  .nav-links{display:none}
+}
+@media (max-width:620px){
+  .grid,.dl-grid{grid-template-columns:1fr}
+  section{padding:64px 0}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-in">
+    <a class="logo" href="/" aria-label="OneDesk 首页"><img src="assets/lockup.svg" alt="OneDesk"></a>
+    <div class="nav-links">
+      <a href="#features">功能特性</a>
+      <a href="#apps">编辑器</a>
+      <a href="#agents">智能体与 CLI</a>
+      <a href="#download">下载</a>
+      <a href="https://github.com/futuremeng/OneDesk">GitHub</a>
+      <a href="/en.html" lang="en">English</a>
+    </div>
+    <a class="btn btn-dark btn-sm" href="/releases/latest">下载</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <svg class="mark" viewBox="0 0 256 256" width="64" height="64" aria-hidden="true"><rect x="18" y="18" width="132" height="132" rx="26" fill="#0F1115"/><rect x="166" y="18" width="72" height="72" rx="20" fill="#0F7FFF"/><rect x="18" y="166" width="72" height="72" rx="20" fill="#0F7FFF"/><rect x="166" y="166" width="72" height="72" rx="20" fill="#0F7FFF"/></svg>
+    <p class="kicker">免费开源<span class="dot">·</span>Apache-2.0<span class="dot">·</span>macOS · Windows · Linux</p>
+    <h1>全球首个全功能开源 <em>AI 办公</em>套件。</h1>
+    <p class="sub">Word、Excel、PowerPoint 与 PDF 文件——由你和你的 AI 一起编辑,保存回真实格式。</p>
+    <div class="cta">
+      <a class="btn btn-dark" id="dl-primary" href="/releases/latest">下载 macOS 版</a>
+      <a class="btn btn-ghost" href="https://github.com/futuremeng/OneDesk">在 GitHub 上查看</a>
+    </div>
+    <p class="meta">原生 <b>.docx</b>、<b>.xlsx</b>、<b>.pptx</b> · PDF、Markdown 与 HTML · 你的电脑,你的文件</p>
+  </div>
+  <div class="hero-img reveal">
+    <picture>
+      <source srcset="img/hero-dark.webp" media="(prefers-color-scheme: dark)">
+      <img src="img/hero.webp" alt="OneDesk 编辑器:文档、表格、幻灯片、PDF、Markdown 与 HTML,内置 AI 面板" width="1132" height="595">
+    </picture>
+  </div>
+</header>
+
+<div class="strip">
+  <div class="strip-in">
+    直接打开并保存真实格式
+    <span class="pill">DOCX</span><span class="pill">XLSX</span><span class="pill">PPTX</span>
+    <span class="pill">PDF</span><span class="pill">Markdown</span><span class="pill">HTML</span>
+    <span class="pill">ODF 导入</span><span class="pill">.doc / .xls / .ppt / .hwp 导入</span>
+  </div>
+</div>
+
+<section id="features">
+  <div class="wrap">
+    <p class="eyebrow">为什么选择 OneDesk</p>
+    <h2>一台尊重文件、也尊重你已有工作的 AI 编辑器。</h2>
+    <p class="lede">不是在界面旁边挂一个聊天框:它读得懂文档、改得动内容,并让你看清它动了哪里。</p>
+    <div class="grid">
+      <div class="card reveal">
+        <svg class="tile" viewBox="0 0 256 256" aria-hidden="true"><rect x="18" y="18" width="132" height="132" rx="26" fill="#0F1115"/><rect x="166" y="18" width="72" height="72" rx="20" fill="#0F7FFF"/><rect x="18" y="166" width="72" height="72" rx="20" fill="#0F7FFF"/><rect x="166" y="166" width="72" height="72" rx="20" fill="#0F7FFF"/></svg>
+        <h3>真实格式,字节级保真</h3>
+        <p>只改写你编辑的部分,文件其余内容原样保留。文档放回 Word、Excel、PowerPoint 里依旧完好可用。</p>
+      </div>
+      <div class="card reveal">
+        <svg class="tile" viewBox="0 0 256 256" aria-hidden="true"><rect x="18" y="18" width="132" height="132" rx="26" fill="#0F1115"/><rect x="166" y="18" width="72" height="72" rx="20" fill="#0F7FFF"/><rect x="18" y="166" width="72" height="72" rx="20" fill="#0F7FFF"/><rect x="166" y="166" width="72" height="72" rx="20" fill="#0F7FFF"/></svg>
+        <h3>可审阅的 AI</h3>
+        <p>修改以修订记录和差异对比落地,一键回滚。表格得到的是活公式,而不是贴死的数字。</p>
+      </div>
+      <div class="card reveal">
+        <svg class="tile" viewBox="0 0 256 256" aria-hidden="true"><rect x="18" y="18" width="132" height="132" rx="26" fill="#0F1115"/><rect x="166" y="18" width="72" height="72" rx="20" fill="#0F7FFF"/><rect x="18" y="166" width="72" height="72" rx="20" fill="#0F7FFF"/><rect x="166" y="166" width="72" height="72" rx="20" fill="#0F7FFF"/></svg>
+        <h3>隐私可控</h3>
+        <p>可以把某段文字或某片单元格对模型隐藏:模型只看到一个占位名称,原文始终留在你的文件里。</p>
+      </div>
+      <div class="card reveal">
+        <svg class="tile" viewBox="0 0 256 256" aria-hidden="true"><rect x="18" y="18" width="132" height="132" rx="26" fill="#0F1115"/><rect x="166" y="18" width="72" height="72" rx="20" fill="#0F7FFF"/><rect x="18" y="166" width="72" height="72" rx="20" fill="#0F7FFF"/><rect x="166" y="166" width="72" height="72" rx="20" fill="#0F7FFF"/></svg>
+        <h3>本地优先</h3>
+        <p>打开、编辑、保存、转换都在你的电脑上完成。PDF 转 Word、Markdown 转 HTML 全在设备端运行;只有 AI 调用会离开本机,发往你选择的模型服务。</p>
+      </div>
+      <div class="card reveal">
+        <svg class="tile" viewBox="0 0 256 256" aria-hidden="true"><rect x="18" y="18" width="132" height="132" rx="26" fill="#0F1115"/><rect x="166" y="18" width="72" height="72" rx="20" fill="#0F7FFF"/><rect x="18" y="166" width="72" height="72" rx="20" fill="#0F7FFF"/><rect x="166" y="166" width="72" height="72" rx="20" fill="#0F7FFF"/></svg>
+        <h3>按内容搜索文件</h3>
+        <p>首页搜索的是文件名、文件夹和文档全文——而不只是标题。</p>
+      </div>
+      <div class="card reveal">
+        <svg class="tile" viewBox="0 0 256 256" aria-hidden="true"><rect x="18" y="18" width="132" height="132" rx="26" fill="#0F1115"/><rect x="166" y="18" width="72" height="72" rx="20" fill="#0F7FFF"/><rect x="18" y="166" width="72" height="72" rx="20" fill="#0F7FFF"/><rect x="166" y="166" width="72" height="72" rx="20" fill="#0F7FFF"/></svg>
+        <h3>一张桌面,多个应用</h3>
+        <p>文档、表格、幻灯片、PDF、Markdown 与 HTML 编辑器共处一窗:一个文件系统,一个 AI 面板。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="apps" style="padding-top:0">
+  <div class="wrap">
+    <p class="eyebrow">编辑器家族</p>
+    <h2>套件的每一面,都落在真实的文件上。</h2>
+
+    <div class="row reveal">
+      <div class="row-img"><img src="img/docs-ai.webp" alt="OneDesk 文档编辑器,AI 面板以修订记录应用一处修改" loading="lazy" width="1132" height="708"></div>
+      <div>
+        <p class="tag">文档</p>
+        <h3>兼容 Word 的编辑,AI 修改可审阅</h3>
+        <p>原生 .docx,细致到页眉、页脚与受保护区域。校对与改写以修订记录和内联差异呈现,逐条接受或拒绝,尽在你手。</p>
+      </div>
+    </div>
+
+    <div class="row reveal">
+      <div class="row-img"><img src="img/sheets-ai.webp" alt="OneDesk 表格,AI 生成的活公式" loading="lazy" width="1132" height="708"></div>
+      <div>
+        <p class="tag">表格</p>
+        <h3>表格要的是公式,不是贴死的数字</h3>
+        <p>让它做分析,AI 会把真正的公式写进真正的单元格。图表、格式与条件规则在完成后依旧可以继续编辑。</p>
+      </div>
+    </div>
+
+    <div class="row reveal">
+      <div class="row-img"><img src="img/slides-generate.webp" alt="在 OneDesk 幻灯片画布上生成的一套演示" loading="lazy" width="1132" height="708"></div>
+      <div>
+        <p class="tag">幻灯片</p>
+        <h3>幻灯片直接生成在画布上,完全可编辑</h3>
+        <p>一句话生成真正的 .pptx:文本框、版式与图片都能接着改,不是一张压扁的图。</p>
+      </div>
+    </div>
+
+    <div class="row reveal">
+      <div class="row-img"><img src="img/pdf-edit.webp" alt="在 OneDesk 中直接编辑 PDF" loading="lazy" width="1132" height="708"></div>
+      <div>
+        <p class="tag">PDF</p>
+        <h3>阅读、编辑、转换——都在你的电脑上</h3>
+        <p>直接编辑 PDF,还能把 PDF 转成 Word / Excel / PowerPoint,全程本地完成,无需上传。</p>
+      </div>
+    </div>
+
+    <div class="row reveal">
+      <div class="row-img"><img src="img/html-dashboard.webp" alt="在 OneDesk 中渲染的 HTML 仪表盘" loading="lazy" width="1132" height="708"></div>
+      <div>
+        <p class="tag">Markdown 与 HTML</p>
+        <h3>从纯文本到精致页面</h3>
+        <p>Markdown 与 HTML 是一等文档:AI 重排版、生成报告、HTML 转 Word,都在这张桌面上完成。</p>
+      </div>
+    </div>
+
+    <div class="row reveal">
+      <div class="row-img"><img src="img/search-jev-before-after.webp" alt="在 OneDesk 中按文档内容搜索文件" loading="lazy" width="1132" height="708"></div>
+      <div>
+        <p class="tag">搜索</p>
+        <h3>凭文中的那句话,找到那个文件</h3>
+        <p>跨 .docx、.xlsx、.pptx、PDF 与 Markdown 的全文检索,结果直接定位到命中的那一段。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="agents" class="dark">
+  <div class="wrap">
+    <p class="eyebrow">智能体原生</p>
+    <h2>你的编程智能体,也能驱动这张桌面。</h2>
+    <p class="lede">OneDesk 自带命令行、MCP 服务器与无头导出通道,智能体和脚本得到与图形界面完全一致的保真度。</p>
+
+    <div class="grid" style="margin-top:40px">
+      <div class="card reveal">
+        <h3>一个 CLI</h3>
+        <p>在终端里转换、合并、导出:<code class="chip">onedesk convert a.docx --to pdf</code></p>
+      </div>
+      <div class="card reveal">
+        <h3>MCP 服务器</h3>
+        <p>任何支持 MCP 的智能体都能接入这张桌面,把打开、编辑、保存文档当作工具来调用。</p>
+      </div>
+      <div class="card reveal">
+        <h3>无头导出</h3>
+        <p>面向 CI 的字节精确文档流水线——与桌面端同一套引擎,无需打开窗口。</p>
+      </div>
+    </div>
+
+    <div class="row-img reveal" style="margin-top:44px">
+      <img src="img/cli-integrations.webp" alt="OneDesk 面向 CLI 与 MCP 智能体的集成方式" loading="lazy" width="1132" height="708">
+    </div>
+  </div>
+</section>
+
+<section id="download">
+  <div class="wrap">
+    <p class="eyebrow">下载</p>
+    <h2>获取 OneDesk。</h2>
+    <p class="lede"><span class="ver">最新版本 <b id="ver-chip">—</b></span></p>
+
+    <div class="dl-grid">
+      <div class="dl reveal">
+        <h3>macOS</h3>
+        <p class="os">macOS 11 及以上</p>
+        <ul>
+          <li><a class="dl-a" href="/releases/latest">Apple 芯片 · .dmg</a></li>
+          <li><a class="dl-a" href="/releases/latest">Intel · .dmg</a></li>
+        </ul>
+      </div>
+      <div class="dl reveal">
+        <h3>Windows</h3>
+        <p class="os">Windows 10 及以上</p>
+        <ul>
+          <li><a class="dl-a" href="/releases/latest">x64 · 安装程序 .exe</a></li>
+          <li><a class="dl-a" href="/releases/latest">ARM64 · 安装程序 .exe</a></li>
+        </ul>
+      </div>
+      <div class="dl reveal">
+        <h3>Linux</h3>
+        <p class="os">x86_64 · glibc 2.34+</p>
+        <ul>
+          <li><a class="dl-a" href="/releases/latest">Debian / Ubuntu · .deb</a></li>
+          <li><a class="dl-a" href="/releases/latest">任意发行版 · .AppImage</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="dl-note">下载会打开 GitHub Release 页面,并为你匹配当前机器的构建。
+    中国大陆用户可通过 <a href="https://atomgit.com/futuremeng/OneDesk/releases">AtomGit 镜像</a>
+    获取同样的构建。OneDesk 免费开源——无需注册账号,默认不上传任何数据。</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="f-top">
+      <img src="assets/lockup.svg" alt="OneDesk">
+      <div class="f-links">
+        <a href="https://github.com/futuremeng/OneDesk">GitHub</a>
+        <a href="https://atomgit.com/futuremeng/OneDesk">AtomGit 镜像</a>
+        <a href="/releases/latest">发布</a>
+        <a href="https://github.com/futuremeng/OneDesk/blob/main/README.md">文档</a>
+        <a href="https://github.com/futuremeng/OneDesk/blob/main/PRIVACY.md">隐私</a>
+        <a href="/en.html" lang="en">English</a>
+      </div>
+    </div>
+    <div class="f-legal">
+      <p>OneDesk 基于 <a href="https://github.com/futuremeng/OneDesk/blob/main/LICENSE">Apache License 2.0</a> 授权发布。
+      OneDesk 是 <a href="https://github.com/genspark-ai/genoffice">GenOffice</a> 的独立分支,并保留上游的授权边界:
+      <code>ee/</code> 目录仍适用原
+      <a href="https://github.com/futuremeng/OneDesk/blob/main/ee/LICENSE">GenOffice 企业版许可</a>。
+      GenOffice 与 Genspark 是 Mainfunc, Inc. 的商标;OneDesk 使用自有品牌,与 Mainfunc, Inc. 无关联。</p>
+      <p>Microsoft、Word、Excel 与 PowerPoint 是微软集团公司的商标。
+      © OneDesk 贡献者。</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+// platform-aware primary button
+(function(){
+  var el=document.getElementById('dl-primary'),ua=navigator.userAgent;
+  if(!el)return;
+  if(/Windows/.test(ua))el.textContent='下载 Windows 版';
+  else if(/Macintosh|Mac OS X/.test(ua))el.textContent='下载 macOS 版';
+  else if(/Linux/.test(ua))el.textContent='下载 Linux 版';
+})();
+// latest version chip
+(function(){
+  var el=document.getElementById('ver-chip');if(!el)return;
+  fetch('https://api.github.com/repos/futuremeng/OneDesk/releases/latest',{headers:{Accept:'application/vnd.github+json'}})
+    .then(function(r){return r.ok?r.json():Promise.reject(r.status)})
+    .then(function(j){if(j.tag_name)el.textContent=j.tag_name})
+    .catch(function(){el.textContent='v0.14.1'});
+})();
+// reveal on scroll
+if(!matchMedia('(prefers-reduced-motion: reduce)').matches&&'IntersectionObserver' in window){
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}})},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(function(n){io.observe(n)});
+}
+</script>
+</body>
+</html>

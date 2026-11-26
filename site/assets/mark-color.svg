@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <title>OneDesk</title>
+  <!-- Colour mode: the desk tile stays brand ink; the three app tiles carry
+       the brand blue (shell --accent). App surfaces may swap the blue for
+       their own --accent. -->
+  <rect x="18" y="18" width="132" height="132" rx="26" fill="#0F1115"/>
+  <rect x="166" y="18" width="72" height="72" rx="20" fill="#0F7FFF"/>
+  <rect x="18" y="166" width="72" height="72" rx="20" fill="#0F7FFF"/>
+  <rect x="166" y="166" width="72" height="72" rx="20" fill="#0F7FFF"/>
+</svg>

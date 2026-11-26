@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OneDesk — the open-source AI Office suite</title>
+<meta name="description" content="OneDesk is the world's first full-featured open-source AI Office suite. Word, Excel, PowerPoint and PDF files, edited by you and your AI, saved back in the real formats. Free for macOS, Windows and Linux.">
+<meta property="og:title" content="OneDesk — the open-source AI Office suite">
+<meta property="og:description" content="Word, Excel, PowerPoint and PDF files, edited by you and your AI, saved back in the real formats.">
+<meta property="og:image" content="img/hero.webp">
+<meta property="og:type" content="website">
+<link rel="alternate" hreflang="zh-CN" href="https://onedesk.jiulu.ltd/">
+<link rel="alternate" hreflang="en" href="https://onedesk.jiulu.ltd/en.html">
+<link rel="icon" type="image/svg+xml" href="assets/appicon.svg">
+<style>
+:root{
+  --ink:#0b0d10;
+  --ink-2:#3d434c;
+  --ink-3:#6b7280;
+  --accent:#0F7FFF;
+  --accent-ink:#0b62c4;
+  --accent-soft:rgba(15,127,255,.10);
+  --bg:#ffffff;
+  --surface:#f4f7fc;
+  --hairline:#e4e9f2;
+  --radius:18px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"PingFang SC","Noto Sans",sans-serif;
+  color:var(--ink);
+  background:var(--bg);
+  -webkit-font-smoothing:antialiased;
+}
+a{color:var(--accent-ink);text-decoration:none}
+a:hover{text-decoration:underline}
+h1,h2,h3{letter-spacing:-.02em;line-height:1.15;margin:0}
+p{margin:0}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+
+/* nav */
+nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--hairline)}
+.nav-in{display:flex;align-items:center;gap:28px;height:64px}
+.logo img{height:30px;width:auto;display:block}
+.nav-links{display:flex;gap:24px;margin-left:auto;font-weight:550}
+.nav-links a{color:var(--ink-2)}
+.nav-links a:hover{color:var(--ink);text-decoration:none}
+.btn{display:inline-flex;align-items:center;gap:10px;border-radius:12px;font-weight:650;padding:10px 20px;border:1px solid transparent;cursor:pointer;font-size:15px}
+.btn-dark{background:var(--ink);color:#fff}
+.btn-dark:hover{background:#22262c;text-decoration:none;color:#fff}
+.btn-ghost{border-color:var(--hairline);color:var(--ink)}
+.btn-ghost:hover{border-color:var(--ink-3);text-decoration:none}
+.btn-sm{padding:7px 14px;font-size:14px;border-radius:10px}
+
+/* hero */
+.hero{padding:88px 0 0;text-align:center}
+.hero .mark{height:64px;width:64px}
+.kicker{margin-top:26px;font-weight:650;font-size:14px;color:var(--accent-ink)}
+.kicker .dot{color:var(--ink-3);margin:0 8px}
+h1{margin:14px auto 0;max-width:820px;font-size:clamp(34px,5.4vw,58px);font-weight:750}
+h1 em{font-style:normal;color:var(--accent)}
+.sub{margin:20px auto 0;max-width:680px;font-size:19px;color:var(--ink-2)}
+.cta{margin-top:34px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.cta .btn{padding:13px 26px;font-size:16px}
+.meta{margin-top:18px;color:var(--ink-3);font-size:14px}
+.hero-img{margin:56px auto 0;max-width:1180px;padding:0 24px}
+.hero-img img{width:100%;height:auto;border:1px solid var(--hairline);border-radius:14px;display:block}
+
+/* strip */
+.strip{border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline);margin-top:72px;background:var(--surface)}
+.strip-in{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;padding:18px 24px;color:var(--ink-3);font-size:14px;font-weight:550}
+.pill{border:1px solid var(--hairline);background:#fff;border-radius:999px;padding:4px 14px;font-weight:650;color:var(--ink);font-size:13px;letter-spacing:.02em}
+
+/* sections */
+section{padding:96px 0}
+.eyebrow{font-weight:700;font-size:14px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent-ink)}
+h2{margin-top:12px;font-size:clamp(26px,3.6vw,40px);font-weight:750;max-width:760px}
+.lede{margin-top:14px;max-width:680px;color:var(--ink-2);font-size:18px}
+
+.grid{margin-top:48px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{border:1px solid var(--hairline);border-radius:var(--radius);padding:26px;background:#fff}
+.card .tile{width:34px;height:34px;margin-bottom:16px;display:block}
+.card h3{font-size:17px;font-weight:700}
+.card p{margin-top:8px;color:var(--ink-2);font-size:15px}
+
+/* gallery rows */
+.row{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;padding:44px 0}
+.row:nth-child(even) .row-img{order:2}
+.row-img img{width:100%;height:auto;border:1px solid var(--hairline);border-radius:14px;display:block}
+.row h3{font-size:24px;font-weight:750;margin-top:10px}
+.row p{margin-top:12px;color:var(--ink-2)}
+.row .tag{font-weight:700;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent-ink)}
+
+/* dark band */
+.dark{background:var(--ink);color:#fff}
+.dark h2{color:#fff}
+.dark .eyebrow{color:#7ab8ff}
+.dark .lede{color:#b9c2cf}
+.dark .card{background:#14171c;border-color:#272c34}
+.dark .card h3{color:#fff}
+.dark .card p{color:#aeb7c4}
+.dark .row-img img{border-color:#272c34}
+code.chip{background:#1d2229;border:1px solid #2c323b;border-radius:8px;padding:2px 9px;font:13px/1.6 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#d7e6ff}
+
+/* download */
+.dl-grid{margin-top:48px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.dl{border:1px solid var(--hairline);border-radius:var(--radius);padding:28px;display:flex;flex-direction:column;gap:6px}
+.dl h3{font-size:19px}
+.dl .os{font-size:14px;color:var(--ink-3)}
+.dl ul{list-style:none;margin:12px 0 0;padding:0;display:flex;flex-direction:column;gap:8px}
+.dl a.dl-a{border:1px solid var(--hairline);border-radius:10px;padding:9px 14px;font-weight:650;color:var(--ink);font-size:14.5px;text-align:center}
+.dl a.dl-a:hover{border-color:var(--accent);color:var(--accent-ink);text-decoration:none;background:var(--accent-soft)}
+.ver{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--hairline);border-radius:999px;padding:5px 14px;font-size:14px;font-weight:650;color:var(--ink-2)}
+.ver b{color:var(--accent-ink);font-weight:750}
+.dl-note{margin-top:22px;color:var(--ink-3);font-size:14px}
+
+/* footer */
+footer{border-top:1px solid var(--hairline);padding:56px 0 64px;color:var(--ink-3);font-size:14px}
+.f-top{display:flex;gap:40px;justify-content:space-between;flex-wrap:wrap;align-items:flex-start}
+.f-top img{height:26px}
+.f-links{display:flex;gap:22px;flex-wrap:wrap;font-weight:550}
+.f-legal{margin-top:28px;max-width:860px}
+.f-legal p{margin-top:10px}
+
+@media (prefers-reduced-motion:no-preference){
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+  .reveal.on{opacity:1;transform:none}
+}
+@media (max-width:900px){
+  .grid,.dl-grid{grid-template-columns:1fr 1fr}
+  .row{grid-template-columns:1fr;gap:22px}
+  .row:nth-child(even) .row-img{order:0}
+  .nav-links{display:none}
+}
+@media (max-width:620px){
+  .grid,.dl-grid{grid-template-columns:1fr}
+  section{padding:64px 0}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-in">
+    <a class="logo" href="/" aria-label="OneDesk home"><img src="assets/lockup.svg" alt="OneDesk"></a>
+    <div class="nav-links">
+      <a href="#features">Features</a>
+      <a href="#apps">Editors</a>
+      <a href="#agents">Agents &amp; CLI</a>
+      <a href="#download">Download</a>
+      <a href="https://github.com/futuremeng/OneDesk">GitHub</a>
+      <a href="/" lang="zh-CN">简体中文</a>
+    </div>
+    <a class="btn btn-dark btn-sm" href="/releases/latest">Download</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <svg class="mark" viewBox="0 0 256 256" width="64" height="64" aria-hidden="true"><rect x="18" y="18" width="132" height="132" rx="26" fill="#0F1115"/><rect x="166" y="18" width="72" height="72" rx="20" fill="#0F7FFF"/><rect x="18" y="166" width="72" height="72" rx="20" fill="#0F7FFF"/><rect x="166" y="166" width="72" height="72" rx="20" fill="#0F7FFF"/></svg>
+    <p class="kicker">Free &amp; open source<span class="dot">·</span>Apache-2.0<span class="dot">·</span>macOS · Windows · Linux</p>
+    <h1>The world's first full-featured open-source <em>AI Office</em> suite.</h1>
+    <p class="sub">Word, Excel, PowerPoint and PDF files — edited by you and your AI, saved back in the real formats.</p>
+    <div class="cta">
+      <a class="btn btn-dark" id="dl-primary" href="/releases/latest">Download for macOS</a>
+      <a class="btn btn-ghost" href="https://github.com/futuremeng/OneDesk">View on GitHub</a>
+    </div>
+    <p class="meta">Native <b>.docx</b>, <b>.xlsx</b>, <b>.pptx</b> · PDF, Markdown &amp; HTML · your machine, your files</p>
+  </div>
+  <div class="hero-img reveal">
+    <picture>
+      <source srcset="img/hero-dark.webp" media="(prefers-color-scheme: dark)">
+      <img src="img/hero.webp" alt="OneDesk editors: Docs, Sheets, Slides, PDF, Markdown and HTML with the built-in AI panel" width="1132" height="595">
+    </picture>
+  </div>
+</header>
+
+<div class="strip">
+  <div class="strip-in">
+    Opens &amp; saves the real formats
+    <span class="pill">DOCX</span><span class="pill">XLSX</span><span class="pill">PPTX</span>
+    <span class="pill">PDF</span><span class="pill">Markdown</span><span class="pill">HTML</span>
+    <span class="pill">ODF import</span><span class="pill">.doc / .xls / .ppt / .hwp import</span>
+  </div>
+</div>
+
+<section id="features">
+  <div class="wrap">
+    <p class="eyebrow">Why OneDesk</p>
+    <h2>An AI editor that respects the file — and the work you already did.</h2>
+    <p class="lede">Not a chat box bolted on the side: an editor that reads the document, makes the change, and shows you exactly what it touched.</p>
+    <div class="grid">
+      <div class="card reveal">
+        <svg class="tile" viewBox="0 0 256 256" aria-hidden="true"><rect x="18" y="18" width="132" height="132" rx="26" fill="#0F1115"/><rect x="166" y="18" width="72" height="72" rx="20" fill="#0F7FFF"/><rect x="18" y="166" width="72" height="72" rx="20" fill="#0F7FFF"/><rect x="166" y="166" width="72" height="72" rx="20" fill="#0F7FFF"/></svg>
+        <h3>Real formats, byte-preserving</h3>
+        <p>Only what you edit is rewritten. Everything else in the file survives byte-for-byte, so documents keep working in Word, Excel and PowerPoint.</p>
+      </div>
+      <div class="card reveal">
+        <svg class="tile" viewBox="0 0 256 256" aria-hidden="true"><rect x="18" y="18" width="132" height="132" rx="26" fill="#0F1115"/><rect x="166" y="18" width="72" height="72" rx="20" fill="#0F7FFF"/><rect x="18" y="166" width="72" height="72" rx="20" fill="#0F7FFF"/><rect x="166" y="166" width="72" height="72" rx="20" fill="#0F7FFF"/></svg>
+        <h3>AI you can review</h3>
+        <p>Edits land as tracked changes and diffs with one-click rollback. Spreadsheets get live formulas, not pasted numbers.</p>
+      </div>
+      <div class="card reveal">
+        <svg class="tile" viewBox="0 0 256 256" aria-hidden="true"><rect x="18" y="18" width="132" height="132" rx="26" fill="#0F1115"/><rect x="166" y="18" width="72" height="72" rx="20" fill="#0F7FFF"/><rect x="18" y="166" width="72" height="72" rx="20" fill="#0F7FFF"/><rect x="166" y="166" width="72" height="72" rx="20" fill="#0F7FFF"/></svg>
+        <h3>Privacy you control</h3>
+        <p>Hide a passage or a cell range from the model — it sees a named placeholder while the words stay in your file.</p>
+      </div>
+      <div class="card reveal">
+        <svg class="tile" viewBox="0 0 256 256" aria-hidden="true"><rect x="18" y="18" width="132" height="132" rx="26" fill="#0F1115"/><rect x="166" y="18" width="72" height="72" rx="20" fill="#0F7FFF"/><rect x="18" y="166" width="72" height="72" rx="20" fill="#0F7FFF"/><rect x="166" y="166" width="72" height="72" rx="20" fill="#0F7FFF"/></svg>
+        <h3>Local by design</h3>
+        <p>Files open, edit, save and convert on your machine. PDF → Word and Markdown → HTML all run on-device; only the AI calls leave, to the provider you choose.</p>
+      </div>
+      <div class="card reveal">
+        <svg class="tile" viewBox="0 0 256 256" aria-hidden="true"><rect x="18" y="18" width="132" height="132" rx="26" fill="#0F1115"/><rect x="166" y="18" width="72" height="72" rx="20" fill="#0F7FFF"/><rect x="18" y="166" width="72" height="72" rx="20" fill="#0F7FFF"/><rect x="166" y="166" width="72" height="72" rx="20" fill="#0F7FFF"/></svg>
+        <h3>Find files by what they say</h3>
+        <p>The home screen searches names, folders and the full text of your documents — not just titles.</p>
+      </div>
+      <div class="card reveal">
+        <svg class="tile" viewBox="0 0 256 256" aria-hidden="true"><rect x="18" y="18" width="132" height="132" rx="26" fill="#0F1115"/><rect x="166" y="18" width="72" height="72" rx="20" fill="#0F7FFF"/><rect x="18" y="166" width="72" height="72" rx="20" fill="#0F7FFF"/><rect x="166" y="166" width="72" height="72" rx="20" fill="#0F7FFF"/></svg>
+        <h3>One desk, many apps</h3>
+        <p>Docs, Sheets, Slides, PDF, Markdown and HTML editors live in one window, one file system, one AI panel.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="apps" style="padding-top:0">
+  <div class="wrap">
+    <p class="eyebrow">The editors</p>
+    <h2>Every surface of the suite, on the real thing.</h2>
+
+    <div class="row reveal">
+      <div class="row-img"><img src="img/docs-ai.webp" alt="OneDesk Docs with the AI panel applying an edit as tracked changes" loading="lazy" width="1132" height="708"></div>
+      <div>
+        <p class="tag">Docs</p>
+        <h3>Word-compatible editing with a reviewable AI pass</h3>
+        <p>Native .docx down to headers, footers and protected ranges. Proofreading and rewrites arrive as tracked changes and inline diffs you can accept or reject, one click at a time.</p>
+      </div>
+    </div>
+
+    <div class="row reveal">
+      <div class="row-img"><img src="img/sheets-ai.webp" alt="OneDesk Sheets with AI-generated live formulas" loading="lazy" width="1132" height="708"></div>
+      <div>
+        <p class="tag">Sheets</p>
+        <h3>Spreadsheets that get formulas, not pasted numbers</h3>
+        <p>Ask for an analysis and the AI writes real formulas into real cells. Charts, formatting and conditional rules stay editable after it is done.</p>
+      </div>
+    </div>
+
+    <div class="row reveal">
+      <div class="row-img"><img src="img/slides-generate.webp" alt="A deck generated onto the OneDesk Slides canvas" loading="lazy" width="1132" height="708"></div>
+      <div>
+        <p class="tag">Slides</p>
+        <h3>Decks generated onto the canvas — fully editable</h3>
+        <p>Prompts build real .pptx slides: text boxes, layouts and images you can keep editing, not flattened pictures.</p>
+      </div>
+    </div>
+
+    <div class="row reveal">
+      <div class="row-img"><img src="img/pdf-edit.webp" alt="Editing a PDF directly in OneDesk" loading="lazy" width="1132" height="708"></div>
+      <div>
+        <p class="tag">PDF</p>
+        <h3>Read, edit and convert — on your machine</h3>
+        <p>Direct PDF editing plus PDF → Word / Excel / PowerPoint conversion, all done locally with no upload.</p>
+      </div>
+    </div>
+
+    <div class="row reveal">
+      <div class="row-img"><img src="img/html-dashboard.webp" alt="An HTML dashboard rendered in OneDesk" loading="lazy" width="1132" height="708"></div>
+      <div>
+        <p class="tag">Markdown &amp; HTML</p>
+        <h3>From plain text to polished pages</h3>
+        <p>Markdown and HTML open as first-class documents: AI restyling, report generation and HTML → Word conversion all in the same desk.</p>
+      </div>
+    </div>
+
+    <div class="row reveal">
+      <div class="row-img"><img src="img/search-jev-before-after.webp" alt="Searching documents by their content in OneDesk" loading="lazy" width="1132" height="708"></div>
+      <div>
+        <p class="tag">Search</p>
+        <h3>Find the file by the sentence inside it</h3>
+        <p>Full-text search across .docx, .xlsx, .pptx, PDF and Markdown — results point straight into the paragraph that matched.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="agents" class="dark">
+  <div class="wrap">
+    <p class="eyebrow">Agent-native</p>
+    <h2>Your coding agent can drive the desk, too.</h2>
+    <p class="lede">OneDesk ships a command line, an MCP server and a headless export path, so agents and scripts get the same fidelity as the GUI.</p>
+
+    <div class="grid" style="margin-top:40px">
+      <div class="card reveal">
+        <h3>One CLI</h3>
+        <p>Convert, merge and export from the shell: <code class="chip">onedesk convert a.docx --to pdf</code></p>
+      </div>
+      <div class="card reveal">
+        <h3>MCP server</h3>
+        <p>Point any MCP-capable agent at the desk to open, edit and save documents as a tool surface.</p>
+      </div>
+      <div class="card reveal">
+        <h3>Headless export</h3>
+        <p>Byte-accurate document pipelines for CI — same engines as the desktop, no window needed.</p>
+      </div>
+    </div>
+
+    <div class="row-img reveal" style="margin-top:44px">
+      <img src="img/cli-integrations.webp" alt="OneDesk integrations for CLI and MCP agents" loading="lazy" width="1132" height="708">
+    </div>
+  </div>
+</section>
+
+<section id="download">
+  <div class="wrap">
+    <p class="eyebrow">Download</p>
+    <h2>Get OneDesk.</h2>
+    <p class="lede"><span class="ver">Latest release <b id="ver-chip">—</b></span></p>
+
+    <div class="dl-grid">
+      <div class="dl reveal">
+        <h3>macOS</h3>
+        <p class="os">macOS 11 or newer</p>
+        <ul>
+          <li><a class="dl-a" href="/releases/latest">Apple Silicon · .dmg</a></li>
+          <li><a class="dl-a" href="/releases/latest">Intel · .dmg</a></li>
+        </ul>
+      </div>
+      <div class="dl reveal">
+        <h3>Windows</h3>
+        <p class="os">Windows 10 or newer</p>
+        <ul>
+          <li><a class="dl-a" href="/releases/latest">x64 · installer .exe</a></li>
+          <li><a class="dl-a" href="/releases/latest">ARM64 · installer .exe</a></li>
+        </ul>
+      </div>
+      <div class="dl reveal">
+        <h3>Linux</h3>
+        <p class="os">x86_64 · glibc 2.34+</p>
+        <ul>
+          <li><a class="dl-a" href="/releases/latest">Debian / Ubuntu · .deb</a></li>
+          <li><a class="dl-a" href="/releases/latest">Any distro · .AppImage</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="dl-note">Downloads open the GitHub release page and pick a build that matches your machine.
+    In mainland China, use the <a href="https://atomgit.com/futuremeng/OneDesk/releases">AtomGit mirror</a>
+    for the same builds. OneDesk is free and open source — no account, no telemetry by default.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="f-top">
+      <img src="assets/lockup.svg" alt="OneDesk">
+      <div class="f-links">
+        <a href="https://github.com/futuremeng/OneDesk">GitHub</a>
+        <a href="https://atomgit.com/futuremeng/OneDesk">AtomGit mirror</a>
+        <a href="/releases/latest">Releases</a>
+        <a href="https://github.com/futuremeng/OneDesk/blob/main/README.md">Docs</a>
+        <a href="https://github.com/futuremeng/OneDesk/blob/main/PRIVACY.md">Privacy</a>
+        <a href="/" lang="zh-CN">简体中文</a>
+      </div>
+    </div>
+    <div class="f-legal">
+      <p>OneDesk is licensed under the <a href="https://github.com/futuremeng/OneDesk/blob/main/LICENSE">Apache License 2.0</a>.
+      As an independent fork of <a href="https://github.com/genspark-ai/genoffice">GenOffice</a>, OneDesk keeps the upstream
+      licensing boundary: the <code>ee/</code> directory remains under the original
+      <a href="https://github.com/futuremeng/OneDesk/blob/main/ee/LICENSE">GenOffice Enterprise License</a>.
+      GenOffice and Genspark are trademarks of Mainfunc, Inc.; OneDesk uses its own branding and is not affiliated with Mainfunc, Inc.</p>
+      <p>Microsoft, Word, Excel and PowerPoint are trademarks of the Microsoft group of companies.
+      © OneDesk contributors.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+// platform-aware primary button
+(function(){
+  var el=document.getElementById('dl-primary'),ua=navigator.userAgent;
+  if(!el)return;
+  if(/Windows/.test(ua))el.textContent='Download for Windows';
+  else if(/Macintosh|Mac OS X/.test(ua))el.textContent='Download for macOS';
+  else if(/Linux/.test(ua))el.textContent='Download for Linux';
+})();
+// latest version chip
+(function(){
+  var el=document.getElementById('ver-chip');if(!el)return;
+  fetch('https://api.github.com/repos/futuremeng/OneDesk/releases/latest',{headers:{Accept:'application/vnd.github+json'}})
+    .then(function(r){return r.ok?r.json():Promise.reject(r.status)})
+    .then(function(j){if(j.tag_name)el.textContent=j.tag_name})
+    .catch(function(){el.textContent='v0.14.1'});
+})();
+// reveal on scroll
+if(!matchMedia('(prefers-reduced-motion: reduce)').matches&&'IntersectionObserver' in window){
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}})},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(function(n){io.observe(n)});
+}
+</script>
+</body>
+</html>
