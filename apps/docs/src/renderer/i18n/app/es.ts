@@ -295,8 +295,6 @@ export const es = {
   appCollateRevised: 'Revisado',
   appCollatePrev: 'Cambio anterior',
   appCollateNext: 'Cambio siguiente',
-  appCollateParaIns: 'Párrafo insertado',
-  appCollateParaDel: 'Párrafo eliminado',
   appCollateNote:
     'Las tablas y los encabezados/pies de página se muestran tal cual en ambos lados; las revisiones de encabezados/pies no se gestionan aquí una a una.',
   appRemoveSplit: 'Quitar división',

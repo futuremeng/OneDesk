@@ -302,8 +302,6 @@ export const de = {
   appCollateRevised: 'Überarbeitete Version',
   appCollatePrev: 'Vorherige Änderung',
   appCollateNext: 'Nächste Änderung',
-  appCollateParaIns: 'Eingefügter Absatz',
-  appCollateParaDel: 'Gelöschter Absatz',
   appCollateNote:
     'Tabellen sowie Kopf- und Fußzeilen werden beidseitig unverändert angezeigt; Änderungen in Kopf-/Fußzeilen werden hier nicht einzeln bearbeitet.',
   appRemoveSplit: 'Teilung aufheben',

@@ -274,8 +274,6 @@ export const zhTW = {
   appCollateRevised: '修訂版本',
   appCollatePrev: '上一處',
   appCollateNext: '下一處',
-  appCollateParaIns: '插入的段落',
-  appCollateParaDel: '刪除的段落',
   appCollateNote: '表格與頁首/頁尾內容在兩側原樣顯示；頁首/頁尾修訂不在此逐處處理。',
   appRemoveSplit: '取消分割',
   appExitReadMode: '結束閱讀檢視 (Esc)',

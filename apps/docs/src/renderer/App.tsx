@@ -37,7 +37,12 @@ import type { CSSProperties, MouseEvent as ReactMouseEvent, SetStateAction } fro
 import { EditorContent, useEditor } from '@tiptap/react'
 import type { Editor } from '@tiptap/core'
 import { handleDocsControl, type ControlRequest } from './control'
-import { DOMParser as PmDOMParser, type Mark as PmMark, Slice as PmSlice } from '@tiptap/pm/model'
+import {
+  DOMParser as PmDOMParser,
+  type Node as PmNode,
+  type Mark as PmMark,
+  Slice as PmSlice,
+} from '@tiptap/pm/model'
 import { NodeSelection, TextSelection, type EditorState, type Transaction } from '@tiptap/pm/state'
 import { CellSelection } from '@tiptap/pm/tables'
 import {
@@ -100,6 +105,7 @@ import {
   applyTitlePg,
   readSections,
   parseDocx,
+  compareDocuments,
   verifyProtectionPassword,
   type Block,
   type CommentInfo,
@@ -697,10 +703,12 @@ import { InkOverlay } from './components/InkOverlay'
 import {
   TRACK_IGNORE,
   collectRevisions,
+  revisionDateNow,
   selectRevision,
   type RevisionRange,
   type TrackChangesStorage,
 } from './editor/revisions'
+import { blocksToPmDoc, pmDocOptions } from './editor/convert'
 import {
   DEFAULT_REVISION_FILTER,
   authorInkIndex,
@@ -1388,6 +1396,8 @@ export function App() {
   const [showGrid, setShowGrid] = useState(false)
   const [splitView, setSplitView] = useState(false)
   const [collateView, setCollateView] = useState(false)
+  /** the in-memory redline diff the 对校 overlay renders; null falls back to the live doc's marks */
+  const [collateRedline, setCollateRedline] = useState<PmNode | null>(null)
   const [showPagePreview, setShowPagePreview] = useState(false)
   const [splitHtml, setSplitHtml] = useState('')
   const [showFind, setShowFind] = useState(false)
@@ -7619,26 +7629,45 @@ export function App() {
   const proofreadCollate = useCallback(async () => {
     const copy = proofreadCopyRef.current
     const ctx = reviewCtxRef.current
-    if (!copy || !ctx.editor) return
+    const ed = ctx.editor
+    if (!ed) return
+    if (!copy) {
+      // no previous-version snapshot on this tab: the view falls back to the
+      // doc's own tracked changes instead of diffing against anything
+      setCollateRedline(null)
+      setCollateView(true)
+      return
+    }
     try {
-      // the snapshot may be collated repeatedly: parse a copy of its bytes
-      await runCompare(ctx, {
-        mode: 'compare',
-        collate: true,
-        original: {
-          kind: 'file',
-          name: copy.originalName,
-          parsed: await parseDocx(copy.bytes.slice()),
-          author: authorName(),
-        },
-        revised: { kind: 'current' },
+      // 对校 in place: diff the snapshot against the live doc right here — no
+      // Compare channel, no result tab; the redline only lives in memory
+      const original = await parseDocx(copy.bytes.slice())
+      const revisedBytes = await ctx.currentDocBytes()
+      if (!revisedBytes) return
+      const revised = await parseDocx(revisedBytes)
+      const { bytes, summary } = await compareDocuments(original, revised, {
         author: authorName(),
-        settings: ALL_COMPARE_SETTINGS,
+        date: revisionDateNow(),
         granularity: 'word',
-        target: 'new',
+        settings: ALL_COMPARE_SETTINGS,
       })
+      const changes =
+        summary.insertions +
+        summary.deletions +
+        summary.formatChanges +
+        summary.moves +
+        summary.carried
+      if (changes === 0) ctx.setStatus(t('appCompareNoDifference'))
+      const redline = await parseDocx(bytes)
+      // blocksToPmDoc yields the JSON block tree; the editor's schema gives it a
+      // PM identity so the serializer in CollateView can render it
+      setCollateRedline(
+        ed.schema.nodeFromJSON(
+          blocksToPmDoc(redline.blocks, readSections(redline), pmDocOptions(redline)),
+        ),
+      )
+      setCollateView(true)
     } catch (err) {
-      // parseDocx runs outside runCompare's own catch: mirror its wording
       ctx.setStatus(t('appCompareFailed', { error: String(err) }))
     }
     // t is deliberately not a dep (not referentially stable per project rule)
@@ -8742,7 +8771,11 @@ export function App() {
         setShowNav(true)
       },
       toggleSplit: () => setSplitView((v) => !v),
-      toggleCollateView: () => setCollateView((v) => !v),
+      toggleCollateView: () => {
+        // reopening rebuilds the columns from the doc as it stands now
+        if (collateView) setCollateView(false)
+        else void proofreadCollate()
+      },
       toggleRibbon: () => ribbonActionsRef.current.toggleRibbon?.(),
       toggleFocus: () => {
         if (!focusMode) setStatus(t('ribbonFocusHint'))
@@ -11222,6 +11255,7 @@ export function App() {
               {doc && collateView && editor && (
                 <CollateView
                   editor={editor}
+                  redline={collateRedline}
                   zoomClass={docZoomClass.replace(' multipage', '')}
                   zoomStyle={docZoomStyle}
                   onClose={() => setCollateView(false)}

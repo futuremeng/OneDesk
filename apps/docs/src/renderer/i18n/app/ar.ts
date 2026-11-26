@@ -282,8 +282,6 @@ export const ar = {
   appCollateRevised: 'النسخة المنقحة',
   appCollatePrev: 'التغيير السابق',
   appCollateNext: 'التغيير التالي',
-  appCollateParaIns: 'فقرة مُدخلة',
-  appCollateParaDel: 'فقرة محذوفة',
   appCollateNote:
     'تُعرض الجداول والترويسات والتذييلات كما هي على كلا الجانبين؛ لا تتم معالجة تنقيحات الترويسات/التذييلات هنا واحدًا واحدًا.',
   appRemoveSplit: 'إزالة التقسيم',

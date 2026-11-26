@@ -299,8 +299,6 @@ export const fr = {
   appCollateRevised: 'Révisé',
   appCollatePrev: 'Modification précédente',
   appCollateNext: 'Modification suivante',
-  appCollateParaIns: 'Paragraphe inséré',
-  appCollateParaDel: 'Paragraphe supprimé',
   appCollateNote:
     'Les tableaux et les en-têtes/pieds de page sont affichés tels quels des deux côtés ; les révisions des en-têtes/pieds de page ne sont pas traitées une à une ici.',
   appRemoveSplit: 'Annuler le fractionnement',

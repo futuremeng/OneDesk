@@ -289,8 +289,6 @@ export const zh = {
   appCollateRevised: '修订版本',
   appCollatePrev: '上一处',
   appCollateNext: '下一处',
-  appCollateParaIns: '插入的段落',
-  appCollateParaDel: '删除的段落',
   appCollateNote: '表格与页眉/页脚内容在两侧原样显示；页眉/页脚修订不在此逐处处理。',
   appRemoveSplit: '取消拆分',
   appExitReadMode: '退出阅读视图 (Esc)',

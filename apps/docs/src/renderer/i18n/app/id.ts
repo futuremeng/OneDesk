@@ -291,8 +291,6 @@ export const id = {
   appCollateRevised: 'Versi revisi',
   appCollatePrev: 'Perubahan sebelumnya',
   appCollateNext: 'Perubahan berikutnya',
-  appCollateParaIns: 'Paragraf disisipkan',
-  appCollateParaDel: 'Paragraf dihapus',
   appCollateNote:
     'Tabel dan kepala/kaki halaman ditampilkan apa adanya di kedua sisi; revisi kepala/kaki halaman tidak ditangani satu per satu di sini.',
   appRemoveSplit: 'Hapus Pemisahan',

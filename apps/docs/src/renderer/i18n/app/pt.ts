@@ -290,8 +290,6 @@ export const pt = {
   appCollateRevised: 'Revisado',
   appCollatePrev: 'Alteração anterior',
   appCollateNext: 'Alteração próxima',
-  appCollateParaIns: 'Parágrafo inserido',
-  appCollateParaDel: 'Parágrafo excluído',
   appCollateNote:
     'Tabelas e cabeçalhos/rodapés são exibidos como estão em ambos os lados; revisões de cabeçalhos/rodapés não são tratadas individualmente aqui.',
   appRemoveSplit: 'Remover divisão',

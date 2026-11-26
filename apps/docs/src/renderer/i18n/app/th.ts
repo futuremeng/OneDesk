@@ -286,8 +286,6 @@ export const th = {
   appCollateRevised: 'ฉบับแก้ไข',
   appCollatePrev: 'การเปลี่ยนแปลงก่อน',
   appCollateNext: 'การเปลี่ยนแปลงถัดไป',
-  appCollateParaIns: 'ย่อหน้าที่ถูกแทรก',
-  appCollateParaDel: 'ย่อหน้าที่ถูกลบ',
   appCollateNote:
     'ตารางและส่วนหัว/ท้ายเอกสารแสดงทั้งสองด้านตามต้นฉบับ การแก้ไขส่วนหัว/ท้ายไม่ได้รับการจัดการเป็นรายการ ๆ ในที่นี้',
   appRemoveSplit: 'ยกเลิกการแยก',

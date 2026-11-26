@@ -278,8 +278,6 @@ export const he = {
   appCollateRevised: 'גרסה מתוקנת',
   appCollatePrev: 'השינוי הקודם',
   appCollateNext: 'השינוי הבא',
-  appCollateParaIns: 'פסקה שהוזרמה',
-  appCollateParaDel: 'פסקה שנמחקה',
   appCollateNote:
     'טבלאות וכותרות/תחתיות עמוד מוצגים כפי שהם בשני הצדדים; תיקוני כותרות/תחתיות אינם מטופלים כאן אחד-אחד.',
   appRemoveSplit: 'הסרת פיצול',

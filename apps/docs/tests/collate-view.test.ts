@@ -1,6 +1,7 @@
 // 对校 side-by-side collate view: the redline doc renders original-left /
-// revised-right, replacements pair into one navigable entry, and per-change
-// Accept acts on the live doc so both columns rebuild from the same state.
+// revised-right with character-aligned rows, replacements (inline and whole
+// paragraph) pair into one row, and the live doc's marks only serve as the
+// fallback source when the tab kept no previous-version snapshot.
 import { afterEach, beforeAll, describe, expect, it, vi } from 'vitest'
 import { act, createElement } from 'react'
 import { createRoot, type Root } from 'react-dom/client'
@@ -17,7 +18,6 @@ beforeAll(() => {
 const DATE = '2026-01-01T00:00:00Z'
 const record = JSON.stringify({ author: 'Me', date: DATE })
 const noop = () => {}
-const settle = () => new Promise((resolve) => setTimeout(resolve, 450))
 
 function para(children: unknown[], attrs: Record<string, unknown> = {}) {
   return { type: 'docParagraph', attrs, content: children }
@@ -44,19 +44,26 @@ describe('CollateView', () => {
   const roots: Root[] = []
   const editors: Editor[] = []
 
-  function mount(content: unknown) {
+  function mount(content: unknown, redlineJson?: unknown) {
     const editor = new Editor({
       element: document.createElement('div'),
       extensions: editorExtensions,
       content: content as never,
     })
     editors.push(editor)
+    const redline = redlineJson ? editor.schema.nodeFromJSON(redlineJson) : null
     const host = document.createElement('div')
     const root = createRoot(host)
     roots.push(root)
     act(() => {
       root.render(
-        createElement(CollateView, { editor, zoomClass: '', zoomStyle: {}, onClose: noop }),
+        createElement(CollateView, {
+          editor,
+          redline,
+          zoomClass: '',
+          zoomStyle: {},
+          onClose: noop,
+        }),
       )
     })
     return { editor, host }
@@ -83,9 +90,9 @@ describe('CollateView', () => {
     expect(cells(1)[1].textContent).toContain('new phrase')
     expect(cells(1)[1].textContent).not.toContain('old phrase')
 
-    // the inserted paragraph: chip on the left, content on the right
-    expect(cells(2)[0].querySelector('.collate-chip')).not.toBeNull()
-    expect(cells(2)[0].textContent).not.toContain('a brand new paragraph')
+    // the inserted paragraph: nothing but space on the left, content on the right
+    expect(cells(2)[0].querySelector('.collate-doc')).toBeNull()
+    expect(cells(2)[0].textContent).toBe('')
     expect(cells(2)[1].textContent).toContain('a brand new paragraph')
   })
 
@@ -97,27 +104,43 @@ describe('CollateView', () => {
     expect(host.querySelector('[data-testid="collate-next"]')!.hasAttribute('disabled')).toBe(false)
   })
 
-  it('accepting the replacement rebuilds both columns to the revised text', async () => {
-    const { host, editor } = mount(fixtureDoc())
-    // cursor starts on entry 0: the del+ins replacement in the second row
-    const accept = host.querySelector('[data-testid="collate-accept"]') as HTMLButtonElement
-    act(() => {
-      accept.click()
-    })
-    // 300 ms debounced rebuild, like the split pane
-    await act(async () => {
-      await settle()
-    })
-    const rows = host.querySelectorAll('.collate-row')
-    const cells = (i: number) => rows[i].querySelectorAll('.collate-cell')
-    expect(cells(1)[0].textContent).toContain('new phrase')
-    expect(cells(1)[0].textContent).not.toContain('old phrase')
-    expect(cells(1)[1].textContent).toContain('new phrase')
-    // the del mark is gone from the live doc: only the paragraph-mark revision remains
-    expect(host.querySelector('.collate-pane-count')!.textContent).toBe('1/1')
-    expect(editor.state.doc.toJSON().content[1].content.map((c: { text?: string }) => c.text)).toEqual(
-      ['new phrase'],
+  it('renders the in-memory redline doc instead of the live editor doc', () => {
+    // the 对校 columns come from the diff kept in memory; the editor underneath
+    // may show anything (here: the current version without any marks)
+    const { host } = mount(
+      { type: 'doc', content: [para([text('current version, no marks')])] },
+      fixtureDoc(),
     )
+    const rows = host.querySelectorAll('.collate-row')
+    expect(rows).toHaveLength(4)
+    const cells = rows[1].querySelectorAll('.collate-cell')
+    expect(cells[0].textContent).toContain('old phrase')
+    expect(cells[1].textContent).toContain('new phrase')
+    expect(host.querySelector('.collate-pane-count')!.textContent).toBe('1/2')
+  })
+
+  it('pairs a whole-paragraph replacement into one row: deleted left, inserted right', () => {
+    const { host } = mount({
+      type: 'doc',
+      content: [
+        para([text('before the swap')]),
+        para([text('the old paragraph', 'del')], { paraMarkDel: record, paraMarkIns: null }),
+        para([text('the new paragraph', 'ins')], { paraMarkIns: record, paraMarkDel: null }),
+        para([text('after the swap')]),
+      ],
+    })
+    // before | the replacement as ONE row | after: the columns never sit apart
+    const rows = host.querySelectorAll('.collate-row')
+    expect(rows).toHaveLength(3)
+    const mid = rows[1].querySelectorAll('.collate-cell')
+    expect(mid[0].textContent).toContain('the old paragraph')
+    expect(mid[0].textContent).not.toContain('the new paragraph')
+    expect(mid[1].textContent).toContain('the new paragraph')
+    expect(mid[1].textContent).not.toContain('the old paragraph')
+    // the text after the swap aligns on both sides at the same row
+    const after = rows[2].querySelectorAll('.collate-cell')
+    expect(after[0].textContent).toContain('after the swap')
+    expect(after[1].textContent).toContain('after the swap')
   })
 
   it('segments a mid-paragraph change so the text after it aligns on both sides', () => {
@@ -150,6 +173,6 @@ describe('CollateView', () => {
   it('a doc without revisions shows the empty state, not the grid rows of marks', () => {
     const { host } = mount({ type: 'doc', content: [para([text('plain')])] })
     expect(host.querySelector('.collate-empty')).not.toBeNull()
-    expect(host.querySelector('[data-testid="collate-accept"]')!.hasAttribute('disabled')).toBe(true)
+    expect(host.querySelector('[data-testid="collate-prev"]')!.hasAttribute('disabled')).toBe(true)
   })
 })

@@ -14054,9 +14054,11 @@ body.docs-crop-active
 }
 
 /* 对校 side-by-side collate view: the redline doc's second rendering, shown
-   in place over the document area — original left, revised right. The live
-   editor stays mounted underneath (pagination and Accept/Reject keep running
-   on it); this overlay is the doc area's second face, not a second document. */
+   in place over the document area — original left, revised right. The redline
+   is an in-memory diff against the tab's kept previous-version snapshot (no
+   Compare result tab); the live editor stays mounted underneath for pagination
+   and editing, and this overlay is the doc area's second face, not a second
+   document. */
 .collate-pane {
   position: absolute;
   inset: 0;
@@ -14175,16 +14177,6 @@ body.docs-crop-active
   background: none;
   box-shadow: none;
   isolation: auto;
-}
-
-.collate-chip {
-  display: inline-block;
-  margin: 6px 8px;
-  padding: 2px 8px;
-  border: 1px dashed var(--border-strong);
-  border-radius: 999px;
-  color: var(--text-dim);
-  font-size: 11px;
 }
 
 .collate-empty {

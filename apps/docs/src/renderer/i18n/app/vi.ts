@@ -286,8 +286,6 @@ export const vi = {
   appCollateRevised: 'Bản sửa đổi',
   appCollatePrev: 'Thay đổi trước',
   appCollateNext: 'Thay đổi tiếp',
-  appCollateParaIns: 'Đoạn đã chèn',
-  appCollateParaDel: 'Đoạn đã xóa',
   appCollateNote:
     'Bảng và đầu trang/chân trang được hiển thị nguyên trạng ở cả hai bên; các sửa đổi đầu/chân trang không được xử lý từng cái ở đây.',
   appRemoveSplit: 'Hủy chia ngăn',

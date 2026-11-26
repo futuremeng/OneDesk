@@ -288,8 +288,6 @@ export const tr = {
   appCollateRevised: 'Gözden geçirilmiş sürüm',
   appCollatePrev: 'Önceki değişiklik',
   appCollateNext: 'Sonraki değişiklik',
-  appCollateParaIns: 'Eklenen paragraf',
-  appCollateParaDel: 'Silinen paragraf',
   appCollateNote:
     'Tablolar ve üstbilgi/altbilgi içerikleri her iki tarafta olduğu gibi görüntülenir; üstbilgi/altbilgi gözden geçirmeleri burada tek tek işlenmez.',
   appRemoveSplit: 'Bölmeyi Kaldır',

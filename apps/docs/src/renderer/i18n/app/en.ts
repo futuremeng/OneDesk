@@ -284,8 +284,6 @@ export const en = {
   appCollateRevised: 'Revised',
   appCollatePrev: 'Previous change',
   appCollateNext: 'Next change',
-  appCollateParaIns: 'Inserted paragraph',
-  appCollateParaDel: 'Deleted paragraph',
   appCollateNote:
     'Tables and headers/footers are shown as-is on both sides; header/footer revisions are not handled one by one here.',
   appRemoveSplit: 'Remove Split',

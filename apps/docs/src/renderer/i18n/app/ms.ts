@@ -294,8 +294,6 @@ export const ms = {
   appCollateRevised: 'Versi disemak',
   appCollatePrev: 'Perubahan sebelumnya',
   appCollateNext: 'Perubahan seterusnya',
-  appCollateParaIns: 'Perenggan disisip',
-  appCollateParaDel: 'Perenggan dipadam',
   appCollateNote:
     'Jadual serta kepala/kaki halaman dipaparkan seperti adanya pada kedua-dua pihak; semakan kepala/kaki halaman tidak dikendalikan satu per satu di sini.',
   appRemoveSplit: 'Buang Pemisahan',

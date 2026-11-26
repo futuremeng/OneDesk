@@ -289,8 +289,6 @@ export const hi = {
   appCollateRevised: 'संशोधित संस्करण',
   appCollatePrev: 'पिछला परिवर्तन',
   appCollateNext: 'अगला परिवर्तन',
-  appCollateParaIns: 'सम्मिलित अनुच्छेद',
-  appCollateParaDel: 'हटाया गया अनुच्छेद',
   appCollateNote:
     'तालिकाएँ और हेडर/फ़ुटर सामग्री दोनों पक्षों में यथावत् दिखाई जाती हैं; हेडर/फ़ुटर संशोधन यहाँ एक-एक करके नहीं संभाले जाते।',
   appRemoveSplit: 'विभाजन हटाएँ',

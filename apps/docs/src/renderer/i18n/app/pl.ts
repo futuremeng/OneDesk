@@ -294,8 +294,6 @@ export const pl = {
   appCollateRevised: 'Wersja zrewidowana',
   appCollatePrev: 'Poprzednia zmiana',
   appCollateNext: 'Następna zmiana',
-  appCollateParaIns: 'Wstawiony akapit',
-  appCollateParaDel: 'Usunięty akapit',
   appCollateNote:
     'Tabele oraz nagłówki i stopki są wyświetlane po obu stronach bez zmian; zmiany w nagłówkach/stopkach nie są tu obsługiwane pojedynczo.',
   appRemoveSplit: 'Usuń podział',

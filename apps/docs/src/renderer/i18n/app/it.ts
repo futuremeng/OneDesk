@@ -296,8 +296,6 @@ export const it = {
   appCollateRevised: 'Revisionato',
   appCollatePrev: 'Modifica precedente',
   appCollateNext: 'Modifica successiva',
-  appCollateParaIns: 'Paragrafo inserito',
-  appCollateParaDel: 'Paragrafo eliminato',
   appCollateNote:
     'Tabelle e intestazioni/piedi di pagina sono mostrati così come sono su entrambi i lati; le revisioni di intestazioni/piedi di pagina non vengono gestite una per una qui.',
   appRemoveSplit: 'Rimuovi divisione',

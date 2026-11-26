@@ -300,8 +300,6 @@ export const nl = {
   appCollateRevised: 'Herziene versie',
   appCollatePrev: 'Vorige wijziging',
   appCollateNext: 'Volgende wijziging',
-  appCollateParaIns: 'Ingevoerde alinea',
-  appCollateParaDel: 'Verwijderde alinea',
   appCollateNote:
     'Tabellen en kop-/voetteksten worden aan beide zijden onveranderd weergegeven; wijzigingen in kop-/voetteksten worden hier niet apart afgehandeld.',
   appRemoveSplit: 'Splitsing verwijderen',

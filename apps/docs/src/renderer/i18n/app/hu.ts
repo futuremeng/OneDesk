@@ -293,8 +293,6 @@ export const hu = {
   appCollateRevised: 'Jelölt változat',
   appCollatePrev: 'Előző módosítás',
   appCollateNext: 'Következő módosítás',
-  appCollateParaIns: 'Beszúrt bekezdés',
-  appCollateParaDel: 'Törölt bekezdés',
   appCollateNote:
     'A táblázatok és a fejlécek/láblécek változatlanul jelennek meg mindkét oldalon; a fejléc/lábléc módosításait itt nem kezeljük egyenként.',
   appRemoveSplit: 'Felosztás megszüntetése',

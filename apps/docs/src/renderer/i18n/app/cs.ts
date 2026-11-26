@@ -290,8 +290,6 @@ export const cs = {
   appCollateRevised: 'Revidovaná verze',
   appCollatePrev: 'Předchozí změna',
   appCollateNext: 'Další změna',
-  appCollateParaIns: 'Vložený odstavec',
-  appCollateParaDel: 'Smazaný odstavec',
   appCollateNote:
     'Tabulky a záhlaví/zápatí se zobrazují na obou stranách beze změn; revize záhlaví/zápatí se zde jednotlivě nezpracovávají.',
   appRemoveSplit: 'Odebrat rozdělení',

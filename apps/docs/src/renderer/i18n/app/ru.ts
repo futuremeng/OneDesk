@@ -292,8 +292,6 @@ export const ru = {
   appCollateRevised: 'Изменённая версия',
   appCollatePrev: 'Предыдущее изменение',
   appCollateNext: 'Следующее изменение',
-  appCollateParaIns: 'Вставленный абзац',
-  appCollateParaDel: 'Удалённый абзац',
   appCollateNote:
     'Таблицы и колонтитулы отображаются на обеих сторонах как есть; изменения в колонтитулах здесь не обрабатываются по отдельности.',
   appRemoveSplit: 'Снять разделение',

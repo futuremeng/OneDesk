@@ -2,20 +2,24 @@
  * 对校 side-by-side collate view: the second rendering of a redline document,
  * shown as an in-place overlay that splits the document area in two columns —
  * the previous version on the left (read-only), the current one on the right.
- * Instead of one row per block, every textblock is segmented at its change
- * points: unchanged runs form identical paired rows, and each deleted/inserted
- * run falls into its own row (or one shared row for a replacement), so the two
- * columns stay character-aligned: text following a change sits at the same
- * height on both sides, with filler space in the column the change skips.
- * The halves come from the live doc itself (ins/del marks), not a second
- * document instance; navigation and per-change Accept/Reject run through
- * collectRevisions / buildReviewEntries / applyRevisions on the live editor.
+ * The redline is an in-memory diff of the tab's kept previous-version snapshot
+ * against the live document (compareDocuments in the renderer — no result tab,
+ * no Compare channel); with no snapshot the halves fall back to the live doc's
+ * own ins/del marks. Instead of one row per block, every textblock is
+ * segmented at its change points: unchanged runs form identical paired rows,
+ * and each deleted/inserted run falls into its own row (or one shared row for
+ * a replacement; a whole-paragraph replacement pairs its deleted and inserted
+ * blocks into one row), so the two columns stay character-aligned: text
+ * following a change sits at the same height on both sides, with filler space
+ * in the column the change skips. The redline lives outside the live doc, so
+ * this view only reads and navigates changes; Accept/Reject stay in the
+ * document itself.
  */
 import { useEffect, useRef, useState, type CSSProperties } from 'react'
 import type { Editor } from '@tiptap/core'
 import { DOMSerializer, Fragment, type Node as PmNode } from '@tiptap/pm/model'
 import { useI18n } from '../i18n/locale'
-import { applyRevisions, collectRevisions } from '../editor/revisions'
+import { collectRevisions } from '../editor/revisions'
 import { buildReviewEntries, type ReviewEntry } from '../editor/revision-filters'
 
 interface CollateRow {
@@ -24,8 +28,6 @@ interface CollateRow {
   end: number
   left: string
   right: string
-  /** paragraph-mark revision: the missing column shows a chip instead */
-  chip?: 'paraIns' | 'paraDel'
 }
 
 interface CollateModel {
@@ -90,44 +92,67 @@ function pairedSegments(node: PmNode): { kids: PmNode[]; start: number; end: num
   return segs
 }
 
-function buildModel(editor: Editor): CollateModel {
-  const { doc } = editor.state
-  const serializer = DOMSerializer.fromSchema(editor.schema)
+/** the block carries this paragraph-mark revision and not its opposite */
+function paraMarkOf(node: PmNode, kind: 'paraMarkIns' | 'paraMarkDel'): boolean {
+  const other = kind === 'paraMarkIns' ? 'paraMarkDel' : 'paraMarkIns'
+  return node.attrs?.[kind] != null && node.attrs?.[other] == null
+}
+
+function buildModel(root: PmNode): CollateModel {
+  const serializer = DOMSerializer.fromSchema(root.type.schema)
   const render = (node: PmNode, first: boolean, last: boolean): string => {
     const holder = document.createElement('div')
     holder.appendChild(serializer.serializeFragment(Fragment.from(node)))
-    const root = holder.firstElementChild
-    if (root) tuneFlow(root, first, last)
+    const elm = holder.firstElementChild
+    if (elm) tuneFlow(elm, first, last)
     return holder.innerHTML
   }
   const rows: CollateRow[] = []
-  doc.forEach((node, pos) => {
-    const paraIns = node.attrs?.paraMarkIns != null
-    const paraDel = node.attrs?.paraMarkDel != null
+  const kids: { node: PmNode; pos: number }[] = []
+  root.forEach((node, pos) => kids.push({ node, pos }))
+  for (let i = 0; i < kids.length; i++) {
+    const { node, pos } = kids[i]
+    const end = pos + node.nodeSize
+    const paraIns = paraMarkOf(node, 'paraMarkIns')
+    const paraDel = paraMarkOf(node, 'paraMarkDel')
     if (paraIns || paraDel) {
+      const next = kids[i + 1]
+      // a whole-paragraph replacement lands as two adjacent paragraph-mark
+      // blocks: they pair into one row (deleted paragraph left, inserted
+      // right), otherwise the two columns would sit a row apart
+      const merge =
+        next != null &&
+        ((paraDel && paraMarkOf(next.node, 'paraMarkIns')) ||
+          (paraIns && paraMarkOf(next.node, 'paraMarkDel')))
+      if (merge && next) {
+        const delNode = paraDel ? node : next.node
+        const insNode = paraIns ? node : next.node
+        rows.push({
+          pos: Math.min(pos, next.pos),
+          end: Math.max(end, next.pos + next.node.nodeSize),
+          left: render(delNode.copy(delNode.content), true, true),
+          right: render(insNode.copy(insNode.content), true, true),
+        })
+        i++
+        continue
+      }
       const whole = render(node.copy(node.content), true, true)
-      rows.push({
-        pos,
-        end: pos + node.nodeSize,
-        left: paraIns ? '' : whole,
-        right: paraDel ? '' : whole,
-        chip: paraIns ? 'paraIns' : 'paraDel',
-      })
-      return
+      rows.push({ pos, end, left: paraIns ? '' : whole, right: paraDel ? '' : whole })
+      continue
     }
     if (!node.isTextblock) {
       const whole = render(node.copy(node.content), true, true)
-      rows.push({ pos, end: pos + node.nodeSize, left: whole, right: whole })
-      return
+      rows.push({ pos, end, left: whole, right: whole })
+      continue
     }
     const segs = pairedSegments(node)
     if (!segs.length) {
-      rows.push({ pos, end: pos + node.nodeSize, left: '', right: '' })
-      return
+      rows.push({ pos, end, left: '', right: '' })
+      continue
     }
-    segs.forEach((seg, i) => {
-      const first = i === 0
-      const last = i === segs.length - 1
+    segs.forEach((seg, j) => {
+      const first = j === 0
+      const last = j === segs.length - 1
       const left = seg.kids.filter((k) => onSide(k, 'left'))
       const right = seg.kids.filter((k) => onSide(k, 'right'))
       rows.push({
@@ -137,12 +162,12 @@ function buildModel(editor: Editor): CollateModel {
         right: right.length ? render(node.copy(Fragment.from(right)), first, last) : '',
       })
     })
-  })
-  const entries = buildReviewEntries(doc, collectRevisions(doc)).filter(
+  }
+  const entries = buildReviewEntries(root, collectRevisions(root)).filter(
     (e) => !e.rev.story && !(e.pair && e.pair.story),
   )
   const entryRow = entries.map((e) => {
-    const at = Math.max(0, Math.min(e.rev.from, doc.content.size - 1))
+    const at = Math.max(0, Math.min(e.rev.from, root.content.size - 1))
     const i = rows.findIndex((r) => at >= r.pos && at < r.end)
     return i < 0 ? 0 : i
   })
@@ -151,22 +176,30 @@ function buildModel(editor: Editor): CollateModel {
 
 export function CollateView({
   editor,
+  redline,
   zoomClass,
   zoomStyle,
   onClose,
 }: {
   editor: Editor
+  /** the in-memory redline diff to render; null falls back to the live doc's marks */
+  redline: PmNode | null
   zoomClass: string
   zoomStyle: CSSProperties
   onClose: () => void
 }) {
   const { t } = useI18n()
-  const [model, setModel] = useState<CollateModel>(() => buildModel(editor))
+  const [model, setModel] = useState<CollateModel>(() => buildModel(redline ?? editor.state.doc))
   const [current, setCurrent] = useState(0)
   const rowRefs = useRef<(HTMLDivElement | null)[]>([])
 
   useEffect(() => {
-    const sync = () => setModel(buildModel(editor))
+    // the redline was computed when 对校 was clicked: a static pair of columns
+    if (redline) {
+      setModel(buildModel(redline))
+      return
+    }
+    const sync = () => setModel(buildModel(editor.state.doc))
     sync()
     let timer = 0
     const onUpdate = () => {
@@ -178,9 +211,9 @@ export function CollateView({
       window.clearTimeout(timer)
       editor.off('update', onUpdate)
     }
-  }, [editor])
+  }, [editor, redline])
 
-  // an accepted/rejected change shrinks the list: keep the cursor inside it
+  // edits elsewhere can shrink the revision list: keep the cursor inside it
   useEffect(() => {
     setCurrent((c) => Math.min(c, Math.max(0, model.entries.length - 1)))
   }, [model])
@@ -189,12 +222,6 @@ export function CollateView({
   useEffect(() => {
     if (currentRow >= 0) rowRefs.current[currentRow]?.scrollIntoView({ block: 'nearest' })
   }, [currentRow, model])
-
-  const act = (mode: 'accept' | 'reject') => {
-    const e = model.entries[current]
-    if (!e) return
-    applyRevisions(editor, e.pair ? [e.rev, e.pair] : [e.rev], mode)
-  }
 
   const n = model.entries.length
   const empty = n === 0
@@ -219,22 +246,6 @@ export function CollateView({
             onClick={() => setCurrent((c) => Math.min(n - 1, c + 1))}
           >
             {t('appCollateNext')}
-          </button>
-          <button
-            className="collate-btn"
-            data-testid="collate-accept"
-            disabled={empty}
-            onClick={() => act('accept')}
-          >
-            {t('appRevAccept')}
-          </button>
-          <button
-            className="collate-btn"
-            data-testid="collate-reject"
-            disabled={empty}
-            onClick={() => act('reject')}
-          >
-            {t('appRevReject')}
           </button>
         </span>
         <button className="split-pane-close" aria-label={t('appClose')} onClick={onClose}>
@@ -261,24 +272,20 @@ export function CollateView({
                   className={`collate-row${currentRow === i ? ' current' : ''}`}
                 >
                   <div className="collate-cell">
-                    {row.chip === 'paraIns' ? (
-                      <span className="collate-chip">{t('appCollateParaIns')}</span>
-                    ) : (
+                    {row.left ? (
                       <div
                         className="doc-page ProseMirror collate-doc"
                         dangerouslySetInnerHTML={{ __html: row.left }}
                       />
-                    )}
+                    ) : null}
                   </div>
                   <div className="collate-cell">
-                    {row.chip === 'paraDel' ? (
-                      <span className="collate-chip">{t('appCollateParaDel')}</span>
-                    ) : (
+                    {row.right ? (
                       <div
                         className="doc-page ProseMirror collate-doc"
                         dangerouslySetInnerHTML={{ __html: row.right }}
                       />
-                    )}
+                    ) : null}
                   </div>
                 </div>
               ))}
