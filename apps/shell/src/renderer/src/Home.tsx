@@ -1015,13 +1015,7 @@ function AccountEntry({
         onClick={handleClick}
         aria-haspopup="dialog"
         aria-expanded={settingsOpen}
-        data-tip={
-          loggedIn
-            ? email || t('loggedInOneDesk')
-            : waiting
-              ? t('waitingLogin')
-              : (errorText ?? t('loginOneDesk'))
-        }
+        data-tip={t('settings')}
         aria-label={t('settings')}
       >
         <span
@@ -1047,23 +1041,25 @@ function AccountEntry({
                 strokeLinecap="round"
               />
             </svg>
-          ) : (
+          ) : loggedIn ? (
             initial
+          ) : (
+            <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path
+                d="M8 1.8v1.7M8 12.5v1.7M1.8 8h1.7M12.5 8h1.7M3.6 3.6l1.2 1.2M11.2 11.2l1.2 1.2M12.4 3.6l-1.2 1.2M4.8 11.2l-1.2 1.2"
+                stroke="currentColor"
+                strokeWidth="1.4"
+                strokeLinecap="round"
+              />
+              <circle cx="8" cy="8" r="2.6" stroke="currentColor" strokeWidth="1.4" fill="none" />
+            </svg>
           )}
           {skillUpdate && (
             <span className="account-badge" role="img" aria-label={t('intgUpdateDue')} />
           )}
         </span>
         <span className="account-text">
-          <span className="account-name">
-            {loggedIn
-              ? email
-                ? email.split('@')[0]
-                : t('loggedIn')
-              : waiting
-                ? t('waitingShort')
-                : t('login')}
-          </span>
+          <span className="account-name">{t('settings')}</span>
           {!loggedIn && !waiting && errorText && (
             <span className="account-sub error">{errorText}</span>
           )}

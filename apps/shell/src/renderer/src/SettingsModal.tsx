@@ -202,6 +202,9 @@ function CustomFontSizeInput({
 export type SectionId =
   'account' | 'aiModel' | 'aiMedia' | 'general' | 'integrations' | 'skills' | 'about'
 
+/** temporarily hide the account pane (nav entry, footer chip, default landing) */
+const SHOW_ACCOUNT_SECTION = false
+
 const SECTIONS: readonly { id: SectionId; labelKey: StringKey }[] = [
   { id: 'account', labelKey: 'setSecAccount' },
   { id: 'aiModel', labelKey: 'setSecAiModel' },
@@ -1948,7 +1951,9 @@ export function SettingsModal({
   target,
 }: SettingsModalProps) {
   const { lang, setLang, t } = useI18n()
-  const [section, setSection] = useState<SectionId>(target?.section ?? 'account')
+  const [section, setSection] = useState<SectionId>(
+    target?.section ?? (SHOW_ACCOUNT_SECTION ? 'account' : 'general'),
+  )
   const navRef = useRef<HTMLElement | null>(null)
   const navPill = useSlidingIndicator(navRef, '.set-nav-item.active', section)
   useEffect(() => {
@@ -2176,7 +2181,7 @@ export function SettingsModal({
             <div className="set-nav-label" aria-hidden="true">
               {t('settings')}
             </div>
-            {SECTIONS.map((s) => (
+            {SECTIONS.filter((s) => SHOW_ACCOUNT_SECTION || s.id !== 'account').map((s) => (
               <button
                 key={s.id}
                 className={`set-nav-item${section === s.id ? ' active' : ''}`}
@@ -2190,7 +2195,8 @@ export function SettingsModal({
                 )}
               </button>
             ))}
-            <button type="button" className="set-nav-account" onClick={() => setSection('account')}>
+            {SHOW_ACCOUNT_SECTION && (
+              <button type="button" className="set-nav-account" onClick={() => setSection('account')}>
               <span className="set-nav-avatar" aria-hidden="true">
                 {(authorName.value || authorName.fallback || email || '?')
                   .slice(0, 1)
@@ -2204,7 +2210,8 @@ export function SettingsModal({
                   {loggedIn ? email : t('setNotLoggedIn')}
                 </span>
               </span>
-            </button>
+              </button>
+            )}
           </nav>
           <div
             className={'set-pane' + (section === 'aiModel' ? ' set-pane-ai-model' : '')}
