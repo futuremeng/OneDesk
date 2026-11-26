@@ -519,6 +519,8 @@ the provider configured in OneDesk.
 
 All builds come from `main`; the macOS and Windows installers are signed.
 Older versions are on the [Releases](https://onedesk.jiulu.ltd/releases) page.
+Mainland-China users can also grab the same installers, release for release,
+from the [AtomGit mirror](https://atomgit.com/futuremeng/OneDesk/releases).
 
 <details>
 <summary><b>Installing on Linux</b></summary>

@@ -470,7 +470,7 @@ deck_replace(dir, n, page) ×3 · slides_render(file, out)
 | **Linux** —— 其他发行版               | x86_64，glibc 2.34+，FUSE 2                            | [最新 `.AppImage`](https://onedesk.jiulu.ltd/releases/latest)           |
 
 所有构建均来自 `main` 分支；macOS 和 Windows 安装程序均已签名。
-历史版本见 [Releases](https://onedesk.jiulu.ltd/releases) 页面。
+历史版本见 [Releases](https://onedesk.jiulu.ltd/releases) 页面；大陆用户也可从 [AtomGit 镜像](https://atomgit.com/futuremeng/OneDesk/releases)下载同款安装包。
 
 <details>
 <summary><b>在 Linux 上安装</b></summary>
