@@ -1422,9 +1422,18 @@ function hasRevision(chunks: Chunk[]): boolean {
   return chunks.some((c) => c.kind !== 'keep' || c.carry)
 }
 
+/**
+ * CJK script: Han, Hiragana, Katakana and Hangul. Word's own Compare diffs
+ * these one character at a time, which for them is what a "word" is; glued
+ * together they would make a whole sentence a single token, so any change in
+ * it would read as a deletion and an insertion of the whole paragraph.
+ */
+const CJK_RE = '\\p{Script=Han}\\p{Script=Hiragana}\\p{Script=Katakana}\\p{Script=Hangul}'
+const WORD_TOKEN_RE = new RegExp(`\\s+|[${CJK_RE}]|[^\\s${CJK_RE}]+`, 'gu')
+
 /** words (or characters) and the whitespace between them */
 function tokenize(text: string, granularity: CompareGranularity): Token[] {
-  const re = granularity === 'char' ? /[^\s]|\s+/g : /\S+|\s+/g
+  const re = granularity === 'char' ? /[^\s]|\s+/g : WORD_TOKEN_RE
   const out: Token[] = []
   for (const m of text.matchAll(re)) {
     out.push({ text: m[0], start: m.index, end: m.index + m[0].length })

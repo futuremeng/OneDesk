@@ -1,10 +1,11 @@
 /**
  * 对校 side-by-side collate view: the second rendering of a redline document,
  * shown in place over the document area as two facing paper sheets on the
- * canvas — the previous version on the left rendered as clean original text
- * (no revision marks at all), the current version on the right with the
- * regular revision display (insertions underlined, deletions not shown, a
- * change bar in the right sheet's left margin wherever something changed).
+ * canvas — the previous version on the left and the current version on the
+ * right, each holding its own side of every change. A difference is shown
+ * nowhere but as a highlight: never underline or strikethrough, so the sheets
+ * cannot be mistaken for the document's own revision display, and a change
+ * bar sits in the right sheet's left margin wherever something changed.
  * The redline is an in-memory diff of the tab's kept previous-version snapshot
  * against the live document (compareDocuments in the renderer — no result tab,
  * no Compare channel); with no snapshot the sheets fall back to the live doc's
@@ -69,11 +70,13 @@ function isChangedRun(child: PmNode): boolean {
   return ins !== del
 }
 
-/** the left sheet's original rendering: the redline's ins/del marks come off
- *  the runs and the paragraph-level revision marks are nulled, leaving every
- *  other (character) mark exactly as authored — plain text, no revision ink */
+/** the left sheet's original rendering: inserted runs lose their ins mark so
+ *  nothing the revised version added shows here, while deleted runs keep the
+ *  del mark — the left sheet shows changes as highlight only, not as plain
+ *  text; paragraph-level revision marks are nulled and every other
+ *  (character) mark stays exactly as authored */
 function asOriginal(node: PmNode): PmNode {
-  const marks = node.marks.filter((m) => m.type.name !== 'ins' && m.type.name !== 'del')
+  const marks = node.marks.filter((m) => m.type.name !== 'ins')
   if (node.isText) return node.mark(marks)
   const attrs: Record<string, unknown> = { ...node.attrs }
   if ('paraMarkIns' in attrs || 'paraMarkDel' in attrs) {

@@ -164,6 +164,23 @@ describe('document comparison (tracked changes)', () => {
     expect(summary.deletions).toBe(1)
   })
 
+  it('diffs a changed CJK paragraph character by character, not paragraph-wide', async () => {
+    const gone = '<w:p><w:r><w:t>双方应当履行合同约定的义务。</w:t></w:r></w:p>'
+    const come = '<w:p><w:r><w:t>双方应履行合同约定的义务。</w:t></w:r></w:p>'
+    const { xml, summary } = await compare(gone, come)
+    // CJK words have no spaces to split on: every character is its own token,
+    // so one dropped character is one deletion and the shared text stays plain
+    const delTexts = [...xml.matchAll(/<w:delText(?:\s[^>]*)?>([^<]*)<\/w:delText>/g)].map(
+      (m) => m[1]!,
+    )
+    expect(delTexts).toEqual(['当'])
+    expect(xml).not.toContain('<w:ins')
+    expect(xml).toContain('双方应')
+    expect(summary.changedParagraphs).toBe(1)
+    expect(summary.deletions).toBe(1)
+    expect(summary.insertions).toBe(0)
+  })
+
   it('records the author and the date on every revision and keeps the ids unique', async () => {
     const { xml } = await compare(ORIGINAL_BODY, REVISED_BODY)
     const revisions = [...xml.matchAll(/<w:(ins|del)\b[^>]*>/g)].map((m) => m[0]!)

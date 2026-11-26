@@ -1,7 +1,8 @@
 // 对校 side-by-side collate view: the redline doc renders as two facing paper
-// sheets — the left shows the original as clean text (no revision marks at
-// all), the right keeps insertions underlined and hides deletions, with a
-// change bar in the right sheet's margin on every row that holds a change.
+// sheets — each holding its own side of every change, shown only as a
+// highlight (no underline, no strikethrough, so the sheets cannot be mistaken
+// for the document's own revision display), with a change bar in the right
+// sheet's margin on every row that holds a change.
 // Replacements (inline and whole paragraph) pair into one row, and the live
 // doc's marks only serve as the fallback source when the tab kept no
 // previous-version snapshot.
@@ -111,14 +112,16 @@ describe('CollateView', () => {
     expect(cells(2)[1].textContent).toContain('a brand new paragraph')
   })
 
-  it('the left sheet is clean original text: no revision-marked runs at all', () => {
+  it('marks the change on each side only as a highlight: deletions left, insertions right', () => {
     const { host } = mount(fixtureDoc())
     const rows = host.querySelectorAll('.collate-row')
     const orig = rows[1].querySelector('.collate-cell-orig')!
     expect(orig.textContent).toContain('old phrase')
-    expect(orig.querySelector('.doc-del')).toBeNull()
+    // the deleted run stays a del run on the left sheet (highlighted by CSS,
+    // never underlined or struck through)
+    expect(orig.querySelector('.doc-del')?.textContent).toContain('old phrase')
     expect(orig.querySelector('.doc-ins')).toBeNull()
-    // the right sheet keeps the insertion underlined and shows no deleted runs
+    // the right sheet shows the insertion, and shows no deleted runs
     const rev = rows[1].querySelector('.collate-cell-rev')!
     expect(rev.querySelector('.doc-ins')?.textContent).toContain('new phrase')
     expect(rev.querySelector('.doc-del')).toBeNull()
@@ -188,8 +191,8 @@ describe('CollateView', () => {
     const mid = rows[1].querySelectorAll('.collate-cell')
     expect(mid[0].textContent).toContain('the old paragraph')
     expect(mid[0].textContent).not.toContain('the new paragraph')
-    // the left shows the deleted paragraph as plain original text
-    expect(mid[0].querySelector('.doc-del')).toBeNull()
+    // the left shows the deleted paragraph as a highlighted del run
+    expect(mid[0].querySelector('.doc-del')?.textContent).toContain('the old paragraph')
     expect(mid[1].textContent).toContain('the new paragraph')
     expect(mid[1].textContent).not.toContain('the old paragraph')
     // one change bar for the whole swap, on the right sheet
