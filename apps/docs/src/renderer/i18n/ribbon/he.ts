@@ -965,7 +965,7 @@ export const he = {
   ribbonProofreadProTip:
     'כשהמצב פעיל, תוצאות הגהת ה-AI נרשמות בעותק חדש; המסמך המקורי נשאר ללא שינוי',
   ribbonCollate: 'השוואת נוסחים',
-  ribbonCollateTip: 'משווה את העותק הזה למסמך המקורי ופותח את ההבדלים',
+  ribbonCollateTip: 'משווה לגרסה הקודמת ופותח את ההבדלים',
   ribbonCmpDlgOriginal: 'מסמך מקורי',
   ribbonCmpDlgRevised: 'מסמך מתוקן',
   ribbonCmpDlgCurrent: '{name} (פתוח כאן)',

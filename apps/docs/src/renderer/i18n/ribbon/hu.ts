@@ -891,7 +891,7 @@ export const hu = {
   ribbonProofreadProTip:
     'Bekapcsolva az AI-korrektúra eredményei új példányba kerülnek; az eredeti dokumentum változatlan',
   ribbonCollate: 'Összevetés',
-  ribbonCollateTip: 'Összeveti ezt a példányt az eredetivel, és megnyitja a különbségeket',
+  ribbonCollateTip: 'Összeveti az előző verzióval, és megnyitja a különbségeket',
   ribbonCmpDlgOriginal: 'Eredeti dokumentum',
   ribbonCmpDlgRevised: 'Módosított dokumentum',
   ribbonCmpDlgCurrent: '{name} (itt megnyitva)',

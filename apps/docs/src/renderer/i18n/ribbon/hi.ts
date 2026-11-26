@@ -978,7 +978,7 @@ export const hi = {
   ribbonProofreadProTip:
     'चालू करने पर AI प्रूफ़रीड परिणाम एक नई प्रति पर लगते हैं; मूल दस्तावेज़ नहीं बदलता',
   ribbonCollate: 'तुलना',
-  ribbonCollateTip: 'इस प्रति की तुलना मूल दस्तावेज़ से करता है और अंतर खोलता है',
+  ribbonCollateTip: 'पिछले संस्करण से तुलना करता है और अंतर खोलता है',
   ribbonCmpDlgOriginal: 'मूल दस्तावेज़',
   ribbonCmpDlgRevised: 'संशोधित दस्तावेज़',
   ribbonCmpDlgCurrent: '{name} (यहाँ खुला है)',

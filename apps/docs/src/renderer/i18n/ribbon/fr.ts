@@ -987,7 +987,7 @@ export const fr = {
   ribbonProofreadProTip:
     'Activé, la relecture IA se reporte dans une copie nouvelle ; le document original reste inchangé',
   ribbonCollate: 'Collation',
-  ribbonCollateTip: 'Compare cette copie au document original et ouvre les différences',
+  ribbonCollateTip: 'Compare à la version précédente et ouvre les différences',
   ribbonCmpDlgOriginal: 'Document original',
   ribbonCmpDlgRevised: 'Document révisé',
   ribbonCmpDlgCurrent: '{name} (ouvert ici)',

@@ -981,7 +981,7 @@ export const ms = {
   ribbonProofreadProTip:
     'Jika dihidap, semakan AI diterapkan pada salinan baharu; dokumen asal tidak berubah',
   ribbonCollate: 'Kolas',
-  ribbonCollateTip: 'Membandingkan salinan ini dengan dokumen asal dan membuka perbezaan',
+  ribbonCollateTip: 'Membandingkan dengan versi sebelumnya dan membuka perbezaan',
   ribbonCmpDlgOriginal: 'Dokumen asal',
   ribbonCmpDlgRevised: 'Dokumen yang disemak',
   ribbonCmpDlgCurrent: '{name} (dibuka di sini)',

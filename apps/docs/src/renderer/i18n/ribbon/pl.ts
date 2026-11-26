@@ -978,7 +978,7 @@ export const pl = {
   ribbonProofreadProTip:
     'Po włączeniu wyniki korekty AI trafiają do nowej kopii; oryginał pozostaje bez zmian',
   ribbonCollate: 'Kolacja',
-  ribbonCollateTip: 'Porównuje tę kopię z oryginałem i otwiera różnice',
+  ribbonCollateTip: 'Porównuje z poprzednią wersją i otwiera różnice',
   ribbonCmpDlgOriginal: 'Dokument oryginalny',
   ribbonCmpDlgRevised: 'Dokument poprawiony',
   ribbonCmpDlgCurrent: '{name} (otwarty tutaj)',

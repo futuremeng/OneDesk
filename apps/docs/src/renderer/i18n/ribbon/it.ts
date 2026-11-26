@@ -985,7 +985,7 @@ export const it = {
   ribbonProofreadProTip:
     'Se attiva, la revisione IA viene applicata su una copia nuova; il documento originale resta invariato',
   ribbonCollate: 'Collazione',
-  ribbonCollateTip: 'Confronta questa copia con il documento originale e apre le differenze',
+  ribbonCollateTip: 'Confronta con la versione precedente e apre le differenze',
   ribbonCmpDlgOriginal: 'Documento originale',
   ribbonCmpDlgRevised: 'Documento revisionato',
   ribbonCmpDlgCurrent: '{name} (aperto qui)',

@@ -973,7 +973,7 @@ export const cs = {
   ribbonProofreadProTip:
     'Po zapnutí se výsledky korektury AI aplikují do nové kopie; původní dokument zůstává nezměněn',
   ribbonCollate: 'Kolace',
-  ribbonCollateTip: 'Porovná tuto kopii s původním dokumentem a zobrazí rozdíly',
+  ribbonCollateTip: 'Porovná s předchozí verzí a zobrazí rozdíly',
   ribbonCmpDlgOriginal: 'Původní dokument',
   ribbonCmpDlgRevised: 'Revidovaný dokument',
   ribbonCmpDlgCurrent: '{name} (otevřený zde)',

@@ -183,6 +183,10 @@ export interface FileActionContext {
   setReadMode: (readMode: boolean) => void
   /** a large document opens with check-as-you-type spelling off */
   setLargeDocSpellOff: (off: boolean) => void
+  /** redefines this tab's 对校 baseline: opening a version copy brings in the
+   *  previous version's bytes; any other open clears it (a hand-off 审校 copy
+   *  tab carries its own baseline from boot and is left untouched) */
+  applyCollateBaseline?: (baseline: { name: string; bytes: Uint8Array } | null) => void
   setShowPagePreview: (show: boolean) => void
   section: SectionSettings | null
   sectionDirty: boolean
@@ -768,6 +772,17 @@ export async function loadFile(
     } else {
       ctx.setStatus(t('appOpenedFile', { name: result.name }))
     }
+    // 对校 定义: opening a version copy picks its previous version off disk as
+    // the baseline; opening anything else drops a stale one. The hand-off copy
+    // tab hands its own bytes in and already stored its baseline at boot.
+    if (!result.bytes) {
+      let baseline: { name: string; bytes: Uint8Array } | null = null
+      if (result.collateBaseline) {
+        const prevBytes = await fetchDocBytes(result.collateBaseline.dataUrl).catch(() => null)
+        if (prevBytes) baseline = { name: result.collateBaseline.name, bytes: prevBytes }
+      }
+      ctx.applyCollateBaseline?.(baseline)
+    }
     void window.desktop.getRecentFiles().then(ctx.setRecent)
     return 'ok'
   } catch (err) {
@@ -914,6 +929,8 @@ export async function newFile(ctx: FileActionContext): Promise<boolean | undefin
     focusDocumentStart(ctx.editor)
     noteDocumentSwapped()
     ctx.setDoc({ parsed, filePath: null, fileName: t('appUntitledDocx'), hash: '', isBlank: true })
+    // a blank draft has no earlier version: 对校 has nothing to compare in this tab
+    ctx.applyCollateBaseline?.(null)
     // a very large document opened in Read Mode must not leave it on for the new one
     ctx.setReadMode(false)
     ctx.setLargeDocSpellOff(false)

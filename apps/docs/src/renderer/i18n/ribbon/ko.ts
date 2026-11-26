@@ -988,7 +988,7 @@ export const ko = {
   ribbonProofreadPro: '프로 모드',
   ribbonProofreadProTip: '켜면 AI 교정 결과가 새 사본에 적용되고 원문서는 그대로 남습니다',
   ribbonCollate: '대조',
-  ribbonCollateTip: '이 사본을 원문서와 비교하여 차이를 엽니다',
+  ribbonCollateTip: '이전 버전과 비교하여 차이를 엽니다',
   ribbonCmpDlgOriginal: '원본 문서',
   ribbonCmpDlgRevised: '수정된 문서',
   ribbonCmpDlgCurrent: '{name}(여기서 열린 문서)',

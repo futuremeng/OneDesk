@@ -985,7 +985,7 @@ export const de = {
   ribbonProofreadProTip:
     'Aktiviert landen die Ergebnisse des KI-Korrekturlaufs in einer neuen Kopie; das Original bleibt unverändert',
   ribbonCollate: 'Abgleich',
-  ribbonCollateTip: 'Vergleicht diese Kopie mit dem Original und öffnet die Unterschiede',
+  ribbonCollateTip: 'Vergleicht mit der vorherigen Version und öffnet die Unterschiede',
   ribbonCmpDlgOriginal: 'Originaldokument',
   ribbonCmpDlgRevised: 'Überarbeitetes Dokument',
   ribbonCmpDlgCurrent: '{name} (hier geöffnet)',

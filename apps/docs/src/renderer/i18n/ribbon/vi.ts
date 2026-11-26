@@ -974,7 +974,7 @@ export const vi = {
   ribbonProofreadProTip:
     'Bật thì kết quả hiệu đính AI sẽ ghi vào bản sao mới; tài liệu gốc không thay đổi',
   ribbonCollate: 'Đối chiếu',
-  ribbonCollateTip: 'So sánh bản sao này với tài liệu gốc và mở xem khác biệt',
+  ribbonCollateTip: 'So sánh với phiên bản trước và mở xem khác biệt',
   ribbonCmpDlgOriginal: 'Tài liệu gốc',
   ribbonCmpDlgRevised: 'Tài liệu đã sửa đổi',
   ribbonCmpDlgCurrent: '{name} (đang mở ở đây)',

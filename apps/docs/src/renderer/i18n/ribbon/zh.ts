@@ -977,7 +977,7 @@ export const zh = {
   ribbonProofreadPro: '专业模式',
   ribbonProofreadProTip: '开启后,AI 审校结果落到新建的副本,原文档保持不变',
   ribbonCollate: '对校',
-  ribbonCollateTip: '将当前副本与原文档比较,打开两者的差异',
+  ribbonCollateTip: '将当前文档与上一版比较,打开两者的差异',
   ribbonCmpDlgOriginal: '原文档',
   ribbonCmpDlgRevised: '修订的文档',
   ribbonCmpDlgCurrent: '{name}(当前打开)',

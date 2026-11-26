@@ -976,7 +976,7 @@ export const en = {
   ribbonProofreadProTip:
     'With it on, an AI proofread pass lands on a new copy; the original document stays unchanged',
   ribbonCollate: 'Collate',
-  ribbonCollateTip: 'Compare this copy with its original document and open the differences',
+  ribbonCollateTip: 'Compare with the previous version and open the differences',
   ribbonCmpDlgOriginal: 'Original document',
   ribbonCmpDlgRevised: 'Revised document',
   ribbonCmpDlgCurrent: '{name} (open here)',

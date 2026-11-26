@@ -973,7 +973,7 @@ export const ar = {
   ribbonProofreadProTip:
     'عند التشغيل، تُطبَّق نتائج التدقيق بالذكاء الاصطناعي على نسخة جديدة؛ ويبقى المستند الأصلي دون تغيير',
   ribbonCollate: 'المقابلة',
-  ribbonCollateTip: 'يقارن هذه النسخة مع المستند الأصلي ويفتح الفروقات',
+  ribbonCollateTip: 'يقارن مع الإصدار السابق ويفتح الفروقات',
   ribbonCmpDlgOriginal: 'المستند الأصلي',
   ribbonCmpDlgRevised: 'المستند المراجَع',
   ribbonCmpDlgCurrent: '{name} (مفتوح هنا)',

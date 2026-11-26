@@ -977,7 +977,7 @@ export const ru = {
   ribbonProofreadProTip:
     'Если включено, результаты ИИ-вычитки применяются в новой копии; оригинал остаётся без изменений',
   ribbonCollate: 'Сверка',
-  ribbonCollateTip: 'Сравнивает эту копию с оригиналом и открывает отличия',
+  ribbonCollateTip: 'Сравнивает с предыдущей версией и открывает отличия',
   ribbonCmpDlgOriginal: 'Исходный документ',
   ribbonCmpDlgRevised: 'Измененный документ',
   ribbonCmpDlgCurrent: '{name} (открыт здесь)',

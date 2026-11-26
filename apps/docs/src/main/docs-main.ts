@@ -7632,6 +7632,31 @@ async function confirmLossyImport(
   return true
 }
 
+/** 对校 semantics: a version copy `name_vN.docx` is collated with its previous
+ *  version, where v1 is the original document itself (`name.docx`, the file
+ *  saveProofreadCopy names past): v2 vs v1, v3 vs v2. Opening such a file hands
+ *  over the predecessor's bytes when it sits in the same folder, so the tab can
+ *  offer 对校 right away. */
+async function collateBaselineFor(
+  filePath: string,
+): Promise<{ name: string; dataUrl: string } | undefined> {
+  const match = /^(.*)_v(\d+)\.docx$/i.exec(basename(filePath))
+  const version = match ? Number(match[2]) : 0
+  if (!match || version < 2) return undefined
+  const previousName = version === 2 ? `${match[1]}.docx` : `${match[1]}_v${version - 1}.docx`
+  const previousPath = join(dirname(filePath), previousName)
+  try {
+    if ((await stat(previousPath)).size > MAX_OPEN_BYTES) return undefined
+    const bytes = await readFile(previousPath)
+    // an encrypted predecessor: bytes the renderer's parseDocx cannot read
+    if (isEncryptedDocx(bytes)) return undefined
+    return { name: previousName, dataUrl: handOffBytes(bytes) }
+  } catch {
+    // no predecessor next to the copy: nothing to collate against
+    return undefined
+  }
+}
+
 async function loadDocx(
   filePath: string,
   wcId: number,
@@ -7692,6 +7717,8 @@ async function loadDocx(
     hash,
     encrypted,
     recovered: recovered || undefined,
+    // opening a name_vN.docx brings its previous version in as the 对校 snapshot
+    collateBaseline: await collateBaselineFor(filePath),
   }
 }
 

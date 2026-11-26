@@ -981,7 +981,7 @@ export const tr = {
   ribbonProofreadProTip:
     'Açıkken yapay zekâ düzeltme sonuçları yeni bir kopyaya işlenir; özgün belge değişmez',
   ribbonCollate: 'Karsıt',
-  ribbonCollateTip: 'Bu kopyayı özgün belgeyle karşılaştırır ve farklılıkları açar',
+  ribbonCollateTip: 'Önceki sürümle karşılaştırır ve farklılıkları açar',
   ribbonCmpDlgOriginal: 'Özgün belge',
   ribbonCmpDlgRevised: 'Düzeltilmiş belge',
   ribbonCmpDlgCurrent: '{name} (burada açık)',

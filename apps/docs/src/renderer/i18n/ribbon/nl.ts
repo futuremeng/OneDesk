@@ -984,7 +984,7 @@ export const nl = {
   ribbonProofreadProTip:
     'Als het aan staat, worden AI-proefleesresultaten in een nieuw exemplaar geplaatst; het origineel blijft ongewijzigd',
   ribbonCollate: 'Collateren',
-  ribbonCollateTip: 'Vergelijkt dit exemplaar met het origineel en opent de verschillen',
+  ribbonCollateTip: 'Vergelijkt met de vorige versie en opent de verschillen',
   ribbonCmpDlgOriginal: 'Origineel document',
   ribbonCmpDlgRevised: 'Gereviseerd document',
   ribbonCmpDlgCurrent: '{name} (hier geopend)',

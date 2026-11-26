@@ -978,7 +978,7 @@ export const id = {
   ribbonProofreadProTip:
     'Jika aktif, hasil koreksi AI diterapkan pada salinan baru; dokumen asli tetap tidak berubah',
   ribbonCollate: 'Kolasi',
-  ribbonCollateTip: 'Membandingkan salinan ini dengan dokumen asli dan membuka perbedaannya',
+  ribbonCollateTip: 'Membandingkan dengan versi sebelumnya dan membuka perbedaannya',
   ribbonCmpDlgOriginal: 'Dokumen asli',
   ribbonCmpDlgRevised: 'Dokumen yang direvisi',
   ribbonCmpDlgCurrent: '{name} (terbuka di sini)',

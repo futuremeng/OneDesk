@@ -967,7 +967,7 @@ export const th = {
   ribbonProofreadPro: 'โหมดโปร',
   ribbonProofreadProTip: 'เมื่อเปิด การพิสูจน์อักษรด้วย AI จะเขียนลงสำเนาใหม่ ต้นฉบับไม่ถูกแก้ไข',
   ribbonCollate: 'ตรวจทาน',
-  ribbonCollateTip: 'เปรียบเทียบสำเนานี้กับต้นฉบับและเปิดดูความแตกต่าง',
+  ribbonCollateTip: 'เปรียบเทียบกับเวอร์ชันก่อนหน้าและเปิดดูความแตกต่าง',
   ribbonCmpDlgOriginal: 'เอกสารต้นฉบับ',
   ribbonCmpDlgRevised: 'เอกสารที่แก้ไข',
   ribbonCmpDlgCurrent: '{name} (เปิดอยู่ที่นี่)',

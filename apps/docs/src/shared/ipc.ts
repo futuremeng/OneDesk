@@ -22,6 +22,10 @@ export interface OpenFileResult {
   /** renderer-internal: bytes the caller already holds (the pro-mode copy tab
    *  reuses the handoff bytes instead of re-fetching its dataUrl) */
   bytes?: Uint8Array
+  /** set when the opened file is a version copy (`name_vN.docx`): the file 对校
+   *  compares against — v2 against v1 (the original `name.docx`), v3 against
+   *  v2 (`name_v2.docx`) — handed off so the tab can offer 对校 at once */
+  collateBaseline?: { name: string; dataUrl: string }
 }
 
 /** Marker carried on the AI-review pro-mode copy tab's open result. The copy is

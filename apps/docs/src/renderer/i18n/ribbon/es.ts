@@ -984,7 +984,7 @@ export const es = {
   ribbonProofreadProTip:
     'Con esta opción, la revisión de IA se aplica en una copia nueva; el documento original no cambia',
   ribbonCollate: 'Cotejo',
-  ribbonCollateTip: 'Compara esta copia con el documento original y abre las diferencias',
+  ribbonCollateTip: 'Compara con la versión anterior y abre las diferencias',
   ribbonCmpDlgOriginal: 'Documento original',
   ribbonCmpDlgRevised: 'Documento revisado',
   ribbonCmpDlgCurrent: '{name} (abierto aquí)',

@@ -957,7 +957,7 @@ export const zhTW = {
   ribbonProofreadPro: '專業模式',
   ribbonProofreadProTip: '開啟後,AI 審校結果落到新建的副本,原始文件保持不變',
   ribbonCollate: '對校',
-  ribbonCollateTip: '將目前副本與原始文件比較,開啟兩者的差異',
+  ribbonCollateTip: '將目前文件與上一版比較,開啟兩者的差異',
   ribbonCmpDlgOriginal: '原始文件',
   ribbonCmpDlgRevised: '修訂的文件',
   ribbonCmpDlgCurrent: '{name}(目前開啟)',

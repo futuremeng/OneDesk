@@ -992,7 +992,7 @@ export const ja = {
   ribbonProofreadProTip:
     'オンにすると AI 校正の結果は新しいコピーに適用され、原文書は変更されません',
   ribbonCollate: '照合',
-  ribbonCollateTip: 'このコピーを原文書と比較して、差異を開きます',
+  ribbonCollateTip: '前のバージョンと比較し、差異を開きます',
   ribbonCmpDlgOriginal: '元の文書',
   ribbonCmpDlgRevised: '変更された文書',
   ribbonCmpDlgCurrent: '{name} (開いている文書)',

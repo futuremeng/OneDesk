@@ -2858,6 +2858,15 @@ export function App() {
     setReadMode,
     setLargeDocSpellOff,
     setShowPagePreview: showPreview,
+    applyCollateBaseline: (baseline) => {
+      // a regular open redefines the tab: a version copy brings its previous
+      // version in as the 对校 snapshot, anything else has nothing to collate
+      proofreadCopyTabRef.current = false
+      proofreadCopyRef.current = baseline
+        ? { originalName: baseline.name, bytes: baseline.bytes }
+        : null
+      setCollateReady(baseline != null)
+    },
     section,
     sectionDirty,
     sections,
@@ -3084,6 +3093,8 @@ export function App() {
             // its own copy so a later slice() still reads real bytes
             bytes: snapshot.slice(0),
           }
+          // this tab is the 审校 copy itself: 专业 passes run in place inside it
+          proofreadCopyTabRef.current = true
           const outcome = await loadFile({ ...copyOpen.file, bytes: snapshot })
           if (outcome === 'canceled') await resetFile()
           else if (outcome === 'ok') {
@@ -7594,6 +7605,8 @@ export function App() {
   const [collateReady, setCollateReady] = useState(false)
   /** the original snapshot and file name a copy tab kept for 对校 */
   const proofreadCopyRef = useRef<{ originalName: string; bytes: Uint8Array } | null>(null)
+  /** true while this tab is the hand-off 审校 copy: 专业 runs its passes in place */
+  const proofreadCopyTabRef = useRef(false)
   /** the copy tab's boot effect starts the auto-pass through this ref: boot
    *  runs before runAiProofread exists in the render order */
   const startProofreadRef = useRef<(() => void) | null>(null)
@@ -7779,7 +7792,7 @@ export function App() {
         // document, open it as a copy tab and let the copy run everything; a
         // selection run still edits this tab in place even with 专业 on, and so
         // does a never-saved document, which has no folder to land a copy in
-        if (proofreadPro && !proofreadCopyRef.current && doc?.filePath) {
+        if (proofreadPro && !proofreadCopyTabRef.current && doc?.filePath) {
           const savedPath = doc.filePath
           const stem = doc.fileName ? doc.fileName.replace(/\.docx$/i, '') : t('appUntitledDocx')
           // the first 专业 start asks once more: this run creates a copy file
