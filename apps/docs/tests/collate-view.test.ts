@@ -2,7 +2,8 @@
 // sheets — each holding its own side of every change, shown only as a
 // highlight (no underline, no strikethrough, so the sheets cannot be mistaken
 // for the document's own revision display), with a change bar in the right
-// sheet's margin on every row that holds a change.
+// sheet's margin on every row that holds a change. Every block pairs into one
+// row and a paragraph flows on it whole: the text never wraps at a change.
 // Replacements (inline and whole paragraph) pair into one row, and the live
 // doc's marks only serve as the fallback source when the tab kept no
 // previous-version snapshot.
@@ -203,7 +204,7 @@ describe('CollateView', () => {
     expect(after[1].textContent).toContain('after the swap')
   })
 
-  it('segments a mid-paragraph change so the text after it aligns on both sheets', () => {
+  it('keeps a mid-paragraph change in one row: the text flows on, never wraps at the change', () => {
     const { host } = mount({
       type: 'doc',
       content: [
@@ -211,23 +212,30 @@ describe('CollateView', () => {
         para([text('next paragraph')]),
       ],
     })
-    // plain run | replacement | plain run | next paragraph
+    // the whole paragraph is ONE row on each sheet: one paragraph element per
+    // cell, so the text after the change continues its own line, it does not
+    // start a new one
     const rows = host.querySelectorAll('.collate-row')
-    expect(rows).toHaveLength(4)
-    // the unchanged runs pair with themselves: identical on both columns
-    for (const i of [0, 2]) {
-      const cells = rows[i].querySelectorAll('.collate-cell')
-      expect(cells[0].textContent).toBe(cells[1].textContent)
-      expect(cells[0].textContent!.trim().length).toBeGreaterThan(0)
-    }
-    // the replacement shares one row: the old run left, the new run right
-    const mid = rows[1].querySelectorAll('.collate-cell')
-    expect(mid[0].textContent).toContain('old word')
-    expect(mid[0].textContent).not.toContain('new word')
-    expect(mid[1].textContent).toContain('new word')
-    expect(mid[1].textContent).not.toContain('old word')
-    // the row after the change keeps both columns side by side: character-aligned
-    expect(rows[2].querySelector('.collate-cell')!.textContent).toContain('after')
+    expect(rows).toHaveLength(2)
+    const cells = rows[0].querySelectorAll('.collate-cell')
+    expect(cells[0].querySelectorAll('p')).toHaveLength(1)
+    expect(cells[1].querySelectorAll('p')).toHaveLength(1)
+    // the left holds the original sentence with the old word highlighted
+    expect(cells[0].textContent).toContain('before')
+    expect(cells[0].textContent).toContain('old word')
+    expect(cells[0].textContent).toContain('after')
+    expect(cells[0].textContent).not.toContain('new word')
+    expect(cells[0].querySelector('.doc-del')?.textContent).toContain('old word')
+    // the right holds the revised sentence with the new word highlighted
+    expect(cells[1].textContent).toContain('before')
+    expect(cells[1].textContent).toContain('new word')
+    expect(cells[1].textContent).toContain('after')
+    expect(cells[1].textContent).not.toContain('old word')
+    expect(cells[1].querySelector('.doc-ins')?.textContent).toContain('new word')
+    // the paragraph after the change still sits on the next row on both sheets
+    const after = rows[1].querySelectorAll('.collate-cell')
+    expect(after[0].textContent).toContain('next paragraph')
+    expect(after[1].textContent).toContain('next paragraph')
   })
 
   it('a doc without revisions shows the empty state, not the grid rows of marks', () => {

@@ -9,13 +9,12 @@
  * The redline is an in-memory diff of the tab's kept previous-version snapshot
  * against the live document (compareDocuments in the renderer — no result tab,
  * no Compare channel); with no snapshot the sheets fall back to the live doc's
- * own ins/del marks. Instead of one band per block, every textblock is
- * segmented at its change points: unchanged runs form identical paired rows,
- * and each deleted/inserted run falls into its own row (or one shared row for
- * a replacement; a whole-paragraph replacement pairs its deleted and inserted
- * blocks into one row), so the two sheets stay character-aligned: text
- * following a change sits at the same height on both sides, with filler space
- * in the column the change skips. Change navigation lives in a small floating
+ * own ins/del marks. Every block pairs into exactly one row on both sheets: a
+ * paragraph is rendered whole and never cut at its change points — cutting it
+ * there would wrap the text — each sheet showing its own side of it with the
+ * differences highlighted; a whole-paragraph replacement pairs its deleted and
+ * inserted blocks into one row, so the two sheets stay aligned block by block.
+ * Change navigation lives in a small floating
  * capsule at the bottom, not a header bar: the sheets alone carry the view.
  * The redline lives outside the live doc, so this view only reads and
  * navigates changes; Accept/Reject stay in the document itself.
@@ -43,17 +42,6 @@ interface CollateModel {
   entries: ReviewEntry[]
   /** per entry, the index of the row its change lands in */
   entryRow: number[]
-}
-
-/** the paragraph element's own flow margins: a segmented paragraph must only
- *  carry them at its first/last row, never between the segments */
-function tuneFlow(elm: Element, first: boolean, last: boolean) {
-  const css = (elm as HTMLElement).style
-  if (!first) {
-    css.textIndent = '0'
-    css.marginTop = '0'
-  }
-  if (!last) css.marginBottom = '0'
 }
 
 /** one side of a child run: the left drops inserted text, the right deletions */
@@ -88,42 +76,6 @@ function asOriginal(node: PmNode): PmNode {
   return node.type.create(attrs, Fragment.from(kids), marks)
 }
 
-/** the textblock's children split into change-aligned paired segments: an
- *  unchanged run pairs with itself, a deleted/inserted region shares one row */
-function pairedSegments(node: PmNode): { kids: PmNode[]; start: number; end: number }[] {
-  const kids: PmNode[] = []
-  node.forEach((child) => kids.push(child))
-  const isText = kids.every((k) => k.isText)
-  if (!isText) {
-    // atomics and mixed inline content: one row, both sides show it whole
-    return kids.length ? [{ kids, start: 0, end: node.content.size }] : []
-  }
-  const segs: { kids: PmNode[]; start: number; end: number }[] = []
-  let run: PmNode[] = []
-  let runStart = 0
-  let changedRun = false
-  const flush = (end: number) => {
-    if (run.length) segs.push({ kids: run, start: runStart, end })
-    run = []
-  }
-  let off = 0
-  for (const child of kids) {
-    const ins = child.marks.some((m) => m.type.name === 'ins')
-    const del = child.marks.some((m) => m.type.name === 'del')
-    const changed = ins !== del
-    if (run.length && changed !== changedRun) {
-      flush(off)
-      runStart = off
-    }
-    if (!run.length) runStart = off
-    changedRun = changed
-    run.push(child)
-    off += child.nodeSize
-  }
-  flush(off)
-  return segs
-}
-
 /** the block carries this paragraph-mark revision and not its opposite */
 function paraMarkOf(node: PmNode, kind: 'paraMarkIns' | 'paraMarkDel'): boolean {
   const other = kind === 'paraMarkIns' ? 'paraMarkDel' : 'paraMarkIns'
@@ -132,11 +84,9 @@ function paraMarkOf(node: PmNode, kind: 'paraMarkIns' | 'paraMarkDel'): boolean 
 
 function buildModel(root: PmNode): CollateModel {
   const serializer = DOMSerializer.fromSchema(root.type.schema)
-  const render = (node: PmNode, first: boolean, last: boolean): string => {
+  const render = (node: PmNode): string => {
     const holder = document.createElement('div')
     holder.appendChild(serializer.serializeFragment(Fragment.from(node)))
-    const elm = holder.firstElementChild
-    if (elm) tuneFlow(elm, first, last)
     return holder.innerHTML
   }
   const rows: CollateRow[] = []
@@ -162,18 +112,18 @@ function buildModel(root: PmNode): CollateModel {
         rows.push({
           pos: Math.min(pos, next.pos),
           end: Math.max(end, next.pos + next.node.nodeSize),
-          left: render(asOriginal(delNode), true, true),
-          right: render(insNode.copy(insNode.content), true, true),
+          left: render(asOriginal(delNode)),
+          right: render(insNode.copy(insNode.content)),
           changed: true,
         })
         i++
         continue
       }
-      const whole = render(node.copy(node.content), true, true)
+      const whole = render(node.copy(node.content))
       rows.push({
         pos,
         end,
-        left: paraIns ? '' : render(asOriginal(node), true, true),
+        left: paraIns ? '' : render(asOriginal(node)),
         right: paraDel ? '' : whole,
         changed: true,
       })
@@ -181,27 +131,23 @@ function buildModel(root: PmNode): CollateModel {
     }
     if (!node.isTextblock) {
       // tables and blocks with atomics inside: shown as-is on both sheets
-      const whole = render(node.copy(node.content), true, true)
+      const whole = render(node.copy(node.content))
       rows.push({ pos, end, left: whole, right: whole, changed: false })
       continue
     }
-    const segs = pairedSegments(node)
-    if (!segs.length) {
-      rows.push({ pos, end, left: '', right: '', changed: false })
-      continue
-    }
-    segs.forEach((seg, j) => {
-      const first = j === 0
-      const last = j === segs.length - 1
-      const left = seg.kids.filter((k) => onSide(k, 'left'))
-      const right = seg.kids.filter((k) => onSide(k, 'right'))
-      rows.push({
-        pos: pos + 1 + seg.start,
-        end: pos + 1 + seg.end,
-        left: left.length ? render(asOriginal(node.copy(Fragment.from(left))), first, last) : '',
-        right: right.length ? render(node.copy(Fragment.from(right)), first, last) : '',
-        changed: seg.kids.some(isChangedRun),
-      })
+    // one row for the whole textblock: the paragraph flows as one paragraph
+    // on each sheet, never broken at a change point — the change shows there
+    // as nothing but a highlight of the deleted text left / inserted right
+    const inlines: PmNode[] = []
+    node.forEach((child) => inlines.push(child))
+    const leftKids = inlines.filter((k) => onSide(k, 'left'))
+    const rightKids = inlines.filter((k) => onSide(k, 'right'))
+    rows.push({
+      pos,
+      end,
+      left: leftKids.length ? render(asOriginal(node.copy(Fragment.from(leftKids)))) : '',
+      right: rightKids.length ? render(node.copy(Fragment.from(rightKids))) : '',
+      changed: inlines.some(isChangedRun),
     })
   }
   const entries = buildReviewEntries(root, collectRevisions(root)).filter(
