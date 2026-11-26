@@ -511,6 +511,7 @@ deck_replace(dir, n, page) ×3 · slides_render(file, out)
 
 모든 빌드는 `main` 브랜치에서 만들어지며, macOS와 Windows 설치 파일에는
 서명이 되어 있습니다. 이전 버전은 [릴리스](https://onedesk.jiulu.ltd/releases) 페이지에서 확인할 수 있습니다.
+중국 대륙 사용자도 [AtomGit 미러](https://atomgit.com/futuremeng/OneDesk/releases)에서 동일한 설치 파일을 다운로드할 수 있습니다.
 
 <details>
 <summary><b>Linux에 설치하기</b></summary>

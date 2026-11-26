@@ -540,6 +540,7 @@ OneDesk is geconfigureerd.
 
 Alle builds komen van `main`; de macOS- en Windows-installers zijn gesigneerd.
 Oudere versies staan op de pagina [Releases](https://onedesk.jiulu.ltd/releases).
+Gebruikers in vasteland-China kunnen dezelfde installers ook downloaden via de [AtomGit-mirror](https://atomgit.com/futuremeng/OneDesk/releases).
 
 <details>
 <summary><b>Installeren op Linux</b></summary>

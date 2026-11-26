@@ -536,6 +536,7 @@ deck_replace(dir, n, page) ×3 · slides_render(file, out)
 Все сборки собираются из ветки `main`; установщики для macOS и Windows
 подписаны. Более старые версии доступны на странице
 [Releases](https://onedesk.jiulu.ltd/releases).
+Пользователи из материкового Китая могут скачать те же установщики и из [зеркала на AtomGit](https://atomgit.com/futuremeng/OneDesk/releases).
 
 <details>
 <summary><b>Установка на Linux</b></summary>

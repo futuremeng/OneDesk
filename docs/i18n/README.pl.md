@@ -550,6 +550,7 @@ OneDesk.
 Wszystkie kompilacje pochodzą z `main`; instalatory na macOS i Windows są
 podpisane. Starsze wersje znajdują się na stronie
 [Releases](https://onedesk.jiulu.ltd/releases).
+Użytkownicy z Chin kontynentalnych mogą pobrać te same instalatory także z [lustra AtomGit](https://atomgit.com/futuremeng/OneDesk/releases).
 
 <details>
 <summary><b>Instalacja na Linuksie</b></summary>

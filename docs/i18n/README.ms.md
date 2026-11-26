@@ -541,6 +541,7 @@ meninggalkan mesin, kepada pembekal yang dikonfigurasikan dalam OneDesk.
 Semua binaan berasal daripada `main`; pemasang macOS dan Windows telah
 ditandatangani. Versi lama boleh didapati di halaman
 [Releases](https://onedesk.jiulu.ltd/releases).
+Pengguna di tanah besar China juga boleh memuat turun pemasang yang sama daripada [cermin AtomGit](https://atomgit.com/futuremeng/OneDesk/releases).
 
 <details>
 <summary><b>Memasang pada Linux</b></summary>

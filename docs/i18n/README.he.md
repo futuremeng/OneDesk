@@ -511,6 +511,7 @@ deck_replace(dir, n, page) ×3 · slides_render(file, out)
 כל הבנייות (builds) מגיעות מ-`main`; מתקיני macOS ו-Windows חתומים
 דיגיטלית. גרסאות ישנות יותר נמצאות בעמוד
 [Releases](https://onedesk.jiulu.ltd/releases).
+משתמשים מסין היבשתית יכולים להוריד את אותם קבצי התקנה גם מ[מראת AtomGit](https://atomgit.com/futuremeng/OneDesk/releases).
 
 <details>
 <summary><b>התקנה ב-Linux</b></summary>

@@ -509,6 +509,7 @@ deck_replace(dir, n, page) ×3 · slides_render(file, out)
 
 บิลด์ทั้งหมดมาจาก `main` ตัวติดตั้ง macOS และ Windows ผ่านการลงนามแล้ว
 เวอร์ชันเก่ากว่านี้ดูได้ที่หน้า [Releases](https://onedesk.jiulu.ltd/releases)
+ผู้ใช้ในจีนแผ่นดินใหญ่สามารถดาวน์โหลดโปรแกรมติดตั้งชุดเดียวกันได้จาก [ตัวสะท้อน AtomGit](https://atomgit.com/futuremeng/OneDesk/releases) เช่นกัน
 
 <details>
 <summary><b>การติดตั้งบน Linux</b></summary>

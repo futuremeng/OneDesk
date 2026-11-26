@@ -552,6 +552,7 @@ dans OneDesk.
 Toutes les versions proviennent de `main` ; les installateurs macOS et
 Windows sont signés. Les versions plus anciennes se trouvent sur la page des
 [Releases](https://onedesk.jiulu.ltd/releases).
+Les utilisateurs de Chine continentale peuvent également télécharger les mêmes installateurs via le [miroir AtomGit](https://atomgit.com/futuremeng/OneDesk/releases).
 
 <details>
 <summary><b>Installation sur Linux</b></summary>

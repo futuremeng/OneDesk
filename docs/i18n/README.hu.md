@@ -454,6 +454,7 @@ a OneDesk-ban beállított szolgáltató felé.
 
 Minden build a `main` ágból készül; a macOS- és a Windows-telepítők alá vannak írva.
 A régebbi verziók a [Kiadások](https://onedesk.jiulu.ltd/releases) oldalon érhetők el.
+A kínai felhasználók ugyanazokat a telepítőket az [AtomGit-tükörből](https://atomgit.com/futuremeng/OneDesk/releases) is letölthetik.
 
 <details>
 <summary><b>Telepítés Linuxon</b></summary>

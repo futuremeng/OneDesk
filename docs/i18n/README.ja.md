@@ -439,6 +439,7 @@ deck_replace(dir, n, page) ×3 · slides_render(file, out)
 
 すべてのビルドは `main` ブランチから生成され、macOS・Windows のインストーラーには署名が付いて
 います。以前のバージョンは [Releases](https://onedesk.jiulu.ltd/releases) ページにあります。
+中国本土のユーザーは同じインストーラーを [AtomGit ミラー](https://atomgit.com/futuremeng/OneDesk/releases) からでもダウンロードできます。
 
 <details>
 <summary><b>Linux へのインストール</b></summary>

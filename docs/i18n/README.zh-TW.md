@@ -537,6 +537,7 @@ deck_replace(dir, n, page) ×3 · slides_render(file, out)
 
 所有版本皆由 `main` 分支建置，macOS 與 Windows 安裝程式皆有簽署。
 較舊版本可在[發行頁面](https://onedesk.jiulu.ltd/releases)找到。
+大陸用戶亦可從 [AtomGit 鏡像](https://atomgit.com/futuremeng/OneDesk/releases) 下載同款安裝包。
 
 <details>
 <summary><b>在 Linux 上安裝</b></summary>

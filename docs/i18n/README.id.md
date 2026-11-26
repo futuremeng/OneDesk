@@ -537,6 +537,7 @@ yang keluar dari mesin, ke penyedia yang dikonfigurasi di OneDesk.
 Semua build berasal dari `main`; installer macOS dan Windows sudah
 ditandatangani (signed). Versi lama ada di halaman
 [Releases](https://onedesk.jiulu.ltd/releases).
+Pengguna di daratan Tiongkok juga dapat mengunduh installer yang sama dari [cermin AtomGit](https://atomgit.com/futuremeng/OneDesk/releases).
 
 <details>
 <summary><b>Instalasi di Linux</b></summary>

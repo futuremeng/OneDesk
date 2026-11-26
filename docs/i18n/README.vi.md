@@ -606,6 +606,7 @@ hình trong OneDesk.
 Mọi bản dựng đều đến từ `main`; trình cài macOS và Windows có ký số. Các
 phiên bản cũ nằm trên trang
 [Releases](https://onedesk.jiulu.ltd/releases).
+Người dùng ở Trung Quốc đại lục cũng có thể tải bộ cài đặt tương tự từ [gương AtomGit](https://atomgit.com/futuremeng/OneDesk/releases).
 
 <details>
 <summary><b>Cài trên Linux</b></summary>

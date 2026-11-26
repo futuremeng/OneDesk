@@ -546,6 +546,7 @@ konfigurierten Provider.
 Alle Builds stammen aus `main`; die macOS- und Windows-Installer sind
 signiert. Ältere Versionen findest du auf der Seite
 [Releases](https://onedesk.jiulu.ltd/releases).
+Nutzer in Festlandchina können dieselben Installer auch über den [AtomGit-Spiegel](https://atomgit.com/futuremeng/OneDesk/releases) herunterladen.
 
 <details>
 <summary><b>Installation unter Linux</b></summary>

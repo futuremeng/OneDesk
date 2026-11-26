@@ -426,6 +426,7 @@ deck_replace(dir, n, page) ×3 · slides_render(file, out)
 
 सभी बिल्ड `main` से बनते हैं; macOS और Windows इंस्टॉलर साइन किए हुए हैं।
 पुराने वर्शन [Releases](https://onedesk.jiulu.ltd/releases) पेज पर मौजूद हैं।
+मुखभूमि चीन के उपयोगकर्ता वही इंस्टॉलर [AtomGit मिरर](https://atomgit.com/futuremeng/OneDesk/releases) से भी डाउनलोड कर सकते हैं।
 
 <details>
 <summary><b>Linux पर इंस्टॉल करना</b></summary>

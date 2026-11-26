@@ -541,6 +541,7 @@ MCP araç sonuçları olarak yolculuk etti. Makineden yalnızca `search` ve
 
 Tüm derlemeler `main` dalından gelir; macOS ve Windows yükleyicileri imzalıdır.
 Eski sürümler [Releases](https://onedesk.jiulu.ltd/releases) sayfasındadır.
+Ana kara Çin'deki kullanıcılar aynı yükleyicileri [AtomGit aynasından](https://atomgit.com/futuremeng/OneDesk/releases) da indirebilir.
 
 <details>
 <summary><b>Linux'a kurulum</b></summary>

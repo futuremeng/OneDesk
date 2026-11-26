@@ -515,6 +515,7 @@ deck_replace(dir, n, page) ×3 · slides_render(file, out)
 
 جميع الإصدارات مبنية من الفرع `main`؛ ومثبِّتات macOS و Windows موقَّعة رقميًا.
 الإصدارات الأقدم متوفرة في صفحة [Releases](https://onedesk.jiulu.ltd/releases).
+يمكن للمستخدمين في البر الرئيسي للصين أيضًا تنزيل برامج التثبيت نفسها من [مرآة AtomGit](https://atomgit.com/futuremeng/OneDesk/releases).
 
 <details>
 <summary><b>التثبيت على Linux</b></summary>

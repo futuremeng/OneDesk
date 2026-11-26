@@ -528,6 +528,7 @@ poskytovateli nastavenému v OneDesk.
 
 Všechny sestavení pocházejí z `main`; instalátory pro macOS a Windows jsou
 podepsané. Starší verze jsou na stránce [Releases](https://onedesk.jiulu.ltd/releases).
+Uživatelé z pevninské Číny mohou stejné instalátory stáhnout také z [zrcadla AtomGit](https://atomgit.com/futuremeng/OneDesk/releases).
 
 <details>
 <summary><b>Instalace na Linuxu</b></summary>
