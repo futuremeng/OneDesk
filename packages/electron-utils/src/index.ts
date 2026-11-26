@@ -32,7 +32,11 @@ export {
   type AppMenuLabels,
   type ViewMenuOptions,
 } from './app-menu'
-export { GITHUB_REPO_URL } from './github-menu'
+export {
+  ATOMGIT_RELEASES_URL,
+  GITHUB_RELEASES_URL,
+  GITHUB_REPO_URL,
+} from './github-menu'
 export {
   decryptOoxml,
   encryptOoxml,

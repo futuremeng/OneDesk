@@ -2758,12 +2758,34 @@ export function SettingsModal({
                     }}
                   />
                 </div>
+                <div className="set-field">
+                  <div className="set-field-text">
+                    <div className="set-field-stack">
+                      <div className="set-field-label">{t('setReleaseChannels')}</div>
+                      <div className="set-field-desc">{t('setReleaseChannelsDesc')}</div>
+                    </div>
+                  </div>
+                  <>
+                    <button
+                      className="set-btn"
+                      onClick={() => void window.aiOffice.openReleaseChannel?.('github')}
+                    >
+                      GitHub
+                    </button>
+                    <button
+                      className="set-btn"
+                      onClick={() => void window.aiOffice.openReleaseChannel?.('atomgit')}
+                    >
+                      AtomGit
+                    </button>
+                  </>
+                </div>
                 <Field
                   label={t('setGithub')}
                   value={
                     githubStars === null
-                      ? 'onedesk.jiulu.ltd'
-                      : `onedesk.jiulu.ltd · ★ ${formatStars(githubStars)}`
+                      ? 'github.com/futuremeng/OneDesk'
+                      : `github.com/futuremeng/OneDesk · ★ ${formatStars(githubStars)}`
                   }
                   action={
                     <button

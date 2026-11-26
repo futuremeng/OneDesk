@@ -614,6 +614,9 @@ const homeApi: HomeApi = {
   async openGitHubRepo() {
     await ipcRenderer.invoke(HOME_CHANNELS.openGitHubRepo)
   },
+  async openReleaseChannel(channel: 'github' | 'atomgit') {
+    await ipcRenderer.invoke(HOME_CHANNELS.openReleaseChannel, channel)
+  },
   async githubStars() {
     const result: unknown = await ipcRenderer.invoke(HOME_CHANNELS.githubStars)
     return typeof result === 'number' && Number.isFinite(result) ? result : null

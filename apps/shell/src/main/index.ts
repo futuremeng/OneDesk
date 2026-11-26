@@ -69,6 +69,8 @@ import {
   isBesideDocument,
   sharedPathGrants,
   GITHUB_REPO_URL,
+  GITHUB_RELEASES_URL,
+  ATOMGIT_RELEASES_URL,
   appMenuLabels,
   appMenuTemplate,
   contextMenuLabels,
@@ -740,7 +742,7 @@ let cachedGithubStars: number | null = null
 async function fetchGithubStars(): Promise<number | null> {
   if (cachedGithubStars !== null) return cachedGithubStars
   try {
-    const response = await fetch('https://api.github.com/repos/onedesk/onedesk', {
+    const response = await fetch('https://api.github.com/repos/futuremeng/OneDesk', {
       headers: { Accept: 'application/vnd.github+json' },
       signal: AbortSignal.timeout(5000),
     })
@@ -5830,6 +5832,18 @@ function registerHomeIpc(): void {
     shell.openExternal(GITHUB_REPO_URL).catch(() => {
       // no browser handler available; nothing actionable for the user here
     })
+  })
+
+  // the two distribution channels' release pages; anything other than the
+  // two known channel names opens nothing rather than an attacker-chosen URL
+  ipcMain.handle(HOME_CHANNELS.openReleaseChannel, (_event, channelName: unknown) => {
+    const url =
+      channelName === 'github'
+        ? GITHUB_RELEASES_URL
+        : channelName === 'atomgit'
+          ? ATOMGIT_RELEASES_URL
+          : null
+    if (url) shell.openExternal(url).catch(() => {})
   })
 
   ipcMain.handle(HOME_CHANNELS.githubStars, () => fetchGithubStars())

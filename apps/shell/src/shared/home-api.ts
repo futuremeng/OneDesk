@@ -499,6 +499,8 @@ export interface HomeApi {
   openCreditUsage(): Promise<void>
   /** open the public GitHub repository in the default browser */
   openGitHubRepo(): Promise<void>
+  /** open a release channel's releases page ('github' primary, 'atomgit' mirror) in the default browser */
+  openReleaseChannel(channel: 'github' | 'atomgit'): Promise<void>
   /** current stargazer count of the public repo (null while offline / rate-limited) */
   githubStars(): Promise<number | null>
   /** locally stored full cloud project list (instant; null when no store or logged out) */
@@ -745,6 +747,7 @@ export const HOME_CHANNELS = {
   pickDefaultSaveDir: 'home:pick-default-save-dir',
   openCreditUsage: 'home:open-credit-usage',
   openGitHubRepo: 'home:open-github-repo',
+  openReleaseChannel: 'home:open-release-channel',
   githubStars: 'home:github-stars',
   cloudProjects: 'home:cloud-projects',
   cloudProjectsCached: 'home:cloud-projects-cached',
