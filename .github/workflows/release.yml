@@ -5,7 +5,9 @@
 # three build jobs produce installers for macOS (arm64 + x64 in one pass via
 # ONEDESK_MAC_X64=1), Windows x64, and Linux x64, all UNSIGNED by default.
 # The release job then attaches every artifact to a GitHub Release on this
-# repository.
+# repository, and atomgit-release mirrors the same files onto the AtomGit
+# fork (futuremeng/OneDesk 的「发行版」) via the api.atomgit.com v5 API —
+# needs the ATOMGIT_TOKEN repo secret; skipped with a notice without it.
 #
 # Code signing stays entirely opt-in through the electron-builder env contract
 # (apps/shell/electron-builder.cjs), so fork builds never need credentials:
@@ -307,3 +309,71 @@ jobs:
             *-*) args+=(--prerelease) ;;
           esac
           gh "${args[@]}" artifacts/*
+
+  # Mirror the finished GitHub Release onto AtomGit so mainland users can
+  # download the installers without touching github. AtomGit has no push-side
+  # release mechanism; assets go through the api.atomgit.com upload_url
+  # handshake (scripts/publish-atomgit.mjs). The script is idempotent, so a
+  # re-run (workflow_dispatch, retried job) never duplicates an asset.
+  atomgit-release:
+    needs: [version, release]
+    if: ${{ needs.release.result == 'success' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      ATOMGIT_TOKEN: ${{ secrets.ATOMGIT_TOKEN }}
+    steps:
+      - name: Check the AtomGit token
+        id: gate
+        run: |
+          if [ -n "$ATOMGIT_TOKEN" ]; then
+            echo present=1 >>"$GITHUB_OUTPUT"
+          else
+            echo "::warning::secrets.ATOMGIT_TOKEN is not set - skipping the AtomGit mirror (users will not get the 发行版 assets)"
+          fi
+
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        if: steps.gate.outputs.present == '1'
+        with:
+          ref: ${{ needs.version.outputs.tag }}
+          fetch-depth: 0 # rev-list the tag: it is the target_commitish the API needs to cut the tag on AtomGit
+
+      - name: Resolve the release commit
+        if: steps.gate.outputs.present == '1'
+        id: commit
+        env:
+          TAG: ${{ needs.version.outputs.tag }}
+        run: echo "sha=$(git rev-list -n1 "$TAG")" >>"$GITHUB_OUTPUT"
+
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        if: steps.gate.outputs.present == '1'
+        with:
+          node-version: 22
+
+      - name: Collect artifacts
+        if: steps.gate.outputs.present == '1'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          mkdir -p artifacts
+          # same per-name download loop as the release job: a skipped/optional
+          # platform must not fail the mirror
+          for name in onedesk-mac onedesk-mac-feed onedesk-windows onedesk-windows-feed onedesk-linux onedesk-linux-feed; do
+            gh run download "$GITHUB_RUN_ID" -n "$name" -D artifacts || true
+          done
+          if [ -z "$(find artifacts -type f)" ]; then
+            echo "::error::no installer artifacts found to mirror"
+            exit 1
+          fi
+          ls -l artifacts
+
+      - name: Publish to AtomGit releases
+        if: steps.gate.outputs.present == '1'
+        env:
+          TAG: ${{ needs.version.outputs.tag }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          body="OneDesk ${TAG}：与 GitHub Release 相同的自动构建产物镜像，供直连不方便的下载渠道。完整更新说明见 https://github.com/${GH_REPO}/releases/tag/${TAG}"
+          mapfile -t files < <(find artifacts -type f | sort)
+          node scripts/publish-atomgit.mjs --tag "$TAG" --commitish "${{ steps.commit.outputs.sha }}" --body "$body" "${files[@]}"
