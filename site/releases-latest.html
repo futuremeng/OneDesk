@@ -38,16 +38,32 @@ a{color:#0b62c4}
   var API='https://api.github.com/repos/futuremeng/OneDesk/releases/latest';
   var UA=navigator.userAgent;
   var os=/Windows/.test(UA)?'win':/Macintosh|Mac OS X/.test(UA)?'mac':/Linux|Android/.test(UA)?'linux':null;
-  var arm=false;
-  if(navigator.userAgentData&&navigator.userAgentData.architecture)arm=/arm/i.test(navigator.userAgentData.architecture);
-  if(os==='mac'&&navigator.maxTouchPoints>1)arm=true; // Apple Silicon heuristic
-  if(os==='win'&&/arm/i.test(UA))arm=true;
+  var arm=null; // true=ARM/Apple Silicon, false=x86_64, null=unknown
+  if(os==='win')arm=/arm/i.test(UA)?true:/x64|WOW64|Win64/.test(UA)?false:null; // Windows UA carries the arch
+  function detect(){
+    // UA-CH high-entropy hints: reliable arch on Chrome/Edge; other browsers keep arm=null.
+    return new Promise(function(res){
+      if(!navigator.userAgentData||!navigator.userAgentData.getHighEntropyValues)return res();
+      var done=false,finish=function(){if(!done){done=true;res();}};
+      setTimeout(finish,1500);
+      navigator.userAgentData.getHighEntropyValues(['architecture']).then(function(v){
+        var a=(v.architecture||'').toLowerCase();
+        if(a==='arm')arm=true;else if(a==='x86')arm=false;
+        finish();
+      },finish);
+    });
+  }
   function rank(n){n=n.toLowerCase();
-    if(os==='mac')return /\.dmg$/.test(n)&&(arm?/arm64|aarch64/.test(n):!/arm64|aarch64/.test(n))?0:1;
-    if(os==='win')return /\.exe$/.test(n)&&(arm?/arm64/.test(n):!/arm64|aarch64/.test(n))?0:1;
+    if(os==='mac')return /\.dmg$/.test(n)&&(arm===true?/arm64|aarch64/.test(n):!/arm64|aarch64/.test(n))?0:1;
+    if(os==='win')return /\.exe$/.test(n)&&(arm===true?/arm64/.test(n):!/arm64|aarch64/.test(n))?0:1;
     if(os==='linux')return /\.deb$/.test(n)?0:/AppImage/i.test(n)?1:2;
     return 2;}
-  fetch(API,{headers:{Accept:'application/vnd.github+json'}})
+  function label(n){
+    if(/arm64|aarch64/i.test(n))return os==='mac'?'Apple Silicon（M 系列芯片）':'ARM64';
+    if(os==='mac'&&/\.dmg$|\.zip$/.test(n))return 'Intel（x86_64）';
+    return '';
+  }
+  detect().then(function(){return fetch(API,{headers:{Accept:'application/vnd.github+json'}})})
   .then(function(r){if(!r.ok)throw r.status;return r.json()})
   .then(function(j){
     var ver=j.tag_name||'';
@@ -58,18 +74,18 @@ a{color:#0b62c4}
     if(!assets.length)throw 'no assets';
     assets.forEach(function(a,i){
       var li=document.createElement('li'),aEl=document.createElement('a');
-      aEl.className='build'+(i===0&&rank(a.name)===0?' hot':'');
+      aEl.className='build'+(i===0&&rank(a.name)===0&&arm!==null?' hot':'');
       aEl.href=a.browser_download_url;
       aEl.textContent=a.name;
       var kb=Math.round((a.size||0)/1024);
-      var s=document.createElement('small');s.textContent=(kb>1024?(kb/1024).toFixed(1)+' MB':kb+' KB')+(i===0&&rank(a.name)===0?' · 与本机匹配':'');
+      var s=document.createElement('small');s.textContent=(kb>1024?(kb/1024).toFixed(1)+' MB':kb+' KB')+(label(a.name)?' · '+label(a.name):'')+(i===0&&rank(a.name)===0&&arm!==null?' · 与本机匹配':'');
       aEl.appendChild(s);li.appendChild(aEl);list.appendChild(li);
     });
-    if((os==='win'||os==='mac')&&rank(assets[0].name)===0&&!arm){
-      // single confident match: go straight to it
+    if((os==='win'||os==='mac')&&arm!==null&&rank(assets[0].name)===0){
+      // confident match: go straight to it
       location.replace(assets[0].browser_download_url);
     }
-    document.getElementById('s').textContent='请在下方选择构建——下载将从 GitHub 开始。';
+    document.getElementById('s').textContent='请在下方选择构建——下载将从 GitHub 开始。'+(os==='mac'&&arm===null?'（浏览器无法确认芯片架构：M 系列请选 arm64）':'');
   })
   .catch(function(){
     document.getElementById('spin').hidden=true;
